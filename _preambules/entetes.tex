@@ -1,0 +1,18 @@
+\usepackage{fancyhdr} %entetes et pieds de page
+
+\newcommand{\EnteteCours}[3]{%                 Entete de cours (classe,numéro de chap)
+	\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{1pt}
+	\headwidth = \textwidth
+	
+	\fancyhead[R]{\begin{footnotesize}M. NGUYEN\end{footnotesize}}
+	\fancyhead[C]{#3 - Chapitre #2}
+	\fancyhead[L]{#1}
+}
+
+\newcommand{\Titre}[1]{%                      Titre
+	\vspace{4mm}
+	\begin{center}
+		\begin{huge}#1\end{huge}\end{center}
+	\vspace{4mm}
+}

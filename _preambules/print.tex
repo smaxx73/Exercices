@@ -1,0 +1,50 @@
+
+
+\global\mdfdefinestyle{solution}{
+	backgroundcolor=green!15,
+	roundcorner=2pt,
+	linewidth=2pt,
+	linecolor=green!30,
+	topline=false,
+	bottomline=false,
+	rightline=false,
+	nobreak=false,
+	frametitlebelowskip=0mm
+}
+
+\newboolean{solution}
+
+\newcounter{num}
+
+\newcommand{\titre}[1]{\addtocounter{num}{1} \noindent \textbf{Ex \thenum} - \textit{{#1}}\\} 
+\newcommand{\texte}[1]{#1}
+
+\newcommand{\question}[1]{#1}
+\newcommand{\reponse}[1]{
+	\ifthenelse{\boolean{solution}} 
+	{%
+	\begin{mdframed}[style=solution]
+		\begin{small} #1 \end{small} 
+\end{mdframed}}{}
+} 
+
+ \newcommand{\nextexo}{
+	\vspace{2em}
+%	\begin{center}
+%		\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+%	\end{center}
+%	\vspace{2mm}
+}
+
+% \newcommand{\insertexo}[1]{
+% \begin{minipage}[t]{0.85\textwidth}
+%\input{../Exercices/#1}
+%\end{minipage}
+%\begin{minipage}[t]{0.15\textwidth}
+%{\tiny [#1]}
+%\end{minipage}
+%}
+
+ \newcommand{\insertexo}[1]{
+	\fbox{\tiny{#1}}	\input{\path#1}
+}
