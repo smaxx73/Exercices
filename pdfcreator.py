@@ -5,7 +5,7 @@ import os, sys, subprocess
 
 def createlatex(directory, filename):
         texte = '\\documentclass[preview,border=2pt]{standalone} \n \\usepackage[utf8]{inputenc} \n \\usepackage[T1]{fontenc} \n \\usepackage[frenchb]{babel} \n'
-        texte += '\\newcommand{\\path}{../../} \n \\input{\\path_preambules/general.tex} \n \\input{\\path_preambules/print.tex} \n \\input{\\path_preambules/macros.tex} \n \\input{\\path_preambules/entetes.tex} \n \\setboolean{solution}{true} \n'
+        texte += '\\newcommand{\\path}{../../} \n \\input{\\path_preambules/general.tex} \n \\input{\\path_preambules/print.tex} \n \\input{\\path_preambules/macros.tex} \n \\setboolean{solution}{true} \n'
         texte += '\n \\begin{document}'
         texte += '\n \\insertexo{'+str(filename[:len(filename)-4])+'} \n'
         texte += '\\end{document}'
