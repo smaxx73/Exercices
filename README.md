@@ -24,3 +24,7 @@ Chaque exercice a la structure suivante :
 \question{}
 \reponse{}
 ```
+## Compile
+Dans le répertoire compile, on trouve :
+- latex : chaque exercice est appelé dans un fichier compilable (standalone) individuel
+- pdf : le résultat après exécution de pdflatex
