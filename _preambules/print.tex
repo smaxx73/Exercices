@@ -47,6 +47,8 @@
 %\end{minipage}
 %}
 
+\newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/compile/pdf/}
+
  \newcommand{\insertexo}[1]{
-	\fbox{\tiny{\href{https://github.com/smaxx73/Exercices/tree/main/compile/pdf/#1.pdf}{#1}}}	\input{\path src/#1}
+	\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}	\input{\path src/#1}
 }
