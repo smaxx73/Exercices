@@ -1,0 +1,30 @@
+\titre{Durée de vie et temps d'attente}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\texte{ On considère $n$ lampes, $n \in \mathbb{N}$. La durée de vie (en années) d'une lampe est une variable aléatoire absolument continue dont la densité $f$ est définie sur $\mathbb{R}$ par 
+	$$ f \colon t \mapsto \frac{1}{16} t e^{-\frac{t}{4}} 1_{[0;+\infty[}(t)$$
+	On suppose que les lampes évoluent de manière indépendante. 
+	
+	Pour tout entier $i \in \{1,...,n\}$, on note $X_i$ la variable aléatoire égale à la durée de vie de la $i$-ème lampe. }
+
+\begin{enumerate}
+	% \item Justifier que la fonction $f$ définit bien une densité de probabilité.
+	\item \texte{ Un appareil de type $A$ comporte 6 lampes, toutes nécessaires à son fonctionement. On note $T = \min\limits_{i \in \{1,...,6\} }(X_i)$. }
+	\begin{enumerate}
+		\item \question{ Que modélise la variable aléatoire $T$ ? }
+		\item \question{ Déterminer la loi de $T$. }
+		\item \question{ Calculer la probabilité que l'appareil de type $A$ fonctionne de manière continue pendant au moins 4 ans à partir de sa mise en marche, sans changer de lampe. }
+	\end{enumerate}
+	\item \texte{ Un appareil de type $B$ fonctionne avec une lampe seulement. On dispose cette fois d'une lampe de remplacement. }
+	\begin{enumerate}
+		\item \question{ Soit $U$  la variable aléatoire donnant la durée de fonctionnement d'un appareil de type $B$ en ayant remplacé une fois la lampe aussitôt qu'elle est en panne. Exprimer $U$ en fonction de $X_1$ et $X_2$. }
+		\item \question{ Déterminer la loi de $U$. } %la  probabilité  que  l'appareil  de  type $B$  fonctionne  pendant au moins 2 ans à partir de sa mise en marche.
+	\end{enumerate}
+	\item \texte{ On dispose de 4 appareils de type $B$, sans aucune lampe de remplacement. On met en marche ces 4 appareils simultanément. On note $V$ le temps durant lequel au moins un des 4 appareils fonctionne. }
+	\begin{enumerate}
+		\item \question{ Exprimer $V$ en fonction de  $X_1$, $X_2$, $X_3$, $X_4$. }
+		\item \question{ En déduire la loi de $V$. }
+	\end{enumerate}
+\end{enumerate}
