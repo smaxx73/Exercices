@@ -13,10 +13,15 @@
 }
 
 \newboolean{solution}
+\newboolean{uuid}
+\newboolean{link}
+
 
 \newcounter{num}
 
-\newcommand{\titre}[1]{\addtocounter{num}{1} \noindent \textbf{Ex \thenum} - \textit{{#1}}\\} 
+\newcommand{\titre}[1]{%
+ \textit{{#1}}\\
+} 
 \newcommand{\texte}[1]{#1}
 \newcommand{\theme}[1]{}
 \newcommand{\auteur}[1]{}
@@ -31,6 +36,7 @@
 } 
 
  \newcommand{\nextexo}{
+ 	\addtocounter{num}{1}
 	\vspace{2em}
 %	\begin{center}
 %		\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
@@ -49,6 +55,14 @@
 
 \newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/compile/pdf/}
 
- \newcommand{\insertexo}[1]{
-	\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}	\input{\path src/#1}
+ \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation
+ 	\setboolean{solution}{#2}
+ 	\setboolean{uuid}{#3}
+ 	\setboolean{link}{#4}
+ 	\ifthenelse{\boolean{uuid}}{%
+ 		\ifthenelse{\boolean{link}}{%
+ 			\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}
+ 		}{\fbox{\tiny{#1}}}
+ 	}{}
+    	\noindent \textbf{Exercice #5} - \input{\path src/#1}
 }
