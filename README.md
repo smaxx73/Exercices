@@ -15,7 +15,8 @@ avec l'identifiant de l'exercice comme premier argument. ```solution```, ```uuid
 ## Champs dans un exercice
 Chaque exercice a la structure suivante : 
 
-```\titre{}
+```
+\titre{}
 \theme{}
 \auteur{}
 \organisation{}
