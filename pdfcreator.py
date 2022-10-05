@@ -9,7 +9,7 @@ def createlatex(directory, filename):
     #    texte += '\\usepackage[utf8]{inputenc} \n \\usepackage[T1]{fontenc} \n \\usepackage[frenchb]{babel} \n'
         texte += '\\newcommand{\\path}{../../} \n \\input{\\path_preambules/general.tex} \n \\input{\\path_preambules/print.tex} \n \\input{\\path_preambules/macros.tex} \n \\setboolean{solution}{true} \n'
         texte += '\n \\begin{document}'
-        texte += '\n \\insertexo{'+str(filename[:len(filename)-4])+'} \n'
+        texte += '\n \\insertexo{'+str(filename[:len(filename)-4])+'}{true}{true}{false}{} \n'
         texte += '\\end{document}'
         latexfile = open(os.path.join(directory,filename),"w")
         latexfile.write(texte)
@@ -31,12 +31,12 @@ for filename in os.listdir(directory_src):
         print(filename+'.tex is created in compilable folder')
     if os.path.isfile(file_pdf) == 0:
         print('compiling...')
-        os.system('pdflatex ' + ' -synctex=1 -interaction=nonstopmode -output-directory=' + directory_pdf + ' ' + os.path.join(directory_compile, filename+'.tex'))
+        os.system('xelatex ' + ' -synctex=1 -interaction=nonstopmode -output-directory=' + directory_pdf + ' ' + os.path.join(directory_compile, filename+'.tex'))
         print('compiling ended')
     time_pdf = os.path.getmtime(file_pdf)
     time_src = os.path.getmtime(file_src)
     if time_src > time_pdf:
         print(filename +' has been updated but not compiled')
         print('compiling...')
-        os.system('pdflatex ' + ' -synctex=1 -interaction=nonstopmode -output-directory=' + directory_pdf + ' ' + os.path.join(directory_compile, filename+'.tex'))
+        os.system('xelatex ' + ' -synctex=1 -interaction=nonstopmode -output-directory=' + directory_pdf + ' ' + os.path.join(directory_compile, filename+'.tex'))
         print('compiling ended')
