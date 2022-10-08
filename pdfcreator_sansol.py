@@ -15,7 +15,7 @@ def createlatex(directory, filename):
         latexfile.write(texte)
         latexfile.close()
 
-directory_compile = 'compile/latex'  #fichiers compilables en standalone
+directory_compile = 'compile/latex_sansol'  #fichiers compilables en standalone
 directory_src = 'src'                #fichiers sources des exercices (non compilables)
 directory_pdf = 'compile/pdf_sansol'        #fichier pdf compilé
 

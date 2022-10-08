@@ -22,6 +22,9 @@
 \newcommand{\titre}[1]{%
  \textit{{#1}}\\
 } 
+%\newcommand{\titre}[1]{%
+%\def\Titre{#1}
+%}
 \newcommand{\texte}[1]{#1}
 \newcommand{\theme}[1]{}
 \newcommand{\auteur}[1]{}
@@ -55,14 +58,16 @@
 
 \newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/compile/pdf/}
 
+\newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/compile/pdf_sansol/}
+
  \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation
  	\setboolean{solution}{#2}
  	\setboolean{uuid}{#3}
  	\setboolean{link}{#4}
  	\ifthenelse{\boolean{uuid}}{%
  		\ifthenelse{\boolean{link}}{%
- 			\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}
+ 			\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}  			
  		}{\fbox{\tiny{#1}}}
- 	}{}
-    	\noindent \textbf{Exercice #5} - \input{\path src/#1}
+ 	}{} \href{\pathexercice#1.pdf}{$\unrhd$} 
+    	\noindent \textbf{Exercice #5} \input{\path src/#1}
 }
