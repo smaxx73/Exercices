@@ -10,7 +10,7 @@ D'après le théorème central limite, la loi de $X$ peut être approchée par u
 En notant $Z$ une variable aléatoire normale centrée réduite, on en déduit que 
 \begin{align*}
   \PP\left(X > 7300\right) &= \PP\left(\frac{X-7000}{70} > \frac{7300-7000}{70}\right) \\
-  &\approx  \PP\left(Z > \frac{300}{70} \approx 4{,}2\right) \\
+  &\approx  \PP\left(Z > \frac{300}{70} \approx 4{,}29\right) \\
   &\approx 0
 \end{align*}
 Il n'y a quasiment aucune chance que le poids total des passagers dépasse $7{}3$ tonnes.	
@@ -18,5 +18,8 @@ Il n'y a quasiment aucune chance que le poids total des passagers dépasse $7{}3
 	\item \question{ Sur 40 passagers interrogés au hasard, 23 voyagent avec un bagage en soute. Déterminer à l'aide d'un intervalle de confiance au niveau $95\%$ une estimation de la proportion de passagers qui voyagent avec un bagage en soute sur ce vol.}
 	\reponse{On cherche à estimer une fréquence à partir d'un échantillon de taille $40$. La fréquence observée dans l'échantillon est $f_{obs} = \frac{23}{40}$. On peut donc utiliser la formule du cours : 
 		$$I_{conf}(F(\omega))=\left[f_{obs}-u_{\alpha/2} \sqrt{\frac{f_{obs}(1-f_{obs})}{n}} ~;~ f_{obs} + u_{\alpha/2} \sqrt{\frac{f_{obs}(1-f_{obs})}{n}} \right]$$
-		en remplaçant $u_{\alpha/2}$ par $1{,}96$ pour une confiance de $95\%$, on obtient numériqument $I_{conf} \approx [0.42 ; 0.73]$.} 
+		en remplaçant $u_{\alpha/2}$ par $1{,}96$ pour une confiance de $95\%$, on obtient numériquement $I_{conf} \approx [0.42 ; 0.73]$.
+	
+On peut estimer que la proportion de passagers voyageant avec un bagage en soute est compris entre $42\%$ et $73\%$. 
+} 
 \end{enumerate}
