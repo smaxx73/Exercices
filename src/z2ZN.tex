@@ -1,0 +1,37 @@
+\titre{Loi de Cauchy}
+\theme{probabilité}
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
+
+
+\texte{ Soit $f$ une fonction définie pour tout $x \in \R$ par $f(x)=\frac{1}{\pi}\frac{1}{1+x^2}$.  }
+\begin{enumerate}
+	\item \question{ Vérifier que $f$ définit une densité de probabilité. On note $X$ une variable aléatoire admettant $f$ pour densité. }
+	\reponse{Il suffit de vérifier que $f(x) \geq 0$ pour tout $x \in \R$ puis de calculer :
+		\begin{align*}
+			\int_{-\infty}^{+\infty} f(x)dx &= \int_{-\infty}^{+\infty} \frac{1}{\pi}\frac{1}{1+x^2} dx \\
+			&= \frac{1}{\pi}\left[\arctan(x)\right]_{-\infty}^{+\infty} \\
+			&= \frac{1}{\pi} \left( \frac{\pi}{2}- \left( -\frac{\pi}{2}   \right)  \right) \\
+			&= 1
+	\end{align*}}
+	\item \question{  Montrer que $X$ n'admet pas de moment d'ordre 1. }
+	\reponse{On remarque que $x \times \frac{1}{1+x^2} \underset{x\to +\infty}\sim \frac{1}{x}$ donc par comparaison, la fonction $x \mapsto xf(x)$ n'est pas intégrable au voisinage de $+\infty$. Donc $X$ n'est pas intégrable et $\mathbb{E}(X)$ n'existe pas. }
+	\item \question{ Calculer la fonction de répartition de $X$. }
+	\reponse{Soit $t \in \R$ : 
+		\begin{align*}
+			F_X(t) &= \PP(X \leq t ) \\
+			&= \int_{-\infty}^{t} f(x)dx \\
+			&= \frac{1}{\pi}\left[\arctan(x)\right]_{-\infty}^{t} \\
+			&= \frac{1}{\pi} \left(\arctan(t) + \frac{\pi}{2} \right) \\
+			&= \frac{1}{2} + \frac{1}{\pi}\arctan(t)
+	\end{align*}}
+	\item \question{ Déterminer la fonction de répartition de $Y=\arctan(X)$ et en déduire sa loi. }
+	\reponse{On sait que $-\frac{\pi}{2} \leq Y < \frac{\pi}{2}$. Donc si $t < -\frac{\pi}{2}$ alors $F_Y(t) = 0$ et si $t > \frac{\pi}{2}$ alors $F_Y(t) = 1$.  Soit $t \in \left[-\frac{\pi}{2} ; \frac{\pi}{2}\right]$ : 
+		\begin{align*}
+			F_Y(t) &= \PP(X \leq \tan(t) ) \\
+			&= \frac{1}{\pi}\left[\arctan(x)\right]_{-\infty}^{\tan(t)} \\
+			&= \frac{t}{\pi} + \frac{1}{2}
+		\end{align*}
+		On reconnaît la fonction de répartition d'une loi uniforme $\mathcal{U}\left(\left[-\frac{\pi}{2} ; \frac{\pi}{2}\right]\right)$. 
+	}
+\end{enumerate}
