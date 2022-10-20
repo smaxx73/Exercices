@@ -7,6 +7,30 @@
 
 \begin{enumerate}
 	\item \question{ Démontrer que $M_n \xrightarrow[]{\mathcal{P}} 1$. }
+	      \reponse{ Soit $M_n=\max \left(U_1, \ldots, U_n\right)$. Pour tout $i$, $U_i \leqslant 1$ donc  $M_n \leqslant 1$. 
+	      	Soit $\varepsilon>0$. On cherche la limite de
+	      	$$
+	      	P\left(\left|M_n-1\right|<\varepsilon\right)=P\left(1-M_n<\varepsilon\right) = P\left(M_n > 1-\varepsilon\right)
+	      	$$
+	      	Or la fonction de répartition de $M_n$ est définie pour tout réel $t$ par 
+	      	\begin{align*}
+	      	F_n(t) &=\PP\left(\Pi_n \leq t\right)=P\left(\bigcap_{i=1}^n\left(U_i \leqslant t\right)\right)\\
+	      	       & = \prod_{i=1}^n \PP\left(U_i \leq t\right) \text { par indépendance }\\
+	      	       &=\PP\left(U_1 \leqslant t\right)^n \text { car les variables sont identiquement distribuées }\\
+	      	       &= \begin{cases}
+	      	       	      	0   & \text{si } t<0\\
+	      	                t^n & \text{si } t \in [0;1]\\
+	      	                1   & \text{si } t>1
+	      	          \end{cases} \\
+	      	\end{align*}
+	      	Donc 
+	      	\begin{align*}
+	      	  \PP(M_n > 1- \varepsilon) &= 1 - \PP(M_n \leq 1- \varepsilon)  \\
+	      	                            &= 1 - \left(1-\varepsilon\right)^n  \\
+	      	                            &\xrightarrow[n \to +\infty]{} 1
+	      	\end{align*}
+	      	ce qui achève la démonstration de la convergence en probabilité de la suite $(M_n)$ vers $1$. 
+	      	 }
 	\item \question{ En déduire que $M_n \xrightarrow[]{\text{p.s.}} 1$ et $M_n \xrightarrow[]{\text{en loi}} 1$. }
 	\item \question{ Pour tout $n \in \N^*$, on pose $Y_n = n(1-M_n)$. Démontrer que la suite $(Y_n)$ converge en loi vers une loi exponentielle dont on précisera le paramètre.  }
 \end{enumerate}
