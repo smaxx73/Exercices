@@ -39,4 +39,23 @@
 	         
        }
 	\item \question{ Pour tout $n \in \N^*$, on pose $Y_n = n(1-M_n)$. Démontrer que la suite $(Y_n)$ converge en loi vers une loi exponentielle dont on précisera le paramètre.  }
+	      \reponse{ On cherche à étudier la convergence de la fonction de répartition $F_{Y_n}$ de $Y_n$. Soit $t \in \R$. On constate que $$Y_n\leq t\iff M_n\geq 1-\frac {t}{n}$$
+	      Si $t \leq 0$ alors $\PP(Y_n \leq t) = \PP(M_n\geq 1-\frac {t}{n}) = 0$ car $M_n \leq 1$. 
+	      
+	      Si $t \in [0;n]$ alors $\PP(Y_n \leq t) = 1 - \left(1-\frac {t}{n}\right)^n$ d'après la question précédente.
+	      
+	      Si $t >n$  alors $\PP(Y_n \leq t) = 1 $ car $M_n \geq 0$.
+	      
+	      Or $\lim\limits_{n\to+\infty}\left(1-\frac tn\right)^n=e^{-t}.$
+	      
+	      Donc : 
+	      \begin{itemize}
+	      	\item si $t<0$, $F_{Y_n}(t) \xrightarrow[n \to +\infty]{} 0$ ;
+	      	\item si $t \geq 0$, $F_{Y_n}(t) \xrightarrow[n \to +\infty]{} 1-e^{-t}$.
+	      \end{itemize}
+	      
+	      On en déduit que la suite de fonctions $\left(F_{Y_n}\right)$ converge simplement vers la fonction de répartition d'une loi exponentielle de paramètre $1$.
+	      
+	      Cela prouve la convergence en loi de la suite $(Y_n)$ vers une loi exponentielle de paramètre $1$. 
+       }
 \end{enumerate}
