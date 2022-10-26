@@ -2,7 +2,7 @@
 ## Exercices de maths
 Chaque exercice est contenu dans un fichier du répertoire ```src/```.
 
-Pour insérer un exercice dans un document .tex, insérer le préambule minimal : 
+Pour insérer un exercice dans un document .tex, insérer le préambule minimal ou recopier et adapter son contenu : 
 
 ```\input{preambule_minimal}```
 
