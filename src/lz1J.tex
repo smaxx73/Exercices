@@ -40,7 +40,7 @@
 
 \reponse{ En effectuant toujours le même changement de variables $u=\frac{x-\mu}{\sigma}$, on a pour tout réel $t$ :
 	$$
-	P(Y \leqslant t)=\int_{-\infty}^t \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right] \mathrm{d} x=\int_{-\infty}^t \frac{1}{\sqrt{2 \pi}} \exp \left[-\frac{u^2}{2}\right] \mathrm{d} u .
+	\PP(Z \leqslant t)=\PP(X \leq \sigma t + \mu )\int_{-\infty}^{\sigma t + \mu} \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right] \mathrm{d} x=\int_{-\infty}^t \frac{1}{\sqrt{2 \pi}} \exp \left[-\frac{u^2}{2}\right] \mathrm{d} u .
 	$$
 	La densité de la variable aléatoire $Y$ est donc la fonction
 	$$
