@@ -15,9 +15,9 @@ def createlatex(directory, filename):
         latexfile.write(texte)
         latexfile.close()
 
-directory_compile = 'compile/latex_sansol'  #fichiers compilables en standalone
-directory_src = 'src'                #fichiers sources des exercices (non compilables)
-directory_pdf = 'compile/pdf_sansol'        #fichier pdf compilé
+directory_compile = './pdf/latex_sansol'  #fichiers compilables en standalone
+directory_src = './src'                #fichiers sources des exercices (non compilables)
+directory_pdf = './pdf/pdf_sansol'        #fichier pdf compilé
 
 for filename in os.listdir(directory_src):
     if filename[-4:] == ".tex":
