@@ -10,7 +10,7 @@
 		\item[Stratégie B : ] choisir la somme des deux nombres les plus petits.
 	\end{description}
 	
-	Deux personnes jouent au jeu comportant les étapes suivantes :
+	Deux hobbits jouent au jeu comportant les étapes suivantes :
 	
 	\begin{itemize}
 		\item choisir entre la stratégie A et la stratégie B ;
@@ -21,13 +21,13 @@
 	On note $X_1$, $X_2$, $X_3$ les nombres obtenus lors des tirages au sort. On note $Y_A$ la variable égale à la valeur obtenue par la stratégie $A$ et $Y_B$ la variable égale à la valeur obtenue par la stratégie $B$.
 }
 \begin{enumerate}
-	\item \question{Quelle la loi de probabilité suivie par chaque variable aléatoire $X_i$, $i \in \{1,2,3\}$ ?}
+	\item \question{Quelle est la loi de probabilité suivie par chaque variable aléatoire $X_i$, $i \in \{1,2,3\}$ ?}
 	\reponse{$X_1$, $X_2$ et $X_3$ suivent une loi uniforme sur $[0;1]$.}
 	\item \question{Exprimer $Y_A$ en fonction des $X_i$.}
 	\reponse{ $Y_A=\max(X_1,X_2,X_3)$}
 	\item \question{ Exprimer $Y_B$ en fonction de $Y_A$ et des $X_i$.}
 	\reponse{$Y_B=X_1+X_2+X_3-Y_A$}
-	\item \question{Déterminer la fonction de répartition de $Y_A$. En déduire que $Y_A$ est une variable aléatoire absolument continue dont on déterminera la densité.}
+	\item \question{Déterminer la fonction de répartition de $Y_A$. En déduire que $Y_A$ est une variable aléatoire absolument continue dont on déterminera une fonction densité.}
 	\reponse{ Pour tout $x\in\R$,
 		\[ F_{Y_A}(t)=\p(Y_A\leq t)=\p(\max(X_1,X_2,X_3\leq t)=\p(\{X_1\leq t\}\cap\{X_2\leq t\} \cap \{X_3\leq t\}).\]
 		Comme les \vas $X_i$ sont i.i.d., on obtient:
@@ -41,7 +41,7 @@
 		\end{cases}
 		$.
 		La \va $Y_A$ est donc absolument continue et sa densité vaut $f_{Y_A}(t)=F'_{Y_A}(t)=3t^2\textbf{1}_{[0;1]}(t)$.}
-	\item \question{Y a-t-il une meilleure stratégie ?}
+	\item \question{En comparant l'espérance des variables aléatoires $Y_A$ et $Y_B$ , peut-on dire qu'il existe une meilleure stratégie ?}
 	\reponse{Comparons l'espérance des \vas $Y_A$ et $Y_B$:
 		\begin{align*}
 			&\E(Y_A)=\int_0^1 x \times 3x^2 \ dx

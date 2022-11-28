@@ -39,7 +39,15 @@
 			\mathbb{E}(h(R,\Theta)) &= \iint_{} \dfrac{1}{2\pi} h(r(x,y),\theta(x,y)) e^{\frac{-x^2-y^2}{2}}dxdy \\
 			&= \int_{0}^{2\pi} \int_0^{+\infty} h(r,\theta) \frac{1}{2\pi} e^{-r^2} r drd\theta 
 		\end{align*}
-		Par identification, on en déduit une densité du couple $(R,\Theta)$ et par indépendance, on identifie la densité de $\Theta$ : $f_\Theta(\theta) = \frac{1}{2\pi}1_{[0;2\pi[}(\theta)$ }
+		Par identification, on en déduit qu'une densité du couple $(R,\Theta)$ est définie pour tout $(r,\theta) \in \R^2$ par :
+		$$g(r,\theta) = \frac{1}{2\pi} re^{-r^2} \textbf{1}_{\R_+ \times [0;2\pi[}(r,\theta)$$
+		
+		Pour obtenir la loi de $\Theta$, il suffit de calculer pour tout $\theta \in \R$ : 
+		\begin{align*}
+		f_\Theta(\theta) &= \int_\R g(r,\theta)dr \\
+		                 &=  \frac{1}{2\pi}\textbf{1}_{\times [0;2\pi[}(r,\theta)
+		\end{align*}
+		 On en déduit que $(R,\Theta)$ est un couple de variables aléatoires indépendantes et que $\Theta$ suit une loi uniforme sur $[0;2\pi[$.}
 	\item \question{ En déduire une simulation de la loi du couple $(X,Y)$. }
 	\reponse{ def Normale2():
 		theta = 2*pi*rand()

@@ -61,7 +61,8 @@
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
 
  \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation
- 	\setboolean{solution}{#2}
+ \noindent
+ \setboolean{solution}{#2}
  	\setboolean{uuid}{#3}
  	\setboolean{link}{#4}
  	\ifthenelse{\boolean{uuid}}{%
@@ -69,5 +70,5 @@
  			\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}  			
  		}{\fbox{\tiny{#1}}}
  	}{} \href{\pathexercice#1.pdf}{$\unrhd$} 
-    	\noindent \textbf{Exercice #5} - \input{\path src/#1}
+    	\textbf{Exercice #5} - \input{\path src/#1}
 }
