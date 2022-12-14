@@ -1,0 +1,38 @@
+\titre{Consommation d'oxygène}
+\theme{statistique}
+\auteur{}
+\organisation{AMSCC}
+
+\texte{ On s'intéresse à un test pour mesurer la consommation maximale en oxygène d'un individu dans une population âgée. Pour un groupe de contrôle, il a été montré que les mesures suivent une loi normale dont l'espérance mathématique est de l'ordre de $\mu=25{,}5 (\mathrm{ml} / \mathrm{kg} / \mathrm{min})$ et l'écart-type $\sigma=6 (\mathrm{ml} / \mathrm{kg} / \mathrm{min})$. On pense qu'une population de malades (Parkinson) doit avoir des capacités cardio-respiratoires plus limitées. On souhaite ainsi tester si dans un tel groupe la moyenne $\mu$ est plus faible. On prendra un risque de première espèce $\alpha = 5 \%$. }
+
+\begin{enumerate}
+	\item \texte{ L'objectif du test est  de décider entre les deux hypothèses suivantes : ${H}_0: \mu=25{,}5$ (absence d'effet de la maladie) et ${H}_1: \mu<25{,}5$ (existence de l'effet) à partir d'un échantillon de taille $15$. On note $\overline{X} = \sum\limits_{k=1}^{15} X_i$ la moyenne empirique des mesures dans un tel échantillon.}
+	\begin{enumerate}
+       \item \question{ Supposons que la moyenne observée dans l'échantillon est de $24{,}0$, quelle est la décision à prendre à la suite de ce test ? }
+       \reponse{ La variable de décision sous l'hypothèse $H_0$ est $$Z=\frac{\overline{X} - 25{,}5}{\sqrt{ \frac{S^2}{15} }}$$ et suit une loi de Student $St(14)$. 
+   Il convient de prendre pour valeur observée $S^2_{obs} = \frac{15}{14} \times 6^2 = 38.57$ soit $S_{obs} = 6.21$. Avec ces valeurs, on obtient   $Z_{obs} = -0{,}93$. 
+   
+   Or pour $\alpha = 0.05$, on calcule que la zone de rejet est $]-\infty ; -1.76]$. Il n'y a donc pas lieu de rejeter l'hypothèse $H_0$.  
+   }
+       \item \question{ Déterminer la moyenne critique $\mu_c$, c'est-à-dire la valeur observée au deçà de laquelle le test conduit à un rejet de $H_0$. } 
+       \reponse{ Il suffit de résoudre l'équation $\frac{\mu_c - 23{,}5}{\sqrt{ \frac{S^2}{15} }} = -1.76$ et on obtient $\mu_c \approx 22.7$. }
+\end{enumerate}
+    \item \texte{ La professeur responsable du service pense qu'à partir de la valeur $\mu=23{,}5$, la différence est scientifiquement significative et l'effet sur le malade important. Elle souhaite alors savoir quel risque elle prend lorsqu'elle ne rejette pas ${H}_0$ en étant sous l'hypothèse alternative $(H_1) \colon \mu=23{,}5$. }
+    \begin{enumerate}
+    	\item \question{ Quelle est la loi suivie par la variable aléatoire $\overline{X}$ lorsque $(H_1)$ est supposée vraie ?   }
+    	\reponse{ Dans ce cas $\overline{X}$ suit une loi normale de paramètre $\mu = 23.5$ et d'écart type $\sigma = 6$.  }
+%    	\item \question{ En déduire, sans justifier, la loi de la variable aléatoire $\frac{\overline{X} - 23{,}5}{\sqrt{ \frac{S^2}{15} }}$. }
+    	\item \question{ En déduire l'erreur de deuxième espèce et la puissance de ce test. Commenter le résultat. 	
+    }
+\reponse{ Il suffit de calculer : 
+\begin{align*}
+  \PP(\overline{X} \geq \mu_c) &= \PP\left( \frac{\overline{X} - 23{,}5}{\sqrt{ \frac{S^2}{15} }} \geq \frac{22.7 - 23{,}5}{\sqrt{ \frac{S^2}{15} }}\right) \\
+  &\approx 0.7
+\end{align*}
+en utilisant la loi de Student de paramètre $14$. 
+
+On en déduit que le test ainsi réalisé n'est pas très puissant, de l'ordre de $30\%$ seulement. 
+ }
+    \end{enumerate}
+\end{enumerate}
+
