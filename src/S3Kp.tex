@@ -6,7 +6,7 @@
 \texte{ Chaque pièce fabriquée par une certaine machine pèse en moyenne $0.50$~g avec un écart type de $0.02$~g. }
 \reponse{ Soient les variables aléatoires $X_i$ représentant le poids d'une pièce. Ces variables sont indépendantes et de même loi, d'espérance $\mathbb{E}(X_i)=0.5$ et d'écart-type $\sigma(X_i)=0.02$. }
 \begin{enumerate}
-	\item \question{ Soit $\overline{X}$ la variable aléatoire égale au poids moyen d'une pièce dans un échantillon de $n$ pièces. Que peut-on dire de la loi de $\overline{X}$ ? }
+	\item \question{ Soit $\overline{X}$ la variable aléatoire égale au poids moyen d'une pièce dans un échantillon de $n$ pièces où $n$ est un entier naturel non nul quelconque. En fonction de $n$, que peut-on dire de la loi de $\overline{X}$ ? }
 	\reponse{ Comme $\bar{X}$ est le poids moyen des pièces sur un échantillon de $n$ pièces, on a $\displaystyle \bar{X}=\frac{1}{n}=\sum_{i=1}^n X_i$. 
 		Par le théorème central-limite, pour $n$ grand, la variable aléatoire $\displaystyle \sum_{i=1}^n X_i$ suit approximativement une loi Normale de paramètres $\mu=n\times 0.5$ et $\sigma=\sqrt{n}\times 0.02$. Par conséquent, la variable $\overline{X}$ suit approximativement la loi $\displaystyle\mathcal{N}\left(0.50,\sigma=\frac{0.02}{\sqrt{n}}\right)$. }
 	\item \question{ On considère deux échantillons de 1000 pièces chacun. Déterminer la probabilité que la différence de poids entre deux lots de 1000 pièces soit supérieure à 2 grammes.  }

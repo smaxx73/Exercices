@@ -1,0 +1,42 @@
+\titre{Calcul approché de $\frac{\pi}{4}$.}
+\theme{probabilité}
+\auteur{}
+\organisation{AMSCC}
+
+
+\texte{ On construit différentes méthodes de Monte Carlo afin de donner une valeur approchée de $\frac{\pi}{4}$. Afin de les comparer, on donnera la variance de l'estimation sous la forme $\frac{C}{n}$ où $n$ est la taille de l'échantillon. On souhaite avoir la variance la plus faible possible.  }
+
+\subsubsection*{Partie 1 : Technique du Hit or Miss.}
+
+\texte{ On considère le carré $[0;1]^2$ et on note $D$ le quart de disque centré en $0$ et de rayon $1$ : 
+$$D = \{(x,y) \in \R_+^2 \, , \, x^2 + y^2 \leq 1\}$$
+
+L'aire de $D$ vaut $\frac{\pi}{4}$. 
+
+Soit $(X_i,Y_i)$ une suite de couples variables aléatoires indépendantes, identiquement distribuées selon une loi uniforme sur $[0;1]^2$. Pour tout entier $i \geq 1$, on pose $$Z_i = \textbf{1}_{(X_i,Y_i) \in D}$$ 
+
+Ainsi, les variables $(Z_i)_{i \geq 1}$ sont indépendantes. 
+ }
+\begin{enumerate}
+	\item\question{  Déterminer la loi de $Z_1$ et en déduire que $\mathbb{E}(Z_1) = \frac{\pi}{4}$.  }
+	\item \question{ Soit $n \in \N^*$, on pose :
+	$$T_n^{(1)} = \frac{1}{n} \sum_{i=1}^{n} Z_i$$
+	Justifier que $T_n^{(1)}$ est un estimateur sans biais de $\frac{\pi}{4}$. }
+	\item \question{ Justifier que la suite de variables aléatoires $\left(T_n^{(1)}\right)_{n \geq 1}$ converge presque sûrement vers  $\frac{\pi}{4}$ lorsque $n$ tend vers l'infini. }
+	\item \question{ Montrer qu'il existe $C^{(1)} \in \R$ tel que $\V\left(T_n^{(1)}\right) = \frac{C^{(1)}}{n}$ et donner une valeur numérique approchée de $C^{(1)}$ à $10^{-4}$.  }
+\end{enumerate}
+
+\subsubsection*{Partie 2 : Technique de la moyenne empirique.}
+\texte{ On définit une fonction $g \colon [0;1] \to [0;+\infty[$ par :
+$$g(x) = \sqrt{1-x^2}$$
+
+Soit $(U_i)$ une suite de variables aléatoires indépendantes, identiquement distribuées selon une loi uniforme sur $[0;1]$. }
+
+\begin{enumerate}
+	\item \question{ Justifier que $\E(g(U_1)) = \frac{\pi}{4}$.  }
+	\item \question{ En déduire une suite de variables aléatoires convergeant presque sûrement vers  $\frac{\pi}{4}$. }
+	\item  \texte{ Soit $n \in \N^*$, on pose :
+	$$T_n^{(2)} = \frac{1}{n} \sum_{i=1}^{n} g(U_i)$$ }
+\question{ 	Montrer qu'il existe $C^{(2)} \in \R$ tel que $\V\left(T_n^{(2)}\right) = \frac{C^{(2)}}{n}$ et donner une valeur numérique approchée de $C^{(2)}$ à $10^{-4}$.  }
+	\item \question{ Comparer les deux techniques d'approximation présentées ici.  }
+\end{enumerate}
