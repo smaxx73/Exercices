@@ -19,11 +19,22 @@ Ainsi, les variables $(Z_i)_{i \geq 1}$ sont indépendantes.
  }
 \begin{enumerate}
 	\item\question{  Déterminer la loi de $Z_1$ et en déduire que $\mathbb{E}(Z_1) = \frac{\pi}{4}$.  }
+	\reponse{ On remarque que $Z_1$ prend se valeurs dans $\{0,1\}$ donc $Z_1$ suit une loi de Bernoulli. Or 
+\begin{align*}
+\PP(Z_1 = 1) &= \PP((X_1,Y_1) \in D) \\
+             &= \iint_{D} dxdy \\
+             &= \frac{\pi}{4}
+\end{align*}	
+Donc $Z_1$ suit une loi de Bernoulli de paramètre $p = \frac{\pi}{4}$ et son espérance vaut $\E(Z_1) = \frac{\pi}{4}$. 
+ }
 	\item \question{ Soit $n \in \N^*$, on pose :
 	$$T_n^{(1)} = \frac{1}{n} \sum_{i=1}^{n} Z_i$$
 	Justifier que $T_n^{(1)}$ est un estimateur sans biais de $\frac{\pi}{4}$. }
+\reponse{ On remarque que $\E(T_n^{(1)}) = \E(Z_1) = \frac{\pi}{4}$ donc par linéarité, $B(T_n^{(1)}) = \frac{\pi}{4} - \frac{\pi}{4} = 0$. }
 	\item \question{ Justifier que la suite de variables aléatoires $\left(T_n^{(1)}\right)_{n \geq 1}$ converge presque sûrement vers  $\frac{\pi}{4}$ lorsque $n$ tend vers l'infini. }
+	\reponse{ Les variables aléatoires $(Z_i)$ sont indépendantes, identiquement distribuées, admettent une espérance donc par application directe de la loi forte des grands nombres, la suite $\left(T_n^{(1)}\right)_{n \geq 1}$ converge presque sûrement vers  $\frac{\pi}{4}$.  }
 	\item \question{ Montrer qu'il existe $C^{(1)} \in \R$ tel que $\V\left(T_n^{(1)}\right) = \frac{C^{(1)}}{n}$ et donner une valeur numérique approchée de $C^{(1)}$ à $10^{-4}$.  }
+	\reponse{ Par indépendance, $\V\left(T_n^{(1)}\right) = \frac{\V(Z_1)}{n}$ or $V(Z_1) = \frac{\pi}{4}\left(1- \frac{\pi}{4}\right) \approx 0{,}1685$. }
 \end{enumerate}
 
 \subsubsection*{Partie 2 : Technique de la moyenne empirique.}
@@ -34,9 +45,22 @@ Soit $(U_i)$ une suite de variables aléatoires indépendantes, identiquement di
 
 \begin{enumerate}
 	\item \question{ Justifier que $\E(g(U_1)) = \frac{\pi}{4}$.  }
+	\reponse{ Par application du théorème de transfert, 
+$$\E(g(U_1)) = \int g(x) \textbf{1}_{[0,1]}(x) dx = \int_0^1 \sqrt{1-x^2}dx = \frac{\pi}{4}$$	
+ }
 	\item \question{ En déduire une suite de variables aléatoires convergeant presque sûrement vers  $\frac{\pi}{4}$. }
+	\reponse{ En posant $T_n^{(2)} = \frac{1}{n} \sum_{i=1}^{n} g(U_i)$ alors d'après la loi forte des grands nombres, la suite $\left(T_n^{(2)}\right)$ converge presque sûrement vers $\E(g(U_1)) = \frac{\pi}{4}$. }
 	\item  \texte{ Soit $n \in \N^*$, on pose :
 	$$T_n^{(2)} = \frac{1}{n} \sum_{i=1}^{n} g(U_i)$$ }
 \question{ 	Montrer qu'il existe $C^{(2)} \in \R$ tel que $\V\left(T_n^{(2)}\right) = \frac{C^{(2)}}{n}$ et donner une valeur numérique approchée de $C^{(2)}$ à $10^{-4}$.  }
+\reponse{ Il s'agit comme en partie 1 de calculer $\V(g(U_1)) = \E(g(U_1)^2) - \left(\frac{\pi}{4}\right)^2$. Or : 
+\begin{align*}
+	\E(g(U_1)^2) &= \int_0^1 g(x)^2 dx \\
+	             &= \int_0^1 (1-x^2) dx \\
+	             &= \frac{2}{3}
+\end{align*}
+On a donc $\V\left(T_n^{(2)}\right) = \frac{C^{(2)}}{n}$ avec $C^{(2)} =  \frac{2}{3} - \left(\frac{\pi}{4}\right)^2 \approx 0.0498$.
+}
 	\item \question{ Comparer les deux techniques d'approximation présentées ici.  }
+	\reponse{ Des deux estimateurs de $\frac{\pi}{4}$ présentés ici, le plus efficace est celui qui a la plus petite variance, c'est $T_n^{(2)}$.  }
 \end{enumerate}
