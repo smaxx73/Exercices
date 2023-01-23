@@ -1,0 +1,131 @@
+\titre{Reste de division euclidienne}
+\theme{polynomes}
+\auteur{}
+\organisation{AMSCC}
+
+\texte{ On cherche, pour tout $n \in \mathbb{N}$, le reste de la division euclidienne du polynôme $P(X)=X^n$ par $X^3+X^2+X+1$.  }
+
+\begin{enumerate}
+\item \question{ Déterminer une racine évidente de $X^3+X^2+X+1$, et factoriser le polynôme. Quelles sont ses racines dans $\mathbb{C}$ ? }
+\reponse{ Soit $T(X)=X^3+X^2+X+1$
+On remarque que $T(-1)=(-1)^3+(-1)^2+(-1)+1=-1+1-1+1=0$. Ainsi : $-1$ est racine de $T$ ou encore $(X+1)$ divise $T(X)$ :
+$$
+\begin{aligned}
+T(X) & =X^2+X+X^2+1=X\left(X^2+1\right)+X^2+1=(X+1)\left(X^2+1\right) \\
+& =(X+1)(X+i)(X-i)
+\end{aligned}
+$$
+Les racines de $T(X)$ dans $\mathbb{C}$ sont : $-1, i$ et $-i$. }
+\item \question{ Justifier l'existence d'un polynôme $Q_n(X)$ et de trois réels $a_n, b_n$ et $c_n$ tels que :
+$$
+X^n=\left(X^3+X^2+X+1\right) \cdot Q_n(X)+a_n X^2+b_n X+c_n
+$$
+On ne demande pas de déterminer $Q_n(X)$. }
+
+\reponse{ Par la division euclidienne de $P(X)$ par $T(X)$, il existe deux polynômes $Q_n(X)$ et $R_n(X)$ tels que :
+$$
+P(X)=T(X) \cdot Q_n(X)+R_n(X)
+$$
+Avec $d^{\circ}\left(R_n\right)<d^{\circ}(T)=3$. Ainsi il existe trois réels $a_n, b_n$ et $c_n$ tels que :
+$$
+R_n(X)=a_n X^2+b_n X+c_n \text {. }
+$$ }
+\item \question{ Exprimer $P(-1), P(i)$ et $P(-i)$ en fonction de $a_n, b_n$ et $c_n$, et en déduire l'expression du reste de la division euclidienne de $P(X)$ par $X^3+X^2+X+1$. On distinguera deux cas : $n=2 p$ (cas $n$ pair) et $n=2 p+1$ (cas $n$ impair). }
+
+\reponse{ $$
+P(X)=X^n=\underbrace{\left(X^3+X^2+X+1\right)}_{=T(X)} \cdot Q_n(X)+a_n X^2+b_n X+c_n
+$$
+On a :
+- $P(-1)=(-1)^n=\underbrace{T(-1)}_{=0} \cdot Q_n(-1)+a_n(-1)^2+b_n(-1)+c_n$, donne :
+$$
+\begin{array}{ll}
+n=2 p: & (-1)^{2 p}=1=a_n-b_n+c_n \\
+n=2 p+1: & (-1)^{2 p+1}=-1=a_n-b_n+c_n
+\end{array}
+$$
+- $P(i)=(i)^n=T(i) \cdot Q_n(i)+a_n(i)^2+b_n(i)+c_n$, donne :
+$$
+=0
+$$
+$$
+\begin{array}{ll}
+n=2 p: & (i)^{2 p}=(-1)^p=-a_n+i b_n+c_n \\
+n=2 p+1: & (i)^{2 p+1}=(-1)^p \cdot i=-a_n+i b_n+c_n
+\end{array}
+$$
+- $P(-i)=(-i)^n=T(-i) \cdot Q_n(-i)+a_n(-i)^2+b_n(-i)+c_n$, donne :
+$$
+\begin{array}{ll}
+=0 & (-i)^{2 p}=(-1)^p=-a_n-i b_n+c_n \\
+n=2 p: & (-i)^{2 p+1}=-(-1)^p i=-a_n-i b_n+c_n
+\end{array}
+$$
+Ainsi :
+- Pour $n=2 p$ :
+$$
+\begin{aligned}
+& \left\{\begin{array} { c c c } 
+{ a _ { n } - b _ { n } + c _ { n } = 1 } & { \ell _ { 1 } } \\
+{ - a _ { n } + i b _ { n } + c _ { n } = ( - 1 ) ^ { p } } \\
+{ - a _ { n } - i b _ { n } + c _ { n } = ( - 1 ) ^ { p } }
+\end{array} \Leftrightarrow \begin{array} { c } 
+{ \ell _ { 2 } + \ell _ { 1 } } \\
+{ \ell _ { 3 } + \ell _ { 1 } }
+\end{array} \left\{\begin{array}{c}
+a_n-b_n+c_n=1 \\
+(-1+i) b_n+2 c_n=1+(-1)^p \\
+(-1-i) b_n+2 c_n=1+(-1)^p
+\end{array}\right.\right. \\
+& \Leftrightarrow \quad \begin{array}{c}
+\ell_1 \\
+\ell_2 \\
+\ell_3-\ell_2
+\end{array}\left\{\begin{array} { c } 
+{ a _ { n } - b _ { n } + c _ { n } = 1 } \\
+{ ( - 1 + i ) b _ { n } + 2 c _ { n } = 1 + ( - 1 ) ^ { p } } \\
+{ 2 i b _ { n } = 0 }
+\end{array} \Leftrightarrow \left\{\begin{array}{l}
+a_n=\frac{1}{2}\left(1-(-1)^p\right) \\
+c_n=\frac{1}{2}\left(1+(-1)^p\right) \\
+b_n=0
+\end{array}\right.\right. \\
+& X^n=\left(X^3+X^2+X+1\right) \cdot Q_n(X)+\frac{1}{2}\left(1-(-1)^p\right) X^2+\frac{1}{2}\left(1-(-1)^p\right) \\
+&
+\end{aligned}
+$$
+- Pour $n=2 p+1$ :
+$$
+\begin{aligned}
+& \left\{\begin{array}{ccc}
+a_n-b_n+c_n=-1 & \ell_1 \\
+-a_n+i b_n+c_n=(-1)^p . i \\
+-a_n-i b_n+c_n=-(-1)^p i
+\end{array} \Leftrightarrow \begin{array}{c}
+\ell_2+\ell_1 \\
+\ell_3+\ell_1
+\end{array}\right\} \begin{array}{c}
+a_n-b_n+c_n=-1 \\
+(-1+i) b_n+2 c_n=-1+(-1)^p . i \int \\
+(-1-i) b_n+2 c_n=-1-(-1)^p i
+\end{array} \\
+& \Leftrightarrow \quad \begin{array}{c}
+\ell_2 \\
+\ell_3-\ell_2
+\end{array}\left\{\begin{array} { c } 
+{ a _ { n } - b _ { n } + c _ { n } = - 1 } \\
+{ ( - 1 + i ) b _ { n } + 2 c _ { n } = - 1 + ( - 1 ) ^ { p } . i } \\
+{ 2 i b _ { n } = 2 ( - 1 ) ^ { p } i }
+\end{array} \Leftrightarrow \quad \begin{array} { c } 
+{ \ell _ { 1 } } \\
+{ \ell _ { 2 } } \\
+{ \ell _ { 3 } - \ell _ { 2 } }
+\end{array} \left\{\begin{array}{c}
+a_n=\frac{1}{2}\left(-1+(-1)^p\right) \\
+c_n=\frac{1}{2}\left(-1+(-1)^p\right) \\
+b_n=(-1)^p
+\end{array}\right.\right. \\
+& X^n=\left(X^3+X^2+X+1\right) \cdot Q_n(X)+\frac{1}{2}\left(-1+(-1)^p\right) X^2+(-1)^p X+\frac{1}{2}\left(-1+(-1)^p\right) \\
+&
+\end{aligned}
+$$ }
+\end{enumerate}
