@@ -38,5 +38,5 @@ for filename in os.listdir(directory_src):
     if time_src > time_pdf:
         print(filename +' has been updated but not compiled')
         print('compiling...')
-        os.system('xelatex ' + ' -synctex=1 -interaction=nonstopmode -output-directory=' + directory_pdf + ' ' + os.path.join(directory_compile, filename+'.tex'))
+        os.system('xelatex ' + '--shell-escape -synctex=1 -interaction=nonstopmode -output-directory=' + directory_pdf + ' ' + os.path.join(directory_compile, filename+'.tex'))
         print('compiling ended')
