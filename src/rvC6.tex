@@ -59,6 +59,10 @@ $$\forall k \in \mathbb{N} : \quad x_{k+1}=x_k-\frac{f(x_k)}{f'(x_0)}$$ }
 \[x_{k+1}=x_k+\frac{A-x^2_k}{2}, \quad k=0,1,2,... \] }
 \begin{enumerate}
 	\setcounter{enumi}{1}
+	\item \question{ Vérifier que si $x_0=1$, alors l'algorithme proposé coïncide avec la méthode de la corde pour résoudre $x^2-A=0$. }
+	\reponse{Soit $f(x)=x^2-A$. Alors $f'(x)=2x_0=2$ pour $x_0=1$ et on a bien
+		\[ x_{k+1}=x_k-\frac{f(x_k)}{f'(x_0)}=x_k+\frac{A-x^2_k}{2}.\]
+	}
 	\item 
 	\begin{enumerate}
 		\item \question{ Montrer que si la suite $(x_n)$ converge, alors sa limite est soit $\sqrt{A}$, soit $-\sqrt{A}$. }
@@ -113,20 +117,15 @@ $$\forall k \in \mathbb{N} : \quad x_{k+1}=x_k-\frac{f(x_k)}{f'(x_0)}$$ }
 			Il est intéressant de noter que pour $x_0=2+\sqrt{A}$, la suite $(x_n)$ converge en une itération vers $-\sqrt{A}$.
 		}
 		
-		\item \question{ Vérifier que si $x_0=1$, alors l'algorithme proposé coïncide avec la méthode de la corde pour résoudre $x^2-A=0$. }
-		\reponse{Soit $f(x)=x^2-A$. Alors $f'(x)=2x_0=2$ pour $x_0=1$ et on a bien
-			\[ x_{k+1}=x_k-\frac{f(x_k)}{f'(x_0)}=x_k+\frac{A-x^2_k}{2}.\]
-		}
+		
 		
 		\item \question{ Quel est l'ordre de convergence de la méthode de la corde dans ce cas-là ? }
 		\reponse{On a $g'(x)=1-x$ donc $g'(\sqrt{A})= 1-\sqrt{A}\neq 0$ si $A\neq 1$. On en conclut que la méthode de la corde a une convergence linéaire pour $A\neq 1$.
 		}
-		
+	\end{enumerate}
 		\item \question{ Proposer un algorithme plus efficace pour calculer la racine carrée d'un nombre positif $A$. }
 		\reponse{En choisissant la méthode de Newton pour résoudre $f(x)=0$ avec $f(x)=x^2-A$, on a
 			\[x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}=x_k-\frac{x_k^2-A}{2x_k}, \quad \text{pour } k=0,1,2,... \]
 			Cette méthode est plus efficace que la méthode de la corde car la méthode de Newton converge à l'ordre $2$ pour tout $x_0>0$ (on montre d'abord que $|g'(x)|<1 \Leftrightarrow x>\sqrt{\frac{A}{3}}$, puis que $]\sqrt{\frac{A}{3}};+\infty[$ est stable par $g$, ce qui prouve la convergence globale pour tout $x_0>\sqrt{\frac{A}{3}}$. Enfin, en considérant le cas $x_0<\sqrt{\frac{A}{3}}$, on montre que $x_1 \in]\sqrt{\frac{A}{3}};+\infty[$ et on se retrouve dans le cas précédent à partir de $x_1$). 
 		}
-		
-	\end{enumerate}
 \end{enumerate}

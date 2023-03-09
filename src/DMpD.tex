@@ -1,0 +1,31 @@
+\titre{Dérivées partielles}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+
+
+
+\texte{ Soit la fonction $V \colon \R^2 \to \R$ définie par $$V(r,\theta) = \dfrac{\cos \theta}{r^2}$$ }
+	\begin{enumerate}
+		\item \question{ Donner l'ensemble de définition de $V$. }
+		\reponse{$\mathcal{D}_V = \R^* \times \R$}
+		\item \question{ Calculer les dérivées partielles $\dpa{V}{r}$ et $\dpa{V}{\theta}$. }
+		\reponse{pour $(r,\theta) \in \mathcal{D}_V$, on a 
+			\[ \dpa{V}{r} = -\frac{2}{r^3}\cos\theta, \ \ \dpa{V}{\theta} = -\frac{1}{r^2}\sin\theta \]}
+		\item \question{ Calculer les dérivées partielles secondes $\dpsp{V}{r}$, $\dpa{V}{\theta}$ et $\dpsm{V}{r}{\theta}$. }
+		\reponse{pour $(r,\theta) \in \mathcal{D}_V$, on a
+			\begin{align*} 
+			\dpsp{V}{r} &= \dpa{}{r}\left[ -\frac{2}{r^3}\cos\theta \right] = \frac{6}{r^4}\cos\theta \\
+			\dpsp{V}{\theta} &= \dpa{}{\theta}\left[ -\frac{1}{r^2}\sin\theta \right] = -\frac{1}{r^2}\cos\theta \\
+			\dpsm{V}{r}{\theta} &= \dpa{}{r}\left[ -\frac{1}{r^2}\sin\theta \right] = \frac{2}{r^3}\sin\theta
+			\end{align*}}
+		\item \question{ En déduire que $$\sin \theta \ \dpa{}{r} \left[ r^2 \dpa{V}{r} \right]  + \dpa{}{\theta} \left[ \sin \theta \dpa{V}{\theta} \right]  = 0.$$ }
+		\reponse{On a
+			\begin{eqnarray*}
+				\lefteqn{\sin \theta \ \dpa{}{r} \left[ r^2 \dpa{V}{r} \right]  + \dpa{}{\theta} \left[ \sin \theta \dpa{V}{\theta} \right]} \\
+				&=& \sin\theta \left[ 2r \dpa{V}{r} + r^2 \dpsp{V}{r} \right] + \left[ \cos\theta \dpa{V}{\theta} + \sin\theta \dpsp{V}{\theta} \right] \\
+				&=& \sin\theta \left[ 2r (-\frac{2}{r^3}\cos\theta) + r^2 \frac{6}{r^4}\cos\theta \right] + \left[ \cos\theta (-\frac{1}{r^2}\sin\theta) + \sin\theta (-\frac{1}{r^2}\cos\theta) \right] \\
+				&=& \frac{\cos\theta\sin\theta}{r^2}(-4+ 6-1-1) \\
+				&=& 0
+		\end{eqnarray*}}
+	\end{enumerate}
