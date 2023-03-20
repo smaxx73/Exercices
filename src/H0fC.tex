@@ -1,0 +1,42 @@
+\titre{Etude de points critiques et d'ue ligne de niveau}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+
+Une entreprise fabrique deux modèles de petites voitures, les modèles $X$ et $Y$. Le modèle $X$, le plus abordable, se vend à $1 €$ pièce. Quant au modèle $Y$, beaucoup plus sophistiqué, il se vend à $3 €$. Le coût de fabrication, exprimé en $€$, est donné par la fonction suivante :
+$$
+C(x, y)=5 x^2+5 y^2-2 x y-2 x-1000 .
+$$
+\question{ Déterminer les extrema de f sur $\R^2$ et sous la contrainte $g(x, y) = 2/3$ }
+
+\reponse{ La fonction $f$ est définie par $f(x, y) = xy$ et $g$ est définie par $g(x, y) = \frac{1}{x} + \frac{1}{y}$. Pour trouver les extrema de $f$ sous la contrainte $g(x, y) = \frac{2}{3}$, nous utilisons la méthode des multiplicateurs de Lagrange. Nous cherchons les points critiques de la fonction $L(x, y, \lambda) = f(x, y) - \lambda(g(x, y) - \frac{2}{3})$, où $\lambda$ est le multiplicateur de Lagrange. Ainsi, nous avons :
+
+$$L(x, y, \lambda) = xy - \lambda\left(\frac{1}{x} + \frac{1}{y} - \frac{2}{3}\right)$$
+
+En trouvant les dérivées partielles de $L$ par rapport à $x$, $y$ et $\lambda$ et en les mettant égales à zéro, nous obtenons :
+
+$$\frac{\partial L}{\partial x} = y + \frac{\lambda}{x^2} = 0$$
+
+$$\frac{\partial L}{\partial y} = x + \frac{\lambda}{y^2} = 0$$
+
+$$\frac{\partial L}{\partial \lambda} = \frac{1}{x} + \frac{1}{y} - \frac{2}{3} = 0$$
+
+En résolvant ces équations, nous trouvons deux points critiques : $(2/3, -3/2)$ sur l'axe des $x$ et $(-3/2, 2/3)$ sur l'axe des $y$.
+
+En utilisant la méthode de la matrice hessienne pour évaluer les points critiques, nous trouvons que ces deux points sont des points de selle, ce qui signifie que $f$ n'a ni maximum ni minimum sous la contrainte $g(x, y) = \frac{2}{3}$. }
+
+\reponse{ La contrainte $g(x,y)=\frac{2}{3}$ peut être réécrite comme $y=\frac{2}{3x-2}$ ou $x=\frac{2}{3y-2}$, selon si on résout pour $y$ ou pour $x$.
+	
+	On peut alors remplacer l'une de ces expressions dans la fonction $f(x,y)=xy$, ce qui donne :
+	
+	$$f(x)=x\cdot \frac{2}{3x-2}=\frac{2x}{3x-2}=\frac{2}{3-\frac{2}{x}}$$
+	
+	Maintenant, nous allons chercher les extrema de $f$ en trouvant les valeurs critiques de $x$ qui annulent sa dérivée.
+	
+	$$f'(x)=-\frac{4}{(3-\frac{2}{x})^2}\cdot \frac{2}{x^2}= -\frac{16}{x^2(3-\frac{2}{x})^2}=0$$
+	
+	En résolvant cette équation, nous obtenons $x= \pm \sqrt{2}$.
+	
+	Ces valeurs critiques doivent être testées pour savoir si elles donnent un minimum ou un maximum pour $f$. Pour cela, on peut utiliser la méthode de la dérivée seconde ou bien remarquer que $f$ est décroissante sur l'intervalle $(-\infty, \sqrt{2})$ et croissante sur $(\sqrt{2},\infty)$.
+	
+	On en conclut donc que $f$ admet un minimum global en $x=\sqrt{2}$, qui est $f(\sqrt{2})=\frac{4}{3}$. Le point correspondant sur la contrainte est $(\sqrt{2}, \frac{2}{3\sqrt{2}-2})$. }
