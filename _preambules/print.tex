@@ -57,7 +57,7 @@
 %}
 
 \newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
-
+\newcommand{\pathnotebook}{https://raw.githubusercontent.com/smaxx73/Exercices/main/notebook/}
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
 
  \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation
@@ -71,4 +71,8 @@
  		}{\fbox{\tiny{#1}}}
  	}{} \href{\pathexercice#1.pdf}{$\unrhd$} 
     	\textbf{Exercice #5} - \input{\path src/#1}
+}
+
+\newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
+\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
 }

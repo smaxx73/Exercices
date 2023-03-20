@@ -6,7 +6,7 @@
 
 \texte{ Soit $n \geq 3$, $\varepsilon >0$ et $A_\varepsilon$ la matrice pentadiagonale définie par 
 
-$$A = \begin{pmatrix}
+$$A_\varepsilon = \begin{pmatrix}
 	1 & \varepsilon & \varepsilon^2  &  &  & \\
 	\varepsilon & 1 & \varepsilon & \varepsilon^2     & &  \\
 	\varepsilon^2 & \ddots & \ddots & \ddots & & \\
@@ -15,7 +15,7 @@ $$A = \begin{pmatrix}
 	& & & \varepsilon^2 & \varepsilon & 1 \\
 \end{pmatrix}
 $$
-et on s'intéresse au système $Ax = b$ où $x,b \in \mathbb{R}^n$. }
+et on s'intéresse au système $A_\varepsilon x = b$ où $x,b \in \mathbb{R}^n$. }
 \begin{enumerate}
 	\item \question{ Ecrire une fonction Python qui génère la matrice $A_\varepsilon$ pour tout $n$ et $\varepsilon$ : }
 	
