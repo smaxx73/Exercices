@@ -5,9 +5,8 @@
 
 
 
-\texte{ La méthode d'Euler explicite est convergente et consistante d'ordre 1. 
-
-On décide d'approcher $\int_{t_n}^{t_{n+1}}f(s,y(s))ds \approx h\cdot f\left( t_n+\frac{h}{2},y\left( t_n+\frac{h}{2} \right)  \right)$.
+\texte{ La méthode d'Euler explicite est convergente et consistante d'ordre 1. On considère l'approximation suivante :
+	 $$\int_{t_n}^{t_{n+1}}f(s,y(s))ds \approx h\cdot f\left( t_n+\frac{h}{2},y\left( t_n+\frac{h}{2} \right)  \right).$$
 
 La méthode qui en découle s'écrit donc sous la forme 
 $$y_{n+1} = y_n + h\cdot f\left( t_n + \frac{h}{2},y_{n+1/2} \right)$$
