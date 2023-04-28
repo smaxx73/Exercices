@@ -14,11 +14,11 @@ $$ (x,y) \mapsto \left\{ \begin{array}{ll} \dfrac{x^3y-xy^3}{x^2+y^2} & \text{ s
 	Vérifier que $$|f(r\cos(\theta),r\sin(\theta))| \leq 2r^2$$ }
 	\reponse{Le dénominateur vaut $x^2+y^2 = r^2$. On majore le numérateur : 
 		\begin{align*}
-			|f(r \cos\theta, r \sin\theta)| &= \frac{|(r\cos\theta)^3(r\sin\theta)-(r\cos\theta)(r\sin\theta)^3}{r^2} \\
-			&= \frac{r^4 \cos^3\theta\sin\theta - r^4\cos\theta\sin^3\theta}{r^2} \\
+			|f(r \cos\theta, r \sin\theta)| &= \frac{|(r\cos\theta)^3(r\sin\theta)-(r\cos\theta)(r\sin\theta)^3|}{r^2} \\
+			&= \frac{|r^4 \cos^3\theta\sin\theta - r^4\cos\theta\sin^3\theta|}{r^2} \\
 			&\leq \frac{|r^4 \cos^3\theta\sin\theta| + |r^4\cos\theta\sin^3\theta|}{r^2}  \text{ par inégalité triangulaire} \\
 			&\leq \frac{r^4(|\cos^3\theta\sin\theta| + |\cos\theta\sin^3\theta|)}{r^2} \\
-			&\leq \frac{r^4(1 + 1)}{r^2}  \text{ car } |cos\theta \leq 1| \text{ et } |\sin\theta| \leq 1 \\
+			&\leq \frac{r^4(1 + 1)}{r^2}  \text{ car } |\cos\theta| \leq 1 \text{ et } |\sin\theta| \leq 1 \\
 			&\leq 2r^2
 		\end{align*}
 		
