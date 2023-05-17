@@ -76,3 +76,16 @@
 \newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
 \href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
 }
+
+\newcommand{\insertcolumn}[3]{
+	 \setboolean{solution}{#1}
+	 \ifthenelse{\boolean{solution}} {%
+	 	\begin{multicols}{#3}%
+	 	}{%
+	 	\begin{multicols}{#2}%
+	 	}
+}
+
+%\newcommand{\endcolumn}{%
+%\end{multicols}
+%}
