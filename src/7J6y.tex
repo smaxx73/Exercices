@@ -1,0 +1,63 @@
+\titre{Etude de séries numériques}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+
+\texte{ Dans chacun des cas, dire si la série de terme général $u_n$ est absolument convergente, semi-convergente, divergente, grossièrement divergente. \\
+Attention, pour pouvoir répondre, certaines séries demandent deux démonstrations: par exemple, pour montrer que $\sum u_n$ est semi-convergente, il faut démontrer que $\sum u_n$ est convergente et que $\sum |u_n|$ est divergente. }
+\insertcolumn{\solution}{3}{1}
+\begin{enumerate}
+	\item \question{$u_n=\frac{\sin(n^2)}{n^2}$}
+	\reponse{La série converge car elle est absolument convergente (le terme général est dominé par $1/n^2$).}
+	
+	\item \question{$u_n=\frac{(-1)^n\ln(n)}{n}$}
+	\reponse{On a $|u_n|\geq \frac{1}{n}$, qui est le terme général d'une série de Riemann divergente. Par comparaison, la série $\sum u_n$ ne converge pas absolument. \\
+		Par le critère des séries alternées, comme la suite $\left(\frac{\ln(n)}{n}\right)_n$ est décroissante et tend vers $0$, la série $\sum u_n$ converge. \\
+		Donc la série $\sum u_n$ est \textbf{semi-convergente}.}
+	
+	\item \question{$u_n=\frac{\cos(n^2\pi)}{n\ln(n)}$}
+	\reponse{La série diverge car le terme général ne tend pas vers 0.}
+	
+	\item \question{$u_n=\frac{(2n+1)^4}{(7n^2+1)^3}$}
+	\reponse{La série converge car le terme général est équivalent à $1/n^2$ qui est une série de Riemann convergente de paramètre 2.}
+	
+	\item \question{$u_n=\Big(1-\frac{1}{n}\Big)^n$}
+	\reponse{La série diverge car le terme général tend vers $1/e$ et ne tend donc pas vers 0.}
+	
+	\item \question{$u_n=\ln(1+e^{-n})$}
+	\reponse{La série converge car le terme général tend vers 0 et est dominé par $1/n^2$.}
+	
+	\item \question{$u_n=\frac{1}{n\cos^2(n)}$}
+	\reponse{La série diverge car le terme général est comparable à $1/n$ qui est une série de Riemann divergente de paramètre 1.}
+	
+	\item \question{$u_n=\sin\Big(\frac{n^2+1}{n}\pi \Big)$}
+	\reponse{La série diverge car le terme général ne tend pas vers 0.}
+	
+	\item \question{$u_n=\frac{n}{2^n}$}
+	\reponse{La série converge car elle est dominée par une série géométrique convergente.}
+	
+	\item \question{$u_n=\Big(1+\frac{1}{n}\Big)^{n^2}$}
+	\reponse{La série diverge car le terme général tend vers $e$ et ne tend donc pas vers 0.}
+	
+	\item \question{$u_n=\frac{n^{10000}}{n!}$}
+	\reponse{La série converge. C'est un cas particulier du ratio test, où $n^{10000}$ est dominé par $n!$ pour les grandes valeurs de $n$.}
+	
+	\item \question{$u_n= \frac{(-1)^n}{\sqrt{n+1}}$}
+	\reponse{La série converge car elle est une série alternée dont les termes décroissent vers 0.}
+	
+	\item \question{$u_n=\frac{1}{n(n+1)(n+2)}$}
+	\reponse{La série converge car le terme général est dominé par $1/n^3$ qui est une série de Riemann convergente de paramètre 3.}
+	
+	\item \question{$u_n=\frac{1}{(\ln(n))^n}$}
+	\reponse{La série converge car le terme général tend rapidement vers 0.}
+	
+	\item \question{$u_n=1-\cos\big(\frac{1}{n}\Big)$}
+	\reponse{La série converge car le terme général est dominé par $1/n^2$ qui est une série de Riemann convergente de paramètre 2.}
+	
+	\item \question{$u_n=\Big(\frac{4n+1}{3n+2}\Big)^n$}
+	\reponse{La série diverge car le terme général tend vers $(4/3)^n$ qui ne tend pas vers 0.}
+	
+	\item \question{$u_n=\frac{\ln(n)}{n}$}
+	\reponse{La série converge car le terme général est dominé par $1/n$ qui est une série de Riemann convergente de paramètre 1.}
+\end{enumerate}
+\end{multicols}
