@@ -5,12 +5,39 @@
 
 \texte{ Sachant que $\displaystyle e=\sum_{n\geq 0} \frac{1}{n!}$, déterminer la valeur des sommes suivantes : }
 \begin{enumerate}
-	\item \question{$\sum_{n\geq0} \frac{n+1}{n!}$}
-	%\reponse{La série est équivalente à $e\sum_{n\geq0} \frac{n}{n!} + e\sum_{n\geq0} \frac{1}{n!} = e(e+1)$, en utilisant le fait que $\sum_{n\geq0} \frac{n}{n!}$ est la dérivée de la série exponentielle et $\sum_{n\geq0} \frac{1}{n!} = e$.}
+	\item \question{$\displaystyle \sum_{n\geq0} \frac{n+1}{n!}$}
+	\reponse{ On décompose la somme en deux sommes :
+		\begin{align*}
+			\sum_{n\geq0} \frac{n+1}{n!} &= \sum_{n\geq0} \frac{n}{n!} + \sum_{n\geq0} \frac{1}{n!} \\
+			&= \sum_{n\geq1} \frac{1}{(n-1)!} + \sum_{n\geq0} \frac{1}{n!} \\
+			&= \sum_{n\geq0} \frac{1}{n!} + \sum_{n\geq0} \frac{1}{n!} \\
+			&= 2e
+		\end{align*}
+	}
 	
 	\item \question{$\sum_{n\geq0} \frac{n^2-2}{n!}$}
-	%\reponse{La série est équivalente à $e\sum_{n\geq0} \frac{n^2}{n!} - 2e = e^2 - 2e$, en utilisant le fait que $\sum_{n\geq0} \frac{n^2}{n!}$ est la dérivée seconde de la série exponentielle et $\sum_{n\geq0} \frac{1}{n!} = e$.}
+	\reponse{ On décompose la somme en deux sommes :
+		\begin{align*}
+			\sum_{n\geq0} \frac{n^2-2}{n!} &= \sum_{n\geq0} \frac{n^2}{n!} - 2\sum_{n\geq0} \frac{1}{n!} \\
+			&= \sum_{n\geq1} \frac{n}{(n-1)!} - 2\sum_{n\geq0} \frac{1}{n!} \\
+			&= \sum_{n\geq1} \frac{n-1+1}{(n-1)!} - 2\sum_{n\geq0} \frac{1}{n!} \\
+			&= \sum_{n\geq2} \frac{1}{(n-2)!} + \sum_{n\geq 1} \frac{1}{(n-1)!} - 2\sum_{n\geq0} \frac{1}{n!} \\
+			&= \sum_{n\geq0} \frac{1}{n!} + \sum_{n\geq 0} \frac{1}{n!} - 2\sum_{n\geq0} \frac{1}{n!} \\
+			&= 0
+		\end{align*}
+	}
 	
 	\item \question{$\sum_{n\geq0} \frac{n^3}{n!}$}
-	%\reponse{La série est équivalente à $e\sum_{n\geq0} \frac{n^3}{n!} = e^3$, en utilisant le fait que $\sum_{n\geq0} \frac{n^3}{n!}$ est la dérivée troisième de la série exponentielle.}
+	\reponse{ On simplifie :
+		\begin{align*}
+			\sum_{n\geq0} \frac{n^3}{n!} &= \sum_{n\geq0} \frac{n^2}{(n-1)!} \\
+			&= \sum_{n\geq1} \frac{n(n-1)+n-1+1}{(n-1)!} \\
+			&= \sum_{n\geq1} \frac{n(n-1)}{(n-1)!} + \sum_{n\geq1} \frac{n-1}{(n-1)!} + \sum_{n\geq1} \frac{1}{(n-1)!} \\
+			&= \sum_{n\geq2} \frac{n}{(n-2)!} + \sum_{n\geq2} \frac{1}{(n-2)!} + \sum_{n\geq1} \frac{1}{(n-1)!} \\
+			&= \sum_{n\geq2} \frac{n-2+2}{(n-2)!} + \sum_{n\geq2} \frac{1}{(n-2)!} + \sum_{n\geq1} \frac{1}{(n-1)!} \\
+			&= \sum_{n\geq3} \frac{1}{(n-3)!} + \sum_{n\geq2} \frac{2}{(n-2)!} + \sum_{n\geq2} \frac{1}{(n-2)!} + \sum_{n\geq1} \frac{1}{(n-1)!} \\
+			&= \sum_{n\geq0} \frac{1}{n!} + 2\sum_{n\geq0} \frac{1}{n!} + \sum_{n\geq0} \frac{1}{n!} + \sum_{n\geq0} \frac{1}{n!} \\
+			&= 5e
+		\end{align*}
+	}
 \end{enumerate}

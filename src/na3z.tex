@@ -5,7 +5,7 @@
 
 
 \texte{ Étudier la convergence des séries $\sum\limits_{n \geq n_0} u_n$ suivantes et préciser la somme de la série quand celle-ci est convergente. }
-\insertcolumn{\solution}{3}{1}
+\colonnes{\solution}{3}{1}
 \begin{enumerate} 
 			\item \question{ $u_n=\Big(\frac{3}{2}\Big)^n$ , $n_0=0$}
 			\reponse{C'est une série géométrique de raison $q = \frac32 >0$ donc une série divergente.  }
@@ -16,6 +16,7 @@
 				&=\sum_{k=2}^{n} \ln (k+1)-\ln (k)-(\ln (k)-\ln (k-1)) \\
 				&=\ln (n+1)-\ln (n)-\ln 2 \underset{n \rightarrow+\infty}{\longrightarrow}-\ln 2
 				\end{align*}
+			La série $\sum u_n$ est convergente et sa somme vaut $-\ln(2)$. 
 			}
 			\item \question{ $u_n=\Big(\frac{1+i}{2}\Big)^n$ , $n_0=0$}
 			\reponse{C'est une série géométrique de raison $q = \frac{1+i}{2}$ et $|q| = \frac{1}{\sqrt{2}}<1$ donc une série convergente. Sa somme vaut $\sum_{n=0}^{+\infty} u_n = \frac{1}{1-q} = \frac{2}{1-\mathrm{i}}$. }
@@ -33,5 +34,6 @@
 				
 			} 
 		\end{enumerate}
-\end{multicols}
+\fincolonnes{\solution}{3}{1}
+
 \texte{ 	\textit{Indications: Pour $2.$, on pourra remarquer que $\ln(1-\frac{1}{n^2})=\ln(n-1)+\ln(n+1)-2\ln(n)$. Pour $5.$, on pourra décomposer la fraction en éléments simples, i.e. chercher $a$, $b$ et $c$ des réels tels que $\frac{2n-1}{n(n^2-4)}=\frac{a}{n}+\frac{b}{n-2}+\frac{c}{n+2}$.}  }

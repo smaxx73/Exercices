@@ -77,15 +77,33 @@
 \href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
 }
 
-\newcommand{\insertcolumn}[3]{
-	 \setboolean{solution}{#1}
-	 \ifthenelse{\boolean{solution}} {%
-	 	\begin{multicols}{#3}%
-	 	}{%
-	 	\begin{multicols}{#2}%
-	 	}
-}
+\newcommand{\colonnes}[3]{
+	\setboolean{solution}{#1}
+	\ifthenelse{\boolean{solution}} {
+		\ifnumcomp{#3}{=}{1}
+		{}%
+		{\begin{multicols}{#3}}%
+		}%
+		{%
+			\ifnumcomp{#2}{=}{1}
+			{}%
+			{\begin{multicols}{#2}}%
+			}
+		}
 
+\newcommand{\fincolonnes}[3]{
+	\setboolean{solution}{#1}
+	\ifthenelse{\boolean{solution}} {
+		\ifnumcomp{#3}{=}{1}
+		{}%
+		{\end{multicols}}%
+}%
+{%
+	\ifnumcomp{#2}{=}{1}
+	{}%
+	{\end{multicols}}%
+}
+}
 %\newcommand{\endcolumn}{%
 %\end{multicols}
 %}
