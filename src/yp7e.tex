@@ -3,19 +3,19 @@
 \auteur{}
 \organisation{AMSCC}
 
-\texte{ Sachant que $\displaystyle e=\sum_{n\geq 0} \frac{1}{n!}$, déterminer la valeur des sommes suivantes : }
+\texte{ On admet que $\displaystyle e=\sum_{n=0}^{+\infty} \frac{1}{n!}$. }
 \begin{enumerate}
-	\item \question{$\displaystyle \sum_{n\geq0} \frac{n+1}{n!}$}
+	\item \question{Calculer la somme : $\displaystyle \sum_{n=0}^{+\infty} \frac{n+1}{n!}$}
 	\reponse{ On décompose la somme en deux sommes :
 		\begin{align*}
-			\sum_{n\geq0} \frac{n+1}{n!} &= \sum_{n\geq0} \frac{n}{n!} + \sum_{n\geq0} \frac{1}{n!} \\
-			&= \sum_{n\geq1} \frac{1}{(n-1)!} + \sum_{n\geq0} \frac{1}{n!} \\
-			&= \sum_{n\geq0} \frac{1}{n!} + \sum_{n\geq0} \frac{1}{n!} \\
+			\sum_{n=0}^{+\infty} \frac{n+1}{n!} &= \sum_{n=0}^{+\infty} \frac{n}{n!} + \sum_{n=0}^{+\infty} \frac{1}{n!} \\
+			&= \sum_{n=1}^{+\infty} \frac{1}{(n-1)!} + \sum_{n=0}^{+\infty} \frac{1}{n!} \\
+			&= \sum_{n=0}^{+\infty} \frac{1}{n!} + \sum_{n=0}^{+\infty} \frac{1}{n!} \\
 			&= 2e
 		\end{align*}
 	}
 	
-	\item \question{$\sum_{n\geq0} \frac{n^2-2}{n!}$}
+	\item \question{Calculer la somme : $\displaystyle \sum_{n=0}^{+\infty} \frac{n^2-2}{n!}$}
 	\reponse{ On décompose la somme en deux sommes :
 		\begin{align*}
 			\sum_{n\geq0} \frac{n^2-2}{n!} &= \sum_{n\geq0} \frac{n^2}{n!} - 2\sum_{n\geq0} \frac{1}{n!} \\
@@ -27,7 +27,7 @@
 		\end{align*}
 	}
 	
-	\item \question{$\sum_{n\geq0} \frac{n^3}{n!}$}
+	\item \question{Calculer la somme : $\displaystyle \sum_{n=0}^{+\infty} \frac{n^3}{n!}$}
 	\reponse{ On simplifie :
 		\begin{align*}
 			\sum_{n\geq0} \frac{n^3}{n!} &= \sum_{n\geq0} \frac{n^2}{(n-1)!} \\
