@@ -1,16 +1,19 @@
+\definecolor{solutioncolor}{RGB}{0,100,0}
 
-
-\global\mdfdefinestyle{solution}{
-	backgroundcolor=green!15,
-	roundcorner=2pt,
-	linewidth=2pt,
-	linecolor=green!30,
-	topline=false,
-	bottomline=false,
-	rightline=false,
-	nobreak=false,
-	frametitlebelowskip=0mm
+\newtcolorbox{solutionbox}{
+	enhanced,
+	colback=solutioncolor!10!white,
+	colframe=solutioncolor,
+	boxsep=5pt,
+	arc=4pt,
+	borderline={0.8pt}{-3pt}{solutioncolor},
+	frame hidden,
+	interior style={top color=solutioncolor!5!white, bottom color=solutioncolor!2!white},
+	overlay={
+		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=solutioncolor, inner sep=1pt] {\textcolor{white}\checkmark};}};
+	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
+
 
 \newboolean{solution}
 \newboolean{uuid}
@@ -33,9 +36,9 @@
 \newcommand{\reponse}[1]{
 	\ifthenelse{\boolean{solution}} 
 	{%
-	\begin{mdframed}[style=solution]
-		\begin{small} #1 \end{small} 
-\end{mdframed}}{}
+	\begin{solutionbox}
+		\begin{footnotesize} #1 \end{footnotesize} 
+\end{solutionbox}}{}
 } 
 
  \newcommand{\nextexo}{
