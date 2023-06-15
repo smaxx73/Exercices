@@ -4,8 +4,8 @@
 \organisation{AMSCC}
 
 \begin{enumerate}
-	\item \question{ Donner un développement en série entière de $u \mapsto \ln(1-u)$, en précisant le rayon de convergence ; }
-	\reponse{Quelque soit $u \in ]-1;1[$, $\ln(1+u) = \sum\limits_{n=1}^{+\infty} \frac{(-1)^{n+1}}{n}\ u^n=u-\frac{u^2}{2}+\frac{u^3}{3}-\cdots$
+	\item \question{ Donner un développement en série entière de la fonction $u \mapsto \ln(1-u)$, en précisant le rayon de convergence ; }
+	\reponse{Quelque soit $u \in ]-1;1[$, $\ln(1-u) = \sum\limits_{n=1}^{+\infty} \frac{-1}{n}\ u^n=-u-\frac{u^2}{2}-\frac{u^3}{3}+\cdots$
 	}
 %	\item \question{ Vérifier que pour tout $x \in \mathbb{R}$, $(1-x^3) = (1-x)(1+x+x^2)$. }
 %	\reponse{Il suffit de développer $(1-x)(1+x+x^2)$}
@@ -15,6 +15,6 @@
 		\ln(1+x+x^2) &= \sum\limits_{n=1}^{+\infty} -\frac{1}{n}\ x^{3n} - \sum\limits_{n=1}^{+\infty} -\frac{1}{n}\ x^n \\
 		&= -\sum\limits_{n=1}^{+\infty} \frac{1}{n}\ x^{3n} + \sum\limits_{n=1}^{+\infty} \frac{1}{n}\ x^n =\sum\limits_{n=1}^{+\infty}a_n x^{n}
 		\end{align*}
-		avec $a_n = -\frac{1}{n}+\frac{1}{3n} = \frac{-2}{3n}$ s'il existe $p$ tel que $n=3p$, $a_n = \frac{1}{n}$ sinon. 
+		avec $a_n = -\frac{3}{n}+\frac{1}{n} = \frac{-2}{n}$ s'il existe $p$ tel que $n=3p$, $a_n = \frac{1}{n}$ sinon. 
 	}
 \end{enumerate}
