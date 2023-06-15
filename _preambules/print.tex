@@ -66,8 +66,8 @@
  \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation
  \noindent
  \setboolean{solution}{#2}
- 	\setboolean{uuid}{#3}
- 	\setboolean{link}{#4}
+ \setboolean{uuid}{#3}
+ \setboolean{link}{#4}
  	\ifthenelse{\boolean{uuid}}{%
  		\ifthenelse{\boolean{link}}{%
  			\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}  			
