@@ -1,0 +1,29 @@
+\titre{Loi d'une variable aléatoire discrète}
+\theme{Probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+
+
+\contenu{
+    \question{ Soit $X$ une variable aléatoire discrète telle que $X(\Omega)=\{3,4,5,6\}$. Déterminer la loi de $X$ et calculer son espérance, sachant que:
+\[ \p(X<5)=\frac{1}{6}, \quad \p(X>5)=\frac{1}{2}, \quad \p(X\leq 3)=\p(X=4) \text{.}\]
+    }
+    
+    \reponse{
+        \begin{itemize}
+    \item $\p(X>5)=\p(X=6)=\frac{1}{2}$ 
+ \item $1=\p(X<5)+\p(X=5)+\p(X>5)$ donc $\p(X=5)=1-\frac{1}{6}-\frac{1}{2}=\frac{1}{3}$
+ \item $\p(X\leq 3)=\p(X=3)=\p(X=4)$ et $\frac{1}{6}=\p(X<5)=\p(X=3)+\p(X=4)$ donc $\p(X=3)=\p(X=4)=\frac{1}{12}$
+\end{itemize}
+On a ainsi déterminer la loi de $X$: \quad 
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ $\omega$ & 3 & 4 & 5 & 6 \\
+\hline
+ $\p(\omega)$ & $\frac{1}{12}$ & $\frac{1}{12}$ & $\frac{1}{3}$ & $\frac{1}{2}$ \\
+\hline
+\end{tabular}
+L'espérance de $X$ est:
+\[ \E(X)=3\times \p(X=3)+4\times\p(X=4)+5\times\p(X=5)+6\times\p(X=6) = \frac{21}{4}=5.25\]
+}
