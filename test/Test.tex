@@ -4,6 +4,8 @@
 \usepackage[autolanguage]{numprint}
 \usepackage{makecell}
 \usepackage{geometry}
+\usepackage{qrcode}
+\geometry{hmargin=1.5cm,vmargin=1cm}
 
 %chemin vers les sources d'exercices
 \newcommand{\path}{../}
@@ -14,5 +16,8 @@
 
 
 \begin{document}
+	\nextexo
+	\insertexo{ingl}{false}{true}{true}{\thenum}
+	\nextexo
 	\insertexo{ingl}{true}{true}{true}{\thenum}
 \end{document}

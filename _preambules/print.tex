@@ -1,33 +1,60 @@
+\newboolean{solution}
+\newboolean{uuid}
+\newboolean{link}
+
+\newcounter{num}
+
 \definecolor{solutioncolor}{RGB}{0,100,0}
+\definecolor{titrecolor}{RGB}{36,76,146}
+
+\newtcolorbox{marker}[1][]{enhanced,hbox,before skip=2mm,after skip=3mm,fontupper=\small\sffamily,%
+	boxrule=0.4pt,left=1mm,right=4mm,top=1pt,bottom=1pt,colback=yellow!15,colframe=yellow!20!black,%
+	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,%
+	underlay={%
+		\path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		\path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		%\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[midway,white]{\Large\bfseries{}!} ([xshift=3mm]interior.north west);
+	},%
+	drop fuzzy shadow,#1
+}
 
 \newtcolorbox{solutionbox}{
 	enhanced,
-	colback=solutioncolor!10!white,
+	colback=solutioncolor!50!white,
 	colframe=solutioncolor,
 	boxsep=5pt,
-	arc=4pt,
-	borderline={0.8pt}{-3pt}{solutioncolor},
+	%arc=4pt,
+	%borderline={0.8pt}{-3pt}{solutioncolor},
 	frame hidden,
-	interior style={top color=solutioncolor!15!white, bottom color=solutioncolor!10!white},
+	interior style={top color=solutioncolor!15!white, bottom color=solutioncolor!20!white},
 	overlay={
 		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=solutioncolor, inner sep=1pt] {\textcolor{white}\checkmark};}};
 	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
 
-
-\newboolean{solution}
-\newboolean{uuid}
-\newboolean{link}
-
-
-\newcounter{num}
+\newtcolorbox{titrebox}[2][]{
+	enhanced,
+	breakable,
+	boxrule=0pt,
+	colframe=white,
+	colback=white,
+	sharp corners,
+	top=40pt,
+	bottom=-2pt,
+	borderline west={1pt}{0pt}{white!75!black},
+	overlay unbroken and first={
+		\node[anchor=north west, inner xsep=-2pt, inner ysep=2pt] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt] {\small\sffamily{\textcolor{white}{Ex #1}}};}};
+		\node[anchor=north east, inner sep=2pt] at (frame.north east) {\tikz{\node[] {\begin{marker}{#2}\end{marker}};}};
+		\node[anchor=south east, inner sep=2pt] at (frame.south east) {\tikz{\node[draw] {truc};}};
+	}
+}
 
 \newcommand{\titre}[1]{%
- \textit{{#1}}\\
-} 
-%\newcommand{\titre}[1]{%
-%\def\Titre{#1}
-%}
+	\def\TitreExo{#1}
+}
+\newcommand{\contenu}[1]{%
+	\def\Contenu{#1}
+}
 \newcommand{\texte}[1]{#1}
 \newcommand{\theme}[1]{}
 \newcommand{\auteur}[1]{}
@@ -36,18 +63,14 @@
 \newcommand{\reponse}[1]{
 	\ifthenelse{\boolean{solution}} 
 	{%
-	\begin{solutionbox}
-		\begin{footnotesize} #1 \end{footnotesize} 
-\end{solutionbox}}{}
+		\begin{solutionbox}
+			\begin{footnotesize} #1 \end{footnotesize} 
+	\end{solutionbox}}{}
 } 
 
- \newcommand{\nextexo}{
- 	\addtocounter{num}{1}
-	\vspace{2em}
-%	\begin{center}
-%		\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-%	\end{center}
-%	\vspace{2mm}
+\newcommand{\nextexo}{
+	\addtocounter{num}{1}
+	\vspace{1em}
 }
 
 % \newcommand{\insertexo}[1]{
@@ -63,21 +86,22 @@
 \newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
 
- \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation
- \noindent
- \setboolean{solution}{#2}
- \setboolean{uuid}{#3}
- \setboolean{link}{#4}
- 	\ifthenelse{\boolean{uuid}}{%
- 		\ifthenelse{\boolean{link}}{%
- 			\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}  			
- 		}{\fbox{\tiny{#1}}}
- 	}{} \href{\pathexercice#1.pdf}{$\unrhd$} 
-    	\textbf{Exercice #5} - \input{\path src/#1}
+\newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+	\noindent
+	\input{\path src/#1}
+	\setboolean{solution}{#2}
+	\setboolean{uuid}{#3}
+	\setboolean{link}{#4}
+	
+	\begin{titrebox}[#5]
+		{\bfseries{\TitreExo}} %\hfill
+		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+		\Contenu
+	\end{titrebox}	
 }
 
 \newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
-\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
+	\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
 }
 
 \newcommand{\colonnes}[3]{
@@ -93,20 +117,17 @@
 			{\begin{multicols}{#2}}%
 			}
 		}
-
+		
 \newcommand{\fincolonnes}[3]{
-	\setboolean{solution}{#1}
-	\ifthenelse{\boolean{solution}} {
-		\ifnumcomp{#3}{=}{1}
-		{}%
-		{\end{multicols}}%
-}%
-{%
-	\ifnumcomp{#2}{=}{1}
-	{}%
-	{\end{multicols}}%
+			\setboolean{solution}{#1}
+			\ifthenelse{\boolean{solution}} {
+				\ifnumcomp{#3}{=}{1}
+				{}%
+				{\end{multicols}}%
+		}%
+		{%
+			\ifnumcomp{#2}{=}{1}
+			{}%
+			{\end{multicols}}%
+	}
 }
-}
-%\newcommand{\endcolumn}{%
-%\end{multicols}
-%}

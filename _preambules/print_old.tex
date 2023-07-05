@@ -1,0 +1,113 @@
+\definecolor{solutioncolor}{RGB}{0,100,0}
+
+\newtcolorbox{solutionbox}{
+	enhanced,
+	colback=solutioncolor!50!white,
+	colframe=solutioncolor,
+	boxsep=5pt,
+	%arc=4pt,
+	%borderline={0.8pt}{-3pt}{solutioncolor},
+	frame hidden,
+	interior style={top color=solutioncolor!15!white, bottom color=solutioncolor!20!white},
+	overlay={
+		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=solutioncolor, inner sep=1pt] {\textcolor{white}\checkmark};}};
+	} % Ajouter l'icône d'ampoule en tant qu'overlay
+}
+
+
+\newboolean{solution}
+\newboolean{uuid}
+\newboolean{link}
+
+
+\newcounter{num}
+
+\newcommand{\titre}[1]{%
+ \textit{{#1}}\\
+} 
+%\newcommand{\titre}[1]{%
+%\def\Titre{#1}
+%}
+\newcommand{\texte}[1]{#1}
+\newcommand{\theme}[1]{}
+\newcommand{\contenu}[1]{}
+\newcommand{\auteur}[1]{}
+\newcommand{\organisation}[1]{}
+\newcommand{\question}[1]{#1}
+\newcommand{\reponse}[1]{
+	\ifthenelse{\boolean{solution}} 
+	{%
+	\begin{solutionbox}
+		\begin{footnotesize} #1 \end{footnotesize} 
+\end{solutionbox}}{}
+} 
+
+ \newcommand{\nextexo}{
+ 	\addtocounter{num}{1}
+	\vspace{2em}
+%	\begin{center}
+%		\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+%	\end{center}
+%	\vspace{2mm}
+}
+
+% \newcommand{\insertexo}[1]{
+% \begin{minipage}[t]{0.85\textwidth}
+%\input{../Exercices/#1}
+%\end{minipage}
+%\begin{minipage}[t]{0.15\textwidth}
+%{\tiny [#1]}
+%\end{minipage}
+%}
+
+\newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
+\newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
+\newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
+
+ \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation
+ \noindent
+ \setboolean{solution}{#2}
+ \setboolean{uuid}{#3}
+ \setboolean{link}{#4}
+ 	\ifthenelse{\boolean{uuid}}{%
+ 		\ifthenelse{\boolean{link}}{%
+ 			\fbox{\tiny{\href{\pathcorrige#1.pdf}{#1}}}  			
+ 		}{\fbox{\tiny{#1}}}
+ 	}{} \href{\pathexercice#1.pdf}{$\unrhd$} 
+    	\textbf{Exercice #5} - \input{\path src/#1}
+}
+
+\newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
+\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
+}
+
+\newcommand{\colonnes}[3]{
+	\setboolean{solution}{#1}
+	\ifthenelse{\boolean{solution}} {
+		\ifnumcomp{#3}{=}{1}
+		{}%
+		{\begin{multicols}{#3}}%
+		}%
+		{%
+			\ifnumcomp{#2}{=}{1}
+			{}%
+			{\begin{multicols}{#2}}%
+			}
+		}
+
+\newcommand{\fincolonnes}[3]{
+	\setboolean{solution}{#1}
+	\ifthenelse{\boolean{solution}} {
+		\ifnumcomp{#3}{=}{1}
+		{}%
+		{\end{multicols}}%
+}%
+{%
+	\ifnumcomp{#2}{=}{1}
+	{}%
+	{\end{multicols}}%
+}
+}
+%\newcommand{\endcolumn}{%
+%\end{multicols}
+%}
