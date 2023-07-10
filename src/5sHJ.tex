@@ -10,14 +10,17 @@ Au dernier tirage, il fallait jouer les numéros: $4$, $8$, $21$, $23$, $42$ et 
 
     \question{Pour un jeu simple, calculer l'espérance de gain.}
 
-    \reponse{ Soit $X$ le nombre de bons numéros trouvés par le joueur. Alors $X$ suit une loi hypergéométrique de paramètres: $\mathcal{H}(6,\frac{1}{46},49)$. \\
-Soit $Y$ le gain du joueur. Alors on a
+    \reponse{ Soit $X$ le nombre de bons numéros trouvés par le joueur. Alors $X$ suit une loi hypergéométrique de paramètres: $\mathcal{H}(6,\frac{1}{46},49)$. Une loi hypergéométrique de paramètres $(N,p,n)$ est une loi de probabilité sur $\{0,1,\ldots,N\}$ dont la loi de probabilité e est donnée par : 
+    \[ \forall k \in \{0,1,\ldots,N\}, \prob(X=k)=\frac{\binom{n}{k}\binom{N-n}{n-k}}{\binom{N}{n}}.\]
+    Elle permet de modéliser le tirage sans remise de $n$ boules parmi $N$ boules dont $n$ sont marquées. Ici, $N=49$, $n=6$ et $p=\frac{1}{46}$.
+    
+    Soit $Y$ le gain du joueur. Alors on a
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
  \hline
- $\omega$ & 0 & 0 & 0 & 1 & 20 & 1100 & $700\ 000$ \\
+ $k$ & 0 & 0 & 0 & 1 & 20 & 1100 & $700\ 000$ \\
  \hline
- $\prob(\omega)$ & $\prob(X=0)$ & $\prob(X=1)$ & $\prob(X=2)$ & $\prob(X=3)$ & $\prob(X=4)$ & $\prob(X=5)$ & $\prob(X=6)$ \\
+ $\prob(Y=k)$ & $\prob(X=0)$ & $\prob(X=1)$ & $\prob(X=2)$ & $\prob(X=3)$ & $\prob(X=4)$ & $\prob(X=5)$ & $\prob(X=6)$ \\
  \hline
 \end{tabular}
 \end{center}

@@ -48,7 +48,7 @@
 	%bottom=-2pt,
 	borderline north={0pt}{0pt}{white!100!black},
 	overlay unbroken and first={
-		\node[anchor=north west, inner xsep=-2pt, inner ysep=-7pt] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt] {\small\sffamily{\textcolor{white}{Ex #1}}};}};
+		\node[anchor=north west, inner xsep=-2pt, inner ysep=-7pt, rounded corners] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt] {\small\textbf{\sffamily{\textcolor{white}{Ex #1}}}};}};
 		\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {\tikz{\node[] {\begin{marker}{#2}\end{marker}};}};
 		%\node[anchor=south east, inner sep=2pt] at (frame.south east) {\tikz{\node[draw] {truc};}};
 	%sharp corners,
