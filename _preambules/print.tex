@@ -7,8 +7,13 @@
 \definecolor{solutioncolor}{RGB}{0,100,0}
 \definecolor{titrecolor}{RGB}{36,76,146}
 
+%liens vers des ressources extérieures :
+\newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
+\newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
+\newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
+
 \newtcolorbox{marker}[1][]{enhanced,hbox,before skip=2mm,after skip=3mm,fontupper=\small\sffamily,%
-	boxrule=0.4pt,left=1mm,right=4mm,top=1pt,bottom=1pt,colback=yellow!15,colframe=yellow!20!black,%
+	boxrule=0.4pt,left=1mm,right=4mm,top=1pt,bottom=1pt,colback=blue!15,colframe=yellow!20!black,%
 	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,%
 	underlay={%
 		\path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
@@ -32,7 +37,7 @@
 	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
 
-\newtcolorbox{titrebox}[2][]{
+\newtcolorbox{titrebox}[3][]{
 	enhanced,
 	breakable,
 	boxrule=0pt,
@@ -46,6 +51,18 @@
 		\node[anchor=north west, inner xsep=-2pt, inner ysep=-7pt] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt] {\small\sffamily{\textcolor{white}{Ex #1}}};}};
 		\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {\tikz{\node[] {\begin{marker}{#2}\end{marker}};}};
 		%\node[anchor=south east, inner sep=2pt] at (frame.south east) {\tikz{\node[draw] {truc};}};
+	%sharp corners,
+	top=30pt,
+	bottom=10pt,
+	borderline west={1pt}{0pt}{white!75!black},
+	overlay unbroken and first={
+		\ifthenelse{\boolean{uuid}}{
+			\node[anchor=south east, inner sep=0pt] at (frame.south east) {\tikz{\node[draw, fill=black!85!white, inner sep=1pt] {
+				\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\textcolor{white}{\tiny\texttt{\##3}}}}{\textcolor{white}{\tiny\texttt{\##3}}}
+				};}};
+		}{}
+		\node[anchor=north west, inner xsep=-2pt, inner ysep=2pt] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt, rounded corners] {\sffamily\textbf{\textcolor{white}{Ex #1}}};}};
+		\node[anchor=north east, inner sep=2pt] at (frame.north east) {\tikz{\node[] {\begin{marker}{#2}\end{marker}};}};
 	}
 }
 
@@ -82,9 +99,7 @@
 %\end{minipage}
 %}
 
-\newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
-\newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
-\newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
+
 
 \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
 	\noindent
@@ -94,7 +109,7 @@
 	\setboolean{link}{#4}
 	
 	\begin{titrebox}[#5]
-		{\bfseries{\TitreExo}} %\hfill
+		{\bfseries{\TitreExo}}{#1} %\hfill
 		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
 		\Contenu
 	\end{titrebox}	
