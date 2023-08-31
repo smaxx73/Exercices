@@ -2,6 +2,7 @@
 \theme{probabilités}
 \auteur{}
 \organisation{AMSCC}
+\contenu{
 
 \texte{ On appelle loi Gamma $\Gamma(\alpha,\lambda)$ où $\alpha>0$, $\lambda>0$ la loi dont la densité est définie par 
 	$$f(t) = \frac{\lambda^\alpha}{\Gamma(\alpha)}t^{\alpha-1}e^{-\lambda t}\textbf{1}_{[0;+\infty[}(t)$$
@@ -31,4 +32,4 @@
 	\item \question{ Soient $(Z_1,...,Z_n)$ des variables i.i.d selon une loi normale centrée réduite. Déterminer la loi de probabilité de la variable aléatoire 
 		$$\sum_{i=1}^{n}Z_i^2$$  }
 	\reponse{ Par somme de variables indépendantes, la fonction génératrice de $\chi^2$ est $m_{\chi^2}(t) = (1-2t)^{-n/2}$. En refaisant le même calcul que précédemment, on reconnaît la fonction génératrice d'une variable admettant pour densité $\frac{1}{\Gamma(n/2) 2^{n/2}} x^{n/2-1} e^{-x/2}$, donc une variable suivant une loi $\Gamma\left(\frac{n}{2},\frac{1}{2}\right)$. }
-\end{enumerate}
+\end{enumerate}}

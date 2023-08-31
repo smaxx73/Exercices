@@ -15,9 +15,18 @@ def createlatex(directory, filename):
         latexfile.write(texte)
         latexfile.close()
 
-directory_compile = './pdf/latex'  #fichiers compilables en standalone
-directory_src = './src'                #fichiers sources des exercices (non compilables)
-directory_pdf = './pdf/pdf'        #fichier pdf compilé
+script_directory = os.path.dirname(os.path.abspath(__file__))
+parent_directory = os.path.join(script_directory, os.pardir)
+
+directory_compile = os.path.join(parent_directory, 'pdf/latex') 
+directory_src = os.path.join(parent_directory, 'src')  
+directory_pdf = os.path.join(parent_directory, 'pdf/pdf') 
+
+print(script_directory)
+print(directory_pdf)
+print(directory_src)
+print(directory_compile)
+
 
 for filename in os.listdir(directory_src):
     if filename[-4:] == ".tex":

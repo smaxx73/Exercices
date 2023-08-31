@@ -2,6 +2,7 @@
 \theme{statistiques}
 \auteur{Maxime NGUYEN}
 \organisation{AMSCC}
+\contenu{
 
 \texte{ 	On fixe un réel $a>0$ et on définit une variable aléatoire $X$ sur $\mathbb{N}$ dont la loi de probabilité est définie par 
 $$\PP(X=k)=\frac{a^k}{(1+a)^{k+1}}$$
@@ -21,4 +22,4 @@ On a donc trouvé un meilleur estimateur du paramètre $a$ selon la méthode du 
 Reste à calculer le biais de cet estimateur, autrement dit à calculer $B(T) = \mathbb{E}(T-a)$. Or pour tout entier $i$, $X_i$ suit la loi définie ci-dessus et on espérance se calcule de la manière suivante :
 $$\mathbb{E}(X_i) = \sum_{k=0}^n k\PP(X_i=k) = \sum_{k=0}^n k \left( \frac{a}{1+a}  \right)^{k-1} \frac{a}{(1+a)^2} = \frac{1}{\left(1-\frac{a}{1+a}\right)^2} \times \frac{a}{(1+a)^2} = a$$
 Donc $B(T) = \frac{1}{n} \times n \times a - a = 0$ : la variable $T$ est donc un estimateur sans biais du paramètre $a$.
-}
+}}
