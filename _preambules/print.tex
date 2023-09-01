@@ -88,6 +88,19 @@
 %\end{minipage}
 %}
 
+\newcommand{\insertexobis}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+	\noindent
+	\input{../src/#1}
+	\setboolean{solution}{#2}
+	\setboolean{uuid}{#3}
+	\setboolean{link}{#4}
+	
+	\begin{titrebox}[#5]
+		{\bfseries{\TitreExo}}{#1} %\hfill
+		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+		\Contenu
+	\end{titrebox}	
+}
 
 
 \newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
