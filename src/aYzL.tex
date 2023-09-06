@@ -14,8 +14,8 @@
 		
 		D'après la loi forte de grands nombres, la suite de variables aléatoires $(I_n)$ converge donc presque sûrement vers $\mathbb{E}(X_1) = I$. }
 	\item \question{ Compléter le code Python ci-dessous, comportant deux champs manquants, afin qu'il affiche une approximation de $I$.
-
-%\begin{mylisting}
+}
+%\begin{Piton}
 %n=1000
 %S=0
 %for i in range(n):
@@ -23,8 +23,8 @@
 %  S= S+sin(sqrt(u))
 %print("Valeur approchée de I = ")
 %print(...)
-%\end{mylisting} 
-}
+%\end{Piton} 
+
 	\reponse{ Il manque \texttt{u=rand()} et \texttt{print(S/n)} }
 	\item \texte{ Pour tout $k \in \mathbb{N}^*$, on pose $Y_k= \sin\left( \sqrt{X_k} \right)$. Les variables aléatoires $(X_k)$ étant i.i.d., les variables aléatoires $(Y_k)$ le sont aussi et on note $\mu$ leur espérance et $\sigma^2$ leur variance. }
 	\begin{enumerate}
