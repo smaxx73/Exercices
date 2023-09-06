@@ -26,3 +26,18 @@
 
 
 %\usepackage{verbatim} 
+
+%python :
+\usepackage{listings}
+
+\lstnewenvironment{mylisting}[1][]{
+	\lstset{
+		language=Python,        % Langage par défaut
+		basicstyle=\ttfamily,  % Style de base
+		keywordstyle=\color{blue},
+		commentstyle=\color{green!70},
+		stringstyle=\color{red},
+		% Ajoutez d'autres configurations si nécessaire
+		#1                      % Permet des configurations supplémentaires lors de l'utilisation
+	}
+}{}
