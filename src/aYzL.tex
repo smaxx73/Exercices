@@ -2,6 +2,29 @@
 \theme{probabilités}
 \auteur{Maxime Nguyen}
 \organisation{AMSCC}
+
+
+\begin{SaveVerbatim}{aYzLpython}
+n=1000
+S=0
+for i in range(n):
+  u = ...
+  S= ...
+print("Valeur approchée de I = ")
+print(...)
+\end{SaveVerbatim}
+
+\begin{SaveVerbatim}{aYzLpythonsolution}
+	n=1000
+	S=0
+	for i in range(n):
+	u = rand()
+	S= S+sin(sqrt(u))
+	print("Valeur approchée de I = ")
+	print(S/n)
+\end{SaveVerbatim}
+
+
 \contenu{
 
 \texte{ On souhaite calculer à l'aide d'une méthode de Monte Carlo une approximation de l'intégrale $$I=\int_0^1 \sin(\sqrt{x})dx$$ 
@@ -14,6 +37,8 @@
 		
 		D'après la loi forte de grands nombres, la suite de variables aléatoires $(I_n)$ converge donc presque sûrement vers $\mathbb{E}(X_1) = I$. }
 	\item \question{ Compléter le code Python ci-dessous, comportant deux champs manquants, afin qu'il affiche une approximation de $I$.
+		
+	{\centering \fbox{\BUseVerbatim{aYzLpython}}\par}
 }
 %\begin{Piton}
 %n=1000
@@ -25,7 +50,7 @@
 %print(...)
 %\end{Piton} 
 
-	\reponse{ Il manque \texttt{u=rand()} et \texttt{print(S/n)} }
+	\reponse{ {\centering \fbox{\BUseVerbatim{aYzLpythonsolution}}\par} }
 	\item \texte{ Pour tout $k \in \mathbb{N}^*$, on pose $Y_k= \sin\left( \sqrt{X_k} \right)$. Les variables aléatoires $(X_k)$ étant i.i.d., les variables aléatoires $(Y_k)$ le sont aussi et on note $\mu$ leur espérance et $\sigma^2$ leur variance. }
 	\begin{enumerate}
 		\item \question{ Calculer l'espérance et la variance de la variable aléatoire $I_n$ en fonction de $\mu$, $\sigma$ et $n$. }
