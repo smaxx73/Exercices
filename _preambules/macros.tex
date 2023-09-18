@@ -1,3 +1,6 @@
+\usepackage{siunitx}
+\renewcommand{\nombre}[1]{\num[group-separator={\,}, output-decimal-marker={,}]{#1}}
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Nn}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
@@ -32,9 +35,11 @@
 %\newcommand{\dx}{\mathrm{d}x}
 %\newcommand{\dt}{\mathrm{d}t}
 
+\DeclareMathOperator{\var}{V}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\V}{V}
 \newcommand{\p}{\mathbb {P}}
 %\newcommand{\E}{\mathbb {E}}
-\newcommand{\V}{\mathbb {V}}
 \newcommand{\nd}{\noindent}
 \newcommand{\ssi}{si, et seulement si, }
 \newcommand{\mq}{Montrer que }
@@ -43,12 +48,12 @@
 \newcommand{\1}{\mathbf{1}}
 \renewcommand{\Im}{\mathfrak{Im}}
 \renewcommand{\Re}{\mathfrak{Re}}
-\newcommand{\dx}{\hspace{.6mm} dx }
-\newcommand{\dy}{\hspace{.6mm} dy }
-\newcommand{\dz}{\hspace{.6mm} dz }
-\newcommand{\dt}{\hspace{.6mm} dt }
-\newcommand{\du}{\hspace{.6mm} du }
-\newcommand{\dv}{\hspace{.6mm} dv }
+\newcommand{\dx}{\hspace{.6mm} \mathrm{d}x }
+\newcommand{\dy}{\hspace{.6mm} \mathrm{d}y }
+\newcommand{\dz}{\hspace{.6mm} \mathrm{d}z }
+\newcommand{\dt}{\hspace{.6mm} \mathrm{d}t }
+\newcommand{\du}{\hspace{.6mm} \mathrm{d}u }
+\newcommand{\dv}{\hspace{.6mm} \mathrm{d}v }
 \newcommand{\n}{_{n\in\N}}
 \newcommand{\nstar}{_{n\in\N^*}}
 \newcommand{\eq}{\;\Leftrightarrow\;}

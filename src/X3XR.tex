@@ -19,6 +19,6 @@
 On détermine maintenant la fonction de répartition : soit $t \in \R$ ;
 \begin{itemize}
 	\item si $t<0$, alors $F_X(t) = \int_{-\infty}^t f(x)dx = \int_{-\infty}^t 0 dx = 0$ ;
-	\item si $t \geq 0$, alors $F_X(t) = \int_{-\infty}^t f(x)dx = $
+	\item si $t \geq 0$, alors $F_X(t) = \int_{-\infty}^t f(x)dx = \int_{-\infty}^0 0 dx + \int_0^t \lambda e^{-\lambda x} dx = 0 + \left[-e^{-\lambda x}\right]_0^t = 1 - e^{-\lambda t}$.
 \end{itemize} 
 }}
