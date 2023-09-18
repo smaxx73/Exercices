@@ -128,6 +128,13 @@
 	\end{titrebox}	
 }
 
+\newcommand{\listexo}[1]{%liste
+	\foreach \ex in #1 {
+		\nextexo
+		\insertexo{\ex}{\solution}{\uuid}{\link}{\thenum}
+	}
+}
+
 \newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
 	\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
 }
