@@ -1,0 +1,17 @@
+\titre{ Fiabilité d'un système électronique }
+\theme {probabilités}
+\auteur{ }
+\organisation{ AMSCC }
+
+\contenu{
+    \texte{ Un système électronique est constitué de $n$ composants disposés en série. Cela implique que la panne d'un composant entraîne la panne de tout le système. Chacun des composants a une durée de vie $T_k$ qui suit une loi exponentielle de paramètre $\lambda = 1$, pour tout $k \in \{1, \ldots, n\}$. On admet que les variables aléatoires $T_1, \ldots, T_n$ sont indépendantes. On note $S$ la durée de vie du système et on note $t \geq 0$ la variable de temps. }
+
+    \begin{enumerate}
+        \item \question{ 
+            Soit $t \geq 0$. Pour tout $k \in \{1, \ldots, n \}$, on note $R_k(t) = \prob(T_k > t)$ la fiabilité du composant $k$ à l'instant $t$. C'est la probabilité que le composant $k$ fonctionne encore après un temps d'utilisation $t$. Déterminer $R_k(t)$.
+        }
+        \reponse{
+            $R_k(t) = \int_{t}^{+\infty} e^{-x} dx = e^{-t}$ pour tout $t \geq 0$.
+        }
+    \end{enumerate}
+}
