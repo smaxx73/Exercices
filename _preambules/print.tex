@@ -166,3 +166,21 @@
 			{\end{multicols}}%
 	}
 }
+
+\newcounter{qrcodenum}
+
+\newcommand{\listeqrcode}[2]{%liste d'exercices, initiatialisation du compteur
+\setcounter{qrcodenum}{#2}
+\noindent
+\foreach \exo in #1{
+	% Crée une minipage pour chaque exercice avec son numéro, son titre et son QR code
+	\begin{minipage}{0.24\textwidth}  % ajustez la largeur pour avoir 4 QR codes par ligne
+		\centering
+		\href{\pathcorrige\exo.pdf}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
+		{\qrcode{\pathcorrige\exo.pdf}}  % génère le QR code
+		\par\vspace{2em}  % espace vertical entre les QR codes
+	\end{minipage}
+	% Incrémente le compteur
+	\stepcounter{qrcodenum}
+}
+}
