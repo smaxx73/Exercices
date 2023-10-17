@@ -13,7 +13,29 @@
 
 \begin{enumerate}
     \item \question{ Déterminer $\prob(X \geq t)$ pour tout $t \in \R$. }
+    \reponse{
+        Soit $t \in \R$. Si $t \geq 0$, on a : 
+        \begin{align*}
+            \prob(X \geq t) &= \int_t^{+\infty} f(x) \d x \\
+            &= \int_t^{+\infty} 3 e^{-3x} \d x \\
+            &= \left[ -e^{-3x} \right]_t^{+\infty} \\
+            &= e^{-3t}.
+        \end{align*}
+        Si $t < 0$, on a $\prob(X \geq t) = 1$.
+    }
     \item \question{ Déterminer $\prob(Z \geq t)$ pour tout $t \in \R$.}
+    \reponse{
+        Soit $t \in \R$. Si $t \geq 0$, on a : 
+        \begin{align*}
+            \prob(Z \geq t) &= \prob(X \geq t \text{ et } Y \geq t) \\
+            &= \prob(X \geq t) \prob(Y \geq t) \text{ par indépendance de $X$ et $Y$} \\
+            &= e^{-3t} \times e^{-3t} \\
+            &= e^{-6t}.
+        \end{align*}
+        Si $t < 0$, on a $\prob(Z \geq t) = 1$.
+
+        On voit ainsi que $Z = \min(X,Y)$ suit une loi exponentielle $\mathcal{E}(6)$.
+    }
     %\item \question{ Déterminer la loi de $Z$. }
 \end{enumerate}
 }
