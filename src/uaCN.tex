@@ -27,7 +27,7 @@ On sait que $\prob\left(X \leq 7 \right) = 0{,}8413$ d'où $\prob\left(\frac{X-5
             Soit $T$ la variable aléatoire définie de la manière suivante : si la dame attend moins de $7$ minutes chaque jour pendant les 10 jours, $T$ prend la valeur $0$ ; sinon $T$ pend la valeur du $k$-ème jour ($k \in \{1,...,10\}$) où pour la première fois, la dame attend plus de $7$ minutes. Déterminer, en fonction de $p$, la loi de probabilité de $T$. 
         }
         \reponse{
-            Pour $k \in \{1,...,10\}$, $\prob(X=k) = (1-p)^{k-1}p$. Pour $k=0$, $\prob(X=0) = \sum_{k=11}^{+\infty} (1-p)^{k-1}p = p \sum_{k=11}^{+\infty} (1-p)^{k-1} = p \times \frac{(1-p)^{10}}{p} = (1-p)^{10}$.
+            Pour $k \in \{1,...,10\}$, $\prob(X=k) = p^{k-1}(1-p)$ (on reconnait la loi géométrique de paramètre $1-p$ pour ces $10$ cas). Pour $k=0$, $\prob(T=0) = \sum_{k=11}^{+\infty} p^{k-1}(1-p) = (1-p) \sum_{k=11}^{+\infty} p^{k-1} = (1-p) \times \frac{p^{10}}{1-p} = p^{10}$.
             } 
         \end{enumerate}
     \end{enumerate}
