@@ -38,9 +38,11 @@ Chaque exercice a la structure suivante :
 \auteur{}
 \organisation{}
 
-\texte{}
-\question{}
-\reponse{}
+\contenu{
+  \texte{}
+  \question{}
+  \reponse{}
+}
 ```
 ## Compile
 Dans le répertoire compile, on trouve :
