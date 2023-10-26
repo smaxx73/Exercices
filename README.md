@@ -44,7 +44,7 @@ Chaque exercice a la structure suivante :
   \reponse{}
 }
 ```
-## Compile
-Dans le répertoire compile, on trouve :
+## sortie pdf
+Dans le répertoire /pdf, on trouve :
 - latex : chaque exercice est appelé dans un fichier compilable (standalone) individuel
 - pdf : le résultat après exécution de pdflatex
