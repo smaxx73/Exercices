@@ -33,18 +33,17 @@
 %	\reponse{  on a $$Y = \frac{\overline{X}-10}{\sqrt{\frac{2V}{3}}} = \frac{\overline{X}-10}{\sqrt{\frac{4}{3} \frac{V}{2}}} = 
 %		\frac{ \frac{ \overline{X}-10}{\sqrt{\frac43}}}{\sqrt{\frac{V}{2}}}$$ et on reconnaît une loi de Student $St(2)$. }
 \item \question{  On pose $$Y = \frac{\overline{X}-10}{\sqrt{\frac{2V}{3}}}$$ 
-Parmi les formules suivantes, laquelle permet de déterminer le réel $t$ tel que $\prob(Y > t) = 0.975$ ?
+Parmi les formules suivantes, laquelle permet de déterminer le réel $t$ tel que $\prob(Y > t) = 0.025$ ?
 \begin{itemize}
 	\item \texttt{=LOI.NORMALE.STANDARD.INVERSE(0.95)}
-	\item \texttt{=LOI.KHIDEUX.INVERSE(0,025;2)}
-	\item \texttt{=1-LOI.KHIDEUX.INVERSE(0,975;3)}
-	\item \texttt{=LOI.STUDENT.INVERSE.N(0,025;2)}
-	\item \texttt{=LOI.STUDENT.INVERSE.N(0,025;3)}
-	\item \texttt{=1-LOI.STUDENT.INVERSE.N(0,975;2)}
+	\item \texttt{=LOI.KHIDEUX.INVERSE(0,975;2)}
+	\item \texttt{=1-LOI.KHIDEUX.INVERSE(0,025;3)}
+	\item \texttt{=LOI.STUDENT.INVERSE.N(0,975;2)}
+	\item \texttt{=1-LOI.STUDENT.INVERSE.N(0,025;3)}
 \end{itemize}
 }
 \reponse{  on a $$Y = \frac{\overline{X}-10}{\sqrt{\frac{2V}{3}}} = \frac{\overline{X}-10}{\sqrt{\frac{4}{3} \frac{V}{2}}} = 
-			\frac{ \frac{ \overline{X}-10}{\sqrt{\frac43}}}{\sqrt{\frac{V}{2}}}$$ et on reconnaît une loi de Student $St(2)$. }
+			\frac{ \frac{ \overline{X}-10}{\sqrt{\frac43}}}{\sqrt{\frac{V}{2}}}$$ et on reconnaît une loi de Student $St(2)$. On cherche $t$ tel que $\prob(Y > t) = 0.025 \iff \prob(Y \leq t) = 0.975$ d'où la formule : {=LOI.STUDENT.INVERSE.N(0,975;2)}  }
 	\end{enumerate}
 
 }
