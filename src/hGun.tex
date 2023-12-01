@@ -1,4 +1,4 @@
-\titre{Norme d'un vecteur gaussien}
+\titre{Norme d'un vecteur gaussien et somme de variables exponentielles}
 \theme{Probabilités}
 \auteur{Quentin Liard}
 \organisation{AMSCC}
@@ -8,14 +8,17 @@
 
     $$\forall t \in \R_+, \quad \mathcal{L}_t(T)=\mathbb{E}(e^{-tT}).$$
 
-    {\it{On admet le r\'esultat suivant :}}\\
+    {\it{On admet le r\'esultat suivant :}}
 
-Pour $T_1,T_2$ deux variables al\'eatoires absolument continues telles que pour tout $t\geq 0$ on ait: $\mathcal{L}_t(T_1)=\mathcal{L}_t(T_2).$ Alors les variables $T_1$ et $T_2$ suivent la m\^eme loi. 
+    \begin{tcolorbox}        Pour $T_1,T_2$ deux variables al\'eatoires absolument continues telles que pour tout $t\geq 0$ on ait: $\mathcal{L}_t(T_1)=\mathcal{L}_t(T_2).$ Alors les variables $T_1$ et $T_2$ suivent la m\^eme loi. 
+    \end{tcolorbox}
+
+    
 
 Soient $X$ et $Y$ deux variables al\'eatoires indépendantes suivant chacune une loi normale centr\'ee r\'eduite. 
 
 \begin{enumerate}
-
+\item Déterminer la loi du couple $(X,Y)$.
 \item Soit $Z$ la variable aléatoire d\'efinie par $Z=X^{2}+Y^{2}$. Déterminer la fonction de r\'epartition de $Z$ et en d\'eduire que la loi de $Z$ est une loi exponentielle de param\`etre $\frac{1}{2}$.
 \reponse{
     Le couple $(X,Y)$ admet pour densité $ f(x,y) = \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} $. On a donc si $t \geq 0$ :

@@ -4,14 +4,14 @@
 \organisation{AMSCC}
 \contenu{
 
-	\texte{ Soit $X$ une variable aléatoire suivant une loi uniforme $\mathcal{U}([0;2])$.  }
+	\texte{ Soit $X$ une variable aléatoire suivant la loi uniforme $\mathcal{U}([0;2])$. On pose $Y=\max(1,X)$.  }
 \begin{enumerate}
-	\item \question{ Déterminer la fonction de répartition de $X$, son espérance et sa variance. }
+	\item \question{ Déterminer la fonction de répartition de $X$. } %son espérance et sa variance. }
 	\reponse{C'est du cours : $F_X(t)= \begin{cases} 0 & \text{ si } t<0 \\ 
 			\frac{t}{2} & \text{ si } t\in]0;2[ \\
 			1 & \text{ si } t\geq 2
 		\end{cases} $ ; $\EX = 1$ et $V(X) = 4/12 = 1/3$. }
-	\item \question{ On pose $Y=\max(1,X)$. Déterminer la fonction de répartition de $Y$. }
+	\item \question{ Déterminer la fonction de répartition de $Y$. }
 	\reponse{Soit $t \in \R$ : $F_Y(t) = \PP(Y \leq t) = \PP(\{1 \leq t\} \cap \{X \leq t\})$. On distingue trois cas : \\
 		Si $t \geq 2$ : $\PP(Y \leq t) = 1$ ; \\
 		Si $ 1 \leq t < 2$ : $\PP(Y \leq t) = \PP(X \leq t) = \frac{t}{2}$ ; \\
