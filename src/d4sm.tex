@@ -35,14 +35,10 @@
         }
         
         %\item \question{Étudier l'existence de la valeur éventuelle de $ V(X) $.}
-        %\reponse{La variance de $X$ existe si $X$ admet un moment d'ordre 1 et un moment d'ordre 2. Or l'intégrale $ \int_1^{+\infty} x^2 \alpha \left( \frac{1}{x} \right)^{\alpha+1} dx $ existe si et seulement si $ \alpha > 2 $. Donc, la variance de $X$ existe si et seulement si $ \alpha > 2 $.}
-    \end{enumerate}
-    
+        %\reponse{La variance de $X$ existe si $X$ admet un moment d'ordre 1 et un moment d'ordre 2. Or l'intégrale $ \int_1^{+\infty} x^2 \alpha \left( \frac{1}{x} \right)^{\alpha+1} dx $ existe si et seulement si $ \alpha > 2 $. Donc, la variance de $X$ existe si et seulement si $ \alpha > 2 $.}    
     Soient $ X $ une variable aléatoire suivant une loi de Pareto de paramètre $(\alpha,1 ,0)$, et des réels $ r > 0 $ et $ s $. Soit alors la variable aléatoire $ Y = rX + s $.
-    
-    \begin{enumerate}
-        \setcounter{enumi}{4} % Commencer à partir de la question 5
-        \item \question{Étudier la loi suivie par la variable aléatoire $ Y = rX + s $.}
+
+        \item \question{Déterminer la loi de la variable aléatoire $Y$. }
         \reponse{
             Soit $ t \in \R $. Si $ t \leq s+1 $, alors $ F_Y(t) = 0 $. Si $ t > s+1 $, alors :
             \begin{align*}
@@ -53,7 +49,7 @@
                 &= 1 - \frac{1}{\left( \frac{t-s}{r} \right)^\alpha} \\
                 &= 1 - \left( \frac{r}{t-s} \right)^\alpha
             \end{align*}
-            Par dérivation, on trouve que la densité de $Y$ est $ f_Y(x) = \mathbf{1}_{]s+1;+\infty[}(x) \frac{\alpha}{r} \left( \frac{r}{x-s} \right)^{\alpha+1} $. On trouve une loi de Pareto de paramètre $(\alpha, r, s+1)$.
+            Par dérivation, on trouve que $Y$ est une variable aléatoire absolument continue et que la densité de $Y$ est $ f_Y(x) = \mathbf{1}_{]s+1;+\infty[}(x) \frac{\alpha}{r} \left( \frac{r}{x-s} \right)^{\alpha+1} $. On trouve une loi de Pareto de paramètre $(\alpha, r, s+1)$.
         
         }
     \end{enumerate}

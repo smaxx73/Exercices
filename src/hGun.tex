@@ -13,7 +13,8 @@
     \begin{tcolorbox}        Pour $T_1,T_2$ deux variables al\'eatoires absolument continues telles que pour tout $t\geq 0$ on ait: $\mathcal{L}_t(T_1)=\mathcal{L}_t(T_2).$ Alors les variables $T_1$ et $T_2$ suivent la m\^eme loi. 
     \end{tcolorbox}
 
-    
+    On admet également que pour tout $n \in \N^*$ : 
+    $$\int_0^{+\infty} x^n e^{-x} dx = n!$$
 
 Soient $X$ et $Y$ deux variables al\'eatoires indépendantes suivant chacune une loi normale centr\'ee r\'eduite. 
 
@@ -39,7 +40,7 @@ Soient $X$ et $Y$ deux variables al\'eatoires indépendantes suivant chacune une
 \reponse{
     On a $\mathcal{L}_t(Z) = \mathbb{E}(e^{-tZ}) = \int_0^{+\infty} e^{-tz} \frac{1}{2} e^{-\frac{z}{2}} dz = \frac{1}{2} \int_0^{+\infty} e^{-\frac{z}{2}(2t+1)} dz = \frac{1}{2} \left[ \frac{e^{-\frac{z}{2}(2t+1)}}{-\frac{2t+1}{2}} \right]_0^{+\infty} = \frac{1}{2t+1}$. 
 }
-\item Soient $Z_1,Z_2,\cdots{},Z_n$ une famille de variables aléatoires indépendantes suivant chacune une exponentielle de param\`etre $\frac{1}{2},$. On s'int\'eresse \`a la loi de $S_n:=\displaystyle\sum_{i=1}^{n}Z_i$.\\
+\item Soient $Z_1,Z_2,\cdots{},Z_n$ une famille de variables aléatoires indépendantes suivant chacune une exponentielle de param\`etre $\frac{1}{2}$. On s'int\'eresse \`a la loi de $S_n:=\displaystyle\sum_{i=1}^{n}Z_i$.\\
 
 Calculer $\mathcal{L}_t(S_n)$ pour tout entier naturel $n\geq 1$ et pour tout $t\geq 0$.
 
