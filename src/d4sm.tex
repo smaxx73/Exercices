@@ -4,7 +4,7 @@
 \organisation{AMSCC}
 
 \contenu{
-    On dit qu'une variable aléatoire $ X $ suit une loi de Pareto de paramètre $(\alpha, a, x_0)$ si elle admet pour densité la fonction $ f $ définie par : 
+    Soient trois réels $\alpha,a,x_0$ avec $a>0$. On dit qu'une variable aléatoire $ X $ suit une loi de Pareto de paramètre $(\alpha, a, x_0)$ si elle admet pour densité la fonction $ f $ définie par : 
     $$ f(x) = \mathbf{1}_{]x_0 + a ;+\infty[}(x) \frac{\alpha}{a} \left( \frac{a}{x-x_0} \right)^{\alpha+1} $$
     
     Dans la suite, on fixe $a=1$ et $x_0=0$.
@@ -29,14 +29,14 @@
             \end{align*}
         }
         
-        \item \question{Étudier l'existence de la valeur éventuelle de $ \E(X) $.}
+        \item \question{Étudier l'existence de $ \E(X)$ en fonction de la valeur du paramètre $\alpha$.}
         \reponse{
             Si elle existe, l'espérance de $ X $ est $ \int_1^{+\infty} x \alpha \left( \frac{1}{x} \right)^{\alpha+1} dx$. Or cette intégrale existe si et seulement si $ \alpha > 1 $.
         }
         
         %\item \question{Étudier l'existence de la valeur éventuelle de $ V(X) $.}
         %\reponse{La variance de $X$ existe si $X$ admet un moment d'ordre 1 et un moment d'ordre 2. Or l'intégrale $ \int_1^{+\infty} x^2 \alpha \left( \frac{1}{x} \right)^{\alpha+1} dx $ existe si et seulement si $ \alpha > 2 $. Donc, la variance de $X$ existe si et seulement si $ \alpha > 2 $.}    
-    Soient $ X $ une variable aléatoire suivant une loi de Pareto de paramètre $(\alpha,1 ,0)$, et des réels $ r > 0 $ et $ s $. Soit alors la variable aléatoire $ Y = rX + s $.
+    Soit $ X $ une variable aléatoire suivant une loi de Pareto de paramètre $(\alpha,1 ,0)$ et soient deux réels $r,s$ tels que  $r > 0$. On pose alors la variable aléatoire $ Y = rX + s $.
 
         \item \question{Déterminer la loi de la variable aléatoire $Y$. }
         \reponse{
