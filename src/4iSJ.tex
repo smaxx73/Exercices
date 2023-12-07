@@ -1,0 +1,32 @@
+\titre{ Qualité d'un algorithme }
+\theme{ statistiques }
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+On souhaite étudier la qualité d'un algorithme de classification d'images. %Dans une première partie, on s'intéresse aux erreurs de classification. Dans une seconde partie, 
+On voudrait quantifier la qualité de cet algorithme.
+
+%\paragraph{Partie 1}
+%On dispose d'un échantillon de 100 images type qui peuvent être classées en 2 catégories. On observe que l'algorithme a classé 84 images dans la bonne catégorie. 
+%\begin{enumerate}
+%	\item Donner une estimation par intervalle de confiance au niveau 95\% du taux de mauvaise classification de cet algorithme. 
+%	\item Ce taux est-il significativement différent de $10\%$ ?
+%\end{enumerate}
+
+L'algorithme ne retourne pas une catégorie à partir d'une image $i$, mais seulement une grandeur $G_i$ qui permet de déterminer la classe la plus probable. On note $X_i$ l'erreur commise par l'algorithme pour la valeur $G_i$. On suppose que $X_i$ suit une loi normale centrée de variance $\sigma^2$.
+\begin{enumerate}
+	\item \texte{ Sur un premier échantillon de 25 images, on obtient une erreur empirique de $0{,}01$ (calculée avec l'estimateur de moyenne empirique) et une variance de 0{,}25 (calculée avec l'estimateur $\tilde{S}^2=\frac{1}{n}\sum_{i=1}^n (X_i-\overline{X})^2)$. }
+	\begin{enumerate}
+		\item \question{ Donner une estimation non biaisée de $\sigma^2$. }
+		\item \question{ Avec un risque d'erreur de $10\%$, peut-on remettre en cause l'hypothèse que l'espérance de $X_i$ est nulle ? }
+	\end{enumerate}
+	\item \texte{ Pour étudier la stabilité de l'algorithme par rapport au bruitage des images, on étudie un second échantillon d'images bruitées. On obtient avec les mêmes estimateurs que précédemment une erreur empirique de $0{,}012$ et une variance de $0{,}50$.  }
+	\begin{enumerate}
+		\item \question{ Donner une estimation non biaisée $\sigma^2$ à partir de cet échantillon. }
+		\item\question{  Déterminer la loi de la variable $\frac{n}{\sigma^2}\tilde{S}^2$. }
+		\item \question{ Déterminer la loi de la variable $\frac{S_2^2}{S_1^2}$ où $S_i^2$ est l'estimateur de variance non biaisé de l'échantillon $i \in \{1;2\}$. }
+		\item \question{ En considérant le quotient de la plus grande variance par la plus petite, construire et mettre en oeuvre un test d'hypothèse permettant de dire si la variance obtenue dans l'échantillon 2 et significativement plus élevée que celle de l'échantillon 1. } %Pour information, un calcul sur tableur permet de dire que si une variable $F$ suit une loi de Fisher de paramètres $(24,24)$ alors $\PP(F<1{,}98) \approx 0{,}9495$. 
+	\end{enumerate}
+\end{enumerate}
+}
