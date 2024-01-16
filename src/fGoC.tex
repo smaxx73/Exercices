@@ -1,0 +1,24 @@
+\titre{ Estimation d'un paramètre de Pareto }
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+\texte{ Soient $a = 3$ et $b$ deux réels strictement positifs. Soit $X$ une variable aléatoire suivant une loi de Pareto de paramètres $(3,b)$. Alors $X$ admet pour densité  la fonction $f$ définie pour tout $x \in \R$ par : 
+$$f(x)=\frac{3 b^3}{x^{4}} \mathbf{1}_{[b;+\infty[}(x).$$
+Soit $n \in \N^*$ et soit $X_1,X_2,\cdots{},X_n$ un échantillon de $n$ variables aléatoires indépendantes suivant chacune la loi de Pareto de paramètres $(3,b)$. On définit alors les deux variables aléatoires : $$Y_n = \frac{1}{n} \sum_{i=1}^n X_i \quad \text{et} \quad Z_n = \min(X_1,X_2,\cdots{},X_n).$$
+
+Le but de l'exercice est de construire un bon estimateur du paramètre $b$ de la loi de Pareto.
+
+}
+
+\begin{enumerate}
+    \item \question{ Déterminer l'espérance et la variance de $Y_n$. }
+    \item \question{ En déduire un estimateur sans biais de $b$ sous la forme $\alpha Y_n$ où $\alpha$ est un réel à déterminer. }
+    \item \question{ Déterminer la fonction de répartition de $Z_n$. }
+    \item \question{ En déduire que $Z_n$ suit une loi de Pareto de paramètres $(n, b)$. }
+    \item \question{ En déduire un estimateur sans biais de $b$ sous la forme $\beta Z_n$ où $\beta$ est un réel à déterminer. }
+    \item \question{ Lequel des deux estimateurs de $b$ est le meilleur ? Justifier. }
+\end{enumerate}
+
+}
