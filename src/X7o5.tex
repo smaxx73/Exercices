@@ -4,11 +4,11 @@
 \organisation{AMSCC}
 
 \contenu{
-    \texte{ Soient $a$ et $b=1$ deux réels strictement positifs. Soit $X$ une variable aléatoire suivant une loi de Pareto de paramètres $(a,1)$. Alors $X$ admet pour densité  la fonction $f$ définie pour tout $x \in \R$ par : 
+    \texte{ Soient $a > 1$ et $b=1$ deux réels. Soit $X$ une variable aléatoire suivant une loi de Pareto de paramètres $(a,1)$. Alors $X$ admet pour densité  la fonction $f$ définie pour tout $x \in \R$ par : 
 $$f(x)=\frac{a}{x^{a+1}} \mathbf{1}_{[1;+\infty[}(x).$$
 Soit $\left(X_n\right)_{n \in \N^*}$ une suite de variables aléatoires indépendantes suivant chacune la loi de Pareto de paramètres $(a,1)$. 
 
-Pour tout $n \in \N^*$, on pose : $$W_n = \ln(X_n).$$
+%Pour tout $n \in \N^*$, on pose : $$W_n = \ln(X_n).$$
     }
 
     \begin{enumerate}
@@ -16,7 +16,7 @@ Pour tout $n \in \N^*$, on pose : $$W_n = \ln(X_n).$$
         \reponse{ 
             On a $\EX_1 = \int_1^{+\infty} \frac{a}{x^{a+1}} dx = \left[ -\frac{a}{x^a} \right]_1^{+\infty} = \frac{a}{a-1}$.
         }
-        \item \question{ On pose $\displaystyle T_n = \frac{n}{\sum_{i=1}^n \ln(X_i)}$. Montrer que $T_n$ est un estimateur de $a$ issu de la méthode du maximum de vraisemblance. }
+        \item \question{ On pose $\displaystyle T_n = \frac{n}{\sum\limits_{i=1}^n \ln(X_i)}$. Montrer que $T_n$ est un estimateur de $a$ issu de la méthode du maximum de vraisemblance. }
         \reponse{
             La fonction de vraisemblance de l'échantillon $\left(X_1,X_2,\cdots{},X_n\right)$ est donnée par : 
             \begin{align*}
@@ -55,9 +55,9 @@ Pour tout $n \in \N^*$, on pose : $$W_n = \ln(X_n).$$
 
             Par propriétés de la variance, on a $\var\left(\frac{1}{T_n} \right) = \frac{1}{a^2 n^2} \sum_{i=1}^n \var(a \ln(X_i)) = \frac{1}{a^2 n^2} \sum_{i=1}^n 1 = \frac{1}{a^2 n}$.
         }
-        \item \question{ Montrer que la suite $\left(\frac{1}{T_n}\right)_{n \in \N^*}$ converge presque sûrement vers une constante que l'on déterminera. }
-        \item \question{ Soit $Z_n = \sqrt{n}\left(\frac{a}{T_n} - 1 \right)$. Montrer que $Z_n$ converge en loi vers une loi normale centrée réduite. }
-        \item \question{ En déduire un intervalle de confiance au niveau de confiance $95\%$ pour $a$ sous la forme $\left[ \frac{\sqrt{n}-\alpha}{\sqrt{n}}T_n ; \frac{\sqrt{n}+\alpha}{\sqrt{n}}T_n \right]$. }
+        \item \question{ Montrer que la suite de variables aléatoires $\left(\frac{1}{T_n}\right)_{n \in \N^*}$ converge presque sûrement vers une constante que l'on déterminera. }
+        \item \question{ Pour tout $n \in \N^*$, on pose $Z_n = \sqrt{n}\left(\frac{a}{T_n} - 1 \right)$. Montrer que la suite de variables aléatoires $\left(Z_n\right)_{n \in \N^*}$ converge en loi vers une loi normale centrée réduite. }
+        \item \question{ En déduire un intervalle de confiance au niveau de confiance $95\%$ pour $a$ sous la forme : $$\left[ \frac{\sqrt{n}-c}{\sqrt{n}}T_n~;~\frac{\sqrt{n}+c}{\sqrt{n}}T_n \right]$$ où $c$ est un réel à déterminer. }
 
     \end{enumerate}
         

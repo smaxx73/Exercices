@@ -60,6 +60,27 @@
 	},
 }
 
+\newtcolorbox{titreboxbis}[3][]{
+	enhanced,
+	breakable,
+	boxrule=0pt,
+	colframe=white,
+	colback=white,
+	sharp corners,
+	top=20pt,
+	borderline north={1pt}{0pt}{gray!50},
+	overlay unbroken and first={
+		\node[anchor=west, inner xsep=0pt, inner ysep=5pt, minimum width=\linewidth-2mm, text width=\linewidth-2mm, text depth=1ex, text height=1.5ex, text=black] at ([yshift=2mm]frame.north west) {
+			\small\textbf{\sffamily{\textcolor{black}{Partie #1 - #2}}}
+		};
+		\ifthenelse{\boolean{uuid}}{
+			\node[anchor=east, inner ysep=5pt, inner xsep=5pt] at ([yshift=2mm]frame.north east) {
+				\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}
+			};
+		}{};
+	},
+}
+
 
 
 
@@ -101,16 +122,16 @@
 
 \newcommand{\insertexobis}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
 	\noindent
-	\input{../src/#1}
+	\input{\path src/#1}
 	\setboolean{solution}{#2}
 	\setboolean{uuid}{#3}
 	\setboolean{link}{#4}
 	
-	\begin{titrebox}[#5]
+	\begin{titreboxbis}[#5]
 		{\bfseries{\TitreExo}}{#1} %\hfill
 		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
 		\Contenu
-	\end{titrebox}	
+	\end{titreboxbis}	
 }
 
 
@@ -131,7 +152,7 @@
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexo{\ex}{\solution}{\uuid}{\link}{\thenum}
+		\insertexobis{\ex}{\solution}{\uuid}{\link}{\thenum}
 	}
 }
 
