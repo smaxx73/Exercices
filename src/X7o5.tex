@@ -14,7 +14,7 @@ Soit $\left(X_n\right)_{n \in \N^*}$ une suite de variables aléatoires indépen
     \begin{enumerate}
         \item \question{ Calculer l'espérance de $X_1$. }
         \reponse{ 
-            On a $\EX_1 = \int_1^{+\infty} \frac{a}{x^{a+1}} dx = \left[ -\frac{a}{x^a} \right]_1^{+\infty} = \frac{a}{a-1}$.
+            Avec $a>1$, on a $\EX_1 = \int_1^{+\infty} \frac{a}{x^{a+1}} dx = \left[ -\frac{a}{x^a} \right]_1^{+\infty} = \frac{a}{a-1}$.
         }
         \item \question{ On pose $\displaystyle T_n = \frac{n}{\sum\limits_{i=1}^n \ln(X_i)}$. Montrer que $T_n$ est un estimateur de $a$ issu de la méthode du maximum de vraisemblance. }
         \reponse{
@@ -56,6 +56,9 @@ Soit $\left(X_n\right)_{n \in \N^*}$ une suite de variables aléatoires indépen
             Par propriétés de la variance, on a $\var\left(\frac{1}{T_n} \right) = \frac{1}{a^2 n^2} \sum_{i=1}^n \var(a \ln(X_i)) = \frac{1}{a^2 n^2} \sum_{i=1}^n 1 = \frac{1}{a^2 n}$.
         }
         \item \question{ Montrer que la suite de variables aléatoires $\left(\frac{1}{T_n}\right)_{n \in \N^*}$ converge presque sûrement vers une constante que l'on déterminera. }
+        \reponse{
+            D'après la loi forte des grands nombres, on a $\frac{1}{T_n} = \frac{1}{n} \sum_{i=1}^n \ln(X_i) \xrightarrow[n \to +\infty]{\text{p.s.}} \E(\ln(X_1))$. Or $\E(a\ln(X_1)) = \frac{1}{1} = 1$. Donc $\frac{1}{T_n} \xrightarrow[n \to +\infty]{\text{p.s.}} \frac{1}{a}$.
+        }
         \item \question{ Pour tout $n \in \N^*$, on pose $Z_n = \sqrt{n}\left(\frac{a}{T_n} - 1 \right)$. Montrer que la suite de variables aléatoires $\left(Z_n\right)_{n \in \N^*}$ converge en loi vers une loi normale centrée réduite. }
         \item \question{ En déduire un intervalle de confiance au niveau de confiance $95\%$ pour $a$ sous la forme : $$\left[ \frac{\sqrt{n}-c}{\sqrt{n}}T_n~;~\frac{\sqrt{n}+c}{\sqrt{n}}T_n \right]$$ où $c$ est un réel à déterminer. }
 
