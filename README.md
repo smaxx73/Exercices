@@ -29,6 +29,17 @@ avec l'identifiant de l'exercice comme premier argument. ```solution```, ```uuid
 ```
 permet d'insérer l'exercice J50Z en affichant la solution, l'identifiant, le lien vers la solution et numéroté avec le compteur num.
 
+Si on a plusieurs exercices, on peut utiliser par exemple la commande suivante : 
+
+```
+\def\TD{tQCJ,vnJs,qjd1,lCVu}
+
+\listexo{\TD}
+```
+Pour afficher une liste de QR code qui envoie sur les solutions, on a la commande suivante :
+```
+\listeqrcode{\TD}{1}
+```
 ## Champs dans un exercice
 Chaque exercice a la structure suivante : 
 
