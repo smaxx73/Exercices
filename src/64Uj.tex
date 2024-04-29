@@ -10,7 +10,7 @@ $$(E)	\begin{cases}
 \end{cases} $$
 où
 $$
-f(t,y)=\cos[(t+y)^2],\quad a=0,\quad T=1.
+f(t,y)=\sin\left((t+y)^2\right),\quad a=0,\quad T=1.
 $$ }
 \begin{enumerate}
 	\item \question{ Justifier l'existence et l'unicité locale d'une solution $y$ de classe $\mathcal{C}^1$.  }
@@ -28,7 +28,7 @@ $$ }
 	
 \texte{ 	Pour approcher la solution de $(E)$, on propose le schéma numérique suivant : 
 	$h=T/N$, $t_n=nh$, $y_0=a$ et 
-	$$(S) \colon y_{n+1} = y_n +  \frac{h}{3}\left( f(t_n,y_n)+2f\left(t_n+ \frac{3h}{4},y_n+\frac{3h}{4}f(t_n,y_n) \right) \right)$$ }
+	$$(S) \colon y_{n+1} = y_n +  \frac{h}{4}\left( f(t_n,y_n)+3f\left(t_n+ \frac{2h}{3},y_n+\frac{2h}{3}f(t_n,y_n) \right) \right)$$ }
 	
 %	Pour caractériser la consistance d'ordre $p \geq 2$, on peut utiliser le résultat suivant : la méthode $y_{n+1}=y_n + hF(t_n,y_n,h)$ est consistante d'ordre $p$ si pour tout $ 0 \leq k \leq p-1$, 
 %	$$\frac{\partial^{k}F}{\partial h^{k}}(t,y,0) = \frac{1}{k+1}f^{[k]}(t,y)$$

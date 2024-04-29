@@ -1,4 +1,4 @@
-\titre{\'Etude d'une fonction de deux variables}
+\titre{\'Etude des zéros d'une fonction non linéaire}
 \theme{}
 \auteur{}
 \organisation{AMSCC}
@@ -115,13 +115,13 @@ $$ }
 		\reponse{
 			On remarque que
 			$$
-			g'(x)\leq \frac{1+e^x}{(1+e^x)^2}\leq \frac{1}{1+e^x},
+			\varphi_2'(x)\leq \frac{1+e^x}{(1+e^x)^2}\leq \frac{1}{1+e^x},
 			$$
 			et donc
 			$$
-			0\leq g'(x)\leq \frac{1}{1+e}<1.
+			0\leq \varphi_2'(x)\leq \frac{1}{1+e}<1.
 			$$
-			La fonction $g$ est donc $L$-Lipschitz sur $[0,1]$ avec 
+			La fonction $\varphi_2$ est donc $L$-Lipschitz sur $[0,1]$ avec 
 			$$
 			L=\frac{1}{1+e}.
 			$$
@@ -129,6 +129,7 @@ $$ }
 		
 		\item \question{ En d\'eduire que la suite $(y_n)$ tend vers $\ell$.}
 		\reponse{ Les propriétés (b) et (c) assure que $\varphi_2$ admet un unique point fixe et que la suite $(x_n)_n$ tend vers cet unique point fixe quelque soit $x_0$. La propriété (a) assure que cet unique point fixe est $l$.} 
+		\item \question{ Ecrire un algorithme qui donne une approximation de $\ell$ à $10^{-6}$ près. Combien faut-il d'itérations pour atteindre cette précision ?}
 		
 	\end{enumerate}
 \end{enumerate}
