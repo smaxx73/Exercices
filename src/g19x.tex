@@ -1,0 +1,63 @@
+\titre{Résolution d'une EDO par un schéma numérique}
+\theme{}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soient $n \in \mathbb{N}$ tel que $n \geq 3$ et $b \in \mathbb{R}^n$, de composantes $(b_1, \ldots, b_n)$. On cherche $x \in \mathbb{R}^n$, de composantes $(x_1, \ldots, x_n)$, solution de
+
+$$
+\begin{cases}	
+	4x_1 + x_2 = b_1, \\
+	x_{i-1} + 4x_i + x_{i+1} = b_i, & i = 2, \ldots, n - 1, \\	
+	x_{n-1} + 4x_n = b_n.	
+\end{cases}
+$$ }
+
+\begin{enumerate}
+	
+	\item On suppose, dans cette question uniquement, que $b = 0$.
+	
+	\begin{enumerate}
+		
+		\item \question{  Montrer que $4 |x_i| \leq 2 \|x\|_\infty$ pour $i \in \{1, \ldots, n\}$. }
+		
+		\item \question{ En déduire que $x = 0$. }
+		
+	\end{enumerate}
+	
+	\item \question{ Montrer que le syst\`eme ci-dessus peut s'\'ecrire $Ax=b$ avec une matrice $A$ que l'on donnera pour $n=4$. Donner un code Python qui permet de générer la matrice $A$ pour $n$ quelconque. }
+
+	
+	\item \question{ Montrer que dans le cas d’un second membre quelconque $b$, il existe une unique $x \in \mathbb{R}^n$ solution du système linéaire. }
+	
+	\item \texte{ Afin de résoudre le système, on considère la méthode itérative suivante : $x^{(0)} = 0 \in \mathbb{R}^n$ et
+	
+	$$	
+	\begin{cases}	
+		x^{(k+1)}_1 = \alpha x^{(k)}_1 + \frac{\alpha - 1}{4} (x^{(k)}_2 - b_1), \\	
+		x^{(k+1)}_i = \alpha x^{(k)}_i + \frac{\alpha - 1}{4} (x^{(k)}_{i-1} + x^{(k)}_{i+1} - b_i), & i = 2, \ldots, n - 1, \\	
+		x^{(k+1)}_n = \alpha x^{(k)}_n + \frac{\alpha - 1}{4} (x^{(k)}_{n-1} - b_n).	
+	\end{cases}
+	$$
+	
+	avec pour paramètre $\alpha \in \mathbb{R}$.  }
+	
+	\begin{enumerate}
+		
+		\item \question{ Montrer que pour tout $\alpha \in \mathbb{R}$, on a
+		
+		$$\|x^{(k+1)} - x\|_\infty \leq \left(|\alpha| + \frac{|\alpha - 1|}{2}\right) \|x^{(k)} - x\|_\infty.$$ }
+		
+		\item \question{ Trouver $\alpha_{\text{min}}, \alpha_{\text{max}} \in \mathbb{R}$, tels que $\alpha \in ]\alpha_{\text{min}}, \alpha_{\text{max}}[$ si et seulement si $|\alpha| + \frac{|\alpha - 1|}{2} < 1$. }
+		
+		\item \question{ Montrer que la méthode itérative converge vers $x$ pour $\alpha \in ]\alpha_{\text{min}}, \alpha_{\text{max}}[$. }
+		
+		\item\question{  Trouver $\alpha_0 \in \mathbb{R}$ qui minimise la quantité $|\alpha| + \frac{|\alpha - 1|}{2}.$ Que peut-on d\'eduire de la convergence du syst\`eme pour ce $\alpha_0$ ? Quelle méthode du cours reconnaissez-vous ? }
+		
+		
+		
+	\end{enumerate}
+	
+\end{enumerate}
+}
