@@ -1,33 +1,30 @@
-\titre{Résolution d'une EDO par un schéma numérique}
+\titre{Méthode itérative d'inversion d'une matrice}
 \theme{}
 \auteur{}
 \organisation{AMSCC}
 \contenu{
 
-\texte{ Soient $n \in \mathbb{N}$ tel que $n \geq 3$ et $b \in \mathbb{R}^n$, de composantes $(b_1, \ldots, b_n)$. On cherche $x \in \mathbb{R}^n$, de composantes $(x_1, \ldots, x_n)$, solution de
+\texte{ Soient $n \in \mathbb{N}$ tel que $n \geq 3$ et $b \in \mathbb{R}^n$, de composantes $(b_1, \ldots, b_n)$. On cherche $x \in \mathbb{R}^n$, de composantes $(x_1, \ldots, x_n)$, solution de :
 
 $$
 \begin{cases}	
-	4x_1 + x_2 = b_1, \\
-	x_{i-1} + 4x_i + x_{i+1} = b_i, & i = 2, \ldots, n - 1, \\	
-	x_{n-1} + 4x_n = b_n.	
+	4x_1 + x_2 &= b_1, \\
+	x_{i-1} + 4x_i + x_{i+1} &= b_i, \quad \forall i \in [\![ 2, n - 1 ]\!] \\	
+	x_{n-1} + 4x_n &= b_n.	
 \end{cases}
 $$ }
 
 \begin{enumerate}
+	\item \question{ Montrer que le syst\`eme ci-dessus peut s'\'ecrire sous la forme $Ax=b$ avec une matrice $A$ que l'on donnera pour $n=4$. %Donner un code Python qui permet de générer la matrice $A$ pour $n$ quelconque. 
+	}
 	
 	\item On suppose, dans cette question uniquement, que $b = 0$.
 	
 	\begin{enumerate}
-		
-		\item \question{  Montrer que $4 |x_i| \leq 2 \|x\|_\infty$ pour $i \in \{1, \ldots, n\}$. }
-		
+		\item \question{  Montrer que : $\forall i \in [\![1, n]\!]\,, \quad 4 |x_i| \leq 2 \|x\|_\infty$. }
 		\item \question{ En déduire que $x = 0$. }
-		
 	\end{enumerate}
 	
-	\item \question{ Montrer que le syst\`eme ci-dessus peut s'\'ecrire $Ax=b$ avec une matrice $A$ que l'on donnera pour $n=4$. Donner un code Python qui permet de générer la matrice $A$ pour $n$ quelconque. }
-
 	
 	\item \question{ Montrer que dans le cas d’un second membre quelconque $b$, il existe une unique $x \in \mathbb{R}^n$ solution du système linéaire. }
 	
@@ -36,7 +33,7 @@ $$ }
 	$$	
 	\begin{cases}	
 		x^{(k+1)}_1 = \alpha x^{(k)}_1 + \frac{\alpha - 1}{4} (x^{(k)}_2 - b_1), \\	
-		x^{(k+1)}_i = \alpha x^{(k)}_i + \frac{\alpha - 1}{4} (x^{(k)}_{i-1} + x^{(k)}_{i+1} - b_i), & i = 2, \ldots, n - 1, \\	
+		x^{(k+1)}_i = \alpha x^{(k)}_i + \frac{\alpha - 1}{4} (x^{(k)}_{i-1} + x^{(k)}_{i+1} - b_i), & \forall i \in [\![ 2, n - 1 ]\!] \\	
 		x^{(k+1)}_n = \alpha x^{(k)}_n + \frac{\alpha - 1}{4} (x^{(k)}_{n-1} - b_n).	
 	\end{cases}
 	$$
