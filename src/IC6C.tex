@@ -15,8 +15,8 @@
 		\item \question{ Que peut-on en déduire sur la convergence de la série $\displaystyle \sum_{n\geq 1} \Big(\frac{(-1)^n}{n} +\frac{1}{n^2} \Big)$ ? }
 		\reponse{Les séries $\sum \frac{(-1)^n}{n}$ et $\sum \frac{1}{n^2}$ étant convergentes, la somme de ces deux séries est une série convergente. Par conséquent, la série $ \sum (\frac{(-1)^n}{n} +\frac{1}{n^2} )$ est convergente.}
 		\item \question{ Converge-t-elle absolument ? }
-		\reponse{ On s'intéresse à la convergence de la série $ \sum |\frac{(-1)^n}{n} +\frac{1}{n^2} |$. On a:
-			\[ \Big|\frac{(-1)^n}{n} +\frac{1}{n^2}\Big| \leq \frac{1}{n} + \frac{1}{n^2} \sim \frac{1}{n}.\]
-			Or $\sum \frac{1}{n}$ est une série de Riemann divergente. Donc par le théorème d'équivalence, la série $ \sum |\frac{(-1)^n}{n} +\frac{1}{n^2} |$ n'est pas convergente. On en déduit que la série $ \sum \frac{(-1)^n}{n} +\frac{1}{n^2}$ n'est pas absolument convergente.}
+		\reponse{ On s'intéresse à la convergence de la série $ \sum |\frac{(-1)^n}{n} +\frac{1}{n^2} |$. On a par inégalité triangulaire:
+			\[ \Big|\frac{(-1)^n}{n} +\frac{1}{n^2}\Big| \geq \frac{1}{n} - \frac{1}{n^2} .\]
+			Or $\sum \frac{1}{n}-\frac{1}{n^2}$ est une série de Riemann divergente. Donc la série $ \sum |\frac{(-1)^n}{n} +\frac{1}{n^2} |$ n'est pas convergente. On en déduit que la série $ \sum \frac{(-1)^n}{n} +\frac{1}{n^2}$ n'est pas absolument convergente.}
 \end{enumerate}
 }
