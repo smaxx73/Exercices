@@ -1,0 +1,21 @@
+\titre{\'Etude de séries numériques}
+\theme{Série}
+\auteur{}
+\organisation{AMSCC}	
+
+\contenu{
+Pour chacune des séries ci-dessous, préciser si elle est absolument convergente, semi-convergente, grossièrement divergente ou divergente sans l'être grossièrement. Donner une courte justification de votre réponse.
+
+
+\begin{enumerate}
+	\item \question{ $\displaystyle \sum\limits_{n \geq 2} \dfrac{1}{\sqrt{n}-1} $ }
+	\reponse{ C'est une série à termes positifs, le terme général $\frac{1}{\sqrt{n}-1}$ est équivalent à $\frac{1}{\sqrt{n}}$, c'est le terme général d'une série \fbox{divergente} (Riemann) mais non grossièrement (il tend vers $0$). }
+	\item\question{  $\displaystyle \sum\limits_{n \geq 0} \dfrac{2+\cos\left(n^2+n+1\right)}{n^2+n+1}$ }
+	\reponse{ On pose $u_n =  \dfrac{2+\cos\left(n^2+n+1\right)}{n^2+n+1}$. On a 
+		$$|u_n| \leq \frac{2+1}{n^2+n+1} \leq \frac{3}{n^2}$$. 
+		Or $\sum \frac{1}{n^2}$ est une série convergente (Riemann) donc par comparaison, la série $\sum u_n$ est \fbox{absolument convergente} donc convergente.  }
+	%				\item $\displaystyle \sum\limits_{n \geq 2} \dfrac{(-1)^n}{n^{\frac{1}{4}}}$
+\end{enumerate}
+
+
+}
