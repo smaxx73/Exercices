@@ -1,0 +1,25 @@
+\titre{Problème de clés}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}	
+
+\contenu{
+
+Un gardien de nuit doit ouvrir une des portes à contrôler durant sa tournée dans le noir. Il possède 10 clés d'allure semblable, mais une seule peut ouvrir la porte en question. Le gardien dispose de deux méthodes.
+\begin{itemize}
+	\item Méthode A : Il pose les 10 clés devant lui et les essaye l'une après l'autre dans l'ordre dans lequel elles se présentent ;
+	\item Méthode B : Il essaye une clé après avoir agité le trousseau, en recommençant cette opération jusqu'à ce qu'il trouve la bonne clé.
+\end{itemize}
+
+On appelle $X_A$ (respectivement $X_B$) la variable aléatoire, définie sur l'espace probabilisé $(\Omega, \mathcal{T}, \prob)$, qui désigne le nombre de clés essayées (y compris celle qui donne satisfaction) par la méthode A (respectivement B).
+
+Rappel : soit $a \in ]0 ; 1[$, alors $\displaystyle \sum_{k=0}^{n} a^k = \frac{1 - a^{n+1}}{1 - a}$ et $\displaystyle \sum_{k=0}^{+\infty} a^k = \frac{1}{1 - a}$.
+
+\begin{enumerate}
+	\item \question{ Montrer que pour tout $k \in \{1, \dots, 10\}$, $\prob(X_A = k) = p$ où $p$ est une valeur constante à déterminer.  }
+	\item \question{ Quelle est la loi suivie par $X_B$ ? }
+	\item \question{ Quelle est la probabilité d'essayer plus de 8 clés : par la méthode A ? Par la méthode B ? On notera $H$ l'événement : « essayer plus de 8 clés ». }
+	\item \question{ On admet que le gardien utilise la méthode A deux fois sur trois. Quelle est la probabilité conditionnelle que le gardien utilise la méthode B sachant que les 8 premiers essais ont échoué ? }
+\end{enumerate}
+
+}
