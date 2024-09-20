@@ -59,5 +59,42 @@ $$
     \]
     }
 \item \question{ Calculer l'espérance et la variance de $X$. }
+\reponse{ 
+	\begin{align*}
+		\mathbb{E}[X] &= \int_{0}^{2} x f(x) \, dx \\
+		&= \int_{0}^{2} x \left( \frac{3}{16}(4 - x^2) \right) dx \\
+		&= \frac{3}{16} \int_{0}^{2} x (4 - x^2) \, dx \\
+		&= \frac{3}{16} \int_{0}^{2} (4x - x^3) \, dx \\
+		&= \frac{3}{16} \left( \int_{0}^{2} 4x \, dx - \int_{0}^{2} x^3 \, dx \right) \\
+		&= \frac{3}{16} \left( \left[2x^2\right]_{0}^{2} - \left[\frac{x^4}{4}\right]_{0}^{2} \right) \\
+		&= \frac{3}{16} \left( \left(2 \times 2^2\right) - \left(\frac{2^4}{4}\right) - \left(0 - 0\right) \right) \\
+		&= \frac{3}{16} \left( 8 - 4 \right) \\
+		&= \frac{3}{4}.
+	\end{align*}
+
+\begin{align*}
+	\operatorname{Var}(X) &= \mathbb{E}[X^2] - (\mathbb{E}[X])^2 \\
+	\\
+	\text{Calcul de } \mathbb{E}[X^2]: \\
+	\mathbb{E}[X^2] &= \int_{0}^{2} x^2 f(x) \, dx \\
+	&= \int_{0}^{2} x^2 \left( \frac{3}{16}(4 - x^2) \right) dx \\
+	&= \frac{3}{16} \int_{0}^{2} x^2 (4 - x^2) \, dx \\
+	&= \frac{3}{16} \int_{0}^{2} (4x^2 - x^4) \, dx \\
+	&= \frac{3}{16} \left( \int_{0}^{2} 4x^2 \, dx - \int_{0}^{2} x^4 \, dx \right) \\
+	&= \frac{3}{16} \left( \left[\frac{4x^3}{3}\right]_{0}^{2} - \left[\frac{x^5}{5}\right]_{0}^{2} \right) \\
+	&= \frac{3}{16} \left( \left( \frac{4 \times 8}{3} \right) - \left( \frac{32}{5} \right) - \left( 0 - 0 \right) \right) \\
+	&= \frac{3}{16} \left( \frac{32}{3} - \frac{32}{5} \right) \\
+	&= \frac{4}{5}.
+\end{align*}
+
+\begin{align*}
+	\text{Calcul de } \operatorname{Var}(X): \\
+	\operatorname{Var}(X) &= \mathbb{E}[X^2] - (\mathbb{E}[X])^2 \\
+	&= \frac{4}{5} - \left( \frac{3}{4} \right)^2 \\
+	&= \frac{4}{5} - \frac{9}{16} \\
+	&= \frac{64}{80} - \frac{45}{80} \\
+	&= \frac{19}{80}.
+\end{align*}
+ }
 \end{enumerate}
 }

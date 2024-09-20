@@ -2,10 +2,16 @@
 \usepackage{etex}
 \usepackage[french]{babel}
 \usepackage[autolanguage]{numprint}
-\usepackage{makecell}
+\usepackage{makecell} % pour les tableaux
 \usepackage{geometry}
-\usepackage{qrcode}
-\geometry{hmargin=1.5cm,vmargin=1cm}
+\usepackage{verbatim} % pour les commentaires
+\usepackage{eurosym} % pour le symbole euro
+\usepackage{qrcode} % pour les QR codes
+
+%\usepackage{hyperref} %QR codes cliquables
+
+\geometry{hmargin=2cm,vmargin=2.5cm}
+
 
 %chemin vers les sources d'exercices
 \newcommand{\path}{../}
@@ -15,9 +21,14 @@
 \input{\path/_preambules/macros.tex}
 
 
+\def\solution{false}
+\def\uuid{true}
+\def\link{true}
+
 \begin{document}
-	\nextexo
-	\insertexo{ingl}{false}{true}{true}{\thenum}
-	\nextexo
-	\insertexo{ingl}{true}{true}{true}{\thenum}
+
+\def\TD{r3ax,vUFN}  %liste des identifiants d'exercices séparés par une virgule
+
+\listexo{\TD}
+
 \end{document}
