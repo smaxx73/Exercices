@@ -58,7 +58,21 @@ $$
         \int_0^{+\infty} t e^{at} \, dt = \frac{1}{a^2}.
         $$
         }
+        \reponse{
+            On a $\int_0^{+\infty} t e^{at} \, dt = \left[ t \frac{e^{at}}{a} \right]_0^{+\infty} - \int_0^{+\infty} \frac{e^{at}}{a} \, dt = 0 - \frac{1}{a} \int_0^{+\infty} e^{at} \, dt = -\frac{1}{a} \left[ \frac{e^{at}}{a} \right]_0^{+\infty} = -\frac{1}{a} \left(0 - \frac{1}{a}\right) = \frac{1}{a^2}$.
+        }
         \item \question{ Démontrer que la variable aléatoire $Y$ admet une espérance, que l’on calculera. Exprimer la valeur en heures et minutes. }
+        \reponse{
+            On a $f_Y(t) = 3 \times \frac{1}{2} e^{-\frac{t}{2}} \times \left(1 - e^{-\frac{t}{2}}\right)^2$. Donc on a :
+            \begin{align*}
+                \mathbb{E}(Y) & = \int_0^{+\infty} t f_Y(t) \, dt \\
+                & = 3 \times \frac{1}{2} \int_0^{+\infty} t e^{-\frac{t}{2}} \times \left(1 - e^{-\frac{t}{2}}\right)^2 \, dt \\
+                & = \frac{3}{2} \int_0^{+\infty} t e^{-\frac{t}{2}} \, dt -2t e^{-t} + t e^{-\frac{3t}{2}} \, dt \\
+                &= \frac{3}{2} \times \left( \frac{1}{\left(\frac{1}{2}\right)^2}  - 2 \times  \frac{1}{1^2}  +  \frac{1}{\left(\frac{3}{2}\right)^2} \right) \\
+                &= \frac{11}{3} = 3 + \frac{2}{3}.
+            \end{align*}
+            Donc, l'espérance de $Y$ est de 3 heures et 40 minutes. Cela signifie que la durée moyenne de fonctionnement de la machine sans interruption est de 3 heures et 40 minutes.
+        }
     \end{enumerate}
 \end{enumerate}
 }
