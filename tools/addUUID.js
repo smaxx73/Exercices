@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 // Get the directory path from the command-line argument
 const directoryPath = process.argv[2];
