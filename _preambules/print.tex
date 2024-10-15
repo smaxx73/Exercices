@@ -1,5 +1,5 @@
 \newboolean{solution}
-\newboolean{uuid}
+\newboolean{isuuid}
 \newboolean{link}
 
 
@@ -51,7 +51,7 @@
 	borderline north={0pt}{0pt}{white!100!black},
 	overlay unbroken and first={
 		\node[anchor=north west, inner xsep=-2pt, inner ysep=-7pt, rounded corners] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt] {\small\textbf{\sffamily{\textcolor{white}{Ex #1 - #2}}}};}};
-		\ifthenelse{\boolean{uuid}}{
+		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {
 				\tikz{
 					\node[] {\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}};
@@ -101,7 +101,7 @@
 	\noindent
 	\input{../src/#1}
 	\setboolean{solution}{#2}
-	\setboolean{uuid}{#3}
+	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
 	
 	\begin{titrebox}[#5]
@@ -116,7 +116,7 @@
 	\noindent
 	\input{\path src/#1}
 	\setboolean{solution}{#2}
-	\setboolean{uuid}{#3}
+	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
 	
 	\begin{titrebox}[#5]
@@ -129,7 +129,7 @@
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexo{\ex}{\solution}{\uuid}{\link}{\thenum}
+		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}
 	}
 }
 

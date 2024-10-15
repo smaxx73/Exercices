@@ -52,7 +52,7 @@
 		\node[anchor=west, inner xsep=0pt, inner ysep=5pt, minimum width=\linewidth-2mm, text width=\linewidth-2mm, text depth=1ex, text height=1.5ex, text=black] at ([yshift=2mm]frame.north west) {
 			\small\textbf{\sffamily{\textcolor{black}{Ex #1 - #2}}}
 		};
-		\ifthenelse{\boolean{uuid}}{
+		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=east, inner ysep=5pt, inner xsep=5pt] at ([yshift=2mm]frame.north east) {
 				\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}
 			};
@@ -73,7 +73,7 @@
 		\node[anchor=west, inner xsep=0pt, inner ysep=5pt, minimum width=\linewidth-2mm, text width=\linewidth-2mm, text depth=1ex, text height=1.5ex, text=black] at ([yshift=2mm]frame.north west) {
 			\small\textbf{\sffamily{\textcolor{black}{Partie #1 - #2}}}
 		};
-		\ifthenelse{\boolean{uuid}}{
+		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=east, inner ysep=5pt, inner xsep=5pt] at ([yshift=2mm]frame.north east) {
 				\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}
 			};
@@ -120,11 +120,11 @@
 %\end{minipage}
 %}
 
-\newcommand{\insertexobis}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+\newcommand{\insertexobis}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
 	\noindent
 	\input{\path src/#1}
 	\setboolean{solution}{#2}
-	\setboolean{uuid}{#3}
+	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
 	
 	\begin{titreboxbis}[#5]
@@ -135,11 +135,11 @@
 }
 
 
-\newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+\newcommand{\insertexo}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
 	\noindent
 	\input{\path src/#1}
 	\setboolean{solution}{#2}
-	\setboolean{uuid}{#3}
+	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
 	
 	\begin{titrebox}[#5]
@@ -152,11 +152,11 @@
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexobis{\ex}{\solution}{\uuid}{\link}{\thenum}
+		\insertexobis{\ex}{\solution}{\isuuid}{\link}{\thenum}
 	}
 }
 
-\newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
+\newcommand{\insertnotebook}[1]{%contenu, solution, isuuid, lien solution,numerotation
 	\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
 }
 
