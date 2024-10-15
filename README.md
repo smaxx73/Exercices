@@ -46,6 +46,7 @@ Pour afficher une liste de QR code qui envoie sur les solutions, on a la command
 Chaque exercice a la structure suivante : 
 
 ```
+\uuid{}
 \titre{}
 \theme{}
 \auteur{}
