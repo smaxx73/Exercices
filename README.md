@@ -30,7 +30,7 @@ Si on a plusieurs exercices, on peut utiliser par exemple la commande suivante :
 Si on a un seul exercice et qu'on veut contrôler finement l'affichage des paramètres : 
 ```
 \def\solution{true}
-\def\uuid{true}
+\def\isuuid{true}
 \def\link{true}
 
 \insertexo{J50Z}{\solution}{\uuid}{\link}{\thenum}
