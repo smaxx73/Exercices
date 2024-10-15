@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 /**
  * Fonction pour supprimer les commentaires d'une chaîne de caractères LaTeX.
@@ -27,6 +27,17 @@ function isCommandCommented(line, commandPosInLine) {
     }
   }
   return false;
+}
+
+/**
+ * Fonction pour envelopper les blocs align* avec des doubles $$.
+ * @param {string} content - Le contenu extrait.
+ * @returns {string} - Le contenu avec les blocs align* enveloppés de $$.
+ */
+function wrapAlignWithDollar(content) {
+  // Regex pour trouver tous les blocs \begin{align*}...\end{align*}
+  // Utilisation de [\s\S]*? pour correspondre sur plusieurs lignes de manière non-gourmande
+  return content.replace(/\\begin\{align\*\}([\s\S]*?)\\end\{align\*\}/g, '$$$\\begin{align*}$1\\end{align*}$$$');
 }
 
 /**
@@ -99,7 +110,12 @@ function extractLaTeXCommands(latex, commands) {
     }
 
     // Appliquer ou non stripComments en fonction de isVerbatim
-    const finalContent = commandObj.isVerbatim ? content.trim() : stripComments(content.trim());
+    let finalContent = commandObj.isVerbatim ? content.trim() : stripComments(content.trim());
+
+    // Ajouter les doubles $$ autour des blocs align*
+    if (commandObj.isContent) {
+      finalContent = wrapAlignWithDollar(finalContent);
+    }
 
     if (commandObj.isContent) {
       // Ajouter au tableau 'contenu' en respectant l'ordre d'apparition
@@ -132,6 +148,7 @@ function processFile(inputFilePath, outputDir, commandsToExtract) {
 
     // Assurez-vous que toutes les clés uniques sont présentes
     const outputObject = {
+      uuid: extractedData.uuid,
       titre: extractedData.titre,
       theme: extractedData.theme,
       auteur: extractedData.auteur,
@@ -174,7 +191,8 @@ function main() {
     { name: 'question', jsonKey: 'contenu', isContent: true, isVerbatim: false },
     { name: 'reponse', jsonKey: 'contenu', isContent: true, isVerbatim: false },
     { name: 'code', jsonKey: 'contenu', isContent: true, isVerbatim: true }, // Nouvelle commande avec isVerbatim=true
-    { name: 'date', jsonKey: 'date', isContent: false, isVerbatim: false } // Nouvelle commande sans contenu
+    { name: 'date', jsonKey: 'date', isContent: false, isVerbatim: false }, // Nouvelle commande sans contenu
+    { name: 'uuid', jsonKey: 'uuid', isContent: false, isVerbatim: false } // Nouvelle commande sans contenu
 
   ];
 
