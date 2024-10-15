@@ -1,0 +1,51 @@
+\uuid{}
+\titre{Optimisation sans contrainte}
+\theme{Optimisation}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On considère la fonction $f$ définie sur $\mathbb{R}^2$ par :
+$$f(x,y) = x^4 + y^4 - 2(x - y)^2$$
+ }
+\begin{enumerate}
+  \item \question{Montrer qu’il existe $(\alpha, \beta) \in \mathbb{R}_+^2$ (et les déterminer) tels que
+  $$
+  f(x, y) \geq \alpha \|(x, y)\|^2 + \beta
+  $$
+  pour tous $(x, y) \in \mathbb{R}^2$, où $\|(x, y)\|$ désigne la norme euclidienne de $\mathbb{R}^2$. En déduire que le problème
+$$
+  \inf_{(x,y) \in \mathbb{R}^2} f(x, y)
+$$
+  possède au moins une solution.}
+  
+  \reponse{La fonction $f$ est donnée par $f(x, y) = x^4 + y^4 - 2(x - y)^2$. Puisque $f$ est une fonction polynomiale, elle est de classe $C^\infty$ sur $\mathbb{R}^2$. En utilisant l'inégalité $xy \geq -\frac{1}{2}(x^2 + y^2)$, on peut écrire :
+  \[
+  f(x, y) \geq x^4 + y^4 - 2x^2 - 2y^2 + 4xy \geq x^4 + y^4 - 4x^2 - 4y^2.
+  \]
+  Choisissant $\alpha = 2$ et $\beta = -16$, on obtient que $f(x, y) \geq \alpha \|(x, y)\|^2 + \beta$. Cela montre que $f$ est coercive sur $\mathbb{R}^2$, et d'après le théorème de Weierstrass, le problème $\inf_{(x,y)\in \mathbb{R}^2} f(x, y)$ possède au moins une solution.}
+  
+  \item \question{La fonction $f$ est-elle convexe sur $\mathbb{R}^2$ ?}
+  
+  \reponse{Pour étudier la convexité de $f$, calculons sa matrice hessienne en tout point $(x, y) \in \mathbb{R}^2$. On a :
+  \[
+  \text{Hess } f(x, y) = 4 \begin{pmatrix} 3x^2 - 1 & 1 \\ 1 & 3y^2 - 1 \end{pmatrix}.
+  \]
+  La fonction $f$ est convexe sur $\mathbb{R}^2$ si, et seulement si, sa matrice hessienne est semi-définie positive en tout point. Or, les valeurs propres de la hessienne en $(0, 0)$ sont 0 et -2. Par conséquent, $f$ n'est pas convexe.}
+  
+  \item \question{Déterminer les points critiques de $f$, et préciser leur nature (minimum local, maximum local, point-selle, etc.). Résoudre alors le problème d'optimisation.}
+  
+  \reponse{Les points critiques de $f$ sont donnés par les solutions de $\nabla f(x, y) = (0, 0)$, c'est-à-dire :
+  \[
+  \begin{cases} 
+  x^3 - (x - y) = 0, \\
+  y^3 + (x - y) = 0.
+  \end{cases}
+  \]
+  En résolvant ce système, on obtient trois points critiques : $O(0, 0)$, $A(\sqrt{2}, -\sqrt{2})$ et $B(-\sqrt{2}, \sqrt{2})$.
+
+  Pour déterminer la nature de ces points critiques, on utilise la matrice hessienne. Les points $A$ et $B$ sont des points de minimum local car la hessienne y est définie positive. Le point $O$ est un point-selle car la hessienne y a des valeurs propres de signes opposés.
+
+  Ainsi, la solution du problème d'optimisation est donnée par $\inf_{(x,y) \in \mathbb{R}^2} f(x, y) = f(A) = f(B) = -8$.}
+\end{enumerate}
+}

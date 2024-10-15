@@ -1,0 +1,43 @@
+\uuid{}
+\titre{Optimisation quadratique, moindres carrés}
+\theme{Optimisation}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{
+  On considère la fonction $f$ définie sur $[-1, 1]$ par $f(x) = x^3$. L'espace $\mathcal{C}^0([-1, 1])$ est muni du produit scalaire $\langle h, g \rangle = \int_{-1}^{1} h(x)g(x) dx$ et on note $\|h\|^2 = \int_{-1}^{1} h(x)^2 dx$ la norme associée. 
+
+  On cherche à déterminer le polynôme $P$ de degré inférieur ou égal à 1 qui approche le mieux la fonction $f$ sur l’intervalle $[-1, 1]$, au sens des moindres carrés. Autrement dit, on veut minimiser l’erreur $\|f - P\|^2$. 
+}
+
+\begin{enumerate}
+  \item \question{Mettre ce problème sous la forme d’un problème de moindres carrés de dimension finie. Quelle est cette dimension ?}
+  
+  \reponse{Le problème est de trouver le polynôme $P$ de degré inférieur ou égal à 1 qui approche le mieux la fonction $f(x) = x^3$ sur l’intervalle $[-1, 1]$, au sens des moindres carrés. Autrement dit, on veut minimiser l’erreur $\|f - P\|^2$, où la norme est définie par :
+  \[
+  \|h\|^2 = \int_{-1}^{1} h(x)^2 dx.
+  \]
+  Le polynôme $P(x) = ax + b$ est de degré inférieur ou égal à 1. On doit donc minimiser l'intégrale :
+  \[
+  J(a, b) = \int_{-1}^{1} \left( x^3 - (ax + b) \right)^2 dx.
+  \]
+  Ce problème peut être formulé comme un problème de moindres carrés dans un espace vectoriel de dimension 2 (les paramètres à déterminer étant $a$ et $b$).}
+  
+  \item \question{Étudier l’existence/l’unicité des solutions de ce problème.}
+  
+  \reponse{Le problème est quadratique en les paramètres $a$ et $b$. Par conséquent, il peut être formulé comme la minimisation d'une fonction quadratique définie positive, dont la matrice hessienne associée est définie positive. Cela garantit que le problème possède une solution unique.}
+  
+  \item \question{Résoudre ce problème.}
+  
+  \reponse{On calcule l’intégrale de $J(a, b)$ :
+  \[
+  J(a, b) = \int_{-1}^{1} \left( x^6 + a^2x^2 + b^2 - 2ax^4 - 2bx^3 + 2abx \right) dx.
+  \]
+  En calculant chaque terme séparément, on obtient :
+  \[
+  J(a, b) = \frac{2}{7} - \frac{4}{5}a + 2a^2 + 0 \cdot b + 0 \cdot ab + \text{termes constants}.
+  \]
+  Résoudre ce problème d'optimisation quadratique donne les valeurs $a = \frac{3}{5}$ et $b = 0$. Ainsi, le polynôme $P(x)$ qui approche le mieux $f(x) = x^3$ au sens des moindres carrés est $P(x) = \frac{3}{5}x$.}
+\end{enumerate}
+}

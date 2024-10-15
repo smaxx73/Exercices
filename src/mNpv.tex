@@ -1,0 +1,59 @@
+\uuid{}
+\titre{Calcul différentiel}
+\theme{Optimisation}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Cet exercice traite des notions de dérivées partielles, continuité et différentiabilité.}
+
+\begin{enumerate}
+  \item \question{Montrer que la fonction $f : \mathbb{R}^2 \to \mathbb{R}^2$ définie par
+  \[
+  f(x, y) = 
+  \begin{cases} 
+  \frac{y^2}{x} & \text{si } x \neq 0 \\
+  y & \text{si } x = 0 
+  \end{cases}
+  \]
+  admet des dérivées partielles au point $(0, 0)$, mais n'est pas continue en $(0, 0)$.}
+  
+  \reponse{
+  On calcule d'abord les dérivées partielles en $(0, 0)$. Pour tout $t \in \mathbb{R}^*$, on a $f(t, 0) - f(0, 0) = \frac{0^2}{t} = 0$, ce qui montre que 
+  \[
+  \lim_{t \to 0} \frac{f(t, 0) - f(0, 0)}{t} = 0,
+  \]
+  donc $f$ admet une dérivée partielle par rapport à $x$ en $(0, 0)$, et $\frac{\partial f}{\partial x}(0, 0) = 0$. De même, on a $f(0, t) = t$ pour tout $t \in \mathbb{R}$, donc $f$ est dérivable en $(0, 0)$ par rapport à $y$ et $\frac{\partial f}{\partial y}(0, 0) = 1$.
+
+  Cependant, $f$ n'est pas continue en $(0, 0)$ car la limite de $f(x, y)$ lorsque $(x, y)$ tend vers $(0, 0)$ dépend de la direction prise. En particulier, si $x \to 0$ et $y = 0$, $f(x, 0) \to 0$, mais si $y = x$, $f(x, x) = 1$.}
+  
+  \item \question{Soit $E$ un $\mathbb{R}$-espace vectoriel muni d'un produit scalaire $\langle \cdot, \cdot \rangle$. Montrer la continuité, puis la différentiabilité et calculer la différentielle de l'application "produit scalaire" $\Phi : E^2 \to \mathbb{R}$ définie par $\Phi(x, y) = \langle x, y \rangle$ pour tous $(x, y) \in E^2$.}
+  
+  \reponse{
+  L'application $\Phi$ est bilinéaire, donc sa continuité sur $E^2$ équivaut à sa continuité en $(0, 0)$. D'après l'inégalité de Cauchy-Schwarz, on a 
+  \[
+  |\Phi(x, y)| \leq \|x\| \cdot \|y\| \quad \text{pour tous } (x, y) \in E^2.
+  \]
+  
+  Pour la différentiabilité, fixons $(x, y) \in E^2$ et $(h, k) \in E^2$. On a :
+  \[
+  \Phi(x + h, y + k) = \Phi(x, y) + \Phi(x, k) + \Phi(h, y) + \Phi(h, k),
+  \]
+  donc la différentielle de $\Phi$ en $(x, y)$ est donnée par $d\Phi_{(x, y)}(h, k) = \langle x, k \rangle + \langle y, h \rangle$.}
+  
+  \item \question{Soit $A \in \mathcal{M}_{n,m}(\mathbb{R})$. Montrer que l'application $J : \mathbb{R}^m \to \mathbb{R}$ définie par $J(X) = \|AX\|^2$ est différentiable et calculer sa différentielle. Montrer ensuite que l'application $G : \mathbb{R}^m \to \mathbb{R}$ définie par $G(X) = f(J(X))$ pour une fonction $f \in C^1(\mathbb{R})$ est différentiable et calculer sa différentielle.}
+  
+  \reponse{
+  L'application $X \mapsto \|AX\|^2$ est polynomiale, donc elle est différentiable sur $\mathbb{R}^m$. En particulier, on a
+  \[
+  J(X) = \langle AX, AX \rangle = \langle A^TAX, X \rangle,
+  \]
+  et la différentielle de $J$ en $X$ est donnée par $d_X J(h) = 2 \langle A^TAX, h \rangle$ pour tout $h \in \mathbb{R}^m$.
+
+  Pour l'application $G$, on applique le théorème de composition des différentielles. On obtient :
+  $$
+  d_X G(h) = f'(J(X)) \cdot d_X J(h) = 2 f'(J(X)) \langle A^TAX, h \rangle.
+  $$
+}
+\end{enumerate}
+}
