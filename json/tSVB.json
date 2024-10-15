@@ -1,0 +1,26 @@
+{
+  "uuid": "tSVB",
+  "titre": "Modélisation et rencontre de généraux",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Le général Contant doit échanger des documents top secrets avec le général Janty. Pour cela, ils ont rendez-vous au bar Le Torkel. On suppose que l'heure d'arrivée de chaque individu au point de rendez-vous est uniformément distribué entre 20h et 21h. En revanche, chacun a promis de ne pas attendre l'autre plus de 10 minutes sur place."
+    },
+    {
+      "type": "question",
+      "value": "Décrire la probabilité que ces deux personnes puissent effectuer leur transaction sous forme d'une intégrale double."
+    },
+    {
+      "type": "question",
+      "value": "Quelle est la probabilité que ces deux personnes puissent effectuer leur transaction ?"
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $X$ l'heure d'arrivée du général Contant et $Y$ l'heure d'arrivée du général Janty. L'énoncé suggère que $X$ et $Y$ sont des \\vas indépendantes et nous dit qu'elles suivent toutes les deux une loi uniforme sur $[20;21]$.\n\tLa probabilité cherchée est $\\p(|X-Y|\\leq \\frac{1}{6})$.\n\t\n\tComme $X$ et $Y$ sont indépendantes, on a\n\t\\[ f_{(X,Y)}(x,y)=f_X(x)f_Y(y) =\\mathbf{1}_{[20;21]^2} (x,y).\\]\n\tDonc\n\t\\[ p\n\t= \\int \\int_D dx\\dy,\n\t\\]\n\toù\n\t$D=\\{(x,y)\\in\\R^2|20\\leq x \\leq 21, \\ 20\\leq y \\leq 21, \\ \\frac{-1}{6}\\leq x-y \\leq \\frac{1}{6}\\}$. \n\t\\vspace{1em}\n\t\n\t\n\tOn peut évaluer géométriquement cette aire mais nous allons faire le calcul de l'intégrale double. On commence par remplacer l'intervalle $[20;21]$ par l'intervalle $[0;1]$ en effectuant une translation. Ainsi, l'écriture est simplifiée.\n\t$$\\begin{align*}\n\t\tp&= \\int_0^{\\frac{1}{6}} \\int_0^{\\frac{1}{6}+y} dx \\dy\n\t\t+ \\int_{\\frac{1}{6}}^{\\frac{5}{6}} \\int_{y-\\frac{1}{6}}^{y+\\frac{1}{6}} dx \\dy\n\t\t+ \\int_{\\frac{5}{6}}^1 \\int_{y-\\frac{1}{6}}^{1} dx \\dy \\\\\n\t\t&= \\int_0^{\\frac{1}{6}} (\\frac{1}{6}+y) \\dy\n\t\t+ \\int_{\\frac{1}{6}}^{\\frac{5}{6}} \\frac{1}{3} \\dy\n\t\t+ \\int_{\\frac{5}{6}}^1 (\\frac{7}{6}-y) \\dy \\\\\n\t\t&=\\left[\\frac{1}{6}y+\\frac{1}{2}y^2 \\right]_0^\\frac{1}{6}\n\t\t+\\left[\\frac{1}{3}y\\right]_\\frac{1}{6}^\\frac{5}{6}\n\t\t+\\left[\\frac{7}{6}y-\\frac{1}{2}y^2 \\right]_\\frac{5}{6}^1 \\\\\n\t\t&=\\frac{11}{36}.\n\t\\end{align*}$$\n\tLa probabilité que les deux généraux puissent effectuer leur transaction est donc de l'ordre de $0.31$."
+    }
+  ]
+}

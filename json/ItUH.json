@@ -1,0 +1,22 @@
+{
+  "uuid": "ItUH",
+  "titre": "Loi normale, question de cours",
+  "theme": "probabilité",
+  "auteur": "Maxime NGUYEN",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit  $Z$ une variable aléatoire suivant une loi normale centrée réduite $\\mathcal{N}(0,1)$."
+    },
+    {
+      "type": "question",
+      "value": "Justifier que $\\PP(Z>0) = \\frac{1}{2}$ et que pour tout réel $a \\in \\R$, $\\PP(Z<-a) = \\PP(Z>a)$."
+    },
+    {
+      "type": "reponse",
+      "value": "On sait que $\\PP(Z>0) = \\int_0^{+\\infty} \\frac{1}{\\sqrt{2\\pi}}\\;\\; \\mathrm{e}^{-\\frac{x^2}{2}} dx = \\frac{1}{2} \\int_{-\\infty}^{+\\infty} \\frac{1}{\\sqrt{2\\pi}}\\;\\; \\mathrm{e}^{-\\frac{x^2}{2}} dx$ par parité de la fonction intégrée. Or $\\int_{-\\infty}^{+\\infty} \\frac{1}{\\sqrt{2\\pi}}\\;\\; \\mathrm{e}^{-\\frac{x^2}{2}} dx$ d'où le premier résultat.\n\nDe même, on a par changement de variable $u=-x$ et parité : $$\\PP(Z<-a) = \\int_{-\\infty}^{-a} \\frac{1}{\\sqrt{2\\pi}}\\;\\; \\mathrm{e}^{-\\frac{x^2}{2}} dx = -\\int_{+\\infty}^{a} \\frac{1}{\\sqrt{2\\pi}}\\;\\; \\mathrm{e}^{-\\frac{u^2}{2}} du = \\int^{+\\infty}_{a} \\frac{1}{\\sqrt{2\\pi}}\\;\\; \\mathrm{e}^{-\\frac{u^2}{2}} du = \\PP(Z>a)$$"
+    }
+  ]
+}

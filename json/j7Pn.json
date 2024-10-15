@@ -1,0 +1,18 @@
+{
+  "uuid": "j7Pn",
+  "titre": "Paramètres de la loi uniforme",
+  "theme": "probabilité",
+  "auteur": "Maxime NGUYEN",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Soit $X$ une variable aléatoire suivant une loi uniforme sur $[a;b]$. Calculer $\\EX$ et $\\mathbb{V}(X)$."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $f$ une fonction densité de $X$. Il suffit de calculer \n \t$$\\begin{align*}\n \t\t\\mathbb{E}(X) &= \\int_{-\\infty}^{+\\infty} xf(x)dx \\\\\n \t\t&= \\int_a^b x \\times \\frac{1}{b-a} dx \\\\\n \t\t&=  \\frac{1}{b-a} \\times \\left( \\frac{b^2}{2} - \\frac{a^2}{2} \\right) \\\\\n \t\t&=  \\frac{(b+a)(b-a)}{2(b-a)}\\\\\n \t\t&= \\frac{a+b}{2}\n \t\\end{align*}$$\n \t\n \tPour calculer la variance $\\mathbb{V}(X)$, il reste à calculer :\n \t$$\\begin{align*}\n \t\t\\mathbb{E}(X^2) &= \\int_{-\\infty}^{+\\infty} x^2f(x)dx \\\\\n \t\t&= \\int_a^b x^2 \\times \\frac{1}{b-a} dx \\\\\n \t\t&=  \\frac{1}{b-a} \\times \\left( \\frac{b^3}{3} - \\frac{a^3}{3} \\right) \\\\\n \t\t&= \\frac{a^2+2ab+b^2}{3}\n \t\\end{align*}$$\n \tpuis on applique la formule de Huygens :\n \t$$\\begin{align*}\n \t\t\\mathbb{V}(X)&= \\mathbb{E}(X^2) - \\mathbb{E}(X)^2 \\\\\n \t\t&= \\frac{a^2+2ab+b^2}{3} - \\left(\\frac{a+b}{2}\\right)^2 \\\\\n \t\t&= \\frac{(b-a)^2}{12}\n \\end{align*}$$"
+    }
+  ]
+}

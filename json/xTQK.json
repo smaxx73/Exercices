@@ -1,0 +1,14 @@
+{
+  "uuid": "xTQK",
+  "titre": "Programmations de méthodes classique",
+  "theme": "méthodes numériques",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Programmer en Python les algorithmes classiques de recherche de zéro : dichotomie, Newton, sécante."
+    }
+  ]
+}

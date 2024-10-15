@@ -1,0 +1,42 @@
+{
+  "uuid": "1Lj3",
+  "titre": "Probabilité d'un maximum",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Calculer $\\E(X_i)$ et $\\var(X_i)$, pour $i\\in\\{1,2,3\\}$. On considère la variable aléatoire $Y=\\frac{1}{3}(X_1+X_2+X_3)$. Exprimer $\\E(Y)$ et $\\var(Y)$ sans déterminer la loi de $Y$."
+    },
+    {
+      "type": "reponse",
+      "value": "Espérance de $X_i$:\n\t\t\\[ \\E(X_i)=\\int_0^{2a}\\frac{t}{2a}  \\dx t = \\left[ \\frac{1}{4a}t^2 \\right]_0^{2a} =\\frac{4a}{(2a)^2}=a\\]\n\t\tVariance de $X_i$:\n\t\t$$\\begin{align*}\n\t\t\t&\\E(X_i^2)=\\int_0^{2a}\\frac{t^2}{2a}  \\dx t = \\left[ \\frac{t^3}{6a} \\right]_0^{2a} =\\frac{6a}{(2a)^3}=\\frac{4}{3} a^2 \\\\\n\t\t\t&\\var(X_i)=\\E(X_i^2)-\\E(X_i)^2=\\frac{4}{3}a^2-a^2=\\frac{1}{3}a^2\n\t\t\\end{align*}$$\n\t\tEspérance de $Y$:\n\t\t\\[\\E(Y)=\\frac{1}{3}(\\E(X_1)+\\E(X_2)+\\E(X_3))=a\\]\n\t\tVariance de $Y$: \n\t\t$$\\begin{align*}\n\t\t\t\\var(Y)&=\\frac{1}{9}\\var(X_1+X_2+X_3) \\\\\n\t\t\t&= \\frac{1}{9}(\\var(X_1)+\\var(X_2)+\\var(X_3)) \\quad \\text{ car les va }X_i\\text{ sont indépendantes} \\\\\n\t\t\t&=\\frac{a^2}{9}\n\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "On pose $Z=\\max(X_1,X_2,X_3)$. Justifier que la fonction de répartition $F_Z$ de $Z$ vérifie: $\\displaystyle F_Z(t)=\\prod_{i=1}^3 F_{X_i}(t)$. En déduire qu'une densité de $Z$ est :\n\t$$\n\tf_{Z}(t)=\n\t\\left\\{\\begin{array}{cl}\n\t\t\\frac{3}{(2a)^3}t^2 &\\text{si } 0\\leq t \\leq 2a, \\\\[1mm]\n\t\t0& \\text{sinon.}\n\t\\end{array}\\right.\n\t$$"
+    },
+    {
+      "type": "reponse",
+      "value": "Fonction de répartition de $Z$:\n\t\t$$\\begin{align*}\n\t\t\t\\forall t \\in\\R, \\quad  F_Z(t)&=\\p(Z\\leq t)\\\\\n\t\t\t& =\\p(\\max(X_1,X_2,X_3) \\leq t) \\\\\n\t\t\t&=\\p(\\{X_1\\leq t\\}\\cap \\{X_2\\leq t\\}\\cap \\{X_3\\leq t\\}) \\\\\n\t\t\t&=\\p(X_1\\leq t)\\p(X_2\\leq t)\\p(X_3\\leq t) \\quad \\text{ car les va }X_i\\text{ sont indépendantes}\\\\\n\t\t\t&=\\prod_{i=1}^3 F_{X_i}(t) \n\t\t\\end{align*}$$\n\t\tDensité de $Z$:\n\t\t\\[ \\forall t \\in \\R, \\quad f_Z(t)=F_Z'(t)=3F_{X_1}(t)\\times f_{X_1}(t) \\]\n\t\tor\n\t\t\\[ F_{X_1}(t)=\\begin{cases} 0 & \\text{ si } t<0 \\\\\n\t\t\t\\frac{t}{2a} & \\text{ si } t\\in[0;2a] \\\\\n\t\t\t1 & \\text{ si } t> 2a\n\t\t\\end{cases}\n\t\t\\]\n\t\tdonc\n\t\t$$\\begin{align*}\n\t\t\tf_Z(t)&= \\begin{cases}\n\t\t\t\t0 & \\text{ si } t< 0 \\text{ ou } t>2a \\\\\n\t\t\t\t3\\left(\\frac{t}{2a}\\right)^2\\times \\frac{1}{2a} &  \\text{ si } t\\in[0;2a]\n\t\t\t\\end{cases} \\\\\n\t\t\t&= \\begin{cases}\n\t\t\t\t0 & \\text{ si } t< 0 \\text{ ou } t>2a \\\\\n\t\t\t\t\\frac{3}{(2a)^3}t^2 & \\text{ si } t\\in[0;2a]\n\t\t\t\\end{cases}\n\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\E(Z)$ et $\\var(Z)$. Soit la \\va $T=\\alpha Z$. Déterminer $\\alpha$ de sorte que $\\E(T)=\\E(Y)$."
+    },
+    {
+      "type": "reponse",
+      "value": "Espérance de $Z$:\n\t\t\\[ \\E(Z)=\\int_0^{2a} \\frac{3}{(2a)^3}t^3  \\dx t\n\t\t=\\left[ \\frac{3}{4}\\frac{1}{(2a)^3}t^4 \\right]_0^{2a}\n\t\t=\\frac{3a}{2}\n\t\t\\]\n\t\tVariance de $Z$:\n\t\t$$\\begin{align*}\n\t\t\t&\\E(Z^2)=\\int_0^{2a} \\frac{3}{(2a)^3}t^4  \\dx t\n\t\t\t=\\left[ \\frac{3}{5}\\frac{1}{(2a)^3}t^5 \\right]_0^{2a}\n\t\t\t=\\frac{12}{5}a^2 \\\\\n\t\t\t&\\var(Z)=\\E(Z^2)-\\E(Z)^2\n\t\t\t=\\frac{12}{5}a^2-\\frac{9}{4}a^2=\\frac{3}{20}a^2\n\t\t\\end{align*}$$\n\t\tDétermination de $\\alpha$:\n\t\t$$\\begin{align*}\n\t\t\t\\E(T)=\\E(Y) \\quad \\Leftrightarrow \\quad \\alpha\\E(Z)=a\n\t\t\t\\quad \\Leftrightarrow \\quad \\alpha \\frac{3a}{2}=a\n\t\t\t\\quad \\Leftrightarrow \\quad \\alpha=\\frac{2}{3}\n\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "Comparer $\\var(T)$ et $\\var(Y)$."
+    },
+    {
+      "type": "reponse",
+      "value": "On a\n\t\t$$\\var(T)=\\sigma^2\\left(\\frac{2}{3}Z\\right)\n\t\t= \\frac{4}{9}\\var(Z)\n\t\t=\\frac{4}{9}\\times \\frac{3}{20}a^2 \n\t\t=\\frac{a^2}{15}.$$\n\t\tComme $\\displaystyle \\var(Y)=\\frac{a^2}{9}$, on a $\\var(T) <  \\var(Y)$."
+    }
+  ]
+}

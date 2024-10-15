@@ -1,0 +1,78 @@
+{
+  "uuid": "Hhtu",
+  "titre": "Probabilité d'événements",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $(\\Omega, \\mathcal{T}, \\prob)$ un espace probabilisé et trois événements $A$, $B$ et $C$ tels que : \n\t\t\n\t$$\\prob(A) = 0.3 \\quad , \\quad \\prob(B) = 0.4 \\quad , \\quad \\prob(A \\cap B) = 0.2 \\quad , \\quad \\prob(C \\mid A \\cap B) = 0.5$$\n\t\t\n\t\t\n\t\t\n\t\tCalculer, si possible, les probabilités suivantes : \n\\colonnes{\\solution}{2}{1}\n\t\t\\begin{enumerate}\n\t\t\t\\item \\question{ $\\prob(A \\cup B)$ ; }\n\t\t\t\\reponse{  $\\prob(A \\cup B) = 0.5 $ }\n\t\t\t\\item \\question{ $\\prob(A \\mid B)$ ; }\n\t\t\t\\reponse{  $\\prob(A \\mid B) = 0.5$ }\n\t\t\t\\item \\question{ $\\prob(\\overline{A} \\mid B)$ ; }\n\t\t\t\\reponse{ $\\prob(\\overline{A} \\mid B) = 0.5$ }\n\t\t\t\\item \\question{ $\\prob({A} \\mid \\overline{B})$ ; }\n\t\t\t\\reponse{ $\\prob({A} \\mid \\overline{B} = \\frac{1}{6} $ }\n\t\t\t\\item \\question{ $\\prob(B \\mid A)$ ; }\n\t\t\t\\reponse{ $\\prob(B \\mid A) = \\frac{2}{3}$ }\n\t\t\t\\item \\question{ $\\prob(A \\cap B \\cap C)$ ; }\n\t\t\t\\reponse{ $\\prob(A \\cap B \\cap C) = 0.1$ }\n\t\t\t\\item \\question{ $\\prob(\\overline{A} \\cap \\overline{B})$ ;}\n\t\t\t\\reponse{ $\\prob(\\overline{A} \\cap \\overline{B}) = 0.5$ }\n\t\t\t\\item \\question{ $\\prob(\\overline{A} \\cup \\overline{B})$.}\n\t\t\t\\reponse{ $\\prob(\\overline{A} \\cup \\overline{B}) = 0.8$ }\n\t\t\\end{enumerate}\n\\fincolonnes{\\solution}{2}{1}"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(A \\cup B)$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(A \\cup B) = 0.5 $"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(A \\mid B)$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(A \\mid B) = 0.5$"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(\\overline{A} \\mid B)$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(\\overline{A} \\mid B) = 0.5$"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob({A} \\mid \\overline{B})$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob({A} \\mid \\overline{B} = \\frac{1}{6} $"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(B \\mid A)$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(B \\mid A) = \\frac{2}{3}$"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(A \\cap B \\cap C)$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(A \\cap B \\cap C) = 0.1$"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(\\overline{A} \\cap \\overline{B})$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(\\overline{A} \\cap \\overline{B}) = 0.5$"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(\\overline{A} \\cup \\overline{B})$."
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(\\overline{A} \\cup \\overline{B}) = 0.8$"
+    }
+  ]
+}

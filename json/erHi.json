@@ -1,0 +1,18 @@
+{
+  "uuid": "erHi",
+  "titre": "Racine multiple",
+  "theme": "polynomes",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Montrer que le polynôme $P(X)=1+X+\\frac{X^2}{2 !}+\\frac{X^3}{3 !}+\\ldots+\\frac{X^n}{n !}$ n'a pas de racine multiple."
+    },
+    {
+      "type": "reponse",
+      "value": "Raisonnement par l'absurde :\n$a$ est racine multiple ssi $P(a)=P^{\\prime}(a)=0$.\nOn a :\n$$\n\\begin{aligned}\n& P(X)=1+X+\\frac{X^2}{2 !}+\\ldots+\\frac{X^{n-1}}{(n-1) !}+\\frac{X^n}{n !} \\\\\n& P^{\\prime}(X)=1+X+\\frac{X^2}{2 !}+\\ldots+\\frac{X^{n-1}}{(n-1) !} \\\\\n& \\left.\\begin{array}{l}\nP(a)=0 \\quad \\Leftrightarrow 1+a+\\frac{a^2}{2 !}+\\ldots+\\frac{a^{n-1}}{(n-1) !}+\\frac{a^n}{n !}=0 \\\\\nP^{\\prime}(a)=0 \\Leftrightarrow 1+a+\\frac{a^2}{2 !}+\\ldots+\\frac{a^{n-1}}{(n-1) !}=0\n\\end{array}\\right\\} \\Rightarrow \\frac{a^n}{n !}=0 \\Leftrightarrow a=0 \\\\\n&\n\\end{aligned}\n$$\nor 0 n'est pas racine car $P(0)=1$, donc $a$ ne peut pas être racine simultanément de $P$ et $P^{\\prime}$. $a$ ne peut pas être racine multiple."
+    }
+  ]
+}

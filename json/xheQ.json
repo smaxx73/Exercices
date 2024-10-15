@@ -1,0 +1,50 @@
+{
+  "uuid": "xheQ",
+  "titre": "Lois pour les statistiques",
+  "theme": "statistiques",
+  "auteur": "Maxime Nguyen",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Déterminer, en justifiant par un calcul, la loi de la variable aléatoire $T$."
+    },
+    {
+      "type": "reponse",
+      "value": "Par linéarité, on calcule $\\mathbb{E}(T) = \\frac{2+3+2}{7} \\times 10  = 10$. Par indépendance et propriété de la variance, $\\sigma^2(\\overline{T}) = \\frac{4+9+4}{49} \\times  4= \\frac{68}{49}$. Par somme de lois normales, $\\overline{X}$ suit une loi normale $\\mathcal{N}(10,\\sigma^2 = \\frac{68}{49})$."
+    },
+    {
+      "type": "question",
+      "value": "Vérifier que $\\overline{X}$ et $T$ sont deux estimateurs sans biais de $\\mu$. Lequel de ces deux estimateurs de $\\mu$ est le plus efficace ?"
+    },
+    {
+      "type": "reponse",
+      "value": "Pour étudier le biais d'un estimateur, on doit calculer leur espérance. Par linéarité, $\\mathbb{E}(\\overline{X}) = \\mu$ donc le biais de $\\overline{X}$ est $B(\\overline{X}) = \\mathbb{E}(\\overline{X}-\\mu) = 0$. De même, $B(T)=0$.\n\t\n\t\tPour comparer l'efficacité de ces deux estimateurs, on peut comparer leurs variances respectives : par indépendance et propriété de la variance, $\\sigma^2(\\overline{X}) = \\frac{3 \\times 4}{9} = \\frac{4}{3} < \\frac{68}{49} = \\sigma^2(T)$. Par conséquent, $\\overline{X}$ est plus efficace que $T$ pour estimer $\\mu$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer, en justifiant, la loi de la variable aléatoire $U$ et la loi de la variable $V$."
+    },
+    {
+      "type": "reponse",
+      "value": "$U = \\frac{1}{4}\\sum_{i=1}^{3}  {(X_i-10)^2} = \\sum_{i=1}^{3}  {  \\left( \\frac{ X_i-10}{2}\\right)^2}$. Or les variables aléatoires $X_i$ sont indépendantes et $ \\frac{ X_i-10}{2}$ suit une loi normale centrée réduite donc par définition $U$ suit une loi $\\chi^2(3)$.\n\t\n\tPar théorème du cours (Théorème de Fisher), $V$ suit une loi $\\chi^2(2)$."
+    },
+    {
+      "type": "question",
+      "value": "A l'aide des tables de valeurs, déterminer un réel $t$ tel que $\\PP(V>t) = 0.95$."
+    },
+    {
+      "type": "reponse",
+      "value": "Par lecture de la table d'une loi $\\chi^2(2)$, on a $\\PP(V \\leq 0.1026) = 0.05$ donc on peut prendre $t=0{,}1026$."
+    },
+    {
+      "type": "question",
+      "value": "On pose $$Y = \\frac{\\overline{X}-10}{\\sqrt{\\frac{2V}{3}}}$$ \nParmi les formules suivantes, laquelle permet de déterminer le réel $t$ tel que $\\prob(Y > t) = 0.025$ ?\n\\begin{itemize}\n\t\\item \\texttt{=LOI.NORMALE.STANDARD.INVERSE(0.95)}\n\t\\item \\texttt{=LOI.KHIDEUX.INVERSE(0,975;2)}\n\t\\item \\texttt{=1-LOI.KHIDEUX.INVERSE(0,025;3)}\n\t\\item \\texttt{=LOI.STUDENT.INVERSE.N(0,975;2)}\n\t\\item \\texttt{=1-LOI.STUDENT.INVERSE.N(0,025;3)}\n\\end{itemize}"
+    },
+    {
+      "type": "reponse",
+      "value": "on a $$Y = \\frac{\\overline{X}-10}{\\sqrt{\\frac{2V}{3}}} = \\frac{\\overline{X}-10}{\\sqrt{\\frac{4}{3} \\frac{V}{2}}} = \n\t\t\t\\frac{ \\frac{ \\overline{X}-10}{\\sqrt{\\frac43}}}{\\sqrt{\\frac{V}{2}}}$$ et on reconnaît une loi de Student $St(2)$. On cherche $t$ tel que $\\prob(Y > t) = 0.025 \\iff \\prob(Y \\leq t) = 0.975$ d'où la formule : {=LOI.STUDENT.INVERSE.N(0,975;2)}"
+    }
+  ]
+}

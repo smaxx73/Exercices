@@ -1,0 +1,42 @@
+{
+  "uuid": "phsf",
+  "titre": "Calcul de probabilité",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "On  jette un dé à 6 faces et on observe le résultat."
+    },
+    {
+      "type": "question",
+      "value": "Quel univers peut-on définir pour modéliser cette expérience aléatoire ?"
+    },
+    {
+      "type": "question",
+      "value": "On observe que $\\PP(1)=0.3$, $\\PP(2)=0.15$, $\\PP(3)=0.1$, $\\PP(4)=\\PP(2)$, $\\PP(5)=\\PP(6)$. Le dé est-il truqué ? Déterminer $\\PP(5)$ et $\\PP(6)$."
+    },
+    {
+      "type": "texte",
+      "value": "On considère les deux événements suivants :\n\t\t\\begin{enumerate}\n\t\t\t\\item $A$ : \\og le nombre obtenu est impair \\fg{}\n\t\t\t\\item $B$ : \\og le nombre obtenu est supérieur ou égal à 3 \\fg{}.\n\t\t\\end{enumerate}"
+    },
+    {
+      "type": "question",
+      "value": "Calculer les probabilités $\\PP(A)$, $\\PP(B)$, $\\PP(A \\cap B)$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\PP(A \\cup B)$ de deux manières différentes."
+    },
+    {
+      "type": "question",
+      "value": "Décrire à l'aide d'une phrase les événements $\\bar A$ et $\\bar B$ puis calculer leur probabilité."
+    },
+    {
+      "type": "question",
+      "value": "Donner un exemple de deux événements incompatibles $C$ et $D$ puis calculer $\\PP(C)$, $\\PP(D)$, $\\PP(C \\cap D)$, $\\PP(C \\cup D)$."
+    }
+  ]
+}
