@@ -8,24 +8,24 @@
 \texte{Cet exercice traite des notions de dérivées partielles, continuité et différentiabilité.}
 
 \begin{enumerate}
-  \item \question{Montrer que la fonction $f : \mathbb{R}^2 \to \mathbb{R}^2$ définie par
-  \[
-  f(x, y) = 
-  \begin{cases} 
-  \frac{y^2}{x} & \text{si } x \neq 0 \\
-  y & \text{si } x = 0 
-  \end{cases}
-  \]
-  admet des dérivées partielles au point $(0, 0)$, mais n'est pas continue en $(0, 0)$.}
-  
-  \reponse{
-  On calcule d'abord les dérivées partielles en $(0, 0)$. Pour tout $t \in \mathbb{R}^*$, on a $f(t, 0) - f(0, 0) = \frac{0^2}{t} = 0$, ce qui montre que 
-  \[
-  \lim_{t \to 0} \frac{f(t, 0) - f(0, 0)}{t} = 0,
-  \]
-  donc $f$ admet une dérivée partielle par rapport à $x$ en $(0, 0)$, et $\frac{\partial f}{\partial x}(0, 0) = 0$. De même, on a $f(0, t) = t$ pour tout $t \in \mathbb{R}$, donc $f$ est dérivable en $(0, 0)$ par rapport à $y$ et $\frac{\partial f}{\partial y}(0, 0) = 1$.
-
-  Cependant, $f$ n'est pas continue en $(0, 0)$ car la limite de $f(x, y)$ lorsque $(x, y)$ tend vers $(0, 0)$ dépend de la direction prise. En particulier, si $x \to 0$ et $y = 0$, $f(x, 0) \to 0$, mais si $y = x$, $f(x, x) = 1$.}
+%  \item \question{Montrer que la fonction $f : \mathbb{R}^2 \to \mathbb{R}^2$ définie par
+%  \[
+%  f(x, y) = 
+%  \begin{cases} 
+%  \frac{y^2}{x} & \text{si } x \neq 0 \\
+%  y & \text{si } x = 0 
+%  \end{cases}
+%  \]
+%  admet des dérivées partielles au point $(0, 0)$, mais n'est pas continue en $(0, 0)$.}
+%  
+%  \reponse{
+%  On calcule d'abord les dérivées partielles en $(0, 0)$. Pour tout $t \in \mathbb{R}^*$, on a $f(t, 0) - f(0, 0) = \frac{0^2}{t} = 0$, ce qui montre que 
+%  \[
+%  \lim_{t \to 0} \frac{f(t, 0) - f(0, 0)}{t} = 0,
+%  \]
+%  donc $f$ admet une dérivée partielle par rapport à $x$ en $(0, 0)$, et $\frac{\partial f}{\partial x}(0, 0) = 0$. De même, on a $f(0, t) = t$ pour tout $t \in \mathbb{R}$, donc $f$ est dérivable en $(0, 0)$ par rapport à $y$ et $\frac{\partial f}{\partial y}(0, 0) = 1$.
+%
+%  Cependant, $f$ n'est pas continue en $(0, 0)$ car la limite de $f(x, y)$ lorsque $(x, y)$ tend vers $(0, 0)$ dépend de la direction prise. En particulier, si $x \to 0$ et $y = 0$, $f(x, 0) \to 0$, mais si $y = x$, $f(x, x) = 1$.}
   
   \item \question{Soit $E$ un $\mathbb{R}$-espace vectoriel muni d'un produit scalaire $\langle \cdot, \cdot \rangle$. Montrer la continuité, puis la différentiabilité et calculer la différentielle de l'application "produit scalaire" $\Phi : E^2 \to \mathbb{R}$ définie par $\Phi(x, y) = \langle x, y \rangle$ pour tous $(x, y) \in E^2$.}
   
