@@ -1,0 +1,35 @@
+\titre{Optimisation sous contrainte (2)}
+\theme{Optimisation}
+\auteur{Jean-François Culus}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Soient $a$ et $b$ deux réels strictement positifs. 
+En réutilisant la méthode précédente, déterminer le maximum de la fonction 
+$f: (x,y)\mapsto xy$ sous la contrainte $\Gamma$: $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$. 
+
+\reponse{
+Nous reconnaissons dans la contrainte $\Gamma$ une ellipse: ainsi est-ce un compact de $\mathbb{R}^2$. Aussi, puisque la fonction $f$ est continue sur $\mathbb{R}^2$, elle y est bornée et atteint ses bornes. 
+
+En reprenant l’idée de l’exercice précédent, les vecteurs gradients de $f$ et $g$ en un extremum $(x_0;y_0)$ doivent être colinéaires. 
+Aussi, nous avons:
+
+$$ \nabla f(x_0;y_0)= (y_0;x_0)~~\text{ et } ~~
+\nabla g(x_0;y_0) = \left( \frac{2x_0}{a^2}; \frac{2y_0}{b^2}\right) $$ 
+
+La condition de colinéarité implique alors : 
+$$ \begin{vmatrix} y_0 & 2x_0/a^2 \\ x_0 & 2y_0/b^2\end{vmatrix} =0$$ 
+ce qui conduit au système suivant: 
+
+$$\left\lbrace 
+\begin{array}{ll}
+y_0^2/b^2 - x_0^2/a^2 &=0 \\ 
+x_0^2/a^2 + y_0^2/b^2 &=1 \end{array}\right.$$ 
+
+Après résolutions, nous obtenons les solutions suivantes:
+$\left( \pm \frac{a}{\sqrt{2}}; \pm \frac{b}{\sqrt{2}} \right)$.
+
+En calculant la valeur de $f$ en chacun de ces points, on obtient la valeur maximale recherchée: $\frac{ab}{2}$. 
+}
+}
+}

@@ -1,0 +1,133 @@
+\titre{Optimisation sous contrainte (3)}
+\theme{Optimisation}
+\auteur{Jean-François Culus}
+\organisation{AMSCC}
+\contenu{
+
+\texte{
+A présent, nous allons introduire un outil permettant d’aller plus vite dans la résolution de ces problèmes: le Lagrangien. 
+Si l’on souhaite étudier les extremums de la fonction $f$ soumise à la contrainte $g(x,y)=0$, on introduit le Lagrangien $L(x,y,\lambda)$ défini par :
+$$ L(x,y,\lambda)= f(x,y)-\lambda g(x,y)$$ 
+
+Donnons un exemple d’étude pour étudier les extremas de la fonction $f(x,y)=x^2+y^2-4xy$ sous la contrainte $x^2+y^2=8$. 
+
+
+\begin{enumerate}
+
+\item 
+\question{ Ecrire le Lagrangien associé à ce problème d’optimisation sous contrainte. }
+
+\reponse{ Le Lagrangien est alors: 
+$$L(x,y,\lambda)= f(x,y)-\lambda g(x,y) = x^2+y^2 - 4 xy - \lambda (x^2+y^2-8)$$ 
+}
+
+\item
+\question{ Déterminer ses points stationnaires (ie. vérifiant 
+$\frac{\partial L}{\partial x}=
+ \frac{\partial L}{\partial y}=
+\frac{\partial L}{\partial \lambda}=0$. 
+}
+
+\reponse{
+$$\left\lbrace \begin{array}{ll}
+\frac{\partial L}{\partial x}& =0 \\
+\frac{\partial L}{\partial y}& =0 \\
+\frac{\partial L}{\partial \lambda}& =0 \end{array}\right. 
+~~ \Rightarrow 
+\left\lbrace 
+\begin{array}{ll}
+2x-4y-2\lambda x &= 0 \\
+2y -4x -2 \lambda y &= 0 \\
+x^2+y^2 -8 &=0 \end{array}\right. 
+~~\Rightarrow 
+\left\lbrace 
+\begin{array}{ll}
+x &= \pm 2 \\
+y &= \pm 2 \\
+\lambda &= \frac{x-2y}{x}  \end{array}\right. $$
+
+
+Ainsi, nous avons quatre points stationnaires: 
+\\ $(2,2)$ correspondant  à $\lambda=-1$, 
+\\ $(-2;2)$ correspondant à $\lambda =3$, 
+\\ $(2;-2)$ correspondant à $\lambda = 3$ et 
+\\ $(-2;-2)$ correspondant à $\lambda =-1$. 
+}
+
+\item
+\question{
+Donner l’équation de l’espace vectoriel tangent $T$ à la courbe de contrainte en chacun des points critiques.} 
+
+
+\reponse{
+Puisque le gradient $\nabla g(x_0;y_0)$ est orthogonal au plan tangent à la contrainte $\Gamma$ en $(x_0;y_0)$, nous en déduisons que:
+$$(u,v)\in T \Leftrightarrow 
+\nabla g(x,y) \cdot \begin{pmatrix} u \\ v \end{pmatrix} = 0 ~~\Leftrightarrow ~~
+\frac{\partial g}{\partial x} (x_0;y_0) u + frac{\partial g}{\partial y}(x_0;y_0) v=0 ~~\leftrightarrow 2x_0u+2y_0 v=0$$ 
+}
+
+\item 
+\question{
+On définit la forme quadratique $Q(u,v)$ associé au Lagrangien par 
+$Q(u,v)= \frac{1}{2} \begin{pmatrix} u & v\end{pmatrix} ~ H_L~ \begin{pmatrix} u \\ v\end{pmatrix}$ où $H_L$ est la Hessienne associée à la fonction $L$, c’est-à-dire:  
+$ H_L(x,y) = \begin{pmatrix} 
+\frac{\partial^2 L}{\partial x^2} & \frac{\partial^2 L}{\partial x \partial y} \\
+\frac{\partial^2 L}{\partial y \partial x} & \frac{\partial^2 L}{\partial y^2}
+\end{pmatrix}$.
+
+Donner une expression de $Q(u,v)$. 
+}
+
+\reponse{
+Déjà, exprimons la Hessienne du Lagrangien $L(x,y,\lambda)$:
+Nous avons déjà 
+
+$\frac{\partial L}{\partial x}(x,y)= 2x-4y-2\lambda x$ et 
+$\frac{\partial L}{\partial y}(x,y)= 2y-4x-2\lambda y$.
+Nous en déduisons alors que: 
+
+$$\frac{\partial^2 L}{\partial x^2}(x,y)= 2-2\lambda;~~
+\frac{\partial^2 L}{\partial x \partial y }= \frac{\partial^2 L}{\partial y \partial x}(x,y)=-4  ~~ \text{ et }~\frac{\partial^2 L}{\partial y^2}(x,y)=2-2\lambda$$ 
+
+Aussi, nous avons :
+$$ H_L(x,y) = \begin{pmatrix} 
+\frac{\partial^2 L}{\partial x^2} & \frac{\partial^2 L}{\partial x \partial y} \\
+\frac{\partial^2 L}{\partial y \partial x} & \frac{\partial^2 L}{\partial y^2}
+\end{pmatrix}
+= \begin{pmatrix} 2-2\lambda  & -4 \\ -4 & 2-2\lambda \end{pmatrix} 
+$$
+
+Ainsi, la forme quadratique associée est :
+
+$$ Q(u,v)= \frac{1}{2} \begin{pmatrix} u&v \end{pmatrix} \cdot 
+\begin{pmatrix} 2-2\lambda  & -4 \\ -4 & 2-2\lambda \end{pmatrix} \cdot 
+\begin{pmatrix} u \\ v\end{pmatrix} =(1-\lambda) u^2-4uv+(1-2\lambda) v^2$$
+}
+
+\item
+\question{ 
+Pour chacun des points critiques obtenus précédemment, déterminer sa nature en étudiant la forme quadratique $Q(u,v)$, pour $(u,v)\in T$ un vecteur tangent à la contrainte en ce point.
+On utilisera le fait que si $Q(u,v)>0$, ce point est un minimum alors que si $Q(u,v)<0$, ce point est un maximum. 
+}
+
+\reponse{
+$\bullet$ Pour le point $(2;2)$ pour lequel $\lambda=-1$, nous avons 
+$(u,v)\in T ~\Leftrightarrow ~ Q(u,v)=4u^2-8uv+4v^2$. 
+De plus, nous devons avoir $\frac{\partial g}{\partial x}(x,y) u + \frac{\partial g}{\partial y} (x,y)=0$, soit $2xu +2yu=0$ d’où $u+v=0$, i.e. $u=-v$. 
+\\ Il s’ensuit alors que $Q(u,v)=Q(u,-u)=16u^2>0$ d’où le point $(2,2)$ correspond à un minimum. 
+
+
+$\bullet$ Pour le point $(-2;-2)$, les calculs sont les mêmes qu’au cas précédent et nous obtenons alors un minimum. 
+
+
+$\bullet$ Pour le point $(-2;2)$, nous avions $\lambda =3$. Cela conduit à 
+$Q(u,v)= -2u^2-4uv-2v^2$ et puisque $(u,v)\in T$, nous devons avoir
+$\frac{\partial g}{\partial x}(x,y) u + \frac{\partial g}{\partial y} (x,y)=0$, soit $-4u +4v=0$, i.e. $u=v$. 
+\\ Il s’ensuit alors que $Q(u,v)=Q(u,u)=-16u^2<0$ et donc ce point est un maximum. 
+
+$\bullet$ Le point $(2;-2)$ revient aux mêmes calculs que précédemment et nous obtenons que c’est (aussi) un minimum. }
+
+
+\end{enumerate}
+}
+}
