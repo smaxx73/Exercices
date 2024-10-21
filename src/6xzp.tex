@@ -37,15 +37,14 @@ Puisque  $f \vert_{\Gamma}$ admet un maximum en $(x_0;y_0)$, la dérivée direct
 
 
 \item  
-\question{ Pour $u \in \mathbb{R}^2$, on désigne par $D_u f(x_0;y_0)$ la dérivée directionnelle de $f$ dans la direction du vecteur $u$. 
-
+\question{ Pour $u \in \mathbb{R}^2$, on désigne par $D_u f(x_0;y_0)$ la dérivée directionnelle de $f$ dans la direction du vecteur $u$ et par $\nabla f$ son gradient. 
 On rappelle que $$D_u f(x_0;y_0) = \nabla f(x_0;y_0)\cdot u $$
 
-Que pouvez-vous alors dire du gradient de $f$ (ici noté $\nabla f$ en $(x_0;y_0)$ par rapport au vecteur $u$ si celui-ci est tangent à $\Gamma$ en $(x_0;y_0)$ ? 
+Que pouvez-vous alors dire du gradient de $f$ en $(x_0;y_0)$ par rapport au vecteur $u$ si celui-ci est tangent à $\Gamma$ en $(x_0;y_0)$ ? 
 }
 
 \reponse{
-D’après la question précédente, la dérivée directionnelle $D_uf(x_0,y_0)$ doit être nulle, donc $\nabla f(x_0;y_0)$ doit être orthogonal à $u$ (un vecteur tangent à $\Gamma$ en $(x_0;y_0)$. 
+D’après la question précédente, la dérivée directionnelle $D_uf(x_0,y_0)$ doit être nulle,  donc $\nabla f(x_0;y_0)$ doit être orthogonal à $u$ (un vecteur tangent à $\Gamma$ en $(x_0;y_0)$). 
 }
 
 
@@ -55,19 +54,22 @@ D’après la question précédente, la dérivée directionnelle $D_uf(x_0,y_0)$
 \question{ En déduire alors la colinéarité de $\nabla f (x_0;y_0)$ et $\nabla g (x_0:y_0)$, et exploiter cette condition pour obtenir les couples solutions possibles du système. 
 }
 
-\reponse{
-Calculons les gradients des deux fonctions:
+\reponse{ Si le gradient de $f$ est orthogonal à $u$ et que $u$ est un vecteur tangent à $\Gamma$ (la courbe des contraintes), alors $\nabla f$ et $\nable g$ sont colinéaires car tous deux orthogonaux au même vecteur $u$. 
+\\ {\it De manière informelle,  les vecteurs tangents à la courbe de contrainte sont dans un plan: ils n'ont pas d'élévation. 
+Les vecteurs tangents à la courbe $f \vert_{\Gamma}$, eux,  ont possiblement une élévation (coordonnée en $z$) mais sinon, leur deux premières coordonnées doivent être liées au vecteur tangent à la courbe des contraintes: c'est ce que nous exprimons ici.  }
+
+Calculons alors les gradients des deux fonctions:
 \\  $\nabla f( x_0;y_0) = \left( \frac{\partial f}{\partial x}(x_0;y_0); 
 \frac{\partial f}{\partial y}(x_0;y_0) \right) = (2x_0;2y_0)$.
 \\ $\nabla g( x_0;y_0) = \left( \frac{\partial g}{\partial x}(x_0;y_0); 
 \frac{\partial f}{\partial y}(x_0;y_0) \right) = (4x_0^3;4y_0^3)$.
 
-Si ces vecteurs sont colinéaires, alors nous avons: 
+Ces deux vecteurs étant colinéaires,  nous obtenons :
 
 $$ \det \begin{vmatrix}
 2x_0 & 4x_0^3 \\ 2y_0 & 4y_0^3\end{vmatrix} = 0$$ 
 
-Nous obtenons donc le système suivant (en ajoutant la contrainte $\Gamma$): 
+En ajoutant la contrainte ($\Gamma$), nous obtenons : 
 
 $$\left\lbrace 
 \begin{array}{ll} 

@@ -7,7 +7,7 @@
 \texte{
 En vous aidant de la méthode développée à l’exercice précédent, trouver les extremums de la fonction $f(x,y)=x^3+y^3$ sous la contrainte $x^2+y^2=4$. 
 
-\reponse{Posons $g(x,y)=x^4+y^4-4$, de sorte que la contrainte soit de la forme $g(x,y)=0$. 
+\reponse{Posons $g(x,y)=x^2+y^2-4$, de sorte que la contrainte soit de la forme $g(x,y)=0$. 
 Posons alors le Lagrangien comme étant 
 $$L(x,y,\lambda)- f(x,y)-\lambda g(x,y) = x^3+y^3-\lambda (x^2+y^2-4)$$
 Déterminons les points stationnaires du Lagrangien: ils vérifient donc 
@@ -67,7 +67,7 @@ $Q(u,v)=Q(u,-u)=-6\sqrt{2}u^2<0$ et donc ce point est un maximum.
         zlabel={$f(x,y)$},
         domain=-3:3,
         y domain=-3:3,
-        view={135}{30},
+        view={75}{30},
         samples=30,
         z buffer=sort,
         grid=both,
@@ -80,14 +80,6 @@ $Q(u,v)=Q(u,-u)=-6\sqrt{2}u^2<0$ et donc ce point est un maximum.
     \addplot3[surf, opacity=0.7] {x^3 + y^3};
 
     % Constraint x^2 + y^2 = 4
-    \addplot3[
-        domain=0:360,
-        samples=30,
-        samples y=0,
-        thick,
-        black
-    ]
-    ({2*cos(x)}, {2*sin(x)}, {2^3*cos(x)^3 + 2^3*sin(x)^3});
 
     \end{axis}
 \end{tikzpicture}
