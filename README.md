@@ -20,7 +20,7 @@ et dans le corps du document, utiliser la commande
 avec l'identifiant de l'exercice comme premier argument. ```solution```, ```uuid```, ```lien``` sont des booléens contrôlant l'affichage (ou non) des solutions, de l'identifiant de l'exercice et du lien vers la solution. Le dernier argument est le numéro de l'exercice.
 
 ### Exemple : 
-Si on a plusieurs exercices, on peut utiliser par exemple la commande suivante : 
+Si on a plusieurs exercices, on peut utiliser la commande suivante : 
 
 ```
 \def\TD{tQCJ,vnJs,qjd1,lCVu}
