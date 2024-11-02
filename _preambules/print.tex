@@ -9,7 +9,7 @@
 \definecolor{titrecolor}{RGB}{36,76,146}
 
 %liens vers des ressources extérieures :
-\newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
+\newcommand{\pathcorrige}{https://openyourmath.org/exercice?uuid=}
 \newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
 
@@ -54,7 +54,7 @@
 		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {
 				\tikz{
-					\node[] {\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}};
+					\node[] {\ifthenelse{\boolean{link}}{\href{\pathcorrige#3}{\texttt{#3}}}{\texttt{#3}}};
 				}
 			};
 		}{}
@@ -174,8 +174,8 @@
 	% Crée une minipage pour chaque exercice avec son numéro, son titre et son QR code
 	\begin{minipage}{0.24\textwidth}  % ajustez la largeur pour avoir 4 QR codes par ligne
 		\centering
-		\href{\pathcorrige\exo.pdf}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
-		{\qrcode{\pathcorrige\exo.pdf}}  % génère le QR code
+		\href{\pathcorrige\exo}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
+		{\qrcode{\pathcorrige\exo}}  % génère le QR code
 		\par\vspace{2em}  % espace vertical entre les QR codes
 	\end{minipage}
 	% Incrémente le compteur
