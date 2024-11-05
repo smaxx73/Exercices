@@ -1,0 +1,66 @@
+\titre{Maximum de vraisemblance}
+\theme{statistiques}
+\contenu{
+\texte{On considère une variable aléatoire $X$ suivant une loi exponentielle de paramètre $\theta > 0$. On rappelle que sa densité est donnée par :
+$$f_\theta(x) = \theta e^{-\theta x}\mathbf{1}_{x \geq 0}$$
+On dispose d'un échantillon $(X_1,...,X_n)$ de $n$ variables aléatoires indépendantes et de même loi que $X$. On cherche à estimer le paramètre $\theta$ par la méthode du maximum de vraisemblance.
+}
+
+\begin{enumerate}
+    \item \question{Écrire la vraisemblance $L(\theta)$ de l'échantillon en fonction de $\theta$ et des observations $(x_1,...,x_n)$.}
+    \reponse{
+        Par indépendance des variables, la vraisemblance est le produit des densités :
+        \begin{align*}
+            L(\theta) &= \prod_{i=1}^n f_\theta(x_i) \\
+            &= \prod_{i=1}^n \theta e^{-\theta x_i}\mathbf{1}_{x_i \geq 0} \\
+            &= \theta^n e^{-\theta \sum_{i=1}^n x_i}\mathbf{1}_{\min(x_i) \geq 0}
+        \end{align*}
+    }
+
+    \item \question{En déduire la log-vraisemblance $\ell(\theta)$ puis calculer sa dérivée $\ell'(\theta)$.}
+    \reponse{
+        La log-vraisemblance est :
+        \begin{align*}
+            \ell(\theta) &= \ln(L(\theta)) \\
+            &= n\ln(\theta) - \theta \sum_{i=1}^n x_i
+        \end{align*}
+        
+        Sa dérivée est :
+        $$\ell'(\theta) = \frac{n}{\theta} - \sum_{i=1}^n x_i$$
+    }
+
+    \item \question{En déduire  l'estimateur du maximum de vraisemblance $\widehat{\theta}_n$ de $\theta$.}
+    \reponse{
+        L'équation $\ell'(\theta)=0$ donne :
+        \begin{align*}
+            \frac{n}{\theta} - \sum_{i=1}^n x_i &= 0 \\
+            \frac{n}{\theta} &= \sum_{i=1}^n x_i \\
+            \theta &= \frac{n}{\sum_{i=1}^n x_i}
+        \end{align*}
+
+        Donc $\widehat{\theta}_n = \frac{n}{\sum_{i=1}^n x_i} = \frac{1}{\overline{X_n}}$ où $\overline{X_n}$ est la moyenne empirique.
+    }
+
+    \item \question{Vérifier que $\widehat{\theta}_n$ est bien un maximum en étudiant le signe de $\ell''(\theta)$.}
+    \reponse{
+        On calcule la dérivée seconde :
+        $$\ell''(\theta) = -\frac{n}{\theta^2}$$
+        
+        Cette dérivée seconde est toujours négative pour $\theta > 0$, donc $\widehat{\theta}_n$ correspond bien à un maximum.
+    }
+
+    \item \question{Montrer que $\frac{1}{\widehat{\theta}_n}$ est un estimateur sans biais de $\frac{1}{\theta}$.}
+    \reponse{
+        On a :
+        \begin{align*}
+            \E\left(\frac{1}{\widehat{\theta}_n}\right) &= \E\left(\overline{X_n}\right) \\
+            &= \E\left(\frac{1}{n}\sum_{i=1}^n X_i\right) \\
+            &= \frac{1}{n}\sum_{i=1}^n \E(X_i) \\
+            &= \frac{1}{n} \times n \times \frac{1}{\theta} \\
+            &= \frac{1}{\theta}
+        \end{align*}
+        
+        Donc $\frac{1}{\widehat{\theta}_n}$ est un estimateur sans biais de $\frac{1}{\theta}$.
+    }
+\end{enumerate}
+}
