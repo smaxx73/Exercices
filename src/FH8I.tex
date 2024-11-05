@@ -7,8 +7,6 @@
 
 \texte{ On va prouver le théorème suivant : 
 
-\medskip
-
 \textbf{Théorème : } Soit $f : \Rr \rightarrow \Rr$ une fonction de classe $\mathcal{C}^2$ telle qu'il existe deux constantes $K,c >0$ vérifiant $c < f''(x) \leq K$ pour tout $x \in \Rr$. On considère la suite $(x_n)_{n \geq 0}$ d\'efinie par $x_0 \in \Rr$ et par $x_{n+1} = x_n - \gamma f'(x_n)$, où le pas $\gamma$ vérifie $0 < \gamma < 2/K$. Alors :
 \begin{itemize}
 \item La suite $(f(x_n))_{n \ge 0}$ est décroissante.
@@ -22,50 +20,52 @@
 \reponse{ La fonction $\phi$ est de classe $\mathcal{C}^2$ sur $\R$, le r\'esultat souhait\'e est simplement l'application de la formule de Taylor-Lagrange \`a la fonction $\phi$ sur l'intervalle $[0,t]$.  }
 \item \question{ Montrer que $\phi'(0) = -f'(x_n)^2$ et $\phi''(\theta) \leq f'(x_n)^2 K$. }
 \reponse{ On calcule les deux premi\`eres d\'eriv\'ees de $\phi$ :
-	\begin{equation*}
+	$$
 		\phi'(t) = -f'(x_n) f'(x_n-tf'(x_n)) \ , \ \phi''(t) = f'(x_n)^2 f''(x_n-tf'(x_n)).
-	\end{equation*}
+	$$
 	En \'evaluant respectivement en $t=0$ et en $t=\theta$, on obtient $\phi'(0) = -f'(x_n)^2$ et $\phi''(0)$ et 
-	\begin{equation*}
+	$$
 		\phi''(\theta) = f'(x_n)^2 f''(x_n-\theta f'(x_n)) \leq K f'(x_n)^2.
-\end{equation*} }
+$$ }
 \item \question{ Montrer que $\phi(t) \leq \phi(0)$ pour tout $0 \leq t < 2/K$. }
 \reponse{ On d\'eduit de la question pr\'ec\'edente que pour tout $0 \leq t \leq 2/K$, on a 
-	\begin{equation*}
+	$$
 		\phi(t)-\phi(0) \leq - t f'(x_n)^2 + K \frac{(2/K) t}{2} f'(x_n)^2 = 0.
-\end{equation*} }
+$$ }
 \item \question{ En d\'eduire que $f(x_{n+1}) \leq f(x_n)$. }
 \reponse{ On a 
-	\begin{equation*}
+	$$
 		f(x_{n+1}) =  f(x_n-\gamma f'(x_n)) = \phi(\gamma) \leq \phi(0) = f(x_n).
-	\end{equation*}
+	$$
 	On a utilis\'e la question pr\'ec\'edente et le fait que $0<\gamma<2/K$. }
 \end{enumerate} 
 \item \texte{ On introduit la fonction $g(x) = x - \gamma f'(x)$. }
 \begin{enumerate}
 \item \question{ On pose $M = \sup_{x \in \Rr} |g'(x)|$. Montrer que $M \leq \max\left( |1-\gamma c|, |1- \gamma K|\right)$, puis que $M < 1$. }
 \reponse{ On a $g'(x) = 1- \gamma f''(x)$, et comme $c<f''(x)<K$, on a l'encadrement 
-	\begin{equation*}
+	$$
 		1-\gamma K < g'(x) < 1- \gamma c, 
-	\end{equation*}
-	et on en d\'eduit que pour tout $x \in \RR$, on a $|g'(x)| \leq \max(|1-\gamma c|,|1-\gamma K|)$. Pour montrer que $M < 1$, on remarque tout d'abord que $0 < c < K$ implique que $0 < \gamma < \frac{2}{K} < \frac{2}{c}$, donc $\gamma c$ et $\gamma K$ sont dans l'intervalle $]0,2[$, et on a bien $|1-\gamma c|<1$, $|1-\gamma K|<1$.  }
+	$$
+	et on en d\'eduit que pour tout $x \in \Rr$, on a $|g'(x)| \leq \max(|1-\gamma c|,|1-\gamma K|)$. Pour montrer que $M < 1$, on remarque tout d'abord que $0 < c < K$ implique que $0 < \gamma < \frac{2}{K} < \frac{2}{c}$, donc $\gamma c$ et $\gamma K$ sont dans l'intervalle $]0,2[$, et on a bien $|1-\gamma c|<1$, $|1-\gamma K|<1$.  }
 \item \question{ Montrer que pour tout $n \geq 1$, on a $|x_{n+1}-x_n| = |g(x_n)-g(x_{n-1})| < M |x_n-x_{n-1}|$. }
-\reponse{ On a $g(x_n)=x_{n+1}$ et $g(x_{n-1}) = x_n$, donc $|x_{n+1}-x_n| = |g(x_n)-g(x_{n-1})|$. L'in\'egalit\'e demand\'ee est l'in\'egalit\'e des accroissements finis.
-	\item La question pr\'ec\'edente permet de montrer par r\'ecurrence sur $p \geq 0$ que $|x_{p+1}-x_p| < M^p |x_1-x_0|$. De plus, l'in\'egalit\'e triangulaire permet d'\'ecrire que pour tout $k < l$, on a 
-	\begin{equation*}
-		|x_l-x_k| = \left|\sum_{p=k}^{l-1} x_{p+1}-x_p \right| \leq \sum_{p=k}^{l-1} |x_{p+1}-x_p| < \sum_{p=k}^{l-1} M^p |x_1-x_0|.
-	\end{equation*}
-	On constate enfin que 
-	\begin{equation*}
-		\sum_{p=k}^{l-1} M^p \leq \sum_{p=k}^{\infty} M^p = M^k  \sum_{p=0}^{\infty} M^p = \frac{M^k}{1-M}. 
-	\end{equation*}
-	Comme $0<M<1$, on sait que la suite $\frac{M^k}{1-M} |x_1-x_0|$ a pour limite $0$ lorsque $k \rightarrow \infty$. Ainsi, pour tout $\ve>0$, il existe un rang $K$ tel que pour tous $K \leq k \leq l$, on a $|x_l-x_k|<\ve$. La suite $(x_n)_{n \geq 0}$ est donc une suite de Cauchy, et comme $\RR$ est complet, on sait qu'elle est convergente. }
+\reponse{ On a $g(x_n)=x_{n+1}$ et $g(x_{n-1}) = x_n$, donc $|x_{n+1}-x_n| = |g(x_n)-g(x_{n-1})|$. L'in\'egalit\'e demand\'ee est l'in\'egalit\'e des accroissements finis. }
 \item \question{ Montrer que la suite $(x_n)_{n \geq 0}$ est convergente (on pourra considérer la série $\sum x_{n+1}-x_n$). }
+\reponse{ La question pr\'ec\'edente permet de montrer par r\'ecurrence sur $p \geq 0$ que $|x_{p+1}-x_p| < M^p |x_1-x_0|$. De plus, l'in\'egalit\'e triangulaire permet d'\'ecrire que pour tout $k < l$, on a 
+	$$
+		|x_l-x_k| = \left|\sum_{p=k}^{l-1} x_{p+1}-x_p \right| \leq \sum_{p=k}^{l-1} |x_{p+1}-x_p| < \sum_{p=k}^{l-1} M^p |x_1-x_0|.
+	$$
+	On constate enfin que 
+	$$
+		\sum_{p=k}^{l-1} M^p \leq \sum_{p=k}^{\infty} M^p = M^k  \sum_{p=0}^{\infty} M^p = \frac{M^k}{1-M}. 
+	$$
+	Comme $0<M<1$, on sait que la suite $\frac{M^k}{1-M} |x_1-x_0|$ a pour limite $0$ lorsque $k \rightarrow \infty$. Ainsi, pour tout $\varepsilon>0$, il existe un rang $K$ tel que pour tous $K \leq k \leq l$, on a $|x_l-x_k|<\varepsilon$. La suite $(x_n)_{n \geq 0}$ est donc une suite de Cauchy, et comme $\Rr$ est complet, on sait qu'elle est convergente.  }
 \item \question{ Montrer que la limite $l$ de la suite $(x_n)_{n \geq 0}$. Montrer que $f'(l)=0$. }
 \reponse{ La fonction $f'$ est continue, donc 
-	\begin{equation*}
+	$$
 		f'(l) = \lim_{n \rightarrow \infty} f'(x_n) = \lim_{n \rightarrow \infty} \frac{x_n-x_{n+1}}{\gamma} = \frac{l-l}{\gamma} = 0.
-\end{equation*} }
+$$ }
 \item \question{ Montrer que $f$ ne possède qu'un seul point critique. }
+\reponse{ La }
 \end{enumerate}
-\end{enumerate}}
+\end{enumerate} 
+}
