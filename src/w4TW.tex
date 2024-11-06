@@ -2,7 +2,7 @@
 \theme{statistiques}
 \contenu{
 \texte{On considère une variable aléatoire $X$ suivant une loi exponentielle de paramètre $\theta > 0$. On rappelle que sa densité est donnée par :
-$$f_\theta(x) = \theta e^{-\theta x}\mathbf{1}_{x \geq 0}$$
+$$f_\theta(x) = \begin{cases} \theta e^{-\theta x} & \text{ si } x \geq 0 \\ 0 & \text{ sinon. } \end{cases}$$
 On dispose d'un échantillon $(X_1,...,X_n)$ de $n$ variables aléatoires indépendantes et de même loi que $X$. On cherche à estimer le paramètre $\theta$ par la méthode du maximum de vraisemblance.
 }
 

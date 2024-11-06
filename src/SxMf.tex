@@ -9,7 +9,10 @@
 
     \begin{enumerate}
         \item \question{Importer les données dans un tableur et calculer la moyenne empirique des temps de trajet du jeu de données. Que représente cette valeur compte tenu du contexte ?}
+        \reponse{ En calculant la moyenne sur les 30 valeurs, on obtient une estimation sans biais de la moyenne des temps de trajet. Le calcul donne $43{,}35$. }
         \item \question{ Donner une estimation sans biais de la variance du temps de trajet de cet employé. On précisera l'estimateur utilisé.}
+        \reponse{ Avec l'estimateur de variance empirique corrigé $\frac{1}{29}\sum_{i=1}^{30}(X_i-\overline{X})^2$on obtient une variance estimée à environ $23{,}70666$. }
         \item \question{ Observe-t-on une différence de temps de trajet entre le vendredi et les autres jours ? Décrire une méthode pour répondre à cette question.}
+        \reponse{ On peut ne retenir que les valeurs du vendredi obtenues par exemple avec la formule \texttt{=SI(B2="Vendredi";C2;"")} et on trouve numériquement $50{,}4625$. On observe donc une différence dans le temps de trajet. }
     \end{enumerate}
 }
