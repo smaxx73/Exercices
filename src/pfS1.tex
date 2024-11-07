@@ -19,17 +19,12 @@ $$U = \sum_{i=1}^{5} (X_i - T_1)^2 \qquad V = \frac{1}{2}(X_1 - X_2)$$
 	Par indépendance des variables :
 	$\V(V) = \frac{1}{4}(\V(X_1) + \V(X_2)) = \frac{1}{4}(4 + 4) = 2$
 	
-	Donc $V \sim \mathcal{N}(0,2)$
+	Donc $V \sim \mathcal{N}(0,\sqrt{2})$
 }
 \item \question{ Calculer $\prob(-4{,}5 \leq V \leq 4{,}5)$ avec 8 chiffres significatifs.}
 \reponse{
-	\begin{align*}
-		\prob(-4{,}5 \leq V \leq 4{,}5) &= \prob\left(-\frac{4{,}5}{2} \leq \frac{V}{2} \leq \frac{4{,}5}{2}\right) \\
-		&= \prob(-2{,}25 \leq \frac{V}{2} \leq 2{,}25) \\
-		&= 2\Phi(2{,}25) - 1 \\
-		&\approx 2 \times 0{,}98758067 - 1 \\
-		&\approx 0{,}97516134
-	\end{align*}
+
+Avec le tableur et la formule \texttt{=LOI.NORMALE.N(4,5;0;RACINE(2);1)*2-1}, on trouve 		$\prob(-4{,}5 \leq V \leq 4{,}5) \approx 0{,}99853728$. 
 }
 \item \question{Déterminer la loi suivie par la variable $T_1$.}
 \reponse{
