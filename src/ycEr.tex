@@ -21,16 +21,21 @@ Le probl\`eme est de minimiser la fonction $R(a,b)$. }
 \begin{equation*}
 R(a,b) = a^2 \sum_{i=1}^n x_i^2 + 2ab \sum_{i=1}^n x_i + b^2 n -2 a\sum_{i=1}^n x_i y_i -2 b \sum_{i=1}^n y_i + \sum_{i=1}^n y_i^2.
 \end{equation*} }
+\reponse{ La formule s'obtient simplement en développant chaque expression de la somme. }
 \item \question{ Montrer que le gradient de $R$ s'écrit : 
 \begin{equation} \label{eq:nablaR}
 (\nabla R)(a,b) = \left( \begin{array}{c} 2a \sum_{i=1}^n x_i^2 + 2 b \sum_{i=1}^n x_i -2 \sum_{i=1}^n x_i y_i \\ 2a \sum_{i=1}^n x_i +2 b n -2 \sum_{i=1}^n y_i \end{array} \right).
 \end{equation} }
+\reponse{ Cela découle d'un calcul direct. }
 \item \question{ Montrer que $R$ possède un unique point critique $(a^*,b^*)$ que l'on exprimera à l'aide des $x_i$ et des $y_i$.  }
+\reponse{ On cherche $(a^*,b^*)$ tel que $\nabla R(a^*,b^*)=0$. Au vu de l'expression explicite du gradient, on s'aperçoit qu'il faut résoudre un système linéaire à deux inconnues. La résolution de ce système (par exemple avec le pivot de Gauss) donne l'unique solution : $$a^* = \frac{\sum_{i=1}^n x_i \sum_{i=1}^n y_i - n \sum_{i=1}^n x_iy_i}{\left(\sum_{i=1}^n x_i\right)^2-n\sum_{i=1}^n x_i^2} \ , \ b^*=\frac{\sum_{i=1}^n x_iy_i \sum_{i=1}^n x_i-\sum_{i=1}^n y_i \sum_{i=1}^n x_i^2}{\left(\sum_{i=1}^n x_i\right)^2-n\sum_{i=1}^n x_i^2}.$$ }
 \item \question{ Montrer que la hessienne de $R$ s'écrit :
 \begin{equation*}
 \textrm{Hess}_R(a,b)  = \left( \begin{array}{cc} 2 \sum_{i=1}^n x_i^2 & 2 \sum_{i=1}^n x_i \\ 2 \sum_{i=1}^n x_i & 2 n \end{array}\right).
 \end{equation*}  }
+\reponse{ La hessienne s'obtient par calcul direct, en dérivant les dérivées partielles obtenues dans le calcul du gradient. }
 \item \`A l'aide de la question pr\'ec\'edente et de l'in\'egalit\'e de Cauchy-Schwarz, montrer que la fonction $R$ est convexe.
+\reponse{ On peut remarquer que la hessienne est constante en $a$ et $b$ (car la fonciton $R$ est polynomiale de degré $2$). Il suffit donc de montrer que $\langle X, H X \rangle \ge 0$ pour tout vecteur $X = \begin{pmatrix} a \\ b \end{pmatrix} \in \R^2$, où $H$ est la hessienne obtenue précédemment. Ce produit scalaire s'écrit, après développement : $$ \frac{1}{4} \langle X, H X \rangle = a^2 \sum_{i=1}^n x_i^2 + 2 a b \sum_{i=1}^n x_i  + b^2 n.$$ Par Cauchy-Schwarz, on a $\sum_{i=1}^n x_i^2 \ge \frac{1}{n} \left(\sum_{i=1}^n x_i \right)^2$, d'où il vient : $$ \frac{1}{4} \langle X, H X \rangle  \ge \frac{1}{n}\left(a \sum_{i=1}^n x_i + b n \right)^2 \ge 0,$$ comme voulu. }
 \end{enumerate}
 
 }
