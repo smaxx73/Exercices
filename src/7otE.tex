@@ -1,5 +1,5 @@
 \uuid{7otE}
-\titre{  }
+\titre{ Estimation pour un référendum }
 \theme{statistiques}
 \auteur{}
 \organisation{AMSCC}
@@ -10,9 +10,9 @@
 donné $55\%$ pour le << Oui >> et $45\%$ pour le << Non >>. }
 
 \begin{enumerate}
-	\item Est-il plus précis de faire un sondage sur $1000$ personnes dans une population de $1$ million de personnes ou un sondage sur $2000$ personnes dans une population de $10$ millions de personnes ? Justifier.
+	\item \question{ Est-il plus précis de faire un sondage sur $1000$ personnes dans une population de $1$ million de personnes ou un sondage sur $2000$ personnes dans une population de $10$ millions de personnes ? Justifier. }
 	\reponse{ La taille de la population n'infuence pas le résultat de l'estimation. Mais plus la taille de l'échantillon est importante, plus le sondage est précis. Il vaut donc mieux faire un sondage sur 2000 personnes que sur 1000 personnnes. }
-	\item Concernant le référendum cité ci-dessus, déterminer un intervalle contenant le pourcentage de << Oui >> avec une probabilité de $0{,}95$.
+	\item \question{ Concernant le référendum cité ci-dessus, déterminer un intervalle contenant le pourcentage de << Oui >> avec une probabilité de $0{,}95$. }
 	\reponse{ On cherche à estimer une fréquence à partir d'un échantillon de taille $1000$. La fréquence observée dans l'échantillon est $f_{obs} = \frac{55}{100}$. On peut donc utiliser la formule du cours : 
 		$$I_{conf}(F(\omega))=\left[f_{obs}-u_{\alpha/2} \sqrt{\frac{f_{obs}(1-f_{obs})}{n}} ~;~ f_{obs} + u_{\alpha/2} \sqrt{\frac{f_{obs}(1-f_{obs})}{n}} \right]$$
 		en remplaçant $u_{\alpha/2}$ par $1{,}96$ pour une confiance de $95\%$, on obtient numériquement $I_{conf} \approx [0.519 ; 0.581]$. 
@@ -21,14 +21,11 @@ En remplaçant $u_{\alpha/2}$ par $2{,}5758$ pour une confiance de $99\%$, on ob
 
 
  }
-	\item Peut-on considérer, avec une confiance de $95\%$, que le << Oui >> l'emporte ? La réponse est-elle
-	la même avec un niveau de confiance de $99\%$ ? \`A partir de quel niveau de confiance peut-on commencer à douter que le << Oui >> l'emporte ?
+	\item \question{ Peut-on considérer, avec une confiance de $95\%$, que le << Oui >> l'emporte ? La réponse est-elle
+	la même avec un niveau de confiance de $99\%$ ? \`A partir de quel niveau de confiance peut-on commencer à douter que le << Oui >> l'emporte ? }
 	\reponse{ La réponse est oui car dans chacun des cas, l'intervalle de confiance se situe au dessus de $50\%$. Il faudrait dépasser $99,8\%$ de confiance pour pouvoir commencer à mettre en doute que le << Oui >> l'emporte. 	
-	
-
 }
-	\item Si, pour un référendum, on sait que << oui >> se situe autour de $50\%$, combien de personnes
-	faudrait-il interroger pour que la proportion de << Oui >> soit connue à $1\%$ près (en plus ou en
-	moins), avec un niveau de confiance de $0{,}95$ ?
+	\item \question{ Si, pour un référendum, on sait que << oui >> se situe autour de $50\%$, combien de personnes
+	faudrait-il interroger pour que la proportion de << Oui >> soit connue à $1\%$ près (en plus ou en moins), avec un niveau de confiance de $0{,}95$ ? }
 	\reponse{ La longueur de l'intervalle de confiance est de l'ordre de $\frac{1}{\sqrt{n}}$ où $n$ est la taille de l'échantillon. Pour avoir $\frac{1}{\sqrt{n}} < 0{,}01$, il faut $n > 10\,000$. }
 \end{enumerate}}

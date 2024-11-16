@@ -1,5 +1,5 @@
 \uuid{iQqS}
-\titre{  }
+\titre{Probabilité de surcharge}
 \theme{probabilités}
 \auteur{Maxime Nguyen}
 \organisation{AMSCC}
@@ -9,7 +9,7 @@
 \texte{ On considère un avion contenant 100 passagers. On suppose que le poids d'un passager pris au hasard suit une loi de probabilité dont l'espérance est 71 kg et l'écart type est 7~kg. }
 
 \begin{enumerate}
-	\item Soit $X$ la variable aléatoire donnant le poids total des 100 passagers. Que peut-on dire de la variable $X$ ?
+	\item \question{ Soit $X$ la variable aléatoire donnant le poids total des 100 passagers. Que peut-on dire de la variable $X$ ? }
 	\reponse{ On ne connaît pas la loi de $X$ mais d'après le théorème central limite, $X$ suit approximativement une loi normale.  
 		
 		On peut calculer l'espérance de $X$ et la variance de $X$ : Si on note $Y_i$ le poids du $i$-ème passager, on a $X = \sum_{i=1}^{100} Y_i$. Par conséquent, $\mathbb{E}(X) = 7100$ et $V(X) = 100 \times 7^2 = 4900$. 
@@ -31,6 +31,6 @@
 		
 		On peut estimer que la proportion de passagers voyageant avec un bagage en soute est compris entre $42\%$ et $73\%$. 
 	} 
-\item L'avion ne peut pas accueillir plus de 65 bagages en soute. Quelle information en terme de risque peut-on donner à la compagnie aérienne ?
+\item \question{ L'avion ne peut pas accueillir plus de 65 bagages en soute. Quelle information en terme de risque peut-on donner à la compagnie aérienne ? }
 \reponse{ D'après la question précédente, il est tout à fait probable (avec une confiance de $95\%$) que le nombre de bagages en soute soit supérieur à $65$ (entre 42 et 73). Pour que l'intervalle de confiance ne contienne pas $65\%$, il faut prendre un risque supérieur à $33\%$. }
 \end{enumerate}}

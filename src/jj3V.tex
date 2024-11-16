@@ -1,6 +1,10 @@
 \uuid{jj3V}
-\titre{}
+\titre{ Estimation d'une moyenne }
+\theme{statistiques}
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
 
+\contenu{
 \texte{ L'équipe médicale d'une entreprise fait ses
  statistiques sur le taux de cholestérol de ses employés; les
 observations sur 100 employés tirés au sort sont les suivantes.
@@ -24,11 +28,10 @@ observations sur 100 employés tirés au sort sont les suivantes.
 	\reponse{ La moyenne sur l'entreprise est estimée sans biais par l'estimateur $\overline{X} = \frac{1}{n}\sum_{i=1}^{n} X_i$ qui se réalise en $m_{e}=213{,}6$.
 		La variance est estimée sans biais par l'estimateur $S^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2$ donc l'écart-type est estimé par: $s_{e}=\sqrt{\frac{100}{99}}55.77\simeq 56.06$. }
 	\item \question{ Déterminer un intervalle de confiance  permettant d'estimer la moyenne du taux de cholestérol de tous les employés de cette entreprise avec une confiance de $90\%$.  }
-	\reponse{ On en déduit, au seuil 90\%, un intervalle de confiance pour la
-		moyenne par lecture de table de la loi normale centrée réduite avec $u_{\alpha/2 } \approx 1{,}644854$ : 
+	\reponse{ On en déduit, au seuil 90\%, un intervalle de confiance pour la 	moyenne par lecture de table de la loi normale centrée réduite avec $u_{\alpha/2 } \approx 1{,}644854$ : 
 		$$\left[m_{e} - u_{\alpha/2 }\frac{s_{e}}{\sqrt{n}};
 		m_{e} + u_{\alpha/2 }\frac{s_{e}}{\sqrt{n}}]=[204.379;222.821\right]$$.
 		Ainsi le taux moyen de cholestérol est, à un seuil de confiance $90$\%, 
 		située entre $204$ et $223$ cg. }
 \end{enumerate}
-
+}
