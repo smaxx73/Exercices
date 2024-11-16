@@ -4,77 +4,87 @@
 \auteur{}
 \organisation{AMSCC}
 
+\contenu{
 
-Bonjour
-%\texte{ Pour approcher les racines réelles de la fonction $f:\mathbb{R}\rightarrow \mathbb{R}$ définie par $f(x)=x-e^{-(1+x)}$, on utilise quatre méthodes de point fixe: $x_0$ donné, $x_{n+1}=\phi_i(x_n)$, pour tout $n\in\mathbb{N}$, où
-%$$ \phi_1(x)=e^{-(1+x)}, \quad \phi_2(x)=x^2e^{1+x}, \quad \phi_3(x)=-1-\ln(x), \quad \phi_4(x)=\frac{1+x}{1+e^{1+x}}.$$ }
+\texte{ Pour approcher les racines réelles de la fonction $f:\mathbb{R}\rightarrow \mathbb{R}$ définie par $f(x)=x-e^{-(1+x)}$, on utilise quatre méthodes de point fixe: $x_0$ donné, $x_{n+1}=\phi_i(x_n)$, pour tout $n\in\mathbb{N}$, où
+$$ \phi_1(x)=e^{-(1+x)}, \quad \phi_2(x)=x^2e^{1+x}, \quad \phi_3(x)=-1-\ln(x), \quad \phi_4(x)=\frac{1+x}{1+e^{1+x}}.$$ }
 
-%\begin{enumerate}
-%	\item \question{ Montrer qu'il existe une unique racine réelle $\ell$ de $f$. Montrer que $\ell\in]\frac{1}{5};\frac{1}{2}[$. }
-%	\reponse{La fonction $f$ est définie et dérivable sur $\mathbb{R}$, de dérivée $f'(x)=1+e^{-(1+x)}>0$. La fonction $f$ est donc strictement croissante et continue sur $\mathbb{R}$. Or $f(\frac{1}{5})<0$ et $f(\frac{1}{2})>0$ donc d'après le théorème des valeurs intermédiaires, $f$ admet une unique racine réelle $\ell$ sur $\mathbb{R}$  et  $l\in]\frac{1}{5};\frac{1}{2}[$.}
+\begin{enumerate}
+	\item \question{ Montrer qu'il existe une unique racine réelle $\ell$ de $f$. Montrer que $\ell\in]\frac{1}{5};\frac{1}{2}[$. }
+	\reponse{La fonction $f$ est définie et dérivable sur $\mathbb{R}$, de dérivée $f'(x)=1+e^{-(1+x)}>0$. La fonction $f$ est donc strictement croissante et continue sur $\mathbb{R}$. Or $f(\frac{1}{5})<0$ et $f(\frac{1}{2})>0$ donc d'après le théorème des valeurs intermédiaires, $f$ admet une unique racine réelle $\ell$ sur $\mathbb{R}$  et  $l\in]\frac{1}{5};\frac{1}{2}[$.}
 	
-%	\item \question{ Montrer que les quatre méthodes de point fixe sont consistantes avec la recherche du zéro de $f$, \textit{i.e.} montrer que pour tout $x\in]\frac{1}{5};\frac{1}{2}[$, on a : $ \phi_i(x)=x  \Leftrightarrow  f(x)=0 \qquad \text{ pour } i=1,2,3,4.$ }
-%	\reponse{Pour $\phi_1$, pas de problème. \\
-%		Pour $\phi_2$, on a $\phi_2(x)=x \Leftrightarrow x=0$ ou $f(x)=0$. Comme on se place dans l'intervalle $]\frac{1}{5};\frac{1}{2}[$, on obtient l'équivalence recherchée. \\
-%		Pour $\phi_3$ et $\phi_4$, pas de problème.}
-%	\item \question{ Étudier la convergence locale des quatre méthodes de point fixe. Si elles convergent, donner l'ordre de convergence.
-%	Attention, on ne demande pas d'étudier la convergence globale sur $]\frac{1}{5};\frac{1}{2}[$ mais de vérifier s'il existe un voisinage de $\ell$ tel que pour tout $x_0$ dans ce voisinage, la méthode converge. }
-%	\reponse{Les fonctions $\phi_i$ sont dérivables sur l'intervalle $]\frac{1}{5};\frac{1}{2}[$, de dérivées:
-%		\[ \phi_1'(x)=-e^{-(1+x)}, \quad \phi_2'(x)=2xe^{1+x}+x^2e^{1+x}, \quad \phi_3'(x)=-\frac{1}{x}, \quad \phi_4'(x)=\frac{1-xe^{1+x}}{(1+e^{1+x})^2}. \]
-%		Par ailleurs, $\ell$ étant solution de l'équation $f(x)=0$, on a l'égalité $\ell=e^{-(1+\ell)}$. On en déduit que:
-%		\begin{itemize}
-%			\item $\phi_1'(\ell)=-e^{-(1+\ell)}=\ell$ donc $|\phi_1'(\ell)|<1$ (car $\ell\in]\frac{1}{5};\frac{1}{2}[$). Le point $\ell$ est attractif pour la fonction $\phi_1$: la suite converge à l'ordre $1$ pour $x_0$ suffisamment proche de $\ell$.
-%			\item $\phi_2'(\ell)=2+\ell$ donc $|\phi_2'(\ell)|>1$, ce qui implique que le point $\ell$ est répulsif pour $\phi_2$ et la suite ne converge pas.
-%			\item $|\phi_3'(\ell)|=|\frac{-1}{\ell}|>1$ donc la suite ne converge pas.
-%			\item $\phi_4'(\ell)=\frac{1-e^{-(1+\ell)}e^{1+\ell} }{(1+e^{1+\ell})^2}=0$. Le point $\ell$ est attractif pour $\phi_4$. La suite est donc convergente pour $x_0$ dans un voisinage suffisamment proche de $\ell$. De plus, l'ordre de convergence est au moins $2$.
-%	\end{itemize}}
-	
-%	\item \question{ Pour la première méthode, établir analytiquement pour quelles valeurs de $x_0$ la suite converge. }
-%	\reponse{Pour construire la fonction $\phi_1$, il suffit d'effectuer une translation d'une unité vers la gauche de la fonction $x\mapsto e^{-x}$.
-%		\begin{center} 
-%			\newcommand\newtfonc[1]{exp(-#1-1) } 
-%			\begin{tikzpicture}[scale=.5]
-%				\begin{axis}[
-%					width=14cm, height=10cm,
-%					axis x line=center, 
-%					axis y line=middle,
-%					xlabel =$x$,
-%					every axis x label/.style={
-%						at={(ticklabel* cs:1.0)},
-%						anchor=west,
-%					},
-%					ylabel = $y$,
-%					every axis y label/.style={
-%						at={(ticklabel* cs:1)},
-%						anchor=south,},
-%					legend style={draw=none,at={(-.1,1)},anchor=north west,font=\large },
-%					samples=100,
-%					ymin=-0.6, ymax=1.5,
-%					xmin=-1.8, xmax=2.1,
-%					ytick={0 },
-%					xtick={0 },
-%					legend cell align=left,
-%					]
-%					\addplot [mark=none,line width=.5mm,blue,domain= -1.7:2 ]{\newtfonc{x} };
-%					\node[label={-90:{\large{$x_0$}}},circle,fill,red,inner sep=2pt] at (axis cs:-0.5,0) {};
-%					\node[label={-90:{\large{$x_1$}}},circle,fill,red,inner sep=2pt] at (axis cs:0.61 ,0) {};
-%					\node[label={-90:{\large{$x_2$}}},circle,fill,red,inner sep=2pt] at (axis cs:0.20 ,0) {};
-%					\addplot [line width=.5mm,red] {x };
-%					\addplot [dotted,thick,blue] coordinates { (-0.5,0) (-0.5,\newtfonc{-0.5}) (\newtfonc{-0.5},\newtfonc{-0.5}) (\newtfonc{-0.5},0) };
-%					\addplot [dotted,thick,blue] coordinates { (0.61,\newtfonc{0.61}) (\newtfonc{0.61},\newtfonc{0.61}) };
-%					\addplot [dotted,thick,blue] coordinates {(\newtfonc{0.61},0) (\newtfonc{0.61},0.30)};
-%				\end{axis}
-%			\end{tikzpicture}
-%		\end{center}
-%		L'étude graphique suggère que la suite converge quel que soit $x_0\in\mathbb{R}$ (convergence <<en escargot>>). Pour le prouver, on utilise le théorème de convergence globale de la méthode de point fixe.
-%		\begin{itemize}
-%			\item On commence par vérifier si $|\phi_1'(x)|<1, \ \forall x\in\mathbb{R}$: 
-%			\[ |\phi_1'(x)|<1 \quad \Leftrightarrow \quad -1<e^{-(1+x)}<1 \quad \Leftrightarrow \quad x>-1.\] 
-%			En revanche, $|\phi_1'(0)| = e^{-1}$ donc on peut poser $K = e^{-1} <1$ ; or $\phi_1'$ est décroissante sur $\R$ donc : $$\forall x \in [0;+\infty[ \, ,\,|\phi_1'(x)| \leq K$$ 
-%			\item Commençons par regarder si le théorème de convergence globale s'applique sur l'intervalle $[0;+\infty[$. Pour cela, il faut vérifier que $\phi_1([0;+\infty[)\subset  [0;+\infty[$. Or pour tout $x \in [0;+\infty[$, $\phi_1(x)=e^{-(1+x)} \in [0;1[$ donc $\phi_1([0;+\infty[)=[0;1[ \subset [0;+\infty[$. On a donc vérifié la seconde hypothèse du théorème, ce qui permet de conclure que la méthode de point fixe converge au moins pour tout $x_0\in[0;+\infty[$.
-%			\item Reste à étudier le cas où $x_0 < 0$. Si on s'intéresse au premier terme $x_1$, on s'aperçoit que $x_1=\phi_1(x_0)=e^{-(1+x_0)}\in[0;+\infty[$ et on se retrouve dans le cas précédent: le théorème s'applique à partir de $x_1$.
-%		\end{itemize}
-%		En conclusion, la méthode de point fixe associée à $\phi_1$ converge quel que soit $x_0\in\mathbb{R}$.
-%	}
+	\item \question{ Montrer que les quatre méthodes de point fixe sont consistantes avec la recherche du zéro de $f$, \textit{i.e.} montrer que pour tout $x\in]\frac{1}{5};\frac{1}{2}[$, on a pour tout $i \in \{1,2,3,4\}$ : $$\phi_i(x)=x  \Leftrightarrow  f(x)=0.$$ }
+	\reponse{Pour $\phi_1$, pas de problème. \\
+		Pour $\phi_2$, on a $\phi_2(x)=x \Leftrightarrow x=0$ ou $f(x)=0$. Comme on se place dans l'intervalle $]\frac{1}{5};\frac{1}{2}[$, on obtient l'équivalence recherchée. \\
+		Pour $\phi_3$ et $\phi_4$, pas de problème.}
+	\item \question{ Étudier la convergence locale des quatre méthodes de point fixe. Si elles convergent, donner l'ordre de convergence.
+	Attention, on ne demande pas d'étudier la convergence globale sur $]\frac{1}{5};\frac{1}{2}[$ mais de vérifier s'il existe un voisinage de $\ell$ tel que pour tout $x_0$ dans ce voisinage, la méthode converge. }
+	\reponse{Les fonctions $\phi_i$ sont dérivables sur l'intervalle $]\frac{1}{5};\frac{1}{2}[$, de dérivées:
+		\[ \phi_1'(x)=-e^{-(1+x)}, \quad \phi_2'(x)=2xe^{1+x}+x^2e^{1+x}, \quad \phi_3'(x)=-\frac{1}{x}, \quad \phi_4'(x)=\frac{1-xe^{1+x}}{(1+e^{1+x})^2}. \]
+		Par ailleurs, $\ell$ étant solution de l'équation $f(x)=0$, on a l'égalité $\ell=e^{-(1+\ell)}$. On en déduit que :
+		\begin{itemize}
+			\item $\phi_1'(\ell)=-e^{-(1+\ell)}=\ell$ donc $|\phi_1'(\ell)|<1$ (car $\ell\in]\frac{1}{5};\frac{1}{2}[$). Le point $\ell$ est attractif pour la fonction $\phi_1$: la suite converge à l'ordre $1$ pour $x_0$ suffisamment proche de $\ell$.
+			\item $\phi_2'(\ell)=2+\ell$ donc $|\phi_2'(\ell)|>1$, ce qui implique que le point $\ell$ est répulsif pour $\phi_2$ et la suite ne converge pas.
+			\item $|\phi_3'(\ell)|=|\frac{-1}{\ell}|>1$ donc la suite ne converge pas.
+			\item $\phi_4'(\ell)=\frac{1-e^{-(1+\ell)}e^{1+\ell} }{(1+e^{1+\ell})^2}=0$. Le point $\ell$ est attractif pour $\phi_4$. La suite est donc convergente pour $x_0$ dans un voisinage suffisamment proche de $\ell$. De plus, l'ordre de convergence est au moins $2$.
+	\end{itemize}}
+%	
+	\item \question{ Pour la première méthode, établir analytiquement pour quelles valeurs de $x_0$ la suite converge. }
+	\reponse{Pour construire la fonction $\phi_1$, il suffit d'effectuer une translation d'une unité vers la gauche de la fonction $x\mapsto e^{-x}$.
+%\begin{center}
+%	\begin{tikzpicture}[scale=.5]
+%		% Calcul des valeurs nécessaires
+%		\pgfmathsetmacro{\yA}{exp(-0.5-1)} % y pour x=-0.5
+%		\pgfmathsetmacro{\yB}{exp(0.61-1)} % y pour x=0.61
+%		\pgfmathsetmacro{\xB}{exp(0.61-1)} % x pour x=0.61
+%		
+%		\begin{axis}[
+%			width=14cm, height=10cm,
+%			axis x line=center, 
+%			axis y line=middle,
+%			xlabel =$x$,
+%			every axis x label/.style={
+%				at={(ticklabel* cs:1.0)},
+%				anchor=west,
+%			},
+%			ylabel = $y$,
+%			every axis y label/.style={
+%				at={(ticklabel* cs:1)},
+%				anchor=south,},
+%			legend style={draw=none,at={(-.1,1)},anchor=north west,font=\large },
+%			samples=100,
+%			ymin=-0.6, ymax=1.5,
+%			xmin=-1.8, xmax=2.1,
+%			ytick={0 },
+%			xtick={0 },
+%			legend cell align=left
+%			]
+%			% Tracé de la fonction
+%			\addplot [mark=none,line width=.5mm,blue,domain=-1.7:2] {exp(-x-1)};
+%			
+%			% Points rouges
+%			\node[label={-90:{\large{$x_0$}}},circle,fill,red,inner sep=2pt] at (axis cs:-0.5,0) {};
+%			\node[label={-90:{\large{$x_1$}}},circle,fill,red,inner sep=2pt] at (axis cs:0.61,0) {};
+%			\node[label={-90:{\large{$x_2$}}},circle,fill,red,inner sep=2pt] at (axis cs:0.20,0) {};
+%			
+%			% Autres tracés
+%			\addplot [line width=.5mm,red] {x};
+%			\addplot [dotted,thick,blue] coordinates {(-0.5,0) (-0.5,\yA) (\yA,\yA) (\yA,0)};
+%			\addplot [dotted,thick,blue] coordinates {(0.61,\yB) (\xB,\yB)};
+%			\addplot [dotted,thick,blue] coordinates {(\xB,0) (\xB,0.30)};
+%		\end{axis}
+%	\end{tikzpicture}
+%\end{center}
+		L'étude graphique suggère que la suite converge quel que soit $x_0\in\mathbb{R}$ (convergence <<en escargot>>). Pour le prouver, on utilise le théorème de convergence globale de la méthode de point fixe.
+		\begin{itemize}
+			\item On commence par vérifier si $|\phi_1'(x)|<1, \ \forall x\in\mathbb{R}$: 
+			\[ |\phi_1'(x)|<1 \quad \Leftrightarrow \quad -1<e^{-(1+x)}<1 \quad \Leftrightarrow \quad x>-1.\] 
+			En revanche, $|\phi_1'(0)| = e^{-1}$ donc on peut poser $K = e^{-1} <1$ ; or $\phi_1'$ est décroissante sur $\R$ donc : $$\forall x \in [0;+\infty[ \, ,\,|\phi_1'(x)| \leq K$$ 
+			\item Commençons par regarder si le théorème de convergence globale s'applique sur l'intervalle $[0;+\infty[$. Pour cela, il faut vérifier que $\phi_1([0;+\infty[)\subset  [0;+\infty[$. Or pour tout $x \in [0;+\infty[$, $\phi_1(x)=e^{-(1+x)} \in [0;1[$ donc $\phi_1([0;+\infty[)=[0;1[ \subset [0;+\infty[$. On a donc vérifié la seconde hypothèse du théorème, ce qui permet de conclure que la méthode de point fixe converge au moins pour tout $x_0\in[0;+\infty[$.
+			\item Reste à étudier le cas où $x_0 < 0$. Si on s'intéresse au premier terme $x_1$, on s'aperçoit que $x_1=\phi_1(x_0)=e^{-(1+x_0)}\in[0;+\infty[$ et on se retrouve dans le cas précédent: le théorème s'applique à partir de $x_1$.
+		\end{itemize}
+		En conclusion, la méthode de point fixe associée à $\phi_1$ converge quel que soit $x_0\in\mathbb{R}$.
+	}
 %\item \question{ \`A l'aide d'un programme, donner une valeur approchée de $\ell$ et comparer graphiquement les vitesses de convergence pour la méthode utilisant $\phi_1$ et la méthode utilisant $\phi_4$. }
-%\end{enumerate}
+\end{enumerate}
+}
