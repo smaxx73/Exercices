@@ -1,20 +1,24 @@
 \uuid{1asx}
-\titre{}
+\titre{Probabilité de surcharge}
+\theme{probabilités}
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
 
+\contenu{
 \texte{ On considère un avion contenant 100 passagers. On suppose que le poids d'un passager pris au hasard suit une loi de probabilité dont l'espérance est 71 kg et l'écart type est 7~kg. }
 
 \begin{enumerate}
 	\item \question{Calculer la probabilité que le poids de l'ensemble des passagers soit supérieur à $7{,}3$ tonnes. }
-	\reponse{Soit la variable aléatoire $X$ donnant la somme des poids des 100 passagers. Si on note $Y_i$ le poids du $i$-ème passager, on a $X = \sum_{i=1}^{100} Y_i$. Par conséquent, $\mathbb{E}(X) = 7100$ et $V(X) = 100 \times 7^2 = 4900$. 
+	\reponse{Soit la variable aléatoire $X$ donnant la somme des poids des 100 passagers. Si on note $Y_i$ le poids du $i$-ème passager, on a $X = \sum_{i=1}^{100} Y_i$. Par conséquent, $\mathbb{E}(X) = 7100$ et $\var(X) = 100 \times 7^2 = 4900$. 
 D'après le théorème central limite, la loi de $X$ peut être approchée par une loi normale de moyenne $7100$ et de variance $4900$, soit un écart type de $70$. 
 
-En notant $Z$ une variable aléatoire normale centrée réduite, on en déduit que 
+En notant $Z$ une variable aléatoire normale centrée réduite, on en déduit que :
 \begin{align*}
   \PP\left(X > 7300\right) &= \PP\left(\frac{X-7100}{70} > \frac{7300-7100}{70}\right) \\
   &\approx  \PP\left(Z > \frac{200}{70} \approx 2{,}857\right) \\
   &\approx 0{,}0021 = 0{,}21\%
 \end{align*}
-Il n'y a quasiment aucune chance que le poids total des passagers dépasse $7{}3$ tonnes.	
+Il n'y a quasiment aucune chance que le poids total des passagers dépasse $7{,}3$ tonnes.	
 }
 	\item \question{ Sur 40 passagers interrogés au hasard, 23 voyagent avec un bagage en soute. Déterminer à l'aide d'un intervalle de confiance au niveau $95\%$ une estimation de la proportion de passagers qui voyagent avec un bagage en soute sur ce vol.}
 	\reponse{On cherche à estimer une fréquence à partir d'un échantillon de taille $40$. La fréquence observée dans l'échantillon est $f_{obs} = \frac{23}{40}$. On peut donc utiliser la formule du cours : 
@@ -24,3 +28,4 @@ Il n'y a quasiment aucune chance que le poids total des passagers dépasse $7{}3
 On peut estimer que la proportion de passagers voyageant avec un bagage en soute est compris entre $42\%$ et $73\%$. 
 } 
 \end{enumerate}
+}
