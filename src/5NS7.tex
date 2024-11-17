@@ -1,0 +1,73 @@
+\uuid{5NS7}
+\titre{ Fonction d'erreur d'un réseau de neurones }
+\theme{ Réseau de neurones }
+\auteur{ Maxime NGUYEN }
+\organisation{ AMSCC }
+
+\begin{SaveVerbatim}{5NS7}
+def ReLu(y):
+	if y<0:
+		return 0
+	else:
+		return y
+\end{SaveVerbatim}
+
+\contenu{
+
+\texte{ On considère le réseau de neurones suivant :
+
+
+\begin{center}
+	\begin{tikzpicture}
+		\def\layersep{2cm}
+		\tikzstyle{neuron}=[circle,fill=red!50,minimum size=12pt,inner sep=0pt]
+		
+		% Entree
+		\node[blue] (E) at (-\layersep,0) {$x$};
+			
+		% Neurone F
+		\node[neuron] (F) at (0,0) {};
+		\node[above right=0.8ex,scale=0.8] at (F) {$g_1$};
+		\node[below right=0.8ex,scale=0.8] at (F) {};
+		\path[thick] (E) edge node[pos=0.8,above,scale=0.8]{$a$} (F);
+		\draw[-o,thick] (F) to node[midway,below right,scale=0.8]{$b$} ++ (-130:1.3);
+		
+		% Neurone G
+		\node[neuron] (G) at (\layersep,0) {};
+		\node[above right=0.8ex,scale=0.8] at (G) {$g_2$};
+		\node[below right=0.8ex,scale=0.8] at (G) {$...$};
+		\path[thick] (F) edge node[pos=0.8,above,scale=0.8]{$c$} (G);
+		
+		\draw[->,>=latex,thick] (G)-- ++(2,0) node[right,blue]{$F(x,a,b,c)$};
+		
+		
+	\end{tikzpicture}  
+\end{center}
+
+
+où $g_1$ et $g_2$ sont la fonction ReLu. 
+
+
+
+	{\centering \fbox{\BUseVerbatim{5NS7}}\par}
+
+La fonction d'erreur est : 
+$$E(a,b,c) = \frac{1}{3}\sum_{i=1}^3 E_i(a,b,c)$$
+où $E_i = (F(x_i)-t_i)^2$ avec les données d'entraînement suivantes $(x_i,t_i)$ pour 3 valeurs : $(1,2), (-2,0), (3,3)$.
+}
+
+\begin{enumerate}
+	\item \question{ Calculez l'erreur des données d'entraînement (évaluez la fonction de perte) lorsque $(a,b,c) = (-1,2,1)$. }
+	\reponse{ La fonction est $F(x,a,b,c) = c(ax+b)$ si $ax+b \geq 0$, c'est-à-dire $-x+2$ si $x \leq 2$, $0$ sinon. Alors $F(1) = 1$, $F(-2) = 4$ et $F(3) = 0$. 
+		
+		Ainsi, $E(-1,2,1) = \frac13\left((1-2)^2+(4-0)^2+(0-3)^2\right) = \frac{26}{3}$.	
+	}
+	\item \texte{ Supposons que $x = 3$ et $(a,b,c) = (1,-1,2)$. }
+	\begin{enumerate}
+		\item \question{ Calculez $\frac{\partial F}{\partial c}$ en utilisant les règles ci-dessus.  }
+		\reponse{ On a $ax+b = 3-1 = 2$, donc $\frac{\partial F}{\partial c} = 1 \times 2 = 2$.  }
+		\item En déduire $\frac{\partial F}{\partial a}$, $\frac{\partial F}{\partial b}$ en utilisant $\frac{\partial F}{\partial c}$ et les règles ci-dessus. 
+		\reponse{ On a $\frac{\partial F}{\partial a} = 3 \times \frac{1}{2} \times 2 \times \frac{\partial F}{\partial c} = 6$ et $\frac{\partial F}{\partial b} = \frac{1}{2}\times 2 \times \frac{\partial F}{\partial c} = 2$. }
+	\end{enumerate}
+\end{enumerate}
+}

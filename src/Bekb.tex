@@ -1,0 +1,124 @@
+\uuid{Bekb}
+\titre{ Fonction réalisée par un réseau de neurones }
+\theme{ Réseau de neurones }
+\auteur{ Maxime NGUYEN }
+\organisation{ AMSCC }
+
+\contenu{
+
+\question{ Décrire ce que permet de réaliser ce réseau de neurones :
+
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+		\def\layersep{2cm}
+		\tikzstyle{every pin edge}=[thick]
+		\tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+		\tikzstyle{entree}=[];
+		\tikzstyle{input neuron}=[neuron, fill=green!50];
+		\tikzstyle{output neuron}=[neuron, fill=red!50];
+		\tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+		\tikzstyle{annot} = [text width=4em, text centered]
+		
+		
+		% Entree
+		\node[entree,blue] (E) at (-\layersep,-2.5) {$x$};
+		
+		
+		% Premiere couche
+		\node[input neuron] (I-1) at (0,-1) {};
+		\node[input neuron] (I-2) at (0,-2) {};
+		\node[input neuron] (I-3) at (0,-3) {};
+		\node[input neuron] (I-4) at (0,-4) {};
+		
+		
+		\node[above right=0.8ex,scale=0.7] at (I-1) {$H$};
+		\node[above right=0.8ex,scale=0.7] at (I-2) {$H$};
+		\node[below right=0.8ex,scale=0.7] at (I-3) {$H$};
+		\node[below right=0.8ex,scale=0.7] at (I-4) {$H$};
+		
+		
+		%Seconde couche et sortie
+		\node[output neuron] (O) at (\layersep,-2.5 cm) {};
+		\node[below right=0.8ex,scale=0.7] at (O) {id};
+		
+		
+		% Arrete et poids
+		\path[thick] (E) edge node[pos=0.8,above,scale=0.7]{$1$} (I-1) ;
+		\draw[-o,thick] (I-1) to node[midway,below right,scale=0.7]{$-1$} ++ (-120:0.6);
+		
+		
+		\path[thick] (E) edge node[pos=0.8,above,scale=0.7]{$-1/2$} (I-2);
+		\draw[-o,thick] (I-2) to node[midway,below right,scale=0.7]{$1$} ++ (-120:0.6);
+		
+		
+		\path[thick] (E) edge node[pos=0.8,above,scale=0.7]{$-1/4$} (I-3) ;
+		\draw[-o,thick] (I-3) to node[midway,below right,scale=0.7]{$1$} ++ (-120:0.6);
+		
+		
+		\path[thick] (E) edge node[pos=0.8,below left,scale=0.7]{$1/3$} (I-4);
+		\draw[-o,thick] (I-4) to node[midway,below right,scale=0.7]{$-1$} ++ (-120:0.6);
+		
+		
+		\path[thick] (I-1) edge node[pos=0.8,above,scale=0.7]{$3$} (O);
+		\path[thick] (I-2) edge node[pos=0.8,above,scale=0.7]{$3$}(O);
+		%\draw[-o,thick] (O) to node[midway,right,scale=0.7]{$-3$} ++ (120:0.8) ;
+		
+		
+		\path[thick] (I-3) edge node[pos=0.8,above,scale=0.7]{$2$} (O);
+		\path[thick] (I-4) edge node[pos=0.8,above,scale=0.7]{$2$}(O);
+		\draw[-o,thick] (O) to node[midway,below right,scale=0.7]{$-5$} ++ (-120:0.8) ;
+		% Sortie
+		\draw[->,thick] (O)-- ++(1,0) node[right,blue]{$F(x)$};
+		
+		
+	\end{tikzpicture} 
+\end{center}  }
+
+
+\reponse{ 
+	This neural network realizes the function $\R \to \R$ as follows:
+	\begin{tikzpicture}[scale=1]
+		
+		
+		\draw[->,>=latex, gray] (-0.5,0)--(6,0) node[below] {$x$};
+		\draw[->,>=latex, gray] (0,-0.5)--(0,4) node[left] {$y$};
+		
+		
+		\draw[ultra thick,red] (-0.5,0) -- (1,0);
+		\draw[ultra thick,red] (1,3) -- (2,3);
+		
+		
+		\draw[ultra thick,red] (2,0) -- (3,0);
+		\draw[ultra thick,red] (3,2) -- (4,2);
+		\draw[ultra thick,red] (4,0) -- (5,0) node[above]{$F(x)$};
+		
+		
+		\fill[black] (0,1) circle (1pt);
+		\fill[black] (1,0) circle (1pt);
+		
+		
+		\node at (0,0) [below left] {$0$};
+		\node at (0,1) [left] {$1$};
+		\node at (1,0) [below] {$1$};
+		
+		
+		\node at (1,0) [below] {$1$};
+		\node at (2,0) [below] {$2$};
+		\node at (3,0) [below] {$3$};
+		\node at (4,0) [below] {$4$};
+		
+		
+		\draw[dashed] (1,3)--(0,3) node[left]{$3$};
+		\draw[dashed] (3,2)--(0,2) node[left]{$2$};
+		
+		
+		\draw[dashed] (1,0)--(1,3);
+		\draw[dashed] (2,0)--(2,3);
+		\draw[dashed] (3,0)--(3,2);
+		\draw[dashed] (4,0)--(4,2);
+		
+		
+	\end{tikzpicture}	
+}
+}
