@@ -1,0 +1,109 @@
+\uuid{J7Sl}
+\titre{ \'Etude d'une loi absolument continue }
+\theme { probabilités }
+\auteur{ }
+\organisation{AMSCC}
+
+\contenu{
+\texte{
+    Soit $k \in \R$ et $f$ la fonction définie sur $\R$ pour tout $x \in \R$ par :
+    $$ f(x) = \begin{cases}
+        kx(1-x) & \text{ si } x \in [0,1] \\
+        0 & \text{ sinon }
+    \end{cases} $$
+ }
+
+ \begin{enumerate}
+    \item \question{ Déterminer la valeur de $k$ pour que $f$ soit une densité de probabilité. }
+    \reponse{
+        On a :
+        \begin{align*}
+            \int_{-\infty}^{+\infty} f(x) dx &= \int_{-\infty}^0 f(x) dx + \int_0^1 f(x) dx + \int_1^{+\infty} f(x) dx \\
+            &= 0 + \int_0^1 kx(1-x) dx + 0 \\
+            &= k \int_0^1 (x - x^2) dx \\
+            &= k \left[ \frac{x^2}{2} - \frac{x^3}{3} \right]_0^1 \\
+            &= k \left( \frac{1}{2} - \frac{1}{3} \right) \\
+            &= \frac{k}{6}.
+        \end{align*}
+        On a donc $k = 6$.
+    }
+    \item \question{ Soit $X$ une variable aléatoire réelle de densité $f$. Déterminer la fonction de répartition $F$ de $X$. }
+    \reponse{
+        Soit $t \in \R$. Si $t \leq 0$, on a : $\prob(X \leq t) = 0$. Si $t \geq 1$, on a : $\prob(X \leq t) = 1$. Si $t \in ]0,1[$, on a : 
+        \begin{align*}
+            \prob(X \leq t) &= \int_{-\infty}^t f(x) dx \\
+            &= \int_0^t 6x(1-x) dx \\
+            &= 6 \int_0^t (x - x^2) dx \\
+            &= 6 \left[ \frac{x^2}{2} - \frac{x^3}{3} \right]_0^t \\
+            &= 6 \left( \frac{t^2}{2} - \frac{t^3}{3} \right) \\
+            &= 6 \left( \frac{3t^2 - 2t^3}{6} \right) \\
+            &= 3t^2 - 2t^3.
+        \end{align*}
+        On a donc $F(t) = \begin{cases}
+            0 & \text{ si } t \leq 0 \\
+            3t^2 - 2t^3 & \text{ si } t \in ]0,1[ \\
+            1 & \text{ si } t \geq 1.
+        \end{cases}$
+    }
+    \item \question{ Déterminer la probabilité que $X$ prenne une valeur dans l'intervalle $[0{,}5\,;\,1]$. }
+    \reponse{
+        On a :
+        \begin{align*}
+            \prob(0{,}5 \leq X \leq 1) &= \prob(X \leq 1) - \prob(X \leq 0{,}5) \\
+            &= F(1) - F(0{,}5) \\
+            &= 1 - (3 \times 0{,}5^2 - 2 \times 0{,}5^3) \\
+            &= 1 - (3 \times 0{,}25 - 2 \times 0{,}125) \\
+            &= 1 - (0{,}75 - 0{,}25) \\
+            &= 1 - 0{,}5 \\
+            &= 0{,}5.
+        \end{align*}
+    }
+    \item \question{ Déterminer l'espérance et la variance de $X$. }
+    \reponse{
+        On a : 
+        \begin{align*}
+            \E(X) &= \int_{-\infty}^{+\infty} x f(x) dx \\
+            &= \int_0^1 6x^2(1-x) dx \\
+            &= 6 \int_0^1 (x^2 - x^3) dx \\
+            &= 6 \left[ \frac{x^3}{3} - \frac{x^4}{4} \right]_0^1 \\
+            &= 6 \left( \frac{1}{3} - \frac{1}{4} \right) \\
+            &= 6 \times \frac{1}{12} \\
+            &= \frac{1}{2}.
+        \end{align*}
+        On a aussi d'après le théorème de transfert : 
+        \begin{align*}
+            \E(X^2) &= \int_{-\infty}^{+\infty} x^2 f(x) dx \\
+            &= \int_0^1 6x^3(1-x) dx \\
+            &= 6 \int_0^1 (x^3 - x^4) dx \\
+            &= 6 \left[ \frac{x^4}{4} - \frac{x^5}{5} \right]_0^1 \\
+            &= 6 \left( \frac{1}{4} - \frac{1}{5} \right) \\
+            &= 6 \times \frac{1}{20} \\
+            &= \frac{3}{10}.
+        \end{align*}
+        On a donc $\V(X) = \E(X^2) - \E(X)^2 = \frac{3}{10} - \frac{1}{4} = \frac{1}{20}$.
+
+    }
+    \item \question{ Soit la variable aléatoire $Y = X^2$. En distinguant éventuellement selon les valeurs de $t \in \R$, déterminer $a(t)$ et $b(t)$ de telle sorte que $\{Y \leq t\} = \left\{a(t) \leq X \leq b(t)\right\}$. }
+    \reponse{
+        Si $t < 0$, on a $\{Y \leq t\} = \emptyset$. Si $t \geq 0$, on a $\{Y \leq t\} = \{X \in [-\sqrt{t},\sqrt{t}]\}$.
+    }
+    \item \question{ En déduire une expression de la fonction de répartition de $Y$ puis une densité de probabilité de $Y$. }
+    \reponse{
+        Soit $t \in \R$. Si $t < 0$, on a $F_Y(t) = 0$. Si $t \geq 0$, on a : 
+        \begin{align*}
+            F_Y(t) &= \prob(Y \leq t) \\
+            &= \prob(X \in [-\sqrt{t},\sqrt{t}]) \\
+            &= F(\sqrt{t}) - F(-\sqrt{t}) \\
+            &= F(\sqrt{t}) - 0 \\
+            &= \begin{cases}
+                3t - 2t^{3/2} & \text{ si } t \in [0,1] \\
+                1 & \text{ si } t \geq 1.
+            \end{cases}
+        \end{align*}
+        On a donc par dérivation $f_Y(x) = \begin{cases}
+            3 - 3 \sqrt{x} & \text{ si } x \in [0,1] \\
+            0 & \text{ sinon }
+        \end{cases}$.
+    }
+ \end{enumerate}
+}

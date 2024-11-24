@@ -1,0 +1,36 @@
+\uuid{tSoF}
+\titre{Equivalents simples}
+\theme{limite}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+Trouver un équivalent simple pour chaque fonction suivante en $+\infty$:
+\colonnes{\solution}{3}{1}
+    \begin{enumerate}
+    \item \question{$\frac{1}{x-1}-\frac{1}{x+1}$}
+    \reponse{$\frac{1}{x-1}-\frac{1}{x+1}=\frac{2}{x^{2}-1} \underset{x \rightarrow+\infty}{ } \frac{2}{x^{2}}$, car $x^{2}-1 \underset{x \rightarrow+\infty}{ } x^{2} .$}
+    \item \question{$x+1+\ln(x)$}
+    \reponse{$x+1+\ln (x) \underset{x \rightarrow+\infty}{-} x$, car $\lim\limits_{x \rightarrow+\infty} \frac{x+1+\ln (x)}{x}=\lim\limits_{x \rightarrow+\infty} \frac{x \times\left(1+\frac{1}{x}+\frac{\ln (x)}{x}\right)}{x}=\lim\limits_{x \rightarrow+\infty} 1+\frac{1}{x}+\frac{\ln (x)}{x}=1 .$}
+    \item \question{$\sin\left(\frac{1}{\sqrt{x+1}}\right)$}
+    \reponse{	$\sin (u) \underset{u \rightarrow 0}{\sim} u \Rightarrow \sin \left(\frac{1}{\sqrt{x+1}}\right) \underset{x \rightarrow+\infty}{\sim} \frac{1}{\sqrt{x+1}} \underset{x \rightarrow+\infty}{\sim} \frac{1}{\sqrt{x}}$}
+    \item \question{$\sqrt{x+1}-\sqrt{x-1}$}
+    \reponse{	On a : 
+        $\sqrt{x+1}-\sqrt{x-1}=\frac{(\sqrt{x+1}-\sqrt{x-1})(\sqrt{x+1}+\sqrt{x-1})}{\sqrt{x+1}+\sqrt{x-1}}=\frac{(x+1)-(x-1)}{\sqrt{x+1}+\sqrt{x-1}}=\frac{2}{\sqrt{x+1}+\sqrt{x-1}}$\\
+        et $\sqrt{x+1}+\sqrt{x-1} \underset{x \rightarrow+\infty}{\sim } 2 \sqrt{x}$ car :\\
+        $\lim\limits_{x \rightarrow+\infty} \frac{\sqrt{x+1}+\sqrt{x-1}}{2 \sqrt{x}}=\lim\limits_{x \rightarrow+\infty} \frac{1}{2} \sqrt{\frac{x+1}{x}}+\frac{1}{2} \sqrt{\frac{x-1}{x}}=\lim\limits_{x \rightarrow+\infty} \frac{1}{2}+\frac{1}{2}=1$
+        Aussi :
+        $$
+        \sqrt{x+1}-\sqrt{x-1} \underset{x \rightarrow+\infty}{\sim } \frac{2}{2 \sqrt{x}}=\frac{1}{\sqrt{x}}
+        $$}
+    \item \question{$\ln\left(\frac{x^2+x+2}{x^2+x-1}\right)$ }
+    \reponse{$\frac{x^{2}+x+2}{x^{2}+x-1}=\frac{x^{2} \times\left(1+\frac{1}{x}+\frac{2}{x^{2}}\right)}{x^{2} \times\left(1+\frac{1}{x}-\frac{1}{x^{2}}\right)}=\frac{1+\frac{1}{x}+\frac{2}{x^{2}}}{1+\frac{1}{x}-\frac{1}{x^{2}}}$
+        
+        $$
+        \frac{1+u+2 u^{2}}{1+u-u^{2}}=1+3 u^{2}+u^{2} . \varepsilon(u)
+        $$
+        $\ln (1+v)=v-\frac{v^{2}}{2}+v^{2} . \underset{v \neq 0}{\varepsilon(v)} \Rightarrow \ln \left(\frac{1+u+2 u^{2}}{1+u-u^{2}}\right)=3 u^{2}+u^{2} . \varepsilon(u)$\\
+        Ainsi : $\ln \left(\frac{x^{2}+x+2}{x^{2}+x-1}\right)=\frac{3}{x^{2}}+\frac{1}{x^{2}} \cdot \varepsilon\left(\frac{1}{x}\right)$ ou encore $\ln \left(\frac{x^{2}+x+2}{x^{2}+x-1}\right) \underset{x \rightarrow+\infty}{\sim} \frac{3}{x^{2}}$}
+    \end{enumerate}
+\fincolonnes{\solution}{3}{1}
+}

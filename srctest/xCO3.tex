@@ -1,0 +1,57 @@
+\uuid{xCO3}
+\titre{Lois, fonctions caractéristiques pour un couple}%PROBA050
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Pour tout $(x,y) \in \R^2$, on pose : $$f(x,y)=k(1+xy(x^2-y^2)) \textbf{1}_{[-1;1]^2}(x,y).$$ }
+
+\begin{enumerate}
+	\item \question{ Déterminer la valeur de $k$ pour que $f$ soit une densité de probabilité associée à un couple de variables aléatoires $(X,Y)$. }
+	\reponse{ $f$ est positive sur $\mathbb{R}$ si $k\geq 0$. Par ailleurs,
+		\begin{align*}
+			\int_{\mathbb{R}^2} f(x,y) dxdy
+			&= \int_{-1}^1\int_{-1}^1 k(1+x^3y-xy^3) dxdy \\
+			&=\int_{-1}^1 k \left[ x+\frac{1}{4}x^4y-\frac{1}{2}x^2y^3\right]_{x=-1}^1 dy \\
+			&=\int_{-1}^1 2kdy \\
+			&=4k.
+		\end{align*}
+		Pour $\displaystyle k=\frac{1}{4}$, $f$ est positive sur $\mathbb{R}$ et $\displaystyle \int_\mathbb{R} f(x)dx=1$ donc $f$ est une densité de probabilité. }
+	\item \question{ Déterminer les densités marginales du couple $(X,Y)$, ainsi que leurs fonctions caractéristiques. Les variables $X$ et $Y$ sont-elles indépendantes ? }
+	\reponse{ Les lois marginales de $X$ et de $Y$ sont
+		\begin{align*}
+			f_X(x)&=\int_\mathbb{R} f(x,y)dy \\
+			&=\frac{1}{4}\textbf{1}_{[-1;1]}(x) \ \int_{-1}^1 (1+x^3y-xy^3) dy \\
+			&= \frac{1}{2}\textbf{1}_{[-1;1]}(x).
+		\end{align*}
+		Par symétrie, on obtient
+		$f_Y(y)=\frac{1}{2}\chi_{[-1;1]}(y)$. Donc $X$ et $Y$ sont deux variables aléatoires de loi uniforme sur $[-1;1]$.
+		
+		Soit $t\in\mathbb{R}$.
+		\begin{align*}
+			\phi_X(t) &= \mathbb{E}(e^{itX}) \\
+			&= \int_\mathbb{R} e^{itx}f_X(x)dx \quad \text{(théorème de transfert)} \\
+			&= \frac{1}{2}\int_{-1}^1 e^{itx} dx \\
+			&=\frac{1}{2}\left[ \frac{1}{it}e^{itx}\right]_{x=-1}^{x=1} \quad \text{si } t\neq 0\\
+			&= \frac{1}{2it}(e^{it}-e^{-it}) \quad \text{si } t\neq 0 \\
+			&= \frac{\sin t}{t} \quad \text{si } t\neq 0.
+		\end{align*}
+		Pour $t=0$, $\phi_X(t)=\mathbb{E}(1)=1 = \underset{t \to 0}\lim \frac{\sin t}{t}$ donc pour tout $t\in\mathbb{R}$, $\phi_X(t)=\frac{\sin t}{t}.$
+		Comme $X$ et $Y$ sont de même loi, on a également pour tout $t\in\mathbb{R}$, $\phi_Y(t)=\frac{\sin t}{t}$.
+		
+		Les variables aléatoires $X$ et $Y$ ne sont pas indépendantes car leur densité jointe n'est pas le produit de leurs densités marginales. }
+	\item \question{ Calculer la fonction caractéristique de $X+Y$.  }
+	\reponse{ Soit $t\in\mathbb{R}^*$. On a
+		\begin{align*}
+			\phi_{X+Y}(t)&= \mathbb{E}(e^{itX}e^{itY}) \\
+			&= \int_{\mathbb{R}^2} e^{itx}e^{ity} f(x,y) dxdy\quad \text{(théorème de transfert)} \\
+			&= \frac{1}{4}\int_{-1}^1\int_{-1}^1 e^{itx}e^{ity}dxdy + \frac{1}{4} \left(\int_{-1}^1\int{-1}^1 x^3ye^{itx}e^{ity} dxdy -\int_{-1}^1\int{-1}^1 xy^3e^{itx}e^{ity} dxdy\right) \\
+			&=\frac{1}{4}\int_{-1}^1 e^{itx}dx \int_{-1}^1 e^{ity}dy +0 \\
+			&= \left[ \frac{1}{2it}(e^{it}-e^{-it})\right]^2 \\
+			&= \left(\frac{\sin t}{t}\right)^2
+		\end{align*}
+		et par continuité de la fonction $t\mapsto \frac{\sin t}{t}$ en $0$, on obtient:
+		\[ \forall t \in \mathbb{R}, \quad \phi_{X+Y}(t)=\left(\frac{\sin t}{t}\right)^2.\]
+		Ici, on peut remarquer que nous avons l'égalité $\phi_{X+Y}=\phi_X\phi_Y$ malgré le fait que les variables aléatoires $X$ et $Y$ ne soient pas indépendantes. }
+\end{enumerate}}

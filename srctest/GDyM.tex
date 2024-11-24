@@ -1,0 +1,59 @@
+\uuid{GDyM}
+\titre{Règle de Raabe-Duhamel}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	Soient $\sum u_n$ et $\sum v_n$ deux séries à termes réels strictement positifs.  }
+	\begin{enumerate}
+		\item \question{ On suppose qu'il existe $N\in\N$ tel que
+		\[\forall n\geq N, \quad \frac{u_{n+1}}{u_n} \leq \frac{v_{n+1}}{v_n}. \]
+		Monter que si $\sum v_n$ converge, alors $\sum u_n$ converge. }
+		\reponse{Soit $n >N$. Alors
+			\[ \frac{u_n}{u_{n-1}} \leq \frac{v_n}{v_{n-1}} \quad \Longrightarrow \quad u_n \leq \frac{v_n}{v_{n-1}}u_{n-1}.\]
+			Or on a:
+			\[ \frac{u_{n-1}}{u_{n-2}} \leq \frac{v_{n-1}}{v_{n-2}}, \quad \cdots  \ ,\quad  \frac{u_{N+1}}{u_{N}} \leq \frac{v_{N+1}}{v_{N}}.\]
+			Donc on a les inégalités successives:
+			\[ u_n \leq \frac{v_n}{v_{n-1}}u_{n-1} \leq  \frac{v_n}{v_{n-1}}\frac{v_{n-1}}{v_{n-2}}u_{n-2} \leq ... \leq
+			\frac{v_n}{v_{n-1}}\frac{v_{n-1}}{v_{n-2}}\cdots \frac{v_{N+1}}{v_N}u_N,\]
+			ce qui nous donne:
+			\[ u_n \leq \frac{v_{n}}{v_N}u_N=\frac{u_N}{v_N}v_n.\]
+			Comme $\frac{u_N}{v_N}$ est une constante et que les suites $(u_n)$ et $(v_n)$ sont positives, par comparaison, si la série $\sum v_n$ converge, la série $\sum u_n$ converge également.}
+		\item \texte{ On suppose qu'il existe $\alpha \in\mathbb{R}$ tel que
+		\[\frac{u_{n+1}}{u_n}=1-\frac{\alpha}{n} + o(\frac{1}{n}) \quad \text{ lorsque } n\rightarrow +\infty.\] }
+
+		\begin{enumerate}
+			\item \question{ Montrer que si $\alpha >1$, alors $\sum u_n$ converge ; }
+			\reponse{ Si $\alpha > 1$, alors on peut prendre $\beta$ tel que $\alpha>\beta>1$. Dans ce cas, $\sum v_n$ est une série de Riemann convergente et $ \frac{v_{n+1}}{v_n}\geq \frac{u_{n+1}}{u_n}$. Par la première question, on en déduit qu'alors la série $\sum u_n$ converge.}
+			\item \question{ Montrer que si $\alpha <1$, alors $\sum u_n$ diverge. }
+			\reponse{Si $\alpha <1$, alors on peut choisir $\beta$ tel que $\alpha < \beta <1$. Dans ce cas, $\sum v_n$ est une série de Riemann divergente et $\frac{v_{n+1}}{v_n}\leq \frac{u_{n+1}}{u_n}$. Par la première question, on en conclut que la série $\sum u_n$ diverge.}
+		\end{enumerate}
+		\item \question{ Application : on pose $u_n = \displaystyle \prod_{k=1}^{n} \frac{2k}{2k+1}$. \'Etudier la nature de la série $\sum u_n$. } 
+		\reponse{ On cherche un développement asymptotique du quotient $\frac{u_{n+1}}{u_n}$ : 
+			\begin{align*}
+			\frac{u_{n+1}}{u_n} &= \frac{ \prod\limits_{k=1}^{n+1} \frac{2k}{2k+1} } {\prod\limits_{k=1}^{n} \frac{2k}{2k+1} } \\ 
+			&=  \frac{2(n+1)}{2(n+1)+1}  \\
+			&= \frac{2n+2}{2n+3}
+			\end{align*}
+			
+			Il est intéressant de voir que la règle de d'Alembert ne permet pas de conclure car $\lim\limits_{n \to +\infty} \frac{u_{n+1}}{u_n} = 1$). 
+			
+			En revanche, on peut faire apparaître un développement asymptotique en factorisant :
+			
+			\begin{align*}
+			\frac{u_{n+1}}{u_n} &= \frac{2n(1+1/n)}{2n(1+3/2n)} \\
+			&= \frac{1+\frac{1}{n}}{1+\frac{3}{2n}} \\
+			&= \left(1+\frac{1}{n} \right) \frac{1}{1+\frac{3}{2n}}
+			\end{align*}
+			Or $\frac{1}{1+\frac{3}{2n}} = 1-\frac{3}{2n} + o(\frac{1}{n})$ donc par produit : 
+			\begin{align*}
+			\frac{u_{n+1}}{u_n} &= \left(1+\frac{1}{n} \right) \left(1-\frac{3}{2n} +o\left(\frac{1}{n}\right)  \right) \\
+			&= 1 + \frac{1}{n} - \frac{3}{2n} + o\left(\frac{1}{n}\right) \\
+			&= 1 - \frac{1}{2n}  + o\left(\frac{1}{n}\right) \\
+			\end{align*}
+			On peut donc appliquer le critère de Raabe-Duhamel avec $\alpha = \frac{1}{2} <1$ pour conclure que la série de terme général $u_n$ diverge. 
+		}
+	\end{enumerate}
+}

@@ -1,0 +1,28 @@
+\uuid{tPCs}
+\titre{Etude d'une méthode itérative}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Soit $A \in \mathcal{M}_N(\R)$ une matrice réelle symétrique définie positive et $b\in \R^N$. On note $\rho(A)$ le rayon spectral de la matrice $A$.  Pour résoudre le système 
+$$Ax=b$$
+on considère la suite définie par $x_0 \in \R^N$ et $\sigma \in \R$ :
+$$x_{n+1} = x_n - \sigma(Ax_n-b)$$ }
+
+\begin{enumerate}
+	\item\question{  Montrer que la méthode converge vers la solution $x$ du système si et seulement si :
+	$$0 < \sigma < \frac{2}{\rho(A)}$$ }
+	
+	\reponse{On vérifie dans un premier temps que si la méthode converge vers un vecteur $y \in \R^n$, alors $y$ vérifie $y=y-\sigma(Ay-b) \iff Ay=b$ à condition que $\sigma \neq 0$.
+		
+		Pour que la méthode converge, le cours dit qu'il est nécessaire et suffisant que la matrice d'itération $B$ vérifie $\rho(B)<1$. Ici, $B = I-\sigma A$, le spectre de $B$ est $sp(B) = \{1- \sigma\lambda \mid \lambda \in sp(A)\}$. }
+	
+	
+	\item \question{ Comment choisir $\sigma$ pour que optimiser la vitesse de convergence de cette méthode ? Exprimer le résultat en fonction de $\rho(A)$ et $\rho(A^{-1})$. }
+	
+	\reponse{ On cherche $\sigma$ tel que $\rho(B)$ soit minimal. Or $\rho(B) = \max_i|1-\sigma\lambda_i|$. On sait que les valeurs propres de $A$ sont strictement positives, on peut les ranger dans l'ordre croissant $0 < \lambda _1 \leq ... \leq \lambda _n$, ce qui permet d'affirmer que $\rho(B) = \max\{1-\sigma \lambda_1 ; \sigma \lambda_n -1 \}$. \'Etant donné que cette  fonction est décroissante jusqu'au point $\sigma$ tel que $1-\sigma \lambda_1 = \sigma \lambda_n-1$, puis croissante au delà, la solution est $\sigma = \frac{2}{\lambda_1+\lambda_n}$. Or $\lambda_1 = \frac{1}{\rho(A^{-1})}$ et $\lambda_n = \rho(A)$ d'où  
+		$$\sigma = \frac{2}{\frac{1}{\rho(A^{-1})} + \rho(A)}$$
+	}
+\end{enumerate}}

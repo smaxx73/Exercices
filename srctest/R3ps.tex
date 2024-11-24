@@ -1,0 +1,39 @@
+\uuid{R3ps}
+\titre{Loi d'une combinaison de variables}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+\texte{ 	Soient $X$, $Y$ deux variables aléatoires indépendantes suivant chacune une loi exponentielle de paramètre $\lambda>0$. On définit la variable aléatoire $U = \frac{X}{X+Y}$.   }
+	
+	\begin{enumerate}
+		\item \question{ Sans calcul, déterminer les probabilités $\PP(U \geq 0)$ et $\PP(U \geq 1)$.  }
+		\reponse{Les variables $X$ et $Y$ suivent une loi exponentielle donc sont positives presque sûrement. La variable $U$ est donc positive presque sûrement et $\PP(U \geq 0) = 1$. De plus, puisque $X \geq 0$ et $Y \geq 0$ presque sûrement, on peut déduire que $X \leq X+Y$ donc $U \geq 1$ presque sûrement, d'où $\PP(U \geq 1) = 0$. }
+		\item \question{ Déterminer, en justifiant, une fonction densité du couple de variables aléatoires $(X,Y)$. }
+		\reponse{Par indépendance des variables $X$ et $Y$, une densité du couple $(X,Y)$ est le produit des densités des variables $X$ et $Y$ : on pose 
+			$$f(x,y) = \lambda^2 e^{-\lambda x - \lambda y} 1_{\mathbb{R}_+^2}(x,y)$$}
+		\item \question{ Soit $t \in ]0;1[$. Montrer que 
+		$$\PP(U \leq t) = \int_{0}^{+\infty} \left(\int_{\frac{1-t}{t}x}^{+\infty} \lambda^2 e^{-\lambda x - \lambda y} dy  \right)dx$$ }
+		\reponse{Soit $t \in ]0;1[$. On constate que $U \leq t \iff X \leq t(X+Y) \iff X\frac{1-t}{t} \leq Y$.    On intègre $f(x,y)$ sur le domaine $D_t = \{(x,y) \in \R^2, y \geq \frac{1-t}{t}x \}$ en appliquant le théorème de Fubini :
+			\begin{align*}
+				\PP(U \leq t) &= \iint_{D_t} f(x,y)dxdy \\
+				&= \int_{0}^{+\infty} \left(\int_{\frac{1-t}{t}x}^{+\infty} \lambda^2 e^{-\lambda x - \lambda y} dy  \right)dx
+			\end{align*}		
+			
+		}
+		\item \question{ Déduire des questions précédentes la fonction de répartition de la variable aléatoire $U$.  }
+		\reponse{		Soit  $t \in ]0;1[$ : 
+			\begin{align*}
+				\PP(U \leq t) &= \int_{0}^{+\infty} \left(\int_{\frac{1-t}{t}x}^{+\infty} \lambda^2 e^{-\lambda x - \lambda y} dy  \right)dx \\
+				&= \int_{0}^{+\infty} \lambda e^{-\lambda x} \times e^{-\lambda \frac{1-t}{t} x } dx \\
+				&= \int_{0}^{+\infty} \lambda e^{-\lambda \frac{x}{t} } dx \\
+				&= \int_{0}^{+\infty} t \frac{\lambda}{t} e^{-\lambda \frac{x}{t} } dx \\
+				&= t
+			\end{align*}
+			Si $t \geq 1$ alors d'après la question 1, $\PP(U \geq t) = 1$ et si $t \leq 0$ alors $\PP(U \geq t) = 0$.
+		}
+		\item \question{ En déduire la loi de la variable aléatoire $U$. }
+		\reponse{On reconnaît la fonction de répartition d'une loi uniforme sur $[0;1]$. On peut aussi dériver la fonction de répartition presque partout pour reconnaître sa densité.}
+	\end{enumerate}
+}

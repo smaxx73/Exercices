@@ -1,0 +1,144 @@
+\uuid{MPPL}
+\titre{Matrices inversibles}
+\theme{calcul déterminant}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Les matrices suivantes sont-elles inversibles? Dans l'affirmative, déterminer la matrice inverse.
+$$
+A=\left(\begin{array}{cc}
+	-2 & 5 \\
+	1 & 3
+\end{array}\right) ; \quad B=\left(\begin{array}{ccc}
+	1 & 2 & 3 \\
+	-1 & 2 & 4 \\
+	0 & 1 & 2
+\end{array}\right) ; \quad C=\left(\begin{array}{ccc}
+	-1 & 0 & 2 \\
+	0 & 2 & 1 \\
+	-2 & -5 & 0
+\end{array}\right) ; \quad D=\left(\begin{array}{cccc}
+	2 & 1 & 0 & 0 \\
+	-2 & 0 & 1 & -1 \\
+	0 & -1 & 1 & -2 \\
+	0 & 2 & 1 & 1
+\end{array}\right)
+$$ }
+
+\reponse{ 
+
+$\operatorname{det} A=\left|\begin{array}{cc}-2 & 5 \\ 1 & 3\end{array}\right|=(-2) \times 3-5 \times 1=-11 \neq 0$, donc $A$ inversible.
+Pour $M=\left(\begin{array}{ll}a & c \\ b & d\end{array}\right)$ avec a.d-b.c $\neq 0, M^{-1}=\frac{1}{a \cdot d-b . c}\left(\begin{array}{cc}d & -c \\ -b & a\end{array}\right)$.
+$$
+A^{-1}=\frac{1}{11}\left(\begin{array}{cc}
+	-3 & 5 \\
+	1 & 2
+\end{array}\right)
+$$
+$\operatorname{det} B=\left|\begin{array}{ccc}1 & 2 & 3 \\ -1 & 2 & 4 \\ 0 & 1 & 2\end{array}\right|=\begin{gathered}\ell_1 \\ \ell_3\end{gathered}\left|\begin{array}{ccc}1 & 2 & 3 \\ 0 & 1 & 2\end{array}\right|=1 \times\left|\begin{array}{ll}4 & 7 \\ 1 & 2\end{array}\right|=1 \neq 0$, donc $B$ inversible.
+Calcul des cofacteurs :
+$$
+\begin{array}{lll}
+	B_{11}=(+1) \times\left|\begin{array}{ll}
+		2 & 4 \\
+		1 & 2
+	\end{array}\right|=0 & B_{12}=(-1) \times\left|\begin{array}{cc}
+		-1 & 4 \\
+		0 & 2
+	\end{array}\right|=2 & B_{13}=(+1) \times\left|\begin{array}{cc}
+		-1 & 2 \\
+		0 & 1
+	\end{array}\right|=-1 \\
+	B_{21}=(-1) \times\left|\begin{array}{ll}
+		2 & 3 \\
+		1 & 2
+	\end{array}\right|=-1 & B_{22}=(+1) \times\left|\begin{array}{cc}
+		1 & 3 \\
+		0 & 2
+	\end{array}\right|=2 & B_{23}=(-1) \times\left|\begin{array}{cc}
+		1 & 2 \\
+		0 & 1
+	\end{array}\right|=-1 \\
+	B_{31}=(+1) \times\left|\begin{array}{ll}
+		2 & 3 \\
+		2 & 4
+	\end{array}\right|=2 & B_{32}=(-1) \times\left|\begin{array}{cc}
+		1 & 3 \\
+		-1 & 4
+	\end{array}\right|=-7 & B_{33}=(+1) \times\left|\begin{array}{cc}
+		1 & 2 \\
+		-1 & 2
+	\end{array}\right|=4
+\end{array}
+$$
+On en déduit la comatrice :
+$$
+\tilde{B}=\left(\begin{array}{ccc}
+	0 & 2 & -1 \\
+	-1 & 2 & -1 \\
+	2 & 7 & 4
+\end{array}\right)
+$$
+Et la matrice inverse :
+$$
+B^{-1}=\left(\begin{array}{ccc}
+	0 & -1 & 2 \\
+	2 & 2 & 7 \\
+	-1 & -1 & 4
+\end{array}\right)
+$$
+
+inversible.
+Calcul des cofacteurs :
+$$
+\begin{array}{lll}
+	C_{11}=(+1) \times\left|\begin{array}{cc}
+		2 & 1 \\
+		-5 & 0
+	\end{array}\right|=5 & C_{12}=(-1) \times\left|\begin{array}{cc}
+		0 & 1 \\
+		-2 & 0
+	\end{array}\right|=-2 & C_{13}=(+1) \times\left|\begin{array}{cc}
+		0 & 2 \\
+		-2 & -5
+	\end{array}\right|=4 \\
+	C_{21}=(-1) \times\left|\begin{array}{cc}
+		0 & 2 \\
+		-5 & 0
+	\end{array}\right|=-10 & C_{22}=(+1) \times\left|\begin{array}{cc}
+		-1 & 2 \\
+		-2 & 0
+	\end{array}\right|=4 & C_{23}=(-1) \times\left|\begin{array}{cc}
+		-1 & 0 \\
+		-2 & -5
+	\end{array}\right|=-5 \\
+	C_{31}=(+1) \times\left|\begin{array}{cc}
+		0 & 2 \\
+		2 & 1
+	\end{array}\right|=-4 & C_{32}=(-1) \times\left|\begin{array}{cc}
+		-1 & 2 \\
+		0 & 1
+	\end{array}\right|=1 & C_{33}=(+1) \times\left|\begin{array}{cc}
+		-1 & 0 \\
+		0 & 2
+	\end{array}\right|=-2
+\end{array}
+$$
+On en déduit la comatrice :
+$$
+\tilde{C}=\left(\begin{array}{ccc}
+	5 & -2 & 4 \\
+	-10 & 4 & -5 \\
+	-4 & 1 & -2
+\end{array}\right)
+$$
+Et la matrice inverse :
+$$
+C^{-1}=\frac{1}{3}\left(\begin{array}{ccc}
+	5 & -10 & -4 \\
+	-2 & 4 & 1 \\
+	4 & -5 & -2
+\end{array}\right)
+$$ }
+}

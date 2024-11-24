@@ -1,0 +1,56 @@
+\uuid{jmDd}
+\titre{ Durée de vie }
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Une machine est composée de trois alternateurs indépendants. La durée de vie de $T$ de chaque alternateur suit une loi exponentielle de paramètre $\lambda$. La machine fonctionne si et seulement si au moins deux des alternateurs fonctionnent.  On appelle $X$ la variable aléatoire mesurant le temps de fonctionnement de la machine. }
+
+\begin{enumerate}
+
+\item \question{ Déterminer la loi de $X$ et calculer son espérance. }
+
+\reponse{
+    Soient $T_1$, $T_2$ et $T_3$ les durées de vie des alternateurs. Soit $t >0$, on a~: 
+    \begin{align*}
+        \prob(X \geq t) & = \prob(T_1 \geq t, T_2 \geq t, T_3 \geq t) + \prob(T_1 < t, T_2 \geq t, T_3 \geq t) \\ &+ \prob(T_1 \geq t, T_2 < t, T_3 \geq t) + \prob(T_1 \geq t, T_2 \geq t, T_3 < t) \\
+        & = \prob(T_1 \geq t) \prob(T_2 \geq t) \prob(T_3 \geq t) + \prob(T_1 < t) \prob(T_2 \geq t) \prob(T_3 \geq t) \\ & + \prob(T_1 \geq t) \prob(T_2 < t) \prob(T_3 \geq t) + \prob(T_1 \geq t) \prob(T_2 \geq t) \prob(T_3 < t) \\
+        & = e^{-3\lambda t} + 3 e^{-2\lambda t} (1-e^{-\lambda t}) \\
+        &= 3 e^{-2\lambda t} - 2 e^{-3\lambda t} 
+    \end{align*}
+    Donc la fonction de répartition de $X$ est~: 
+    \begin{align*}
+        F_X(t) & = \prob(X \leq t) \\
+        & = 1 - \prob(X \geq t) \\
+        & = 1 - 3 e^{-2\lambda t} + 2 e^{-3\lambda t} 
+    \end{align*}
+    Cete fonction est dérivable sur $\R_+$ et sa dérivée est~:
+    \begin{align*}
+        f_X(t) & = 6\lambda e^{-2\lambda t}  - 6 \lambda e^{-3\lambda t} \\
+    \end{align*}
+On conclut que $X$ admet pour densité de probabilité $f_X(x) = 6 ( e^{-2\lambda x}  - e^{-3\lambda x})1_{\R_+}(x)$. 
+
+On peut alors calculer son espérance : 
+\begin{align*}
+    \E(X) & = \int_{-\infty}^{+\infty} x f_X(x) dx \\
+    & = \int_{0}^{+\infty} 6 x ( e^{-2\lambda x}  - e^{-3\lambda x}) dx \\
+    &= 3 \times \frac{1}{2\lambda} - 2 \times \frac{1}{3\lambda} \\
+    & = \frac{5}{6\lambda} \\
+\end{align*}
+}
+
+\item \question{ Soient les réels $t>0$, $h>0$. Sachant que la machine a déjà fonctionné pendant un temps $t$, quelle est la probabilité qu'elle fonctionne encore pendant un temps $h$ ? Déterminer la limite de cette probabilité, à $h$ fixé, lorsque $t \to +\infty$. }
+
+\reponse{ 
+    On exprime la probabilité conditionnelle : 
+    \begin{align*}
+        \prob(X \geq t+h | X \geq t) & = \frac{\prob(X \geq t+h, X \geq t)}{\prob(X \geq t)} \\
+        & = \frac{\prob(X \geq t+h)}{\prob(X \geq t)} \\
+        &= \frac{3e^{-2\lambda (t+h)} -2 e^{-3\lambda (t+h)}}{3e^{-2\lambda t} -2 e^{-3\lambda t}} \\
+        & = \frac{ 3 e^{-2\lambda h} - 2 e^{-\lambda t} e^{-3\lambda h}}{3 - 2 e^{-\lambda t}} \\
+        & \xrightarrow[t \to +\infty]{} e^{-2\lambda h}
+    \end{align*}
+ }
+
+\end{enumerate}}

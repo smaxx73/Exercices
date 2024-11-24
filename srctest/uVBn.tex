@@ -1,0 +1,78 @@
+\uuid{uVBn}
+\titre{Loi uniforme, max, min, stratégie}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Etant donnés trois nombres réels dans l'intervalle $[0;1]$, on définit deux stratégies :
+	
+	\begin{description}
+		\item[Stratégie A : ] choisir le plus grand des trois nombres ;
+		\item[Stratégie B : ] choisir la somme des deux nombres les plus petits.
+	\end{description}
+	
+	Deux hobbits jouent au jeu comportant les étapes suivantes :
+	
+	\begin{itemize}
+		\item choisir entre la stratégie A et la stratégie B ;
+		\item à l'aide d'un générateur pseudo aléatoire, tirer au hasard et de manière indépendante trois nombres réels entre 0 et 1 ;
+		\item le gagnant est celui qui obtient la plus grande valeur, compte tenu de la stratégie choisie.
+	\end{itemize}
+	
+	On note $X_1$, $X_2$, $X_3$ les nombres obtenus lors des tirages au sort. On note $Y_A$ la variable égale à la valeur obtenue par la stratégie $A$ et $Y_B$ la variable égale à la valeur obtenue par la stratégie $B$.
+}
+\begin{enumerate}
+	\item \question{Quelle est la loi de probabilité suivie par chaque variable aléatoire $X_i$, $i \in \{1,2,3\}$ ?}
+	\reponse{$X_1$, $X_2$ et $X_3$ suivent une loi uniforme sur $[0;1]$.}
+	\item \question{Exprimer $Y_A$ en fonction des $X_i$.}
+	\reponse{ $Y_A=\max(X_1,X_2,X_3)$}
+	\item \question{ Exprimer $Y_B$ en fonction de $Y_A$ et des $X_i$.}
+	\reponse{$Y_B=X_1+X_2+X_3-Y_A$}
+	\item \question{Déterminer la fonction de répartition de $Y_A$. En déduire que $Y_A$ est une variable aléatoire absolument continue dont on déterminera une fonction densité.}
+	\reponse{ Pour tout $x\in\R$,
+		\[ F_{Y_A}(t)=\p(Y_A\leq t)=\p(\max(X_1,X_2,X_3\leq t)=\p(\{X_1\leq t\}\cap\{X_2\leq t\} \cap \{X_3\leq t\}).\]
+		Comme les \vas $X_i$ sont i.i.d., on obtient:
+		\[ F_{Y_A}(t)=\p(X_1\leq t)\p(X_2\leq t)\p(X_3\leq t) =(F_{X_1}(t))^3.\]
+		Donc
+		$ F_{Y_1}(t)=
+		\begin{cases}
+			0 \text{ si } t<0 \\
+			t^3 \text{ si } 0 \leq t \leq 1 \\
+			1 \text{ si } t> 1
+		\end{cases}
+		$.
+		La \va $Y_A$ est donc absolument continue et sa densité vaut $f_{Y_A}(t)=F'_{Y_A}(t)=3t^2\textbf{1}_{[0;1]}(t)$.}
+	\item \question{En comparant l'espérance des variables aléatoires $Y_A$ et $Y_B$ , peut-on dire qu'il existe une meilleure stratégie ?}
+	\reponse{Comparons l'espérance des \vas $Y_A$ et $Y_B$:
+		\begin{align*}
+			&\E(Y_A)=\int_0^1 x \times 3x^2 \ dx
+			=\left[ \frac{3}{4} x^4\right]_0^1=\frac{3}{4}, \\
+			&\E(Y_B)==\E(X_1)+\E(X_2)+\E(X_3)-\E(Y_A)=\frac{1}{2}\times 3-\frac{3}{4}=\frac{3}{4}.
+		\end{align*}
+		Les deux stratégies sont donc équivalentes.
+		\vspace{1em}
+		
+		Pour comparer les deux stratégies plus finement, il faut calculer $\p(Y_B\geq Y_A)$. \\
+		Comme $\{Y_B\geq Y_A\}=\{X_1+X_2+X_3-2Y_A\geq 0\}$, on a 
+		\begin{align*}
+			\p(Y_B\geq Y_A)&=\int_{[0;1]^3} \mathbb{1}_{\{x_1+x_2+x_3-2\max(x_1,x_2,x_3)\geq 0\}}\dx_1 \  dx_2 \ dx_3 \\ 
+			&=\int_{D_1} \dx_1 \  dx_2 \ dx_3 +\int_{D_2} \dx_1 \  dx_2 \ dx_3 + \int_{D_3} \dx_1 \  dx_2 \ dx_3
+		\end{align*}
+		avec
+		\begin{align*}
+			&D_1=\{ (x_1,x_2,x_3)\in[0;1]^3 | x_2\leq x_1, x_3\leq x_1, x_2+x_3\geq x_1\} \\
+			&D_2=\{ (x_1,x_2,x_3)\in[0;1]^3 | x_1\leq x_2, x_3\leq x_2, x_1+x_3\geq x_2\} \\
+			&D_3=\{ (x_1,x_2,x_3)\in[0;1]^3 | x_1\leq x_3, x_2\leq x_3, x_1+x_2\geq x_3\} 
+		\end{align*}
+		Par permutations des indices, il est immédiat que les trois intégrales sont égales or
+		\begin{align*}
+			\int_{D_1} dx_1\ dx_2 \ dx_3 
+			= \int_0^1 \int_0^{x_1} \int_{x_1-x_2}^{x_1} dx_3 \ dx_2\ dx_1
+			= \int_0^1 \int_0^{x_1} x_2 \ dx_2\ dx_1
+			=\int_0^1 \frac{x_1^2}{2} \dx_1
+			=\frac{1}{6}.
+		\end{align*}
+		Ainsi $\mathbb{P}(Y_B\geq Y_A)=3\int_{D_1} dx=\frac{1}{2}$.
+		On retrouve que les deux stratégies sont équivalentes, au sens où si le joueur $A$ adopte la stratégie $1$ et le joueur $B$ adopte la stratégie $2$, alors $A$ et $B$ ont la même probabilité $\frac{1}{2}$ de gagner.}
+\end{enumerate}}

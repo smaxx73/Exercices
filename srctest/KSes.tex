@@ -1,0 +1,61 @@
+\uuid{KSes}
+\titre{Loi normale et Monte Carlo}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	On considère l'intégrale 
+	$$I = \int_0^4 \frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}} dy$$ }
+	\begin{enumerate}
+		\item \question{ Démontrer qu'il existe une fonction $\varphi \colon \R \to \R$ telle que $I=\mathbb{E}(\varphi(Z_1))$ où $Z_1$ est une variable aléatoire normale $\mathcal{N}(0,1)$. }
+		\reponse{Il suffit de poser $\varphi = 1_{[0;4]}$ de telle sorte qu'en appliquant le théorème de transfert à $Z_1$ admettant pour densité $f_Z(x) =  \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$, on obtienne
+			$$\mathbb{E}(1_{[0;4]}(Z_1)) = \int_\R 1_{[0;4]}(y) \frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}} dy = I$$
+		}
+		\item \texte{ On définit une suite de variables $(Z_n)_{n \geq 1}$ indépendantes et identiquement distribuées selon une loi normale $\mathcal{N}(0,1)$.  }
+		\begin{enumerate}
+			\item \question{ Déterminer une fonction $g \colon \R \to \R$ telle que la suite  $\left( \frac{1}{n}\sum_{i=1}^n g(Z_i)  \right))_{n \geq 1}$  converge presque sûrement vers $I$. }
+			\reponse{Il suffit de poser $g = \varphi = 1_{[0;4]}$ pour que les variables $(g(Z_i))$ soient i.i.d et admettent une espérance $I$. Ainsi, d'après la Loi Forte des Grands Nombres, on a 
+				$$\frac{1}{n}\sum_{i=1}^n 1_{[0;4]}(Z_i) \xrightarrow[n \to +\infty]{p.s.} I$$}
+			\item \question{ Construire un intervalle de confiance $I_{conf}$ tel que $\mathbb{P}(I \in I_{conf}) \approx 0{,}95$. }
+			\reponse{On note  $\sigma^2 = \mathbb{V}(g(Z_1))$. D'après le Théorème Central Limite, 
+				$$ \frac{\frac{1}{n}\sum_{i=1}^n 1_{[0;4]}(Z_i) - I }{ \frac{\sigma}{\sqrt{n}}} \xrightarrow[n\to+\infty]{\mathcal{L}} \mathcal{N}(0,1) $$
+				Si $n$ est grand, on peut considérer que la variable $Z'_n = 	 \frac{\frac{1}{n}\sum_{i=1}^n 1_{[0;4]}(Z_i) - I }{ \frac{\sigma}{\sqrt{n}}}$ suit approximativement une loi $\mathcal{N}(0,1)$. Par conséquent, d'après la table de loi,
+				$$\PP(-1{,}96 \leq Z'_n \leq 1{,}96) \approx 0{,}95 \iff  \mathbb{P}\left(  Z'_n - 1{,}96 \frac{\sigma}{\sqrt{n}}     \leq  I  \leq   Z'_n + 1{,}96 \frac{\sigma}{\sqrt{n}} \right) \approx 0{,}95   $$
+				On en déduit un intervalle de confiance $I_{conf} = \left[  Z'_n - 1{,}96 \frac{\sigma}{\sqrt{n}} ; Z'_n + 1{,}96 \frac{\sigma}{\sqrt{n}} \right] $ qui est en réalité un intervalle de confiance asymptotique. Il resterait à expliciter $\sigma = \sqrt{V(g(Z_1))}$.}
+		\end{enumerate}
+		\item \texte{ On définit une suite de variables $(U_n)$ indépendantes et identiquement distribuées selon une loi uniforme $\mathcal{U}([0;4])$.  }
+		\begin{enumerate}
+			\item \question{ A l'aide de cette suite, définir une suite de variables aléatoires $(Y_n)$ qui converge presque sûrement vers $I$. }
+			\reponse{D'après la loi forte des grands nombres,
+				$$\frac{4}{n}\sum_{i=1}^n \frac{1}{\sqrt{2\pi}}e^{-\frac{U_i^2}{2}} \xrightarrow[n \to +\infty]{p.s.} \mathbb{E}\left(\frac{4}{\sqrt{2\pi}}e^{-\frac{U_1^2}{2}}\right) = \int_{\R}^{} \frac{4}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \frac{1}{4} 1_{[0;4]}(x)  dx = I$$	
+			}
+			\item \question{ En déduire une méthode de Monte Carlo permettant d'obtenir une valeur approchée de $I$ en complétant l'algorithme suivant :
+				\texttt{n=1000;S=0 \\
+					for i in range(n): \\
+					  u = ... \\
+					 S= S + ... \\
+					print(...)}
+%\begin{verbatim}
+%%n=1000;S=0
+%%for i in range(n):
+%%   u = ... 
+%%   S= S + ...
+%%print(...)
+%\end{verbatim}
+
+}
+			\reponse{		  u = 4*rand() \\
+				S= S + 1/sqrt(2*pi)*exp(-u**2/2) \\
+				print(4*S/n)}
+			\item \question{ Construire un intervalle de confiance $I_{conf}$ tel que $\mathbb{P}(I \in I_{conf}) \approx 0{,}95$. }
+			\reponse{On procède de même en posant $h \colon x \mapsto \frac{4}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$.
+				
+				On note  $\sigma'^2 = \mathbb{V}(h(Z_1))$. D'après le Théorème Central Limite, 
+				$$ \frac{\frac{1}{n}\sum\limits_{i=1}^n \frac{4}{\sqrt{2\pi}}e^{-\frac{U_i^2}{2}} - I }{ \frac{\sigma'}{\sqrt{n}}} \xrightarrow[n\to+\infty]{\mathcal{L}} \mathcal{N}(0,1) $$
+				Si $n$ est grand, on peut considérer que la variable $Z''_n = 	 \frac{\frac{1}{n}\sum_{i=1}^n \frac{4}{\sqrt{2\pi}}e^{-\frac{U_i^2}{2}} - I }{ \frac{\sigma'}{\sqrt{n}}}$ suit approximativement une loi $\mathcal{N}(0,1)$. On en déduit un intervalle de confiance $I_{conf} = \left[  Z''_n - 1{,}96 \frac{\sigma'}{\sqrt{n}} ; Z''_n + 1{,}96 \frac{\sigma'}{\sqrt{n}} \right] $
+			}
+		\end{enumerate}
+		\item \question{ Afin d'obtenir une approximation de $I$, au vu des intervalles de confiance obtenus pour chaque méthode, mieux vaut-il utiliser une méthode de Monte Carlo basée sur la suite $(Z_n)$ ou la suite $(U_n)$ ? }
+		\reponse{Il reste à comparer $\sigma$ et $\sigma'$...}
+	\end{enumerate}}

@@ -1,0 +1,23 @@
+\uuid{LfqB}
+\titre{Vrai ou faux ? }
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+	
+	Répondre par vrai ou faux. Aucune justification n'est demandée mais une mauvaise réponse entraîne une pénalité de points.
+	
+	\begin{enumerate}
+		\item \question{ Pour tout $n \in \N^*$, $0 \leq u_n \leq \frac{1}{n}$ donc $\sum u_n$ est une série convergente. }
+  \reponse{{\bf{Faux.}} La majoration proposée ne permet pas de conclure quand à la nature de la série. La suite $u_n=\frac{1}{n}$ fournit un bon contre-exemple.}
+		\item \question{ $e^x - x - 1 \underset{x\to 0}{\sim} \frac{x^2}{2}$}
+  \reponse{{\bf{Vrai.}} Le développement limité de $x \mapsto e^{x}$ à l'ordre $2$ est $e^{x}=1+x+\frac{x^{2}}{2}+o(x^{2})$. Il s'ensuite que le premier terme non nul du développement limité de $e^{x}-x-1$ est $\frac{x^2}{2}$.}
+		\item \question{ $\ln(1+x) \underset{x\to +\infty}{\sim}  x$ }
+  \reponse{{\bf{Faux.}} La limite en $+\infty$ de la fonction $x \mapsto \frac{ln(1+x)}{x}$ est $0\neq 1$.}
+		\item \question{ Si pour tout $n \in \N^*$, $0 \leq u_n$ et $\sum u_n$ converge alors $\sum u_n^2$ converge. }
+  \reponse{{\bf{Vrai.}} En effet comme la limite de la suite $(u_n)$ quand $n$ tend vers $+\infty$ est $0$, il existe un entier $n_0$ tel que:
+  $$\forall n\geq n_0,\,0\leq u_n\leq 1.$$
+  De plus on a: $\forall n\geq n_0,\,0\leq u_n^{2}\leq u_n.$\\
+  Par comparaison de suites positives, $\sum u_n^2$ converge car la série $\sum u_n$ converge.}
+	\end{enumerate}
+}

@@ -1,0 +1,65 @@
+\uuid{hqXo}
+\titre{Différentiabilité}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+Soit la fonction $f \colon \R^2 \to \R$ définie par :
+ $$f(x,y) = \left\{ \begin{array}{ll} \dfrac{x^2 y^3}{x^2+y^2} & \text{ si } (x,y) \neq (0,0) \\
+0 & \text{ si } (x,y) = (0,0)
+\end{array}
+\right. $$
+
+\begin{enumerate}
+	\item \question{ La fonction $f$ est-elle continue sur $\R^2$~? }
+	\reponse{Tout d'abord, on remarque que $f$ est bien définie sur $\R^2$. Elle est continue (et même $C^{\infty}$ sur $\R^2-\{(0,0)\}$ en tant que fraction rationnelle. Pour étudier la continuité en $(0,0)$, on passe en polaires~:
+		\begin{align*}
+		f(r\cos\theta, r\sin\theta) - f(0,0) &= \frac{(r\cos\theta)^2(r\sin\theta)^3}{ (r\cos\theta)^2 + (r\sin\theta)^2 } \\
+		&= r\cos^2\theta \sin^3\theta
+		\end{align*}
+		Il suit
+		\begin{align*}
+		|f(r\cos\theta, r\sin\theta) - f(0,0)| &\leq r \\
+		& \tvq{0}{r}{0+} \text{ indépendamment de $\theta$} 
+		\end{align*}
+		Ainsi $f$ est continue en $(0,0)$, et finalement \fbox{$f$ est continue sur $\R^2$}}
+	\item \question{ Calculer $\overrightarrow{\textup{grad}}\ f (x,y)$ pour $(x,y) \neq (0,0)$. }
+	\reponse{pour $(x,y) \neq (0,0)$
+		\begin{align*}
+		\overrightarrow{\textup{grad}}\ f(x,y) &= \left[ \begin{array}{c}
+		\dpa{}{x}\left[ \dfrac{x^2 y^3}{x^2+y^2}\right]  \\ \dpa{}{y}\left[ \dfrac{x^2 y^3}{x^2+y^2}\right] 
+		\end{array} \right] \\
+		&= \left[ \begin{array}{c}
+		\dfrac{(2xy^3)(x^2+y^2) -(x^2 y^3)(2x)}{(x^2+y^2)^2}  \\ \dfrac{(3x^2y^2)(x^2+y^2) -(x^2 y^3)(2y)}{(x^2+y^2)^2}
+		\end{array} \right] \\
+		&= \frac{1}{(x^2+y^2)^2}\left[ \begin{array}{c} 2xy^5 \\ x^4y^2 + x^2y^4 \end{array} \right]
+		%	&= \frac{xy^2}{(x^2+y^2)^2} \left[ \begin{array}{c} 2y^3 \\ x^3+xy^2 \end{array} \right]
+		\end{align*}}
+	\item \question{ La fonction $f$ est-elle de  classe $C^1$ sur $\R^2$~? }
+	\reponse{Nous avons
+		\begin{itemize}
+			\item existence des dérivées partielles\\
+			\[\dfrac{f(h,0) - f(0,0)}{h} = 0 \tvq{0}{h}{0}\hspace*{5mm} \text{ donc $\dpa{f}{x}(0,0)$ existe et vaut $0$} \]
+			\[\dfrac{f(0,h) - f(0,0)}{h} = 0 \tvq{0}{h}{0}\hspace*{5mm} \text{ donc $\dpa{f}{y}(0,0)$ existe et vaut $0$} \]
+			\item continuité des dérivées partielles
+			\begin{align*}
+			\dpa{f}{x}(x,y) - \dpa{f}{x}(0,0) &= \frac{2xy^5}{(x^2+y^2)^2} \\
+			& \text{ (passage en polaires)} \\
+			&= 2r^2 \cos\theta \sin^5\theta
+			\end{align*}
+			Donc
+			\[\left| \dpa{f}{x}(x,y) - \dpa{f}{x}(0,0) \right| \leq 2r^2 \tvq{0}{r}{0+} \text{ indépendamment de $\theta$} \]
+			De manière analogue,
+			\begin{align*}
+			\dpa{f}{y}(x,y) - \dpa{f}{y}(0,0) &= \frac{x^4y^2 + x^2y^4}{(x^2+y^2)^2} \\
+			& \text{ (passage en polaires)} \\
+			&= r^2 \cos^2\theta \sin^2\theta
+			\end{align*}
+			Donc
+			\[ \left| \dpa{f}{y}(x,y) - \dpa{f}{y}(0,0) \right| \leq r^2  \tvq{0}{r}{0+} \text{ indépendamment de $\theta$} \]
+		\end{itemize}
+		On conclut que $f$ est $C^1$ en $(0,0)$. Par ailleurs, $f$ est $C^1$ sur $\R^2-\{(0,0)\}$. Au final \fbox{$f$ est $C^1$ sur $\R^2$}}
+	\item \question{ La fonction $f$ est-elle différentiable sur $\R^2$~? }
+	\reponse{\fbox{$f$ est différentiable sur $\R^2$} car elle est $C^1$. C'est l'application du théorème 2.9 du poly.}
+\end{enumerate}}

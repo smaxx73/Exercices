@@ -1,0 +1,24 @@
+\uuid{Ueb3}
+\titre{Majoration de probabilité}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{ Le nombre de sodas vendus journellement par une machine sur un quai de métro suit une loi d'espérance $100$ et d'écart-type $8$. } 
+
+\question{ Donner un majorant de la probabilité qu'un jour il s'en vende au maximum $60$. }
+
+\reponse{ Soit $X$ le nombre de sodas vendus par la machine par jour. On sait que $X$ est telle que $\E(X)=100$ et $\sigma(X)=8$. \\
+	Par l'inégalité de Bienaymé-Tchebychev, on a:
+	\begin{align*}
+	\prob(X\leq 60)
+	&= \prob(X-100\leq -40) \\
+	&\leq \prob(|X-100|\geq 40) \\
+	& \leq \prob(|X-\E(X)|\geq 40) \\
+	& \leq \frac{\sigma^2(X)}{40^2}=\frac{8^2}{40^2}=\frac{1}{25}=0.04,
+	\end{align*}
+	soit au plus $4$\% de chance pour qu'il y ait moins de $60$ sodas vendus dans une journée.
+}
+}

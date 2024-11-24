@@ -1,0 +1,36 @@
+\uuid{zhq8}
+\titre{Construction de la loi du $\chi^2$}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On appelle loi Gamma $\Gamma(\alpha,\lambda)$ où $\alpha>0$, $\lambda>0$ la loi dont la densité est définie par 
+	$$f(t) = \frac{\lambda^\alpha}{\Gamma(\alpha)}t^{\alpha-1}e^{-\lambda t}\textbf{1}_{[0;+\infty[}(t)$$
+	où 
+	$$\Gamma(\alpha) = \int_0^{+\infty} x^{\alpha-1}e^{-x}dx$$
+	Soit $X$ une variable aléatoire suivant une loi normale centrée réduite. On pose $Y=X^2$. }
+\begin{enumerate}
+	\item \question{ En étudiant sa fonction de répartition, montrer que $Y$ suit une loi $\Gamma(\frac12,\frac12)$.  }
+	\reponse{ Soit $F_Y$ la fonction de répartition de $Y$. Puisque $Y$ ne prend que des valeurs positives, $F_Y(t)=0$ pour tout $t<0$. Soit $t \geq 0$ : alors
+		\begin{align*}
+			\PP(Y<t) &= \PP(|X_1|< \sqrt{t}) \\
+			&= 2\, \PP(0<X_1 < \sqrt{t}) \text{ par symétrie de la variable $X_1$} \\
+			&= 2 \int_0^{\sqrt{t}} \frac{1}{\sqrt{2\pi}} e^{-\frac{u^2}{2}} \,du \\
+			&= 2 \int_0^{t} \frac{1}{\sqrt{2\pi}} e^{-\frac{x}{2}} \frac{1}{2\sqrt{x}}\,dx \\
+			&=  \int_0^{t} \frac{1}{\sqrt{2\pi x}} e^{-\frac{x}{2}}\,dx
+		\end{align*}
+		La variable $Y$ admet donc pour densité $f_Y(x) =  \frac{1}{\sqrt{2\pi x}} e^{-\frac{x}{2}} $ pour tout $x>0$ : en remarquant que $f_Y(x) = \frac{1}{\Gamma(1/2) 2^{1/2}} x^{1/2-1} e^{-x/2}$, on voit qu'il s'agit d'une loi $\Gamma\left(\frac{1}{2},\frac{1}{2}\right)$. }
+	\item \question{ Soit un entier $n \geq 1$ et soit $U_n$ une variable aléatoire suivant une loi $\Gamma(\frac{n}{2},\frac12)$. Déterminer la fonction génératrice de $U_1$ puis celle de $U_n$ pour  $n \geq 1$. }
+	\reponse{ On calcule directement :
+		\begin{align*}
+			m_Y(t) &= \mathbb{E}(e^{tY}) \\
+			&= \int_0^{+\infty} e^{xt} \frac{1}{\Gamma(1/2) 2^{1/2}} x^{1/2-1} e^{-x/2} dx \\
+			&= \int_0^{+\infty} \frac{1}{\Gamma(1/2) 2^{1/2}} x^{1/2-1} e^{-\frac{x}{2}(1-2t)} dx  \text{ (l'intégrale converge ssi $1-2t>0$)}\\
+			&= \int_0^{+\infty} \frac{1}{\Gamma(1/2) 2^{1/2}} y^{1/2-1} e^{-\frac{y}{2}} (1-2t)^{-1/2}dy \\
+			&= (1-2t)^{-1/2}
+	\end{align*} }
+	\item \question{ Soient $(Z_1,...,Z_n)$ des variables i.i.d selon une loi normale centrée réduite. Déterminer la loi de probabilité de la variable aléatoire 
+		$$\sum_{i=1}^{n}Z_i^2$$  }
+	\reponse{ Par somme de variables indépendantes, la fonction génératrice de $\chi^2$ est $m_{\chi^2}(t) = (1-2t)^{-n/2}$. En refaisant le même calcul que précédemment, on reconnaît la fonction génératrice d'une variable admettant pour densité $\frac{1}{\Gamma(n/2) 2^{n/2}} x^{n/2-1} e^{-x/2}$, donc une variable suivant une loi $\Gamma\left(\frac{n}{2},\frac{1}{2}\right)$. }
+\end{enumerate}}

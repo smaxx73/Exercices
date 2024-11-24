@@ -1,0 +1,74 @@
+\uuid{Uijb}
+\titre{Recherche de zéro}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	On s'intéresse à l'équation :
+\begin{equation}
+	x = -\ln(x)
+\end{equation}
+
+d'inconnue $x \in ]0;+\infty[$.  }
+
+\begin{enumerate}
+	\item \question{ Montrer que cette équation admet une unique solution $\ell \in \left[\frac{1}{10} ; 1\right]$. }
+	\reponse{ On pose $h(x) = x+\ln(x)$ : $h$ est continue et strictement croissante sur $]0;+\infty[$, de plus $h(1/10) = 0.1-\ln(10) <0$ et $h(1) = 1 >0$ donc d'après le théorème des valeurs intermédiaires, il existe un unique $\ell \in \left[\frac{1}{10} ; 1\right]$ tel que $h(\ell) = 0$.  }
+	\item On considère la méthode numérique définie ci après (où \texttt{log} permet de calculer le logarithme népérien) :
+\begin{Piton}
+x0 = 0.5
+maxiter = 1000
+for i in range(maxiter):
+	x = - log(x)
+print(x)
+\end{Piton}
+	Expliquer pourquoi cette méthode n'est pas convergente.  
+\reponse{ Cette méthode est définie par la suite définie par récurrence : $\forall k \in \N$, $$x_{k+1} = \varphi_1(x_k)$$ où $\varphi_1 \colon x \mapsto -\ln(x)$ et $x_0 = 0.5$. Si cette méthode converge, alors elle converge vers l'unique point fixe $\ell$ de $\varphi_1$. Or $\ell \in \left[\frac{1}{10} ; 1\right]$ donc $-\frac{1}{\ell} \in [-10;-1]$. Il est même clair que $\ell \neq 1$ donc $$\phi_1'(\ell) = -\frac{1}{\ell} \in [-10;-1[$$ ce qui implique en particulier que $|\varphi_1(\ell)| >1$. On en conclut que $\ell$ est un point fixe répulsif de $\varphi_1$, par conséquent la méthode ne converge pas localement, elle ne converge donc pas.  }
+	\item \question{  Soit la fonction $\varphi \colon x \mapsto e^{-x}$ définie sur $\R_+^*$. Vérifier que $\ell$ est un point fixe de la fonction $\varphi$ puis que $\varphi\left(\left[\frac{1}{10} ; 1\right]\right) \subset \left[\frac{1}{10} ; 1\right]$. }
+	\reponse{ Il est clair que $\varphi(\ell)  = e^{-\ell} = \ell$. De plus, La fonction $\varphi$ est continue et strictement décroissante sur $]0;+\infty[$, de plus $\varphi(1/10) = e^{-1/10} <1$ et $\varphi(1) = e^{-1} > 1/10$ donc par théorème des valeurs intermédiaires, $\varphi\left(\left[\frac{1}{10} ; 1\right]\right) \subset \left[\frac{1}{10} ; 1\right]$.   }
+	\item On considère une autre méthode numérique définie ci dessous : 
+\begin{Piton}
+x0 = 0.5
+maxiter = 1000
+for i in range(maxiter):
+	x = exp( - x)
+print(x)
+\end{Piton}
+	Démontrer que cette méthode converge vers la solution $\ell$ de l'équation et donner l'ordre de convergence. 
+	\reponse{ On a $|\varphi'| = \varphi$ donc d'après ce qui précède, pour tout $x \in \left[\frac{1}{10} ; 1\right]$, $|\varphi'(x)| \leq |\varphi'(1)| < 1$ donc d'après le théorème de convergence globale du point fixe, la méthode converge au moins d'ordre 1 avec $x_0 = 0.5 \in \left[\frac{1}{10} ; 1\right]$.
+
+La convergence n'est pas d'ordre $2$ car $\varphi'(\ell) \neq 0$.
+  }
+	\item \question{ On souhaite approcher la solution $\ell$ par la suite $(x_k)$ avec une précision donnée $\varepsilon >0$, et donc arrêter les itérations lorsque cette précision est atteinte. 
+	%\begin{enumerate}
+	%\item 
+	En se basant sur l'inégalité des accroissements finis, majorer le nombre d'itérations à réaliser.
+	%\item Expliquer pourquoi la méthode du contrôle de l'incrément est plutôt confortable à utiliser dans ce cas (on se basera sur le graphique pour établir la nature de la convergence)
+	%\end{enumerate} 
+}
+	\item Soit la fonction $h \colon x \mapsto x - e^{-x}$. En complétant le programme ci-dessous, expliciter une méthode de Newton permettant de calculer $\ell$.
+\begin{Piton}
+x0 = 0.5
+maxiter = 1000
+for i in range(maxiter):
+	x = ...
+print(x)
+\end{Piton} 
+\reponse{ Pour appliquer la méthode de Newton à l'équation, on pose $h(x)=x-e^{-x}$ et ainsi $\ell$ est l'unique solution à l'équation $h(x) = 0$. Comme $h^{\prime}(x)=1+e^{-x} \neq 0$ sur $] 0,+\infty[$, la méthode de Newton pour l'équation $h(x)=0$ s'écrit
+	$$
+	\left\{\begin{array}{l}
+		x_0 \in\left[\frac{1}{10}, 1\right] \text { donné } \\
+		x_{n+1}=x_n-\frac{h\left(x_n\right)}{h^{\prime}\left(x_n\right)}, \quad \forall n \geq 0,
+	\end{array}\right.
+	$$
+	ou encore
+	$$
+	\left\{\begin{array}{l}
+		x_0 \in\left[\frac{1}{10}, 1\right] \text { donné, } \\
+		x_{n+1}=x_n-\frac{x_n-e^{-x_n}}{1+e^{-x_n}}, \quad \forall n \geq 0 .
+	\end{array}\right.
+	$$
+Il faut donc écrire dans le programme \texttt{x = x - (x - exp(-x)) / (1 + exp( -x))}
+}
+\end{enumerate}}

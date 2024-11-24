@@ -1,0 +1,71 @@
+\uuid{f63Q}
+\titre{Jeu et suite}
+\theme{probabilités}
+\auteur{ }
+\organisation{AMSCC}
+
+\contenu{
+    \texte{Un débutant à un jeu effectue plusieurs parties successives. Pour la première partie, il a une probabilité de $\frac{1}{2}$ de gagner. Pour les parties suivantes, on suppose que : 
+    \begin{itemize}
+        \item s'il a gagné la partie précédente, il a une probabilité de $0.6$ de gagner la partie suivante ;
+        \item s'il a perdu la partie précédente, il a une probabilité de $0.7$ de perdre la partie suivante.
+    \end{itemize}
+
+    Soit $G_n$ l'événement \og le joueur a gagné la $n$-ième partie \fg{} et on note $u_n = \prob(G_n)$. On note également $v_n = \prob(\overline{G_n})$.
+    }
+
+    \begin{enumerate}
+        \item \question{Calculer $u_1$, $v_1$, $u_2$, $v_2$.}
+        \reponse{ On a $u_1 = \prob(G_1) = \frac{1}{2}$ et $v_1 = \prob(\overline{G_1}) = \frac{1}{2}$. De plus, on a :
+
+        \begin{align*}
+            u_2 &= \prob(G_2) \\
+            &= \prob(G_2 \cap G_1) + \prob(G_2 \cap \overline{G_1}) \\
+            &= \prob(G_1) \times \prob(G_2 | G_1) + \prob(\overline{G_1}) \times \prob(G_2 | \overline{G_1}) \\
+            &= \frac{1}{2} \times 0.6 + \frac{1}{2} \times 0.3 \\
+            &= 0.45.
+        \end{align*}
+
+        De même, on a :
+
+        \begin{align*}
+            v_2 &= \prob(\overline{G_2}) \\
+            &= \prob(\overline{G_2} \cap G_1) + \prob(\overline{G_2} \cap \overline{G_1}) \\
+            &= \prob(G_1) \times \prob(\overline{G_2} | G_1) + \prob(\overline{G_1}) \times \prob(\overline{G_2} | \overline{G_1}) \\
+            &= \frac{1}{2} \times 0.4 + \frac{1}{2} \times 0.7 \\
+            &= 0.55.
+        \end{align*}
+        }
+        \item \question{Montrer que pour tout entier $n \geqslant 1$, on a $u_{n+1} = 0.6 u_n + 0.3 v_n$. En déduire une relation matricielle entre  $\begin{pmatrix} u_{n+1} \\ v_{n+1} \end{pmatrix}$ et $\begin{pmatrix} u_n \\ v_n \end{pmatrix}$.}
+            \reponse{ D'après le théorème des probabilités totales, on a : 
+
+            \begin{align*}
+                u_{n+1} &= \prob(G_{n+1}) \\
+                &= \prob(G_{n+1} \cap G_n) + \prob(G_{n+1} \cap \overline{G_n}) \\
+                &= \prob(G_n) \times \prob(G_{n+1} | G_n) + \prob(\overline{G_n}) \times \prob(G_{n+1} | \overline{G_n}) \\
+                &= 0.6 u_n + 0.3 v_n.
+            \end{align*}
+
+            De même, on a :
+
+            \begin{align*}
+                v_{n+1} &= \prob(\overline{G_{n+1}}) \\
+                &= \prob(\overline{G_{n+1}} \cap G_n) + \prob(\overline{G_{n+1}} \cap \overline{G_n}) \\
+                &= \prob(G_n) \times \prob(\overline{G_{n+1}} | G_n) + \prob(\overline{G_n}) \times \prob(\overline{G_{n+1}} | \overline{G_n}) \\
+                &= 0.4 u_n + 0.7 v_n.
+            \end{align*}
+            
+            On a donc pour tout $n \geqslant 1$,
+
+            $$\begin{pmatrix} u_{n+1} \\ v_{n+1} \end{pmatrix} = \begin{pmatrix} 0.6 & 0.3 \\ 0.4 & 0.7 \end{pmatrix} \begin{pmatrix} u_n \\ v_n \end{pmatrix}.$$ 
+            }
+        \item \question{Montrer que la suite de terme général $u_n - \frac{3}{7}$ est une suite géométrique de raison $0.3$ et en déduire une expression de $u_n$ et $v_n$ en fonction de $n$ ainsi que leur limite quand $n \to +\infty$.}
+        \reponse{ On a pour tout $n \geqslant 1$, $u_{n+1} = 0.6 u_n + 0.3(1-u_n) = 0.3 + 0.3 u_n$. Ainsi, la suite de terme général $u_n - \frac{3}{7}$ est une suite géométrique de raison $0.3$ et de premier terme $u_1 - \frac{3}{7} = \frac{1}{2} - \frac{3}{7} = \frac{1}{14}$. On a donc pour tout $n \geqslant 1$, $u_n - \frac{3}{7} = \left(\frac{1}{14}\right) \times 0.3^{n-1}$ et donc $u_n = \frac{3}{7} + \left(\frac{1}{14}\right) \times 0.3^{n-1}$.
+
+        Donc $v_n = 1 - u_n = 1 - \frac{3}{7} - \left(\frac{1}{14}\right) \times 0.3^{n-1} = \frac{4}{7} - \left(\frac{1}{14}\right) \times 0.3^{n-1}$.
+
+        On a donc $\lim_{n \to +\infty} u_n = \frac{3}{7}$ et $\lim_{n \to +\infty} v_n = \frac{4}{7}$. Cela signifie que sur un grand nombre de parties, la probabilité de gagner du joueur tend vers $\frac{3}{7}$. 
+        }
+        \end{enumerate}
+}
+

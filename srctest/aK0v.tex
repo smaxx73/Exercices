@@ -1,0 +1,46 @@
+\uuid{aK0v}
+\titre{Densité, loi, indépendance dans un couple}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	Soit $(X,Y)$ un couple de variables aléatoires admettant une densité $f$ définie pour tout $(x,y) \in \R^2$ par : 
+	$$f(x,y)= \frac{3}{8}(x^2+y^2) \textbf{1}_{[-1;1]^2}(x,y)$$ }
+
+\begin{enumerate}
+	\item \question{ Déterminer les lois marginales du couple $(X,Y)$. Les variables $X$ et $Y$ sont-elles indépendantes ? }
+	\reponse{ La densité de $X$ se calcule de la manière suivante : pour tout $x \in \R$,
+		\begin{align*}
+			f_X(x)&=\int_\R f(x,y) dy \\
+			&=\frac{3}{8}\mathbf{1}_{[-1;1]}(x) \int_{-1}^{1} (x^2+y^2)dy \\
+			&=\frac{3}{8}\mathbf{1}_{[-1;1]}(x) \left[x^2y+\frac{1}{3}y^3 \right]_{y=-1}^{y=1} \\
+			&=\frac{1}{4}(3x^2+1)\mathbf{1}_{[-1;1]}(x).
+		\end{align*}
+		On a ainsi déterminé la loi de $X$.
+		
+		Pour $Y$, on obtient la même loi car les rôles de $x$ et de $y$ sont symétriques.
+		
+		Enfin, les \vas $X$ et $Y$ ne sont pas indépendantes car il existe $(x,y) \in \R^2$ tel que $f(x,y)\neq f_X(x)f_Y(y)$. }
+	\item \question{ Calculer $\mathbb{E}(XY)$ et $\mathbb{E}(X) \times \mathbb{E}(Y)$. }
+	\reponse{ On applique le théorème de transfert au couple $(X,Y)$ :
+		\begin{align*}
+			\E(XY)&=\int_{\R^2} xy\times \frac{3}{8}(x^2+y^2) \textbf{1}_{[-1;1]^2}(x,y) \dx\dy \\
+			&=\int_{-1}^1 \int_{-1}^1 \frac{3}{8}(x^3y+xy^3) \dx \dy \\
+			&= \int_{-1}^1 \left[ \frac{3}{32}x^4y+\frac{3}{16}x^2y^3 \right]_{x=-1}^{x=1} \dy \\
+			&=0.
+		\end{align*}
+		Pour l'espérance de la \va $X$, on a
+		\begin{align*}
+			\E(X)
+			&= \int_\R xf_X(x) \dx \\
+			&= \int_{-1}^1 \frac{1}{4}(3x^3+x) \dx \\
+			&= \left[ \frac{3}{16}x^4+\frac{1}{8}x^2y^2 \right]_{-1}^1 \\
+			&=0.
+		\end{align*}
+		De la même manière, on obtient $\E(Y)=0$.
+	
+	Ainsi, $\E(XY)=\E(X)\E(Y)$ bien que $X$ et $Y$ ne soient pas indépendantes. }
+\end{enumerate}
+}

@@ -1,0 +1,19 @@
+\uuid{UHns}
+\titre{Critère de Cauchy}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\question{ 	En utilisant le critère de Cauchy, déterminer la nature de la série dont le terme général est défini par:
+	$\displaystyle u_n=\left(\frac{n-1}{2n+1}\right)^n $. }
+
+\reponse{ On a $u_n \geq 0$ pour tout $n \in \N^*$ et 
+	\begin{align*} 
+		\left(u_n\right)^{\frac{1}{n}} &= \left(\frac{n-1}{2n+1}\right)^{n\times \frac{1}{n}} \\
+		&= \frac{1-\frac{1}{n}}{2+\frac{1}{n}} \\
+		&\underset{+\infty}\sim \frac{1}{2} < 1
+	\end{align*}
+	donc par le critère de Cauchy, la série $\sum u_n$ converge.
+}}

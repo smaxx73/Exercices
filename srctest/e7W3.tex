@@ -1,0 +1,78 @@
+\uuid{e7W3}
+\titre{Loi exponentielle et loi géométrique}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Soit $X$ une variable aléatoire réelle suivant une loi exponentielle de paramètre $\lambda >0$. On définit $Y= \lfloor X \rfloor$ la partie entière de $X$. On pose $Z=X-\lfloor X \rfloor$. }
+\begin{enumerate}
+	\item \question{Déterminer la loi de probabilité de $Y$.}
+	\reponse{On peut remarquer que $Y(\Omega)=\N$. Pour tout $n\in \N$, comme $X\sim \mathcal{E}(\lambda)$, 
+		\[\p(Y=n)=\p(n\leq X<n+1)=\int_n^{n+1} \lambda e^{-\lambda x} \dx
+		=\left[ -e^{-\lambda x} \right]_n^{n+1}
+		=e^{-\lambda n}(1-e^{-\lambda}), \]
+		ce qui détermine entièrement la loi de $Y$ : $Y+1$ suit une loi géométrique de paramètre $(1-e^{-\lambda})$.}
+	\item \question{Calculer $\PP(n \leq X < n+t)$ pour tout $n \in \N $ et $t \in ]0;1[$. En déduire la fonction de répartition de $Z$.}
+	\reponse{\[ \p(n\leq X\leq n+t)=\int_n^{n+t} \lambda e^{-\lambda x} \dx
+		=\left[ -e^{-\lambda x} \right]_n^{n+t}
+		=e^{-\lambda n}-e^{-\lambda (n+t)}.\]
+		On a $\{Z\in[0;t[\}=\cup_{n\in\N} \{n\leq X\leq n+t]$, la réunion étant disjointe. Ainsi, pour $t\in[0;1[$,
+		\[ \p(0\leq Z\leq t)
+		=\sum_{n\in\N} \p(n\leq X\leq n+t)
+		=\sum_{n\in\N} e^{-\lambda n} (1-e^{-\lambda t})
+		=\frac{1-e^{-\lambda t}}{1-e^{-\lambda}}.
+		\]
+		Comme $Z$ est à valeurs dans $[0;1[$, on a
+		$
+		F_Z(t)=
+		\begin{cases}
+			0 \ \text{ si } t<0 \\
+			\frac{1-e^{-\lambda t}}{1-e^{-\lambda}} \ \text{ si } 0\leq t < 1 \\
+			1 \ \text{ si } t \geq 1
+		\end{cases}
+		$.}
+	\item \question{Calculer l'espérance de $Y$ et de $Z$.}
+	\reponse{Pour la \va $Y$, on a
+		\[ \E(Y)=\sum_{n=0}^{+\infty} n \p(Y=n)
+		=\sum_{n=0}^{+\infty} n(e^{-\lambda n}-e^{-\lambda (n+1)})
+		= (1-e^{-\lambda}) \sum_{n=0}^{+\infty} ne^{-\lambda n}.
+		\]
+		On utilise la formule 
+		\[ \sum_{n=0}^{+\infty} n t^n
+		= t \sum_{n=0}^{+\infty} nt^{n-1}
+		=t \left[ \sum_{n=0}^{+\infty} t^n\right]'
+		=t\left[\frac{1}{1-t}\right]'
+		=\frac{t}{(1-t)^2}.
+		\]
+		Il vient
+		\[ \E(Y)=(1-e^{-\lambda})\frac{e^{-\lambda}}{(1-e^{-\lambda})^2}
+		=\frac{1}{e^\lambda -1}.
+		\]
+		Ce résultat était prévisible puisque $Y+1$ suit une loi géométrique $\mathcal{G}(1-e^{-\lambda})$, donc il est acquis que $\mathbb{E}(Y+1) = \frac{1}{1-e^{-\lambda}}$, d'où par linéarité $\mathbb{E}(Y) = \frac{1}{1-e^{-\lambda}}-1 = \frac{e^{-\lambda}}{1-e^{-\lambda}} $.
+		\vspace{0.5em}
+		
+		Pour la \va $Z$, on procède par linéarité : 
+		%	 commence par calculer la densité de probabilité de $Z$, qui est la dérivée de la fonction de répartition:
+		%	\[ f_Z(t)=
+		%	\begin{cases}
+		%	0 \text{ si } t<0 \text{ ou } t>1 \\
+		%	\frac{\lambda}{1-e^{-\lambda}}e^{-\lambda t} \text{ si } 0\leq t \leq 1.
+		%	\end{cases}
+		%	\]
+		%	Puis, en repartant de la définition de l'espérance:
+		%	\[ \E(Z)=\int_0^1 x \frac{\lambda}{1-e^{-\lambda}}e^{-\lambda x} \dx
+		%	=\frac{1}{1-e^{-\lambda}} \int_0^1 x \lambda e^{-\lambda x} \dx.
+		%	\]
+		%	On fait une intégration par parties (avec $u'(x)=\mu e^{-\mu x}$ et $v(x)=x$):
+		%	\begin{align*}
+		%	\E(Z)&=\frac{1}{1-e^{-\mu}} \left( [-xe^{-\mu x}]_0^1 + \int_0^1 e^{-\mu x} \right)
+		%	%=\frac{1}{1-e^{-\mu}} \left(-e^{-\mu} +\int_0^1 e^{-\mu x} dx \right)
+		%	=\frac{1}{1-e^{-\mu}}\left(-e^{-\mu} +\left[\frac{-1}{\mu} e^{-\mu x}\right]_0^1 \right) \\
+		%	&=\frac{1}{1-e^{-\mu}} \left( -e^{-\mu} +\frac{1}{\mu}(1- e^{-\mu}) \right)
+		%	=\frac{-1}{e^\mu -1}+\frac{1}{\mu}.
+		%	\end{align*}
+		on sait que $\E(X)=\frac{1}{\lambda}$ donc $\E(Z) = \frac{1}{\lambda}  -  \frac{e^{-\lambda}}{1-e^{-\lambda}} = \frac{1}{\lambda}  -  \frac{1}{e^{\lambda}-1}$. 
+		
+		Par ailleurs, comme $\lambda<e^\lambda-1$ pour $\lambda >0$, on a $\frac{1}{\lambda}>\frac{1}{e^\lambda -1}$ et donc $\E(Z)>0$, ce qui est cohérent car $Z$ est à valeurs dans $[0;1]$.}
+\end{enumerate}}

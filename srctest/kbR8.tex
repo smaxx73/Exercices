@@ -1,0 +1,29 @@
+\uuid{kbR8}
+\titre{ Calcul d'une somme de série entière}
+\theme {séries}
+\auteur{ }
+\organisation{ AMSCC }
+
+
+\contenu{ 
+\texte{ On considère la série entière $\displaystyle S(x)= \sum \frac{(3x)^n}{n^2+3n+2}$. }
+\begin{enumerate}
+	\item \question{ Calculer son rayon de convergence $R$. Si $|x|=R$, cette série converge-t-elle ? }
+	\reponse{ 
+		$R=\frac{1}{3}$ \\
+		Pour $|x|=\frac{1}{3}$, la série converge absolument car $\frac{1}{n^2+3n+2} \underset{n\to +\infty}\sim \frac{1}{n^2}$.
+	}
+	
+	\item \question{ Décomposer la fraction rationnelle $\displaystyle \frac{1}{n^2+3n+2}$ en éléments simples, c'est-à-dire trouver les réels $\alpha$ et $\beta$ tels que $\frac{1}{n^2+3n+2}=\frac{\alpha}{n+1}+\frac{\beta}{n+2}$. }
+	\reponse{ 
+		$\alpha=1$ et $\beta=-1$
+	}
+	
+	\item \question{ Calculer la somme de la série pour $|x|<R$. }
+	\reponse{ 
+		Soit $|x|<R$. On a
+		\[S(x)=\frac{1}{3x}\ln(1-3x)\left(\frac{1}{3x}-1\right) +\frac{1}{3x}. \]
+	}
+	
+\end{enumerate} 
+}

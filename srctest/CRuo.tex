@@ -1,0 +1,19 @@
+\uuid{CRuo}
+\titre{Loi géométrique}
+\theme{probabilités}
+\auteur{ }
+\organisation{AMSCC}
+%Proba360
+
+\contenu{
+	\texte{ Soit $p \in ]0,1[$ et $X$ une variable aléatoire suivant une loi géométrique de paramètre $p$. 
+	}
+
+\begin{enumerate}
+	\item \question{ Montrer que la probabilité que $X$ prenne une valeur paire est $\frac{1-p}{2-p}$. }
+	\reponse{ $\prob(\og X \text{ est pair } \fg{}) =  \sum\limits_{k=1}^{+\infty}\prob(X=2k) = \sum\limits_{k=1}^{+\infty}p(1-p)^{2k-1} = \frac{p(1-p)}{1-(1-p)^2} = \frac{1-p}{2-p}$. }
+	\item \question{ A-t-on plus de chances que $X$ donne un résultat pair ou impair ? }
+	\reponse{ De même, on calcule $\prob(\og X \text{ est impair } \fg{}) = \displaystyle \sum_{k=1}^{+\infty}\prob(X=2k+1) = \sum_{k=1}^{+\infty}p(1-p)^{2k} = \frac{1}{2-p}$ . Or $0 < 1-p < 1$ donc on a ainsi montré que la probabilité d'avoir un nombre impair est plus grande que celle d'avoir un nombre pair. }
+\end{enumerate}
+
+}

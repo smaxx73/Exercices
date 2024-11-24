@@ -1,0 +1,36 @@
+\uuid{3kdw}
+\titre{Lois statistiques et étude d'estimateurs}
+\theme{statistiques}
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
+\contenu{
+
+\texte{On considère un échantillon $(X_i)$ de taille $n=5$ dans une population suivant une loi normale de paramètres $\mu$ et $\sigma^2$. 
+	On pose 
+	$$T_1 = \frac{1}{5}\sum_{i=1}^{5} X_i \qquad {T_2} = \frac15(X_1+X_2) +\frac14 (X_3+X_4+X_5) \qquad T_3 = \frac{1}{10}(2X_1+3X_2)+\frac{1}{8}(X_3+2X_4+X_5)$$
+	$$U = \frac{1}{\sigma^2}\sum_{i=1}^{5}  {(X_i-\mu)^2} \qquad V = \frac{1}{\sigma^2}\sum_{i=1}^{5}  {(X_i-T_1)^2}$$
+}	
+	\begin{enumerate}
+		\item \question{Quelle est la loi suivie par la variable $X_1-X_2$ ? Justifier.}
+		\reponse{ 
+			D'après le cours, $X_1-X_2$ suit une loi normale d'espérance $\mathbb{E}(X_1-X_2) = \mu - \mu = 0$. Par indépendance, $V(X_1-X_2) = V(X_1)+(-1)^2V(X_2) = 2\sigma^2$. 
+		}
+		\item \question{On cherche à estimer $\mu$ à l'aide des estimateurs $T_1$, $T_2$, $T_3$. \'Etudier leur biais et comparer l'efficacité des estimateurs sans biais.} 
+		\reponse{ Par linéarité de l'espérance, on calcule $\mathbb{E}(T_1) = \frac{5\mu}{5} = \mu$, $\mathbb{E}(T_2) = \frac{2\mu}{5}+\frac{3\mu}{4}$, $\mathbb{E}(T_3) = \mu$. Par conséquent, $B(T_1)=B(T_3)=0$ et $B(T_2) = \mathbb{E}(T_2)-\mu = \frac{3\mu}{20}$.
+			
+			Pour comparer l'efficacité des deux estimateurs sais biais, on calcule leur EQM (ce qui revient à calculer leur variance.) Par indépendance des variables, on a :
+			
+			$V(T_1) = \frac{\sigma^2}{5} < V(T_3) = \frac{147\sigma^2}{800}$. Le plus efficace est donc l'estimateur $T_1$ qui est la moyenne empirique.
+			
+		}
+		\item \question{Quelle est la loi suivie par la variable $U$ ? la variable $V$ ? justifier.}
+		\reponse{$U = \sum_{i=1}^{5}  \left(\frac{X_i-\mu}{\sigma}\right)^2$ ; or les $X_i$ sont des variables aléatoires indépendantes et $\frac{X_i-\mu}{\sigma}$ suit une loi $\mathcal{N}(0,1)$ donc par définition, $U$ suit une loi de $\chi^2(5)$. 
+			
+			De plus, $T_1 = \overline{X}$ est l'estimateur de moyenne empirique donc d'après le théorème de Fisher, $V$ suit une loi de $\chi^2(5-1) = \chi^2(4)$. }
+		\item \question{Déterminer $x \in \R$ tel que $\PP(U>x) = 0{,}05$.}
+		\reponse{On lit dans la table de loi  $\PP(U<x) = 0{,}95$ pour $x = 11{,}07$. }
+		\item \question{En utilisant $T_1$ et $U$, construire une variable $Y$ qui suive une loi de Student dont on précisera le paramètre.}
+		\reponse{On pose $Z = \frac{T_1-\mu}{\frac{\sigma}{\sqrt{5} }}$ variable distribuée selon une loi $\mathcal{N}(0,1)$. Soit alors $Y = \frac{Z}{\sqrt{\frac{U}{5} }}$ : par définition, $Y$ suit une loi $St(5)$. Après simplification, on peut réécrire $Y = \frac{T_1-\mu}{\frac{\sigma \sqrt{U}}{5}}$.}
+	\end{enumerate}
+	
+	}

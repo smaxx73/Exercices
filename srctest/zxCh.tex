@@ -1,0 +1,38 @@
+\uuid{zxCh}
+\titre{Composition de fonctions}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	Soient $f$ et $g$ deux fonctions d'une variable, de classe $C^2(\R)$. On définit une fonction $\varphi \colon \R^2 \to \R$ par :
+$$  \varphi(x,y) = x f(x+y) + y g(x+y)$$
+ }
+\begin{enumerate}
+	\item \question{ Calculer $\dpa{\varphi}{x}$ et $\dpa{\varphi}{y}$ en fonction de $x,y,f', g'$. }
+	\reponse{Par composition, $\varphi$ est dérivable en tout point $(x,y) \in \R^2$ et par dérivation d'un produit et application de la règle des chaînes on a : 
+		\begin{align*}
+		\dpa{\varphi}{x}(x,y) &= f(x+y) + x \times 1 \times f'(x+y) + y\times 1 \times g'(x+y) \\
+		&= f(x+y) + xf'(x+y) + yg'(x+y) \\
+		\dpa{\varphi}{y}(x,y) &= xf'(x+y) + g(x+y) + yg'(x+y)
+		\end{align*}
+	}
+	\item \question{ Calculer les dérivées partielles secondes $\dpsp{\varphi}{x}$, $\dpsp{\varphi}{y}$, $\dpsm{\varphi}{x}{y}$, $\dpsp{\varphi}{y}{x}$ en fonction de $x,y,f',g',f'', g''$. }
+	\reponse{On redérive les expressions ci-dessus : 
+		\begin{align*}
+		\dpsp{\varphi}{x}(x,y) &= \frac{\partial }{\partial x} \left(f(x+y) + xf'(x+y) + yg'(x+y)  \right) \\
+		&= 1 \times f'(x+y) + (1 \times f'(x+y) + x \times 1 \times f''(x+y)) + y\times 1 \times g''(x+y) \\
+		&=2f'(x+y)+xf''(x+y)+yg''(x+y) \\
+		\dpsp{\varphi}{y}(x,y) &= xf''(x+y)+2g'(x+y)+yg''(x+y) \\
+		\dpsm{\varphi}{x}{y}(x,y) &= \frac{\partial }{\partial x} \left( xf'(x+y) + g(x+y) + yg'(x+y) \right) \\
+		&= f'(x+y) + xf''(x+y) + g'(x+y)+ yg''(x+y) 
+		\end{align*}
+		
+	}
+	\item \question{ Observer que $\dpsm{\varphi}{x}{y} = \dpsm{\varphi}{y}{x}$. Quel théorème du cours permet de prévoir ce résultat ? }
+	\reponse{Puisque $f$ est de classe $\mathcal{C}^2$ au voisinage de tout point $(x,y)$ le théorème de Schwarz s'applique (Th 2.10 du cours) et permet de conclure qu'en tout point $(x,y) \in \R^2$, $\dpsm{\varphi}{x}{y}(x,y) = \dpsm{\varphi}{y}{x}(x,y)$.}
+	\item \question{ En déduire la valeur de
+	$$ \dpsp{\varphi}{x} - 2 \dpsm{\varphi}{x}{y} + \dpsp{\varphi}{y}
+	$$ }
+	\reponse{Il suffit de remplacer par les expressions trouvées ci-dessus, simplifier et on trouve $\dpsp{\varphi}{x}(x,y) - 2 \dpsm{\varphi}{x}{y}(x,y) + \dpsp{\varphi}{y}(x,y) = 0$}
+\end{enumerate}}

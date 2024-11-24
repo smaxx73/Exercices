@@ -1,0 +1,47 @@
+\uuid{vRme}
+\titre{Séries de Bertrand}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+
+\texte{ Soient $\alpha \in \R$ et $\beta \in \R$ deux paramètres réels. On s'intéresse à la série $\displaystyle \sum_{n \geq 2} u_n$ avec 
+$$u_n = \frac{1}{n^\alpha \left(\ln(n)\right)^\beta}$$
+qui s'appelle une série de Bertrand. Sa convergence dépend des valeurs prises par $\alpha$ et $\beta$. }
+\begin{enumerate}
+	\item \texte{ Supposons que $\alpha >1$ ($\beta$ est quelconque).  On pose $\gamma = \frac{1+\alpha}{2}$. }
+	\begin{enumerate}
+		\item \question{ Vérifier que $\gamma < \alpha$. Que peut-on dire de la série $\sum \frac{1}{n^\gamma}$ ? }
+\reponse{On observe que $\alpha >1$ d'où $2\alpha = \alpha + \alpha > 1+\alpha = 2\gamma$ d'où $\alpha > \gamma$. De plus, $\alpha > 1$ d'où $1+\alpha > 2$ d'où $\frac{1+\alpha}{2} = \gamma > 1$. }
+		\item \question{ Vérifier que $\lim\limits_{n \to +\infty} n^{\gamma} u_n = 0$. }
+\reponse{Si $\beta \geq 0$ alors on peut majorer $n^{\gamma} u_n = \frac{1}{n^{\alpha-\gamma} \left(\ln(n)\right)^\beta} \leq  \frac{1}{n^{\alpha-\gamma}} \xrightarrow[n \to +\infty]{} 0$ d'où le résultat. Enfin, si $\beta <0$ alors par croissances comparées, $\frac{ \left(\ln(n)\right)^{-\beta}}{n^{\alpha-\gamma}}  \xrightarrow[n \to +\infty]{} 0$. }
+		\item \question{ Conclure sur la convergence de   $\displaystyle \sum_{n \geq 1} u_n$. }
+\reponse{Donc par définition, $u_n = o\left(\frac{1}{n^{\gamma}}\right)$ or $\sum \frac{1}{n^\gamma}$ est une série convergente donc par comparaison de séries à termes positifs, $\sum u_n$ est également une série convergente. }
+	\end{enumerate}
+\item \question{  Supposons que $\alpha <1$ : calculer $\lim\limits_{n \to +\infty} nu_n$ et  conclure sur la convergence de   $\displaystyle \sum_{n \geq 1} u_n$. }
+\reponse{ Si $\alpha <1$ alors $\lim\limits_{n \to +\infty} nu_n = \lim\limits_{n \to +\infty} \frac{n}{n^\alpha \left(\ln(n)\right)^\beta} = \lim\limits_{n \to +\infty} \frac{n^{1-\alpha}}{\left(\ln(n)\right)^\beta} = +\infty$ donc à partir d'un certain rang, $nu_n \geq 1$ donc $u_n \geq \frac{1}{n}$ donc par comparaison à une série de Riemann divergente ($\alpha = 1>0$), la série $\sum u_n$ diverge. }
+\item \texte{ Supposons que $\alpha = 1$ et $\beta \leq 0$.  }
+\begin{enumerate}
+	\item \question{ Montrer qu'il existe un rang $N$ à partir duquel pour tout $n \geq N$ alors $\frac{1}{ \left(\ln(n)\right)^\beta} \geq 1$.  }
+	\reponse{Si $\beta \leq 0$ alors $\left(\ln(n)\right)^{-\beta} \geq 1$ pour tout $n \geq 3$ donc à partir du rang $N = 3$, $\frac{1}{ \left(\ln(n)\right)^\beta} \geq 1$. }
+	\item   \question{ Conclure sur la convergence de   $\displaystyle \sum_{n \geq 1} u_n$. }
+	\reponse{ On en déduit que $u_n = \frac{1}{n \left(\ln(n)\right)^\beta} \geq \frac{1}{n}$ pour tout $n \geq N=3$ donc par comparaison à une série de Riemann divergente ($\alpha = 1>0$), la série $\sum u_n$ diverge. }
+\end{enumerate}
+\item **  \texte{ Supposons que $\alpha = 1$ et $\beta > 0$. Pour tout $x >1$, On pose $f(x) = \frac{1}{x \ln(x)^\beta}$ de sorte que $u_n = f(n)$ pour tout $n \geq 2$.  }
+\begin{enumerate}
+	\item \question{ Vérifier que $f$ est positive et décroissante sur $]1+\infty[$. }
+	\reponse{ On a $f(x) = \frac{1}{x \ln(x)^\beta}$ et $\ln(x) > 0$ pour tout $x >1$ donc $\left(\ln(x)\right)^{\beta-1} > 0$ pour tout $x >1$ donc $f$ est positive sur $]1,+\infty[$. \\
+	De plus, $f'(x) = \frac{-\ln(x)^\beta - \beta x \ln(x)^{\beta-1}}{x^2 \ln(x)^{2\beta}} = \frac{-\ln(x)^{\beta-1} \left(\ln(x) + \beta x\right)}{x^2 \ln(x)^{2\beta}}$ et $\ln(x) + \beta x > 0$ pour tout $x >1$ donc $f'(x) < 0$ pour tout $x >1$ donc $f$ est décroissante sur $]1,+\infty[$. }
+	\item \question{ On considère l'intégrale $$I = \int_2^{+\infty} f(t)dt$$
+	En effectuant le changement de variable $u = \ln(t)$, montrer que $I$ est une intégrale convergente si et seulement si $\beta >1$.  }
+	\reponse{ On pose $u = \ln(t)$ de sorte que $du = \frac{dt}{t}$ et $t = e^u$ donc 
+	$$I = \int_2^{+\infty} f(t)dt = \int_{\ln(2)}^{+\infty} \frac{1}{e^u \ln(e^u)^\beta}e^udu = \int_{\ln(2)}^{+\infty} \frac{1}{e^u u^\beta}e^udu = \int_{\ln(2)}^{+\infty} \frac{1}{u^\beta}du$$
+	Or $\beta >1$ donc $\beta -1 >0$ donc par théorème de comparaison à une intégrale de Riemann convergente ($\alpha = \beta -1 >0$), l'intégrale $I$ est convergente. \\
+	Réciproquement, si $\beta \leq 1$ alors $\beta -1 \leq 0$ donc par théorème de comparaison à une intégrale de Riemann divergente ($\alpha = \beta -1 \leq 0$), l'intégrale $I$ est divergente. }
+	\item  \question{ Conclure sur la convergence de   $\displaystyle \sum_{n \geq 1} u_n$. }
+	\reponse{ Par théorème de comparaison série intégrale, la série $\sum u_n$ converge si et seulement si l'intégrale $I$ converge donc par la question précédente, la série $\sum u_n$ converge si et seulement si $\beta >1$. }
+\end{enumerate}
+\end{enumerate}
+}

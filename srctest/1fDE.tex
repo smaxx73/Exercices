@@ -1,0 +1,42 @@
+\uuid{1fDE}
+\titre{Approximation par une loi normale}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{ On effectue un contrôle sur des pièces de un euro dont une proportion $p=0.05$ est fausse et sur des pièces de deux euros dont une proportion $p'=0.02$ est fausse. On considère un lot de $500$ pièces dont $150$ pièces de un euro et $350$ pièces de deux euros. }
+\begin{enumerate}
+	\item \question{ On prend une pièce au hasard dans ce lot: quelle est la probabilité qu'elle soit fausse ? }
+	\reponse{ 
+		On peut utiliser un arbre de probabilité pour modéliser la situation. En notant $F$ l'événement ``obtenir une pièce fausse'' et $A$ (resp. $B$) l'événement ``obtenir une pièce de un euro (resp. deux euros)'', on a
+		\[\prob(F)=\prob(F\cap A)+\prob(F\cap B)=\prob(A)\prob(F|A)+\prob(B)\prob(F|B)=\frac{150}{500}\times 0.05+\frac{350}{500}\times 0.02=0.029.\]
+		On a environ $2.9$\% d'avoir une pièce fausse.
+	}
+	
+	\item\question{  Sachant que cette pièce est fausse, quelle est la probabilité qu'elle soit de un euro ? }
+	\reponse{ 
+		On calcule :
+		\[ \prob(A|F)=\frac{\prob(A\cap F)}{\prob(F)}=\frac{\prob(A)\prob(F|A)}{\prob(F)}=\frac{\frac{150}{500}\times 0.05}{0.029}=0.5172.\]
+	}
+	
+	\item \question{ On contrôle à présent un lot de $\nombre{1000}$ pièces de un euro. Soit $X$ la variable aléatoire égale au nombre de pièces fausses parmi les $\nombre{1000}$. \\
+	Quelle est la loi de $X$ ? Quelle est son espérance ? Son écart-type ? \\
+	En approchant cette loi par celle d'une loi normale adaptée, donner une approximation de la probabilité pour que $X$ soit compris entre $48$ et $52$. }
+	\reponse{ 
+		On a: $X\sim \mathcal{B}(\nombre{1000},0.05)$, $\E(X)=\nombre{1000}\times 0.05=50$ et $\sigma^2(X)=\nombre{1000}\times 0.05\times 0.95=47.5$. \\
+		La \va $X$ peut être approchée (avec correction de continuité) par la \va $Y$ de loi $\mathcal{N}(50,\sigma^2=47.5)$. Ainsi, on a
+		\begin{align*}
+		\prob(48\leq X\leq 52)
+		&= \prob(47.5\leq X\leq 52.5) \\
+		&\simeq \prob(47.5\leq Y\leq 52.5) \\
+		& \simeq \prob(-0.36 \leq Z \leq 0.36) \quad \text{ avec } Z=\frac{Y-50}{\sqrt{47.5}} \sim \mathcal{N}(0,1) \\
+		&\simeq 2\prob(Z\leq 0.36)-1 \\
+		& \simeq 2\times 0.6406 - 1\\
+		1\simeq 0.2812
+		\end{align*}
+	}
+	
+\end{enumerate}
+}

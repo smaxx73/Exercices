@@ -1,0 +1,41 @@
+\uuid{ouYw}
+\titre{Calcul d'intégrale}
+\theme{séries entières}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+\texte{ 	Le but de l'exercice est de calculer l'intégrale :
+	$$I = \int_0^1 \ln(t)\ln(1-t)\mathrm{d}t$$
+	à l'aide d'un développement en série entière. 
+	On admet que $\displaystyle \sum_{n=1}^{+\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$.  }
+	
+	\begin{enumerate}
+		\item \question{ Démontrer que pour tout entier $n \geq 1$, 
+		$$\int_0^1 \frac{-t^n \ln(t)}{n} \mathrm{d}t = \frac{1}{n(n+1)^2}$$ }
+		\reponse{On réalise une intégration par parties en posant $u'(t) = \frac{t^n}{n}$ et $v(t) = \ln(t)$.
+			\begin{align*}
+			\int_0^1 \frac{t^n \ln(t)}{n} \mathrm{d}t &= \left[\frac{t^{n+1}}{n(n+1)}\ln(t)\right]_0^1 - \int_0^1 \frac{t^n}{n(n+1)}\mathrm{d}t\\
+			&= 0 - \left[\frac{t^{n+1}}{n(n+1)^2}\right]_0^1 \\
+			&= - \frac{1}{n(n+1)^2}
+			\end{align*}
+			d'où le résultat.
+		}
+		\item \question{ Déterminer $a,b,c \in \R$ tels que $$\frac{1}{n(n+1)^2} = \frac{a}{n} + \frac{b}{n+1} + \frac{c}{(n+1)^2}$$ }
+		\reponse{On trouve $$\frac{1}{n(n+1)^2} = \frac{1}{n} - \frac{1}{n+1} - \frac{1}{(n+1)^2}$$}
+		\item \question{ \`A l'aide d'un développement en série entière et des résultats des questions précédentes, déterminer la valeur exacte de $I$. }
+		\reponse{On rappelle d'abord que pour tout $t \in ]-1;1[$ : 
+			$$\ln(1-t) = \sum_{n=1}^{+\infty} \frac{-t^n}{n}$$
+			Par théorème d'intégration terme à terme pour une série entière, la variable $t$ variant dans $]0;1[ \subset ]-1;1[$, on a :
+			\begin{align*}
+			\int_0^1 \ln(t)\ln(1-t)\mathrm{d}t &= \int_0^1 \ln(t) \sum_{n=1}^{+\infty} \frac{-t^n}{n} \mathrm{d}t \\
+			&= \sum_{n=1}^{+\infty} \int_0^1 \ln(t) \times \frac{-t^n}{n} \mathrm{d}t \\
+			&= \sum_{n=1}^{+\infty} \frac{1}{n(n+1)^2} \\
+			&= \sum_{n=1}^{+\infty} \left(\frac{1}{n} - \frac{1}{n+1}\right) - \sum_{n=1}^{+\infty} \frac{1}{(n+1)^2} \\
+			&= 1 - \sum_{n=2}^{+\infty} \frac{1}{n^2} \\
+			&= 1 + 1 - \sum_{n=1}^{+\infty} \frac{1}{n^2}
+			\end{align*}
+			Donc \fbox{$I = 2 - \frac{\pi^2}{6}$}.
+		}
+	\end{enumerate}
+}

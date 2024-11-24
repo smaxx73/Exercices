@@ -1,0 +1,63 @@
+\uuid{cRYI}
+\titre{Mélange de lois, fonction de répartition}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Soit $Z$ une variable aléatoire admettant une fonction de répartition $F_Z$ définie par :
+	$$F_Z(x)=\begin{cases}
+		\frac{1}{(2-x)^2} & \text{si } x<0 \\
+		\frac{1}{2}  & \text{si } 0 \leq x<1 \\
+		1-\frac{1}{3x} &   \text{si } x \geq 1 \\
+	\end{cases}$$
+	
+	Graphique : \url{https://www.geogebra.org/m/vat8nub8} }
+\begin{enumerate}
+	\item \question{Vérifier que $F_Z$ définit bien une fonction de répartition.}
+	\reponse{$F_Z$ est définie continue à droite et croissante sur $\R$. De plus, on a $\lim\limits_{x \to -\infty}F_Z(x)=0$ et $\lim\limits_{x\to+\infty} F_Z(x)=1$. Il s'agit donc bien d'une fonction de répartition.}
+	\item \question{Calculer $\PP(Z=0)$ et $\PP(Z=1)$. Peut-on dire que $Z$ est une variable aléatoire absolument continue ?}
+	\reponse{$\p(Z=0)=F_Z(0^+)-F_Z(0^-)=\frac{1}{2}-\frac{1}{4}=\frac{1}{4}$.
+		et $\p(Z=1)=F_Z(1^+)-F_Z(1^-)=\frac{2}{3}-\frac{1}{2}=\frac{1}{6}$. Comme $\p(Z=0)\neq 0$, la variable $Z$ n'est pas absolument continue.}
+	\item \texte{On considère $Y \colon \Omega \rightarrow \{0;1\}$ une variable aléatoire discrète dont la loi est définie par $\PP(Y = k) = \alpha \PP(Z=k)$ pour tout $k \in \{0;1\}$ où $\alpha$ est un paramètre réel à déterminer.}
+	\begin{enumerate}
+		\item \question{Montrer que nécessairement, $\alpha = \frac{12}{5}$.}
+		\reponse{On a $\p(Y=0)=\alpha \p(Z=0)=\frac{1}{4}\alpha$ et $\p(Y=1)=\alpha \p(Z=1)=\frac{1}{6}\alpha$. Comme $\p(Y=0)+\p(Y=1)=1$, on en déduit que $\alpha=\frac{12}{5}$.}
+		\item \question{Déterminer la fonction de répartition $F_Y$ de la variable aléatoire $Y$.}
+		\reponse{La fonction de répartition de $Y$ vaut
+			$ F_Y(t)=
+			\begin{cases}
+				0 \text{ pour } t<0 \\
+				\p(Y=0) \text{ pour } 0\leq t <1 \\
+				\p(Y=0)+\p(Y=1) \text{ pour } t \geq 1.
+			\end{cases}
+			$ donc
+			$ F_Y(t)=
+			\begin{cases}
+				0 \text{ pour } t<0 \\
+				\frac{3}{5} \text{ pour } 0\leq t <1 \\
+				1 \text{ pour } t \geq 1.
+			\end{cases}
+			$ }
+	\end{enumerate}
+	\item \question{On pose $F(x)=F_Z(x)-\frac{5}{12}F_Y(x)$ pour tout $x \in \R$. Tracer le graphe de la fonction $F$.}
+	\reponse{$ F(x)=F_Z(x)-\frac{5}{12}F_Y(x)=
+		\begin{cases}
+			\frac{1}{(2-x)^2} \text{ pour } x<0 \\
+			\frac{1}{4} \text{ pour } 0 \leq x <1 \\
+			\frac{7}{12}-\frac{1}{3x} \text{ pour } x\geq 1.
+		\end{cases}
+		$}
+	\item \question{Démontrer qu'en multipliant $F$ par une constante, on obtient la fonction de répartition d'une variable aléatoire que l'on notera $X$.}
+	\reponse{La fonction $\frac{12}{7}F_Z$ est définie continue et croissante sur $\R$. De plus, on a $\lim\limits_{x \to -\infty}\frac{12}{7}F_Z(x)=0$ et $\lim\limits_{x\to+\infty}\frac{12}{7} F_Z(x)=1$. Il est donc clair que $\frac{12}{7} F$ est la fonction de répartition d'une \va $X$, qui est absolument continue.}
+	\item \question{Déterminer une densité de probabilité de la variable $X$.}
+	\reponse{Par dérivation,  
+		\[ f_X(x)= \frac{12}{7}F'_X(x)
+		\begin{cases}
+			\frac{24}{7(2-x)^3} \text{ pour } x<0 \\
+			0 \text{ pour } 0 \leq x <1 \\
+			\frac{4}{7x^2} \text{ pour } x\geq 1
+		\end{cases}
+		.\]}
+\end{enumerate}
+}

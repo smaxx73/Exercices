@@ -1,0 +1,28 @@
+\uuid{M00y}
+\titre{Propriété des fonctions de répartition}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit la fonction $F$ définie pour tout $x$ réel par 
+$$F(x) = \begin{cases}
+ae^x & \text{ si } x <0 \\
+-\frac{1}{2}e^{-x} + b & \text{ si } x \geq 0
+\end{cases}$$ }
+
+\begin{enumerate}
+	\item \question{ Déterminer des conditions sur les réels $a$ et $b$ de sorte qu'il existe une variable aléatoire réelle $X$ telle que $F$ soit la fonction de répartition de $X$.  }
+	\item \question{ \`A quelles conditions cette fonction $F$ définit-elle la fonction de répartition d'une variable aléatoire à densité ? }
+\end{enumerate}
+ 
+ \reponse{	Il est nécessaire que $b=1$ pour que $\lim\limits_{+\infty} F = 1$.
+ 	
+ 	Pour que $F$ soit croissante, il est nécessaire que $a \geq 0$ et $F(0^-) \leq F(0)$ soit $a \leq b-\frac{1}{2} = \frac{1}{2}$. 
+ 	
+ 	Dans tous les cas, $F$ est bien continue à droite.
+ 	
+ 	Réciproquement, $F$  vérifie toutes les conditions suffisantes pour que $F$ soit une fonction de répartition.
+ 	
+ 	Si on ajoute la condition que $a=\frac{1}{2}$ alors $F$ est continue sur $\R$ et c'est la fonction de répartition d'une variable absolument continue. 
+}}

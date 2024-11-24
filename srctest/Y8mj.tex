@@ -1,0 +1,49 @@
+\uuid{Y8mj}
+\titre{Méthodes itératives}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	Soit $a \in \mathbb{R}$ et soit la matrice $$A = \begin{pmatrix} 1 & a & a \\ a & 1 & a \\ a & a & 1 \end{pmatrix}$$ 
+
+On admet que le polynôme caractéristique de $A$ est $\chi_A(X) = -(X-1+a)^2(X-1-2a)$.
+}
+
+\begin{enumerate}
+	\item\question{  En déduire des conditions sur $a \in \mathbb{R}$ telles que la matrice $A$ soit symétrique définie positive. On se restreindra à ce cas par la suite. }
+	\reponse{La matrice $A$ est définie positive si ses valeurs propres $1-a>0$ et $1+2a>0$, autrement dit si $-\frac{1}{2} < a < 1 $.}
+	\item \question{ Déterminer le rayon spectral de la matrice $I_3 - A$ où $I_3$ est la matrice identité. }
+	\reponse{ D'après ce qui précède, la matrice $I_3-A$ a deux valeurs propres : $-a$ et $2a$. Son rayon spectral est donc $2|a|$. }
+	\item \question{ En déduire des conditions nécessaires et suffisantes sur  $a \in \mathbb{R}$ pour que la méthode de Jacobi converge vers une solution du système $Ax=b$. }
+	\reponse{Pour que la méthode de Jacobi converge, il faut et il suffit que $\rho(D-A)<1$ où $D=I_3$ est la diagonale de $A$.
+		La méthode converge si et seulement si $\rho(D-A) = 2|a| <1$ . On en déduit que la condition nécessaire et suffisante de convergence de la méthode est que $-\frac{1}{2} < a < \frac{1}{2}$. 	
+	}
+	\item \question{ Déterminer des conditions suffisantes sur  $a \in \mathbb{R}$ pour que la méthode de Gauss-Seidel converge vers une solution du système $Ax=b$. }
+	\reponse{Pour que la méthode de Gauss converge,  il suffit que la matrice soit symétrique définie positive.
+	}
+%\item Que permet de calculer le programme suivant ?
+%\begin{Piton}
+%def fonction_mystere(A, b, x0):
+%  n = len(A)
+%  x = zeros(n)
+%
+%  for i in range(n):
+%    sum_ax = 0
+%    for j in range(n):
+%      if i != j:
+%        sum_ax += A[i, j] * x0[j]
+%    x[i] = (b[i] - sum_ax) / A[i, i]
+%  return x
+%
+%a = -1/3
+%A = array([[1, a, a],
+%[a, 1, a],
+%[a, a, 1]])
+%
+%b = array([1, 2, 3])
+%x0 = zeros(3)  
+%x = fonction_mystere(A, b, x0)
+%print(x)
+%\end{Piton}
+\end{enumerate}}

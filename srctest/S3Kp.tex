@@ -1,0 +1,32 @@
+\uuid{S3Kp}
+\titre{Échantillons de pièces usinées}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Chaque pièce fabriquée par une certaine machine pèse en moyenne $0.50$~g avec un écart type de $0.02$~g. }
+\reponse{ Soient les variables aléatoires $X_i$ représentant le poids d'une pièce. Ces variables sont indépendantes et de même loi, d'espérance $\mathbb{E}(X_i)=0.5$ et d'écart-type $\sigma(X_i)=0.02$. }
+\begin{enumerate}
+	\item \question{ Soit $\overline{X}$ la variable aléatoire égale au poids moyen d'une pièce dans un échantillon de $n$ pièces où $n$ est un entier naturel non nul quelconque. En fonction de $n$, que peut-on dire de la loi de $\overline{X}$ ? }
+	\reponse{ Comme $\bar{X}$ est le poids moyen des pièces sur un échantillon de $n$ pièces, on a $\displaystyle \bar{X}=\frac{1}{n}=\sum_{i=1}^n X_i$. 
+		Par le théorème central-limite, pour $n$ grand, la variable aléatoire $\displaystyle \sum_{i=1}^n X_i$ suit approximativement une loi Normale de paramètres $\mu=n\times 0.5$ et $\sigma=\sqrt{n}\times 0.02$. Par conséquent, la variable $\overline{X}$ suit approximativement la loi $\displaystyle\mathcal{N}\left(0.50,\sigma=\frac{0.02}{\sqrt{n}}\right)$.
+
+Si $n$ est petit ($n < 30$ par convention), on ne connaît pas la loi de $\overline{X}$. 	
+ }
+	\item \question{ On considère deux échantillons de 1000 pièces chacun. Déterminer la probabilité que la différence de poids entre deux lots de 1000 pièces soit supérieure à 2 grammes.  }
+	\reponse{ Soit $Y_1$ et $Y_2$ deux variables aléatoires indépendantes et de même loi que $\displaystyle \sum_{i=1}^n X_i$, où $n=1000$. Comme $n$ est grand, $Y_1$ et $Y_2$ suivent approximativement la loi $\displaystyle\mathcal{N}\left(500,\sigma=0.02\sqrt{1000}\right)$.
+		Donc $Y_1-Y_2$ suit encore une loi Normale de paramètres $\mu=\E(Y_1)-\E(Y_2)=0$ et de variance $\sigma^2=\sigma^2(Y_1-Y_2)=2\sigma^2(Y_1)=0.8$, ce que l'on peut résumer par
+		\[ Y_1-Y_2 \ \sim \ \mathcal{N}\left( 0,\sigma=\sqrt{0.8} \right).\]
+		On cherche à déterminer la probabilité suivante:
+		\begin{align*}
+			\mathbb{P}(|Y_1-Y_2|>2) 
+			&= \mathbb{P}\left( \left| \frac{Y_1-Y_2}{\sqrt{8}}\right|\right) \\
+			& \simeq \mathbb{P}(|Z| > 2.24), \quad \text{ où } Z\sim\mathcal{N}(0,1) \\
+			& \simeq 1-\mathbb{P}(|Z|\leq 2.24) \\
+			& \simeq 1-(2\mathbb{P}(Z\leq 2.24)-1) \\
+			& \simeq 2-2\times 0.9875 \quad \text{ par lecture de la table de loi} \\
+			& \simeq 0.025.
+		\end{align*}
+		La probabilité que le poids de deux lots de $1000$ pièces chacun diffèrent entre eux de plus de $2$ grammes est d'environ $2.5$\%. }
+\end{enumerate}}

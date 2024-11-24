@@ -1,0 +1,41 @@
+\uuid{4v91}
+\titre{Convergence d'une suite de variables aléatoires}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit la suite de variables aléatoires $(X_n)_{n \geq 1}$ définie par
+$$
+\left\{\begin{array}{l}
+	P\left(X_n=0\right)=1-\frac{1}{n} \\
+	P\left(X_n=n\right)=\frac{1}{n}
+\end{array}\right.
+$$ }
+
+\begin{enumerate}
+	\item  \question{ Montrer que la suite $(X_n)_{n \geq 1}$ converge en loi vers $X=0$.  }
+	\reponse{ On peut utiliser la fonction caractéristique : 
+		$$
+		\varphi_{X_n}(t)=\mathrm{E}\left[\mathrm{e}^{\mathrm{it} X_{\mathrm{n}}}\right]=1-\frac{1}{n}+\frac{1}{n} e^{i t n}
+		$$
+		donc
+		$$
+		\lim _{n \rightarrow+\infty} \varphi_{X_n}(t)=1=\mathrm{E}\left[\mathrm{e}^{\mathrm{it} 0}\right]
+		$$
+		et par théorème du cours, on a $X_n \xrightarrow[n \to +\infty]{\text{en loi}} 0$ }
+	\item \question{ En revenant à la définition, montrer que la suite $\left(X_n\right)_{n \in \mathbb{N}}$ converge en probabilité vers $X=0$.  }
+	\reponse{ Remarque :
+		$$
+		\forall m \neq n \text { et } m \neq 0, \quad P\left(X_n=m\right)=0 
+		$$
+		Soit $\varepsilon>0$
+		$$
+		P\left(\left|X_n\right|>\varepsilon\right)=P\left(X_n=n\right)=\frac{1}{n}
+		$$
+		donc
+		$$
+		\lim _{n \rightarrow+\infty} P\left(\left|X_n\right|>\varepsilon\right)=0
+		$$ }
+\end{enumerate}
+}

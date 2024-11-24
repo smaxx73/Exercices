@@ -1,0 +1,30 @@
+\uuid{oXIK}
+\titre{Min et Max}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+	
+\texte{ 	Soit $X_1,..,X_n$ des variables aléatoires indépendantes suivant chacune une même loi exponentielle $\mathcal{E}(\lambda)$ de paramètre $\lambda>0$. }
+\begin{enumerate}
+	\item \question{ Calculer la fonction de répartition de la variable $\max(X_1,...,X_n)$ et en déduire la loi de cette variable aléatoire. }
+	\reponse{ On note $V=\max(X_1,...,X_n)$. On sait que $\PP(V \leq t) = \PP((X_1 \leq t) \cap ... \cap (X_n \leq t))$ et par indépendance des variables qui suivent chacune une même loi, on en déduit que 
+		$$\PP(V \leq t) = \PP(X_1 \leq t)^n = \begin{cases}
+		(1-e^{-\lambda t})^n & \text{ si } t \geq 0 \\
+		0 & \text{ sinon}
+		\end{cases} $$
+		On obtient ainsi la fonction de répartition de $V$. La densité de $V$ s'obtient en dérivant cette fonction. }
+	\item \question{ Calculer la loi de la variable $\min(X_1,...,X_n)$. }
+	\reponse{ On note $U= \min(X_1,...,X_n)$. On sait que $\PP(U \geq t) = \PP((X_1 \geq t) \cap ... \cap (X_n \geq t))$ et par indépendance des variables qui suivent chacune une même loi, on en déduit que 
+		$$\PP(U \geq t) = \PP(X_1 \geq t)^n = \begin{cases}
+		e^{-\lambda nt} & \text{ si } t \geq 0 \\
+		1 & \text{ sinon}
+		\end{cases} $$
+		On en déduit que la fonction de répartition de $U$ est la fonction 
+		$$ t \mapsto \begin{cases}
+		1 - e^{-\lambda nt} & \text{ si } t \geq 0 \\
+		0 & \text{ sinon}
+		\end{cases} $$
+		Une fonction densité de $U$ s'obtient en dérivant cette fonction de répartition. }
+\end{enumerate} 
+}

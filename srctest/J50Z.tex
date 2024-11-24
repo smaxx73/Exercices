@@ -1,0 +1,33 @@
+\uuid{J50Z}
+\titre{Evolution d'une concentration chimique}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 
+	L'évolution de la concentration de certaines réactions chimiques au cours du temps peut être décrite par l'équation différentielle :
+	$$y'(t) = - \frac{1}{1+t^2}y(t)$$ }
+
+\begin{enumerate}
+	\item \question{ Sachant qu'à l'instant $t=0$, la concentration vaut $y(0)=5$, déterminer la concentration en $t=2$ à l'aide de la méthode d'Euler implicite avec un pas $h=0.5$. }
+	\reponse{ 		Le schéma implicite s'écrit 
+		$$y_{n+1} = y_n + hF(t_{n+1},y_{n+1})$$
+		où $F(t,y) = - \frac{1}{1+t^2}y$.
+		
+		Après réécriture sous forme explicite, on obtient 
+		$$y_{n+1}=\frac{y_n}{1+ \frac{h}{1+t_{n+1}^2} }$$
+		Avec $h=0.5$, on a $t_n = \frac{n}{2}$.
+		
+		Après calculs, on trouve $y_4 = \frac{520}{231} \approx 2.25$ soit $y(2) \approx 2.25$. }
+	\item \question{ Faire de même pour un pas de $h=10^{-3}$ et commenter la différence.  }
+%	\begin{minted}{python}
+%	y0 = 5
+%	T = 2
+%	h = 0.5
+%	X = arange(0, T + h, h)
+%	\end{minted}
+	\item \question{ Résoudre analytiquement l'équation différentielle, puis proposer sur un même graphique la solution approchée de la méthode d'Euler implicite et la solution exacte pour différentes valeurs de $h$. }
+	\reponse{ \insertnotebook{J50Z} }
+\end{enumerate}
+}

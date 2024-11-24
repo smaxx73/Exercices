@@ -1,0 +1,138 @@
+\uuid{kOVx}
+\titre{Déterminant d'un produit}
+\theme{calcul déterminant}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\begin{enumerate}
+	\item 
+\question{ En utilisant le déterminant, justifier l'existence d'une matrice $A$ vérifiant :
+$$
+\left(\begin{array}{ccc}
+	5 & 4 & 3 \\
+	7 & 6 & 5 \\
+	2 & 0 & 1
+\end{array}\right)=\left(\begin{array}{ccc}
+	0 & 1 & -1 \\
+	1 & 1 & 1 \\
+	1 & 0 & 1
+\end{array}\right) \cdot A
+$$
+puis déterminer $A$. }
+
+
+\reponse{ Remarque :
+Compte-tenu des règles du produit matriciel, si elles existent, les matrices $A$ et $B$ sont des matrices $3 \times 3$.
+Puisque $\left|\begin{array}{ccc}0 & 1 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 1\end{array}\right| \neq 0$, la matrice $M=\left(\begin{array}{ccc}0 & 1 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 1\end{array}\right)$ est inversible et :
+$$
+\left(\begin{array}{ccc}
+	0 & 1 & -1 \\
+	1 & 1 & 1 \\
+	1 & 0 & 1
+\end{array}\right)^{-1} \cdot\left(\begin{array}{ccc}
+	5 & 4 & 3 \\
+	7 & 6 & 5 \\
+	2 & 0 & 1
+\end{array}\right)=\underbrace{\left(\begin{array}{ccc}
+		0 & 1 & -1 \\
+		1 & 1 & 1 \\
+		1 & 0 & 1
+	\end{array}\right)^{-1} \cdot\left(\begin{array}{ccc}
+		0 & 1 & -1 \\
+		1 & 1 & 1 \\
+		1 & 0 & 1
+	\end{array}\right)}_{I d} \cdot A=A
+$$
+On calcule $\left(\begin{array}{ccc}0 & 1 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 1\end{array}\right)^{-1}=\left(\begin{array}{ccc}1 & -1 & 2 \\ 0 & 1 & -1 \\ -1 & 1 & -1\end{array}\right)$ par l'une ou l'autre méthode d'inversion.
+Méthode 1 :
+Par la méthode du pivot de Gauss. Posons :
+$$
+M=\left(\begin{array}{ccc}
+	0 & 1 & -1 \\
+	1 & 1 & 1 \\
+	1 & 0 & 1
+\end{array}\right) \quad I_3=\left(\begin{array}{ccc}
+	1 & 0 & 0 \\
+	0 & 1 & 0 \\
+	0 & 0 & 1
+\end{array}\right)
+$$
+Permutons la première et la troisième ligne :
+$$
+\left(\begin{array}{ccc}
+	1 & 0 & 1 \\
+	1 & 1 & 1 \\
+	0 & 1 & -1
+\end{array}\right) \quad\left(\begin{array}{lll}
+	0 & 0 & 1 \\
+	0 & 1 & 0 \\
+	1 & 0 & 0
+\end{array}\right)
+$$
+Retranchons la première ligne de la deuxième :
+$$
+\left(\begin{array}{ccc}
+	1 & 0 & 1 \\
+	0 & 1 & 0 \\
+	0 & 1 & -1
+\end{array}\right) \quad\left(\begin{array}{ccc}
+	0 & 0 & 1 \\
+	0 & 1 & -1 \\
+	1 & 0 & 0
+\end{array}\right)
+$$
+Retranchons la deuxième ligne de la troisième :
+$$
+\left(\begin{array}{ccc}
+	1 & 0 & 1 \\
+	0 & 1 & 0 \\
+	0 & 0 & -1
+\end{array}\right) \quad\left(\begin{array}{ccc}
+	0 & 0 & 1 \\
+	0 & 1 & -1 \\
+	1 & -1 & 1
+\end{array}\right)
+$$
+Changeons le signe de la troisième ligne :
+$$
+\left(\begin{array}{lll}
+	1 & 0 & 1 \\
+	0 & 1 & 0 \\
+	0 & 0 & 1
+\end{array}\right) \quad\left(\begin{array}{ccc}
+	0 & 0 & 1 \\
+	0 & 1 & -1 \\
+	-1 & 1 & -1
+\end{array}\right)
+$$
+Retranchons la troisième ligne de la première :
+$$
+I_3=\left(\begin{array}{lll}
+	1 & 0 & 0 \\
+	0 & 1 & 0 \\
+	0 & 0 & 1
+\end{array}\right) \quad\left(\begin{array}{ccc}
+	1 & -1 & 2 \\
+	0 & 1 & -1 \\
+	-1 & 1 & -1
+\end{array}\right)=M^{-1}
+$$ }
+
+
+
+\item \question{ Peut-on utiliser le même procédé pour déterminer $B$ qui vérifie :
+$$
+\left(\begin{array}{lll}
+	5 & 4 & 3 \\
+	7 & 6 & 5 \\
+	2 & 0 & 1
+\end{array}\right)=B \cdot\left(\begin{array}{lll}
+	1 & 2 & 3 \\
+	2 & 3 & 4 \\
+	1 & 2 & 3
+\end{array}\right)
+$$ }
+
+\reponse{ En revanche, puisque $\forall M, N \in \mathcal{M}_n(\mathbb{R}) \operatorname{det}(M \times N)=\operatorname{det}(M) \times \operatorname{det}(N)$, il n'existe pas de matrice $B \in \mathcal{M}_3(\mathbb{R})$ telle que $\left(\begin{array}{lll}5 & 4 & 3 \\ 7 & 6 & 5 \\ 2 & 0 & 1\end{array}\right)=B \cdot\left(\begin{array}{lll}1 & 2 & 3 \\ 2 & 3 & 4 \\ 1 & 2 & 3\end{array}\right)$ car $\left|\begin{array}{lll}5 & 4 & 3 \\ 7 & 6 & 5 \\ 2 & 0 & 1\end{array}\right| \neq 0$ et $\left|\begin{array}{lll}1 & 2 & 3 \\ 2 & 3 & 4 \\ 1 & 2 & 3\end{array}\right|=0$. }
+\end{enumerate}}

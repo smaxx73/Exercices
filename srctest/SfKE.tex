@@ -1,0 +1,37 @@
+\uuid{SfKE}
+\titre{Etude de séries entières}
+\theme{séries entières}
+\auteur{}
+\organisation{AMSCC}
+
+\texte{ On considère la série entière réelle $\displaystyle \sum_{n \geq 0} \dfrac{(n+1)x^n}{2^n}$. }
+
+\contenu{
+	\begin{enumerate}
+	\item \question{  Calculer le rayon de convergence $R$ de cette série entière.  }
+	\reponse{ On pose $u_n(x) = \frac{(n+1)x^n}{2^n}$ et on utilise le théorème de d'Alembert : 
+		\begin{align*}
+			\frac{|u_{n+1}(x)|}{|u_n(x)|} &= \frac{(n+2)|x|^{n+1}}{2^{n+1}} \times \frac{2^n}{(n+1)|x|^n} \\
+			&= \frac{(n+2)}{2(n+1)}|x| \\
+			&\xrightarrow[n\to+\infty]{} \frac{1}{2}|x|
+		\end{align*}
+		Donc la série converge absolument si et seulement si $\frac{1}{2}|x|<1 \iff |x|<2$, cela revient à dire que le rayon de convergence est $R=2$. }
+	\item \question{\'Etudier la série évaluée en $x=R$ et $x=-R$. En déduire le domaine de convergence de cette série entière. }
+	\reponse{ D'après le cours, la série converge absolument si $x \in ]-2,2[$.
+		
+		Si $x=2$ ou $x=-2$, on a un terme général $|u_n(2)|=|u_n(-2)| = n+1$ donc $\lim\limits_{n\to +\infty}u_n(2) \neq 0$ et $\lim\limits_{n\to +\infty}u_n(-2) \neq 0$.
+		
+		La série diverge donc grossièrement pour $x=2$ et $x=-2$. 
+	}
+	\item \question{ Soit la série $\displaystyle \sum_{n \geq 0} \left( \frac{x}{2} \right)^n$ et $R'$ son rayon de convergence. Calculer $R'$ puis calculer la somme de cette série pour tout $x\in ]-R',R'[$.  }
+	\reponse{On reconnaît une série géométrique qui converge si $\frac{|x|}{2}<1$ d'où un rayon de convergence $R'=2$. La somme vaut 
+		$$ \sum_{n = 0}^{+\infty}\left( \frac{x}{2} \right)^n = \frac{1}{1-\frac{x}{2}} = \frac{2}{2-x}$$
+	}
+	\item \question{ En déduire la somme de la série       $\displaystyle \sum_{n \geq 0} \frac{(n+1)x^n}{2^n}$. }
+	\reponse{ Par dérivation d'une série entière sur son intervalle ouvert de convergence, on obtient pour tout $x \in ]-2;2[$ : 
+		$$ \sum_{n = 0}^{+\infty} \frac{nx^{n-1}}{2^n} = \frac{2}{\left(2-x\right)^{2}}$$
+		Or $$ \sum_{n = 0}^{+\infty} \frac{nx^{n-1}}{2^n} =  \sum_{n = 1}^{+\infty} \frac{nx^{n-1}}{2^n} = \sum_{n = 0}^{+\infty} \frac{(n+1)x^{n}}{2^{n+1}} = \frac{1}{2}\sum_{n = 0}^{+\infty} \frac{(n+1)x^{n}}{2^{n}} $$
+		donc 
+		$$\sum_{n = 0}^{+\infty} \frac{(n+1)x^{n}}{2^{n}} = \frac{4}{\left(2-x\right)^{2}}$$ }
+\end{enumerate}
+}

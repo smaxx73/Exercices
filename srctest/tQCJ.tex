@@ -1,0 +1,43 @@
+\uuid{tQCJ}
+\titre{Déterminant nul}
+\theme{calcul déterminant}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+
+
+\question{ Sans calculs (ou presque), justifier que les déterminants suivants sont nuls. 
+$$
+\Delta_1=\left|\begin{array}{cccc}
+	2 & 3 & 0 & 7 \\
+	16 & 25 & 31 & 12 \\
+	0 & 0 & 0 & 0 \\
+	1 & -11 & 1 & 0
+\end{array}\right|, \quad \Delta_2=\left|\begin{array}{cccc}
+	1 & 6 & 7 & 14 \\
+	-1 & 1 & 0 & 0 \\
+	2 & 4 & 6 & 4 \\
+	0 & 1 & 1 & 2
+\end{array}\right|
+$$ }
+
+\reponse{ La matrice comporte une ligne de zéro donc par propriété du déterminant : $$
+	\Delta_1=\left|\begin{array}{cccc}
+		2 & 3 & 0 & 7 \\
+		16 & 25 & 31 & 12 \\
+		0 & 0 & 0 & 0 \\
+		1 & -11 & 1 & 0
+	\end{array}\right|=0
+	$$
+	Pour le calcul de $\Delta_2$, on remarque que $\mathcal{C}_3=\mathcal{C}_1+\mathcal{C}_2$, donc :
+	$$
+	\Delta_2=\left|\begin{array}{cccc}
+		c_1 & c_2 & c_3 & c_4 \\
+		1 & 6 & 7 & 14 \\
+		-1 & 1 & 0 & 0 \\
+		2 & 4 & 6 & 4 \\
+		0 & 1 & 1 & 2
+	\end{array}\right|=0
+	$$ }}

@@ -1,0 +1,54 @@
+\uuid{LnaN}
+\titre{Comparaison de lois normales}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+%
+\contenu{
+
+La note obtenue par des étudiants à un examen suit une variable aléatoire $X$ de loi normale de moyenne $\mu=7$ et d'écart-type $\sigma=3$.
+\reponse{ 
+	Soit $X$ la note obtenue par un étudiant: $X\sim\mathcal{N}(7,\sigma^2=3^2)$.
+}
+
+\begin{enumerate}
+	\item \question{ Calculer le pourcentage d'individus ayant plus de $10$ et la note en dessous de laquelle se trouvent $10$\% des étudiants. }
+	\reponse{Comme $\frac{X-7}{3} \sim \mathcal{N}(0,1)$, on a
+		\[\prob(X\geq 10)=\prob\left(\frac{X-7}{3}\geq 1\right)=1-\prob\left(\frac{X-7}{3}\leq 1\right)\simeq 1-0.8413 \simeq 0.1587\]
+		soit environ $15.87$\% des étudiants ont plus de $10$.
+		\vspace{1em}
+		
+		On cherche $\alpha$ la note telle que $\prob(X\leq \alpha )=0.10$. On note que
+		\begin{align*}
+			\prob(X\leq \alpha )=0.1 & \quad \Leftrightarrow \quad 
+			\prob\left(\frac{X-7}{3} \leq \frac{\alpha-7}{3}\right)=0.1 \\
+			& \quad \Leftrightarrow \quad
+			\prob\left(\frac{X-7}{3} \geq \frac{-\alpha+7}{3}\right)=0.1 \\
+			& \quad \Leftrightarrow \quad
+			\prob\left(\frac{X-7}{3}\leq \frac{-\alpha+7}{3}\right)=0.9,
+		\end{align*}
+		ce qui donne par lecture de table de la loi $\mathcal{N}(0,1)$, $\frac{-\alpha+7}{3}\simeq 1.3$, soit $\alpha \simeq 3.1$.
+		Donc $10$\% des étudiants ont en-dessous de $3.1$.
+	}
+	
+	\item \question{ Compte tenu de ces résultats, on décide de revaloriser l'ensemble des notes par une transformation linéaire $Z=aX+b$. Quelles valeurs doit-on donner à $a$ et $b$ pour que les valeurs précédentes passent respectivement à $50$\% et $7$. \\
+	\textit{Indication: calculer $\E(Z)$ et $\var(Z)$ en fonction de $\E(X)$ et de $\var(X)$.} }
+	\reponse{ 
+		On a $Z=aX+b$ donc 
+		\begin{eqnarray*}
+			\E(Z) &=& a\E(X)+b \, =\, 7a+b \\
+			\var(Z) &=& \var(aX) \,=\, a^2\var(X) \,=\, 9a^2 \text{.}
+		\end{eqnarray*}
+		On souhaite avoir $50$\% des étudiants ayant plus de $10$. Comme la loi normale est symétrique par rapport à sa moyenne, cela revient à prendre $\E(Z)=10$ donc $10=7a+b$.
+		\\[1mm]
+		Ensuite, on souhaite avoir $\prob(Z\leq 7)=0.1$. On a
+		\[ \prob\left( \frac{Z-10}{3a}\leq \frac{7-10}{3a}\right)=0.1 
+		\quad \Leftrightarrow \quad \prob\left( \frac{Z-10}{3a}\leq \frac{1}{a}\right)=0.9
+		\quad \Leftrightarrow \quad \frac{1}{a}\simeq 1.29
+		\quad \Leftrightarrow \quad a\simeq 0.775\text{.}
+		\]
+		Par conséquent, $b=10-7a\simeq 4.573$.
+	}
+	
+\end{enumerate}
+}

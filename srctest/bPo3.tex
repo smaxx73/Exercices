@@ -1,0 +1,22 @@
+\uuid{bPo3}
+\titre{Comparaison de probabilités}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+
+\question{ Si l'on tire un réel au hasard dans $[0,1]$, est-il plus probable d'avoir sa racine carrée inférieure à $0.4$ ou d'avoir son carré plus grand que $0.7$ ? }
+\reponse{
+	Soit $X\sim\mathcal{U}([0,1])$ modélisant le réel tiré au hasard dans $[0,1]$. Alors
+	\[\forall t\in\R, \quad f_X(t)=\begin{cases} 1 & \text{ si } t\in[0,1] \\
+		0 & \text{ sinon.}
+	\end{cases}\]
+	On souhaite comparer les deux probabilités suivantes:
+	\begin{itemize}
+		\item $\p(\sqrt{X}\leq 0.4)=\p(X\leq 0.4^2)=\int_0^{0.16} \dx t=0.16$
+		\item $\p(X^2\geq 0.7)=\p(X\geq \sqrt{0.7})=\int_{\sqrt{0.7}}^1  \dx t=1-\sqrt{0.7}\simeq 0.163$
+	\end{itemize}
+	On en conclut qu'il est plus probable d'avoir son carré plus grand que $0.7$ (par rapport à avoir sa racine carrée inférieure à $0.4$).
+}
+}

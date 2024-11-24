@@ -1,0 +1,28 @@
+\uuid{Jfwq}
+\titre{Série télescopique}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+
+\texte{ 	Soit $n$ un entier naturel tel que $n\geq 2$. }
+	\begin{enumerate}
+		\item \question{ Décomposer $\displaystyle\frac{1}{n^2-1}$ en éléments simples, c'est-à-dire chercher des réels $a$ et $b$ tels que :
+		$$\frac{1}{n^2-1}=\frac{a}{n-1}+\frac{b}{n+1}.$$ }
+		\reponse{On remarque que $$\frac1{n^2-1}=\frac1{2(n-1)}-\frac{1}{2(n+1)}$$.}
+		\item \question{ En déduire que la série $\displaystyle\sum_{n\geq 2} \frac{1}{n^2-1}$ converge et calculer sa somme. }
+		\reponse{On écrit la somme partielle : 
+			\begin{align*}
+			\sum_{n=2}^N \frac1{n^2-1} &= 	\sum_{n=2}^N \frac1{2(n-1)}-\frac{1}{2(n+1)} \\
+			&= \frac12 \sum_{n=2}^N \frac{1}{n-1} - \frac12 \sum_{n=2}^N \frac{1}{n+1} \\
+			&= \frac12 \sum_{n=1}^{N-1} \frac{1}{n} - \frac12 \sum_{n=3}^{N+1} \frac{1}{n} \\
+			&= \frac12 \left(1 + \frac{1}{2} + \sum_{n=3}^{N-1} \frac{1}{n} - \left(\sum_{n=3}^{N-1} \frac{1}{n} + \frac{1}{N} + \frac{1}{N+1}\right)   \right) \\
+			&= \frac12 \left(1 + \frac{1}{2} - \frac{1}{N} - \frac{1}{N+1} \right)\\
+			&\xrightarrow[N \to +\infty]{} \frac12 \left(1 + \frac{1}{2}\right) = \frac{3}{4}
+			\end{align*}
+			Donc la série converge et sa somme vaut $\frac34$.
+		}
+	\end{enumerate}
+}

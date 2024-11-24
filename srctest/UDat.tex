@@ -1,0 +1,20 @@
+\uuid{UDat}
+\titre{Indépendance}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soient $A_1, \ldots, A_n$ une suite de $n$ événements d'un espace probabilisé $(\Omega, P)$. On les suppose mutuellement indépendants et de probabilités respectives $p_i=P\left(A_i\right)$. } 
+
+\question{Donner une expression simple de $P\left(A_1 \cup \cdots \cup A_n\right)$ en fonction de $p_1, \ldots, p_n$. }
+
+\reponse{ Si les événements $A_1, \ldots, A_n$ sont mutuellement indépendants, les événements complémentaires $\overline{A_1}, \ldots, \overline{A_n}$ le sont aussi. On en déduit que
+$$
+\begin{aligned}
+	P\left(A_1 \cup \cdots \cup A_n\right) & =1-P\left(\overline{A_1} \cap \cdots \cap \overline{A_n}\right) \\
+	& =1-\prod_{i=1}^n P\left(\overline{A_i}\right) \\
+	& =1-\prod_{i=1}^n\left(1-p_i\right) .
+\end{aligned}
+$$
+ }}

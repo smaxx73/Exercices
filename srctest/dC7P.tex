@@ -1,0 +1,32 @@
+\uuid{dC7P}
+\titre{ Calcul d'une somme de série entière}
+\theme {séries}
+\auteur{ }
+\organisation{ AMSCC }
+
+
+\contenu{
+	\begin{enumerate}
+	\item \question{ Déterminer le domaine de convergence de la série entière $\displaystyle \sum_{n\geq 0} \frac{(n+2)2^n}{(n+1)!} z^n$ à variable complexe. }
+	\reponse{ 
+		$R=+\infty$ et $D=\mathbb{C}$.
+	}
+	
+	\item \question{ Rappeler ce que vaut $\displaystyle \sum_{n=0}^{+\infty} \frac{z^n}{n!}$. En déduire $\displaystyle \sum_{n=0}^{+\infty} \frac{z^n}{(n+1)!}$, puis $\displaystyle \sum_{n=0}^{+\infty} \frac{(n+2)2^n}{(n+1)!}z^n$. }
+	\reponse{ 
+		$$\forall z \in \R, \quad \sum_{n=0}^{+\infty} \frac{z^n}{n!}=e^z.$$
+		Pour la première somme:
+		$$ \forall z \in \R, \qquad \sum_{n=0}^{+\infty} \frac{z^n}{(n+1)!}
+		= \begin{cases} \frac{e^z-1}{z} & \text{ si } z \neq 0 \\
+		0 & \text{ sinon }
+		\end{cases}
+		$$
+		Pour la deuxième somme:
+		$$ \forall z \in \R, \qquad \sum_{n=0}^{+\infty} \frac{(n+2)2^n}{(n+1)!}z^n
+		= \begin{cases} \frac{e^{2z}-1}{2z}+e^{2z} & \text{ si } z \neq 0 \\
+		0 & \text{ sinon }
+		\end{cases}
+		$$	
+	}	
+\end{enumerate}
+}

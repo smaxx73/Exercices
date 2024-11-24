@@ -1,0 +1,37 @@
+\uuid{tPHB}
+\titre{ Calcul d'une somme de série entière}
+\theme {séries}
+\auteur{ }
+\organisation{ AMSCC }
+
+\contenu{
+	\texte{ Soit la série entière $\displaystyle \sum_{n\geq 2} \frac{(-1)^n}{n(n-1)}x^n$. }
+\begin{enumerate}
+	\item \question{ Déterminer le rayon de convergence $R$ de cette série. Préciser son intervalle de convergence et le comportement de la série aux extrémités de cet intervalle. }
+	\reponse{
+		$R=1$ et $D=[-1;1]$
+	}
+	
+	\item \question{ Déterminer le rayon de convergence de la série $\displaystyle \sum_{n\geq 2} \frac{(-1)^n}{(n-1)}x^{n-1}$ 
+	et de la série $\displaystyle \sum_{n\geq 2}(-1)^n x^{n-2}$ ? \\
+	Étudier le comportement de chacune de ces séries au bord de son intervalle de convergence. }
+	\reponse{ 
+		Pour la première, $R=1$ et $D=]-1;1]$. \\
+		Pour la deuxième, $R=1$ et $D=]-1;1[$.
+	}
+	
+	\item\question{  Calculer la somme de la série $\displaystyle \sum_{n\geq 2}(-1)^n x^{n-2}$.  }
+	\reponse{ 
+		\[ \forall x \in ]-1;1[, \qquad \sum_{n=2}^{+\infty}(-1)^n x^{n-2}
+		=\frac{1}{1+x}.
+		\]
+	}
+	
+	\item \question{ En déduire la somme de la série $\displaystyle \sum_{n\geq 2} \frac{(-1)^n}{(n-1)}x^{n-1}$. } %et de $\displaystyle \sum_{n\geq 2} \frac{(-1)^n}{n(n-1)}x^n$.
+	\reponse{ 
+		\[ \forall x \in ]-1;1[, \qquad \sum_{n=2}^{+\infty} \frac{(-1)^n}{(n-1)}x^{n-1}
+		=\ln(1+x).
+		\]
+	}
+\end{enumerate}
+}

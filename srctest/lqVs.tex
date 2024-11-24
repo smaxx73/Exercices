@@ -1,0 +1,57 @@
+\uuid{lqVs}
+\titre{Résolution de système linéaire}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ On consid\`ere le syst\`eme lin\'eaire :
+\begin{equation}
+	\left\{\begin{array}{rcl}
+		5 x +  y + z & = & 7\\
+		x + 5 y -z & = & 5 \\
+		x -y + 4z & = & 4
+	\end{array}\right.
+	\tag{$S$}
+	\label{eq:syslin1}
+\end{equation}
+
+dont la solution est $(1,1,1)$. }
+
+\begin{enumerate}
+	\item \question{ Montrer que l'on peut utiliser la m\'ethode de Jacobi pour r\'esoudre ce syst\`eme et justifier que dans ce cas, la m\'ethode converge. }
+	\reponse{Résoudre ce système revient à résoudre l'équation $Ax=b$ où $A=\left(\begin{matrix} 5 & 1 & 1\\1 & 5 & -1\\1 & -1 & 4 \end{matrix}\right)$ et $b=\left(\begin{matrix} 7\\5\\4 \end{matrix}\right)$. Cette matrice $A$ est à diagonale strictement dominante car $5>1+1$ et $4>1+1$. Par théorème, on en déduit que la méthode de Jacobi converge vers la solution. }
+	
+	\item \question{ Calculer la premi\`ere it\'eration de la m\'ethode de Jacobi en partant de $X_0 = (0,0,0)$ puis la 50ème itération à l'aide d'un programme Python. }
+	\reponse{Pour appliquer la méthode de Jacobi, on décompose $A$ sous la forme $A=M-N$ où 
+		$M=\left(\begin{matrix} 5 & 0 & 0\\0 & 5 & 0\\0 & 0 & 4 \end{matrix}\right)$ et $N=\left(\begin{matrix} 0 & -1 & -1\\-1 & 0 & 1\\-1 & 1 & 0 \end{matrix}\right)$. Pour tout entier $n$, on définit $X_{n+1}=F(X_n)$ où $F(X)=M^{-1}NX+M^{-1}b$ et $M^{-1}=\left(\begin{matrix} \frac15 & 0 & 0\\0 & \frac15 & 0\\0 & 0 & \frac14 \end{matrix}\right)$. On décide d'initialiser l'itération avec $X_0=\left(\begin{matrix} 0\\0\\0 \end{matrix}\right)$.
+		
+		On calcule :
+		$$X_1 = M^{-1}NX_0+M^{-1}b= M^{-1}b = \left(\begin{matrix} 1.4\\1\\1 \end{matrix}\right) $$
+		$$X_2 = M^{-1}NX_1+M^{-1}b = \left(\begin{matrix} 1\\0.92\\0.9 \end{matrix}\right) $$
+		$$X_3 = M^{-1}NX_2+M^{-1}b = \left(\begin{matrix} 1.036\\0.98\\0.98 \end{matrix}\right) $$}
+	
+	\item \question{ Montrer que la matrice $A$ est symétrique définie positive et en déduire la convergence de la m\'ethode de Gauss-Seidel pour ce probl\`eme. }
+	\reponse{Pour utiliser la méthode de Gauss-Seidel, on peut s'assurer que la matrice $A$ est symétrique définie positive. Elle est visiblement symétrique réelle donc diagonalisable. Il reste donc à vérifier que ses valeurs propres sont toutes strictement positives. 
+		
+		On se lance dans le calcul du polynôme caractéristique : 
+		$$P_A(X) = \begin{vmatrix}
+			5-X & 1 & 1 \\
+			1 & 5-X & -1 \\
+			1 & -1 & 4-X 
+		\end{vmatrix} = \begin{vmatrix}
+			6-X & 1 & 1 \\
+			6-X & 5-X & -1 \\
+			0 & -1 & 4-X 
+		\end{vmatrix} 		=(6-X)(X^2-8X+14)$$
+		Une valeur propre évidente est donc $\lambda_1=6$. En analysant le polynôme du second degré $(X^2-8X+14)$, on déduit que $\lambda_2\lambda_3=14$ donc $\lambda_2$ et $\lambda_3$ sont de même signe. De plus, $\lambda_2+\lambda_3=8$ donc on est assuré que $\lambda_2>0$ et $\lambda_3>0$. }
+	
+	\item \question{ Calculer les cinquante premi\`eres it\'erations de la m\'ethode de Gauss-Seidel en partant de $X_0 = (0,0,0)$. }
+	\reponse{On calcule :
+		$$X_1 = M^{-1}NX_0+M^{-1}b= M^{-1}b = \left(\begin{matrix} 1.4\\0.72\\0.83 \end{matrix}\right) $$
+		$$X_2 = M^{-1}NX_1+M^{-1}b = \left(\begin{matrix} 1.09\\0.948\\0.9645 \end{matrix}\right) $$
+		$$X_3 = M^{-1}NX_2+M^{-1}b = \left(\begin{matrix} 1.0175\\0.9894\\0.992975 \end{matrix}\right) $$
+	}
+	
+\end{enumerate}}

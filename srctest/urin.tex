@@ -1,0 +1,34 @@
+\uuid{urin}
+\titre{ Calcul d'une somme de série entière}
+\theme {séries}
+\auteur{ }
+\organisation{ AMSCC }
+
+\contenu{
+	\begin{enumerate}
+	\item \question{ En utilisant le résultat de la somme de la série entière $\sum_{k=0}^{+\infty} x^k = \frac{1}{1-x}$, déterminer la somme de la série entière à valeurs réelles $\displaystyle S_1(x)=\sum_{k=0}^{+\infty} k x^k$. On précisera son domaine de convergence. }
+	\reponse{
+		On dérive $\frac{1}{1-x}$ : $\displaystyle \frac{1}{(1-x)^2}=\sum_{k=0}^{+\infty} k x^{k-1}$. En multipliant par $x$, on obtient :
+		\[\forall x \in ]-1;1[, \quad S_1(x)=\frac{x}{(1-x)^2}.\]
+	}
+	\item \question{ Déterminer la somme de la série entière à valeurs réelles $\displaystyle S_2(x)= \sum_{k=0}^{+\infty} (k+1)^2x^k$. On précisera son domaine de convergence. }
+	\reponse{ 
+		On dérive deux fois $\frac{1}{1-x}$ : $\displaystyle \frac{2}{(1-x)^3}=\sum_{k=0}^{+\infty} k(k-1)x^{k-2} = \sum_{k=2}^{+\infty} k(k-1)x^{k-2}$ car les deux premiers termes sont nuls. Par changement d'indice, on obtient : 
+		\[\forall x \in ]-1;1[, \quad \frac{2}{(1-x)^3} = \sum_{k=0}^{+\infty} (k+1)k x^{k-1}.\] d'où : 
+		\[\forall x \in ]-1;1[, \quad \frac{2x}{(1-x)^3} = \sum_{k=0}^{+\infty} (k+1)k x^k.\] 
+		Or $(k+1)^2 = k(k+1) + (k+1)$ donc :
+		\[\forall x \in ]-1;1[,\quad S_2(x) = \sum_{k=0}^{+\infty} k(k+1)x^k + \sum_{k=0}^{+\infty} (k+1)x^k = \frac{2x}{(1-x)^3} + \frac{1}{(1-x)^2} = \frac{x+1}{(1-x)^3}.\]
+	}
+	
+	\item \question{ Après avoir décomposé la fraction rationnelle $\displaystyle \frac{1}{n(n+2)}$ en éléments simples,  déterminer la somme de la série entière à valeurs réelles $\displaystyle S_3(x)=\sum_{n= 1}^{+\infty} \frac{x^n}{n(n+2)}$. On précisera son rayon de convergence. }
+	\reponse{ Ici, $R=1$ :
+		\[\forall x \in ]-1;1[, \quad S_3(x)=\frac{1}{2}\left( -\ln(1-x)+\frac{1}{x^2}\left[\ln(1-x)+x+\frac{x^2}{2}\right]\right).\]
+	}
+\end{enumerate}
+}
+
+
+
+
+
+

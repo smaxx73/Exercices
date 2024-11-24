@@ -1,0 +1,26 @@
+\uuid{lX53}
+\titre{Loi géométrique et estimation par maximum de vraisemblance}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On fixe un réel $a>0$ et on définit une variable aléatoire $X$ sur $\mathbb{N}$ dont la loi de probabilité est définie par 
+	$$\PP(X=k)=\frac{a^k}{(1+a)^{k+1}}$$
+	pour tout $k \in \mathbb{N}$. }
+
+\question{ 	\'A l'aide de la méthode du maximum de vraisemblance, définir un estimateur de $a$ et déterminer son biais. }
+
+\reponse{
+	On définit un échantillon $X_1,...,X_n$ et on considère la probabilité que cet échantillon réalise un ensemble de valeurs $V=\{x_1,...,x_n\}$. La fonction de vraisemblance s'écrit alors 
+	$$L(x_1,...,x_n,a) = \PP(X_1=x_1,...,X_n=x_n) = \prod_{k=1}^{n} \PP(X=x_k) = \prod_{k=1}^n \frac{a^{x_k}}{(1+a)^{x_k+1}} = \frac{a^{\sum x_k}}{(1+a)^{\sum x_k+1}}$$
+	
+	On dérive ce quotient par rapport à $a$, on factorise par $a^{\sum x_k-1}(1+a)^{n+\sum x_k -1}$ et on trouve que 
+	$$\frac{\partial L}{\partial a}(x_1,...,x_n,a) = 0 \iff \sum_{k=0}^n x_k(1+a) - a(n+\sum_{k=0}^n x_k) = 0 \iff a = \frac{1}{n} \sum_{k=0}^n x_k$$
+	
+	On a donc trouvé un meilleur estimateur du paramètre $a$ selon la méthode du maximum de vraisemblance : il s'agit de l'estimateur $T = \frac{1}{n} \sum_{k=0}^n X_k$.
+	
+	Reste à calculer le biais de cet estimateur, autrement dit à calculer $B(T) = \mathbb{E}(T-a)$. Or pour tout entier $i$, $X_i$ suit la loi définie ci-dessus et on espérance se calcule de la manière suivante :
+	$$\mathbb{E}(X_i) = \sum_{k=0}^n k\PP(X_i=k) = \sum_{k=0}^n k \left( \frac{a}{1+a}  \right)^{k-1} \frac{a}{(1+a)^2} = \frac{1}{\left(1-\frac{a}{1+a}\right)^2} \times \frac{a}{(1+a)^2} = a$$
+	Donc $B(T) = \frac{1}{n} \times n \times a - a = 0$ : la variable $T$ est donc un estimateur sans biais du paramètre $a$.
+}}

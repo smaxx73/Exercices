@@ -1,0 +1,38 @@
+\uuid{m5P9}
+\titre{\'Etude d'une fonction de deux variables}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit la fonction $f \colon \R^2 \to \R$ définie par : $$f(x,y) = \begin{cases} \frac{x-2y}{x^2+y^2} & \text{ si } (x,y) \neq (0,0) \\
+	0	&  \text{ sinon. } 
+		\end{cases}$$ }
+
+\begin{enumerate}
+	\item \question{ Donner l'ensemble de définition de $f$. }
+	\reponse{ La fonction $(x,y) \mapsto \frac{x-2y}{x^2+y^2}$ est définie pour tout $(x,y) \in \R^2$ tels que $x^2+y^2 \neq 0$, c'est-à-dire $(x,y) \neq (0,0)$. Mais $f(0,0)$ est défini à part. Donc l'ensemble de définition de $f$ est $\R^2$. }
+	\item \question{ Déterminer la courbe de niveau $k=0$ de la fonction $f$. }
+		\reponse{ $f(x,y) = 0 \iff x = 2y$, la courbe de niveau $0$ est donc la droite d'équation $y=\frac{x}{2}$. }
+	\item \question{ Vérifier que la courbe de niveau $k=1$ est un cercle de centre $\left(\frac{1}{2} ; -1 \right)$ dont on déterminera le rayon.}
+		\reponse{ Soit $k = 1$ : $f(x,y) = 1 \iff x-2y = (x^2+y^2) \iff x^2 -x + y^2 +2y = 0 \iff \left(x - \frac{1}{2}\right)^2 + \left(y + 1 \right)^2 = \frac{5}{4}$, la courbe de niveau $1$ est donc un cercle de centre $\left(\frac{1}{2} ; -1 \right)$ et de rayon $\frac{\sqrt{5}}{2}$.  }	
+	\item \question{ Calculer $\lim\limits_{h \to 0} f(h,0)$ et $\lim\limits_{h \to 0} f(2h,h)$.  }
+	\reponse{ $\lim\limits_{h \to 0} f(h,0) = \lim\limits_{h \to 0}\frac{1}{h} = \begin{cases}
+			+\infty & \text{ si } h > 0 \\
+			-\infty & \text{ si } h < 0
+			\end{cases}$. \\
+		De même, $\lim\limits_{h \to 0} f(2h,h) = \lim\limits_{h \to 0} 0 =  0$. 
+		}
+	\item \question{ La fonction $f$ est-elle continue en $(0,0)$ ? Justifier. }
+	\reponse{ D'après la question précédente, ce n'est pas le cas, car $f$ n'admet pas de limite en $(0,0)$. }
+	\item \question{ Calculer $\frac{\partial f}{\partial x}(x,y)$ et $\frac{\partial f}{\partial y}(x,y)$ pour tout $(x,y) \neq (0,0)$. }
+	\reponse{
+		$\frac{\partial f}{\partial x}(x,y) = \frac{y^2 + 4xy - x^2}{(x^2+y^2)^2}$ et $\frac{\partial f}{\partial y}(x,y) = \frac{-2xy + 2y^2 - 2x^2}{(x^2+y^2)^2}$. 
+		}
+	\item \question{ Calculer $\frac{\partial f}{\partial x}(0,0)$ et $\frac{\partial f}{\partial y}(0,0)$. Les dérivées partielles de $f$ sont-elles continues en $(0,0)$ ?}
+	\reponse{
+		On calcule la limite du taux d'accroissement pour chaque variable : $\frac{\partial f}{\partial x}(0,0) = \lim\limits_{h \to 0} \frac{f(h,0) - f(0,0)}{h} = \lim\limits_{h \to 0} \frac{1}{h^2} = +\infty$ et $\frac{\partial f}{\partial y}(0,0) = \lim\limits_{h \to 0} \frac{f(0,h) - f(0,0)}{h} = \lim\limits_{h \to 0} \frac{-2}{h^2} = -\infty$. 
+
+		Donc les dérivées partielles de $f$ n'existent pas, et a fortiori ne sont pas continues en $(0,0)$. 
+		}
+\end{enumerate}}

@@ -1,0 +1,47 @@
+\uuid{nSDY}
+\titre{Calcul de dérivées partielles}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+%Pour chacune des fonctions suivantes, calculer  $\dpa{f}{x}$, $\dpa{f}{y}$, $\dpsp{f}{x}$, $\dpsp{f}{y}$ et $\dpsm{f}{x}{y}$ sur leur ensemble de définition. 
+\begin{enumerate}
+	\item \question{ Soit $g\colon \mathbb{R}^2 \rightarrow \mathbb{R}$ définie par 
+		
+		$$g(x,y) = \begin{cases}
+			\frac{x^3+3xy^2}{x^2+y^2} &\text{ si } (x,y)\neq(0,0) \\
+			0 &\text{ sinon}
+			\end{cases}
+		$$
+		Étudier l'existence de la dérivée partielle de $g$ selon $x$ en $(0,0)$.  }
+	\reponse{ Il faut revenir au taux d'accroissement : 
+$$\frac{g(0+h,0) - g(0,0)}{h} = \frac{h^3}{h\times h^2} = 1 \xrightarrow[h \to 0]{} 1$$
+donc la dérivée partielle existe : $\frac{\partial g}{\partial x}(0,0) = 1$. 	
+ }
+%\item \question{ $f_1(x,y) = \frac{x^3 + 3xy}{x+y}$ }
+%\reponse{La fonction $f$ est polynomiale en $x$ et $y$, elle définie sur $\R^2$. Les dérivées partielles existent également pour tout $(x,y) \in \R^2$ :
+%	\begin{align*}
+%\frac{\partial f}{\partial x}(x,y) &=  \\
+%\frac{\partial f}{\partial y}(x,y) &=  \\
+%\frac{\partial^2 f}{\partial x^2}(x,y) &=  \\
+%\frac{\partial^2 f}{\partial y^2}(x,y) &=  \\
+%\frac{\partial^2 f}{\partial x \partial y}(x,y) &= \frac{\partial^2 f}{\partial y \partial x}(x,y)= -6 
+%\end{align*}}
+\item \question{ Soit $h \colon \R^2 \to \R$ la fonction définie pour tout $(x,y) \in \mathcal{D}$ par :  $$h(x, y) = \ln(1 + x + xy + e^{y})$$ où  $ \mathcal{D}=\{(x,y)\in\mathbb{R}^2 \,|\, 1+x+xy+e^y>0\}$. 
+	
+	 Calculer  $\dpa{h}{x}$, $\dpa{h}{y}$, $\dpsp{h}{y}$ et $\dpsm{h}{x}{y}$. }
+\reponse{ Les dérivées partielles premières sont :
+	\begin{align*}
+		\frac{\partial h}{\partial x}(x,y) &= \frac{1 + y}{1 + x + xy + e^y} \\
+		\frac{\partial h}{\partial y}(x,y) &= \frac{x + e^y}{1 + x + xy + e^y}
+	\end{align*}
+	
+	Les dérivées partielles secondes demandées sont :
+	\begin{align*}
+		\frac{\partial^2 h}{\partial y^2}(x,y) &= \frac{e^y(1-x+xy) - x^2}{(1 + x + xy + e^y)^2} \\
+		\frac{\partial^2 h}{\partial x \partial y}(x,y) &= \frac{1 - ye^y}{(1 + x + xy + e^y)^2}
+	\end{align*}
+	
+}
+\end{enumerate}}

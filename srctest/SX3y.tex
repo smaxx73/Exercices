@@ -1,0 +1,45 @@
+\uuid{SX3y}
+\titre{Calcul de probabilité}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ On jette 3 fois un dé à 6 faces, et on note $a, b$ et $c$ les résultats successifs obtenus. On note $Q(x)=a x^2+b x+c$. Déterminer la probabilité pour que :
+\begin{itemize}
+	\item $Q$ ait deux racines réelles distinctes.
+	\item $Q$ ait une racine réelle double.
+	\item $Q$ n'ait pas de racines réelles.
+\end{itemize}
+ }
+
+\reponse{ On associe à l'expérience aléatoire l'univers des possibles $\Omega=\{1,2,3,4,5,6\}^3$, muni de l'équiprobabilité. Ainsi, la probabilité d'un événement $A$ vaut card $(A) / 6^3$. On s'intéresse d'abord à l'événement $A=\left\{(a, b, c) \in \Omega ; b^2-4 a c>0\right\}$. Il suffit de dénombrer $A$. On commence par établir un petit tableau avec les valeurs de $4 a c$ :
+	
+\begin{center}
+		\begin{tabular}{c|c|c|c|c|c|c}
+		$c \backslash a$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+		\hline 1 & 4 & 8 & 12 & 16 & 20 & 24 \\
+		\hline 2 & 8 & 16 & 24 & 32 & 40 & 48 \\
+		\hline 3 & 12 & 24 & 36 & 48 & 60 & 72 \\
+		\hline 4 & 16 & 32 & 48 & 64 & 80 & 96 \\
+		\hline 5 & 20 & 40 & 60 & 80 & 100 & 120 \\
+		\hline 6 & 24 & 48 & 72 & 96 & 120 & 144
+	\end{tabular}
+\end{center}
+
+	On calcule le cardinal de $A$ en regardant dans le tableau le nombre de valeurs de $a$ et $c$ pour lesquelles $b^2>4 a c$, pour les 6 valeurs que peut prendre $b$. On trouve :
+	$$
+	\operatorname{card}(A)=0+0+3+5+14+16=38 .
+	$$
+	On en déduit :
+	$$
+	P(A)=\frac{38}{216}=\frac{19}{108} .
+	$$
+	On note pareillement $B=\left\{(a, b, c) \in \Omega ; b^2-4 a c=0\right\}$ et $C=\left\{(a, b, c) \in \Omega ; b^2-4 a c<0\right\}$. Le même dénombrement prouve que :
+	$$
+	P(B)=\frac{5}{216} .
+	$$
+	On peut calculer $P(C)$ de la même façon, ou remarquer que les 3 événement $A, B, C$ forment un système complet d'événements. On déduit alors:
+	$$
+	P(C)=1-P(A)-P(B)=\frac{173}{216} .
+	$$ }}

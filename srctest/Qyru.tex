@@ -1,0 +1,23 @@
+\uuid{Qyru}
+\titre{Surbooking}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{
+Pour des raisons de rentabilité, le vol Océanic $815$ reliant Sydney à Los Angeles a été sur-réservé. Il y a $98$ places dans l'avion et $100$ billets ont été vendus. 
+}
+
+\question{ Sachant que la probabilité qu'un passager se désiste est de $10$\%, quelle est la probabilité qu'au moins un passager reste bloqué à Sydney ? }
+
+\reponse{Soit $Y$ le nombre de passagers à se présenter à l'embarquement: $Y\sim \mathcal{B}(100,0.9)$ et on cherche la probabilité qu'il y ait au moins un passager bloqué à Sydney, c'est-à-dire qu'il y ait plus de $99$ personne à se présenter:
+	\begin{align*}
+	\p(Y\geq 99)&=\p(Y=99)+\p(Y=100) \\
+	&=\binom{100}{99}\times 0.9^{99} \times 0.1^{1} + \binom{100}{100}\times 0.9^{100} \times 0.1^{0} \\
+	&\simeq 0.00032,
+	\end{align*}
+	soit environ $0.03$\% de chance qu'il y ait au moins un passager bloqué à Sydney.
+}
+}

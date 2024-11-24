@@ -1,0 +1,111 @@
+\uuid{GHil}
+\titre{Une suite de variables aléatoires}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	Soit $X$ une variable aléatoire réelle de densité $f_{\theta}$ définie par
+	$$	f_{\theta}(x) = (1 - \theta )1_{[-\frac{1}{2} ; 0]}(x) + (1 + \theta )1_{]0 ; \frac{1}{2}]}(x)$$
+	où $\theta$ est un paramètre réel tel que $|\theta| \neq 1$. }
+	\begin{enumerate}
+		\item \question{ A quelles conditions sur $\theta$ la fonction $f_\theta$ est bien une densité de probabilité ? }
+		\reponse{La fonction $f_{\theta}$ est une densité de probabilité si elle est intégrable, positive sur $\R$ et d'intégrale égale à $1$.
+			\begin{itemize}
+				\item La positivité impose $-1\leq \theta \leq 1$. 
+				\item $\int_{\R} f_{\theta}(x)\ dx = \int_{-1/2}^{0} (1-\theta)\ dx + \int_{0}^{1/2} (1+\theta) \ dx = \dfrac{1}{2}(1-\theta) + \dfrac{1}{2}(1+\theta) = 1$ donc ne fournit pas de condition spécifique sur $\theta$.
+			\end{itemize}
+			En synthèse, $f_{\theta}$ est une densité si et seulement si $|\theta| \leq 1$.
+		}
+		
+		\item \question{ Calculer l'espérance de $X$. }
+		\reponse{C'est une simple application de la définition
+			\begin{align*}
+			\mathbb{E}[X] &= \int_{\R} x\ f_{\theta}(x)\ dx \\
+			&= \int_{-1/2}^{0} x(1-\theta) \ dx + \int_{0}^{1/2} x(1+\theta)\ dx \\
+			&= \left[ (1-\theta)\dfrac{x^2}{2}\right]_{-1/2}^{0} + \left[ (1+\theta)\dfrac{x^2}{2}\right]_{0}^{1/2} \\
+			&= \dfrac{\theta}{4}
+			\end{align*}
+		}
+		
+		\item \texte{ Soient $n$ variables aléatoires $X_1,...,X_n$ indépendantes et identiquement distribuées selon la loi de $X$. On définit les variables aléatoires :
+		$$U_n = \sum_{i=1}^{n} 1_{]-\infty;0]}(X_i) \qquad V_n = \sum_{i=1}^{n} 1_{]0;+\infty[}(X_i)$$ }
+		\begin{enumerate}
+			\item \question{ Vérifier que si $ 1 \leq i \ \leq n$ alors la variable aléatoire $ 1_{]0;+\infty[}(X_i)$ suit une loi de Bernoulli dont on précisera le paramètre. }
+			\reponse{ 
+				La variable aléatoire %$1_{]0;+\infty[}(X_i)$ prend ses valeurs dans $\{0;1\}$, c'est donc bien une variable aléatoire de loi de Bernoulli avec pour paramètre
+				$$p=\PP(1_{]0;+\infty[}(X_i)=1)=\PP(X_i\in ]0;+\infty[)=\int_0^{+\infty} f_\theta (x)dx= \int_{0}^{1/2} (1+\theta)\ dx =\frac{1+\theta}{2}$$
+				d'où $ 1_{]0;+\infty[}(X_i) \sim \mathcal{B}\left(\frac{1+\theta}{2} \right)$.
+			}
+			
+			\item \question{ En déduire que $V_n$ suit une loi binomiale dont on précisera les paramètres. }
+			\reponse{ 
+				Les variables aléatoires $(X_i)_{i\in\{1,\cdots,n\}}$ étant indépendantes, il en est de même des variables aléatoires $(1_{]0;+\infty[}(X_i))_{i\in\{1,\cdots,n\}}$, qui sont telles que $ 1_{]0;+\infty[}(X_i) \sim \mathcal{B}\left(\frac{1+\theta}{2} \right)$ pour $i\in\{1,\cdots,n\}$. \\
+				Donc $V_n$ est une somme de variables aléatoires indépendantes de loi de Bernoulli de paramètre $\frac{1+\theta}{2}$. On en conclut que $V_n \sim \mathcal{B}\left( n,\frac{1+\theta}{2}\right)$.
+			}
+			
+			\item \question{ Vérifier que la variable aléatoire $U_n+V_n$ est constante. }
+			\reponse{ 
+				\begin{align*}
+				U_n+V_n&=\sum_{i=1}^{n} \left(\mathbf{1}_{]-\infty;0]}(X_i)+ \mathbf{1}_{]0;+\infty[}(X_i) \right) 
+				= \sum_{i=1}^{n} \mathbf{1}_\R(X_i) = \sum_{i=1}^{n} 1=n
+				\end{align*}
+			}
+			
+			\item \question{ Calculer l'espérance de la variable aléatoire $\dfrac{V_n-U_n}{n}$. }
+			\reponse{ 
+				\begin{align*}
+				\E \left( \frac{V_n-U_n}{n}\right)
+				&=  \E \left( \frac{V_n-(n-V_n)}{n}\right)
+				= \frac{2}{n}\E (V_n)-1
+				=\frac{2}{n}\times n \times \frac{1+\theta}{2}-1
+				=\theta
+				\end{align*}
+			}
+			
+			
+			\item \question{ Vérifier que $\mathbb{E}(U_nV_n) = (n^2-n)\frac{1-\theta^2}{4}$ et en déduire $\textrm{cov}(U_n, V_n)$. }
+			\reponse{ 
+				\begin{align*}
+				\mathbb{E}(U_nV_n) =\mathbb{E}((n-V_n)V_n)=n\mathbb{E}(V_n)-\mathbb{E}(V_n^2)
+				\end{align*}
+				or $V_n \sim \mathcal{B}\left( n,\frac{1+\theta}{2}\right)$ donc 
+				\begin{itemize}
+					\item $\mathbb{E}(V_n)=n\times \frac{1+\theta}{2}$
+					\item ${\mathrm{V}}(V_n)=n\times \frac{1+\theta}{2}\times \left(1-\frac{1+\theta}{2}\right)=\frac{n}{4}(1-\theta^2)$, or ${\mathrm{V}}(V_n)=\mathbb{E}(V_n^2)-\mathbb{E}(V_n)^2$ donc
+					\[\mathbb{E}(V_n^2)=\frac{n}{4}(1-\theta^2) + \frac{n^2}{4} (1+\theta)^2\]
+				\end{itemize}
+				d'où
+				\begin{align*}
+				\mathbb{E}(U_nV_n)& =\frac{n^2}{2}(1+\theta) -\left( \frac{n}{4}(1-\theta^2) + \frac{n^2}{4} (1+\theta)^2\right) \\
+				&=\frac{n^2}{4}(1+\theta)(2-(1+\theta)) - \frac{n}{4}(1-\theta^2) \\
+				&=\frac{n^2}{4}(1-\theta^2) - \frac{n}{4}(1-\theta^2) \\
+				&=(n^2-n)\frac{1-\theta^2}{4}
+				\end{align*}
+				On en déduit la covariance:
+				\begin{align*}
+				\textrm{cov}(U_n, V_n)
+				&= \mathbb{E}(U_nV_n)-\mathbb{E}(U_n)\mathbb{E}(V_n) \\
+				&= \frac{n^2-n}{4}(1-\theta^2)-\mathbb{E}(n-V_n)\mathbb{E}(V_n) \\
+				&= \frac{n^2-n}{4}(1-\theta^2)-\left(n-\frac{n}{2}(1+\theta)\right)\frac{n}{2}(1+\theta) \\
+				&= \frac{n^2-n}{4}(1-\theta^2) - \frac{n^2}{4}(1-\theta^2) \\
+				&= \frac{-n}{4}(1-\theta^2)
+				\end{align*}
+				
+			}
+			
+			
+			\item \question{ Montrer que la variance de $\dfrac{V_n-U_n}{n}$ tend vers $0$ lorsque $n$ tend vers l'infini. }
+			\reponse{ 
+				\begin{align*}
+				{\mathrm{V}}\left(\dfrac{V_n-U_n}{n}\right)
+				&= \frac{1}{n^2}\left( {\mathrm{V}}(U_n)+{\mathrm{V}}(V_n)-2\textrm{cov}(U_n, V_n) \right) \\
+				&= \frac{1}{n^2}\left(2{\mathrm{V}}(V_n)-2\textrm{cov}(U_n, V_n) \right) \qquad \text{ car } \quad {\mathrm{V}}(U_n)={\mathrm{V}}(n-V_n)={\mathrm{V}}(V_n) \\
+				&= \frac{1}{n^2} \left(\frac{n}{2}(1-\theta^2)+\frac{n}{2}(1-\theta^2) \right) \\
+				&=\frac{1-\theta^2}{n} \underset{n\to +\infty}\longrightarrow 0.
+				\end{align*}
+				
+			}
+			
+		\end{enumerate}
+	\end{enumerate}}

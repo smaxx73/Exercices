@@ -1,0 +1,63 @@
+\uuid{jK62}
+\titre{Jeu de boules}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+
+
+
+\texte{ On tire $4$ boules avec remise dans une urne contenant des boules numérotées de $1$ à $5$. On dit que $i\in{1,2,3,4,5}$ est une valeur gagnante si la boule numéro $i$ est tirée au moins une fois. }
+\begin{enumerate}
+	\item \question{ Pour $i=1,...,5$, soit $X_i$ la variable aléatoire qui est égale à $1$ si le numéro $i$ est une valeur gagnante, et $0$ sinon. Trouver $\prob(X_i=0)$. Déterminer la loi, l'espérance et la variance de $X_i$ pour $i=1,...,5$. }
+	\reponse{On a \qquad $X_i=\begin{cases} 1 & \text{ si } i \text{ valeur gagnante} \\
+		0 & \text{ sinon}
+		\end{cases}$ \qquad 
+		donc 
+		\[ \prob(X_i=0)=\prob(\text{''La boule numérotée $i$ n'a jamais été tirée``})=\left(\frac{4}{5}\right)^4.\]
+		Comme $X_i$ ne peut prendre que deux valeurs: $0$ ou $1$, on en déduit:
+		\[ \prob(X_i=1)=1-\prob(X_i=0)=1-\left(\frac{4}{5}\right)^4=\frac{369}{625},\]
+		ce qui revient à dire que $X_i\sim \mathcal{B}\left(1-\left(\frac{4}{5}\right)^4\right)$. Ainsi, on a
+		\begin{align*}
+		\E(X_i)&=1-\left(\frac{4}{5}\right)^4=\frac{369}{625}, \\
+		\V(X_i)&=\left(1-\left(\frac{4}{5}\right)^4\right)\times \left(\frac{4}{5}\right)^4=\frac{94\ 464}{390\ 625}.
+		\end{align*}
+	}
+	
+	
+	\item \question{ Calculer $\prob((X_1=0)\cap(X_2=0))$. Les variables aléatoires $X_1$ et $X_2$ sont-elles indépendantes ? }
+	\reponse{
+		\begin{align*}
+		\prob((X_1=0)\cap(X_2=0))&=\prob(\text{''Les boules numérotées $1$ et $2$ n'ont jamais été tirées``}) \\
+		&= \left(\frac{3}{5}\right)^4=\frac{81}{625}
+		\end{align*}
+		or $\prob(X_1=0)\prob(X_2=0)=\left(\frac{4}{5}\right)^4 \times \left(\frac{4}{5}\right)^4$ donc $\prob((X_1=0)\cap(X_2=0)) \neq \prob(X_1=0)\prob(X_2=0)$. On en conclut que les variables $X_1$ et $X_2$ ne sont pas indépendantes.
+	}
+	
+	\item \question{ Déterminer la loi jointe de $(X_1,X_2)$. }
+	\reponse{
+		\begin{center}
+			\begin{tabular}{|c|c|c||c|}
+				\hline
+				$X \backslash Y$ & $0$ & $1$ & $\prob_{X_2}$ (loi de $X_2$)  \\
+				\hline
+				$0$ & $\frac{81}{625}$ & $\frac{175}{625}$ & $\frac{256}{625}$  \\
+				\hline
+				$1$ & $\frac{175}{625}$ & $\frac{194}{625}$ & $\frac{369}{625}$  \\
+				\hline
+				\hline
+				$\prob_{X_1}$ (loi de $X_1$) & $\frac{256}{625}$ & $\frac{369}{625}$ & $1$  \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+	
+	\item \question{ Soit $X$ la variable aléatoire égale au nombre de valeurs gagnantes. Exprimer $X$ en fonction de $X_1$,...,$X_5$. Déterminer l'espérance de $X$. }
+	\reponse{On a $X=X_1+X_2+X_3+X_4+X_5$. Comme les variables aléatoires $X_i$ sont de même loi, on obtient
+		\[ \E(X)=\sum_{i=1}^5 \E(X_i)=5\E(X_1)=5\times \frac{369}{625}=\frac{369}{125}\simeq 2.95.\]
+		En moyenne, on aura quasiment $3$ valeurs gagnantes par jeu.
+	}
+	
+\end{enumerate}
+}

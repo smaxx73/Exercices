@@ -1,0 +1,61 @@
+\uuid{B3ac}
+\titre{Calcul par approximation}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+	\texte{ L'observation a permis d'affirmer que le nombre d'étudiants qui entrent à la bibliothèque entre 9h00 et 10h30 suit une loi de Poisson de paramètre $16$ dont voici un extrait de la table:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			$k$ & 14 & 15 & 16 & 17 & 18 \\
+			\hline
+			$\prob(X\leq k)$ & $0.3675$ & $0.4667$ & $0.5660$ & $0.6593$ & $0.7423$ \\
+			\hline
+		\end{tabular}
+	\end{center} }
+	\begin{enumerate}
+		\item 
+		\begin{enumerate}
+			\item \question{ En utilisant le tableau ci-dessus, déterminer $\prob(X=15)$. }
+			\reponse{ 
+				$\prob(X=15)=\prob(X\leq 15)-\prob(X\leq 14)=0.4667-0.3675 \simeq 0,0992$.
+			}
+			
+			\item \question{ Déterminer les paramètres de la loi normale que suit la variable aléatoire $Y$ qui approche $X$. }
+			\reponse{ $X$ peut être approchée par $Y$ qui suit la loi $\mathcal{N}(\mu=16,\sigma^2=16)$.}
+			
+			\item \question{ Calculer $\alpha=\prob(14.5\leq Y\leq 15.5)$. Quel est le lien entre $\alpha$ et $\prob(X=15)$ ? }
+			\reponse{ On a
+				\begin{align*}
+				\alpha=\prob(14.5\leq Y\leq 15.5)
+				&= \p\left(\frac{-1.5}{\sqrt{16}}\leq \frac{Y-16}{\sqrt{16}} \leq \frac{-0.5}{\sqrt{16}} \right) \\
+				&= \prob(-0.375\leq Z\leq -0.125), \quad \text{ où } Z \sim \mathcal{N}(0,1) \\
+				&= \prob(0.125\leq Z\leq 0.375) \\
+				&= \prob(Z\leq 0.375)-\prob(Z\leq 0.125) \\
+				&= 0.64615-0.54975 \\
+				&= 0.0964
+				\end{align*}
+				$\alpha$ est une approximation (avec correction de continuité) de $\prob(X=15)$. En effet,
+				\[ \prob(X=15)=\prob(14.5\leq X\leq 15.5) \simeq \prob(14.5\leq Y\leq 15.5).
+				\]
+			}
+			
+		\end{enumerate}
+		\item \question{ Déterminer une approximation de $\prob(15\leq X\leq 20)$. }
+		\reponse{ 
+			\begin{align*}
+			\prob(15\leq X\leq 20)
+			&=\prob(14.5\leq X\leq 20.5) \\
+			&\simeq \prob(14.5\leq Y\leq 20.5) \\
+			& \simeq \p\left(-0.375 \leq \frac{Y-16}{4}\leq 1.125\right) \\
+			& \simeq \prob(Z\leq 1.125) - \prob(Z\leq -0.375) \\
+			& \simeq \prob(Z\leq 1.125) -(1-\prob(Z\leq 0.375)) \\
+			& \simeq 0.8697 -1 + 0.64615\\
+			&\simeq 0.51585
+			\end{align*}
+		}
+		
+	\end{enumerate}
+}

@@ -1,0 +1,46 @@
+\uuid{buE8}
+\titre{ Choix d'estimateur}
+\theme{statistiques}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	Soit $X$ une variable aléatoire suivant une loi de Poisson $\mathcal{P}(\lambda)$. On rappelle que dans ce cas, quelque soit l'entier $k \in \N$, $\PP(X=k) = e^{-\lambda} \frac{\lambda^k}{k!}$.
+
+On observe la réalisation d'un échantillon de taille 6 de cette loi : $1,5,2,2,3,1$. }
+
+\begin{enumerate}
+	\item \question{ \`A l'aide de la méthode du maximum de vraisemblance, donner une estimation de $\lambda$.  }
+	\item \question{ Généraliser le procédé pour obtenir un estimateur de $\lambda$ et déterminer son biais. }
+\end{enumerate}
+
+
+
+
+\reponse{	\begin{enumerate}
+	\item Soit $(x_1,...,x_n)$ une réalisation quelconque de l'échantillon $(X_1,...X_n)$ : 
+	\begin{align*}
+		\mathcal{L}(\lambda) &= \PP(X_1=x_1,X_2=2,...,X_n=x_n) \\
+		&= \PP(X_1=x_1)\PP(X_2=2),...,\PP(X_n=x_n) \text{ par indépendance des va} \\
+		&= e^{-\lambda} \frac{\lambda^{x_1}}{x_1!} \times e^{-\lambda} \frac{\lambda^{x_2}}{x_2!}  \times ,..., \times e^{-\lambda} \frac{\lambda^{x_n}}{x_n!} \\
+		&=e^{-n\lambda} \frac{\lambda^{\sum_{i=1}^n x_i }}{x_1!...x_n!}
+	\end{align*}
+	\item  On cherche la valeur de $\lambda$ qui maximise la fonction de vraisemblance via la log vraisemblance :
+	\begin{align*}
+		\ln \mathcal{L}(\lambda) &= -n \lambda + \left(\sum_{i=1}^n x_i\right)\ln(\lambda) - \ln(x_1!...x_n!) 
+	\end{align*}
+	que l'on dérive afin de voir pour quelle valeur de $p \in ]0;1[$ cette expression est maximale :
+	\begin{align*}
+		\ln \mathcal{L}(p) =0 
+		&\iff  -n+ \left(\sum_{i=1}^n x_i\right) \times \frac{1}{\lambda} = 0 \\
+		&\iff \lambda = \frac{\sum_{i=1}^n x_i}{n}
+	\end{align*}
+	
+	En remplaçant par les valeurs de la réalisation de l'échantillon, on trouve comme estimation de $\lambda$ la valeur $\frac{14}{6}$.
+	
+	On trouve en général l'estimateur de moyenne empirique, il est sans biais car $\E(X) = \lambda$ pour une loi de Poisson de paramètre $\lambda$. 
+	
+\end{enumerate}
+}
+}

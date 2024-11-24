@@ -1,0 +1,52 @@
+\uuid{MzAb}
+\titre{Différentiabilité}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Soit $f: \R^2 \to \R,\ (x,y) \mapsto \sqrt[5]{2x^3+y^2}$. On note $\mathcal{S}_f$ sa surface représentative. }
+\begin{enumerate}
+	\item \question{ Quel est l'ensemble de définition de $f$~?   }
+	\reponse{La fonction $\sqrt[5]{~}$ est définie sur $\R$, car c'est la bijection réciproque de $\R \to \R, x \mapsto x^5$. Une étude classique montre qu'elle est continue sur $\R$, dérivable (et même $C^{\infty}$) sur $\R^*$, et non dérivable (avec tangente verticale) en $0$. Ainsi $\mathcal{D}_f = \R^2$.
+	}
+	\item \question{ Étudier la continuité de $f$. }
+	\reponse{$f$ est continue sur $\R^2$ comme composée de fonctions continues.}
+	\item \question{ Étudier la différentiabilité de $f$ }
+	\reponse{$f$ est $C^{\infty}$, donc différentiable, en tout point $(x,y)$ où $2x^3 + y^2$ ne s'annule pas. Soit maintenant un point $(x_0, y_0)$ tel que $2x_0^3 + y_0^2 = 0$. On suit la méthode du poly, chap.2, \S II.6.
+		\begin{itemize}
+			\item $f$ est continue. 
+			\item On calcule, si elles existent, le dérivées partielles de $f$ en $(x_0,y_0)$. Pour ce faire, on va utiliser le théorème 2.2 du poly, appliqué à la fonction partielle $x \mapsto f(x,y_0)$. Cette fonction est dérivable sur $\R-\{x_0\}$ et sa dérivée vaut 
+			\[ \dpa{f}{x}(x,y_0) = \frac{1}{5}(6x^2)(2x^3+y_0^2)^{1/5-1} = \frac{6x^2}{5(2x^3+y_0^2)^{4/5}} \]
+			Or quand $x \to x_0+$, $2x^3+y_0^2 \to 0_+$ et $\dpa{f}{x}(x,y_0) \to +\infty$. Le théorème 2.2 assure alors que le taux d'accroissement 
+			\[ \frac{f(x,y_0) - f(x_0,y_0)}{x-x_0} \]
+			tend aussi vers $+\infty$ quand $x \to x_0+$. Et donc $f$ n'admet pas de dérivée partielle par rapport à $x$ en $(x_0,y_0)$. Ceci permet dès à présent de conclure que $f$ n'est pas différentiable en $(x_0,y_0)$. Mais on pourrait prouver, en bonus et de  manière analogue, que $f$ n'admet pas non plus de dérivée partielle par rapport à $y$ en $(x_0,y_0)$.
+		\end{itemize}
+		En synthèse, nous avons montré que \\
+		\begin{center}
+			\fbox{$f$ est différentiable en  $(x,y)\in\R^2$ si et seulement si $2x^3+y^2 \neq 0$}
+		\end{center}
+	}
+	%\item Calculer $f(2,4)$ (noté dorénavant $z_0$), $\dpa{f}{x}(2,4)$ et $\dpa{f}{y}(2,4)$.
+	%\rep{Un calcul immédiat donne $z_0 = f(2,4) = (2\times 2^3 + 4^2)^{1/5} = 2$. Les dérivées partielles aux points ``sans problème'' valent
+	%	\[ \dpa{f}{x}(x,y) = \frac{6x^2}{5(2x^3+y^2)^{4/5}},\ \ \dpa{f}{y}(x,y) = \frac{2y}{5(2x^3+y^2)^{4/5}} \]
+	%	d'où on tire
+	%	\[ \dpa{f}{x}(2,4) = 3/10,\ \ \dpa{f}{y}(2,4) = 1/10 \]}
+	%\item Déterminer une équation du plan tangent à $\mathcal{S}_f$ en le point $P(2,4,z_0)$.
+	%\rep{Une équation cartésienne (en $(X,Y,Z)$) du plan tangent à $\mathcal{S}_f$ au point $(2,4,2)$ est 
+	%	\begin{align*}
+	%	Z-2 &= \dpa{f}{x}(2,4)(X-2) + \dpa{f}{y}(2,4)(Y-4) 
+	%	\end{align*}
+	%	soit \fbox{$Z-2 = \dfrac{3}{10}(X-2) + \dfrac{1}{10}(Y-4)$}}
+	%\item Écrire le développement limité à l'ordre $1$ de $f$ en $(x,y) = (2,4)$.
+	%\rep{Application directe du cours
+	%	\begin{align*}
+	%	f(2+h,4+k) &= f(2,4) + \dpa{f}{x}(2,4)h + \dpa{f}{y}(2,4)k + \sqrt{h^2+k^2}\varepsilon(h,k) \\
+	%	&= 2 + \dfrac{3}{10}h + \dfrac{1}{10}k + \sqrt{h^2+k^2}\varepsilon(h,k)
+	%	\end{align*}
+	%où $\varepsilon(h,k) \to 0$ quand $(h,k) \to (0,0)$.	
+	%	}
+	%\item En déduire une valeur numérique approchée de $z_1 = \sqrt[5]{2(2,1)^3 + (3,8)^2}$. (On remarquera que $z_1 = f(2+0,1\ ,\ 4-0,2)$)
+	%\rep{L'indication et la question 6 suggèrent l'approximation numérique
+	%	\[ z_1 = \sqrt[5]{2(2+0.1)^3 + (4-0.2)^2} \approx 2 + \dfrac{3}{10}0.1 + \dfrac{1}{10}(-0.2) =2.01 \]}
+\end{enumerate}}

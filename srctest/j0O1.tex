@@ -1,0 +1,75 @@
+\uuid{j0O1}
+\titre{ Simulation d'une loi de Pareto }
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\begin{SaveVerbatim}{j0O1python}
+    def pareto(a,b):
+        return b * rand()**(-1/a)
+\end{SaveVerbatim}
+
+\begin{SaveVerbatim}{j0O1python2}
+    def surprise(a,b):
+        L = []
+        for p in range(5):
+            S = 0
+            for i in range(10**p):
+                S = S + pareto(a,b)
+            L.append(S/10**p)
+        return L
+\end{SaveVerbatim}
+
+\contenu{
+
+\texte{ Soient $a$ et $b$ deux réels strictement positifs. On considère la fonction $f$ définie pour tout $x \in \R$ par : 
+$$f(x)=\frac{a b^a}{x^{a+1}} \mathbf{1}_{[b;+\infty[}(x).$$
+}
+
+\begin{enumerate}
+    \item \question{ Montrer que $f$ est une densité de probabilité. }
+    \reponse{ 
+        On a $\int_{-\infty}^{+\infty} f(x) dx = \int_b^{+\infty} \frac{a b^a}{x^{a+1}} dx = \left[ -\frac{b^a}{x^a} \right]_b^{+\infty} = 1$.
+    } 
+    \texte{ Dans la suite, on note $X$ une variable aléatoire suivant la loi de densité $f$. On dit alors que $X$ suit une loi de Pareto de paramètres $a$ et $b$. }
+    \item \question{ Montrer que la fonction  de répartition de la loi de Pareto de paramètres $a$ et $b$ est donnée pour tout $t \in \R$ par : $$F(t)=\begin{cases}
+        0 & \text{si } t < b \\
+        1 - \frac{b^a}{t^a} & \text{si } t \geq b
+    \end{cases}$$ }
+    \reponse{
+        Pour tout $t \geq b$, on a $F(t) = \int_b^t \frac{a b^a}{x^{a+1}} dx = \left[ -\frac{b^a}{x^a} \right]_b^t = 1 - \frac{b^a}{t^a}$.
+    }
+    \item \question{ Soit $U$ une variable aléatoire suivant la loi uniforme sur $[0;1]$. Montrer que la variable aléatoire $Y = b U^{-\frac{1}{a}}$ suit la loi de Pareto de paramètres $a$ et $b$. }
+    \reponse{
+        Soit $t \geq b$.  
+         On a $F_Y(t) = \prob(Y \leq t)  = \prob(b U^{-\frac{1}{a}} \leq t) = \prob(U \geq \left(\frac{b}{t}\right)^a) = 1 - \left(\frac{b}{t}\right)^a$. Donc $Y$ suit bien une loi de Pareto de paramètres $a$ et $b$.
+    }
+    \item \question{ En déduire un programme en Python (ou en langage naturel) permettant de simuler une variable aléatoire suivant une loi de Pareto de paramètres $a$ et $b$. On suppose acquis que la fonction \texttt{rand()} simule une variable aléatoire suivant la loi uniforme sur $[0;1]$. }
+    \reponse{
+       {\BUseVerbatim{j0O1python}\par}
+    }
+    \item \question{ Montrer que la variable aléatoire $X$ admet une espérance si et seulement si $a>1$ puis montrer que dans ce cas, $\EX = \frac{ab}{a-1}$. }
+    \reponse{
+        Si $a \leq 1$, on a $\int_b^{+\infty} \frac{a b^a}{x^{a}} dx = \left[ -\frac{b^a}{x^{a-1}} \right]_b^{+\infty} = +\infty$. Donc $X$ n'admet pas d'espérance. 
+
+        Si $a > 1$, on a $\EX = \int_b^{+\infty} \frac{a b^a}{x^{a}} dx = \left[ -\frac{ab^a}{(a-1)x^{a-1}} \right]_b^{+\infty} = \frac{ab}{a-1}$.
+    }
+    \item \question{ On considère le programme Python suivant : \\
+    {\BUseVerbatim{j0O1python2}\par}
+    Que contient la liste \texttt{L} renvoyée par la fonction \texttt{surprise} ? }
+    \reponse{
+        La loi forte des grands nombres permet d'approcher l'espérance de $X$ par $\frac{1}{n} \sum_{i=1}^n X_i$ lorsque $n$ est grand, ici $n = 10^p$ avec $p \in \{0,1,2,3,4\}$. La liste \texttt{L} contient $5$ réalisations de la variable $\frac{1}{n} \sum_{i=1}^n X_i$ pour différentes valeurs de $n$ donc $5$ valeurs approchées de l'espérance de la variable aléatoire $X$ suivant une loi de Pareto de paramètres $a$ et $b$.
+    }
+    \item \question{ On exécute la fonction \texttt{surprise(2, 1)} et on obtient la liste suivante : \\
+    \texttt{[2.0086758965462077, 2.0955498340858476, 1.982373410207895, 2.3281900268025373, 1.9814394974836453]} \\
+    On exécute ensuite la fonction \texttt{surprise(1, 4)} et on obtient la liste suivante : \\
+    \texttt{[18.267993642430078, 315.70341942673815, 18.99208132191137, 37.82281968971657, 109.82384813797769]} \\
+    Commenter ces résultats. }
+    \reponse{
+        Lorsque $a=2$ et $b=1$, on a $\EX = \frac{2}{2-1} = 2$. On observe que les valeurs de la liste \texttt{L} sont proches de $2$, ce qui est cohérent avec la question précédente.
+
+        Lorsque $a=1$ et $b=4$, on a $\EX$ qui n'est pas définie. La loi forte des grands nombres ne s'applique donc pas, ce qui explique que la suite des $\frac{1}{n} \sum_{i=1}^n X_i$ ne converge pas vers $\EX$. 
+    }
+    
+\end{enumerate}
+}

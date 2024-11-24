@@ -1,0 +1,36 @@
+\uuid{iQFz}
+\titre{Etude de séries entières}
+\theme{séries entières}
+\auteur{}
+\organisation{AMSCC}
+%similaire à MWOk
+
+\contenu{
+	\begin{enumerate}
+	\item \texte{ Déterminer le rayon de convergence des séries entières réelles suivantes : }
+	\begin{enumerate}
+		\item \question{ $\displaystyle \sum_{n \geq 0} \frac{3n^2-1}{2^{2n+1}\sqrt{n+1}} x^n$ }
+		\reponse{On pose $u_n(x) = \frac{3n^2-1}{2^{2n+1}\sqrt{n+1}} x^n$ et on utilise le théorème de d'Alembert : 
+			\begin{align*}
+			\frac{|u_{n+1}(x)|}{|u_n(x)|} &= \frac{(3(n+1)^2-1) \times 2^{2n+1}\sqrt{n+1}}{\left(2^{2(n+1)+1}\sqrt{n+1+1}\right)(3n^2-1)}\frac{|x^{n+1}|}{|x^n|} \\
+			&= \frac{1}{2^2}\sqrt{\frac{n+1}{n+2}} \frac{3n^2+6n+3-1}{3n^2-1} |x| \\
+			&\xrightarrow[n\to+\infty]{} \frac{1}{4}|x|
+			\end{align*}	
+			Or $ \frac{1}{4}|x| <1 \iff |x| < 4$ donc le rayon de convergence est $R=4$.
+		}
+		\item  \question{ $\displaystyle \sum_{n \geq 1} 9^n \left(\frac{n-1}{n}\right)^nx^{n}$ }
+		\reponse{On pose $u_n(x) = 9^n \left(\frac{n-1}{n}\right)^nx^{2n}$ et on utilise le théorème de Cauchy : 
+			\begin{align*}
+			\left(|u_n(x)|\right)^{\frac{1}{n}} &= \left(9^n \left(\frac{n-1}{n}\right)^n|x|^{2n}\right)^{\frac{1}{n}} \\
+			&= 9 \left(\frac{n-1}{n}\right) |x| \\
+			&\xrightarrow[n\to+\infty]{} 9|x|
+			\end{align*}	
+			Or $ 9|x| <1 \iff |x| < \frac{1}{9}$ donc le rayon de convergence est $R=\frac{1}{9}$.
+		}
+	\end{enumerate}
+	\item \question{ Que peut-on dire de la série $\displaystyle \sum_{n \geq 0} \frac{3n^2-1}{2^{2n+1}\sqrt{n+1}} \left(-\frac{9}{8}\right)^n$ ? Justifier. }
+	\reponse{On reconnaît la série entière de la question 1.(a) évaluée en $x = -\frac{9}{8}$. Or $-\frac{9}{8} \in ]-4;4[$ donc la série est absolument convergente.}
+	\item \question{ Que peut-on dire de la série $\displaystyle \sum_{n \geq 1} 9^n \left(\frac{2n-2}{3n}\right)^n$ ? Justifier. }
+	\reponse{On reconnaît la série entière de la question 1.(b) évaluée en $x = \frac{2}{3}$. Or $\frac{2}{3} \notin ]-\frac{1}{9};\frac{1}{9}[$ donc la série est grossièrement divergente.}
+\end{enumerate}
+}

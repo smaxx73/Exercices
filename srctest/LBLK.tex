@@ -1,0 +1,74 @@
+\uuid{LBLK}
+\titre{Différentiabilité}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+Soit $f \colon \R^2 \to \R$ définie par :
+$$ f(x,y) = \left\{ \begin{array}{ll} \dfrac{-3x^3+5y^3}{x^2+y^2} & \text{ si } (x,y) \neq (0,0) \\
+0 & \text{ si } (x,y) = (0,0)
+\end{array}
+\right. $$
+\begin{enumerate}
+	\item \question{ La fonction $f$ est-elle continue en $(0,0)$~? }
+	\reponse{Notons tout d'abord que $f$ est une fraction rationnelle sur $\R^2-\{(0,0)\}$ donc elle y est définie et $C^{\infty}$. Comme $f$ est par ailleurs définie en $(0,0)$, on a $\mathcal{D}_f = \R^2$.
+		
+		Pour étudier la continuité en $(0,0)$, on étudie la différence $f(x,y) - f(0,0)$ et on passe comme souvent en coordonnées polaires. 
+		\begin{align*}
+		f(r \cos\theta, r \sin\theta) - f(0,0) &= \frac{-3(r\cos\theta)^3+5(r\sin\theta)^3}{(r\cos\theta)^ +(r\sin\theta)^2} \\
+		&= \frac{r^3 (-3\cos^3\theta + 5\sin^3\theta)}{r^2} \\
+		&= r(-3\cos^3\theta + 5\sin^3\theta)
+		\end{align*}
+		On obtient la majoration
+		\begin{align*}
+		|f(r \cos\theta, r \sin\theta) - f(0,0)| &\leq r(|-3\cos^3\theta| + 5 |\sin^3\theta)|) \\
+		&\leq (3+5)r \\
+		& \underset{r \to 0_+}{\longrightarrow} 0 \text{ indépendamment de $\theta$}
+		\end{align*}
+		Ainsi $f(x,y) \underset{(x,y) \to (0,0)}{\longrightarrow} f(0,0)$, ce qui prouve que \fbox{$f$ est continue en $(0,0)$.}
+	}
+	\item \question{ Calculer $\dpa{f}{x}$ et $\dpa{f}{y}$ pour $(x,y) \neq (0,0)$. }
+	\reponse{Pour $(x,y) \neq (0,0)$, on est dans le cas d'un point sans problème. Les dérivées partielles existent et se calculent en appliquant les formules classiques de dérivation
+		\begin{align*}
+		\dpa{f}{x}(x,y) &= \frac{ \dpa{}{x} \left[ -3x^3+5y^3 \right] (x^2+y^2) - (-3x^3+5y^3)  \dpa{}{x} \left[ x^2+y^2 \right]}{(x^2+y^2)^2} \\
+		&= \frac{ (-9x^2)(x^2+y^2) - (-3x^3+5y^3)(2x)}{(x^2+y^2)^2} \\
+		&= \frac{-3x^4 - 9x^2y^2 - 10xy^3}{(x^2+y^2)^2}
+		\end{align*}
+		et
+		\begin{align*}
+		\dpa{f}{y}(x,y) &= \frac{ \dpa{}{y} \left[ -3x^3+5y^3 \right] (x^2+y^2) - (-3x^3+5y^3)  \dpa{}{y} \left[ x^2+y^2 \right]}{(x^2+y^2)^2} \\
+		&= \frac{ (15y^2)(x^2+y^2) - (-3x^3+5y^3)(2y)}{(x^2+y^2)^2}\\
+		&= \frac{6x^3y + 15x^2y^2 +5 y^4}{(x^2+y^2)^2}
+		\end{align*}}
+	\item \question{ Calculer $\dpa{f}{x}(0,0)$ et $\dpa{f}{y}(0,0)$. }
+	\reponse{Le point $(0,0)$ est un point à problème. Comme précédemment, hors de question d'utiliser la question 2 et de remplacer $x$ et $y$ par $0$, ou de les faire tendre vers $0$. Cette méthode serait pertinente si on savait \textbf{a priori} que les dérivées partielles sont prolongeables par continuité, mais ce n'est pas le cas et cela fait d'ailleurs l'bjet de la question suivante. \\
+		\emph{On retiendra qu'en général ce n'est pas un très bon réflexe de se lancer dans cette voie.}\\ 
+		Le plus propre et le plus sur est de revenir à la définition en étudiant les taux d'accroissement.
+		\[ \frac{f(h,0) - f(0,0)}{h} = \frac{-3h^3/h^2 - 0}{h} = -3 \tvq{-3}{h}{0}, \text{ donc  \fbox{$\dpa{f}{x}(0,0) = -3$}} \]
+		et 
+		\[ \frac{f(0,k) - f(0,0)}{k} = \frac{5k^3/k^2}{h} = 5 \tvq{5}{k}{0} \text{ donc } \dpa{f}{y}(0,0) = 5 \]}
+	\item \question{ La fonction $f$ est-elle de classe $C^1$ en $(0,0)$~? }
+	\reponse{Pour établir si $f$ est $C^1$ en $(0,0)$, nous devons étudier
+		\begin{itemize}
+			\item si $\dpa{f}{x}(x,y)$ (resp. $\dpa{f}{y}(x,y)$) admet une limite quand $(x,y) \to (0,0)$ puis
+			\item si cette limite est égale à $\dpa{f}{x}(0,0) = -3$ (resp. à $\dpa{f}{y}(0,0) = 5$)
+		\end{itemize}
+		Regardons les limites de $\dpa{f}{x}$ et $\dpa{f}{y}(x,y)$ quand $(x,y) \to (0,0)$ selon 3 chemins~: la droite $y=0$, la droite $x=0$, la droite $x=y$. Nous avons~:
+		\[ \dpa{f}{x}(x,0) \to -3,\ \ \dpa{f}{x}(0,y) \to 0,\ \ \dpa{f}{x}(x,x) \to -\frac{11}{2} \]
+		\[ \dpa{f}{y}(x,0) \to 0,\ \ \dpa{f}{y}(0,y) \to 5, \ \ \dpa{f}{y}(x,x) \to -\frac{13}{2} \]
+		Ainsi ni $\dpa{f}{x}(x,y)$ ni $\dpa{f}{y}(x,y)$ n'admettent de limites quand $(x,y) \to (0,0)$. A fortiori elles ne sont pas continues en $(0,0)$ donc 
+		\fbox{$f$ n'est pas $C^1$ en $(0,0)$}}
+	\item \question{ La fonction $f$ est-elle différentiable en $(0,0)$~? }
+	\reponse{On suit la méthode du poly, chap.~2, \S~II.6. Comme $f$ admet des dérivées partielles en $(0,0)$, $f$ \underline{peut} être différentiable en $(0,0)$ et si elle l'est sa différentielle $\dd f(0,0)$ sera nécessairement égale à $-3 \dd x + 5 \dd y$. Puisque $f$ n'est pas $C^1$, on ne peut pas conclure directement à la différentiabilité et il faut étudier la limite de
+		\[ \frac{f(h,k) - f(0,0) - [(-3)h + 5k]}{\sqrt{h^2+k^2}} \]
+		quand $(h,k) \to (0,0)$. Or 
+		\begin{align*}
+		\frac{f(h,k) - f(0,0) - (-3h + 5k)}{\sqrt{h^2+k^2}} &= \text{(passage en polaires $h = r\cos\theta, k=r\sin\theta$)} \\
+		&= \frac{r(-3\cos^3\theta + 5\sin^3\theta) + 3r\cos\theta -5r\sin\theta}{r} \\
+		&= -3\cos^3\theta + 5\sin^3\theta +3\cos\theta -5\sin\theta
+		\end{align*}
+		Cette quantité n'a pas de limite quand $r \to 0_+$ puisqu'elle dépend de $\theta$. A fortiori, elle ne tend pas vers $0$, ce qui signifie par définition que \fbox{$f$ n'est pas différentiable en $(0,0)$.} 
+	}
+\end{enumerate}
+}

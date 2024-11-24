@@ -1,0 +1,23 @@
+\uuid{gk1A}
+\titre{Intervalles de confiance}
+\theme{statistiques}
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Une association de consommateurs a effectué une enquête sur le prix d'un produit dans le supermarchés. Pour ce produit, les prix suivants (en euros) ont été relevés dans 7 supermarchés différents :
+ $$52 \qquad 52 \qquad 43 \qquad 51 \qquad 69 \qquad 55 \qquad 49$$
+}
+ \begin{enumerate}
+  \item \question{En supposant que le prix $X$ de ce produit est distribué selon une loi normale $\mathcal{N}(\mu,\sigma^2)$, calculer une estimation $\overline{x}$ de l'espérance $\EX$ et une estimation $s$ de l'écart-type $\sigma(X)$. On précisera les estimateurs choisis et on en donnera les propriétés.}
+  \reponse{Avec l'estimateur usuel $\overline{X}$, on obtient à partir de la réalisation de cet échantillon de taille $7$ une estimation $\overline{x} = 53$. Avec l'estimateur de variance corrigée $S^2$, on obtient une estimation de la variance $s^2 \approx 63{,}667$ d'où une estimation de l'écart type de $7.98$. }
+  \item \question{Déterminer les intervalles de confiances symétriques au seuil de $90\%$ et $99\%$ centrés en $\mu = \EX$.}
+  \reponse{Au vu de la taille de l'échantillon, la variable mère est supposée suivre une loi normale donc on utilise une loi de Student $St(6)$ pour calculer la réalisation de l'intervalle de confiance avec la formule du cours : 
+  		
+  		Au seuil de  $90\%$, on obtient l'intervalle $[47.1;58.9]$ ;
+  		
+  		Au seuil de  $99\%$, on obtient l'intervalle $[41.8;64.2]$.
+  	
+  	\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EaiHx79BvjVEmoQdi_Bixd0BwrtFrlxQpaAxywubog-BcA?e=brgT78}{Détail des calculs sur tableur}
+  }
+ \end{enumerate}}

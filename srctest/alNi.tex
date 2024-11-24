@@ -1,0 +1,27 @@
+\uuid{alNi}
+\titre{Application du théorème central limite}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+\contenu{
+
+Soit $X_1, X_2, \ldots, X_{100}$ une suite de variables aléatoires indépendantes et identiquement distribuées suivant une loi de moyenne $\mu = 30$ et de variance $\sigma^2 = 16$. Soit $S = \sum_{i=1}^{100} X_i$.
+
+\question{Quelle est la distribution de la variable aléatoire $S$ selon le théorème central limite ?}
+
+\reponse{Les variables aléatoires $X_1, X_2, \ldots, X_{100}$ sont indépendantes et identiquement distribuées suivant une loi de moyenne $\mu = 30$ et de variance $\sigma^2 = 16$. La loi de chaque variable $X_i$ n'est pas connue mais on sait que la moyenne et la variance sont finies. D'après le théorème central limite, la variable aléatoire $Z=\frac{S - n\mu}{\sqrt{n}\sigma}$ suit approximativement une loi normale centrée réduite avec $n=100$ considéré comme grand. 
+
+Autrement dit, la variable aléatoire $S$ suit approximativement une loi normale avec une moyenne donnée par $n\mu = 100 \times 30 = 3000$ et une variance donnée par $n\sigma^2 = 100 \times 16 = 1600$.}
+
+\question{Calculez la probabilité que la somme $S$ soit inférieure à 2900.}
+
+\reponse{Pour trouver cette probabilité, on centre et on réduit la variable aléatoire : 
+\[
+Z = \frac{S - \mu_S}{\sigma_S} = \frac{S - 3000}{\sqrt{1600}}.
+\]
+Donc, nous cherchons 
+\[
+\prob\left( Z < \frac{2900 - 3000}{\sqrt{1600}} \right) = \prob\left( Z < -2.5 \right).
+\]
+En utilisant la table de loi (ou un calculateur approprié), nous trouvons que la probabilité recherchée est d'environ $0.0062$.}
+}

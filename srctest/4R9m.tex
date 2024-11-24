@@ -1,0 +1,95 @@
+\uuid{4R9m}
+\titre{Courbes de niveaux}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Déterminer les courbes de niveaux des fonctions suivantes et esquisser rapidement une représentation graphique d'un ensemble de celles-ci. }
+	\begin{enumerate}
+		\item \question{ $f(x,y) = x+y-1$ }
+		\reponse{Soit $k \in \mathbb{R}$ : $f(x,y) = k \iff y = -x+k+1$. Pour tout $k \in \R$, les lignes de niveau $k$ sont des droites de coefficient directeur $-1$. 
+		
+\begin{center}
+	\begin{tikzpicture}
+\begin{axis}[
+title={$f(x,y)=x+y-1$},
+enlarge x limits,
+view={0}{90},
+xlabel=$x$, ylabel=$y$,
+small,
+axis equal,
+axis x line=center,
+axis y line=center,
+%grid=major,
+]
+\addplot3[
+domain=-3:3,
+domain y=-3:3,
+contour gnuplot={number=14},
+thick,
+]
+{x+y-1};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+}
+		\item \question{ $f(x,y) = e^{y-x^2}$ }
+		\reponse{Soit $k \in \mathbb{R}$ : $f(x,y) = k \Rightarrow k>0$. Pour tout $k>0$, $f(x,y) = k \iff y = x^2 + \ln(k)$. Les lignes de niveau $k>0$ sont des paraboles, vides si $k \leq 0$. 
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	%title={$f(x,y)=e^{y-x^2}$},
+	enlarge x limits,
+	view={0}{90},
+	xlabel=$x$, ylabel=$y$,
+	small,
+	axis equal,
+	axis x line=center,
+	axis y line=center,
+	%grid=major,
+	]
+	\addplot3[
+	domain=-3:3,
+	domain y=-3:3,
+	contour gnuplot={levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+	samples=40,
+	thick,
+	]
+	{exp(y-x^2)};
+	\end{axis}
+	\end{tikzpicture}
+\end{center}		
+	
+}
+		\item \question{ $f(x,y) = \ln(x+2y)$ }
+		\reponse{Soit $k \in \mathbb{R}$ : $f(x,y) = k \iff y = -\frac{x+e^{k}}{2} $. Les lignes de niveau $k$ sont des droites de coefficient directeur $-\frac{1}{2}$. 
+
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	%title={$f(x,y)=\ln(x+2y)$},
+	enlarge x limits,
+	view={0}{90},
+	xlabel=$x$, ylabel=$y$,
+	small,
+	axis equal,
+	axis x line=center,
+	axis y line=center,
+	%grid=major,
+	]
+	\addplot3[
+	domain=-5:5,
+	domain y=-5:5,
+	contour gnuplot={levels={-1,0,1,1.5,2}},
+	samples=20,
+	thick,
+	]
+	{ln(x+2*y)};
+	\end{axis}
+	\end{tikzpicture}
+\end{center}		
+	
+}
+	%	\item $f(x,y,z) = \frac{\ln(x^2+1)}{yz}$
+	\end{enumerate}}

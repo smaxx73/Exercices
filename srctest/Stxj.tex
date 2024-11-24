@@ -1,0 +1,23 @@
+\uuid{Stxj}
+\titre{Développement en série entière}
+\theme{séries entières}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\question{ 	Développer en série entière la fonction de la variable réelle suivante : $$f \colon x \mapsto \ln(x^2-5x+6)$$  }
+
+\reponse{Pour tout réel $x$, $x^2 -5x+6=(x-2)(x-3)$ et donc si $x < 2$, $x^2-5x+6>0$. Pour $x\in ]-2,2[$,
+	
+	\begin{center}
+		$\ln(x^2-5x+6)=\ln(2-x)+\ln(3-x)=\ln(6)+\ln\left(1-\frac{x}{2}\right)+\ln\left(1-\frac{x}{3}\right)$,
+	\end{center}
+	
+	et puisque pour $x$ dans $]-2,2[$, $\frac{x}{2}$ et $\frac{x}{3}$ sont dans $]-1,1[$, 
+	
+	\begin{center}
+		$\ln(x^2-5x+6)=\ln(6)-\sum_{n=1}^{+\infty}\left(\frac{1}{2^n}+\frac {1}{3^n}\right)\frac{x^n}{n}$,
+	\end{center}
+	
+	En résumé, la fonction $f$ est développable en série entière et on vérifie avec la règle de d'Alembert que son rayon de convergence est $R = 2$.}}

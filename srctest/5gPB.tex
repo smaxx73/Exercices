@@ -1,0 +1,82 @@
+\uuid{5gPB}
+\titre{\'Etude d'un schéma numérique}
+\theme{}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On considère l'équation différentielle ordinaire suivante :
+
+$$\begin{cases} y'(t) = f(t, y(t)), \quad t \in [0, T] \\ y(0) = y_0 \end{cases}$$
+
+où $f : [0, T] \times \mathbb{R} \to \mathbb{R}$ est une fonction suffisamment régulière (par exemple de classe $C^2$).
+
+On se propose d'étudier la consistance du schéma numérique de Leapfrog défini par :
+
+$$\begin{cases} t_n = n \cdot h, \quad n = 0, \ldots, N \\ y_{n+1} = y_n + h \cdot f(t_n + \frac{h}{2}, y_n + \frac{h}{2} f(t_n, y_n)) \end{cases}$$
+
+où $h = \frac{T}{N}$ est le pas de discrétisation en temps et $N$ est un entier strictement positif. 
+
+On donne le développement de Taylor-Lagrange à l'ordre 1 pour une fonction $g$ de classe $\mathcal{C}^2$ de deux variables $x$ et $y$ au voisinage du point $(x_0, y_0)$ est donné par :
+
+$$g(x, y) = g(x_0, y_0) + \frac{\partial g}{\partial x}(x_0, y_0) (x - x_0) + \frac{\partial g}{\partial y}(x_0, y_0) (y - y_0) + R_1(x, y)$$
+
+où $R_1(x, y)$ est le reste du développement limité, qui vérifie :
+
+$$R_1(x, y) = \frac{1}{2} \left( \frac{\partial^2 g}{\partial x^2}(\xi, \eta) (x - x_0)^2 + 2 \frac{\partial^2 g}{\partial x \partial y}(\xi, \eta) (x - x_0)(y - y_0) + \frac{\partial^2 g}{\partial y^2}(\xi, \eta) (y - y_0)^2 \right)$$
+
+avec $(\xi, \eta)$ un point situé sur le segment reliant les points $(x_0, y_0)$ et $(x, y)$.
+}
+
+\begin{enumerate}
+	\item \question{ Justifier l'existence de $\xi_n \in [t_n, t_{n+1}]$ tel que : 
+	$$y(t_{n+1}) = y(t_n + h) = y(t_n) + h \cdot f(t_n, y(t_n)) + \frac{h^2}{2} y''(\xi_n)$$
+}
+	\reponse{ $$y(t_{n+1}) = y(t_n + h) = y(t_n) + h \cdot y'(t_n) + \frac{h^2}{2} y''(\xi_n)$$
+		
+		où $\xi_n \in [t_n, t_{n+1}]$. }
+	\item \question{ Donne le développement de Taylor-Lagrange à l'ordre $1$ de $f(t_n + \frac{h}{2}, y(t_n) + \frac{h}{2} f(t_n, y(t_n)))$ au voisinage de $(t_n,y(t_n))$. }
+	\reponse{ $$f(t_n + \frac{h}{2}, y(t_n) + \frac{h}{2} f(t_n, y(t_n))) = f(t_n, y(t_n)) + \frac{h}{2} \left( \frac{\partial f}{\partial t}(t_n, y(t_n)) + f(t_n, y(t_n)) \frac{\partial f}{\partial y}(t_n, y(t_n)) \right) + \mathcal{O}(h^2)$$ }
+	\item \question{ En déduire que le schéma de Leapfrogest consistant d'ordre au moins $1$. }
+\end{enumerate}
+}
+
+%2. Démontrer que la consistance du schéma numérique de point milieu est d'ordre 2 en utilisant le théorème de Taylor-Lagrange. Pour cela, on pourra écrire le développement limité de $y(t_{n+1})$ et $f(t_n + \frac{h}{2}, y(t_n) + \frac{h}{2} f(t_n, y(t_n)))$ en fonction de $h$.
+%
+%3. En déduire une expression de l'erreur locale du schéma numérique de point milieu en fonction de $h$.
+%
+%4. Discuter brièvement de l'impact de cette erreur locale sur l'erreur globale du schéma numérique.
+%
+%Réponses :
+%
+%1. Montrons que le schéma numérique de point milieu est bien défini.
+%
+%Par définition, $y_{n+1}$ est donné par :
+%
+%$$y_{n+1} = y_n + h \cdot f(t_n + \frac{h}{2}, y_n + \frac{h}{2} f(t_n, y_n))$$
+%
+%Comme $f$ est supposée suffisamment régulière, en particulier continue, et $y_n$ et $t_n$ sont connus à chaque itération, il est clair que $y_{n+1}$ est bien une fonction de $y_n$ et $t_n$. Ainsi, le schéma numérique de point milieu est bien défini.
+%
+%2. Démontrons que la consistance du schéma numérique de point milieu est d'ordre 2 en utilisant le théorème de Taylor-Lagrange.
+%
+%Tout d'abord, écrivons le développement limité de $y(t_{n+1})$ en fonction de $h$ :
+%
+%$$y(t_{n+1}) = y(t_n + h) = y(t_n) + h \cdot y'(t_n) + \frac{h^2}{2} y''(\xi_n)$$
+%
+%où $\xi_n \in [t_n, t_{n+1}]$.
+%
+%Maintenant, écrivons le développement limité de $f(t_n + \frac{h}{2}, y(t_n) + \frac{h}{2} f(t_n, y(t_n)))$ en fonction de $h$ :
+%
+%$$f(t_n + \frac{h}{2}, y(t_n) + \frac{h}{2} f(t_n, y(t_n))) = f(t_n, y(t_n)) + \frac{h}{2} \left( \frac{\partial f}{\partial t}(t_n, y(t_n)) + f(t_n, y(t_n)) \frac{\partial f}{\partial y}(t_n, y(t_n)) \right) + \mathcal{O}(h^2)$$
+%
+%En comparant les deux expressions et en utilisant $y'(t_n) = f(t_n, y(t_n))$, on obtient :
+%
+%$$y(t_{n+1}) - y(t_n) - h \cdot f(t_n + \frac{h}{2}, y(t_n) + \frac{h}{2} f(t_n, y(t_n))) = \frac{h^2}{2} y''(\xi_n) - \frac{h^2}{2} \left( \frac{\partial f}{\partial t}(t_n, y(t_n)) + f(t_n, y(t_n)) \frac{\partial f}{\partial y}(t_n, y(t_n)) \right) + \mathcal{O}(h^3)$$
+%
+%Ainsi, l'erreur locale du schéma numérique de point milieu est d'ordre 2 en $h$.
+%
+%3. L'expression de l'erreur locale du schéma numérique de point milieu en fonction de $h$ est :
+%
+%$$e_n = y(t_{n+1}) - y_{n+1} = \frac{h^2}{2} y''(\xi_n) - \frac{h^2}{2} \left( \frac{\partial f}{\partial t}(t_n, y(t_n)) + f(t_n, y(t_n)) \frac{\partial f}{\partial y}(t_n, y(t_n)) \right) + \mathcal{O}(h^3)$$
+%
+%4. L'erreur globale du schéma numérique est la somme des erreurs locales commises à chaque itération. Comme l'erreur locale est d'ordre 2 en $h$, l'erreur globale sera aussi d'ordre 2 en $h$. Cependant, l'erreur globale dépendra également du nombre d'itérations effectuées, qui est proportionnel à $\frac{1}{h}$. Ainsi, l'erreur globale sera d'ordre $\mathcal{O}(h)$ en général, mais pourra être d'ordre $\mathcal{O}(h^2)$ dans certains cas particuliers (par exemple, si les termes d'erreur se compensent partiellement).

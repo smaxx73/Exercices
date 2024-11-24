@@ -1,0 +1,22 @@
+\uuid{tCEz}
+\titre{Développement en série entière}
+\theme{séries entières}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\begin{enumerate}
+	\item \question{ Donner un développement en série entière de la fonction $u \mapsto \ln(1-u)$, en précisant le rayon de convergence ; }
+	\reponse{Quelque soit $u \in ]-1;1[$, $\ln(1-u) = \sum\limits_{n=1}^{+\infty} \frac{-1}{n}\ u^n=-u-\frac{u^2}{2}-\frac{u^3}{3}+\cdots$
+	}
+%	\item \question{ Vérifier que pour tout $x \in \mathbb{R}$, $(1-x^3) = (1-x)(1+x+x^2)$. }
+%	\reponse{Il suffit de développer $(1-x)(1+x+x^2)$}
+	\item \question{ En déduire un développement en série entière de la fonction $x \mapsto \ln(1+x+x^2)$ (on précisera son rayon de convergence et on pourra utiliser que $(1-x^3) = (1-x)(1+x+x^2)$). }
+	\reponse{On a donc $\ln(1-x^3) = \ln(1-x) + \ln(1+x+x^2)$. \\ Or $\ln(1-x) = \sum\limits_{n=1}^{+\infty} -\frac{1}{n}\ x^n$ et $\ln(1-x^3) = \sum\limits_{n=1}^{+\infty} -\frac{1}{n}\ x^{3n}$ donc 
+		\begin{align*}
+		\ln(1+x+x^2) &= \sum\limits_{n=1}^{+\infty} -\frac{1}{n}\ x^{3n} - \sum\limits_{n=1}^{+\infty} -\frac{1}{n}\ x^n \\
+		&= -\sum\limits_{n=1}^{+\infty} \frac{1}{n}\ x^{3n} + \sum\limits_{n=1}^{+\infty} \frac{1}{n}\ x^n =\sum\limits_{n=1}^{+\infty}a_n x^{n}
+		\end{align*}
+		avec $a_n = -\frac{3}{n}+\frac{1}{n} = \frac{-2}{n}$ s'il existe $p$ tel que $n=3p$, $a_n = \frac{1}{n}$ sinon. 
+	}
+\end{enumerate}}

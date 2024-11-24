@@ -1,0 +1,28 @@
+\uuid{rVaz}
+\titre{Critère de D'Alembert}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ On définit les deux suites suivantes pour tout $n$ entier naturel non nul :
+$$u_n=\frac{(n+1)(n+2)...(2n)}{(2n)^n} \quad \text{ et } \quad v_n=\frac{1}{\sqrt{n(n+1)}}.$$
+	On s'intéresse à la nature de la série de terme général $u_n$ et de la série de terme général $v_n$. }
+	\begin{enumerate}
+		\item \question{ Appliquer le critère de d'Alembert à ces deux séries.  Que peut-on conclure sur la nature des séries de terme général $u_n$ et $v_n$ ? }
+		\reponse{ On a $u_n \geq 0$ pour tout $n \in \N^*$ et 
+		\begin{align*} 
+			\frac{u_{n+1}}{u_n} &= \frac{(n+2)(n+3)...(2n+2)}{(2n+2)^{n+1}} \times \frac{(2n)^n}{(n+1)(n+2)...(2n)} \\
+			&= \frac{2n+1}{n+1} \times \left(\frac{2n}{2n+2}\right)^n \\
+			&= \frac{2n+1}{n+1} \times \left(1-\frac{1}{n+1}\right)^n \\
+			&\underset{+\infty}\sim \frac{2n+1}{n+1} \times \frac{1}{e} \underset{+\infty}\sim \frac{2}{e} < 1
+		\end{align*}
+		donc par le critère de d'Alembert, la série $\sum u_n$ converge.	
+
+		Pour la deuxième série, on a $v_n \geq 0$ pour tout $n \in \N^*$ et $\frac{v_{n+1}}{v_n} = \frac{\sqrt{n(n+1)}}{\sqrt{(n+1)(n+2)}} = \frac{\sqrt{n}}{\sqrt{n+2}} = \frac{\sqrt{n}}{\sqrt{n}(\sqrt{1+\frac{2}{n}})} \underset{+\infty}\sim \frac{1}{\sqrt{1+\frac{2}{n}}} \underset{+\infty}\sim 1$ donc par le critère de d'Alembert, la série $\sum v_n$ est indéterminée.}
+
+		\item \question{ En comparant la série de terme général $v_n$ à une série usuelle, déterminer sa nature. }
+		\reponse{ On a $v_n \geq 0$ pour tout $n \in \N^*$ et $v_n \underset{+\infty}\sim \frac{1}{n}$ donc par comparaison à une série de Riemann divergente, la série $\sum v_n$ diverge. }
+	\end{enumerate}
+}

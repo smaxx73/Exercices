@@ -1,0 +1,47 @@
+\uuid{9ty1}
+\titre{Utilisation d'une table de loi normale}
+\theme{statistiques}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{\`A l'aide des tables de valeurs, effectuer les calculs suivants à $10^{-2}$ près.}
+
+\begin{enumerate}
+	\item 
+ \question{Calculer $\PP(-1.2 \leq Z \leq 1.1)$ où $Z$ suit une loi $\mathcal{N}(0,1)$.}
+  \reponse{On exprime la probabilité à l'aide de la fonction de répartition de la loi normale centrée réduite notée $\Phi$ : 
+\begin{align*}
+\PP(-1.2 \leq Z \leq 1.1) &= \PP(Z \leq 1.1) - \PP(Z < -1.2) \\
+                          &= \PP(Z \leq 1.1) - \PP(Z > 1.2) &\text{par symétrie}\\
+                          &= \PP(Z \leq 1.1) - (1-\PP(Z \leq 1.2)) \\
+                          &= \Phi(1.1)+\Phi(1.2)-1 \\
+                          &\approx 0{,}75
+\end{align*}  
+
+}
+  \item \question{Calculer $\PP(70 \leq QI \leq 130)$ où $QI$ suit une loi $\mathcal{N}(100,\sigma=15)$.}
+  \reponse{On pose $Z = \frac{QI-100}{15}$ de telle sorte que $Z$ suit une loi normale centrée réduite. On exprime alors
+  \begin{align*}
+  \PP(70 \leq QI \leq 130) &= \PP\left(\frac{70-100}{15} \leq \frac{QI-100}{15} \leq \frac{130-100}{15}\right) \\
+                           &= \PP(-2 \leq Z \leq 2) \\
+                           &= 2\times \Phi(2) -1 \\
+                           &\approx 0{,}95
+  \end{align*}
+}
+  \item \question{Déterminer un réel $t$ tel que $\PP(|X-5|<t) = 95\%$ où 
+  $X$ suit une loi $\mathcal{N}(5,\sigma=1)$.}
+ \reponse{On pose $Z = {X-5}$ de telle sorte que $Z$ suit une loi normale centrée réduite. On exprime alors
+ \begin{align*}
+\PP(|X-5| <t) &= \PP\left( -t<X-5<t\right) \\
+&= \PP\left( -t \leq Z \leq t\right) \\
+&= 2\times \Phi(t) -1 \\
+\end{align*} 
+On cherche $t \in \R$ tel que 
+\begin{align*}
+\PP(|X-5| <t) = 0.95 &\iff 2\times \Phi(t) -1 = 0.95 \\
+                     &\iff \Phi(t) = 0.975 \\
+                     &\iff t \approx 1{,}96 &\text{par lecture inverse de la table}
+\end{align*}
+}
+\end{enumerate} }

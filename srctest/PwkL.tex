@@ -1,0 +1,31 @@
+\uuid{PwkL}
+\titre{Estimation des paramètres d'une loi normale}
+\theme{statistiques}
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	On considère un échantillon $X_1,...,X_n$ suivant une loi normale $\mathcal{N}(\mu,\sigma^2)$. On cherche un estimateur de $\mu$ et de $\sigma$ par la méthode du maximum de vraisemblance. On note $(x_1,...,x_n)$ une réalisation de cet échantillon. On rappelle que la densité d'une loi normale est $$f(x)=\frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$ }
+\begin{enumerate}
+	\item \question{ Exprimer la fonction de vraisemblance $L(x_1,...,x_n,\mu,\sigma)$, puis son logarithme. }
+	\reponse{
+		$$L(x_1,...,x_n,\mu,\sigma) = \prod_{i=1}^n f(x_i) = \prod_{i=1}^n \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}$$
+		$$\ln L(x_1,...,x_n,\mu,\sigma) = \sum_{i=1}^n \ln \left(\frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}\right) = -n\ln(\sigma \sqrt{2\pi}) - \sum_{i=1}^n \frac{(x_i-\mu)^2}{2\sigma^2}$$
+	}
+	\item \question{ Dériver $\ln L(x_1,...,x_n,\mu,\sigma)$ par rapport à $\mu$. }
+	\reponse{
+		$$\frac{\partial \ln L(x_1,...,x_n,\mu,\sigma)}{\partial \mu} = \sum_{i=1}^n \frac{x_i-\mu}{\sigma^2}$$
+	}
+	\item \question{ En déduire un estimateur de $\mu$. }
+	\reponse{
+		$$\frac{\partial \ln L(x_1,...,x_n,\mu,\sigma)}{\partial \mu} = 0 \Leftrightarrow \sum_{i=1}^n \frac{x_i-\mu}{\sigma^2} = 0 \Leftrightarrow \sum_{i=1}^n x_i - n\mu = 0 \Leftrightarrow \mu = \frac{1}{n}\sum_{i=1}^n x_i$$
+		donc $\hat{\mu} = \frac{1}{n}\sum_{i=1}^n x_i$ est un estimateur de $\mu$.
+	}
+	\item \question{ Déterminer un estimateur de $\sigma$ avec une démarche analogue. } 
+	\reponse{
+		$$\frac{\partial \ln L(x_1,...,x_n,\mu,\sigma)}{\partial \sigma} = \sum_{i=1}^n \frac{(x_i-\mu)^2}{\sigma^3} - \frac{n}{\sigma}$$
+		$$\frac{\partial \ln L(x_1,...,x_n,\mu,\sigma)}{\partial \sigma} = 0 \Leftrightarrow \sum_{i=1}^n \frac{(x_i-\mu)^2}{\sigma^3} - \frac{n}{\sigma} = 0 \Leftrightarrow \sum_{i=1}^n (x_i-\mu)^2 = n\sigma^2$$
+		$$\Leftrightarrow \sigma^2 = \frac{1}{n}\sum_{i=1}^n (x_i-\mu)^2$$
+		donc $\hat{\sigma} = \sqrt{\frac{1}{n}\sum_{i=1}^n (x_i-\mu)^2}$ est un estimateur de $\sigma$.
+	}
+\end{enumerate}}

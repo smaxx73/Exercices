@@ -1,0 +1,25 @@
+\uuid{A2Gl}
+\titre{Loi de Poisson et estimation par maximum de vraisemblance}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{	On considère un échantillon $X_1,...,X_n$ suivant une loi de Poisson $\mathcal{P}(\lambda)$. On cherche un estimateur de $\lambda$ par la méthode du maximum de vraisemblance. On note $(x_1,...,x_n)$ une réalisation de cet échantillon.}
+\begin{enumerate}
+	\item \question{ Exprimer la fonction de vraisemblance $L(x_1,...,x_n,\lambda)$ en fonction de l'échantillon et du paramètre $\lambda$ à estimer. } 
+	\reponse{ $\displaystyle L(x_1,\cdots,x_n,\lambda)=\prod_{i=1}^n \mathbb{P}(X_i=x_i)$ or $X_i \sim \mathcal{P}(\lambda)$ donc
+		\[ L(x_1,\cdots,x_n,\lambda)=\prod_{i=1}^n \frac{\lambda^{x_i}}{x_i !}e^{-\lambda}\] }
+	\item \question{ Trouver pour quelle valeur de $\lambda$ la fonction de vraisemblance atteint son maximum. }
+	\reponse{ On a
+		\begin{align*}
+			\ln L(x_1,\cdots,x_n,\lambda) &= \sum_{i=1}^n \left(\ln(\lambda^{x_i})-\lambda - \ln(x_i !) \right) \\
+			&= (\ln \lambda) \sum_{i=1}^n x_i -n\lambda - \sum_{i=1}^n \ln(x_i !)
+		\end{align*}
+		donc en dérivant par rapport à $\lambda$,
+		\[ \frac{\partial L(x_1,\cdots,x_n,\lambda)}{\partial \lambda}=\frac{1}{\lambda}\sum_{i=1}^n x_i -n.\]
+		Or 
+		\[ \frac{\partial L(x_1,\cdots,x_n,\lambda)}{\partial \lambda}=0 \quad \Leftrightarrow \quad \lambda=\frac{1}{n}\sum_{i=1}^n x_i.\] }
+	\item \question{ Conclure. }
+	\reponse{ L'estimateur par maximum de vraisemblance de $\lambda$ est $\displaystyle\frac{1}{n}\sum_{i=1}^n X_i$ et une estimation de $\lambda$ est $\displaystyle \frac{1}{n}\sum_{i=1}^n x_i$. }
+\end{enumerate}}

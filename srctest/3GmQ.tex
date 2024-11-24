@@ -1,0 +1,36 @@
+\uuid{3GmQ}
+\titre{Contrôle qualité}
+\theme{statistiques}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Une entreprise fabrique  des pièces en sous-traitance. Au sein d'une démarche qualité,  toutes  les  machines  ont  été  systématiquement révisées  et  on  a  défini  une  nouvelle  organisation  dans  l'atelier  :  les  tâches  de  contrôle  sont  réparties  à  chaque  étape  du  processus  de  fabrication et le taux de pièces défectueuses est tombé à 1\%. 
+
+Quelques  mois  plus  tard,  une  opération  de  contrôle  est  effectuée  pour  vérifier  si  la  norme  de  1\%  (hypothèse  $H_0$)  de  pièces  défectueuses reste valable. Sur les 5 000 pièces contrôlées 100 s'avèrent défectueuses, soit 2\% (hypothèse $H_1$). 
+
+Mme de Mainard, chef d'entreprise, décide que si l'hypothèse nulle est vérifiée, elle ne modifiera plus son processus de production (décision $D0$) et au contraire, si c'est l'hypothèse alternative, elle entreprendra une action de sensibilisation des salariés de cet atelier au problème de la qualité (décision $D1$). 
+
+Pour choisir entre ces deux hypothèses, elle tire un échantillon de 1 500 pièces.  }
+\begin{enumerate}
+	
+	\item \question{  Si la chef d'entreprise se fixe un risque de 1\% d'entreprendre une action de sensibilisation des salariés à tort, quel sera le taux critique de pièces défectueuses qui fera prendre une décision ? }
+	\reponse{ On réalise les premières étapes d'un test de conformité d'une proportion : 
+\begin{enumerate}
+	\item Hypothèses : $\begin{cases}
+		H_0 \colon p = 0.01 \\
+		H_1 \colon p > 0.01
+		\end{cases}$
+	\item Variable de décision : $Z = \dfrac{F-0.01}{\sqrt{\frac{0.01\times 0.99}{1500}}} \sim \mathcal{N}(0,1)$
+	\item Zone de rejet : $W = [2.326 ; +\infty][$ pour une erreur de première espèce $\alpha = 1\%$
+	\item proporition critique : on cherche $p_C$ tel que $ \dfrac{F-0.01}{\sqrt{\frac{0.01\times 0.99}{1500}}} = 2.326$ et on trouve $p_C = 0.016 = 1{,}6\%$. 	
+\end{enumerate}	
+Au delà de $1{,}6\%$ de pièces défectueses observées, on rejette l'hypothèse $H_0$ avec un risque de première espèce $\alpha = 1\%$. 
+ }
+	
+	\item \question{  Si dans l'échantillon prélevé, le nombre de pièces défectueuses est 18, quelle sera la décision de la chef d'entreprise ? }
+	\reponse{ On a $F_{obs} = \frac{18}{1500} = 0.012$ : la décision prise est donc $D0$ (on ne rejette pas $H_0$).  }
+	\item   \question{ Calculer alors le risque de l'acheteur, c'est-à-dire ne pas modifier le processus de production alors qu'on le devrait. Comment s'appelle ce risque ? }
+	\reponse{ On cherche la probabilité de prendre la décision $D0$ par erreur, c'est-à-dire si $H_1$ est vraie. Sous l'hypothèse $p=0.02$, on a la variable $Z_2 = \dfrac{F-0.02}{\sqrt{\frac{0.02\times 0.98}{1500}}}$ qui suit une loi $ \mathcal{N}(0,1)$.   }
+	
+\end{enumerate}}

@@ -1,0 +1,16 @@
+\uuid{tn85}
+\titre{Chi-deux et Student}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soient 9 variables aléatoires normales centrées réduites notées $(U_i)_{1 \leq i \leq 9}$. on suppose que les variables $(U_i)_{1 \leq i \leq 9}$ sont indépendantes. }
+\begin{enumerate}
+	\item \question{ Quelle est la loi suivie par $X=\sum\limits_{i=1}^{9}U_i^2$ ? Déterminer le réel $x$ tel que $\PP(X > x) = 0.05$. }
+	\reponse{ Les variables $(U_i)_{1 \leq i \leq 9}$ sont indépendantes et suivent chacune une loi $\mathcal{N}(0,1)$ donc $\sum\limits_{i=1}^{9}U_i^2$ suit une loi $\chi^2(9)$. }
+	\item \question{ Soit $Y$ une variable aléatoire suivant une loi normale de moyenne 10 et d'écart-type 3, indépendante de $X$. Quelle est la loi suivie par la variable aléatoire $Z=\frac{Y-10}{\sqrt{X}}$ ? Déterminer le réel $z$ tel que $\PP(Z > z) = 0.05$. }
+	\reponse{ On réécrit $Z=\frac{Y-10}{\sqrt{X}} = \frac{ \frac{Y-10}{3}}{ \sqrt{\frac{X}{9}}  }$ ; or $\frac{Y-10}{3}$ suit une loi normale centrée réduite donc par définition, $Z$ suit une loi $St(9)$. }
+	%	\item Soit $V$ une variable aléatoire distribuée selon une loi du $\chi^2$ à 3 degrés de liberté, indépendante de $X$. Quelle est la loi suivie par $W_1=\frac{X}{3V}$ ? Quelle est la loi suivie par $W_2=\frac{3V}{X}$ ? Déterminer le réel $w_2$ tel que $\PP(W_2 > w_2) = 0.05$.
+\end{enumerate}
+}

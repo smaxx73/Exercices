@@ -1,0 +1,31 @@
+\uuid{ZVIr}
+\titre{Calculs de lois}
+\theme{statistiques}
+
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{Soient $\left(X_i\right)_{1 \leq i \leq 9}$ des variables aléatoires indépendantes, identiquement distribuées, suivant chacune une loi normale de moyenne $\mu = 2$ et de variance $\sigma^2 = 9$.}
+
+\begin{enumerate}
+	\item \question{Déterminer la probabilité de l'événement $\{X_1 \geq 1\}$.}
+	\reponse{$X_1$ suit une loi $\mathcal{N}(2,3^2)$ donc $\PP(X_1 \geq 1)=\PP(\frac{X_1-2}{3} \geq \frac{1-2}{3}) = \PP(U \geq -0.3333)$ où $U$ suit une loi $\mathcal{N}(0,1)$. Or par symétrie,  $\PP(U \geq -0.3333) = \PP(U \leq 0.3333)$ et d'après la table, $\PP(U \leq 0.3333)=0.6293$
+		
+		Donc  \fbox{$\PP(X_1 \geq 1)=0.6293$}
+	}
+	\item \question{ Soit $Y$ la variable aléatoire définie par $$Y = \frac{1}{9}\sum_{i=1}^9 X_i$$ Déterminer la loi de $Y$ et calculer $\PP(Y \geq 1)$.}
+	\reponse{On sait que $\mathbb{E}(Y)=\frac{1}{9} \sum_{i=1}^9 \mathbb{E}(X_i) = \frac{1}{9} \times 9 \times 2 = 2$.
+		
+		On sait que par indépendance des variables,  $\sigma^2(Y)=\frac{1}{9^2} \sum_{i=1}^9 \sigma^2(X_i) = \frac{1}{9^2} \times 9 \times 3^2 = 1$.
+		
+		Donc \fbox{$Y$ suit une loi $\mathcal{N}(2,1)$}.}
+	\item \question{Soit $Z$ la variable aléatoire définie par $$Z = X_1 + X_2 + X_3 + X_4 + X_5 - X_6 - X_7 - X_8 - X_9$$
+		Déterminer la loi de $Z$ et calculer $\PP(Z \geq 1)$.}
+	\reponse{De même, $\mathbb{E}(Z)=2+2+2+2+2-2-2-2-2=2$ et, puisque toutes ces variables sont indépendantes, \\ $\sigma^2(Z)= 3^2+3^2+3^2+3^2+3^2+(-3)^2+(-3)^2+(-3)^2+(-3)^2 =5 \times 3^2+4 \times 3^2 = 81 = 9^2$
+		
+		Donc $Z$ suit une loi $\mathcal{N}(2,9^2)$.
+		
+		Puis on calcule $\PP(Z \geq 1) = \PP(U \geq \frac{1-2}{9}) = \PP(U \geq -\frac19 )=\PP(U \leq \frac19)$. D'après la table, \fbox{$\PP(Z \geq 1) = 0.5438$}.}
+\end{enumerate}}

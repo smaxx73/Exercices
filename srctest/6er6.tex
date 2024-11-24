@@ -1,0 +1,23 @@
+\uuid{6er6}
+\titre{Calculs avec une loi normale}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+%
+\contenu{
+
+\texte{ La demande d'un produit au cours d'une saison suit sensiblement la loi normale de moyenne $\nombre{5000}$ et d'écart-type $\nombre{1000}$. } 
+
+\question{ Quel niveau de stock doit-on maintenir en début de saison pour que la demande soit satisfaite dans $90$\% des cas ? }
+
+\reponse{ 
+	Soit $X$ le nombre de produits demandés au cours d'une saison. Par l'énoncé, on sait que $X\sim\mathcal{N}(\nombre{5000},\sigma=\nombre{1000})$. \\
+	Soit $\alpha$ le niveau de stock en début de saison. On cherche $\alpha$ tel que $\prob(X\leq \alpha)=\nombre{0.9}$, ce qui donne:
+	\begin{align*}
+		\prob\left(\frac{X-\nombre{5000}}{\nombre{1000}}\leq \frac{\alpha-\nombre{5000}}{\nombre{1000}}\right)=0.9 \quad
+		& \Leftrightarrow \quad \prob\left(Z\leq \frac{\alpha-\nombre{5000}}{\nombre{1000}}\right)=\nombre{0.9}, \quad \text{ avec } Z=\frac{X-\nombre{5000}}{\nombre{1000}}\sim \mathcal{N}(0,1)
+	\end{align*}
+	Par lecture de la table de loi $\mathcal{N}(0,1)$, on obtient $\frac{\alpha-\nombre{5000}}{\nombre{1000}}\simeq 1.29$, c'est-à-dire $\alpha \simeq 6290$. \\
+	Le niveau de stock en début de saison doit être de $6290$ unités pour satisfaire la demande dans $90$\% des cas.
+}
+}

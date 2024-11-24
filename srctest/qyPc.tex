@@ -1,0 +1,65 @@
+\uuid{qyPc}
+\titre{Simulation de loi : Rademacher, Laplace, Géométrique}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	La fonction {\rm{random}} disponible dans les logiciels de calcul permet de générer des nombres aléatoires sur l'intervalle $[0;1]$, distribués selon une loi uniforme $\mathcal{U}([0;1])$. A partir de cette fonction, il est facile de simuler des variables aléatoires suivant d'autres lois. On donne ou on rappelle la définition de quelques lois usuelles :
+	
+	\underline{Définition : }
+		Soit $p \in ]0;1[$ : une variable $X$ suit une loi de Rademacher $\mathcal{R}(p)$ si :
+		\begin{itemize}
+			\item $\PP(X=1)=p$
+			\item $\PP(X=-1)=1-p$
+		\end{itemize}
+
+	
+	\underline{Définition : }
+		Soit $\lambda >0$ : une variable $X$ suit une loi de Laplace $\mathcal{L}(\lambda)$ si elle admet pour densité :
+		$$f_X(x) = \frac{\lambda}{2} e^{-\lambda |x|}$$
+
+	
+	
+	\underline{Définition : }
+		Soit $p \in ]0;1[$ : une variable $X$ suit une loi géométrique $\mathcal{G}(p)$ si pour tout entier $k \geq 1$ :
+		$$\PP(Z=k)=p(1-p)^{k-1}$$
+
+	
+	\underline{Notations} : pour tout événement $A$, on note $\textbf{1}_A$ la fonction indicatrice de $A$ ; pour tout $x$ réel, on note $[x]$ la partie entière de $x$.
+	
+	Soient $X$ et $Y$ deux variables aléatoires indépendantes : $X$ suit une loi Rademacher $\mathcal{R}(1/2)$ et $Y$ suit une loi uniforme sur $[0;1]$. }
+	
+	\begin{enumerate}
+		\item \texte{ Soit $\lambda >0$. On pose $U = \frac{1}{\lambda} X \ln(Y)$.  }
+		\reponse{ Soit $\lambda>0$ et $U = \frac{1}{\lambda} X \ln(Y)$ }
+		\begin{enumerate}
+			\item \question{ Soit $a \in \mathbb{R}$. Calculer $\PP(\ln(Y) \leq a, X=1)$ et $\PP(\ln(Y) \geq a, X=-1)$ }
+			      \reponse{ Soit $a \in \mathbb{R}$. Par indépendance de $X$ et $Y$, on a $\PP(\ln(Y) \leq a, X=1) = \PP(\ln(Y) \leq a) \times \PP(X=1) = \PP(Y \leq e^a) \times \frac{1}{2}$. Or 
+			      	$\PP(Y \leq t) = 1$ si $t >1$ et $\PP(Y \leq t) = t$ si $0<t<1$ étant donnée la loi suivie par $Y$. Par conséquent, on a  $\PP(\ln(Y) \leq a, X=1) = \begin{cases} \frac{1}{2} \text{ si } a>0 \\ \frac{1}{2} e^a \text{ sinon}\end{cases} $.
+			      	
+			      	De même, $\PP(\ln(Y) \geq a, X=-1) = \begin{cases} 0 \text{ si } a>0 \\ \frac{1}{2} (1-e^a) \text{ sinon}\end{cases} $ }
+			\item \question{ Déterminer la fonction de répartition de la variable $U$. }
+			      \reponse{ Soit $F_U$ la fonction de répartition de la variable $U$. Par définition, pour tout réel $t$, 
+			      	$$F_U(t) = \PP(\frac{1}{\lambda} X\, \ln(Y) \leq t) = \PP(X \, \ln(Y) \leq \lambda t)$$
+			      	
+			      	Par application du théorème des probabilités totales au système d'événements $\{(X=1), (X=-1)\}$, 
+			      	$$F_U(t) = \PP(X=1,Y \leq e^{\lambda t}) + \PP(X=-1,Y \geq e^{-\lambda t})$$
+			      	D'après le calcul précédent, on obtient 
+			      	$$F_U(t) =   \begin{cases} 1-\frac{1}{2} e^{-\lambda t} \text{ si } t>0 \\ \frac{1}{2} e^{\lambda t} \text{ sinon}\end{cases} $$ }
+			\item \question{ En déduire que $U$ suit une loi de Laplace $\mathcal{L}(\lambda)$. }
+			      \reponse{ On dérive la fonction de répartition pour obtenir la densité : $F_U'(t) = \begin{cases} \frac{1}{2} \lambda e^{-\lambda t} \text{ si } t>0 \\ \frac{1}{2} \lambda e^{\lambda t} \text{ sinon}\end{cases} = \frac{1}{2} \lambda e^{-\lambda |t|}$. On reconnaît la fonction densité d'une loi de Laplace de paramètre $\lambda$. }
+		\end{enumerate}
+		\item \texte{ Soit $p \in ]0;1[$. On définit les variables $Z = \frac{\ln(Y)}{\ln(1-p)}$ et $V=1+[Z]$. }
+		\reponse{ Soit $p \in ]0;1[$. On définit les variables $Z = \frac{\ln(Y)}{\ln(1-p)}$ et $V=1+[Z]$ }
+		\begin{enumerate}
+			\item \question{ Déterminer la loi de $Z$. }
+			      \reponse{ On tente de déterminer la loi de $Z$ en calculant sa fonction de répartition. Par définition (attention aux signes, $\ln(1-p)<0$), $$F_Z(t) = \PP(\ln(Y) \geq t \ln(1-p)) = \PP(Y \geq (1-p)^t) = 1-F_Y((1-p)^t)$$
+			      	En dérivant, on obtient une densité de $Z$ :
+			      	$$f_Z(t) = \begin{cases} -\ln(1-p) \times (1-p)^t \text { si } t>0 \\ 0 \text{ sinon } \end{cases} $$ }
+			\item \question{ Démontrer que $V$ suit une loi géométrique. }
+			      \reponse{ La variable $V$ est une variable aléatoire discrète à valeurs dans $\N^*$. Par conséquent, pour tout $k \in \N^*$, on calcule 
+			      	$$\PP(V=k) = \PP(k-1 \leq Z < k) = \int_{k-1}^k f_Z(z) dz = (1-p)^{k-1} -(1-p)^k = p(1-p)^{k-1}$$
+			      	On reconnaît bien la loi géométrique de paramètre $p$.  }
+		\end{enumerate}
+	\end{enumerate}}

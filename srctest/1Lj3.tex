@@ -1,0 +1,110 @@
+\uuid{1Lj3}
+\titre{Probabilité d'un maximum}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+%
+\contenu{
+
+On considère $X_1$, $X_2$ et $X_3$ trois \vas indépendantes de même loi uniforme sur l'intervalle $[0,2a]$, dont la densité est donc
+$$
+f_{X_i}(t)=
+\left\{\begin{array}{cl}
+	\frac{1}{2a} & \text{si } 0\leq t < 2a, \\[1mm]
+	0 & \text{sinon.}
+\end{array}\right.
+$$
+On note $F_X$ la fonction de répartition de $X_i$ pour $i\in\{1,2,3\}$.
+\begin{enumerate}
+	\item \question{ Calculer $\E(X_i)$ et $\var(X_i)$, pour $i\in\{1,2,3\}$. On considère la variable aléatoire $Y=\frac{1}{3}(X_1+X_2+X_3)$. Exprimer $\E(Y)$ et $\var(Y)$ sans déterminer la loi de $Y$. }
+	\reponse{ 
+		Espérance de $X_i$:
+		\[ \E(X_i)=\int_0^{2a}\frac{t}{2a}  \dx t = \left[ \frac{1}{4a}t^2 \right]_0^{2a} =\frac{4a}{(2a)^2}=a\]
+		Variance de $X_i$:
+		\begin{align*}
+			&\E(X_i^2)=\int_0^{2a}\frac{t^2}{2a}  \dx t = \left[ \frac{t^3}{6a} \right]_0^{2a} =\frac{6a}{(2a)^3}=\frac{4}{3} a^2 \\
+			&\var(X_i)=\E(X_i^2)-\E(X_i)^2=\frac{4}{3}a^2-a^2=\frac{1}{3}a^2
+		\end{align*}
+		Espérance de $Y$:
+		\[\E(Y)=\frac{1}{3}(\E(X_1)+\E(X_2)+\E(X_3))=a\]
+		Variance de $Y$: 
+		\begin{align*}
+			\var(Y)&=\frac{1}{9}\var(X_1+X_2+X_3) \\
+			&= \frac{1}{9}(\var(X_1)+\var(X_2)+\var(X_3)) \quad \text{ car les va }X_i\text{ sont indépendantes} \\
+			&=\frac{a^2}{9}
+		\end{align*}
+	}
+	
+	\item \question{ On pose $Z=\max(X_1,X_2,X_3)$. Justifier que la fonction de répartition $F_Z$ de $Z$ vérifie: $\displaystyle F_Z(t)=\prod_{i=1}^3 F_{X_i}(t)$. En déduire qu'une densité de $Z$ est :
+	$$
+	f_{Z}(t)=
+	\left\{\begin{array}{cl}
+		\frac{3}{(2a)^3}t^2 &\text{si } 0\leq t \leq 2a, \\[1mm]
+		0& \text{sinon.}
+	\end{array}\right.
+	$$ }
+	\reponse{ 
+		Fonction de répartition de $Z$:
+		\begin{align*}
+			\forall t \in\R, \quad  F_Z(t)&=\p(Z\leq t)\\
+			& =\p(\max(X_1,X_2,X_3) \leq t) \\
+			&=\p(\{X_1\leq t\}\cap \{X_2\leq t\}\cap \{X_3\leq t\}) \\
+			&=\p(X_1\leq t)\p(X_2\leq t)\p(X_3\leq t) \quad \text{ car les va }X_i\text{ sont indépendantes}\\
+			&=\prod_{i=1}^3 F_{X_i}(t) 
+		\end{align*}
+		Densité de $Z$:
+		\[ \forall t \in \R, \quad f_Z(t)=F_Z'(t)=3F_{X_1}(t)\times f_{X_1}(t) \]
+		or
+		\[ F_{X_1}(t)=\begin{cases} 0 & \text{ si } t<0 \\
+			\frac{t}{2a} & \text{ si } t\in[0;2a] \\
+			1 & \text{ si } t> 2a
+		\end{cases}
+		\]
+		donc
+		\begin{align*}
+			f_Z(t)&= \begin{cases}
+				0 & \text{ si } t< 0 \text{ ou } t>2a \\
+				3\left(\frac{t}{2a}\right)^2\times \frac{1}{2a} &  \text{ si } t\in[0;2a]
+			\end{cases} \\
+			&= \begin{cases}
+				0 & \text{ si } t< 0 \text{ ou } t>2a \\
+				\frac{3}{(2a)^3}t^2 & \text{ si } t\in[0;2a]
+			\end{cases}
+		\end{align*}
+	}
+	
+	\item \question{ Calculer $\E(Z)$ et $\var(Z)$. Soit la \va $T=\alpha Z$. Déterminer $\alpha$ de sorte que $\E(T)=\E(Y)$. }
+	\reponse{ 
+		Espérance de $Z$:
+		\[ \E(Z)=\int_0^{2a} \frac{3}{(2a)^3}t^3  \dx t
+		=\left[ \frac{3}{4}\frac{1}{(2a)^3}t^4 \right]_0^{2a}
+		=\frac{3a}{2}
+		\]
+		Variance de $Z$:
+		\begin{align*}
+			&\E(Z^2)=\int_0^{2a} \frac{3}{(2a)^3}t^4  \dx t
+			=\left[ \frac{3}{5}\frac{1}{(2a)^3}t^5 \right]_0^{2a}
+			=\frac{12}{5}a^2 \\
+			&\var(Z)=\E(Z^2)-\E(Z)^2
+			=\frac{12}{5}a^2-\frac{9}{4}a^2=\frac{3}{20}a^2
+		\end{align*}
+		Détermination de $\alpha$:
+		\begin{align*}
+			\E(T)=\E(Y) \quad \Leftrightarrow \quad \alpha\E(Z)=a
+			\quad \Leftrightarrow \quad \alpha \frac{3a}{2}=a
+			\quad \Leftrightarrow \quad \alpha=\frac{2}{3}
+		\end{align*}
+	}
+	
+	\item\question{  Comparer $\var(T)$ et $\var(Y)$. }
+	\reponse{ 
+		On a
+		$$\var(T)=\sigma^2\left(\frac{2}{3}Z\right)
+		= \frac{4}{9}\var(Z)
+		=\frac{4}{9}\times \frac{3}{20}a^2 
+		=\frac{a^2}{15}.$$
+		Comme $\displaystyle \var(Y)=\frac{a^2}{9}$, on a $\var(T) <  \var(Y)$.
+	}
+	
+\end{enumerate}
+}

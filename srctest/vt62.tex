@@ -1,0 +1,20 @@
+\uuid{vt62}
+\titre{Inversiblité de matrice}
+\theme{calcul matriciel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ VRAI-FAUX - Soit $A$ une matrice carrée. Parmi les affirmations suivantes, lesquelles sont vraies, lesquelles sont fausses, et pourquoi ?  }
+
+\begin{enumerate}
+	\item \question{ Si $A$ est inversible, alors $A .\left({ }^t A\right)=\left({ }^t A\right) \cdot A$.  }
+	\reponse{ FAUX : $A=\left(\begin{array}{ll}1 & 0 \\ 1 & 1\end{array}\right)$ est inversible. $A \cdot\left({ }^t A\right)=\left(\begin{array}{ll}1 & 0 \\ 1 & 1\end{array}\right) \cdot\left(\begin{array}{ll}1 & 1 \\ 0 & 1\end{array}\right)=\left(\begin{array}{ll}1 & 1 \\ 1 & 2\end{array}\right) \quad$ alors que $\left({ }^t A\right) \cdot A=\left(\begin{array}{ll}1 & 1 \\ 0 & 1\end{array}\right) \cdot\left(\begin{array}{ll}1 & 0 \\ 1 & 1\end{array}\right)=\left(\begin{array}{ll}2 & 1 \\ 1 & 1\end{array}\right)$ }
+	\item \question{ Si $A$ est inversible, alors $A .\left({ }^t A\right)$ est inversible ; }
+	\reponse{ VRAI : Si $A$ est inversible, alors $\left({ }^t A\right)$ est aussi inversible avec $\left({ }^t A\right)^{-1}={ }^t(A)^{-1}$. Et le produit de deux matrices inversibles est inversible, donc $A .\left({ }^t A\right)$ est aussi inversible. }
+	\item \question{ Si $A$ est inversible, alors $A+\left({ }^t A\right)$ est inversible. }
+	\reponse{ FAUX : $A=\left(\begin{array}{cc}0 & -1 \\ 1 & 0\end{array}\right)$ est inversible, alors que $A+\left({ }^t A\right)=\left(\begin{array}{cc}0 & -1 \\ 1 & 0\end{array}\right)+\left(\begin{array}{cc}0 & 1 \\ -1 & 0\end{array}\right)=\left(\begin{array}{ll}0 & 0 \\ 0 & 0\end{array}\right)$ ne l'est pas. }
+	\item \question{  Si $A$ est inversible, alors $A$ est semblable à la matrice identité. }
+	\reponse{ FAUX : $A$ est semblable à la matrice identité signifie qu'il existe une matrice inversible $P$ telle que : $P^{-1} . A . P=I d \Leftrightarrow A=P . Id . P^{-1}=I d$. Donc, si $A$ est inversible et $A \neq Id, A$ n'est semblable à la matrice identité.
+		La seule matrice semblable à l'identité est elle-même ! }
+\end{enumerate}}

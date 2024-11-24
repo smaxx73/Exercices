@@ -1,0 +1,45 @@
+\uuid{8mM7}
+\titre{Lancers de dé}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On lance $720$ fois un dé équilibré. }
+\reponse{ 	Soit $X$ le nombre de fois où le nombre $6$ est apparu sur les $720$ lancers. La \va $X$ suit donc la loi $\mathcal{B}(720,\frac{1}{6})$. En particulier, $\E(X)=720\times \frac{1}{6}=120$ et  $\V(X)=720\times \frac{1}{6}\times (1-\frac{1}{6})=100$. }
+\begin{enumerate}
+	\item \begin{enumerate}
+		\item \question{ En utilisant l'inégalité de Bienaymé-Tchebytchev, que peut-on dire de la probabilité que le nombre $6$ soit apparu entre $100$ et $140$ fois ? }
+		\reponse{ En utilisant l'inégalité de Bienaymé-Tchebytchev, on a
+			\[ \p(|X-\E(X)|\geq 20)\leq \frac{\V(X)}{20^2}=\frac{100}{400}=\frac{1}{4}.\]
+			On en conclut
+			\[ \p(100\leq X\leq 140)=\p(|X-120|\leq 20)=1-\p(|X-120|>20)\geq 1-\frac{1}{4}=\frac{3}{4}.\] }
+		\item \question{ Que peut-on dire de cette même probabilité en utilisant une approximation par la loi Normale ? }
+		\reponse{ On approxime la loi de $X$ par la loi $\mathcal{N}(120,\sigma^2=10^2)$. Alors
+			\begin{align*}
+				\p(100\leq X\leq 140)&=\p(-2\leq \frac{X-120}{10}\leq 2) \\
+				&\simeq \p(-2\leq Z\leq 2), \quad \text{où} \ Z\sim \mathcal{N}(0,1) \\
+				&\simeq 2\p(Z\leq 2)-1 \\
+				&\simeq 2* 0.9772-1, \quad \text{par lecture de la table de loi } \mathcal{N}(0,1)  \\
+				& \simeq 0.9544.
+		\end{align*} }
+	\end{enumerate}
+	\item \question{ Déterminer le plus petit entier $n$ tel que $\mathbb{P}(|X-120|\leq n)\geq 0.9$, où $X$ est la variable aléatoire égale au nombre d'apparition du $6$ sur $720$ lancers, que l'on puisse obtenir:
+		\begin{enumerate}
+			\item par l'inégalité de Bienaymé-Tchebytchev,
+			\item par le théorème central-limite.
+	\end{enumerate} }
+	\reponse{ \begin{enumerate}
+			\item Par l'inégalité de Bienaymé-Tchebytchev, on a  
+			\[\p(|X-120|\geq n) \leq \frac{100}{n^2}.\]
+			Si on impose $\frac{100}{n^2}<0.1$, alors on a bien l'inégalité recherchée, à savoir $ \p(|X-120|\leq n) \geq 0.9$.
+			Or 
+			\[ \frac{100}{n^2}<0.1 \Leftrightarrow n>\sqrt{1000}\simeq 31.62.\]
+			La valeur minimale de $n$ obtenue est donc $n=32$.
+			\item $\p(|X-120|\leq n)=\p(|\frac{X-120}{10}|\leq \frac{n}{10})\simeq \p(Z\leq \frac{n}{10})-1$, où $Z\sim \mathcal{N}(0,1)$.
+			Ainsi la condition $ \p(|X-120|\leq n) \geq 0.9$ devient $\p(Z\leq \frac{n}{10})\leq 0.95$, c'est-à-dire 
+			$\frac{n}{10}\geq 1.64$. La valeur minimale de $n$ obtenue est donc $n=17$.
+	\end{enumerate} }
+	\item \question{ Commenter les résultats. }
+	\reponse{ Le théorème central-limite est plus efficace que l'inégalité de Bienaymé-Tchebytchev. }
+\end{enumerate}}

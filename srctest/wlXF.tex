@@ -1,0 +1,23 @@
+\uuid{wlXF}
+\titre{Limite d'une fonction définie sur $\R^2$}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 		Soit $f \colon \R^2 \to \R$,
+$$ (x,y) \mapsto \dfrac{x^2 y^2}{x^2 y^2 + (x-y)^2} $$ }
+\begin{enumerate}
+	\item \question{ Donner l'ensemble de définition de $f$. }
+	\reponse{La fonction $f$ est définie pour tout $(x,y)\in \R^2$ tels que $x^2 y^2 + (x-y)^2 \neq 0 $. Or $x^2y^2 + (x-y)^2 = 0 \iff xy = 0 \text{ et } x=y \iff x=y=0$ donc $f$ est définie sur $\R^2 \backslash \{(0,0)\}$. }
+	\item \question{ Pour $x$ fixé, calculer $g(x) = \lim\limits_{y \to 0} f(x,y)$. }
+	\reponse{Soit $x \in \R$ : si $x=0$, $f(0,y) = 0$ et si $x \neq 0$, $f(x,y) \xrightarrow[y \to 0]{} \frac{0}{x^2} = 0$ }
+	\item \question{ Pour $y$ fixé, calculer $h(y) = \lim\limits_{x \to 0} f(x,y)$. }
+	\reponse{De même, $h(y) = 0$. }
+	\item \question{ Calculer $\lim\limits_{x \to 0} g(x)$. }
+	\reponse{On en déduit que $\lim\limits_{x \to 0} g(x) = 0$}
+	\item \question{ Calculer $\lim\limits_{y \to 0} h(y)$. }
+	\reponse{De même $\lim\limits_{y \to 0} h(y) = 0$}
+	\item \question{ La fonction $f$ admet-elle une limite quand $(x,y) \to (0,0)$~? }
+	\reponse{Non car $f(x,x) = 1 \xrightarrow[x \to 0]{} 1$ et $f(x,0) = 0 \xrightarrow[x \to 0]{} 0 \neq 1$ : on a deux chemins qui donnent deux limites différentes. }
+\end{enumerate}}

@@ -1,0 +1,70 @@
+\uuid{FaOL}
+\titre{Produit matriciel}
+\theme{calcul matriciel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soient les matrices $A=\left(\begin{array}{ll}0 & 0 \\ 0 & 1\end{array}\right)$ et $B=\left(\begin{array}{ll}0 & 0 \\ 1 & 0\end{array}\right)$. }
+
+\begin{enumerate}
+	\item \question{ A-t-on $A^2-B^2=(A+B)(A-B)$ ? Justifier. }
+	\item \question{ Déterminer une condition nécessaire et suffisante pour obtenir l'égalité. }
+\end{enumerate}
+ 
+\reponse{ $$
+\begin{aligned}
+	& A^2=\left(\begin{array}{ll}
+		0 & 0 \\
+		0 & 1
+	\end{array}\right) \cdot\left(\begin{array}{ll}
+		0 & 0 \\
+		0 & 1
+	\end{array}\right)=\left(\begin{array}{ll}
+		0 & 0 \\
+		0 & 1
+	\end{array}\right) \\
+	& B^2=\left(\begin{array}{ll}
+		0 & 0 \\
+		1 & 0
+	\end{array}\right) \cdot\left(\begin{array}{ll}
+		0 & 0 \\
+		1 & 0
+	\end{array}\right)=\left(\begin{array}{ll}
+		0 & 0 \\
+		0 & 0
+	\end{array}\right) \\
+	& A^2-B^2=\left(\begin{array}{ll}
+		0 & 0 \\
+		0 & 1
+	\end{array}\right) \\
+	& A+B=\left(\begin{array}{ll}
+		0 & 0 \\
+		1 & 1
+	\end{array}\right) \\
+	& A-B=\left(\begin{array}{ll}
+		0 & 0 \\
+		-1 & 1
+	\end{array}\right) \\
+	& (A+B) \cdot(A-B)=\left(\begin{array}{ll}
+		0 & 0 \\
+		1 & 1
+	\end{array}\right) \cdot\left(\begin{array}{cc}
+		0 & 0 \\
+		-1 & 1
+	\end{array}\right)=\left(\begin{array}{cc}
+		0 & 0 \\
+		-1 & 1
+	\end{array}\right)
+\end{aligned}
+$$
+Ainsi :
+$$
+A^2-B^2 \neq(A+B)(A-B)
+$$
+Justification :
+$$
+(A+B)(A-B)=A^2 \underbrace{-AB+BA}_{\neq 0}-B^2
+$$
+car $BA \neq A B$.
+Pour avoir l'égalité, il faut et il suffit que $A$ et $B$ commutent : $B A=A B$. }}

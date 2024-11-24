@@ -1,0 +1,45 @@
+\uuid{ZU3E}
+\titre{Approximation par inégalité}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+    \texte{
+        Soit $X$ le nombre d'avions arrivant en une heure sur un aéroport. On suppose que $X$ suit une loi de Poisson de paramètre $\lambda = 16$. 
+    }
+
+    \begin{enumerate}
+        \item \question{ \'A l'aide de l'inégalité de Bienaymé-Tchebychev, donner une minoration de la probabilité $\prob(10 < X < 22)$. }
+        \reponse{
+            D'après l'inégalité de Bienaymé-Tchebychev, on a : 
+            $$\prob(|X-\E(X)|\geq 6 ) \leq  \frac{\V(X)}{6^2}$$
+            ce qui donne : 
+            $$\prob(10\leq X\leq 22) = \prob(|X-16|\geq 6 ) \leq  \frac{\V(X)}{6^2} = \frac{16}{36}$$
+        }
+        \item \question{ \'A l'aide d'une table de la fonction de répartition de la loi de Poisson $\mathcal{P}(16)$ donnée ci-dessous, donner une valeur approchée de la probabilité $\prob(10 < X < 22)$. 
+        
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                $k$ & 9 & 10 & 11 & $\ldots$ & 21 & 22 & 23 \\
+                \hline
+                $\prob(X\leq k)$ & $0.043$ & $0.077$ & $0.127$ & $\ldots$ & $0.911$ & $0.942$ & $0.963$ \\ 
+                \hline
+            \end{tabular}
+        \end{center}
+        }
+        \reponse{
+            On a $\prob(10 < X < 22) = \prob(10 < X \leq 21) = \prob(X\leq 21) - \prob(X\leq 10) = 0.911 - 0.077 = 0.834$.
+        }
+        \item \question{
+            On admet que $X$ peut s'écrire comme la somme de $n$ variables aléatoires indépendantes suivant une loi de Poisson $\mathcal{P}(1)$. Donner une autre approximation de la probabilité $\prob(10 < X < 22)$ en utilisant une loi normale.
+        }
+        \reponse{
+            On a $\E(X) = 16$ et $\V(X) = 16$. D'après le théorème central limite, la variable aléatoire $Z = \frac{X-16}{4}$ suit approximativement une loi normale centrée réduite. On a donc : 
+            $$\prob(10 < X < 22) = \prob\left(\frac{10-16}{4} < Z < \frac{22-16}{4}\right) = \prob(-1.5 < Z < 1.5)$$
+            Par lecture de la table de la loi normale centrée réduite, on trouve $\prob(-1.5 < Z < 1.5) = 2 \times \Phi(1.5) - 1 = 2 \times 0.9332 - 1 \approx 0.8664$.
+        }
+
+    \end{enumerate}
+}

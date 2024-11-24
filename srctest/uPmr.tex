@@ -1,0 +1,38 @@
+\uuid{uPmr}
+\titre{Calculs avec une loi normale}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+%
+\contenu{
+
+\texte{ On suppose que la température (en degré Celsius) dans la ville de Rennes au mois de janvier est une variable aléatoire $T$ qui suit une loi normale $\mathcal{N}(\mu,\sigma)$, d'écart-type $\sigma=4$. }
+\begin{enumerate}
+	\item \question{ Déterminer $\mu$ lorsque $\prob(T>2)=0.33$. }
+	\reponse{$T\sim \mathcal{N}(\mu,\sigma=4)$ 
+		\begin{align*}
+			\prob(T>2)=0.33 \quad & \Leftrightarrow \quad \p\left(\frac{T-\mu}{4}>\frac{2-\mu}{4}\right)=0.33 \\
+			& \Leftrightarrow \quad \p\left(Z>\frac{2-\mu}{4}\right)=0.33 \quad \text{ où } Z\sim\mathcal{N}(0,1) \\
+			& \Leftrightarrow \quad \p\left(Z\leq \frac{2-\mu}{4}\right)=0.67
+		\end{align*}
+		donc $\frac{2-\mu}{4}=0.44$ par lecture de la table de loi $\mathcal{N}(0,1)$.
+		D'où $\mu=0.24$.
+	}
+	
+	\item \question{ Pour la valeur de $\mu$ ainsi obtenue, déterminer $\prob(T\leq 0)$. }
+	\reponse{ 
+		\begin{align*}
+			\prob(T\leq 0)
+			&=\p\left(\frac{T-\mu}{4}\leq \frac{-\mu}{4}\right) \\
+			&=\p\left(\frac{T-0.24}{4}\leq -0.06\right) \\
+			&=\prob(Z\leq -0.06) \quad \text{ en posant } Z=\frac{T-0.24}{4}, \quad \text{ ainsi } Z \sim \mathcal{N}(0,1) \\
+			&= \prob(Z\geq 0.06) \\
+			&= 1-\prob(Z\leq 0.06) \\
+			&= 1- 0.5239 \\
+			&= 0.4761
+		\end{align*}
+		
+	}
+	
+\end{enumerate}
+}

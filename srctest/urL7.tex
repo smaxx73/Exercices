@@ -1,0 +1,88 @@
+\uuid{urL7}
+\titre{Etude de diverses séries}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Dans chacun des cas, dire si la série est absolument convergente, semi-convergente, divergente ou grossièrement divergente.  }
+
+\colonnes{\solution}{3}{1}
+\begin{enumerate}
+	\item \question{ $\sum (\sqrt{n+1}-\sqrt{n})$ }
+	\reponse{ Soit $u_n=\sqrt{n+1}-\sqrt{n}$ pour $n\in\N$. La série $\sum u_n$ est à termes positifs. Il s'agit d'une série télescopique: pour $n\geq 1$,
+		\begin{align*}
+		S_n=&\sum_{k=0}^n (\sqrt{k+1}-\sqrt{k}) =\sum_{k=0}^n \sqrt{k+1}- \sum_{k=0}^n\sqrt{k} 
+		=\sum_{k=1}^{n+1} \sqrt{k}- \sum_{k=0}^n\sqrt{k} \\
+		=& (1+\sqrt{2}+\cdots + \sqrt{n} +\sqrt{n+1})-(0+1+\sqrt{2}+\cdots + \sqrt{n}) \\
+		=& \sqrt{n+1}.
+		\end{align*}
+		En faisant tendre $n$ vers l'infini, on obtient que la suite des sommes partielles de la série $\sum u_n$ tend vers l'infini. Par conséquent, la série $\sum (\sqrt{n+1}-\sqrt{n})$ est une \textbf{série divergente}. }
+	\item \question{ $\sum \left(1-\cos \left(\frac{\pi}{n}\right)\right)$ }
+	\reponse{ Soit $u_n=1-\cos(\frac{\pi}{n})$. La série $\sum u_n$ est une série à termes positifs. Quand $n$ tend vers l'infini, on a l'équivalence suivante:
+		\[ 1- \cos\Big(\frac{\pi}{n}\Big) \sim \frac{\pi^2}{n^2}.\]
+		Or $\sum \frac{1}{n^2}$ est une série de Riemann convergente donc $\sum \frac{\pi^2}{n^2}$ est également convergente. \\
+		Par le théorème d'équivalence, on en déduit que la série $\sum u_n$ est convergente. Comme cette série est à termes positifs, cela revient à dire que la série $\sum u_n$ est une \textbf{série absolument convergente}. }
+	\item $\sum \frac{2^n+100}{3^n+1}$
+	\reponse{ Soit $u_n=\frac{2^n+100}{3^n+1}$ pour $n\in\N$. La série $\sum u_n$ est à termes positifs. On a:
+		\[ \frac{2^n+100}{3^n+1} \sim \frac{2^n}{3^n}=\Big(\frac{2}{3}\Big)^n,\]
+		qui est le terme général d'une série géométrique de raison $\frac{2}{3}<1$ donc convergente. Par équivalence, on en déduit que la série $\sum u_n$ est convergente. Comme $u_n\geq 0$ pour tout $n\in\N$, la série $\sum u_n$ est \textbf{absolument convergente}. }
+	\item \question{ $\sum \Big(1-(1-\frac{1}{\sqrt{n}})^n\Big)$ }
+	\reponse{ Soit $ u_n=1-(1-\frac{1}{\sqrt{n}})^n$ pour $n\geq 1$. La série $\sum u_n$ est à termes positifs. On a:
+		\begin{align*}
+		1-\Big(1-\frac{1}{\sqrt{n}}\Big)^n=1-e^{n\ln\Big(1-\frac{1}{\sqrt{n}}\Big)}
+		\end{align*}
+		On utilise ensuite un développement limité (car l'utilisation d'équivalent n'est pas possible dans l'exponentielle):
+		\begin{align*}
+		1-\Big(1-\frac{1}{\sqrt{n}}\Big)^n=&1-e^{n\Big(\frac{-1}{\sqrt{n}}-\frac{1}{2n} +o(\frac{1}{n})\Big)} 
+		=1-e^{\frac{-n}{\sqrt{n}}-\frac{n}{2n} +o(\frac{n}{n})} 
+		=1-e^{-\sqrt{n}-\frac{1}{2}+o(1)}, 
+		\end{align*}
+		qui a pour limite $1$ quand $n$ vers plus l'infini.\\
+		Le terme général de la série $\sum u_n$ ne tend donc pas vers $0$. Par conséquent, cette série \textbf{diverge grossièrement}. }
+	\item \question{ $\sum \Big(\frac{1}{n}-\ln\Big(1+\frac{1}{n}\Big) \Big)$ }
+	\reponse{ Soit $u_n=\frac{1}{n}-\ln(1+\frac{1}{n})$ pour $n\geq 1$. La série $\sum u_n$ est à termes positifs. On utilise un développement limité (car on ne peut pas sommer des équivalents):
+		\begin{align*}
+		u_n=\frac{1}{n}-\Big(\frac{1}{n}-\frac{1}{2n^2}+o(\frac{1}{n^2})\Big) 
+		= \frac{1}{2n^2}+o(\frac{1}{n^2})
+		\end{align*}
+		ce qui donne l'équivalence:
+		\[u_n \sim_{+\infty} \frac{1}{2n^2},\]
+		qui est le terme d'une série de Riemann convergente. On en déduit que la série $\sum u_n$ converge. De plus, cette série étant à termes positifs, elle \textbf{converge absolument}.
+	 }
+	\item \question{ $\sum \frac{1}{\sqrt{n}}(\sqrt{n+1}-\sqrt{n})^2$ }
+	\reponse{ Soit $u_n= \frac{1}{\sqrt{n}}(\sqrt{n+1}-\sqrt{n})^2$ pour $n\geq 1$.  La série $\sum u_n$ est à termes positifs. On a:
+		\begin{align*}
+		u_n&=  \frac{1}{\sqrt{n}}(\sqrt{n+1}-\sqrt{n})^2 \\
+		&= \frac{1}{\sqrt{n}}\Big(\frac{(\sqrt{n+1}-\sqrt{n})(\sqrt{n+1}+\sqrt{n})}{(\sqrt{n+1}+\sqrt{n})}\Big)^2 \\
+		&= \frac{1}{\sqrt{n}}\Big(\frac{\sqrt{n+1}^2-\sqrt{n}^2}{(\sqrt{n+1}+\sqrt{n}) }\Big)^2\\
+		&= \frac{1}{\sqrt{n}}\Big(\frac{1}{(\sqrt{n+1}+\sqrt{n}) }\Big)^2\\
+		\end{align*}
+		ce qui nous donne l'équivalence suivante:
+		\[u_n \sim_{+\infty} \frac{1}{\sqrt{n}}\Big(\frac{1}{2\sqrt{n}}\Big)^2=\frac{1}{4n\sqrt{n}}=\frac{1}{4n^{\frac{3}{2}}}.\]
+		Or la série $\sum \frac{1}{4n^{\frac{3}{2}}}$ est une série de Riemann convergente. Par le théorème d'équivalence, on en déduit que la série $\sum u_n$ converge. \\
+		Comme cette série est à termes positifs, cette série \textbf{converge absolument}. }
+	\item \question{ $\sum \cos(\pi n) \sin\Big(\frac{\pi}{n}\Big)$ }
+	\reponse{ Soit $u_n= \cos(\pi n) \sin(\frac{\pi}{n})$ pour $n\geq 1$. On a
+		\[u_n=(-1)^n \sin \Big(\frac{\pi}{n}\Big).\]
+		Il s'agit d'une série alternée car pour tout $n\in\N^*$, $\sin(\frac{\pi}{n})\geq 0$. \\
+		On étudie d'abord la convergence absolue de la série $\sum u_n$:
+		\[|u_n|=\Big | (-1)^n \sin \Big(\frac{\pi}{n}\Big)\Big |=\Big | \sin \Big(\frac{\pi}{n}\Big)\Big |
+		\sim_{+\infty} \frac{\pi}{n}.\]
+		Or la série $\sum \frac{\pi}{n}$ est une série de Riemann divergente donc la série $\sum |u_n|$ diverge, ce qui revient à dire que la série $\sum u_n$ ne converge pas absolument. \\
+		Il nous reste donc à étudier la convergence de la série $\sum u_n$. On utilise le critère des séries alternées: soit $v_n=\sin(\frac{\pi}{n})$. La suite $(v_n)$ est décroissante pour $n\geq 2$ et sa limite vaut $\sin(0)=0$. Par le théorème des séries alternées, on en conclut que la série $\sum u_n$ converge. \\
+		Finalement, la série $\sum u_n$ converge mais ne converge pas absolument; elle est donc \textbf{semi-convergente}. }
+	\item \question{ $\sum \frac{n!}{n^n}$ }
+	\reponse{ Soit $u_n= \frac{n!}{n^n}$ pour $n\geq 1$. La série $\sum u_n$ est à termes positifs. Appliquons la règle de D'Alembert:
+		\begin{align*}
+		\frac{u_{n+1}}{u_n}&=\frac{(n+1)!}{(n+1)^{n+1}}\times \frac{n^n}{n!}=\frac{(n+1) \times n^n}{(n+1)^{n+1}}
+		=\Big(\frac{n}{n+1}\Big)^n=\Big(\frac{n+1-1}{n+1}\Big)^n \\
+		&=\Big(1-\frac{1}{n+1}\Big)^n
+		= e^{n \ln(1-\frac{1}{n+1})}
+		=e^{n(\frac{-1}{n+1}+o(\frac{1}{n}))}
+		=e^{\frac{-n}{n+1}+o(1))} \\
+		&\longrightarrow_{n\rightarrow +\infty}\  e^{-1}.
+		\end{align*}
+		Or $e^{-1}<1$ donc par la règle de D'Alembert, la série $\sum u_n$ converge. Elle est également \textbf{absolument convergente} (en tant que série à terme général positif). }
+\end{enumerate}
+\fincolonnes{\solution}{3}{1}}

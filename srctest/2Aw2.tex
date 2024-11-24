@@ -1,0 +1,28 @@
+\uuid{2Aw2}
+\titre{Approximation d'une loi binomiale par une loi normale.}
+\theme{statistiques}
+
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Un restaurant universitaire qui est visité par 600 étudiants pour le repas de midi offre un choix de deux plats principaux: risotto ou quiche. Dans le passé, on a observé que 40\% des étudiants prennent du risotto.}
+
+\question{Combien de plats de risotto faut-il prévoir pour que la probabilité qu'il en manque soit inférieure à 10\% ?}
+
+\reponse{Soit $X$ le nombre d'étudiants souhaitant un plat de risotto. D'après les données de l'énoncé, $X$ suit une loi binomiale $\mathcal{B}(600,0.4)$. 
+
+On cherche donc un entier $n$ tel que $\PP(X \geq n) \leq 0.1$. Pour ce faire, on approche la loi de $X$ par une loi normale. L'effectif $n$ est supérieur à $30$ donc d'après le théorème central limite, $X$ suit approximativement une loi normale de paramètres $\mu=600 \times 0.4 = 240$ et de variance $\sigma^2 = 600 \times 0.4 \times 0.6 = 144 = 12^2$. 
+
+Ainsi, 
+\begin{align*}
+\PP(X \geq n) \leq 0.1 &\iff \PP\left(\frac{X-240}{12} \geq \frac{n-240}{12}\right)  \leq 0.1 \\
+&\iff \PP\left(\frac{X-240}{12} \leq \frac{n-240}{12}\right)  \geq 0.9
+&\iff \frac{n-240}{12} \geq 1.28 \\
+&\iff n \geq 12 \times 1.28 + 240 = 255.36 \\
+&\iff n \geq 256
+\end{align*}
+
+Il faut donc prévoir au moins 256 plats de risotto pour que le risque qu'il en manque soit inférieur à 10\%.
+}
+}

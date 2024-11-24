@@ -1,0 +1,39 @@
+\uuid{Fe1h}
+\titre{Déterminant de Vandermonde}
+\theme{calcul déterminant}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Montrer que :
+$$
+\left|\begin{array}{lll}
+	1 & 1 & 1 \\
+	a & b & c \\
+	a^2 & b^2 & c^2
+\end{array}\right|=(c-a)(b-a)(c-b)
+$$ }
+
+\reponse{ 
+
+$$
+\begin{aligned}
+	& \left|\begin{array}{ccc}
+		1 & 1 & 1 \\
+		a & b & c \\
+		a^2 & b^2 & c^2
+	\end{array}\right|=\left|\begin{array}{ccc}
+		\mathcal{c}_1 & \mathcal{c}_2-\mathcal{c}_1 & \mathcal{c}_3-\mathcal{c}_1 \\
+		a & 0 & 0 \\
+		a^2 & b^2-a^2 & c^2-a^2
+	\end{array}\right| \\
+	& =(b-a)(c-a)\left|\begin{array}{ccc}
+		c_1 & c_2 & \mathcal{c}_3-c_2 \\
+		1 & 0 & 0 \\
+		a & 1 & 0 \\
+		a^2 & b+a & c-b
+	\end{array}\right| \\
+	& =(b-a)(c-a)(c-b) \\
+	&
+\end{aligned}
+$$ }}

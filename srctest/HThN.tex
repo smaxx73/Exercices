@@ -1,0 +1,45 @@
+\uuid{HThN}
+\titre{Probabilités et divisibilité}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Une urne contient $n$ boules numérotées de $1$ à $n$, $n$ étant un entier non nul et non premier. On tire une boule au hasard de l'urne et on définit les événements $A_{p_i}$ comme étant ``Le nombre est divisible par $p_i$.'', où les entiers $p_1, p_2, \ldots , p_r$ sont les diviseurs premiers de $n$. }
+
+\begin{enumerate}
+	\item \question{ Calculer la probabilité $\prob(A_{p_i})$. }
+	 \reponse{Il y a $\frac n {p_i}$ multiples de $p_i$ inférieurs à $n$, donc $\prob(A_{p_i})=\frac{\frac{n}{p_i}}{n} = \frac{1}{p_i}$.
+	}
+	
+	\item \question{ Calculer $\prob(A_{p_{i_1}}\cap A_{p_{i_2}}\cap \ldots\cap A_{p_{i_k}})$ pour $k$ quelconques de ces $r$ événements. 
+	En déduire que $A_{p_{1}}, A_{p_{2}}, \ldots, A_{p_{r}}$ sont $r$ événements indépendants dans leur ensemble. }
+	\reponse{ 
+		L'événement $A_{p_{i_1}}\cap A_{p_{i_2}}\cap \ldots\cap A_{p_{i_k}}$ est réalisé ssi le nombre est divisible à la fois par $p_{i_1}$, $p_{i_2}$, \ldots, $p_{i_k}$. Comme il s'agit de nombres premiers, ceci équivaut à dire que le nombre est divisible par $p_{i_1}\times p_{i_2} \times \ldots \times p_{i_k}$. Ainsi,
+		\begin{align*}
+			\prob(A_{p_{i_1}}\cap A_{p_{i_2}}\cap \ldots\cap A_{p_{i_k}})&=\prob(\text{``Le nombre est divisible par }p_{i_1}\times p_{i_2} \times \ldots \times p_{i_k}\text{''})\\
+			&=\frac{1}{p_{i_1}\times p_{i_2} \times \ldots \times p_{i_k}}\\
+			&=
+			\frac{1}{p_{i_1}}\times \frac{1}{p_{i_2}} \times \ldots \frac{1}{\times p_{i_k}}
+			\\
+			&=\prob(A_{p_{i_1}})\times \prob(A_{p_{i_2}}) \times \ldots \times \prob(A_{p_{i_k}}).
+		\end{align*}
+		On vient donc de montrer que $A_{p_{1}}, A_{p_{2}}, \ldots, A_{p_{r}}$ sont indépendants dans leur ensemble.
+	}
+	
+	\item \question{ On appelle $A$ l'événement ``le nombre choisi n'est divisible par aucun $p_i$''. Calculer $\prob(A)$.
+	En déduire que le nombre d'entiers de $\{1,2,\ldots,n\}$ qui sont premiers avec $n$, c'est-à-dire qui n'ont aucun facteur premier commun avec $n$, est $\displaystyle \Phi(n)=n\prod_{i=1}^r\left(1-\frac{1}{p_i}\right)$. }
+	 \reponse{
+		L'événement $A$ se réécrit $\overline{A}_{p_1}\cap \overline{A}_{p_2}\cap \ldots \cap \overline{A}_{p_r}$. Comme les événements $A_{p_{1}}, A_{p_{2}}, \ldots, A_{p_{r}}$ sont indépendants dans leur ensemble, c'est aussi le cas des événements $\overline{A}_{p_{1}}, \ldots, \overline{A}_{p_{r}}$. Par conséquent,
+		\begin{align*}
+			\prob(A)&=\prob(\overline{A}_{p_1}\cap \overline{A}_{p_2}\cap \ldots \cap \overline{A}_{p_r}) \\
+			&= \prod_{i=1}^r \prob(\overline {A_{p_i}}) 
+			= \prod_{i=1}^r \left( 1-\frac{1}{p_i}\right)
+		\end{align*}
+		d'où $\displaystyle\frac{\Phi(n)}{n}= \prod_{i=1}^r \left( 1-\frac{1}{p_i}\right)$ et $\displaystyle\Phi(n)=n\prod_{i=1}^r \left( 1-\frac{1}{p_i}\right)$. \\
+		La fonction $\Phi$ est appellée l'indicatrice d'Euler. Elle associe à tout entier naturel n non nul, le nombre d'entiers compris entre 1 et n  et premiers avec n. 
+	}
+	
+\end{enumerate}
+}

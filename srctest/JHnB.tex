@@ -1,0 +1,41 @@
+\uuid{JHnB}
+\titre{Probabilité bayésienne}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+    \texte{ Un poison vient d'être ingéré par une personne. L'examen des lieux laisse penser que trois poisons $p_1$, $p_2$ et $p_3$ seulement peuvent être incriminés. Le poison $p_1$ a une probabilité $\frac{1}{10}$ d'avoir été ingéré, le poison $p_2$ une probabilité de $\frac{1}{2}$ et le poison $p_3$ une probabilité de $\frac{2}{5}$. 
+    
+    De plus, on sait que chaque poison provoque chez la personne qui l'a ingéré un signe clinique $s$ particulier, mais avec des probabilités différentes car ils n'ont pas la même composition. Ainsi, le poison $p_1$ provoque le signe clinique $s$ avec une probabilité de $\frac{4}{5}$. Ce même signe est observable respectivement avec les probabilités $\frac{1}{50}$ pour le poison $p_2$ et $\frac{2}{5}$ pour le poison $p_3$. 
+    }
+
+    \question{ Quel est le poison qui a la plus grande probabilité d'avoir été absorbé, sachant que le signe clinique $s$ est observé sur le patient ? }
+
+    \reponse{Soit $A$ (respectivement $B$ et $C$) l'événement \og{} la personne a ingéré le poison $p_1$ (respectivement $p_2$ et $p_3$)\fg. Soit $S$ l'événement \og{} la personne présente le signe clinique $s$\fg. \\
+    On cherche à déterminer quel poison a la probabilité la plus élevée d'avoir été ingéré, sachant que le signe clinique $s$ a été observé. Autrement dit, cela revient à calculer les probabilités suivantes :
+    \begin{itemize}
+     \item $\prob(A|S)=\frac{\prob(A\cap S)}{p(S)}=\frac{\prob(A)\times \prob(S|A)}{\prob(S)}$
+     \item $\prob(B|S)=\frac{\prob(B)\times \prob(S|B)}{\prob(S)}$
+     \item $\prob(C|S)=\frac{\prob(C)\times \prob(S|C)}{\prob(S)}$
+    \end{itemize}
+    or par la formule des probabilités totales, on a :
+    \begin{align*}
+     \prob(S)&=\prob(S|A)\prob(A)+\prob(S|B)\prob(B)+\prob(S|C)\prob(C) \\
+     &= \frac{4}{5}\times \frac{1}{10}+\frac{1}{50}\times \frac{1}{2}+\frac{2}{5}\times \frac{2}{5} \\
+     &=\frac{1}{4}.
+    \end{align*}
+    Ainsi on a :
+    \begin{align*}
+     \prob(A|S)&=\frac{\frac{1}{10}\times\frac{4}{5}}{\frac{1}{4}}=\frac{8}{25} \\
+     \prob(B|S)&= \frac{\frac{1}{2}\times \frac{1}{50}}{\frac{1}{4}}=\frac{1}{25} \\
+     \prob(C|S)&= \frac{\frac{4}{10}\times \frac{2}{5}}{\frac{1}{4}}=\frac{16}{25}.
+    \end{align*}
+    Le poison $p_3$ est donc le plus probable.
+
+    On peut remarquer qu'une partie des calculs n'étaient pas nécessaires ici : comme on a 
+        $$\prob(A|S) = \frac {\prob(A\cap S)}{\prob(S)},~~ \prob(B|S) = \frac {\prob(B\cap S)}{\prob(S)},
+            ~~ \text{et } \prob(C|S) = \frac {\prob(C\cap S)}{\prob(S)},$$
+    il suffit en fait de comparer $\prob(A\cap S)$, $\prob(B\cap S)$ et $\prob(C\cap S)$ pour obtenir la conclusion.}
+}
+

@@ -1,0 +1,27 @@
+\uuid{g6Rl}
+\titre{ Calcul approché de probabilité et loi normale }
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Une machine fabrique des lames de carton empilées par paquets de 36. On suppose que chaque lame a une épaisseur $X_i$ sont i.i.d. avec $\mathbb{E}(X_i)=0.6$~cm et $\sigma(X_i)=0.1$~cm. On note $X$ l'épaisseur d'un paquet de 36 cartons. }
+\begin{enumerate}
+	\item \question{ Si les $X_i$ suivent une loi normale, quelle est la loi de probabilité de $X$ ? }
+	\reponse{ Si les $X_i$ suivent des lois Normales, alors $X_i\sim \mathcal{N}(0.6,\sigma=0.1)$ et la variable $\displaystyle X=\sum_{i=1}^{36}$ suit une loi Normale de paramètres $\mu=36\times 0.6=21.6$ et $\sigma=\sqrt{36\times 0.1^2}=0.6$. }
+	\item \question{ Si on ne connaît pas la loi des $X_i$, donner une approximation de la loi de $X$ en justifiant. }
+	\reponse{ Comme $n\geq 30$, on peut appliquer le théorème central limite et ainsi $X$ suit approximativement la loi $\mathcal{N}(21.6,\sigma=0.6)$. }
+	\item \texte{ On pose $$Y=\frac{1}{36}\sum_{i=1}^{36}X_i$$ }
+	\question{ Quelle est la probabilité que $Y$ soit compris entre 0.63 et 0.66 cm ? Comment peut-on interpréter ce résultat ? }
+	\reponse{ On a
+		\begin{align*}
+			\mathbb{P}(0.63\leq Y \leq 0.66)
+			&= \mathbb{P}(36\times 0.63 \leq X \leq 36 \times 0.66) \\
+			&= \mathbb{P}\left( \frac{36\times 0.63-21.6}{0.6}\leq \frac{X-21.6}{0.6} \leq \frac{36\times 0.66-21.6}{0.6}\right) \\
+			&\simeq \mathbb{P}(1.8 \leq Z \leq 3.6) \quad \text{ par le théorème central-limite, avec } Z\sim \mathcal{N}(0,1) \\
+			&\simeq \mathbb{P}(Z\leq 3.6) -\mathbb{P}(Z\leq 1.8) \\
+			&\simeq 0.999-0.9641 \quad \text{par lecture du tableau de loi} \\
+			&\simeq 0.0358
+		\end{align*}
+		$Y$ représente l'épaisseur moyenne d'un carton sur un paquet de $36$ cartons. }
+\end{enumerate}}

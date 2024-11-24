@@ -1,0 +1,47 @@
+\uuid{KZCb}
+\titre{ Différents types de convergence }
+%http://www.bibmath.net/ressources/index.php?action=affiche&quoi=bde/proba/probalimites&type=fexo
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit $n$ un entier naturel non-nul et soit $a$ un réel. On considère la fonction $f_n$ définie sur $\mathbb R$ par $$f_n(x)=\frac{an}{\pi(1+n^2x^2)}.$$ }
+	\begin{enumerate}
+		\item \question{ Déterminer $a$ pour que $f_n$ soit une densité de variable aléatoire. }
+		\reponse{ La fonction $f_n$ étant continue et positive, elle est une densité de variable aléatoire si et seulement si
+			$$
+			\int_{-\infty}^{+\infty} f_n(x) d x=1
+			$$
+			Or, effectuant le changement de variables $u=n x$, on a
+			$$
+			\int_{-\infty}^{+\infty} \frac{a n}{\pi\left(1+n^2 x^2\right)} d x=\int_{-\infty}^{+\infty} \frac{a}{\pi\left(1+u^2\right)} d u=\frac{a}{\pi}[\arctan (u)]_{-\infty}^{+\infty}=\frac{a}{\pi} \times \pi=a
+			$$
+			$f_n$ est donc une densité de variable aléatoire si et seulement si $a=1$.  }
+		\item \question{ Soit $(X_n)$ une suite de variables aléatoires telle que chaque $X_n$
+		admet pour densité $f_n$. \'Etudier l'existence de moments pour $X_n$. }
+	\reponse{ On a $x f_n(x) \sim_{+\infty} \frac{1}{\pi n x}$ dont l'intégrale est divergente au voisinage de $+\infty$, et qui est une fonction positive. Ainsi, la variable aléatoire $X_n$ n'admet pas d'espérance, ni aucun autre moment. }
+		\item \question{ \'Etudier la convergence en loi de la suite $(X_n)$. }
+		\reponse{ Soit $F_n$ la fonction de répartition de $X_n$, définie pour tout $x$ réel par
+			$$
+			F_n(x)=\int_{-\infty}^x f_n(t) d t=\frac{1}{\pi}\left(\arctan (n x)+\frac{\pi}{2}\right) .
+			$$
+			Si $x<0, \arctan (n x) \rightarrow-\pi / 2$, et donc $F_n(x) \longrightarrow 0$. Si $x>0, \arctan (n x) \longrightarrow \pi / 2$ et donc $F_n(x) \longrightarrow 1$. 
+			
+			Soit maintenant $X$ une variable aléatoire identiquement nulle. Sa fonction de répartition $F_X$ vérifie $F_X(x)=0$ si $x<0$ et $F_X(x)=1$ si $x \geq 0$. Autrement dit, en tout point de continuité de $F_X$, la suite $\left(F_n(x)\right)$ converge vers $F_X(x)$. 
+			
+			On en déduit la convergence en loi de la suite $\left(X_n\right)$ vers $X$. }
+		\item \question{ \'Etudier la convergence en probabilité de la suite $(X_n)$. }
+		\reponse{ Soit $\varepsilon>0$. On cherche  la limite de $P\left(\left|X_n-x\right|<\varepsilon\right)$ où $X$ est la  variable nulle.
+			$$
+			\text { on } \begin{aligned}
+				P\left(\left|X_n\right|<\varepsilon\right) &=\int_{-\varepsilon}^{\varepsilon} \frac{n}{\pi\left(1+n^2 x^2\right)} d x \\
+				&=\int_{-n \varepsilon}^{n \varepsilon} \frac{d u}{\pi\left(1+u^2\right)} \\
+				&=\frac{1}{\pi}(\operatorname{Arctan}(n \varepsilon)-\operatorname{Arctan}(-n \varepsilon)) \\
+				&=\frac{2}{\pi} \operatorname{Arctan}(n \varepsilon) \underset{n \to\infty}{\longrightarrow} \frac{2}{\pi} \times \frac{\pi}{2}=1
+			\end{aligned}
+			$$
+			Donc on a bien $X_n \underset{\text { proba }}{\longrightarrow} 0$ }
+	\end{enumerate}
+
+}

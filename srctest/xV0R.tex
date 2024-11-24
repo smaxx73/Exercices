@@ -1,0 +1,44 @@
+\uuid{xV0R}
+\titre{ Solution d'équation différentielle développable en série entière}
+\theme {séries}
+\auteur{ }
+\organisation{ AMSCC }
+
+\contenu{
+	\begin{enumerate}
+	\item \question{ Trouver sous forme d'une série entière la solution de l'équation différentielle $(E)$:
+	$$ (1-t)ty'(t)=(1+t)y(t)$$
+	vérifiant les conditions initiales $y(0)=0$ et $y'(0)=1$. }
+	\reponse{ 
+		Soit $y$ une solution développable en série entière, de rayon de convergence $R$: on note $\displaystyle y(t)=\sum_{n=0}^{+\infty} a_n t^n$ et on a
+		\[ \forall t \in ]-R;R[, \qquad y'(t)=\sum_{n=1}^{+\infty} na_n t^{n-1}.\]
+		On a les équivalences suivantes:
+		\begin{align*}
+			y \text{ solution de }(E) \ & \Leftrightarrow \  \forall t \in ]-R;R[, \
+			(1-t)ty'(t)-(1+t)y(t)=0 \\
+			\ & \Leftrightarrow \  \forall t \in ]-R;R[, \ \sum_{n=1}^{+\infty} n a_n\times t^n - \sum_{n=2}^{+\infty}  a_{n-1} (n-1)t^n - \sum_{n=1}^{+\infty} a_{n-1}t^n- \sum_{n=0}^{+\infty} a_n t^n =0 \\
+			\ & \Leftrightarrow \  \forall t \in ]-R;R[, \ -a_0-a_0t+\sum_{n=2}^{+\infty} [a_n(n-1)-na_{n-1}]t^n =0 \\
+			\ & \Leftrightarrow \
+			a_0=0 \quad \text{ et } \quad  \forall n \geq 2, \ a_n=\frac{n}{n-1}a_{n-1}
+		\end{align*}
+		Les conditions initales donnent:
+		\[ y(0)=a_0=0 \quad \text{ et } \quad y'(0)=a_1=1.\]
+		On en conclut que pour tout $n\geq 0$, $a_n=n$ et donc 
+		\[ y(t)=\sum_{n=0}^{+\infty} nt^n.\]
+	}
+	
+	\item\question{  Calculer la somme de cette série en précisant son intervalle de convergence. }
+	\reponse{ La série $\sum_{n\geq 0} nt^n$ a pour rayon de convergence $R=1$. \\
+		On a
+		\[ \forall t \in ]-1;1[, \qquad \sum_{n=0}^{+\infty} t^n=\frac{1}{1-t}\]
+		donc en dérivant
+		\[ \forall t \in ]-1;1[, \qquad \sum_{n=1}^{+\infty} nt^{n-1}=\frac{1}{(1-t)^2}.\]
+		Par conséquent,
+		\[\forall t \in ]-1;1[, \qquad y(t)=\sum_{n=0}^{+\infty} nt^n
+		=t\sum_{n=0}^{+\infty} nt^{n-1}
+		= t\sum_{n=1}^{+\infty} nt^{n-1}
+		=\frac{t}{(1-t)^2}.\]
+	}
+	
+\end{enumerate}
+}

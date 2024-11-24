@@ -1,0 +1,24 @@
+\uuid{qZkI}
+\titre{Dilemme}
+\theme{probabilités}
+\auteur{ bibmath }
+\organisation{AMSCC}
+
+
+\contenu{
+	\texte{ On considère deux avions $A$ et $B$ ayant respectivement 4 et 2 moteurs. Les moteurs fonctionnent de manière indépendante et chacun a une probabilité $p \in ]0;1[$ de tomber en panne. On admet qu'un vol se termine bien si moins de la moitié des moteurs tombe en panne.
+	}
+
+	\question{ Quel avion est-il préférable de choisir ?  }
+
+\reponse{ Soit $X$ le nombre de moteurs tombant en panne sur l'avion $A$ et $Y$  le nombre de moteurs tombant en panne sur l'avion $B$. Alors $X$ suit une loi binomiale $\mathcal{B}(4,p)$ et $Y$ suit une loi binomiale $\mathcal{B}(2,p)$. 
+
+On en déduit que $\prob(X=0)+\prob(X=1) = (1-p)^4 + 4p(1-p)^3$ et $\prob(Y=0) = (1-p)^2$.
+
+Il est préférable de prendre l'avion $A$ si et seulement si $\prob(X=0)+\prob(X=1) \geq \prob(Y=0)$, c'est-à-dire :
+$$p(1-p)^2(2-3p) \geq 0 \iff 2-3p \geq 0$$
+
+En conclusion, si $p < \frac{2}{3}$, il est préférable de prendre l'avion $A$. 
+ }
+	
+}

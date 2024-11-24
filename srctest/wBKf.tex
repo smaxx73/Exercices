@@ -1,0 +1,36 @@
+\uuid{wBKf}
+\titre{Simplification de nombres complexes}
+\theme{complexes}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Simplifier au maximum les expressions complexes suivantes. }
+
+\begin{enumerate}
+	\item \question{ $\frac{(1+3 i)(3+i)}{1+i}$ }
+	\reponse{ En multipliant numérateur et dénominateur par le conjugué du dénominateur :
+		$$
+		\frac{(1+3 i)(3+i)}{1+i}=\frac{(1+3 i)(3+i)(1-i)}{(1+i)(1-i)}=\frac{10+10 i}{2}=5+5 i
+		$$ }
+	\item \question{ $(1-i)^8$ }
+	\reponse{ On a $(1-i)^2=-2 i$. On en déduit :
+		$$
+		(1-i)^8=\left((1-i)^2\right)^4=(-2 i)^4=2^4 \cdot i^4=16
+		$$ }
+	\item \question{ $\left(\frac{1+i \sqrt{3}}{1-i \sqrt{3}}\right)^5$ }
+	\reponse{ 
+		\begin{align*}
+			\left(\frac{1+i \sqrt{3}}{1-i \sqrt{3}}\right)^5 & =\left(\frac{\frac{1}{2}+\frac{i \sqrt{3}}{2}}{\frac{1}{2}-\frac{i \sqrt{3}}{2}}\right)^5 \\ &=\left(\frac{\cos \left(\frac{\pi}{3}\right)+i \sin \left(\frac{\pi}{3}\right)}{\cos \left(-\frac{\pi}{3}\right)+i \sin \left(-\frac{\pi}{3}\right)}\right)^5 \\ &=\left(\frac{e^{i \frac{\pi}{3}}}{e^{-i \frac{\pi}{3}}}\right)^5 \\ &=\left(e^{i \frac{2 \pi}{3}}\right)^5=e^{i \frac{10 \pi}{3}} \\
+			& =e^{-i \frac{2 \pi}{3}} \\ &=\cos \left(-\frac{2 \pi}{3}\right)+i \sin \left(-\frac{2 \pi}{3}\right) \\
+			& =-\frac{1}{2}-\frac{i \sqrt{3}}{2}
+		\end{align*}
+		 }
+	\item \question{ $\frac{i}{(1+i \sqrt{2})^2}$ }
+	\reponse{ 
+		\begin{align*}
+			\frac{i}{(1+i \sqrt{2})^2} & =\frac{i}{1^2+2 \sqrt{2} i+(i \sqrt{2})^2}\\ &=\frac{i}{1-2+2 \sqrt{2} i}=\frac{i}{-1+2 \sqrt{2} i}\\ &=\frac{i(-1-2 \sqrt{2} i)}{(-1+2 \sqrt{2} i)(-1-2 \sqrt{2} i)} \\
+			& =\frac{2 \sqrt{2}-i}{(1+8)} \\ &=\frac{2 \sqrt{2}}{9}-\frac{i}{9}
+		\end{align*}
+		 }
+\end{enumerate}}

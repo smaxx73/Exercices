@@ -1,0 +1,76 @@
+\uuid{hGun}
+\titre{Norme d'un vecteur gaussien et somme de variables exponentielles}
+\theme{probabilités}
+\auteur{Quentin Liard}
+\organisation{AMSCC}
+
+\contenu{
+    Pour toute variable al\'eatoire $T$, on définit la \textbf{transformée de Laplace} $\mathcal{L}_{\cdot}(T) \colon \R_+ \to \R$ par :
+
+    $$\forall t \in \R_+, \quad \mathcal{L}_t(T)=\mathbb{E}(e^{-tT}).$$
+
+    {\it{On admet le r\'esultat suivant :}}
+
+    \begin{tcolorbox}        Si $T_1,T_2$ sont des variables al\'eatoires absolument continues telles que pour tout $t\geq 0$, $\mathcal{L}_t(T_1)=\mathcal{L}_t(T_2)$, alors les variables $T_1$ et $T_2$ suivent la m\^eme loi. 
+    \end{tcolorbox}
+
+    On admet également que pour tout $n \in \N^*$ : 
+    $$\int_0^{+\infty} x^n e^{-x} dx = n!$$
+
+    Soit $n \in \N^*$ quelconque et soit $Z_1,Z_2,\cdots{},Z_n$ une famille de $n$ variables aléatoires indépendantes identiquement distribuées selon  une loi exponentielle de param\`etre $\frac{1}{2}$. L'objectif de l'exercice est de déterminer la loi de $S_n=\displaystyle\sum_{i=1}^{n}Z_i$.
+
+%Soient $X$ et $Y$ deux variables al\'eatoires indépendantes suivant chacune une loi normale centr\'ee r\'eduite. 
+
+\begin{enumerate}
+%\item \question{ Déterminer la loi du couple $(X,Y)$. }
+%\reponse{
+%    Par indépendance des variables $X$ et $Y$, le couple $(X,Y)$ admet pour densité $ f(x,y) = \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} $.
+%}
+%\item Soit $Z$ la variable aléatoire d\'efinie par $Z=X^{2}+Y^{2}$. Déterminer la fonction de r\'epartition de $Z$ et en d\'eduire que la loi de $Z$ est une loi exponentielle de param\`etre $\frac{1}{2}$.
+%\reponse{
+%     On a donc si $t \geq 0$ :
+%    \begin{align*}
+%        F_Z(t) &= \prob(Z \leq t) \\
+%        &= \prob(X^2+Y^2 \leq t) \\
+%        &= \iint_{x^2+y^2 \leq t} \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} dx dy \\
+%        &= \int_0^{2\pi} \int_0^{\sqrt{t}} \frac{1}{2\pi} e^{-\frac{r^2}{2}} r dr d\theta \\
+%        &= \frac{1}{2\pi} \int_0^{2\pi} \left[ -e^{-\frac{r^2}{2}} \right]_0^{\sqrt{t}} d\theta \\
+%        &= \frac{1}{2\pi} \int_0^{2\pi} \left( 1 - e^{-\frac{t}{2}} \right) d\theta \\
+%        &= 1 - e^{-\frac{t}{2}}
+%    \end{align*} 
+%    et $F_Z(t) = 0$ si $t < 0$. 
+%    Donc $Z$ suit une loi exponentielle de paramètre $\frac{1}{2}$.
+%}
+
+\item \question{ Soient $X$ et $Y$ deux variables aléatoires indépendantes. Démontrer que  pour tout $t\geq 0$ : $$\mathcal{L}_t(X+Y)=\mathcal{L}_t(X)\mathcal{L}_t(Y).$$ }
+
+\item D\'eterminer $\mathcal{L}_{t}(Z_1)$ et en déduire $\mathcal{L}_t(S_n)$ pour tout $t\geq 0$. 
+\reponse{
+    On a $\mathcal{L}_t(Z) = \mathbb{E}(e^{-tZ}) = \int_0^{+\infty} e^{-tz} \frac{1}{2} e^{-\frac{z}{2}} dz = \frac{1}{2} \int_0^{+\infty} e^{-\frac{z}{2}(2t+1)} dz = \frac{1}{2} \left[ \frac{e^{-\frac{z}{2}(2t+1)}}{-\frac{2t+1}{2}} \right]_0^{+\infty} = \frac{1}{2t+1}$. 
+    On a $\mathcal{L}_t(S_n) = \prod_{i=1}^n \mathcal{L}_t(Z_i) = \prod_{i=1}^n \frac{1}{2t+1} = \left( \frac{1}{2t+1} \right)^n$. 
+}
+
+\item On pose pour tout $x \in \R$ :
+$$f_U(x)=\mathrm{1}_{\R^{+}}(x)\frac{1}{2^n}\frac{x^{n-1}}{(n-1)!}\,e^{-\frac{x}{2}}.$$
+
+V\'erifier que $f_U$ est bien une fonction densité de probabilité. 
+
+\reponse{
+    On a $\int_{\R} f_U(x) dx = \frac{1}{2^n} \int_0^{+\infty} \frac{x^{n-1}}{n-1!} e^{-\frac{x}{2}} dx = \int_0^{+\infty} \frac{y^{n-1}}{n-1!} e^{-y} dy = 1$. Donc $f_U$ est bien une densité de probabilité.
+}
+
+\item Soit $U$ une variable aléatoire absolument continue de densit\'e de probabilit\'e $f_U$. Calculer, pour tout $t\geq 0,$ $\mathcal{L}_t(U)$. Conclure.
+\reponse{
+    On a 
+    \begin{align*}
+        \mathcal{L}_t(U) &= \int_0^{+\infty} e^{-tx} \frac{1}{2^n} \frac{x^{n-1}}{n-1!} e^{-\frac{x}{2}} dx \\ 
+        &= \frac{1}{2^n} \int_0^{+\infty} \frac{x^{n-1}}{n-1!} e^{-\frac{x}{2}(2t+1)} dx \\
+        &= \int_0^{+\infty} \frac{1}{2^n} \left(\frac{2}{2t+1}\right)^{n-1}\frac{y^{n-1}}{n-1!} e^{-y} \frac{2}{2t+1} dy \\
+         &= \frac{1}{(2t+1)^n}
+    \end{align*}
+    Donc $U$ et $S_n$ suivent la même loi définie par la densité $f_U$.
+}
+
+\end{enumerate} 
+
+}

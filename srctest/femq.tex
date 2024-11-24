@@ -1,0 +1,107 @@
+\uuid{femq}
+\titre{Matrices inversibles}
+\theme{calcul déterminant}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Dire si les matrices suivantes sont inversibles. Si oui, donner leur inverse :
+
+\begin{align*}
+	& A=\left(\begin{array}{cccc}
+		-3 & 0 & 0 & 0 \\
+		0 & 2 i & 0 & 0 \\
+		0 & 0 & 3+4 i & 0 \\
+		0 & 0 & 0 & -2
+	\end{array}\right) \quad B=\left(\begin{array}{cccc}
+		1 & 2 & -1 & 0 \\
+		0 & 0 & 0 & -1 \\
+		0 & 0 & i & 0 \\
+		0 & 0 & 0 & 2
+	\end{array}\right) \quad C=\left(\begin{array}{cccc}
+		i & 2 & -1 & 0 \\
+		0 & -2 & 4 & -1 \\
+		2 & 0 & i & 0 \\
+		0 & 1 & -2 & 0,5
+	\end{array}\right) \\ & D=\left(\begin{array}{cc}
+		-2 & -3 \\
+		1 & 2
+	\end{array}\right) 
+	E=\left(\begin{array}{cc}
+		2 & 3 \\
+		-4 & -6
+	\end{array}\right) \quad F=\left(\begin{array}{ccc}
+		2 & 3 & -1 \\
+		-4 & -6 & 3
+	\end{array}\right) \\ &G=\left(\begin{array}{ll}
+		x & 3 \\
+		2 & 1
+	\end{array}\right) \text { en fonction du paramètre } x \in \mathbb{C}
+\end{align*} }
+
+\reponse{ $$
+A=\left(\begin{array}{cccc}-3 & 0 & 0 & 0 \\ 0 & 2 i & 0 & 0 \\ 0 & 0 & 3+4 i & 0 \\ 0 & 0 & 0 & -2\end{array}\right)
+$$
+est une matrice diagonale dont le déterminant est non nul :
+$$
+\operatorname{det} A=(-3) \times(2 i) \times(3+4 i) \times(-2) \neq 0
+$$
+Elle est donc inversible, et :
+$$
+A^{-1}=\left(\begin{array}{cccc}
+	-\frac{1}{3} & 0 & 0 & 0 \\
+	0 & -\frac{i}{2} & 0 & 0 \\
+	0 & 0 & \frac{1}{3+4 i} & 0 \\
+	0 & 0 & 0 & -\frac{1}{2}
+\end{array}\right)
+$$
+$B=\left(\begin{array}{cccc}1 & 2 & -1 & 0 \\ 0 & 0 & 0 & -1 \\ 0 & 0 & i & 0 \\ 0 & 0 & 0 & 2\end{array}\right)$
+est une matrice diagonale dont le déterminant est nul :
+$B$ n'est pas inversible.
+$$
+\operatorname{det} B=1 \times 0 \times i \times 2=0
+$$
+$$
+\operatorname{det} C=\left|\begin{array}{cccc}
+	i & 2 & -1 & 0 \\
+	0 & -2 & 4 & -1 \\
+	2 & 0 & i & 0 \\
+	0 & 1 & -2 & 0,5
+\end{array}\right|=0 \text { car } \ell_2=-2 \ell_4 \text {. Donc } C \text { n'est pas inversible. }
+$$
+
+$D=\left(\begin{array}{cc}-2 & -3 \\ 1 & 2\end{array}\right)$ est une matrice $2 \times 2$ dont le déterminant est non nul :
+$$
+\operatorname{det} D=(-2) \times 2-1 \times(-3)=-1 \neq 0
+$$
+$D$ est inversible, et :
+$$
+D^{-1}=-\left(\begin{array}{cc}
+	2 & 3 \\
+	-1 & -2
+\end{array}\right)=\left(\begin{array}{cc}
+	-2 & -3 \\
+	1 & 2
+\end{array}\right)=D
+$$
+$E=\left(\begin{array}{cc}2 & 3 \\ -4 & -6\end{array}\right)$ est une matrice $2 \times 2$ dont le déterminant est nul :
+$$
+\operatorname{det} E=2 \times(-6)-3 \times(-4)=0
+$$
+$E$ n'est pas inversible.
+$F=\left(\begin{array}{lll}2 & 3 & -1 \\ -4 & -6 & 3\end{array}\right)$ n'est pas une matrice carrée, elle n'est donc pas inversible.
+$$
+\begin{array}{r}
+	\operatorname{det}(G)=\left|\begin{array}{ll}
+		x & 3 \\
+		2 & 1
+	\end{array}\right|=x-2 \times 3=x-6 \neq 0 \Leftrightarrow x \neq 6 . \text { Pour } x \in \mathbb{R} \backslash\{6\}: \\
+	G^{-1}=\frac{1}{x-6} \times\left(\begin{array}{cc}
+		1 & -3 \\
+		-2 & x
+	\end{array}\right)=\left(\begin{array}{cc}
+		\frac{1}{x-6} & \frac{-3}{x-6} \\
+		\frac{-2}{x-6} & \frac{x}{x-6}
+	\end{array}\right)
+\end{array}
+$$ }}

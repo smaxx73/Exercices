@@ -1,0 +1,36 @@
+\uuid{ptxH}
+\titre{Estimation par inégalité}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+\texte{ On sait qu'une personne sur cent est dyslexique. Lors des journées "citoyens", on détecte ce problème. Sur $n$ jeunes examinés, on note $Y_n$ la proportion de dyslexiques. }
+	\begin{enumerate}
+		\item \question{ Calculer l'espérance et la variance de $Y_n$: on introduira la variable $X_n$ comptant le nombre de dyslexiques parmi les $n$ jeunes. }
+		\reponse{ On a $X_n\sim \mathcal{B}(n,0.01)$. Ainsi, $\E(X_n)=0.01\times n$ et $\sigma^2(X)=0.01\times 0.09 \times n$. \\
+			Comme $Y_n=\frac{X_n}{n}$ donc $\E(Y_n)=\frac{1}{n}\E(X_n)=0.01$ et $\sigma^2(Y_n)=\frac{1}{n^2}\sigma^2(X_n)=\frac{0.0099}{n}$.
+		}
+		
+		\item \question{ Trouver un entier $n$ tel que la probabilité que $0.009\leq Y_n\leq 0.011$ soit supérieure à $0.9$. }
+		\reponse{ On cherche $n$ tel que $\prob(0.009\leq Y_n\leq 0.011)\geq 0.9$. On a
+			\begin{align*}
+			\prob(0.009\leq Y_n\leq 0.011)&=\prob(-0.001\leq Y_n-0.01\leq 0.001) \\
+			&= \prob(|Y_n-0.01|\leq 0.001) \\
+			&= 1-\prob(|Y_n-0.01|\geq 0.001).
+			\end{align*}
+			On cherche donc $n$ tel que 
+			\[\prob(|Y_n-0.01|\geq 0.001)\leq 0.1.\]
+			Or par l'inégalité de Bienaymé-Tchebychev, on a
+			\[\prob(|Y_n-0.01|\geq 0.001)\leq \frac{\sigma^2(Y_n)}{(0.001)^2}=\frac{\nombre{9900}}{n}.\]
+			Si on impose que 
+			\[ \frac{\nombre{9900}}{n}\leq 0.10, \]
+			on obtient bien $\prob(|Y_n-0.01|\geq 0.001)\leq 0.1$.
+			Il faut donc que 
+			\[ n\geq \frac{\nombre{9900}}{0.1}=\nombre{99000}.
+			\]
+			On en conclut qu'il faut au moins examinés $\nombre{99000}$ jeunes pour avoir, dans $90$\% des cas, une proportion de dyslexiques comprise entre $0.9$\% et $1.1$\%.
+		}
+		
+	\end{enumerate}
+}

@@ -1,0 +1,23 @@
+\uuid{IC6C}
+\titre{Séries de signe non constant}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+	\begin{enumerate}
+		\item \question{ Quelle est la nature de la série $\displaystyle\sum_{n\geq 1} \frac{(-1)^n}{n}$ ? }
+		\reponse{Il s'agit d'une série à termes de signe non constant. On commence donc par étudier la convergence absolue. Soit $u_n=\frac{(-1)^n}{n}$. On a $|u_n|=\frac{1}{n}$ qui est le terme général d'une série de Riemann divergente. On en conclut que la série $\sum u_n$ ne converge pas absolument. \\
+			Étudions maintenant la convergence de la série : il s'agit d'une série alternée. On applique donc le critère spécial des séries alternées: la suite $(\frac{1}{n})_{n\geq 1}$ étant positive, décroissante et ayant pour limite $0$ en l'infini, on en conclut que la série $\sum u_n$ converge. \\
+			Finalement, la série $\sum u_n$ est convergente mais non absolument convergente (elle est dite semi-convergente).}
+		\item \question{ Déterminer la nature de la série $\displaystyle \sum_{n\geq 1} \frac{1}{n^2}$. }
+		\reponse{Il s'agit d'une série de Riemann convergente. Comme cette série est à termes positifs, elle est absolument convergente.}
+		\item \question{ Que peut-on en déduire sur la convergence de la série $\displaystyle \sum_{n\geq 1} \Big(\frac{(-1)^n}{n} +\frac{1}{n^2} \Big)$ ? }
+		\reponse{Les séries $\sum \frac{(-1)^n}{n}$ et $\sum \frac{1}{n^2}$ étant convergentes, la somme de ces deux séries est une série convergente. Par conséquent, la série $ \sum (\frac{(-1)^n}{n} +\frac{1}{n^2} )$ est convergente.}
+		\item \question{ Converge-t-elle absolument ? }
+		\reponse{ On s'intéresse à la convergence de la série $ \sum |\frac{(-1)^n}{n} +\frac{1}{n^2} |$. On a par inégalité triangulaire:
+			\[ \Big|\frac{(-1)^n}{n} +\frac{1}{n^2}\Big| \geq \frac{1}{n} - \frac{1}{n^2} .\]
+			Or $\sum \frac{1}{n}-\frac{1}{n^2}$ est une série de Riemann divergente. Donc la série $ \sum |\frac{(-1)^n}{n} +\frac{1}{n^2} |$ n'est pas convergente. On en déduit que la série $ \sum \frac{(-1)^n}{n} +\frac{1}{n^2}$ n'est pas absolument convergente.}
+\end{enumerate}
+}

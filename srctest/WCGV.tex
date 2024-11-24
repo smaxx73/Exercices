@@ -1,0 +1,35 @@
+\uuid{WCGV}
+\titre{Fiabilité}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Une usine produit des circuits imprimés dont $1$\% sont défectueux. }
+\begin{enumerate}
+	\item \question{ On fait un prélèvement de $100$ circuits imprimés. Quelle est la probabilité qu'il n'y ait pas de circuit imprimé défectueux dans ce prélèvement ? }
+	\reponse{Soit $X$ le nombre de circuits défectueux dans ce prélèvement.
+		Alors $X\sim \mathcal{B}(100,0.01)$. La probabilité qu'il n'y ait pas de circuit défectueux est:
+		\[ \prob(X=0)=\binom{100}{0}\times 0.01^{0}\times 0.99^{100}=0.99^{100} \simeq 0.366.\]
+	}
+	
+	\item \question{ Quelle est la probabilité qu'il y ait deux circuits imprimés défectueux dans un prélèvement de $100$ circuits imprimés ? }
+	\reponse{$\prob(X=2)=\binom{100}{2}\times 0.01^{2}\times 0.99^{98}\simeq 0.185$
+	}
+	
+	\item \question{ On prélève les circuits imprimés un par un et on les teste immédiatement. Quelle est la probabilité que le premier circuit imprimé défectueux apparaisse au $100$\up{ème} tirage ? }
+	\reponse{Soit $Y$ le rang du premier circuit imprimé défectueux. Alors $Y\sim \mathcal{G}(0.01)$ et on a:
+		\[ \prob(Y=100)=0.99^{99}\times 0.01 \simeq 0.0037,\]
+		soit environ $0.37$\% de chance de rencontrer le premier circuit défectueux au dernier tirage.
+	}
+	
+	\item \question{ Sur $N=10\ 000$ circuits imprimés en stock dont $d=100$ sont défectueux, on en choisit $500$. Quelle est la probabilité que sur les $500$ prélevés il y en ait cinq défectueux ? }
+	\reponse{ Soit $Z$ le nombre de circuits défectueux sur les $500$ prélevés. Alors $Z\sim \mathcal{H}(500,0.01,10\ 000)$ et on a
+		\[ \prob(Z=5)=\frac{\binom{100}{5}\binom{9900}{495}}{\binom{10\ 000}{500}}.
+		\]
+		Quand le paramètre $N$ est grand (dans les faits, quand $\frac n N < 0,1$), on peut approcher une loi hypergéométrique $\mathcal{H}(n,p,N)$ par une loi binomiale $\mathcal{B}(n,p)$. Ici, on obtient une approximation de $\prob(X=5)$ par $\binom{500}{5}\times 0.01^5 \times 0.99^{495} \simeq 0.18$.
+	}
+	
+\end{enumerate}
+}

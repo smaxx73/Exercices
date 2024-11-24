@@ -1,0 +1,32 @@
+\uuid{TwOd}
+\titre{Variance, covariance, indépendance dans un couple}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit $a \in \mathbb{R}$ et $(X,Y)$ un couple de variables aléatoires admettant une densité $f$ définie par 
+	$$f(x,y)= a(x+y)  \textbf{1}_{[0;1]}(x) \textbf{1}_{[0;1]}(y)$$ }
+\begin{enumerate}
+	\item \question{ Déterminer $a$. }
+	\reponse{ On calcule $\int_0^1 \int_0^1(x+y)dxdy = \int_0^1 xdx\int_0^1 dy + \int_0^1 dx\int_0^1 ydy = \frac{1}{2} \times 1 + 1 \times \frac{1}{2} = 1$ donc il faut $a=1$. }
+	\item\question{  Déterminer les lois marginales du couple $(X,Y)$. }
+	\reponse{ On détermine les densités marginales $f_X$ et $f_Y$ à partir de la densité $f$ du couple de variables : 
+		$f_X(x) = \int f(x,y)dy = 1_{[0;1]}(x)\left[xy+\frac{y^2}{2} \right]_0^1 =  1_{[0;1]}(x) \left(x+\frac{1}{2}\right)$. De même, $f_Y(y) = 1_{[0;1]}(y) \left(y+\frac{1}{2}\right)$  }
+	\item \question{ Calculer $\mathbb{E}(X)$, $\sigma^2(X)$, $\mathbb{E}(Y)$, $\sigma^2(Y)$, $cov(X,Y)$. }
+	\reponse{ On utilise les densités marginales : 
+		$\mathbb{E}(X) = \int xf_X(x)dx = \int_0^1 \left(x^2+\frac{x}{2}\right)dx = \frac{7}{12}$. De même, $\mathbb{E}(Y) = \frac{7}{12}$. 
+		
+		
+		
+		
+		Par théorème de transfert, $\mathbb{E}(X^2) = \int x^2f_X(x)dx = \int_0^1 x^3+ \frac{x^2}{2} dx = \frac{1}{4}+\frac{1}{6} = \frac{5}{12}$. De même, $\mathbb{E}(Y^2)=\frac{5}{12}$. 
+		
+		On peut ainsi calculer la variance $\sigma^2(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2 = \frac{11}{144}$ et $\sigma^2(Y)=\sigma^2(X)$.
+		
+		Pour le calcul de la covariance, on calcule $\mathbb{E}(XY)$ en appliquant le théorème de transfert sur la loi du couple $(X,Y)$ : $\mathbb{E}(XY)=\int_0^1 \int_0^1xy(x+y)dxdy = \int_0^1x^2dx \int_0^1ydy + \int_0^1xdx \int_0^1y^2dy = \frac{1}{3}$. Il vient $cov(X,Y) = \mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y) = \frac{-1}{144}$. }
+	\item \question{ Les variables $X$ et $Y$ sont-elles indépendantes ? }
+	\reponse{ Les variables $X$ et $Y$ sont donc corrélées, elles ne sont donc pas indépendantes. Cela se vérifie également en comparant le produit des densités marginales avec la densité du couple $(X,Y)$. }
+	%\item Déterminer la densité de la variable $S=X+Y$.
+	%\item Calculer $\mathbb{E}(S)$ et $\sigma^2(S)$.
+\end{enumerate}}

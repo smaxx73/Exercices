@@ -1,0 +1,63 @@
+\uuid{Z6wd}
+\titre{Méthode des moindres carrés}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	On considère des points $M_{1}, \ldots, M_{n}$ de $\mathbb{R}^{2}$, et on note $\left(x_{i}, y_{i}\right)$ les coordonnées de chaque point $M_{i}$.  }
+	
+	\begin{enumerate}
+		\item \question{ On cherche les points $(x, y)$ de $\mathbb{R}^{2}$ approchant au mieux le nuage de points formé par les points $M_{i}$ au sens des moindres carrés, c'est-à-dire qu'on cherche à minimiser la fonction
+		$$
+		f:(x, y) \mapsto \sum_{i=1}^{N}\left(x-x_{i}\right)^{2}+\left(y-y_{i}\right)^{2}
+		$$
+		On admet que $f$ admet au moins un minimum global sur $\mathbb{R}^{2}$. Déterminer en quels points $f$ admet ce minimum. }
+		\reponse{On cherche les points stationnaires : on trouve un point stationnaire $(x,y) = \left(\frac{1}{N}\sum_{i=1}^N x_i,\frac{1}{N}\sum_{i=1}^N y_i \right)$ et on reconnait le point moyen du nuage de points. On vérifie aisément qu'il s'agit d'un minimum local et qu'il est unique, c'est donc le minimum global.}
+		\item \question{ On cherche maintenant une relation affine entre les abscisses et les ordonnées de ces points. On cherche des constantes $m$ et $q$ pour que la droite d'équation $y=mx+q$ s'ajuste le mieux possible aux points observés. 
+		
+		Pour cela, on introduit $d_i = y_i - (mx_i + q)$ l'écart vertical du point $M_i$ par rapport à la droite. 
+		
+		La méthode des moindres carrés consiste à choisir $m$ et $q$ de telle sorte que la somme des écarts au carré soit minimale. 
+		
+		Exprimer $m$ et $q$ en fonction des coordonnées des points.  }
+		
+		\reponse{Pour cela, on doit minimiser la fonction $\mathscr{E}: \mathbb{R}^{2} \rightarrow \mathbb{R}_{+}$définie par
+			$$
+			\mathscr{E}(m, q)=\sum_{i=0}^{n} d_{i}^{2}=\sum_{i=0}^{n}\left(y_{i}-m x_{i}-q\right)^{2}
+			$$
+			Pour minimiser $\mathscr{E}$ on cherche d'abord les points stationnaires, i.e. les points $(m, q)$ qui vérifient $\frac{\partial \mathscr{E}}{\partial m}=\frac{\partial \mathscr{E}}{\partial q}=0$. Puisque
+			$$
+			\frac{\partial \mathscr{E}}{\partial m}(m, q)=-2\left(\sum_{i=0}^{n}\left(y_{i}-\left(m x_{i}+q\right)\right) x_{i}\right), \quad \frac{\partial \mathscr{E}}{\partial q}(m, q)=-2\left(\sum_{i=0}^{n}\left(y_{i}-\left(m x_{i}+q\right)\right)\right),
+			$$
+			$$
+			\left\{\begin{array} { l } 
+				{ \frac { \partial \mathscr { E } } { \partial m } ( m , q ) = 0 } \\
+				{ \frac { \partial \mathscr { E } } { \partial q } ( m , q ) = 0 }
+			\end{array} \Longleftrightarrow \left\{\begin{array}{l}
+				\sum_{i=0}^{n}\left(y_{i}-m x_{i}-q\right) x_{i}=0 \\
+				\sum_{i=0}^{n}\left(y_{i}-m x_{i}-q\right)=0
+			\end{array}\right.\right.
+			$$
+			$$
+			\Longleftrightarrow\left\{\begin{array} { l } 
+				{ ( \sum _ { i = 1 } ^ { n } x _ { i } ^ { 2 } ) m + ( \sum _ { i = 0 } ^ { n } x _ { i } ) q = \sum _ { i = 0 } ^ { n } y _ { i } x _ { i } } \\
+				{ ( \sum _ { i = 1 } ^ { n } x _ { i } ) m + ( n + 1 ) q = \sum _ { i = 0 } ^ { n } y _ { i } }
+			\end{array} \Longleftrightarrow \left\{\begin{array}{l}
+				m=\frac{\left(\sum_{i=0}^{n} x_{i}\right)\left(\sum_{i=0}^{n} y_{i}\right)-(n+1)\left(\sum_{i=0}^{n} x_{i} y_{i}\right)}{\left(\sum_{i=0}^{n} x_{i}\right)^{2}-(n+1)\left(\sum_{i=0}^{n} x_{i}^{2}\right)}, \\
+				q=\frac{\left(\sum_{i=0}^{n} x_{i}\right)\left(\sum_{i=0}^{n} x_{i} y_{i}\right)-\left(\sum_{i=0}^{n} y_{i}\right)\left(\sum_{i=0}^{n} x_{i}^{2}\right)}{\left(\sum_{i=0}^{n} x_{i}\right)^{2}-(n+1)\left(\sum_{i=0}^{n} x_{i}^{2}\right)} .
+			\end{array}\right.\right.
+			$$
+			On a trouvé un seul point stationnaire. On établi sa nature en étudiant la matrice Hessienne :
+			$$
+			H_{\mathscr{E}}(m, q)=2\left(\begin{array}{cc}
+				\sum_{i=1}^{n} x_{i}^{2} & \sum_{i=0}^{n} x_{i} \\
+				\sum_{i=0}^{n} x_{i} & (n+1)
+			\end{array}\right)
+			$$
+			et $\operatorname{det}\left(H_{\mathscr{E}}(m, q)\right)=4\left((n+1) \sum_{i=1}^{n} x_{i}^{2}-\left(\sum_{i=0}^{n} x_{i}\right)^{2}\right)>0$ avec $\partial_{m m} \mathscr{E}(m, q)=\sum_{i=1}^{n} x_{i}^{2}>0$ donc il s'agit bien d'un minimum. La droite d'équation $y=m x+q$ ainsi calculée s'appelle droite de régression de y par rapport à $x$.
+			
+			
+		}
+	\end{enumerate}}

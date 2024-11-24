@@ -1,0 +1,52 @@
+\uuid{6Wjb}
+\titre{Couple de variables}
+\theme{probabilités}
+\auteur{  }
+\organisation{AMSCC}
+%Proba192
+
+\contenu{
+	\texte{ Deux urnes $U_1$ et $U_2$ contiennent des boules permettant des gains ou des pertes décrits comme suit : 
+		\begin{itemize}
+			\item dans l'urne $U_1$, il y a 1 boule << perdant 1\euro{} >>, 2 boules << sans gain >>, 3 boules << gagnant 2\euro{} >> ;
+			\item dans l'urne $U_2$, il y a 3 boules << perdant 1\euro{} >>, 2 boules << sans gain >>, 1 boules << gagnant 2\euro{} >> ;
+		\end{itemize}
+	Un joueur lance un dé équilibré : s'il obtient 6, il pioche une boule dans l'urne $U_1$, sinon il pioche une boule dans l'urne $U_2$. 
+	
+	On note $X$ la variable aléatoire égale à $1$ si le dé sort $6$, $0$ sinon. On note $Y$ la variable aléatoire égale au gain (en euros.)
+	}
+	
+	\begin{enumerate}
+		\item \question{ Donner la loi du couple $(X,Y)$. }
+		\reponse{ Pour calculer par exemple $\prob(X=1,Y=-1)$, on utilise la formule de Bayes : 
+	$$\prob(X=1,Y=-1) = \prob(\{X=1\} \cap \{Y=-1\}) = \prob(X=1)\prob(Y=-1 \mid X=1)$$
+	Or d'après l'énoncé, $\prob(X=1) = \frac{1}{6}$ et $\prob(Y=-1 \mid X=1) = \frac{1}{6}$ d'où $\prob(X=1,Y=-1) = \frac{1}{36}$. 
+	En procédant de même pour tous les couples de valeurs possibles, on obtient : 
+\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		& $Y=-1$ & $Y=0$ & $Y=2$ \\
+		\hline
+	$X=1$	& $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{3}{36}$  \\
+		\hline
+	$X=0$	& $\frac{15}{36}$ & $\frac{10}{36}$ & $\frac{5}{36}$ \\
+		\hline
+	\end{tabular}
+\end{center}	
+	 }
+		\item \question{ Calculer les lois marginales du couple $(X,Y)$. Les variables $X$ et $Y$ sont-elles indépendantes ? }
+		\reponse{ On obtient directement que $X$ suit une loi de Bernoulli de paramètre $\frac{1}{6}$. De plus, par somme, on obtient la loi suivante pour $Y$ :
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+		$k$	& $-1$ & $0$ & $2$ \\
+			\hline
+			$\prob(Y=k$	& $\frac{4}{9}$ & $\frac{3}{9}$ & $\frac{2}{9}$  \\
+			\hline
+		\end{tabular}
+	\end{center}		
+	
+ }
+	\end{enumerate}
+	
+}

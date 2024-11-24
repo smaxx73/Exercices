@@ -1,0 +1,39 @@
+\uuid{HvSs}
+\titre{Calcul de probabilités}
+\theme{statistiques}
+
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+Une machine est conçue pour fabriquer des pièces pesant chacune $0{,}5$~g. Dans les faits, le résultat n'est pas parfait et on observe que la distribution du poids de chaque pièce a une moyenne de $0{,}50$~g et un écart type de $0{,}02$~g.
+
+\begin{enumerate}
+	\item \question{ On modélise le poids d'une pièce fabriquée par la machine avec une variable aléatoire $X$. Que peut-on dire de la variable $X$ ? }
+	\reponse{ On sait donc que $\EX=0.5~g$ et $\sigma(X)=0.02~g$.}
+	\item \question{Soit $\overline{X}$ la variable aléatoire égale au poids moyen d'une pièce dans un échantillon de $n$ pièces. Que peut-on dire de l'espérance et la variance de $\overline{X}$ ? Que peut-on dire de la loi suivie par $\overline{X}$ ?}
+	\reponse{On sait que $\mathbb{E}(\overline{X})=\EX = 0.5$ et $\sigma^2(\overline{X}) = \frac{\sigma^2(X)}{n} = \frac{(0.02)^2}{n}$
+		
+		On ne peut pas déterminer exactement la loi de $\overline{X}$, mais si l'échantillon est grand, d'après le Théorème Central Limite, on peut approcher la loi de \fbox{$\overline{X}$ par une loi normale $\mathcal{N}(0.5,\frac{(0.02)^2}{n})$} }
+	\item \question{Définir une variable aléatoire permettant de modéliser le poids total d'un échantillon de $n$ pièces. Que peut-on dire de sa loi de probabilité si $n$ est suffisamment grand ?}
+	\reponse{ Soit $P$ le poids total de l'échantillon. Alors $P=X_1+...+X_n = n \times \overline{X}$. Or : \\$\mathbb{E}(n\overline{X})=n \mathbb{E(\overline{X})}=0.5n$ et\\ $\sigma^2(n\overline{X})=n^2 \sigma^2(\overline{X})=n \times (0.02)^2$.
+		
+		Donc le poids total de l'échantillon \fbox{$P$ suit approximativement une loi normale $\mathcal{N}(0.5n,(0.02)^2n)$} }
+	\item \question{ On considère deux échantillons de $1000$ pièces chacun. Définir une variable aléatoire permettant de modéliser la différence de poids entre ces deux échantillons. }
+	\reponse{ On note $P_1$ le poids du premier échantillon de taille 1000, $P_2$ le poids du second échantillon de taille 1000. La différence de poids est donc $P_1$-$P_2$ si $P_1$ plus grand que $P_2$, et $P_2-P_1$ si $P_2$ plus grand que $P_1$. En résumé, cette différence s'écrit  $|P_1-P_2|$ (nombre toujours positif).  }
+	\item \question{ Calculer la probabilité pour que le poids de deux lots de $1000$ pièces chacun diffère de plus de $2$~g. }
+	\reponse{ 	D'après la question précédente, on sait que $P_1$ et $P_2$ suivent chacune une loi $\mathcal{N}(0.5 \times 1000,(0.02)^2 \times 1000)$. On va déterminer la loi de $P_1-P_2$ en supposant que $P_1$ et $P_2$ sont indépendantes : pour cela, on calcule :
+		\begin{itemize}
+			\item $\mathbb{E}(P_1-P_2)=\mathbb{E}(P_1)-\mathbb{E}(P_2)=0$
+			\item $\sigma^2(P_1-P_2)=\sigma^2(P_1)+\sigma^2(P_2)=2 \times (0.02)^2 \times 1000 = (0.02)^2 \times 2000 $
+		\end{itemize}
+		On cherche à calculer $\PP(|P_1-P_2|>2)$. Par symétrie ($P_1$ plus grand que $P_2$ ou l'inverse), il suffit de calculer $\PP(P_1-P_2>2)$ (cas où $P_1$ plus grand que $P_2$) et de multiplier le résultat par 2 (on trouvera le même résultat pour $\PP(P_2-P_1>2)$)
+		
+		La variable $P_1-P_2$ suit approximativement une loi normale $\mathcal{N}(0,(0.02)^2 \times 2000)$ donc $U=\frac{P_1-P_2}{0.02\sqrt{2000}}$ suit approximativement une loi $\mathcal{N}(0,1)$.
+		
+		Or $\PP(U > \frac{2}{0.02 \sqrt{2000}})=\PP(U>\frac{1}{0.1 \sqrt{20}})=\PP(U>2.236)$. 
+		
+		Donc $\PP(X_1-X_2>2)=\PP(U>2.236)=1-\PP(U<2.236)=0.0129$. On en déduit que $$\PP(|P_1-P_2|>2)=2 \times 0.0129=0.0258$$
+		
+		La probabilité que l'écart entre les poids des deux échantillons soit supérieur à 2~g est d'environ $2.6\%$.  }
+\end{enumerate}}

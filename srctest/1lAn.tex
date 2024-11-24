@@ -1,0 +1,28 @@
+\uuid{1lAn}
+\titre{Calcul de dérivées partielles}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	Une étude des glaciers a montré que la température T à l'instant t (mesuré en jours) à la profondeur $x$ (mesurée en pied) peut être modélisée par la fonction 
+$$T(x,t) = T_0 + T_1e^{-\lambda x}\sin(\omega t-\lambda x)$$
+où $T_0$, $T_1$, $\omega = \frac{2\pi}{365}$ et $\lambda$ sont des constantes réelles. }
+\begin{enumerate}
+	\item \question{ Exprimer les deux dérivées partielles de $T$. }
+	\reponse{Les dérivées partielles sont définies pour tout $(x,t) \in \R^2$ :
+		\begin{align*}
+		\frac{\partial T}{\partial x}(x,t) &= -\lambda T_1 e^{-\lambda x}\left( \sin(\omega t-\lambda x)+ \cos(\omega t-\lambda x)  \right)\\
+		\frac{\partial T}{\partial t}(x,t) &= \omega T_1 e^{-\lambda x} \cos(\omega t-\lambda x)
+		\end{align*}}
+	\item \question{ Montrer que $T$ vérifie l'équation de la chaleur :
+	$$\frac{\partial T}{\partial t}(x,t) = k\frac{\partial^2 T}{\partial x^2}(x,t)$$
+	pour une certaine constante $k$ à déterminer. }
+	\reponse{Il suffit de dériver une seconde fois par rapport à $x$ l'expression de $\frac{\partial T}{\partial x}(x,t)$ : on trouve
+		\begin{align*}
+		\frac{\partial^2 T}{\partial x^2}(x,t) &= \frac{\partial}{\partial x}\frac{\partial T}{\partial x}(x,t) \\
+		&= (-\lambda)^2 T_1 e^{-\lambda x} \left( \sin(\omega t-\lambda x)+ \cos(\omega t-\lambda x)  \right) + (-\lambda)^2 T_1 e^{-\lambda x} \left(\cos(\omega t-\lambda x)- \sin(\omega t-\lambda x)\right) \\
+		&= 2\lambda^2 T_1 e^{-\lambda x} \cos(\omega t - \lambda x)	
+		\end{align*}
+		La constante attendue est donc $k = \frac{\omega}{2\lambda^2}$.	  }
+\end{enumerate}}

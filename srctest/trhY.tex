@@ -1,0 +1,41 @@
+\uuid{trhY}
+\titre{Selon le choix de l'hypothèse}
+\theme{statistiques}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	Dans une grande entreprise, le salaire moyen annuel des hommes ayant entre 3 et 5 ans d'ancienneté est de \numprint{28000} euros. Pour préparer une négociation sur la parité des salaires hommes femmes, on fait un sondage sur 10 femmes qui donne les résultats suivants (en milliers d'euros):
+	
+	$$ 24 \qquad 27 \qquad 31 \qquad 19 \qquad 26 \qquad 27 \qquad 22 \qquad 15 \qquad 33 \qquad 21 $$
+	
+	A l'ouverture de la réunion, Monsieur A, délégué du personnel annonce : \og Le sondage montre qu'il n'y a pas lieu de penser que le salaire des femmes est différent de celui des hommes \fg{}. Il est aussitôt interrompu par Madame B, Directrice des Ressources Humaines, qui dit \og Pas du tout, le sondage prouve que le salaire des femmes est inférieur à celui des hommes \fg{}. Qu'en pensez-vous ?
+	
+	Pour argumenter les réponses, on pourra se poser les questions suivantes pour Monsieur A et Madame B. }
+	
+	\begin{enumerate}
+		\item \question{ Que doit-on supposer sur la distribution des salaires des femmes pour pouvoir faire des tests statistiques ? }
+		\reponse{On doit supposer que la distribution dans la population suit une loi normale.}
+		\item \question{ Si on note $\mu_0 = 28$ et $H_0 \colon \mu = \mu_0$ l'hypothèse nulle de Monsieur A / Madame B, quelle est l'hypothèse alternative pour chacun ? }
+		\reponse{Monsieur A fait son test sur le jeu d'hypothèses : $\begin{cases}
+				\mu = 28 \\
+				\mu \neq 28
+			\end{cases}$, partant du principe que la moyenne de salaire des femmes peut être aussi bien supérieur qu'inférieur à la moyenne. 
+	
+	Quant à Mme B, elle fait son test sur les hypothèses : 	$\begin{cases}
+		\mu = 28 \\
+		\mu < 28
+	\end{cases}$, partant du principe qu'il est improbable que les femmes aient une moyenne salariale supérieure.
+	} 
+		\item \question{ Déterminer la variable de décision et sa loi sous $H_0$. }
+		\reponse{On pose $Z = \frac{\overline{X}-28}{\frac{S}{\sqrt{10}}} $, cette variable suit une loi $St(9)$ d'après le cours.   }
+		\item \question{ Déterminer la région critique pour un risque de première espèce $\alpha = 5\%$. }
+		\reponse{Par lecture de table, on déterminer la région critique du test bilatéral de M. A : $W_A = ]-\infty;-2.26[\cup]2.26;+\infty[$. 
+	
+	Pour Mme B, le test unilatéral à gauche donne la région critique $W_B = ]-\infty;-1.83[$.	
+	 }
+		\item \question{ Calculer une réalisation de la variable de décision. }
+		\reponse{Après calculs sur cet échantillon, on obtient $\overline{x}_{obs} = 24.5$ et $s_{obs} \approx 5.46$.}
+		\item \question{ Peut-on dire que Monsieur A ou Madame B se trompe ? }
+		\reponse{}
+	\end{enumerate}}

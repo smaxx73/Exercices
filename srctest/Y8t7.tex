@@ -1,0 +1,42 @@
+\uuid{Y8t7}
+\titre{Etude d'une série entière}
+\theme{séries entières}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\question{ 	Déterminer le rayon de convergence de la série : 
+	$$\sum_{n=0}^{+\infty}\frac{n^2+4n-1}{n!(n+2)}x^n$$
+puis déterminer sa somme dans l'intervalle ouvert de convergence. }
+
+
+\reponse{
+La règle de d'\textsc{Alembert} montre que le rayon de convergence est égal à $+\infty$.
+
+Pour $n$ entier naturel donné, $\frac{n^2+4n-1}{n!(n+2)}=\frac{n^3+5n^2+3n-1}{(n+2)!}$ puis 
+
+\begin{align*}\ensuremath
+n^3+5n^2+3n-1&= (n+2)(n+1)n+2n^2+n-1 = (n+2)(n+1)n+2(n+2)(n+1) - 5n - 5\\
+&= (n+2)(n+1)n + 2(n+2)(n+1) - 5(n+2) + 5
+\end{align*}
+
+Donc, pour tout réel $x$,
+
+	$$f(x) =\sum_{n=0}^{+\infty}\frac{(n+2)(n+1)n}{(n+2)!}x^n +2\sum_{n=0}^{+\infty}\frac{(n+2)(n+1)}{(n+2)!}x^n- 5\sum_{n=0}^{+\infty}\frac{n+2}{(n+2)!}x^n+ 5\sum_{n=0}^{+\infty}\frac{1}{(n+2)!}x^n.$$
+
+Ensuite $f(0) = -\frac{1}{2}$  et pour $x\neq 0$,
+
+\begin{align*}
+f(x)&=\sum_{n=1}^{+\infty}\frac{1}{(n-1)!}x^n +2\sum_{n=0}^{+\infty}\frac{1}{n!}x^n- 5\sum_{n=0}^{+\infty}\frac{1}{(n+1)!}x^n+ 5\sum_{n=0}^{+\infty}\frac{1}{(n+2)!}x^n\\
+&= xe^x + 2e^x -5\frac{e^x-1}{x}+ 5\frac{e^x-1-x}{x^2}= \frac{e^x(x^3+2x^2-5x+5) -5x}{x^2}.
+\end{align*}
+
+		$$\forall x\in\Rr \, \quad, \quad \sum_{n=0}^{+\infty}\frac{n^2+4n-1}{n!(n+2)}x^n=\left\{
+		\begin{array}{l}
+		\frac{e^x(x^3+2x^2-5x+5) -5x}{x^2}\;\text{si}\;x\in\Rr^*\\
+		-\frac{1}{2}\;\text{si}\;x=0
+		\end{array}
+		\right.$$
+}
+}

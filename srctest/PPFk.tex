@@ -1,0 +1,103 @@
+\uuid{PPFk}
+\titre{Etude de points critiques}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	Soit la fonction $f$ de deux variables $x$ et $y$ définie par 
+	$$f(x,y) = 4 - \sqrt{1+x^2+y^2}$$ }
+	
+	%Sa représentation graphique est une surface dont voici l'allure en fig \ref{fig:surf}.
+	%
+	%	\begin{figure}[h!]
+	%		\centering
+	%		\includegraphics[width=0.5\linewidth]{surf}
+	%		\caption{Représentation graphique de la fonction $f(x,y) = 4 - \sqrt{1+x^2+y^2}$}
+	%		\label{fig:surf}
+	%	\end{figure}
+	
+	
+	\paragraph{Partie A}
+	
+	\begin{enumerate}
+		\item\question{  Déterminer l'ensemble de définition de la fonction $f$. }
+		\reponse{Pour tous réels $x$ et $y$, $1+x^2+y^2 \geq 0$ donc la fonction $f$ est bien définie sur $\R^2$.}
+		\item \question{ Exprimer les équations des lignes de niveau $k$ de cette fonction. }
+		\reponse{Soit $k$ réel : la ligne de niveau $k$ est l'ensemble des points $(x,y)$ tels que $f(x,y)=k$, c'est-à-dire 
+			$$\sqrt{1+x^2+y^2} = 4 - k$$
+			
+			Or $1+x^2+y^2 \geq 1$ quels que soient $x$ et $y$ réels donc $\sqrt{1+x^2+y^2} \geq 1$ et ainsi l'ensemble des points $(x,y)$ tels que $f(x,y)=k$ est non vide si   $4-k \geq 1$ soit $k \leq 3$ : dans ce cas, la ligne de niveau est un cercle centré en $0$ de rayon $\sqrt{(4-k)^2-1}$. }
+	\end{enumerate}
+	
+	\paragraph{Partie B}
+	
+	\begin{enumerate}
+		\item \question{ Calculer les dérivées partielles de la fonction $f$. }
+		\reponse{ On calcule les dérivées partielles :
+			\begin{align*}
+				\frac{\partial f}{\partial x}(x,y) &= 0-\frac{0+2x+0}{2\sqrt{1+x^2+y^2}} \\
+				&= \frac{-x}{\sqrt{1+x^2+y^2}}\\
+				\frac{\partial f}{\partial y}(x,y) &= 0-\frac{0 + 0 + 2y}{2\sqrt{1+x^2+y^2}} \\
+				&= \frac{-y}{\sqrt{1+x^2+y^2}}
+		\end{align*}}
+		\item \question{ Exprimer la matrice hessienne de $f$. }
+		\reponse{On calcule les dérivées partielles secondes :
+			\begin{align*}
+				\frac{\partial^2 f}{\partial x^2}(x,y) 	&= \frac{-\sqrt{1+x^2+y^2} - \frac{-x \times 2x}{2\sqrt{1+x^2+y^2}}}{\left(\sqrt{1+x^2+y^2}\right)^2}\\
+				&= \frac{-\sqrt{1+x^2+y^2} + \frac{x^2}{\sqrt{1+x^2+y^2}}}{{1+x^2+y^2}}\\
+				&= \frac{ \frac{-(1+x^2+y^2)+x^2}{\sqrt{1+x^2+y^2}}}{{1+x^2+y^2}}\\
+				&= \frac{-(1+x^2+y^2)+x^2}{(1+x^2+y^2)\sqrt{1+x^2+y^2}}\\
+				&= \frac{-1-y^2}{(1+x^2+y^2)^{\frac{3}{2}}}\\
+				&= -(1+y^2)(1+x^2+y^2)^{-\frac{3}{2}}
+			\end{align*}
+			De même, $x$ et $y$ jouant des rôles symétriques, 
+			\begin{align*}
+				\frac{\partial^2 f}{\partial y^2}(x,y) 	&= \frac{-1-x^2}{(1+x^2+y^2)^{\frac{3}{2}}}\\
+				&= -(1+x^2)(1+x^2+y^2)^{-\frac{3}{2}}
+			\end{align*}
+			Enfin, on calcule $\frac{\partial^2 f}{\partial x \partial y}(x,y) = \frac{\partial^2 f}{\partial y \partial x}(x,y)$ en réécrivant $\frac{\partial f}{\partial x}(x,y) = \frac{-x}{\sqrt{1+x^2+y^2}} = -x\,(1+x^2+y^2)^{-\frac{1}{2}}$ puis en dérivant cette expression par rapport à $y$ :
+			\begin{align*}
+				\frac{\partial^2 f}{\partial x \partial y}(x,y) 	&= -x \times (2y) \times \frac{-1}{2} (1+x^2+y^2)^{-\frac{1}{2}-1}\\
+				&= xy \, (1+x^2+y^2)^{-\frac{3}{2}}
+			\end{align*}
+			
+			On peut enfin écrire la matrice hessienne :
+			
+			\begin{align*} Hess_f(x,y) &= \begin{pmatrix}
+					-(1+y^2)(1+x^2+y^2)^{-\frac{3}{2}} & xy \, (1+x^2+y^2)^{-\frac{3}{2}} \\
+					xy \, (1+x^2+y^2)^{-\frac{3}{2}} & -(1+x^2)(1+x^2+y^2)^{-\frac{3}{2}}
+				\end{pmatrix}\\
+				&= (1+x^2+y^2)^{-\frac{3}{2}} \begin{pmatrix}
+					-(1+y^2) & xy  \\
+					xy  & -(1+x^2)
+				\end{pmatrix}
+		\end{align*}}
+		\item \question{ Déterminer les points critiques de la fonction $f$. }
+		\reponse{Pour déterminer les points critiques (stationnaires) de la fonction $f$, on résout 
+			le système d'équations :
+			\begin{align*}
+				\begin{cases}
+					\frac{\partial f}{\partial x}(x,y) = 0\\
+					\frac{\partial f}{\partial y}(x,y) =0
+				\end{cases}
+				\Leftrightarrow
+				\begin{cases}
+					\frac{-x}{\sqrt{1+x^2+y^2}} = 0\\
+					\frac{-y}{\sqrt{1+x^2+y^2}} =0
+				\end{cases}		
+				\Leftrightarrow
+				\begin{cases}
+					x = 0\\
+					y =0
+				\end{cases}			
+			\end{align*}
+			Il existe donc un unique point stationnaire : c'est le point $(0,0)$.}
+		\item \question{ Vérifier que la fonction $f$ admet un maximum local au point $(0,0)$ et donner la valeur de ce maximum. Peut-on dire que ce maximum est global ? }
+		\reponse{On étudie la nature de ce point stationnaire en évaluant $Hess_f(0,0) = 1 \times \begin{pmatrix}
+				-1 & 0  \\
+				0  & -1
+			\end{pmatrix}$. Le déterminant de cette matrice est $(-1) \times (-1) = 1 >0$ donc la matrice admet bien un extremum local. Du fait que $\frac{\partial^2 f}{\partial x \partial y}(0,0) = -1 <0$, on en déduit qu'il s'agit bien d'un maximum local dont la valeur est $f(0,0) = 4-\sqrt{1} = 3$. \\
+			Il s'agit bien d'un maximum global car pour tout $(x,y) \in \R^2$, $\sqrt{1+x^2+y^2} \geq 1$ ce qui implique que $f(x,y) \leq 3$.}
+	\end{enumerate}}

@@ -1,0 +1,30 @@
+\uuid{5cbY}
+\titre{Intervalles de confiance}
+\theme{statistiques}
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Pour étudier le degré de pollution des eaux d'une rivière par les déchets d'une usine, on mesure la teneur en milligrammes d'un certain polluant par litre d'eau.}
+ 
+ \begin{enumerate}
+  \item \question{On effectue 17 mesures pour lesquelles les valeurs observées des teneurs en polluant ont une moyenne de 5.2~mg/L et un écart-type de 1.2~mg/L. 
+  	\begin{enumerate}
+  		\item Donner une estimation sans biais de la moyenne et de l'écart type de la teneur en polluant dans cette rivière.
+
+  		\item Donner un intervalle de confiance au seuil de 5\% pour la teneur moyenne en polluant de cette rivière.
+  		\item A partir de ces résultats, peut-on considérer que l'usine respecte la législation en vigueur selon laquelle cette teneur moyenne en polluant ne doit pas dépasser 7~mg/ ?
+  	\end{enumerate}
+  	 }
+   \reponse{La moyenne observée dans l'échantillon est une estimation sans biais de la moyenne de la teneur dans la rivière, on obtient $\overline{x}=5.2$. L'écart type observé donne une estimation biaisée de l'écart type de la teneur en polluant dans la rivière, on calcule donc la variance observée $\tilde{S}^2 = 1.2^2 = 1.44$ puis la variance corrigée $S^2 = \frac{17}{16} \tilde{S}^2 \approx 1.53$ d'où une estimation non biaisée $s \approx 1.24$ de l'écart type. 
+   	
+   	L'échantillon étant petit ($n=17$), on doit supposer de surcroit que la distribution des mesures est normale. De là, on tire un intervalle de confiance à l'aide de la loi de Student $St(16)$  : $[4.58;5.82]$.}
+  \item \question{Combien de mesures devrait-on faire pour estimer la teneur moyenne en polluant avec une précision de 0.1~mg/L au niveau de confiance 95\% ?}
+  \reponse{En supposant que l'écart type de l'échantillon reste le même, la précision de l'intervalle de confiance est donné par sa longueur qui est $2\times t_{\alpha/2}\sqrt{\frac{s^2}{n}}$. Dans la question précédente, cette longueur vaut environ $1.23$. 
+
+On cherche $n$ tel que   $2\times t_{\alpha/2}\sqrt{\frac{s^2}{n}} = \leq 0.1$. On peut supposer que $n$ sera plus grand que $30$, donc on remplace $t_{\alpha/2}$ (quantile d'une loi de Student) par $u_{\alpha/2}$ en lecture de table de la loi normale centrée réduite.   En supposant que l'estimation de variance reste la même, on obtient $2\times 1.96 \times\frac{1.24}{\sqrt{n}} \leq 0.1$ soit $\sqrt{n} \geq 48.608$ soit \fbox{$n \geq 2363$}. 
+
+\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/Ec9ve_iQd-pNn_Tf86GSa8EBJUrDEkRpISpMW4xkp23PeQ?e=oOly0h}{Détail des calculs sur tableur}
+
+}
+ \end{enumerate}}

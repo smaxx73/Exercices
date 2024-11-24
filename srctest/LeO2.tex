@@ -1,0 +1,50 @@
+\uuid{LeO2}
+\titre{Dé truqué}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+\texte{On considère un dé truqué cubique dont les faces sont numérotées de $1$ à $6$. On suppose que le dé est truqué de sorte que la probabilité d'obtenir une face est proportionnelle au numéro inscrit sur cette face.
+
+Soit $X$ la variable aléatoire donnant le numéro obtenu à l'issue d'un lancer.}
+\begin{enumerate}
+ \item \question{Déterminer la loi de $X$.}
+ \reponse{ D'après les informations, pour tout $k \in \{1,2,3,4,5,6\}$, on a $\prob(X=k)=k\prob(X=1)$. Or, par définition d'une loi de probabilité, on a $\sum_{k=1}^6 \prob(X=k)=1$. Ainsi, on a :
+\begin{align*}
+    1 &= \sum_{k=1}^6 \prob(X=k) \\
+    &= \sum_{k=1}^6 k\prob(X=1) \\
+    &= \prob(X=1) \sum_{k=1}^6 k \\
+    &= \prob(X=1) \times \frac{6\times 7}{2} \\
+    &= 21 \prob(X=1).
+\end{align*}
+On en déduit que $\prob(X=1)=\frac{1}{21}$ et donc que pour tout $k \in \{1,2,3,4,5,6\}$, on a $\prob(X=k)=\frac{k}{21}$.
+}
+ \item \question{Calculer l'espérance de $X$.}
+ \reponse{
+    Par définition de l'espérance, on a : 
+    \begin{align*}
+        \E(X) &= \sum_{k=1}^6 k\prob(X=k) \\
+        &= \sum_{k=1}^6 k \times \frac{k}{21} \\
+        &= \frac{1}{21} \sum_{k=1}^6 k^2 \\
+        &= \frac{7 \times 13}{21} \\
+        &= \frac{13}{3}.
+    \end{align*}
+ }
+ \item \question{On pose $Y=\frac{1}{X}$. Déterminer la loi de $Y$ et calculer son espérance.}
+ \reponse{
+    Les valeurs prises par $Y$ sont les inverses des valeurs prises par $X$. Ainsi, on a pour tout $k \in \{1,2,3,4,5,6\}$, $\prob\left( Y=\frac{1}{k} \right) = \prob(X=k)$.
+
+    Pour calculer l'espérance, on utilise la définition :
+
+    \begin{align*}
+        \E(Y) &= \sum_{k=1}^6 \frac{1}{k} \prob\left(Y=\frac{1}{k}\right) \\
+        &= \sum_{k=1}^6 \frac{1}{k} \times \frac{k}{21} \\
+        &= \frac{1}{21} \sum_{k=1}^6 1 \\
+        &= \frac{6}{21} \\
+        &= \frac{2}{7}.
+    \end{align*}
+ }
+\end{enumerate}
+
+}

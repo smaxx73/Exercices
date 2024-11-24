@@ -1,0 +1,30 @@
+\uuid{oNkJ}
+\titre{ Changement de variable }
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+	\texte{ Soit $X$ une variable aléatoire suivant la loi uniforme $\mathcal{U}([0;2])$. On pose $Y=\max(1,X)$.  }
+\begin{enumerate}
+	\item \question{ Déterminer la fonction de répartition de $X$. } %son espérance et sa variance. }
+	\reponse{C'est du cours : $F_X(t)= \begin{cases} 0 & \text{ si } t<0 \\ 
+			\frac{t}{2} & \text{ si } t\in]0;2[ \\
+			1 & \text{ si } t\geq 2
+		\end{cases} $ ; $\EX = 1$ et $V(X) = 4/12 = 1/3$. }
+	\item \question{ Déterminer la fonction de répartition de $Y$. }
+	\reponse{Soit $t \in \R$ : $F_Y(t) = \PP(Y \leq t) = \PP(\{1 \leq t\} \cap \{X \leq t\})$. On distingue trois cas : \\
+		Si $t \geq 2$ : $\PP(Y \leq t) = 1$ ; \\
+		Si $ 1 \leq t < 2$ : $\PP(Y \leq t) = \PP(X \leq t) = \frac{t}{2}$ ; \\
+		Si $t<1$, $\PP(Y \leq t) = 0$.
+		
+		On remarque que $F_Y$ n'est pas continue en $1$ (mais elle est bien continue à droite en $1$.).
+	}
+	\item \question{ Calculer la probabilité $\PP(Y=1)$.  }
+	\reponse{On remarque que $Y=1 \iff X \leq 1$ donc $\PP(Y=1) = \PP(X \leq 1) = 1/2$. 
+		
+		On sait aussi d'après le cours que $\PP(Y=1) = \lim\limits_{1^+}F_Y-\lim\limits_{1^-}F_Y = F_Y(1)-0 = 1/2$.}
+	\item \question{  La variable aléatoire $Y$ est-elle discrète ? absolument continue ? Justifier. }
+	\reponse{La variable aléatoire $Y$ n'est pas discrète car sa fonction de répartition n'est pas en escalier. Elle n'est pas non plus absolument continue car sa fonction de répartition n'est pas continue partout (discontinuité en $1$).}
+\end{enumerate}
+}

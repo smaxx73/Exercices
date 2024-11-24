@@ -1,0 +1,42 @@
+\uuid{na3z}
+\titre{Nature de séries}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Étudier la convergence des séries $\sum\limits_{n \geq n_0} u_n$ suivantes et préciser la somme de la série quand celle-ci est convergente. }
+\colonnes{\solution}{3}{1}
+\begin{enumerate} 
+			\item \question{ $u_n=\Big(\frac{3}{2}\Big)^n$ , $n_0=0$}
+			\reponse{C'est une série géométrique de raison $q = \frac32 >0$ donc une série divergente.  }
+			\item \question{ $u_n=\ln\Big(1-\frac{1}{n^2}\Big)$ , $n_0=2$}
+			\reponse{On écrit la somme partielle : 
+				\begin{align*}
+				\sum_{k=2}^{n} \ln \left(1-\frac{1}{k^{2}}\right) &=\sum_{k=2}^{n} \ln (k+1)+\ln (k-1)-2 \ln (k) \\
+				&=\sum_{k=2}^{n} \ln (k+1)-\ln (k)-(\ln (k)-\ln (k-1)) \\
+				&=\ln (n+1)-\ln (n)-\ln 2 \underset{n \rightarrow+\infty}{\longrightarrow}-\ln 2
+				\end{align*}
+			La série $\sum u_n$ est convergente et sa somme vaut $-\ln(2)$. 
+			}
+			\item \question{ $u_n=\Big(\frac{1+i}{2}\Big)^n$ , $n_0=0$}
+			\reponse{C'est une série géométrique de raison $q = \frac{1+i}{2}$ et $|q| = \frac{1}{\sqrt{2}}<1$ donc une série convergente. Sa somme vaut $\sum_{n=0}^{+\infty} u_n = \frac{1}{1-q} = \frac{2}{1-\mathrm{i}}$. }
+			\item \question{ $u_n=\frac{1}{3^n}$ , $n_0=0$}
+			\reponse{C'est une série géométrique de raison $q = \frac{1}{3} <1$ donc c'est une série convergente.  Sa somme vaut $\sum_{n=0}^{+\infty} u_n = \frac{1}{1-q} = \frac{3}{2}$.  }
+			\item \question{ $u_n=\frac{2n-1}{n(n^2-4)}$ , $n_0=3$}
+			\reponse{On trouve dans un premier temps que $u_n = \frac{1}{4n}-\frac{5}{8(n+2)}+\frac{3}{8(n-2)} $. 
+				On écrit la somme partielle pour $n \geq 3$ (les termes de la série ne sont pas bien définis pour $n \leq 2$) : 
+				\begin{align*}
+				\sum_{k=3}^{n} u_n &=\sum_{k=3}^{n} \frac{1}{4k}-\frac{5}{8(k+2)}+\frac{3}{8(k-2)} \\
+				&=\sum_{k=3}^{n} \frac{1}{4k} - \sum_{k=5}^{n+2} \frac{5}{8k} + \sum_{k=1}^{n-2} \frac{3}{8k}     \\
+				&= \frac{1}{12} + \frac{1}{16} + \frac{1}{4(n-1)} +  \frac{1}{4n} - \sum_{k=n-1}^{n+2} \frac{5}{8k} + \frac{3}{8} + \frac{3}{16} + \frac{3}{24} + \frac{3}{32} \\
+				& \underset{n \rightarrow+\infty}{\longrightarrow} \frac{89}{96}
+				\end{align*}
+				
+			} 
+		\end{enumerate}
+\fincolonnes{\solution}{3}{1}
+
+\texte{ 	\textit{Indications: Pour $2.$, on pourra remarquer que $\ln(1-\frac{1}{n^2})=\ln(n-1)+\ln(n+1)-2\ln(n)$. Pour $5.$, on pourra décomposer la fraction en éléments simples, i.e. chercher $a$, $b$ et $c$ des réels tels que $\frac{2n-1}{n(n^2-4)}=\frac{a}{n}+\frac{b}{n-2}+\frac{c}{n+2}$.}  }
+}

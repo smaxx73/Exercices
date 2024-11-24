@@ -1,0 +1,42 @@
+\uuid{XtkF}
+\titre{Etude d'extrema}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+%14.10 p 334 Analyse PC PSI
+\texte{ 	Soit $K = \{(x,y)\in \R^2 \mid x^2+y^2 \leq 16\}$. Pour tout $(x,y) \in K$, on pose 
+	$$f(x,y) = \sqrt{x^2+y^2}+x^2-3$$ }
+\reponse{ \href{https://www.geogebra.org/3d/e8thkac8}{graphe de la fonction f} }
+	\begin{enumerate}
+		\item \question{ Justifier l'existence d'un minimum et d'un maximum de $f$ sur $K$. }
+		\reponse{ $K$ est fermé borné, la fonction $f$ est continue sur $K$ donc d'après le théorème des valeurs extrêmes, $f$ atteint son maximum et son minimum sur $K$. }
+		\item \question{ En quels points sont-ils atteints ? }
+		\reponse{On cherche d'abord les points stationnaires dans l'intérieur de $K$ : la fonction $f$ n'est pas dérivable en $(0,0)$, on calcule les dérivées partielles en $(x,y) \in \overset{\circ}{K} \backslash \{(0,0)\} = \{(x,y)\in \R^2 \mid 0< x^2+y^2 < 16\} $ :
+			\begin{align*}
+				\begin{cases}
+					\frac{\partial f}{\partial x}(x,y) = 0\\
+					\frac{\partial f}{\partial y}(x,y) =0
+				\end{cases}
+				\Leftrightarrow
+				\begin{cases}
+					\frac{x}{\sqrt{x^2+y^2}}+2x = 0\\
+					\frac{y}{\sqrt{x^2+y^2}} =0
+				\end{cases}		
+				\Leftrightarrow
+				\begin{cases}
+					\frac{x}{|x|} + 2x = 0\\
+					y =0
+				\end{cases}			
+			\end{align*}
+Il n'y a aucune solution à ce système d'équations (si $x>0$ alors $1+2x>0$ et si $x<0$ alors $-1+2x=0$). Donc $f$ n'admet pas de  points stationnaires sur $\overset{\circ}{K} \backslash \{(0,0)\} $.
+			
+La fonction $f$ n'a donc d'autre choix que d'atteindre ses bornes en $(0,0)$ ou bien sur la frontière du domaine $K$. 
+			
+Or $f(0,0) = -3$ et pour tout $(x,y) \in K$, $\sqrt{x^2+y^2}+x^2 \geq 0$ donc $f(x,y) \geq -3 = f(0,0)$. On en déduit que \fbox{$f$ atteint son minimum en $(0,0)$ et ce minimum vaut $-3$}.
+			
+D'autre part, la frontière de $K$ est le cercle d'équation $x^2+y^2=16$, sur lequel $f(x,y) = 1+x^2$. On en déduit que le maximum est atteint si $x \in \{-4,4\}$, ce qui impose $y=0$. Le \fbox{maximum est donc atteint aux points $(-4,0)$ et $(4,0)$}, la valeur de ce maximum est $17$. }
+	\end{enumerate}
+
+}

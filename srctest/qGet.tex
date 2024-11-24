@@ -1,0 +1,48 @@
+\uuid{qGet}
+\titre{Etude de point fixe}
+\theme{méthodes numériques}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On s'intéresse au calcul de $\ell\in[0;\pi]$ tel que $\ell=\ell-\frac{1}{4}\cos(\ell)$. 
+
+On considère la méthode de point fixe suivante: $x_0\in[0;\pi]$ et $x_{k+1}=\phi(x_k)$ pour tout $k\geq 0$, où $\phi$ est la fonction définie sur l'intervalle $[0;\pi]$ par $\phi(x)=1-\frac{1}{4}\cos(x)$.}
+\begin{enumerate}
+	\item \question{ Montrer que la méthode converge pour tout $x_0\in[0;\pi]$. }
+	\reponse{La dérivée de la fonction $g$ vérifie $\forall x\in[0;\pi]$, $|\phi'(x)|\leq \frac{1}{4}<1$. De plus, $\phi([0;\pi])=[\frac{3}{4};\frac{5}{4}]\subset[0;\pi]$. Par conséquent, la méthode de point fixe converge vers le point fixe $l$ pour tout $x_0\in[0;\pi]$.
+	}
+	
+	\item 
+	\begin{enumerate}
+
+
+	 		\item \question{ Montrer qu'il existe une constante $C \in ]0;1[$ telle que pour tout $k \in \N$,  $|x_k-\ell|\leq C^k|x_0-\ell|$ et donner une valeur de $C$.}
+	 		\item \question{ En déduire le nombre d'itérations nécessaires pour approcher $\ell$ à $10^{-3}$ près. }
+	\reponse{ Par le théorème des accroissements finis, on a l'existence de $\zeta_k$ compris entre $\ell$ et $x_{k}$ tel que
+		\[ |x_k-\ell|=|\phi(x_{k-1})-g(\ell)|=|\phi'(\zeta_k)| |x_{k-1}-\ell| \leq \frac{1}{4}|x_{k-1}-\ell|.\]
+		Par récurrence, on montre ainsi 
+		\[ |x_k-\ell|\leq \frac{1}{4^k}|x_0-\ell|.\]
+		On a donc $|x_k-\ell|\leq \frac{\pi}{4^k}$. Pour approcher $\ell$ à $10^{-3}$ près, il faut
+		\[ \frac{\pi}{4^k}\leq 10^{-3} \quad \Leftrightarrow \quad k\geq \frac{\ln(\pi 10^3)}{\ln(2)}\simeq 5.9,\]
+		soit $6$ itérations.
+	}
+		\end{enumerate}
+	\item 
+	\begin{enumerate}
+		\item \question{ Montrer que pour tout $k \in \N$, $|x_k - \ell| \leq \frac{4}{3} |x_{k+1}-x_{k}|$.}
+		\item \question{ En déduire la valeur $\varepsilon$ du contrôle de l'incrément (en tant que critère d'arrêt) pour approcher $\ell$ à $10^{-3}$ près.}
+	\end{enumerate}
+	%\textit{Rappel: $|a-c|-|c-b|\leq |a-c|+|c-b|$, pour tout $a,b,c\in\mathbb{R}$}
+	\reponse{ On a
+		\begin{align*}
+		|x_k-l|-|x_{k+1}-x_k| & \leq |x_k-l+x_{k+1}-x_k|=|x_{k+1}-l| \\
+		& \leq C |x_k-l|
+		\end{align*}
+		d'où $|x_k-l|-C|x_k-l|\leq |x_{k+1}-x_k|$ qui implique
+		\begin{align*}
+		|x_k-l| \leq \frac{1}{1-C}|x_{k+1}-x_k| \leq \frac{\varepsilon}{1-C}.
+		\end{align*}
+		Il faut choisir $\varepsilon$ tel que $\frac{\varepsilon}{1-C}<10^{-3}$ pour approcher $l$ à $10^{-3}$ près.
+	}
+\end{enumerate}}

@@ -1,0 +1,56 @@
+\uuid{7aqI}
+\titre{Expérience scientifique}
+\theme{statistiques}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ En 1908, en France, Binet publie une étude concernant la mesure de l'intelligence des enfants. Son échelle d'intelligence se base sur un certain nombre d'épreuves classées dans un ordre croissant de difficulté. On peut donc classer l'enfant dans une des 5 catégories suivantes : retardé de 2 ans, retardé d'1 an, régulier, avancé de 1 an et avancé de 2 ans. Voici les données, en
+	fréquences relatives, que Binet obtient sur un échantillon de 192 enfants : 
+	
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline 
+			-2 & -1 & 0 & +1 & +2 \\ 
+			\hline 
+			0{,}06 & 0{,}23 & 0{,}48 & 0{,}22 & 0{,}01 \\ 
+			\hline 
+		\end{tabular} 
+		
+	\end{center}
+	
+	Des chercheurs, un américain (Goddard) et un allemand (Bobertag) font passer le test de Binet à un échantillon de 1547 enfants américains (Goddard) et 228 enfants allemands (Bobertag). Ils obtiennent les effectifs suivants :
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline 
+			& -2 & -1 & 0 & +1 & +2 \\ 
+			\hline 
+			Goddard &		294 & 309 & 557 & 
+			325 & 62 \\ 
+			\hline
+			Bobertag & 6 & 40 & 119 & 57 & 6 \\
+			\hline 
+		\end{tabular} 
+	\end{center} }
+	
+\question{ 	Avec un niveau de confiance de $95\%$, peut-on dire que les données chez les enfants américains et allemands sont cohérentes avec la distribution obtenue par Binet chez les enfants français ? }
+
+\reponse{ 	Les effectifs théoriques sous hypothèse de distribution de Binet :
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline 
+			& -2 & -1 & 0 & +1 & +2 \\ 
+			\hline 
+			Goddard &		92.82 & 355.81 & 742.56 & 
+			340.34 & 15.47 \\ 
+			\hline
+			Bobertag & 13.68 & 52.44 & 109.44 & 50.16 & 2.28 \\
+			\hline 
+		\end{tabular} 
+		
+	\end{center}
+	On fait un test du $\chi^2$ avec une variable de décision qui suit une loi du $\chi^2(4)$ la valeur critique est 9,49 pour une erreur de première espèce $\alpha = 5\%$ : la valeur observée pour Goddard est 629,21, celle pour Bobertag est 15.09, on rejette l'hypothèse $H_0$ pour les deux test. }}

@@ -1,0 +1,25 @@
+\uuid{dsIx}
+\titre{Estimation et loi puissance}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ En 2008, le célèbre opérateur FSR proposait un forfait téléphonique de 1 heure mensuelle. Pour étudier la consommation des clients ayant opté pour ce forfait, il a relevé la proportion mensuelle du forfait consommé par 15 clients et a obtenu, après avoir ordonné les résultats :
+	
+	$$0.29 \qquad 0.46 \qquad 0.51 \qquad 0.61 \qquad 0.70 \qquad 0.72 \qquad 0.76 \qquad 0.79$$
+	$$0.84 \qquad 0.85 \qquad 0.86 \qquad 0.92 \qquad 0.94 \qquad 0.96 \qquad 1$$
+	
+	Cette répartition suggère de modéliser les observations à l'aide d'une loi puissance de paramètre $(\lambda,1)$ avec $\lambda>0$ dont la fonction densité est :
+	$$f_\lambda(x) = \lambda \, x^{\lambda-1}\textbf{1}_{[0;1]}(x)$$
+}
+\begin{enumerate}
+	\item \question{ \'A l'aide de la méthode du maximum de vraisemblance, construire un estimateur du paramètre $\lambda$, pour un $n$-échantillon $(X_1,...,X_n)$. On notera cet estimateur $\widehat{\lambda_n}$. }
+	\reponse{ 	Avec la log-vraisemblance, on obtient l'estimateur $\widehat{\lambda_n} = \frac{n}{-\sum \ln(x_i)}$.  }
+	\item \question{ On admet que la variable aléatoire $2n\, \frac{\lambda}{\widehat{\lambda_n}}$ suit une loi $\chi^2(2n)$. En déduire l'expression d'un intervalle de confiance de niveau $1-\alpha$ sous la forme $]-\infty~;~T]$ pour le paramètre $\lambda$.  }
+	\reponse{ 	Si on note $q_{\alpha,n}$ le quantile tel que $\PP(Z<q_{\alpha,n}) = 1-\alpha$ où $Z \sim \chi^2(n)$, on obtient un intervalle de confiance 
+		$$]-\infty~;~q_{\alpha,2n}\,\frac{\widehat{\lambda_n}}{2n}]$$
+	}
+	%\item\question{  A partir du résultat obtenu sur les 15 clients, peut-on affirmer que $\lambda<5$ avec un risque de $5\%$ ? }
+	%\reponse{ Dans l'échantillon, on estime $\lambda_n = 2.97$ et $q_{5\%,2n} \frac{\widehat{\lambda_n}}{2n} = 4.33$ donc on peut accepter l'hypothèse que $\lambda<5$. }
+\end{enumerate}}

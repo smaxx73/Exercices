@@ -1,0 +1,40 @@
+\uuid{PUWY}
+\titre{Série télescopique}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+	Soit un entier $k \geq 1$. 
+
+
+\begin{enumerate}
+	\item \question{ Calculer :
+	$$ S_k=\sum_{n=1}^k \Big( \frac{1}{n}-\frac{3}{n+1}+\frac{1}{n+2}+\frac{1}{n+3}\Big).$$ }
+\reponse{ Soit $k\in\mathbb{N}^*$. Alors on a
+	\begin{align*}
+	S_k=& \sum_{n=1}^k \Big( \frac{1}{n}-\frac{3}{n+1}+\frac{1}{n+2}+\frac{1}{n+3}\Big) \\
+	=& \sum_{n=1}^k \frac{1}{n} - 3 \sum_{n=1}^k \frac{1}{n+1}+\sum_{n=1}^k  \frac{1}{n+2} + \sum_{n=1}^k  \frac{1}{n+3}  \\
+	=& \sum_{n=1}^k \frac{1}{n} - 3 \sum_{n=2}^{k+1} \frac{1}{n}+\sum_{n=3}^{k+2}  \frac{1}{n} + \sum_{n=4}^{k+3}  \frac{1}{n}  \\
+	=& \Big( 1+\frac{1}{2}+\frac{1}{3}+ \sum_{n=4}^k \frac{1}{n}\Big) 
+	-3\Big(\frac{1}{2}+\frac{1}{3}+\sum_{n=4}^k \frac{1}{n} + \frac{1}{k+1} \Big) \\
+	&+\Big(\frac{1}{3}+\sum_{n=4}^k \frac{1}{n} + \frac{1}{k+1} + \frac{1}{k+2} \Big) 
+	+\Big(\sum_{n=4}^k \frac{1}{n}+ \frac{1}{k+1} + \frac{1}{k+2} +\frac{1}{k+3}\Big) \\
+	=& 1+\frac{1}{2}+\frac{1}{3}-\frac{3}{2}-\frac{3}{3}-\frac{3}{k+1} 
+	+ \frac{1}{3}+ \frac{1}{k+1} + \frac{1}{k+2}+ \frac{1}{k+1} + \frac{1}{k+2} +\frac{1}{k+3}
+	%=& 1+(1-3)\frac{1}{2} + (1-3+1)\frac{1}{3} + (1-3+1+1)\frac{1}{4}+ \cdots \\
+	%&+ (1-3+1+1)\frac{1}{k}+ (-3+1+1)\frac{1}{k+1} + (1+1) \frac{1}{k+2} +\frac{1}{k+3} \\
+	%=& 1+\frac{-2}{2}+\frac{-1}{3} + \frac{-1}{k+1} + \frac{2}{k+2}+\frac{1}{k+3},
+	\end{align*}
+	D'où pour tout $k\in\mathbb{N}^*$,
+	\[ S_k=-\frac{1}{3} - \frac{1}{k+1} + \frac{2}{k+2}+\frac{1}{k+3}.\] }
+	\item \question{ Que peut-on dire de la série 
+	$\displaystyle \sum_{n\geq 1} \frac{-2n^2-2n+6}{n(n+1)(n+2)(n+3)} $ ? }
+\reponse{ 	
+	En faisant tendre $k$ vers l'infini, on obtient $ \lim\limits_{k\rightarrow +\infty} S_k=-\frac{1}{3}$. Or pour tout $n\in\N^*$, on a:
+	\[\frac{1}{n}-\frac{3}{n+1}+\frac{1}{n+2}+\frac{1}{n+3}= \frac{-2n^2-2n+6}{n(n+1)(n+2)(n+3)}.\]
+	On en conclut que la série $\displaystyle \sum_{n\geq 1} \frac{-2n^2-2n+6}{n(n+1)(n+2)(n+3)} $ est convergente et sa somme vaut $\displaystyle-\frac{1}{3}$.}
+\end{enumerate}
+
+}

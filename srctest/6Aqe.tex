@@ -1,0 +1,48 @@
+\uuid{6Aqe}
+\titre{ Loi uniforme sur un triangle }
+\theme{probabilités}
+
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+    On considère le plan $\R^2$ muni d'un repère orthonormé $(O,\overrightarrow{OI},\overrightarrow{OJ})$. Soit $T$ l'intérieur du triangle $OIJ$ et soit $(X,Y)$ un couple de variables aléatoires suivant une loi uniforme sur le triangle $T$.
+	\begin{enumerate}
+		\item \question{ Déterminer un nombre réel $k$ tel que $f(x,y) = k \cdot \mathbf{1}_T(x,y)$ définisse sur $\R^2$ la densité du couple $(X,Y)$. }
+		\reponse{
+			On a $(x,y) \in T$ si et seulement si $x \in [0,1]$, $y \in [0,1]$ et $y \leq 1-x$. Donc d'après le théorème de Fubini : 
+			\begin{align*}
+				\int_{\R^2} f(x,y) dx dy &= \int_0^1 \int_0^{1-x} k \,dy dx \\
+				&= \int_0^1 k(1-x) dx \\
+				&= k \left[ x - \frac{x^2}{2} \right]_0^1 \\
+				&= k \times \frac{1}{2}
+			\end{align*}
+			Pour que $f$ soit une densité, il faut que $\int_{\R^2} f(x,y) dx dy = 1$ et $f(x,y) \geq 0$ pour tout $(x,y) \in \R^2$. Donc $k = 2$.
+		}
+		\item \question{ Déterminer les lois marginales du couple $(X,Y)$. }
+		\reponse{
+			Si $(x,y) \notin T$, alors $f(x,y) = 0$. Donc pour tout $x \notin [0,1]$, $f_X(x) = 0$. De même pour tout $y \notin [0,1]$, $f_Y(y) = 0$. 
+
+			Si $x \in [0,1]$, alors $f_X(x) = \int_{-\infty}^{+\infty}f(x,y)dy = 2 \int_0^{1-x} dy = 2(1-x)$. De même pour tout $y \in [0,1]$, $f_Y(y) = 2(1-y)$.
+		}
+		\item \question{ Les variables aléatoires $X$ et $Y$ sont-elles indépendantes ?}
+		\reponse{
+			Si elles l'étaient, on aurait $f(x,y) = f_X(x) \times f_Y(y) = 4(1-x)(1-y)$ pour tout $(x,y) \in \R^2$. Or $f(0,0) = 2 \neq 4$. Donc $X$ et $Y$ ne sont pas indépendantes.
+		}
+		\item \question{ Calculer la covariance du couple $(X,Y)$. } %Qu'en pensez-vous? 
+		\reponse{
+			On sait que $\cov(X,Y) = \E(XY) - \E(X)\E(Y)$. On a $\E(X) = \int_{-\infty}^{+\infty} x f_X(x) dx = \int_0^1 2x(1-x) dx = \frac{1}{3}$. De même $\E(Y) = \frac{1}{3}$. 
+
+			De plus, 
+			\begin{align*}
+				\E(XY) &= \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} xy f(x,y) dx dy \\
+				&= \int_0^1 \int_0^{1-x} 2xy dy dx \\
+				&= \int_0^1 x(1-x)^2 dx \\
+				&= \int_0^1 x - 2x^2 + x^3 dx \\
+				&= \left[ \frac{x^2}{2} - \frac{2x^3}{3} + \frac{x^4}{4} \right]_0^1 \\
+				&= \frac{1}{12}
+			\end{align*}
+Donc $\cov(X,Y) = \frac{1}{12} - \frac{1}{3} \times \frac{1}{3} = -\frac{1}{36}$. 
+		}
+	\end{enumerate}
+}

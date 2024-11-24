@@ -1,0 +1,24 @@
+\uuid{Lmme}
+\titre{Fonction de $n$ variables et laplacien nul}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Soit $g \colon ]0;+\infty[ \to \R$ une fonction de classe $\mathcal{C}^2$. Soit un entier $n \geq 2$ et $f \colon \R^n \backslash \{0\} \to \R$ définie par $f(x_1,...,x_n) = g(\sqrt{\sum_{i=1}^n x_i^2})$. 
+
+On note $\Delta f = \sum\limits_{i=1}^{n} \frac{\partial^2 f}{\partial x_i^2}$ le laplacien de $f$. On pose $r=\sqrt{\sum\limits_{i=1}^n x_i^2}$. }
+
+\begin{enumerate}
+	\item \question{ Démontrer que pour tout $x=(x_1,...,x_n) \in \R^n \backslash \{0\}$, $\Delta f(x) = g''(r)+ \frac{n-1}{r}g'(r)$. }
+	      \reponse{ On applique la règle des chaînes en voyant $r$ comme une fonction de $n$ variables : 
+	      	$$\frac{\partial f}{\partial x_i} = \frac{x_i}{r}g'(r)$$
+	      	puis 
+	      	$$\frac{\partial^2 f}{\partial x_i^2} = \left(\frac{1}{r}- \frac{x_i}{r^2} \frac{\partial r}{\partial x_i}\right)g'(r) + \frac{x_i^2}{r^2}g''(r) = \frac{r^2-x_i^2}{r^3}g'(r) + \frac{x_i^2}{r^2}g''(r)  $$
+	      	Il reste à sommer pour $i$ variant de $1$ à $n$ pour avoir le résultat. }
+	\item \question{ Déterminer l'ensemble des fonctions $g$ telles que $\Delta f = 0$. }
+	      \reponse{ On en déduit que $\Delta f =0$ si et seulement si $g'$ est solution de l'équation différentielle linéaire du premier ordre
+	      	$$y'+ \frac{n-1}{r}y = 0$$
+	      	d'où $g'(r) = \frac{k_1}{r^{n-1}}$ (avec $k_1 \in \R$) d'où $g(r) = \frac{k_1}{r^{n-2}}+k_2$ si $n \geq 3$ et $g(r) = k_1\ln(r) + k_2$ si $n=2$. }
+\end{enumerate}
+}

@@ -1,0 +1,16 @@
+\uuid{dHzJ}
+\titre{Application du théorème central limite}
+\theme{statistiques}
+
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{On considère une production de feuilles cartonnées dont l'épaisseur est modélisée par une variable aléatoire qui a pour espérance $5$~mm et pour écart type $0{,}4$~mm.}
+	
+\question{Considérant un paquet de 100 feuilles choisies au hasard de manière indépendante, comment calculer la probabilité que ce paquet ait une épaisseur comprise entre 49 et 51 cm ?}
+
+\reponse{Soit $X_1,...,X_{100}$ un échantillon où $X_i$ représente l'épaisseur d'une feuille, $\mathbb{E}(X_i) = 5$ et $V(X_i) = 0{,}16$.  Par indépendance, d'après le théorème central limite, la variable $S = \sum_{i=1}^{100} X_i$ suit approximativement une loi normale de moyenne $\mu = 100 \times 5 = 500$ et  de variance $\sigma^2 = 100 \times 0{,}16 = 16$. Dit autrement, la variable $\frac{S-500}{\sqrt{16}}$ suit approximativement une loi normale centrée réduite.
+	
+	On souhaite calculer $$\PP(490 < S < 510) = \PP\left( \frac{490-500}{\sqrt{16}} <    \frac{S-500}{\sqrt{16}} <  \frac{510-500}{\sqrt{16}} \right) = \PP\left( -2.5 <    \frac{S-500}{4} <  2.5 \right) = \fbox{0{,}9876}$$.
+}}

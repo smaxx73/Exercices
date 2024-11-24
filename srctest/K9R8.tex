@@ -1,0 +1,22 @@
+\uuid{K9R8}
+\titre{Loi d'une somme de variables aléatoires, question de cours}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+
+\texte{ 	Soient $X$ et $Y$ deux variables aléatoires indépendantes suivant chacune une loi $\mathcal{N}(0,1)$. } 
+
+\question{  Déterminer  la loi de $S=X+Y$. }
+
+\reponse{	Si $X$ et $Y$ suivent chacune une loi $\mathcal{N}(0,1)$, alors $S=X+Y$ admet une densité $h$ définie par
+	$$h(s) = \frac{1}{2\pi}\int_{\R}^{} e^{-\frac{(s-x)^2}{2}} e^{-\frac{x^2}{2}} dx$$
+	
+	Or $-(s-x)^2-x^2 = -\frac{s^2}{2} - 2 (x-\frac{s}{2})^2$ donc 
+	
+	$$h(s) = \frac{1}{2\pi} e^{-\frac{s^2}{4}} \int_{\R}^{} e^{-(x-\frac{s}{2})^2 } dx =  \frac{1}{2\pi} e^{-\frac{s^2}{4}} \times \sqrt{\pi} = \frac{1}{\sqrt{2}\sqrt{2\pi}}e^{-\frac{s^2}{2\sqrt{2}^2}}$$
+	
+	Donc $S$ suit une loi normale de moyenne $\mu=0$ et d'écart-type $\sigma=\sqrt{2}$.
+}}

@@ -1,0 +1,25 @@
+\uuid{Xvzc}
+\titre{ Estimation par intervalle de confiance}
+\theme{statistiques}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+\contenu{
+\texte{ On s'intéresse au taux de glucose dans une population de 768 patients atteints de diabète. On note $m$ le taux moyen de glucose dans cette population et à $\sigma$ son écart type.  }
+
+\begin{enumerate}
+	\item \question{ Donner une estimation de $m$ à l'aide de l'échantillon fourni \href{https://moodle.st-cyr.terre.defense.gouv.fr/moodle/mod/resource/view.php?id=44475}{en suivant ce lien}, en précisant la taille de l'échantillon donné et l'estimateur choisi. }
+	\question{ Avec l'échantillon de taille 40 dont la réalisation est fournie, on obtient avec l'estimateur de moyenne empirique (non biaisé) l'estimation $\overline{x} = 124{,}35$. }
+	\item \question{ Donner une estimation de $m$ par intervalle de confiance au niveau $95\%$ et $99\%$, en donnant les valeurs numériques des calculs intermédiaires. }
+	\reponse{ On utilise la formule du cours : $$I_{conf}(\overline{X})=\left[\overline{X}-u_{\alpha/2} \frac{S}{\sqrt{n}}~;~\overline{X} + u_{\alpha/2} \frac{S}{\sqrt{n}} \right]$$
+	avec $\overline{x} = 124{,}35$, $s = 30{,}0994505$ et $n=40$. 
+	
+	Pour $\alpha=0.05$, on obtient : $I_{conf} = [115{,}022255 ; 133{,}677745]$
+	
+	Pour $\alpha=0.01$, on obtient : $I_{conf} = [112{,}0912651 ; 136{,}6087349]$
+ }
+	\item \question{ Le fichier \href{https://github.com/smaxx73/Exercices/blob/main/data/diabetes-1.csv}{"diabetes.csv"} contient les données des 768 patients. Convertir les données pour pouvoir les afficher avec le tableur et donner la valeur réelle de $m$. Quel niveau de confiance avait-on besoin de prendre, a posteriori, pour que l'intervalle de confiance de la question précédente contienne bien la valeur recherchée ? }
+	\reponse{ Dans la population totale, on trouve $m = 120{,}8945313$. Pour que $I_conf$ ne contienne pas cette valeur, il faudrait que $\overline{X}-u_{\alpha/2} \frac{S}{\sqrt{n}} > m$ soit $(\overline{X}-m)\frac{\sqrt{n}}{S} > u_{\alpha/2}$ soit $u_{\alpha/2} < 0.726$ soit $\alpha \geq 0,467795957$. 
+		
+	 }
+\end{enumerate}
+}

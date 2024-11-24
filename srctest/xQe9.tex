@@ -1,0 +1,37 @@
+\uuid{xQe9}
+\titre{Etude d'une loi de probabilité}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+%
+\contenu{
+	
+	\texte{ Soit $X$ une variable aléatoire réelle suivant une loi uniforme sur $[0;1]$. Soit $\lambda >0$ et soit la variable aléatoire  $Y=\frac{-1}{\lambda}\ln(1-X)$. On note $F_X$, respectivement $F_Y$, la fonction de répartition de la variable $X$, respectivement $Y$.  }
+	
+	\begin{enumerate}
+		\item \question{ Exprimer $F_Y(t)$ en fonction de $F_X$.  }
+		\reponse{ Soit $t\in\mathbb{R}$. On a
+			\begin{align*}
+				F_Y(t) &= \prob(Y\leq t) \\
+				&= \prob(\frac{-1}{\lambda}\ln(1-X)\leq t) \\
+				&= \prob(\ln(1-X)\geq -\lambda t) \\
+				&= \prob(1-X\geq e^{-\lambda t}) \\
+				&=  \prob(X\leq 1-e^{-\lambda t}) \\
+				&= F_X(1-e^{-\lambda t}).
+		\end{align*} }
+		\item \question{ En déduire la loi suivie par $Y=\frac{-1}{\lambda}\ln(1-X)$ ? }
+		\reponse{ 	
+			Or $X\sim \mathcal{U}([0;1])$ donc $F_X(x)=\begin{cases} 0 & \text{ si } x<0 \\ x & \text{ si } x\in[0;1[ \\ 1 & \text{ si } x\geq 1 \end{cases}$.
+			
+			De plus, si $t\geq 0$, $1-e^{-\lambda t} \in [0;1[$ et si $t\leq 0$, $1-e^{-\lambda t}<0$.
+			
+			Par conséquent,
+			\[ F_Y(t)=\begin{cases}
+				0 & \text{ si } t<0 \\
+				1-e^{-\lambda t} & \text{ si } t\geq 0
+			\end{cases}
+			\]
+			ce qui nous permet de reconnaître la fonction de répartition de la loi exponentielle de paramètre $\lambda$ donc $Y\sim \mathcal{E}(\lambda)$. }
+		\item \question{ Dans un langage de programmation, on simule une loi uniforme sur $[0;1]$ avec la commande $\texttt{rand()}$. Quelle commande peut-on écrire pour simuler une loi exponentielle de paramètre $\lambda$ ? }
+		\reponse{ Il suffit d'écrire \texttt{-1/lambda*log(1-rand())} et même \texttt{-1/lambda*log(rand())} car $1-X$ suit une loi uniforme sur $[0;1]$. }
+\end{enumerate}}

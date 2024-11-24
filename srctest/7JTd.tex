@@ -1,0 +1,40 @@
+\uuid{7JTd}
+\titre{Simulation et fonction de répartition}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	Soit $X$ une variable aléatoire et soit $F$ sa fonction de répartition. On suppose que $F$ est continue et strictement croissante sur $\mathbb{R}$. Soit la variable aléatoire $Y=F(X)$. } 
+
+\question{ Démontrer que $Y$ suit une loi uniforme sur $[0;1]$. }
+\reponse{
+	On cherche la fonction de répartition de la variable aléatoire $Y$. Soit $t\in\mathbb{R}$. Par définition :
+	\[ F_Y(t)=\mathbb{P}(Y\leq t)
+	=\mathbb{P}(F(X)\leq t).
+	\]
+	Or la fonction de répartition $F$ prend ses valeurs dans $[0;1]$. On en déduit
+	\begin{align*}
+		F_Y(t)=\begin{cases}
+			0 & \text{ si } t< 0 \\
+			1 & \text{ si } t\geq 1
+		\end{cases}
+	\end{align*}
+	Soit $t\in[0;1[$. Comme la fonction de répartition $F$ est croissante et supposée continue sur $\mathbb{R}$, il existe au moins un réel $t_0$ tel que $F(t_0)=t$. Alors on a
+	\begin{align*}
+		F_Y(t)&=\mathbb{P}(F(X)\leq t) \\
+		&=\mathbb{P}(F(X)\leq F(t_0)) \\
+		&=\mathbb{P}(X\leq t_0) \quad \text{ car $F$ est croissante sur $\mathbb{R}$} \\
+		&=F(t_0) \\
+		&=t.
+	\end{align*}
+	On a ainsi obtenu 
+	\begin{align*}
+		F_Y(t)=\begin{cases}
+			0 & \text{ si } t< 0 \\
+			t & \text{ si } t\in[0;1[ \\
+			1 & \text{ si } t\geq 1
+		\end{cases}
+	\end{align*}
+	qui correspond à la fonction de répartition de la loi uniforme sur $[0;1]$. Donc $Y\sim \mathcal{U}([0;1])$.
+}}

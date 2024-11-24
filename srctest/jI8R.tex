@@ -1,0 +1,15 @@
+\uuid{jI8R}
+\titre{Fonction de répartition, démonstration de cours}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Soit $F$ la fonction de répartition d'une variable aléatoire $X$ quelconque.  }
+\question{ Démontrer que $F$ est une fonction croissante et continue à droite sur $\R$.  }
+
+   \reponse{Soit $X$ une variable aléatoire : alors si $x \leq y$, on a l'inclusion d'événements $]-\infty;x] \subset ]-\infty;y]$ puis par croissance d'une mesure de probabilité, $\PP(]-\infty;x]) \leq  \PP(]-\infty;y])$ soit $F_X(x) \leq F_X(y)$. Le point 1 est démontré.
+   	
+   	Soit $t \in \R$ et une suite $(h_n)$ qui converge vers $0$ et telle que pour tout $n \in \N$, $h_n \geq 0$. Quitte à extraire une sous-suite décroissante, on suppose que la suite $(h_n)$ est décroissante. Alors $F_X(t+h_n)-F_X(t) = \PP(X \in ]t ; t+h_n]$. Or la suite d'événements $(A_n)$ définie par $A_n = \{X \in ]t ; t+h_n]\}$ est décroissante donc d'après le théorème de continuité décroissante, $\PP(A_n) \xrightarrow[n \to +\infty]{} \PP(\bigcap A_n) = \PP(\emptyset) = 0$. Le point 2 est démontré.
+   }}

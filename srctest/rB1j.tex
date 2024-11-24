@@ -1,0 +1,66 @@
+\uuid{rB1j}
+\titre{Résolution de système linéaire}
+\theme{systèmes linéaires}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Résoudre le système :
+$$
+\left\{\begin{aligned}
+2 x+4 y+3 z-t & =5 \\
+x+2 y+4 z-3 t & =10 \\
+-x+4 y+3 z-2 t & =1 \\
+3 x+y-z+2 t & =0
+\end{aligned}\right.
+$$ }
+
+\reponse{ 
+	On résout par opérations sur les lignes afin de faire apparaître un système triangulaire (principe du pivot de Gauss)et achever la résolution par substitution :
+$$
+\begin{aligned}
+& \left\{\begin{aligned}
+2 x+4 y+3 z-t & =5 \\
+x+2 y+4 z-3 t & =10 \\
+-x+4 y+3 z-2 t & =1 \\
+3 x+y-z+2 t & =0
+\end{aligned}\right. \\
+& \begin{array}{l}
+\ell_1 \leftarrow \ell_1 \\
+\ell_2 \leftarrow \ell_3+\ell_4 \\
+\ell_3 \leftarrow-\frac{1}{5} \ell_2 \\
+\ell_4 \leftarrow \ell_4
+\end{array}\left\{\begin{aligned}
+x+2 y+4 z-3 t & =10 \\
+y-6 z+6 t & =-19 \\
+z-t & =3 \\
+-5 y-13 z+11 t & =-30
+\end{aligned}\right. \\
+& \begin{array}{l}
+\ell_1 \leftarrow \ell_1 \\
+\ell_2 \leftarrow \ell_2 \\
+\ell_3 \leftarrow \ell_3 \\
+\ell_4 \leftarrow \ell_4+5 \ell_2
+\end{array} \quad\left\{\begin{aligned}
+x+2 y+4 z-3 t & =10 \\
+y-6 z+6 t & =-19 \\
+z-t & =3 \\
+-43 z+41 t & =-125
+\end{aligned}\right. \\
+& \begin{array}{l}
+\ell_1 \leftarrow \ell_1 \\
+\ell_2 \leftarrow \ell_2 \\
+\ell_3 \leftarrow \ell_3 \\
+\ell_4 \leftarrow \ell_4+43 \ell_3
+\end{array}\left\{\begin{aligned}
+x+2 y+4 z-3 t & =10 \\
+y-6 z+6 t & =-19 \\
+z-t & =3 \\
+-2 t & =4
+\end{aligned}\right. \\
+&
+\end{aligned}
+$$
+
+$$\mathcal{S}  = \{(2,-1,1,-2)\}$$ }
+}

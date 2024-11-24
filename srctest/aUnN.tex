@@ -1,0 +1,35 @@
+\uuid{aUnN}
+\titre{Problème de continuité}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit $f: \R^2 \to \R$ définie par :
+$$ (x,y) \mapsto \left\{ \begin{array}{ll} \dfrac{xy(x^2-y^2)}{x^2+y^2} & \text{ si } (x,y) \neq (0,0) \\
+0 & \text{ si } (x,y) = (0,0)
+\end{array}
+\right. $$ }
+\begin{enumerate}
+	\item \question{ La fonction $f$ est-elle continue en $(0,0)$~? }
+	\reponse{On peut passer en coordonnées polaires en posant $x=r\cos(\theta)$ et $y=r\sin(\theta)$ : en utilisant l'inégalité triangulaire et le fait que $|\cos(\theta)| \leq 1$ et $|\sin(\theta)| \leq 1$, on obtient la majoration suivante :
+		$|f(x,y)| \leq \frac{r \times r(r^2 +r^2)}{r^2} \leq 2r^2 \xrightarrow[r \to 0]{}0$. On peut ainsi conclure que $f$ est bien continue en $(0,0)$.
+	}
+	\item \question{ Calculer $\dpa{f}{x}(x,y)$ et $\dpa{f}{y}(x,y)$ pour $(x,y) \neq (0,0)$. }
+	\reponse{Les formules de dérivation usuelles s'appliquent sur l'expression de $f$ en tout point $(x,y) \neq (0,0)$ : 
+		\begin{align*}
+		\dpa{f}{x}(x,y) &= \frac{y (x^{4}+4 x^{2} y^{2}-y^{4})}{\left(y^{2}+x^{2}\right)^{2}} \\
+		\dpa{f}{y}(x,y) &= \frac{(-x) (y^{4}+4 y^{2} x^{2}-x^{4})}{\left(x^{2}+y^{2}\right)^{2}}
+		\end{align*}
+	}
+	\item \question{ Calculer $\dpa{f}{x}(0,0)$ et $\dpa{f}{y}(0,0)$. }
+	\reponse{Hors de question ici d'utiliser des formules de dérivation puisqu'il n'y a pas d'expression de la fonction au voisinage de ce point... On doit donc revenir à la définition et regarder la limite du taux d'accroissement pour chaque variable.
+		\begin{align*}
+		\dpa{f}{x}(0,0) &= \lim\limits_{h \to 0} \frac{f(h,0)-f(0,0)}{h} = 0  \\
+		\dpa{f}{y}(0,0) &= \lim\limits_{h \to 0} \frac{f(0,h)-f(0,0)}{h} = 0  
+		\end{align*}	
+	}
+	%\item (Bonus) Calculer, si elles existent, $\dlim_{x \to 0} \dpa{f}{x}(x,0)$ et $\dlim_{y \to 0} \dpa{f}{y}(0,y)$. Expliquer pourquoi ces limites permettent de retrouver les résultats de la question précédente.
+	%\rep{On calcule directement $\dpa{f}{x}(x,0) = 0 \xrightarrow[x \to 0]{}0$ et $\dpa{f}{y}(0,y) = 0 \xrightarrow[y \to 0]{}0$. Cela permet de conclure à la question précédente UNIQUEMENT parce que les dérivées partielles sont des fonctions continues en $(0,0)$. Ceci se démontre avec la même technique qu'en question 1 en passant en coordonnées polaires : $|\dpa{f}{x}(r\cos(\theta),r\sin(\theta)| \leq \frac{r(r^4+4r^4+r^4)}{r^4} = 6r  \xrightarrow[r \to 0]{}0$. De même pour $\dpa{f}{y}$.
+	% }
+\end{enumerate}}

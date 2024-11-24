@@ -1,0 +1,27 @@
+\uuid{0oHk}
+\titre{Calcul de probabilités}
+\theme{statistiques, tableur}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	A l'aide des formules du tableur, calculer : }
+\begin{enumerate}
+	\item 	\question{ $\PP(X \leq 1.2)$ pour $X$ suivant une $\mathcal{N}(0,1)$ }
+	\reponse{ \texttt{=LOI.NORMALE.STANDARD(1,2)} }
+	\item 	\question{ $\PP(X \leq 102)$ pour $X$ suivant une $\mathcal{N}(120,4)$ }
+	\reponse{ \texttt{=LOI.NORMALE(102;120;4;1)} }
+	\item \question{ la valeur $t$ telle que $\PP(X \leq t) = 90\%$ pour $X$ suivant une $\mathcal{N}(120,4)$ }
+	\reponse{ \texttt{=LOI.NORMALE.INVERSE.N(0,9;120;4)} }
+	\item \question{ 	$\PP(X \geq 40)$ pour $X$ suivant une $\mathcal{N}(50,3)$ }
+	\reponse{ \texttt{=1-LOI.NORMALE(40;50;3;1)} }
+	\item 	\question{ $\PP( 90 \leq X \leq 120)$ pour $X$ suivant une $\mathcal{N}(100,15)$ }
+	\reponse{ \texttt{=LOI.NORMALE(120;100;15;1)-LOI.NORMALE(90;100;15;1)} }
+	\item 	\question{ $\PP(X \geq 5)$ pour $X$ suivant une $\mathcal{E}(1/2)$ }
+	\reponse{ \texttt{=1-LOI.EXPONENTIELLE.N(5;0,5;1)} }
+	\item 	\question{ $\PP(X = 3)$ et $\PP(X \geq 2)$ pour $X$ suivant une $\mathcal{P}(1.5)$ }
+	\reponse{ \texttt{=LOI.POISSON.N(3;1,5;0)} et \texttt{=1-LOI.POISSON.N(2;1,5;1)}  }
+	\item \question{ la valeur $t$ telle que $\PP(100-t \leq X \leq 100+t) = 95\%$ où $X$ suit une $\mathcal{N}(100,15)$ }
+	\reponse{ \texttt{=LOI.NORMALE.INVERSE.N(0,975;0;15)} }
+\end{enumerate}}

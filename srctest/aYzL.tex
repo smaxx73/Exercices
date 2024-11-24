@@ -1,0 +1,91 @@
+\uuid{aYzL}
+\titre{\'Etude d'une méthode de Monte Carlo}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+
+\begin{SaveVerbatim}{aYzLpython}
+n=1000
+S=0
+for i in range(n):
+  u = ...
+  S= ...
+print("Valeur approchée de I = ")
+print(...)
+\end{SaveVerbatim}
+
+\begin{SaveVerbatim}{aYzLpythonsolution}
+	n=1000
+	S=0
+	for i in range(n):
+	u = rand()
+	S= S+sin(sqrt(u))
+	print("Valeur approchée de I = ")
+	print(S/n)
+\end{SaveVerbatim}
+
+
+\contenu{
+
+\texte{ On souhaite calculer à l'aide d'une méthode de Monte Carlo une approximation de l'intégrale $$I=\int_0^1 \sin(\sqrt{x})dx$$ 
+	Soit $(X_i)_{i \in \mathbb{N}^*}$ une suite de variables aléatoires indépendantes identiquement distribuées selon une loi uniforme $\mathcal{U}([0;1])$. }
+\begin{enumerate}
+	\item  \question{ Démontrer que si on définit la suite de variables aléatoires $(I_n)$ par 
+		$$I_n = \frac{1}{n}\sum_{k=1}^n \sin\left( \sqrt{X_k} \right)$$
+		alors la suite $(I_n)$ converge presque sûrement vers la constante $I$. }
+	\reponse{ Les variables $\left(\sin\left( \sqrt{X_k} \right) \right)_i$ sont indépendantes et identiquement distribuées, elles admettent en outre une espérance qui se calcule à l'aide du théorème de transfert. Soit $f$ la densité d'une loi uniforme sur $[0;1]$. Alors $\mathbb{E}(X_1) = \int \sin\left( \sqrt{x} \right) f(x)dx = \int_0^1 \sin\left( \sqrt{x} \right)dx = I$.
+		
+		D'après la loi forte de grands nombres, la suite de variables aléatoires $(I_n)$ converge donc presque sûrement vers $\mathbb{E}(X_1) = I$. }
+	\item \question{ Compléter le code Python ci-dessous, comportant deux champs manquants, afin qu'il affiche une approximation de $I$.
+		
+	{\centering \fbox{\BUseVerbatim{aYzLpython}}\par}
+}
+%\begin{Piton}
+%n=1000
+%S=0
+%for i in range(n):
+%  u = ...
+%  S= S+sin(sqrt(u))
+%print("Valeur approchée de I = ")
+%print(...)
+%\end{Piton} 
+
+	\reponse{ {\centering \fbox{\BUseVerbatim{aYzLpythonsolution}}\par} }
+	\item \texte{ Pour tout $k \in \mathbb{N}^*$, on pose $Y_k= \sin\left( \sqrt{X_k} \right)$. Les variables aléatoires $(X_k)$ étant i.i.d., les variables aléatoires $(Y_k)$ le sont aussi et on note $\mu$ leur espérance et $\sigma^2$ leur variance. }
+	\begin{enumerate}
+		\item \question{ Calculer l'espérance et la variance de la variable aléatoire $I_n$ en fonction de $\mu$, $\sigma$ et $n$. }
+		\reponse{ Par linéarité de l'espérance, $\mathbb{E}(I_n) = \frac{1}{n} \times n \times I =I $.
+			Par propriétés de la variance et indépendance des variables dans la somme, $V(I_n) = \frac{1}{n^2} \times n \times V(Y_1) = \frac{V(Y_1)}{n} = \frac{\sigma^2}{n}$. }
+		\item \question{ Déterminer, en justifiant, une approximation de la loi de la variable aléatoire $$\frac{\sqrt{n}}{\sigma}(I_n-I)$$
+			lorsque $n$ est suffisamment grand. }
+		\reponse{ Les variables $Y_k$ sont indépendantes, identiquement distribuées, admettent une espérance et une variance finies, donc d'après le Théorème Central Limite, la variable 
+			$$\frac{\frac{1}{n}\sum_{k=1}^n Y_k - I  }{\frac{\sigma}{\sqrt{n}}} = 
+			\frac{ \sum_{k=1}^n \frac{Y_k}{n} - \mathbb{E}\left(\sum_{k=1}^n \frac{Y_k}{n}  \right) }{\sigma\left(\sum_{k=1}^n \frac{Y_k}{n}  \right)}$$
+			suit approximativement une loi normale centrée réduite. }
+		
+		\item \question{ En déduire le nombre d'itérations $N_0$ (dépendant de $\sigma$) à partir duquel la suite $(I_n)$ réalise une approximation de $I$ à $10^{-3}$ près avec une confiance de $95\%$.  }
+		\reponse{ On cherche le rang à partir duquel $\PP(|I_n-I|<\varepsilon) \geq 0.95$ où $\varepsilon = 10^{-3}$. Or 
+			\begin{align*}
+				\PP(|I_n-I|<\varepsilon) &= \PP(-\varepsilon < I_n-I < \varepsilon) \\
+				&= \PP\left(-\frac{\sqrt{n}}{\sigma}\varepsilon < \frac{\sqrt{n}}{\sigma} (I_n-I) < \frac{\sqrt{n}}{\sigma}\varepsilon \right) \\
+				&\approx \PP\left(-\frac{\sqrt{n}}{\sigma}\varepsilon < Z < \frac{\sqrt{n}}{\sigma}\varepsilon \right) \text{ où } Z \sim \mathcal{N}(0,1)
+			\end{align*}
+			Or par lecture de tables, $\PP(-1.96 < Z < 1.96) \approx 0.95$ donc il suffit de prendre $n$ tel que $\frac{\sqrt{n}}{\sigma}\varepsilon \geq 1.96$ i.e.
+			$$n \geq 10^6 \left(1.96 \sigma\right)^2$$ }
+		\item \question{ Soit la variable 
+			$$V_n = \frac{1}{2n} \sum_{k=1}^n (Y_{2k}-Y_{2k-1})^2$$
+			Vérifier que la suite $(V_n)$ permet d'approcher la valeur de $\sigma^2$. }
+		\reponse{ On calcule 
+			\begin{align*}
+				\mathbb{E}((Y_{2k}-Y_{2k-1})^2) &= \mathbb{E}(Y_{2k}^2-2Y_{2k}Y_{2k-1} + Y_{2k-1}^2) \\
+				&= \mathbb{E}(Y_{2k}^2) - 2 \mathbb{E}(Y_{2k}Y_{2k-1}) +\mathbb{E}(Y_{2k-1}^2) \text{ par linéarité } \\
+				&= 2\mathbb{E}(Y_{2k}^2)- 2 \mathbb{E}(Y_{2k}Y_{2k-1}) \text{ par identique distribution } \\
+				&= 2\mathbb{E}(Y_{2k}^2)- 2 \mathbb{E}(Y_{2k})  \mathbb{E}(Y_{2k-1}) \text{ par indépendance} \\
+				&= 2\mathbb{E}(Y_{2k}^2)- 2 \mathbb{E}(Y_{2k})^2 \\
+				&= 2\mathbb{E}(Y_{1}^2)- 2 \mathbb{E}(Y_{1})^2 \\
+				&= 2V(Y_1) 
+			\end{align*}
+			donc d'après la loi forte des grands nombres, $\frac{1}{n} \sum_{k=1}^n (Y_{2k}-Y_{2k-1})^2$ converge simplement vers $2V(Y_1)$, ce qui répond à la question posée. }
+	\end{enumerate}
+\end{enumerate}}

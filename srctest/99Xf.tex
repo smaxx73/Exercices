@@ -1,0 +1,47 @@
+\uuid{99Xf}
+\titre{Double jeu et probabilités discrètes}%PROBA364
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+	
+	\texte{ Un joueur effectue une suite de parties de pile ou face indépendantes, avec probabilité $p$  d'obtenir pile à chaque partie. Soit $n$  un entier. Le joueur peut choisir entre deux jeux :
+	\begin{description}
+		\item[le Jeu 1 :] le joueur effectue  $2n-1$ parties. Il est déclaré vainqueur s'il obtient au moins $n$ fois pile ;
+		\item[le Jeu 2 :]  le joueur effectue $2n$  parties. S'il obtient au moins  $n+1$ fois pile, il est déclaré vainqueur. S'il obtient $n$ fois pile exactement, on tire au sort et il est déclaré vainqueur avec probabilité 
+		$\frac{1}{2}$.
+	\end{description}
+	
+	On note $X$ le nombre de piles obtenus lorsque le joueur choisit le Jeu 1, et $Y$ le nombre de piles obtenus lorsqu'il choisit le Jeu 2. On note $p_1$  la probabilité de gagner au Jeu 1 et $p_2$  la probabilité de gagner au Jeu 2. 
+	
+	L'objectif est de savoir s'il vaut mieux jouer au Jeu 1 ou au Jeu 2.  }
+	
+	\begin{enumerate}
+		\item \question{ \'Ecrire $Y=X+U$ où $U$ est une variable aléatoire indépendante de $X$ dont la loi reste à préciser. }
+		      \reponse{ Soit $U$ la \va de Bernoulli égale à $1$ si on a choisi le jeu 2 et que le $2n$-ième lancer donne ``pile''. Comme les lancers sont indépendants, la \va $U$ est indépendante de $X$ et on a bien $Y=X+U$, avec $U \sim \mathcal{B}(p)$. }
+		\item \question{ Démontrer que $\PP(Y>n) = \PP(X>n) + p\PP(X=n)$. }
+		      \reponse{ Comme $Y=X+U$, on a
+		      	\begin{align*}
+		      	\p(Y>n)&=\p(Y>n,X>n) + \p(Y>n,X=n) + \p(Y>n,X<n) \text{ d'après le th. des proba. totales } \\
+		      	&= \p(X>n)+\p(X=n,U=1) + 0 \\
+		      	&= \p(X>n)+\p(X=n)\ \p(U=1) \text{ par indépendance de $X$ et $U$ }\\
+		      	&= \p(X>n)+p\ \p(X=n).
+		      	\end{align*} }
+		\item \question{ Vérifier que $p_1-p_2 = (1-p)\PP(X=n) - \frac{1}{2}\PP(Y=n)$ }
+		      \reponse{ On a:
+		      	\begin{align*}
+		      	p_1-p_2&=\p(X\geq n)-\left[\p(Y>n)+\frac{1}{2}\ \p(Y=n)\right] \\
+		      	%&=\p(X=n)+\p(X>n)-\p(Y>n)-\frac{1}{2}\p(Y=n) \\
+		      	&= \p(X=n)+\p(X>n)-\p(X>n)-p\ \p(X=n)-\frac{1}{2}\ \p(Y=n) \\
+		      	&= (1-p)\ \p(X=n)-\frac{1}{2}\ \p(Y=n).
+		      	\end{align*} }
+		\item \question{ Conclure. }
+		      \reponse{ Étudions le signe de $p_1-p_2$. Comme $X \sim \mathcal{B}(2n-1,p)$ et $Y \sim \mathcal{B}(2n,p)$, on a
+		      	\begin{align*}
+		      	p_1-p_2&=(1-p) \binom{2n-1}{n} p^n (1-p)^{2n-1-n} -\frac{1}{2} \binom{n}{2n} p^n (1-p)^{2n-n} \\
+		      	&= \frac{(2n-1)!}{n!\times (n-1)!}p^n(1-p)^n -\frac{1}{2}\times\frac{(2n)!}{ n! \times n!}p^n(1-p)^n \\
+		      	&= \frac{(2n)!}{(n!)^2}\left( \frac{n}{2n}- \frac{1}{2} \right) p^n (1-p)^n \\
+		      	&= 0
+		      	\end{align*}
+		      	On en conclut qu'aucun des deux jeux n'est préférable à l'autre. }
+	\end{enumerate}}

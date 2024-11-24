@@ -1,0 +1,42 @@
+\uuid{ZMBI}
+\titre{Estimation par inégalité}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{ On sait qu'il y a à peu près une chance sur deux d'avoir une fille à chaque naissance, mais on veut avoir une estimation plus précise de cette probabilité $p$. \\
+On regarde ce qui se passe sur $n$ naissances, et on appelle $S_n$ le nombre de filles parmi les $n$ naissances. }
+\begin{enumerate}
+	\item \question{ Que vaut la variable $Y_n$ égale à la proportion de filles dans les naissances ? Donner son espérance et sa variance. }
+	\reponse{ $Y_n=\frac{S_n}{n}$, où $S_n$ est une variable aléatoire de loi $\mathcal{B}(n,p)$. On a donc 
+		\[\E(Y_n)=\frac{1}{n}\E(S_n)=\frac{1}{n}\times np=p \text{ et } \sigma^2(X)=\frac{1}{n^2}\sigma^2(S_n)=\frac{1}{n^2}\times np(1-p)=\frac{p(1-p)}{n}.\]
+	}
+	
+	\item \question{ Soit $a>0$. Montrer que $\prob(|Y_n-p|\geq a)\leq \frac{1}{4na^2}$. }
+	\reponse{ Soit $a>0$. On applique l'inégalité de Bienaymé-Tchebychev à $Y_n$:
+		\[ \prob(|Y_n-p|\geq a)\leq \frac{\sigma^2(Y_n)}{a^2}=\frac{p(1-p)}{a^2n} \leq \frac{1}{4na^2},\]
+		en utilisant l'indication donnée dans l'énoncé.}
+	
+	\item \question{ Déterminer un nombre $n$ d'observations à faire pour que l'on puisse déduire de $Y_n$, avec moins de $1$\% de chances de se tromper, que $Y_n-0.01\leq p\leq Y_n+0.01$. }
+	\reponse{On souhaite avoir $\prob(Y_n-0.01\leq p \leq Y_n+0.01)\geq 0.99$. Or
+		\begin{align*}
+		\prob(Y_n-0.01\leq p \leq Y_n+0.01)
+		&=\prob(-0.01\leq p-Y_n \leq 0.01)
+		=\prob(|Y_n-p|\leq 0.01)\\
+		&=1-\prob(|Y_n-p|\geq 0.01)
+		\end{align*}
+		On souhaite donc avoir $\prob(|Y_n-p|\geq 0.01)\leq 0.01$.
+		Or par la question 2., avec $a=0.01$, on a l'inégalité:
+		\[\prob(|Y_n-p|\geq a)\leq \frac{\sigma^2(Y_n)}{a^2}\leq \frac{1}{4n\times(0.01)^2}. \]
+		On prend donc $n$ tel que $\frac{1}{4n\times (0.01)^2}\leq 0.01$, c'est-à-dire $n\geq 250\ 000$.}
+	
+	\item \question{ Parmi $\nombre{250000}$ naissances, combien faut-il, au minimum, observer de naissances de filles pour conclure avec $99$\% de chances de ne pas se tromper, qu'il naît plus de filles que de garçons ? }
+	\reponse{ Par la question 3., on sait que $\prob(p\in[Y_n-0.01;Y_n+0.01])\geq 0.99$. \\
+		Soit $X_0$ le nombre de filles observées.
+		Avec moins de $1$\% de chances de se tromper, on veut que $p>\frac{1}{2}$, c'est-à-dire $\frac{X_0}{n}-0.01>\frac{1}{2}$, donc $X_0>125\ 250$. \\
+		Il faut donc observer au minimum $500$ filles de plus que de garçons pour être sûr à $99$\% qu'il y a plus de filles que de garçons.}
+	
+\end{enumerate}
+}

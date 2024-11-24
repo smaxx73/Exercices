@@ -1,0 +1,48 @@
+\uuid{6n4q}
+\titre{Dérivées partielles et règle des chaînes}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	On considère une boîte dont la longueur $\ell$, la largeur $w$ et la hauteur $h$ varient au cours du temps $t$. 
+
+A l'instant $t_0$, les dimensions de la boîte sont $\ell = 1$~m, $w=h=2$~m. A ce même instant, on sait que $\ell$ et $w$ augmentent de $2$m/s et $h$ diminue de $3$m/s. 
+
+On note $V$ le volume, $S$ la surface et $D$ la longueur de la diagonale de cette boîte. }
+
+\begin{enumerate}
+	\item \question{ Exprimer $V$, $S$ et $D$ comme fonction des trois variables $\ell$, $w$, $h$. }
+	\reponse{
+		On écrit $V(\ell,w,h) = \ell\times w \times h$, $S(\ell,w,h)=2(wh+w\ell+h\ell)$, $D=\sqrt{\ell^2+w^2+h^2}$. 
+	}
+	\item \question{ Exprimer $\dfrac{\partial D}{\partial h}(\ell,w,h)$. }
+	\reponse{$\dfrac{\partial D}{\partial h}(\ell,w,h) = \frac{2h}{2\sqrt{\ell^2+w^2+h^2}} = \frac{h}{\sqrt{\ell^2+w^2+h^2}}$
+	}
+	\item \question{ Que valent $\ell'(t_0)$, $w'(t_0)$, $h'(t_0)$ ? }
+	\reponse{D'après l'énoncé, $\ell'(t_0) = w'(t_0)=2$, $h'(t_0)=-3$.}
+	\item \question{ On pose $\tilde{V}(t) = V(\ell(t),w(t),h(t))$. Exprimer $\frac{\partial V}{\partial \ell}$, $\frac{\partial V}{\partial w}$ et $\frac{\partial V}{\partial h}$ puis en calculant une dérivée partielle, déterminer les taux de variations à l'instant $t_0$ du volume, de la surface et de la diagonale de cette boîte.  }
+	\reponse{Le taux de variation du volume est modélisé par la dérivée de $\tilde{V}$ par rapport au temps. On peut voir $V$ comme la composée de la fonction $t\mapsto (\ell(t),w(t),h(t)$ avec la fonction de trois variables $(\ell,w,h) \mapsto \ell\times w \times h$.
+		
+		D'après la règle des chaînes, 
+		$$\frac{\partial \tilde{V}}{\partial t}(t_0) = \frac{\partial V}{\partial \ell}(\ell(t_0),w(t_0),h(t_0)) \times \ell'(t_0) + \frac{\partial V}{\partial w}(w(t_0),w(t_0),h(t_0)) \times w'(t_0) + \frac{\partial V}{\partial h}(h(t_0),w(t_0),h(t_0)) \times h'(t_0)$$
+		Or $\frac{\partial V}{\partial \ell}(\ell,w,h) = wh$, $\frac{\partial V}{\partial w}(\ell,w,h) = \ell h$ et $\frac{\partial V}{\partial h}(\ell,w,h) = \ell w$.
+		
+		Donc en substituant, on obtient :
+		\begin{align*}
+		\frac{\partial V}{\partial t}(t_0) &= \ell'(t_0)w(t_0)h(t_0) + \ell(t_0)w'(t_0)h(t_0)+\ell(t_0)w(t_0)h'(t_0) \\
+		&= 2 \times 2 \times 2 + 1 \times 2 \times 2 + 1 \times 2 \times (-3)\\
+		&= 6m^3/s
+		\end{align*}
+		En suivant le même raisonnement avec la règle des chaînes, on obtient :
+		\begin{align*}
+		\frac{\partial S}{\partial t}(t_0) &= 2\ell'(t_0)(w(t_0)+h(t_0)) +  2w'(t_0)(\ell(t_0)+h(t_0)) + 2h'(t_0)(\ell(t_0)+w(t_0)) \\
+		&= 10m^2/s
+		\end{align*}
+		et enfin
+		\begin{align*}
+		\frac{\partial D}{\partial t}(t_0) &= \frac{\ell(t_0)\ell'(t_0)+w(t_0)w'(t_0)+h(t_0)h'(t_0)}{\sqrt{\ell^2(t_0)+w^2(t_0)+h^2(t_0)}} \\
+		&= 0m/s
+		\end{align*}
+	}
+\end{enumerate}}

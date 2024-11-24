@@ -1,0 +1,40 @@
+\uuid{9hTr}
+\titre{Files d'attente}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On considère deux files d'attente indépendantes. Deux personnes arrivent simultanément et se présentent respectivement aux deux files d'attente. On note $X$ le temps d'attente de la première personne, $Y$ le temps d'attente de la seconde personne, en minutes. On supposera que $X$ et $Y$ suivent chacune une loi exponentielle de paramètre $\lambda =2$. }
+
+\begin{enumerate}
+	\item \question{ Quel est le temps d'attente moyen pour chaque personne ? }
+	\reponse{ Puisque $X$ et $Y$ suivent chacune une loi exponentielle de paramètre $\lambda =2$, on a $\mathbb{E}(X)=\mathbb{E}(Y) = 0.5$ minutes, ce qui donne le temps d'attente moyen pour chaque personne. }
+	\item \question{ Quelle est la densité de la variable $X^2$ ? la variable $-Y$ ? }
+	\reponse{ Pour obtenir la loi de $X^2$, on cherche sa densité par identification. Soit $h$ une fonction continue bornée quelconque : 
+		\begin{align*}
+			\mathbb{E}(h(X^2)) &= \int_0^{+\infty}  h(x^2)2e^{-2x}dx \\
+			&= \int_0^{+\infty} 2h(u)e^{-2\sqrt{u}} \frac{1}{2\sqrt{u}} du
+		\end{align*}	
+		Par identification, on en déduit une densité de $X^2$ définie par $f_{X^2}(x) = \frac{e^{-2\sqrt{u}}}{\sqrt{u}}1_{\R_+}(x)$.
+		
+		On procède de même pour obtenir la loi de $-Y$ : 
+		\begin{align*}
+			\mathbb{E}(h(-Y)) &= \int_0^{+\infty}  h(-x)2e^{-2x}dx \\
+			&= \int_0^{-\infty} 2h(u)e^{2{u}} \times (-du) \\
+			&= \int_{-\infty}^0 2h(u)e^{2{u}} du \\
+		\end{align*}
+		Par identification, on en déduit une densité de $-Y$ définie par $f_{-Y}(y) = {2e^{2{y}}}1_{\R_-}(y) = f_Y(-y)$. }
+	\item \question{ Calculer la probabilité que la différence d'attente entre les deux personnes soit inférieure à 1 minute. }
+	\reponse{ On calcule $\PP(|X-Y|<1) = \PP(-1<X-Y<1)$ en utilisant la loi du couple $(X,Y)$. Par indépendance de $X$ et $Y$, le couple $(X,Y)$ admet pour densité $g(x,y)=2e^{-2x}\times 2e^{-2y}1_{\R_+^2}(x,y)$. La probabilité cherchée est 
+		$$\PP(|X-Y|<1) = \iint_D g(x,y)dxdy$$
+		où $D=\{(x,y) \in \mathbb{R}^2 \, , \, x>0, y>0, -1<x-y<1 \} = \{ y\in[0;1], x \in [0;1+y]  \} \cup  \{ y\in]1;+\infty, x \in [-1+y;1+y]  \} $.
+		
+		On utilise cette décomposition du domaine $D$ pour écrire l'intégrale sous forme d'une somme :
+		\begin{align*}
+			\iint_D g(x,y)dxdy &= \int_0^1 \int_0^{1+y}2e^{-2x}dx 2e^{-2y}dy &+&  \int_1^{+\infty} \int_{y-1}^{y+1}2e^{-2x}dx 2e^{-2y}dy	\\
+			&= \int_0^1 2e^{-2y}(1-e^{-2(1+y)})dy &+&  \int_1^{+\infty} (e^{-2(y-1)}-e^{-2(y+1)})  (1-e^{-2(1+y)}) \\
+			&= 1-\frac{3}{2}e^{-2}+\frac{1}{2}e^{-6} &+& \frac{1}{2}e^{-2}-\frac{1}{2}e^{-6} \\
+			&= 1-e^{-2} &&
+	\end{align*} }
+\end{enumerate}}

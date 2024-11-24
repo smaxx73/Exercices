@@ -1,0 +1,105 @@
+\uuid{PxjQ}
+\titre{Matrices inversibles}
+\theme{calcul déterminant}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Déterminer $a$ tel que la matrice $M_a=\left(\begin{array}{ccc}a+1 & -1 & -a \\ 1 & a & -1 \\ -1 & 0 & 2 a+1\end{array}\right)$ soit inversible. Déterminer alors son inverse. }
+
+\reponse{ 
+
+$$
+\begin{aligned}
+	& \operatorname{det} M_a=\left|\begin{array}{ccc}
+		a+1 & -1 & -a \\
+		1 & a & -1 \\
+		-1 & 0 & 2 a+1
+	\end{array}\right|=\left|\begin{array}{ccc}
+		c_1+c_2+c_3 & -1 & -c_1 \\
+		a & a & -1 \\
+		2 a & 0 & 2 a+1
+	\end{array}\right| \\
+	& =\underset{\substack{\text { mis en } \\
+			\text { facteur } \\
+			\text { de } c_2}}{ }\left|\begin{array}{ccc}
+		0 & -1 & -a \\
+		1 & a & -1 \\
+		2 & 0 & 2 a+1
+	\end{array}\right| \\
+	& =a .\left|\begin{array}{ccc}
+		0 & -1 & -a \\
+		1 & a & -1 \\
+		0 & -2 a & 2 a+3
+	\end{array}\right| \begin{array}{c}
+		\ell_1 \\
+		\ell_3-2 \ell_2
+	\end{array} \\
+	& =a \cdot[-1 \times[(-1) \times(2 a+3)-(-2 a) \times(-a)]] \\
+	& =a \cdot \underbrace{\left(2 a^2+2 a+3\right)}_{\text {discriminant } \Delta>0} \\
+	&
+\end{aligned}
+$$
+$M_a$ inversible ssi $a \neq 0$.
+Calcul des cofacteurs :
+$$
+\begin{aligned}
+	& M_{11}=\left|\begin{array}{cc}
+		a & -1 \\
+		0 & 2 a+1
+	\end{array}\right|=2 a^2+a \quad M_{12}=-\left|\begin{array}{cc}
+		1 & -1 \\
+		-1 & 2 a+1
+	\end{array}\right|=-2 a \quad M_{13}=\left|\begin{array}{cc}
+		1 & a \\
+		-1 & 0
+	\end{array}\right|=a \\
+	& M_{21}=-\left|\begin{array}{cc}
+		-1 & -a \\
+		0 & 2 a+1
+	\end{array}\right|=2 a+1 \quad M_{22}=\left|\begin{array}{cc}
+		a+1 & -a \\
+		-1 & 2 a+1
+	\end{array}\right|=2 a^2+2 a+1 \quad M_{23}=-\left|\begin{array}{cc}
+		a+1 & -1 \\
+		-1 & 0
+	\end{array}\right|=1 \\
+	& M_{31}=\left|\begin{array}{cc}
+		-1 & -a \\
+		a & -1
+	\end{array}\right|=a^2+1 \quad M_{32}=-\left|\begin{array}{cc}
+		a+1 & -a \\
+		1 & -1
+	\end{array}\right|=1 \quad M_{33}=\left|\begin{array}{cc}
+		a+1 & -1 \\
+		1 & a
+	\end{array}\right|=a^2+a+1 \\
+	&
+\end{aligned}
+$$
+on en déduit :
+$$
+\begin{aligned}
+	\tilde{M} & =\left(\begin{array}{ccc}
+		2 a^2+a & -2 a & a \\
+		2 a+1 & 2 a^2+2 a+1 & 1 \\
+		a^2+1 & 1 & a^2+a+1
+	\end{array}\right) \\
+	{ }^t \tilde{M} & =\left(\begin{array}{ccc}
+		2 a^2+a & 2 a+1 & a^2+1 \\
+		-2 a & 2 a^2+2 a+1 & 1 \\
+		a & 1 & a^2+a+1
+	\end{array}\right)
+\end{aligned}
+$$
+
+--
+
+Pour $a \neq 0$ :
+$$
+M_a^{-1}=\frac{1}{a \cdot\left(2 a^2+2 a+3\right)}\left(\begin{array}{ccc}
+	2 a^2+a & 2 a+1 & a^2+1 \\
+	-2 a & 2 a^2+2 a+1 & 1 \\
+	a & 1 & a^2+a+1
+\end{array}\right)
+$$ }}

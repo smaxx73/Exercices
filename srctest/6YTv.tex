@@ -1,0 +1,19 @@
+\uuid{6YTv}
+\titre{ Calcul d'une somme de série entière}
+\theme {séries}
+\auteur{ }
+\organisation{ AMSCC }
+
+\contenu{
+\question{  À l'aide des développements en séries entières des fonctions usuelles, calculer les développements en séries entières en $0$ des fonctions réelles suivantes:
+\[ f(x)=\frac{1}{ 2+3x}, \qquad g(x)=\ln \Big(\frac{1+x}{1-x}\Big), \qquad h(x)=\frac{1}{\sqrt{1-x^2}},\]
+et déterminer le rayon de convergence de ces développements. }
+\reponse{ 
+	On écrit les développements sur l'intervalle $]-R;R[$ où $R$ est le rayon de convergence :
+	\begin{itemize}
+		\item $\displaystyle\forall x \in \left]\frac{-2}{3};\frac{2}{3}\right[, \qquad f(x)=\frac{1}{2}\frac{1}{1-\left(-\frac{3}{2}x\right)} = \frac{1}{2}\sum_{n=0}^{+\infty} (-1)^n\left( \frac{3}{2}x\right)^n$
+		\item $\displaystyle\forall x \in ]-1;1[, \qquad g(x)=\ln(1+x) - \ln(1-x) = \sum_{n=1}^{+\infty} \frac{(-1)^{n+1}}{n}x^n + \sum_{n=1}^{+\infty} \frac{x^n}{n} = \sum_{n=1}^{+\infty} \frac{(-1)^{n+1}+1}{n}x^n = \sum_{n=1}^{+\infty} \frac{2}{2n-1}x^{2n-1}$ 
+		\item $\displaystyle\forall x \in ]-1;1[, \qquad h(x)=\sum_{n=0}^{+\infty} \frac{1}{n!}\left(\frac{1}{2}\times \frac{3}{2}\times \cdots \times \left(\frac{1}{2}+n-1\right) \right) x^{2n}$
+	\end{itemize}
+}
+}

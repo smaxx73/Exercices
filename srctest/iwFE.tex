@@ -1,0 +1,25 @@
+\uuid{iwFE}
+\titre{Construction d'un schéma à deux pas par interpolation}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+%7 p177 faccanoni : construire un nouveau schéma 
+ \begin{enumerate}
+		\item \question{ Soit $f$ une fonction $\mathcal{C}^1([-1;1])$. Écrire le polynôme $P \in \mathbb{R}_2[X]$ qui interpole $f$ aux points $-1$, $0$ et $1$. }
+		\reponse{On cherche les coefficients $a_0$, $a_1$ et $a_2$ du polynôme $P(X)=a_0+a_1X+a_2X^2$ tels que $P(-1)=f(-1)$, $P(0)=f(0)$, $P(1)=f(1)$. Après identification, on trouve 
+			$$a_0 = f(0) \qquad a_1 = \frac{f(1)-f(-1)}{2} \qquad a_2 = \frac{f(1)-2f(0)+f(-1)}{2}$$}
+		\item \question{ En déduire une approximation de l'intégrale $\int_0^1f(s)ds$.  }
+		\reponse{On en déduit 
+			$$\int_0^1 f(s)ds \approx \int_0^1P(s)ds = a_0 + \frac{a_1}{2}+\frac{a_2}{3} = \frac{-f(-1)+8f(0)+5f(1)}{12}$$}
+		\item \question{ En déduire par changement de variable une approximation de l'intégrale $\int_a^bf(s)ds$ pour $f$ de classe $\mathcal{C}^1([a-(b-a);a+(b-a)])$.  }
+		\reponse{$\int_a^bf(s)ds = (b-a)\int_0^1f(a+(b-a)\tau) \approx (b-a)\frac{-f(2a-b)+8f(a)+5f(b)}{12}$}
+		\item \question{ En déduire un schéma à deux pas implicite pour approcher la solution d'un problème de Cauchy.  }
+		\reponse{Pour résoudre le problème de Cauchy 
+			$$\begin{cases}y'(t)=f(t,y(t)) \\ y(0)=a\end{cases}$$
+			l'approximation d'intégrale conduit à poser 
+			$$y_{n+1}=y_n+h \frac{-f(t_{n-1},y_{n-1})+8f(t_n,y_n)+5f(t_{n+1},y_{n+1})}{12}$$
+			avec $y_0=a$ et $y_1$ à déterminer en prenant par exemple $y_1=y_0+hf(t_0,y_0)$.}
+\end{enumerate}
+}

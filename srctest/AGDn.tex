@@ -1,0 +1,77 @@
+\uuid{AGDn}
+\titre{Calcul de déterminant}
+\theme{calcul déterminant}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Calculer :
+$$
+\Delta=\left|\begin{array}{cccc}
+	a^2 & a b & a b & b^2 \\
+	a b & a^2 & b^2 & a b \\
+	a b & b^2 & a^2 & a b \\
+	b^2 & a b & a b & a^2
+\end{array}\right|,
+$$
+où $a$ et $b$ sont deux réels non nuls. }
+
+\reponse{ 
+$$
+\begin{aligned}
+	& \Delta=\left|\begin{array}{cccc}
+		a^2 & a b & a b & b^2 \\
+		a b & a^2 & b^2 & a b \\
+		a b & b^2 & a^2 & a b \\
+		b^2 & a b & a b & a^2
+	\end{array}\right|=\ell_2-\ell_3\left|\begin{array}{cccc} 
+		& \ell_4 \\
+		a^2-b^2 & 0 & 0 & b^2-a^2 \\
+		0 & a^2-b^2 & b^2-a^2 & 0 \\
+		a b & b^2 & a^2 & a b \\
+		b^2 & a b & a b & a^2
+	\end{array}\right| \\
+	& =\left(a^2-b^2\right)^2 \cdot\left|\begin{array}{cccc}
+		1 & 0 & 0 & -1 \\
+		0 & 1 & -1 & 0 \\
+		a b & b^2 & a^2 & a b \\
+		b^2 & a b & a b & a^2
+	\end{array}\right|=(a-b)^2 \cdot(a+b)^2 \cdot\left|\begin{array}{cccc}
+		1 & 0 & 0 & -1 \\
+		0 & 1 & -1 & 0 \\
+		a b & b^2 & a^2 & a b \\
+		b^2 & a b & a b & a^2
+	\end{array}\right| \\
+	& c_1+c_2+c_3+c_4 \\
+	& =(a-b)^2 \cdot(a+b)^2 \cdot\left|\begin{array}{cccc}
+		0 & 0 & 0 & -1 \\
+		0 & 1 & -1 & 0 \\
+		(a+b)^2 & b^2 & a^2 & a b \\
+		(a+b)^2 & a b & a b & a^2
+	\end{array}\right| \\
+	& =(a-b)^2 \cdot(a+b)^4 \cdot\left|\begin{array}{cccc}
+		0 & 0 & 0 & -1 \\
+		0 & 1 & -1 & 0 \\
+		1 & b^2 & a^2 & a b \\
+		1 & a b & a b & a^2
+	\end{array}\right|=(a-b)^2 \cdot(a+b)^4 \cdot\left|\begin{array}{ccc}
+		0 & 1 & -1 \\
+		1 & b^2 & a^2 \\
+		1 & a b & a b
+	\end{array}\right| \\
+	& \Delta^{\prime}=\left|\begin{array}{ccc}
+		0 & 1 & -1 \\
+		1 & b^2 & a^2 \\
+		1 & a b & a b
+	\end{array}\right|=\left|\begin{array}{ccc}
+		0 & 1 & 0 \\
+		1 & b^2 & a^2+b^2 \\
+		1 & a b & 2 a b
+	\end{array}\right|=-\left|\begin{array}{cc}
+		1 & a^2+b^2 \\
+		1 & 2 a b
+	\end{array}\right|=a^2+b^2-2 a b \\
+	& \Delta=(a-b)^4 \cdot(a+b)^4 \\
+	&
+\end{aligned}
+$$ }}

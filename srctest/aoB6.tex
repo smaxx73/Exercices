@@ -1,0 +1,50 @@
+\uuid{aoB6}
+\titre{ Convergence de séries entières}
+\theme { séries }
+\auteur{ }
+\organisation{ AMSCC }
+
+\contenu{
+\texte{ Calculer le rayon $R$ de convergence et déterminer le domaine $D$ de convergence (sauf pour la question 8) des séries entières réelles suivantes. }
+
+\colonnes{\solution}{3}{1}
+
+\begin{enumerate}
+    \item \question{ $\displaystyle S_1(t)=\sum_{n= 0}^{+\infty} n^2 t^n$ }
+    \reponse{ $R=1$: Pour $n\in\N^*$, en posant $u_n=n^2 t^n$ avec $t\in\R^*$,
+    \[ \left| \frac{u_{n+1}}{u_n}\right|=\left(1+\frac{1}{n}\right)^2|t| \underset{n\to +\infty}\longrightarrow |t|,  \]
+    donc par le critère de d'Alembert, si $|t|<1$, la série $\sum n^2t^n$ converge et si $|t|>1$, cette série diverge. D'où le rayon de convergence de $S_1$ qui vaut $1$. \\
+    
+    $D=]-1;1[$ car pour $t=1$, $n^2 t^n=n^2$ et $\sum n^2$ est une série divergente grossièrement. Pour $t=-1$, la série $\sum (-1)^n n^2$ diverge grossièrement. }
+    \item \question{ $\displaystyle S_2(t)=\sum_{n=0}^{+\infty} \frac{(-2)^n}{n!}t^n$ } 
+    \reponse{ $R=+\infty$: Pour $n\in\N^*$, en posant $u_n=\frac{(-2)^n}{n!}t^n$ avec $t\in\R^*$, on a :  
+    $$ \left| \frac{u_{n+1}}{u_n}\right|=\frac{2}{n+1}|t| \underset{n\to +\infty}\longrightarrow 0,  $$ 
+    donc par le critère de d'Alembert, la série $\sum \frac{(-2)^n}{n!}t^n$ converge pour tout $t\in\R$. D'où le rayon de convergence de $S_2$ qui vaut $+\infty$. }
+    \item \question{ $\displaystyle S_3(t)=\sum_{n=1}^{+\infty} \sin\left( \frac{1}{n^2}\right) t^n$ }
+    \reponse{ $R=1$: Pour $n\in\N^*$, en posant $u_n=\sin\left( \frac{1}{n^2}\right) t^n$ avec $t\in\R^*$, on a : 
+    $$ \left| \frac{u_{n+1}}{u_n}\right|=\left| \frac{\sin\left( \frac{1}{(n+1)^2}\right) t^{n+1}}{\sin\left( \frac{1}{n^2}\right) t^n}\right|=\left| \frac{\sin\left( \frac{1}{(n+1)^2}\right)}{\sin\left( \frac{1}{n^2}\right)}\right| |t| \underset{n\to +\infty}\longrightarrow |t|,  $$
+    donc par le critère de d'Alembert, si $|t|<1$, la série $\sum \sin\left( \frac{1}{n^2}\right) t^n$ converge et si $|t|>1$, cette série diverge. D'où le rayon de convergence de $S_3$ qui vaut $1$. 
+    Si $t = 1$ ou $t = -1$, $|u_n(t)| \underset{+\infty}{\sim} \frac{1}{n^2}$, donc la série $\sum |u_n(t)|$ converge. Donc $D = [-1,1]$. }
+    \item \question{ $\displaystyle S_4(t)=\sum_{n=1}^{+\infty} \frac{\ln n}{n} t^n$ }
+    \reponse{ $R=1$: Pour $n\in\N^*$, en posant $u_n=\frac{\ln n}{n} t^n$ avec $t\in\R^*$, on a :
+    $$ \left| \frac{u_{n+1}}{u_n}\right|=\left| \frac{\ln(n+1)}{\ln n}\right| |t| \underset{n\to +\infty}\longrightarrow |t|,  $$
+    donc par le critère de d'Alembert, si $|t|<1$, la série $\sum \frac{\ln n}{n} t^n$ converge et si $|t|>1$, cette série diverge. D'où le rayon de convergence de $S_4$ qui vaut $1$. \\  
+    Pour $t=-1$, la série $\sum (-1)^n \frac{\ln n}{n}$ converge par théorème des séries alternées. Pour $t=1$, la série $\sum \frac{\ln n}{n}$ diverge par comparaison à la série harmonique. Donc $D = [-1,1[$. }
+	\item \question{ $\displaystyle S_5(t)=\sum_{n=1}^{+\infty} \frac{1}{n^n}t^n$ }
+	\reponse{ $R=+\infty$: Pour $n\in\N^*$, en posant $u_n=\frac{1}{n^n}t^n$ avec $t\in\R^*$, on a :
+    $$ \left| \frac{u_{n+1}}{u_n}\right|=\left| \left( \frac{n}{n+1}\right)^{n}\times \frac{1}{n+1}\right| |t| \underset{n\to +\infty}\longrightarrow 0,  $$
+    donc par le critère de d'Alembert, la série $\sum \frac{1}{n^n}t^n$ converge pour tout $t\in\R$. D'où le rayon de convergence de $S_5$ qui vaut $+\infty$. }
+    \item \question{ $\displaystyle S_6(t)=\sum_{n=2}^{+\infty} \frac{n^n}{\ln n} t^n$ }
+	\reponse{ $R=0$ : Pour $n\in\N^*$, en posant $u_n=\frac{n^n}{\ln n} t^n$ avec $t\in\R^*$, on a :
+    $$ \left| \frac{u_{n+1}}{u_n}\right|=\left| \frac{(n+1)^{n+1}}{n^n}\times \frac{\ln n}{\ln(n+1)}\right| |t| \underset{n\to +\infty}\longrightarrow +\infty,  $$
+    donc par le critère de d'Alembert, la série $\sum \frac{n^n}{\ln n}t^n$ diverge pour tout $t\in\R^*$. D'où le rayon de convergence de $S_6$ qui vaut $0$. }
+    \item \question{ $\displaystyle S_7(t)=\sum_{n=0}^{+\infty} 2^n t^{2n}$ }
+    \reponse{ $R=\frac{1}{\sqrt{2}}$: Pour $n\in\N^*$, en posant $u_n=2^n t^{2n}$ avec $t\in\R^*$, on a une série géométrique de raison $2t^2$ donc : 
+    la série $\sum 2^n t^{2n}$ converge et si $2|t|^2 \geq 1$, cette série diverge. D'où le rayon de convergence de $S_7$ qui vaut $\frac{1}{\sqrt{2}}$. et $D = ]-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}[$. } 
+    \item \question{ $\displaystyle S_8(t)=\sum_{n=1}^{+\infty} \frac{(1+i)^n}{n2^n}t^{3n}$ } 
+    \reponse{ $R=2^{\frac{1}{6}}$: Pour $n\in\N^*$, en posant $u_n=\frac{(1+i)^n}{n2^n}t^{3n}$ avec $t\in\R^*$, on a :
+    $$ \left| \frac{u_{n+1}}{u_n}\right|=\left| \frac{(1+i)^{n+1}}{(n+1)2^{n+1}}\times \frac{n2^n}{(1+i)^n}\right| |t|^3 \underset{n\to +\infty}\longrightarrow \frac{|t|^3}{\sqrt{2}},  $$
+    donc par le critère de d'Alembert, si $\frac{|t|^3}{2}<1$, la série $\sum \frac{(1+i)^n}{n2^n}t^{3n}$ converge et si $\frac{|t|^3}{2}>1$, cette série diverge. D'où le rayon de convergence de $S_8$ qui vaut $2^{\frac{1}{6}}$. }
+\end{enumerate}
+\fincolonnes{\solution}{3}{1}
+}

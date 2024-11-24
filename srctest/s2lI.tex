@@ -1,0 +1,49 @@
+\uuid{s2lI}
+\titre{Limite et continuité}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit la fonction $g \colon \R^2 \to \R$ définie par : 
+$$g(x,y) = \frac{x^2+ 3y^3}{|x| + |y|}\,.$$ }
+
+\begin{enumerate}
+	\item \question{ Déterminer l'ensemble de définition de $g$. }
+	\reponse{
+		Soit $(x,y) \in \R^2$. On a $|x| + |y| \neq 0$ si et seulement si $x \neq 0$ ou $y \neq 0$. Ainsi, l'ensemble de définition de $g$ est $\R^2 \setminus \{(0,0)\}$.
+	}
+	\item \question{ Démontrer que  $\lim\limits_{h \to 0} g(h, 0) = \lim\limits_{h \to 0} g(0, h) =\lim\limits_{h \to 0} g(h, h)$. }
+	\reponse{
+		Soit $h \in \R$. On a :
+		\begin{align*}
+			g(h,0) &= \frac{h^2}{|h|} = |h|, \\
+			g(0,h) &= \frac{3h^3}{|h|} = 3|h|^2, \\
+			g(h,h) &= \frac{h^2 + 3h^3}{2|h|} = \frac{h^2(1 + 3h)}{2|h|} = \frac{h(1 + 3h)}{2}.
+		\end{align*}
+		Donc, $\lim\limits_{h \to 0} g(h,0) = \lim\limits_{h \to 0} g(0,h) = \lim\limits_{h \to 0} g(h,h) = 0$.
+	}
+	\item \question{ On admet que pour tout $ \theta \in \R$,  $|\cos(\theta)| + |\sin(\theta)| \geq 1$. \\ Déterminer une fonction $m$ ne dépendant pas de $\theta$ telle que pour tout $r > 0$ et $\theta \in \R$, on ait :
+	$$\frac{1}{r|\cos(\theta)| + r|\sin(\theta)|} \leq m(r)$$ }
+	\reponse{
+		Soit $r > 0$ et $\theta \in \R$. On a :
+		\begin{align*}
+			\frac{1}{r|\cos(\theta)| + r|\sin(\theta)|} & = \frac{1}{r(|\cos(\theta)| + |\sin(\theta)|)} \\
+			& \leq \frac{1}{r} 
+		\end{align*}
+		Donc, on peut prendre $m(r) = \frac{1}{r}$.
+	}
+	\item \question{ Déterminer : $$\lim\limits_{(x,y) \to (0,0)} g(x,y).$$ }
+	\reponse{
+		Soit $(x,y) \in \R^2 \setminus \{(0,0)\}$. On passe en coordonnées polaires : $x = r\cos(\theta)$ et $y = r\sin(\theta)$ avec $r > 0$ et $\theta \in \R$. On a :
+
+		\begin{align*}
+			|g(x,y)| & = \left|\frac{r^2\cos^2(\theta) + 3r^3\sin^3(\theta)}{r|\cos(\theta)| + r|\sin(\theta)|}\right| \\
+			& \leq \frac{r^2|\cos(\theta)| + 3r^3|\sin(\theta)|}{r|\cos(\theta)| + r|\sin(\theta)|} \\
+			& = r|\cos(\theta)| + 3r^2|\sin(\theta)| \text{ d'après la question précédente } \\
+			& \leq r + 3r^2 \text{ car } |\cos(\theta)| \leq 1 \text{ et } |\sin(\theta)| \leq 1 \\
+			& = r(1 + 3r) \xrightarrow[r \to 0]{} 0.
+		\end{align*}
+	}
+\end{enumerate}
+}

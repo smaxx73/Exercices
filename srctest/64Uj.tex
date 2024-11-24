@@ -1,0 +1,51 @@
+\uuid{64Uj}
+\titre{Résolution d'une EDO par un schéma numérique}
+\theme{}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+\texte{ Soit l'équation différentielle sur $[0,1]$:
+$$(E)	\begin{cases} 
+	y'(t) = f(t,y(t)) \\
+	y(0) = 0,
+\end{cases} $$
+où
+$$
+f(t,y)=\sin\left((t+y)^2\right).
+$$ }
+\begin{enumerate}
+	\item \question{ Justifier l'existence et l'unicité locale d'une solution $y$ de classe $\mathcal{C}^1$.  }
+	\reponse{$f$ est $C^1$: Théorème de Cauchy-Lipschitz.
+	}
+	
+	\item \question{ Justifier le caractère borné de $y$. }
+	\reponse{$|y'(t)|\leq 1$, donc $|y(t)|\leq a+T=1$.
+	}
+	
+	\item Justifier l'existence et l'unicité globale d'une solution $y$ de classe $\mathcal{C}^1$. 
+	\reponse{Principe de prolongement.
+	}
+	
+	
+\texte{ 	Pour approcher la solution de $(E)$, on propose le schéma numérique suivant : 
+	$h=1/N$, $t_n=nh$, $y_0=0$ et 
+	$$(S) \colon y_{n+1} = y_n +  \frac{h}{4}\left( f(t_n,y_n)+3f\left(t_n+ \frac{2h}{3},y_n+\frac{2h}{3}f(t_n,y_n) \right) \right)$$ }
+	
+%	Pour caractériser la consistance d'ordre $p \geq 2$, on peut utiliser le résultat suivant : la méthode $y_{n+1}=y_n + hF(t_n,y_n,h)$ est consistante d'ordre $p$ si pour tout $ 0 \leq k \leq p-1$, 
+%	$$\frac{\partial^{k}F}{\partial h^{k}}(t,y,0) = \frac{1}{k+1}f^{[k]}(t,y)$$
+%	où $f^{[0]} = f$ et $f^{[k+1]} = \frac{\partial f^{[k]}}{\partial t} + f \frac{ \partial f^{[k]}}{\partial y}$.
+	
+	
+	\item \question{ Démontrer que ce schéma est convergent. }
+	\reponse{On vérifie qu'il est consistant en appliquant le résultat du cours : on écrit le schéma sous la forme standard $y_{n+1} = y_n+hF(t_n,y_n,h)$ et on vérifie que $F(t,y,0) = f(t,y)$.
+		
+		Par ailleurs, on vérifie facilement que $F$ est lipschitzienne par rapport à la deuxième variable $y$, c'est une condition suffisante de stabilité du schéma. 
+	}
+	
+	\item \question{ Vérifier que ce schéma est consistant d'ordre 2. }
+	\reponse{On applique le critère énoncé et admis ci-dessus en calculant $\frac{1}{2}f^{[1]}(t,y)$.
+	}
+
+    \item Proposer un algorithme qui donne une approximation de $y(1)$ pour $h = 10^{-6}$ en utilisant le schéma numérique ci-dessus. 
+\end{enumerate}
+}

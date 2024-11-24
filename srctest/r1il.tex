@@ -1,0 +1,158 @@
+\uuid{r1il}
+\titre{Inverse de matrice}
+\theme{calcul matriciel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soient les matrices $A=\begin{pmatrix}1 & 4 & -3 \\ 2 & 1 & 2 \\ 1 & 3 & -2\end{pmatrix}$ et $B=\begin{pmatrix}1 & -a & 0 & 0 \\ 0 & 1 & -a & 0 \\ 0 & 0 & 1 & -a \\ 0 & 0 & 0 & 1\end{pmatrix}$.  }
+
+\question{ Calculer $A^{-1}$ et $B^{-1}$. }
+
+\reponse{ Soient :
+	$$
+	A=\left(\begin{array}{ccc}
+		1 & 4 & -3 \\
+		2 & 1 & 2 \\
+		1 & 3 & -2
+	\end{array}\right) \quad I_3=\left(\begin{array}{ccc}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+	\end{array}\right)
+	$$
+	
+	
+	Retranchons à la deuxième ligne 2 fois la première et à la troisième ligne 1 fois la première :
+	$$
+	\left(\begin{array}{ccc}
+		1 & 4 & -3 \\
+		0 & -7 & 8 \\
+		0 & -1 & 1
+	\end{array}\right) \quad\left(\begin{array}{ccc}
+		1 & 0 & 0 \\
+		-2 & 1 & 0 \\
+		-1 & 0 & 1
+	\end{array}\right)
+	$$
+	Changeons le signe de la deuxième et de la troisième ligne et permutons les lignes 2 et 3 :
+	$$
+	\left(\begin{array}{ccc}
+		1 & 4 & -3 \\
+		0 & 1 & -1 \\
+		0 & 7 & -8
+	\end{array}\right) \quad\left(\begin{array}{ccc}
+		1 & 0 & 0 \\
+		1 & 0 & -1 \\
+		2 & -1 & 0
+	\end{array}\right)
+	$$
+	Retranchons à la troisième ligne 7 fois la première :
+	$$
+	\left(\begin{array}{ccc}
+		1 & 4 & -3 \\
+		0 & 1 & -1 \\
+		0 & 0 & -1
+	\end{array}\right) \quad\left(\begin{array}{ccc}
+		1 & 0 & 0 \\
+		1 & 0 & -1 \\
+		-5 & -1 & 7
+	\end{array}\right)
+	$$
+	Changeons le signe de la troisième ligne :
+	$$
+	\left(\begin{array}{ccc}
+		1 & 4 & -3 \\
+		0 & 1 & -1 \\
+		0 & 0 & 1
+	\end{array}\right) \quad\left(\begin{array}{ccc}
+		1 & 0 & 0 \\
+		1 & 0 & -1 \\
+		5 & 1 & -7
+	\end{array}\right)
+	$$
+	Ajoutons à la première ligne 3 fois la troisième ligne et ajoutons à la deuxième ligne la troisième :
+	$$
+	\left(\begin{array}{lll}
+		1 & 4 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+	\end{array}\right) \quad\left(\begin{array}{ccc}
+		16 & 3 & -21 \\
+		6 & 1 & -8 \\
+		5 & 1 & -7
+	\end{array}\right)
+	$$
+	Retranchons à la première ligne 4 fois la deuxième ligne :
+	$$
+	I_3=\left(\begin{array}{lll}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+	\end{array}\right)
+	$$
+	$$
+	A^{-1}=\left(\begin{array}{ccc}
+		-8 & -1 & 11 \\
+		6 & 1 & -8 \\
+		5 & 1 & -7
+	\end{array}\right)
+	$$
+	
+	Soient :
+	$$
+	B=\left(\begin{array}{cccc}
+		1 & -a & 0 & 0 \\
+		0 & 1 & -a & 0 \\
+		0 & 0 & 1 & -a \\
+		0 & 0 & 0 & 1
+	\end{array}\right) \quad I_4=\left(\begin{array}{cccc}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{array}\right)
+	$$
+	Ajoutons à la troisième ligne $a$ fois la quatrième :
+	$$
+	\left(\begin{array}{cccc}
+		1 & -a & 0 & 0 \\
+		0 & 1 & -a & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{array}\right) \quad\left(\begin{array}{llll}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & a \\
+		0 & 0 & 0 & 1
+	\end{array}\right)
+	$$
+	Ajoutons à la deuxième ligne $a$ fois la troisième :
+	$$
+	\left(\begin{array}{cccc}
+		1 & -a & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{array}\right) \quad\left(\begin{array}{cccc}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & a & a^2 \\
+		0 & 0 & 1 & a \\
+		0 & 0 & 0 & 1
+	\end{array}\right)
+	$$
+	Ajoutons à la première ligne $a$ fois la deuxième :
+	$$
+	I_4=\left(\begin{array}{cccc}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{array}\right) \quad B^{-1}=\left(\begin{array}{cccc}
+		1 & a & a^2 & a^3 \\
+		0 & 1 & a & a^2 \\
+		0 & 0 & 1 & a \\
+		0 & 0 & 0 & 1
+	\end{array}\right)
+	$$
+ }}

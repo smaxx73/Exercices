@@ -1,0 +1,128 @@
+\uuid{XZIP}
+\titre{File d'attente}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+%
+\contenu{
+
+\textit{Dans les calculs, on pourra utiliser une intégration par parties:
+	\[\int_a^b u(x)v'(x) \dx= {[uv]}_a^b-\int_a^b u'(x)v(x) \dx \]
+	ou bien se souvenir que 
+	\[\int_0^{+\infty} x^n e^{-x} \dx= n!=1\times 2\times \ldots \times n\text{.}\]}
+Après enquête, on estime que le temps de passage à une caisse, exprimé en unités de temps, est une \va $T$ dont une densité de probabilité est donnée par la fonction $f_T$ définie par: 
+$$ f_T(t)=\begin{cases} 0 & \text{ si } t<0  \\
+	t e^{-t}& \text{ si } t\geq 0.
+\end{cases}$$
+\begin{enumerate}
+	\item \begin{enumerate}
+		\item \question{ Soit $X$ une variable aléatoire exponentielle de paramètre $\lambda=1$. Donner une densité $f_X$ de $X$, son espérance et sa variance. }
+		\reponse{
+			$X\sim \mathcal{E}(1)$, \hspace{2em} $f_X(t)=\begin{cases} e^{-t} & \text{ si } t\geq 0 \\
+				0 & \text{ sinon}
+			\end{cases}$, \hspace{2em}
+			$\E(X)=\frac{1}{\lambda}$ \hspace{2em} et \hspace{2em} $\V(X)=\frac{1}{\lambda^2}$.
+		}
+		
+		\item \question{ Vérifier que $f_T$ est bien une densité de probabilité. Déterminer $\E(T)$ et $\V(T)$. }
+		
+		\reponse{$f_T$ est une fonction positive sur $\R$ et
+			\[ \int_\R f_T(x)\dx=\int_0^{+\infty}xe^{-x}\dx=\left[-xe^{-x} \right]_0^{+\infty} +\int_0^{+\infty} e^{-x}\dx = \left[-e^{-x}\right]_0^{+\infty}=1.\]
+			Donc $f_T$ est bien une densité de probabilité. \\
+			%\hspace{0.3em}
+			
+			L'espérance de $T$ peut se calculer soit par intégrations par parties, soit en utilisant le rappel:
+			\[ \E(T)=\int_0^{+\infty} x^2e^{-x}\dx=\left[ -x^2e^{-x}\right]_0^{+\infty} +\int_0^{+\infty} 2xe^{-x}\dx=2\int_0^{+\infty}xe^{-x} \dx=2.\] \\
+			
+			De même pour la variance de $T$: $\V(T)=\E(T^2)-\E(T)^2$. Or
+			\[ \E(T^2)=\int_0^{+\infty} x^3e^{-x}\dx=6\]
+			donc $\V(T)=6-2^2=2$.
+		}
+		
+	\end{enumerate}
+	\item \begin{enumerate}
+		\item \question{ Démontrer que la fonction de répartition de $T$, notée $F_T$, est définie par:
+		\[
+		F_T(x)=
+		\begin{cases}
+			0  \text{ si } x<0, \\
+			1-(1+x)e^{-x} \text{ si } x \geq 0.
+		\end{cases}
+		\] }
+		\reponse{Par définition, 
+			$F_T(x)=\int_{-\infty}^x f_T(t)\dx t$ donc si $x< 0$, $F_T(x)=0$ et si $x\geq 0$,
+			\begin{align*}
+				F_T(x) & =\int_0^x te^{-t}\dx t
+				= \left[-te^{-t}\right]_0^x + \int_0^x e^{-t}\dx t
+				= -xe^{-x}+0+\left[-e^{-t}\right]_0^x 
+				=-xe^{-x}-e^{x}+e^0 \\
+				&= 1-(1+x)e^{-x},
+			\end{align*}
+			ce qui correspond à la formule donnée dans l'énoncé.
+		}
+		
+		
+		
+		\item \question{ Montrer que la probabilité que le temps de passage en caisse soit inférieur à deux unités de temps sachant qu'il est supérieur à une unité, est égale à $\frac{2e-3}{2e}$. }
+		\reponse{
+			\begin{align*}
+				\prob(T\leq 2|T\geq 1)
+				&=\frac{\prob(\{T\leq 2\}\cap \{T\geq 1\})}{\prob(T\geq 1)}
+				=\frac{\prob(1\leq T\leq 2)}{1-\prob(T\leq 1)}
+				= \frac{F_T(2)-F_T(1)}{1-F_T(1)} \\
+				&=\frac{1-3e^{-2}-1+2e^{-1}}{1-1+2e^{-1}}
+				=\frac{2e^{-1}-3e^{-2}}{2e^{-1}}
+				=\frac{2e-3}{2e}
+			\end{align*}
+		}
+		
+		
+	\end{enumerate}
+	\item \texte{ Un jour donné, trois clients $A$, $B$ et $C$ se présentent simultanément devant deux caisses libres. Par courtoisie, $C$ décide de laisser passer $A$ et $B$ et de prendre la place du premier d'entre eux qui aura terminé. On suppose que les variable aléatoires $T_A$ et $T_B$ correspondant aux temps de passage en caisse de $A$ et de $B$ sont indépendantes. }
+	\begin{enumerate}
+		\item \question{ Soit $M$ la variable aléatoire égale au temps d'attente du client $C$. Exprimer l'événement $\{M>x\}$ en fonction des événements $\{T_A>x\}$ et $\{T_B>x\}$. }
+		\reponse{
+			$\{M>x\}=\{T_A>x\}\cap\{T_B>x\}$
+		}
+		
+		\item \question{ En déduire une expression de la fonction de répartition $F_M$ de $M$, en fonction de $F_{T_A}$ et $F_{T_B}$. }
+		\reponse{Pour tout $t\in \R$,
+			\begin{align*}
+				F_M(t)
+				&=\prob(M\leq t) \\
+				&=1-\prob(M>t) \\
+				&=1-\prob(\{T_A>t\}\cap\{T_B>t\}) \\
+				&=1-\prob(T_A>t)\prob(T_B>t) \quad \text{ par indépendance de $T_A$ et de $T_B$} \\
+				&=1-(1-\prob(T_A\leq t))(1-\prob(T_B\leq t)) \\
+				&= 1- (1-F_{T_A}(t))(1-F_{T_B}(t))
+			\end{align*}
+		}
+		
+		
+		\item \question{ Déterminer explicitement une densité de $M$. }
+		\reponse{
+			Comme $T_A$ et $T_B$ suivent la même loi que $T$, on $F_{T_A}=F_{T_B}=F_T$. On obtient donc :
+			\begin{equation*}
+				F_M (x)
+				\,=\, 1-{(1-F_T(x))}^2 \,=\, 
+				\begin{cases}
+					1-(1+x)^2e^{-2x} & \text{ si } x\geq 0 \\
+					0 \text{ si } x<0.
+				\end{cases} 
+			\end{equation*}
+			Afin d'obtenir la densité de la variable aléatoire $M$, on dérive sa fonction de répartition en tous les points de continuité de sa densité :
+			\begin{align*}
+				f_M(t)&= \begin{cases}
+					-2(1+x)e^{-2x}+2(1+x)^2e^{-2x} & \text{ si } x\geq 0 \\
+					0 \text{ si } x<0
+				\end{cases} \\
+				&= \begin{cases}
+					2x\, (1+x)e^{-2x} & \text{ si } x\geq 0 \\
+					0 \text{ si } x<0
+				\end{cases}
+			\end{align*}
+		}
+		
+	\end{enumerate}
+\end{enumerate}
+}

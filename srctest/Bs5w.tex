@@ -1,0 +1,41 @@
+\uuid{Bs5w}
+\titre{Séries entières solutions d'équations différentielles}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+	\begin{enumerate}
+	\item \question{ Exprimer sous forme d'une série entière la solution de l'équation différentielle $(E)$:
+	$$ x^2y''(x)+x(x+1)y'(x)-y(x)=0 \qquad y'(0)=1.$$ }
+	\reponse{
+		Soit $y$ une solution développable en série entière, de rayon de convergence $R$: on note $\displaystyle y(x)=\sum_{n=0}^{+\infty} a_n x^n$ et on a
+		\[ \forall x \in ]-R;R[, \qquad y'(x)=\sum_{n=1}^{+\infty} na_n x^{n-1}\quad \text{ et } \quad y''(x)=\sum_{n=2}^{+\infty} n(n-1)a_n x^{n-2}.\]
+		On a les équivalences suivantes:
+		\begin{align*}
+		y \text{ solution de }(E) \ & \Leftrightarrow \ 
+		\forall x \in ]-R;R[, \ -a_0 + \sum_{n=2}^{+\infty} [(n-1)(n+1)a_n - (n-1)a_{n-1}] x^n =0  \\
+		\ & \Leftrightarrow \
+		a_0=0 \quad \text{ et } \quad  \forall n \geq 2, \ a_n=\frac{-1}{n+1} a_{n-1}
+		\end{align*}
+		La condition initiale donne: $y'(0)=a_1=1$.
+		On en conclut que $a_0=0$, $a_1=1$ et pour tout $n\geq 2$, $a_n=2\frac{(-1)^{n+1}}{(n+1)!}$ et donc 
+		\[ y(x)=2 \sum_{n=1}^{+\infty} \frac{(-1)^{n+1}}{(n+1)!} x^n,\] 
+		définie sur l'intervalle $\R$. 
+	}
+	\item \question{ Déterminer l'intervalle de convergence $I$ de la série entière solution de l'équation différentielle ci-dessus. }
+	\reponse{Fait ci-dessus: $D=\R$.}
+	
+	\item \question{ Déterminer la fonction somme de cette série entière. }
+	\reponse{ On a:
+		\[\forall x \in \R, \qquad xy(x)=2 \sum_{n=1}^{+\infty} \frac{(-1)^{n+1}}{(n+1)!}x^{n+1}=2\sum_{n=2}^{+\infty} \frac{(-x)^{n}}{n!}
+		=2\left[\sum_{n=0}^{+\infty} \frac{(-x)^{n}}{n!}-(1-x)\right]
+		\]
+		d'où
+		\[\forall x \in \R, \qquad y(x)= \begin{cases}
+			\frac{2}{x}(e^{-x}-1+x) & \text{ si } x\neq 0 \\
+			0 & \text{ si } x=0
+		\end{cases}\]
+	}
+\end{enumerate}
+}

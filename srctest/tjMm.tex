@@ -1,0 +1,27 @@
+\uuid{tjMm}
+\titre{Deux calculs d'intégrale}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+\contenu{
+
+\question{ 	Proposer au moins deux méthodes de Monte Carlo permettant de fournir une valeur approchée de l'intégrale :
+	$$I = \int_0^1 \cos(x^3)e^{-x}dx$$ }
+
+\reponse{
+	On voit que $I=  \int \cos(x^3)e^{-x} \chi_{[0;1]}(x)dx = \mathbb{E}\left( \cos(U^3)e^{-U} \right)$ où $U$ suit une loi $\mathcal{U}([0;1])$. Donc si $U_1,U_2...$ est une suite de VA iid selon la loi  $\mathcal{U}([0;1])$, alors la loi des grands nombres donne la convergence presque sûre :
+	$$\frac{\cos(U_1^3)e^{-U_1}+...+\cos(U_n^3)e^{-U_n}}{n} \longrightarrow I$$
+	
+	Il suffit donc de programmer l'algorithme suivant :
+	
+	\begin{itemize}
+		\item N=1000
+		\item S = 0
+		\item Pour i variant de 1 à N : \\ 
+		U = réalisation d'une loi $\mathcal{U}([0;1])$ \\
+		$S = S+ \cos(U^3) \times \exp(-U)$
+		\item Afficher $S/N$
+	\end{itemize}
+	
+	On voit aussi que $I=  \int \cos(x^3) \chi_{[0;1]}(x)  \chi_{[0;+\infty[}(x) e^{-x}dx = \mathbb{E}\left(\cos(V^3) \chi_{[0;1]}(V) \right)  $ où $V$ suit une loi $\mathcal{E}(1)$.
+}}

@@ -1,0 +1,17 @@
+\uuid{5AIf}
+\titre{ Optimisation d'un stock }
+\theme {probabilités}
+\auteur{ }
+\organisation{ AMSCC }
+
+\contenu{
+    \texte{ La demande d'un produit au cours d'une saison suit une loi normale de moyenne \nombre{5000} et d'écart-type \nombre{1000}. }
+    
+    \question{ Quel niveau de stock doit-on prévoir pour satisfaire la demande avec une probabilité de \nombre{0,90} ? }
+
+    \reponse{ 
+        On modélise la demande par une variable aléatoire $X$ qui suit une loi normale $\mathcal{N}(\mu=5000,\sigma=1000)$. On cherche $t$ tel que $\prob(X \leq t) = 0,90$. On a $\prob(X \leq t) = \Phi\left(\frac{t-\mu}{\sigma}\right) = 0,90$ où $\Phi$ est la fonction de répartition de la loi normale centrée réduite. On a donc $\frac{t-\mu}{\sigma} = \Phi^{-1}(0,90) \approx 1,28$ et donc $t = \mu + \sigma \Phi^{-1}(0,90) \approx 6280$. 
+
+        Ainsi, pour satisfaire la demande avec une probabilité de \nombre{0,90}, il faut prévoir un stock de \nombre{6280} produits.
+    }
+}

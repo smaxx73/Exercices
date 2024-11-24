@@ -1,0 +1,58 @@
+\uuid{C5Fq}
+\titre{Simulation d'une loi normale}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On tire sur une cible munie d'un repère orthonormé centrée sur son origine $O$. On note $(X,Y)$ les coordonnées cartésiennes d'un tir. On remarque que lorsque le tireur vise le centre de la cible, la loi suivie par $(X,Y)$ admet une densité 
+	
+	$$f(x,y)=\dfrac{1}{2\pi} e^{\frac{-x^2-y^2}{2}}$$
+	
+	On note $R$ la distance entre le point d'impact et le point visé.  }
+
+\begin{enumerate}
+	\item \question{ Calculer les lois marginales du couple $(X,Y)$. Les variables $X$ et $Y$ sont-elles indépendantes ? }
+	\reponse{ La densité marginale pour $X$ est exprimée par 
+		\begin{align*}
+			f_X(x)&=\int_\mathbb{R}f(x,y)dy \\
+			&= \dfrac{\sqrt{2\pi}}{2\pi} e^{\frac{-x^2}{2}} \\
+			&= \dfrac{1}{\sqrt{2\pi}} e^{\frac{-x^2}{2}}
+		\end{align*}
+		De même, on calcule $f_Y(y)= \dfrac{1}{\sqrt{2\pi}} e^{\frac{-y^2}{2}}$. On a ainsi $f(x,y)=f_X(x) \times f_Y(y)$ ce qui permet de conclure que $X$ et $Y$ sont deux variables indépendantes suivant chacune une loi normale centrée réduite. }
+	\item \question{ Ecrire la fonction de répartition de $R$ sous la forme d'une intégrale double, puis effectuer le changement de variables en coordonnées polaires pour simplifier l'expression. }
+	\reponse{ On note $D_t=\{(x,y) \in \mathbb{R}^2 \, , \, x^2+y^2 \leq t^2\}$. Si $t \geq 0$, $F_R(t) = \mathbb{P}(R \leq t) = \mathbb{P}((X,Y) \in D_t)$ donc 
+		$$F_R(t) = \iint_{D_t} \dfrac{1}{2\pi} e^{\frac{-x^2-y^2}{2}}dxdy$$
+		On effectue dans l'intégrale double un changement de variables en coordonnées polaires : on a $dxdy=rdrd\theta$ d'où 
+		$$F_R(t) = \int_{0}^{2\pi} \int_0^t e^{-r^2/2}rdr \frac{d\theta}{2\pi} = \int_0^t r e^{-r^2/2}dr $$
+		et $F_R(t)=0$ si $t<0$.  }
+	\item \question{ En déduire une densité de $R$. La loi obtenue s'appelle la loi de Rayleigh }.
+	\reponse{ On en déduit que la fonction $f_R(r) = r e^{-r^2/2}1_{\mathbb{R}_+} $ }
+	\item \question{ Montrer que $R^2$ suit une loi exponentielle $\mathcal{E}(1/2)$. }
+	\reponse{ Soit $h$ une fonction continue bornée quelconque : 
+		\begin{align*}
+			\mathbb{E}(h(R^2)) &= \int_0^{+\infty}  h(r) r e^{-r^2/2}dr \\
+			&= \int_0^{+\infty} h(u) \frac{1}{2} e^{-\frac{u}{2}} du 
+		\end{align*}	
+		Par identification, on en déduit une densité de $R^2$ définie par $f_{R^2}(u) = \frac{1}{2} e^{-\frac{u}{2}}1_{\mathbb{R}_+}(u)$, on reconnait une loi exponentielle $\mathcal{E}(\frac{1}{2})$. }
+	\item \question{ Montrer que si $\Theta$ est la variable aléatoire telle que $X=R\cos(\Theta)$, $Y=R\sin(\Theta)$, alors $\Theta$ suit une loi uniforme sur l'intervalle $[0;2\pi]$. }
+	\reponse{ Soit $h$ une fonction continue bornée quelconque : 
+		\begin{align*}
+			\mathbb{E}(h(R,\Theta)) &= \iint_{} \dfrac{1}{2\pi} h(r(x,y),\theta(x,y)) e^{\frac{-x^2-y^2}{2}}dxdy \\
+			&= \int_{0}^{2\pi} \int_0^{+\infty} h(r,\theta) \frac{1}{2\pi} e^{-r^2} r drd\theta 
+		\end{align*}
+		Par identification, on en déduit qu'une densité du couple $(R,\Theta)$ est définie pour tout $(r,\theta) \in \R^2$ par :
+		$$g(r,\theta) = \frac{1}{2\pi} re^{-r^2} \textbf{1}_{\R_+ \times [0;2\pi[}(r,\theta)$$
+		
+		Pour obtenir la loi de $\Theta$, il suffit de calculer pour tout $\theta \in \R$ : 
+		\begin{align*}
+		f_\Theta(\theta) &= \int_\R g(r,\theta)dr \\
+		                 &=  \frac{1}{2\pi}\textbf{1}_{\times [0;2\pi[}(r,\theta)
+		\end{align*}
+		 On en déduit que $(R,\Theta)$ est un couple de variables aléatoires indépendantes et que $\Theta$ suit une loi uniforme sur $[0;2\pi[$.}
+	\item \question{ En déduire une simulation de la loi du couple $(X,Y)$. }
+	\reponse{ def Normale2():
+		theta = 2*pi*rand()
+		r = sqrt(-2*log(rand()))
+		return r*cos(theta),r*sin(theta) }
+\end{enumerate}}

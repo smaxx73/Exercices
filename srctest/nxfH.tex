@@ -1,0 +1,39 @@
+\uuid{nxfH}
+\titre{Convergence d'une suite de variables aléatoires}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+
+\texte{ 	Soit $X$ une variable aléatoire de densité $f_{\theta}$ définie par :
+	$$f_{\theta}(x) = \theta x^{\theta-1} 1_{]0;1[}(x)$$
+	où $\theta >0$.
+	Soit une suite $(X_n)$ de variables aléatoires indépendantes suivant chacune la même loi que $X$. On pose 
+	$$ \overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i \qquad \text{} \qquad U_n = \frac{\overline{X}_n}{1-\overline{X}_n}$$ }
+
+\begin{enumerate}
+		\item \question{ Calculer $\mathbb{E}(X)$ et $V(X)$. }
+		\reponse{ On calcule les moments d'ordre 1 et 2 : $\mathbb{E}(X) = \int_0^1 \theta x^{\theta} dx = \frac{\theta}{\theta+1}$ et  $\mathbb{E}(X^2) = \int_0^1 \theta x^{\theta+1} dx = \frac{\theta}{\theta+2}$ d'où $V(X) = \frac{\theta}{(\theta+1)^2(\theta+2)}$.}
+		\item  \question{ Montrer que la suite  $(\overline{X}_n)$ converge en probabilité vers un réel $g(\theta)$ que l'on précisera. }
+		\reponse{D'après la loi faible des grands nombres, $\overline{X}_n  \xrightarrow[]{\mathcal{P}} \mathbb{E}(X) = \frac{\theta}{\theta+1}$.}
+		\item \question{ En déduire que la suite $(U_n)$ converge en probabilité vers le réel $\theta$. }
+		\reponse{ La fonction $f \colon y \mapsto \frac{y}{1-y}$ est continue sur $]0;1[$ donc par composition, $f(\overline{X}_n) = U_n  \xrightarrow[n \to +\infty]{\mathcal{P}} h(g(\theta)) = \theta$.}
+		\item \question{ On pose 
+		$$T_n = \frac{1}{1+U_n} \sqrt{ \frac{U_n}{U_n+2} }$$
+		La suite $(T_n)$ converge-t-elle en probabilité ? Si oui, déterminer sa limite. }
+		\reponse{De même, $T_n \xrightarrow[n \to +\infty]{\mathcal{P}}  \frac{1}{1+\theta} \sqrt{ \frac{\theta}{\theta+2} } $.}
+		\item \question{ Vérifier que la suite $(V_n)$ définie par 
+		$$V_n = \sqrt{n}\left(\overline{X}_n - \frac{\theta}{\theta+1}  \right)$$ converge en loi vers une loi normale dont on précisera les paramètres. }
+		\reponse{D'après le Théorème Central Limite, 
+			$$\frac{\overline{X}_n- \mathbb{E}(\overline{X}_n) }{\sqrt{V(\overline{X}_n)}}  \xrightarrow[n \to +\infty]{\mathcal{L}} \mathcal{N}(0,1)$$
+			avec $\mathbb{E}(\overline{X}_n) = n \times \frac{\theta}{n(\theta+1)} = \frac{\theta}{\theta+1}$ et $V(\overline{X}_n) = \frac{1}{n^2} \times n \times\frac{\theta}{(\theta+1)^2(\theta+2)}$. Donc 
+			$$\frac{\overline{X}_n-  \frac{\theta}{\theta+1} }{\sqrt{ \frac{\theta}{n(\theta+1)^2(\theta+2)}  }}  \xrightarrow[n \to +\infty]{\mathcal{L}} \mathcal{N}(0,1)$$
+			donc $$\sqrt{n}\left(\overline{X}_n-  \frac{\theta}{\theta+1} \right)  \xrightarrow[n \to +\infty]{\mathcal{L}} \mathcal{N}\left(0,\sigma^2 = \frac{\theta}{(\theta+1)^2(\theta+2)}\right)$$}
+		\item \question{ Déterminer une suite de réels $(a_n)$ et un un réel $m(\theta)$ tels que la suite de variables aléatoires $(Z_n)$ définie par 
+		$$Z_n = a_n \frac{ \overline{X}_n - m(\theta)}{T_n}$$
+		converge en loi vers une limite à préciser. }
+		\reponse{On sait que $T_n \xrightarrow[n \to +\infty]{\mathcal{P}}  \frac{1}{1+\theta} \sqrt{ \frac{\theta}{\theta+2} } $ donc $T_n \xrightarrow[n \to +\infty]{\mathcal{L}}  \frac{1}{1+\theta} \sqrt{ \frac{\theta}{\theta+2} } $ et d'après la propriété de Slutsky, la suite de variables $\left( \frac{V_n}{T_n} \right)$ converge vers $\frac{V}{\frac{1}{1+\theta} \sqrt{ \frac{\theta}{\theta+2} } }$ où $V$ suit une loi $\mathcal{N}\left(0,\sigma^2 = \frac{\theta}{(\theta+1)^2(\theta+2)}\right)$. Donc $\frac{V}{\frac{1}{1+\theta} \sqrt{ \frac{\theta}{\theta+2} } }$ suit une loi $\mathcal{N}(0,1)$. }
+	\end{enumerate}
+}

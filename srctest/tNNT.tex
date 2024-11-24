@@ -1,0 +1,50 @@
+\uuid{tNNT}
+\titre{Fonctions de répartition et changement de variable}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Soit $f$ une fonction réelle définie par 
+ $$f(x)=\begin{cases}
+ xe^{-\frac{x^2}{2}}& \text{ si } x \geq 0 \\
+ 0 & \text{ si } x < 0
+ \end{cases}$$ }
+ 	\begin{enumerate}
+ 	\item \question{ Montrer que $f$ est une densité de probabilité. On définit $X$ une variable aléatoire admettant $f$ comme densité. }
+ 	\reponse{Il suffit de vérifier que $f(x) \geq 0$ pour tout $x \in \R$ puis de calculer :
+ 		\begin{align*}
+ 		\int_{-\infty}^{+\infty} f(x)dx &= \int_0^{+\infty} xe^{-\frac{x^2}{2}} dx \\
+ 		&= \left[-e^{-\frac{x^2}{2}}\right]_0^{+\infty} \\
+ 		&= 1
+ 		\end{align*}
+ 	}
+ 	\item \question{ Déterminer la fonction de répartition $F$ de la variable aléatoire $Y=X^2$ en fonction de celle de $X$. En déduire la densité de la variable $Y$. }
+ 	\reponse{Soit $t \in \R$ et $F_{X^2}$ la fonction de répartition de la variable aléatoire $X^2$ : alors 
+ \begin{align*}
+ F_{X^2}(t) &= \PP(X^2 \leq t) \\
+ &= \begin{cases}
+  \PP\left(-\sqrt{t} \leq X \leq \sqrt{t}\right) & \text{ si } t \geq 0 \\
+  0 & \text{ si } t < 0
+ \end{cases} \\
+ &= \begin{cases}
+ \int_{-\sqrt{t}}^{\sqrt{t}} f(x) dx & \text{ si } t \geq 0 \\
+ 0 & \text{ si } t < 0
+ \end{cases} \\
+ &= \begin{cases}
+\int_{0}^{\sqrt{t}} xe^{-\frac{x^2}{2}} dx & \text{ si } t \geq 0 \\
+0 & \text{ si } t < 0
+\end{cases} \\
+ &= \begin{cases}
+\left[-e^{-\frac{x^2}{2}}\right]_0^{\sqrt{t}} & \text{ si } t \geq 0 \\
+0 & \text{ si } t < 0
+\end{cases} \\
+&= \left(1-e^{-\frac{t}{2}}\right)\textbf{1}_{[0;+\infty[}(t)
+ \end{align*}	
+ 
+La fonction $F_{X^2}$ est dérivable presque partout (sauf en ${0}$). Sa dérivée coïncide donc presque partout avec une fonction densité $g$ de la variable $X^2$. On peut donc poser 
+$$g(x)=\frac{1}{2}e^{-\frac{t}{2}}\textbf{1}_{[0;+\infty[}(x)$$
+et on conclut que $X^2$ suit une loi exponentielle de paramètre $\lambda = \frac{1}{2}$.		
+ 		}
+\end{enumerate}}

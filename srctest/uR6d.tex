@@ -1,0 +1,32 @@
+\uuid{uR6d}
+\titre{\'Etude de la nature d'une série}
+\theme{séries}
+\auteur{ }
+\organisation{AMSCC}
+\contenu{
+
+\begin{enumerate}
+
+\item \question{ Prouver qu'un équivalent de $e^{x^2}-\cos(x)$ au voisinage de $0$ est $\frac{3x^2}{2}$. On pourra utiliser un développement limité.  }
+\reponse{ Pour démontrer ceci, nous devons d'abord obtenir les développements limités de $e^{x^2}$ et $\cos(x)$ autour de $0$ jusqu'à l'ordre $2$ :
+	
+	\begin{align*}
+		e^{x^2} & = 1 + x^2 + o(x^2)\\
+		\cos(x) & = 1 - \frac{x^2}{2} + o(x^2)
+	\end{align*}
+
+	
+	Ensuite, nous soustrayons ces deux séries terme à terme pour obtenir le développement limité de $e^{x^2}-\cos(x)$ :
+	
+	\begin{align*}
+		e^{x^2} - \cos(x) & = (1 + x^2 + o(x^2)) - (1 - \frac{x^2}{2}  + o(x^2))\\
+		& =  \frac{3x^2}{2}  + o(x^2)
+	\end{align*}
+	
+	On en déduit que l'équivalent de $e^{x^2}-\cos(x)$ au voisinage de $0$ est bien $\frac{3x^2}{2}$.
+ }
+\item \question{ Étudier la convergence de la série $\displaystyle   \sum_{n \geq 1} u_n$ où pour tout $n \geq 1$, $$u_n = e^{\frac{1}{n^2}}-\cos\left(\frac1n\right).$$ }
+\reponse{ On déduit de la question précédente que $$u_n \underset{+\infty}\sim \frac{3}{2n^2}$$
+Cela prouve que $u_n \geq 0$ à partir d'un certain rang et que la série $\displaystyle   \sum_{n \geq 1} u_n$ converge par comparaison à une série de Riemann convergente.
+ }
+\end{enumerate}}

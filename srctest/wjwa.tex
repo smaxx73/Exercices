@@ -1,0 +1,16 @@
+\uuid{wjwa}
+\titre{Fonction de répartition, démonstration de cours}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+
+\texte{ Soit $F_X$ une fonction de répartition admettant un point de discontinuité en $x_0 \in \R$. } 
+
+\question{ Démontrer que le saut $p_0 = F_X(x_0)-F_X(x_0^-)$ est égal à $\PP(X=x_0)$. }
+ 
+ \reponse{La limite à gauche se traduit par $F_X(x_0^-) = \lim\limits_{h_n \to 0, h_n >0} F_X(x_0-h_n) = \lim\limits_{h_n \to 0, h_n >0}\PP(X \leq x_0-h_n)$ donc $p_0 = \lim_{h_n \to 0, h_n >0} \PP(X \in ]x_0-h_n ; x_0])$. 
+ 	
+ 	Or la suite d'événements $(B_n)$ définie par $B_n = \{X \in ]x_0-h_n ; x_0]\}$ est décroissante donc d'après le théorème de continuité décroissante, $\PP(B_n) \xrightarrow[n \to +\infty]{} \PP(\bigcap B_n) = \PP(\{x_0\})$.}}

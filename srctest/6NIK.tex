@@ -1,0 +1,33 @@
+\uuid{6NIK}
+\titre{Calcul par approximation}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{ Un fournisseur d'accès internet met en place un point local d'accès qui dessert $\nombre{5000}$ abonnés. À un instant donné, chaque abonné a une probabilité égale à $0.20$ d'être connecté. Les comportements des abonnés sont supposés indépendants les uns des autres. }
+\begin{enumerate}
+	\item \question{ On note $X$ la variable aléatoire égale au nombre d'abonnés connectés à un instant $t$. Quelle est la loi de $X$ ? Quelle est son espérance ? Son écart-type ? }
+	\reponse{ 
+		$X\sim \mathcal{B}(\nombre{5000},0.2)$, $\E(X)=\nombre{1000}$ et $\sigma^2(X)=800$.
+	}
+	
+	
+	\item \question{ On pose $Y=\frac{X-\nombre{1000}}{\sqrt{800}}$. Justifier précisément que l'on peut approcher la loi de $Y$ par la loi normale centrée réduite. }
+	\reponse{ 
+		$X$ peut être approchée par une loi $\mathcal{N}(\nombre{1000},\sigma=\sqrt{800})$ donc en centrant et en réduisant, on obtient que $Y\sim \mathcal{N}(0,1)$.
+	}
+	
+	\item \question{ Le fournisseur d'accès souhaite savoir combien de connexions simultanées le point d'accès doit pouvoir gérer pour que sa probabilité d'être saturé à un instant donné soit inférieure à $2.5$\%. En utilisant l'approximation précédente, proposer une valeur approchée de ce nombre de connexions. }
+	\reponse{ 
+		Soit $n$ le nombre de connexions simultanées au point d'accès. On cherche $n$ tel que $\prob(X\geq n)\leq 0.025$, c'est-à-dire
+		\[ \prob\left(Y\geq \frac{n-\nombre{1000}}{\sqrt{800}}\right) \leq 0.025 ,\]
+		autrement dit
+		\[  \prob\left(Y\leq \frac{n-\nombre{1000}}{\sqrt{800}}\right) \geq 0.975.\]
+		Par lecture de table de loi, on obtient $\displaystyle\frac{n-\nombre{1000}}{\sqrt{800}}\simeq 1.96$, soit $n\simeq 1055.44$.
+		On en conclut qu'il faut qu'au minimum le point d'accès puisse gérer $1056$ connexions simultanées pour que la probabilité d'être saturé soit inférieure à $2.5$\%.
+	}
+	
+\end{enumerate}
+}

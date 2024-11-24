@@ -1,0 +1,78 @@
+\uuid{RrKo}
+\titre{Autour de la méthode d'Euler implicite}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+%50p166 Analyse Numérique Canon 
+
+\texte{ Soit $f \colon [0;T] \times \mathbb{R} \to \mathbb{R}$, $a \in \mathbb{R}$ et l'équation différentielle :
+$$(E)	\begin{cases} 
+y'(t) = f(t,y(t)) \\
+y(0) = a
+\end{cases} $$
+
+pour laquelle on admet l'existence et l'unicité d'une solution $y$ de classe $\mathcal{C}^2$. On suppose de plus qu'il existe $M>0$ tel que $\forall t \in [0;T]$, $\forall y \in \mathbb{R}$ : 
+$$ \frac{\partial^2 f}{\partial y^2}(t,y)>0 \qquad ; \qquad \left| \frac{\partial f}{\partial y}(t,y)   \right| \leq M$$
+
+On rappelle que la méthode d'Euler implicite est donnée par le schéma 
+$$y_{n+1} = y_n + hf(t_{n+1},y_{n+1})$$
+et on suppose que le pas vérifie $h \leq \frac{1}{2M}$.
+
+Pour tout $n \geq 0$, on pose $\varphi_n(x) = y_n+hf(t_{n+1},x)-x$ et $H_n(x) = y_n+hf(t_{n+1},x)$. }
+
+\begin{enumerate}
+	\item \question{ Vérifier que $H_n$ est une application contractante et en déduire que le schéma est bien défini, c'est-à-dire qu'il permet bien de définir explicitement $y_{n+1}$ en fonction de $y_n$. }
+	\reponse{$|H_n'(x)| = h \left| \frac{\partial f}{\partial y}(t_{n+1},x)  \right| \leq hM \leq \frac{1}{2} < 1$. Si $n$ est fixé et $y_n$ est défini, alors $H_n$ admet donc un unique point fixe que l'on note $y_{n+1}$. }
+	\item \question{ On propose la méthode suivante :
+	$$(S) : \begin{cases}
+	\widehat{y}_{n+1}=y_n - \frac{\varphi_n(y_n)}{\varphi_n'(y_n)} \\
+	y_{n+1} = y_n + hf(t_{n+1},\widehat{y}_{n+1})
+	\end{cases}$$
+	On admet que cette méthode est stable. Expliquer pourquoi cette méthode ainsi décrite permet de définir explicitement $y_{n+1}$ en fonction de $y_n$. Décrire en particulier la méthode utilisée pour définir $\widehat{y}_{n+1}$. Puis montrer que cette méthode $(S)$ est consistante, donc convergente. }
+	\reponse{Ce schéma permet de résoudre l'écriture implicite en utilisant la méthode de Newton. On écrit le schéma sous la forme standard 
+		$$y_{n+1}=y_n+hF(t_n,y_n,h)$$ avec 
+		$$F(t,y,h)= f\left(t+h,y+h\frac{f(t+h,y)}{1-h\frac{\partial f}{\partial y}(t+h,y)}  \right)$$
+		et on vérifie que $F(t,y,0)=f(t,y)$ : la méthode est consistante au moins d'ordre 1. On pourrait vérifier que la méthode n'est pas d'ordre 2 en calculant $\frac{\partial F}{\partial h}$ et en constatant que $\frac{\partial F}{\partial h}(t,y,0) = f^{[1]}(t,y) \neq \frac{1}{2}f^{[1]}(t,y)$. La méthode étant supposée stable, elle est donc convergente.}
+	\item \texte{ On suppose maintenant que l'équation différentielle est autonome : $f(t,y) = f(y)$ et que $\forall y \in \mathbb{R}$, $|f(y)| \leq M$, $|f'(y)| \leq M$ et $|f''(y)| \leq M$.  }
+	\begin{enumerate}
+		\item \question{ Simplifier le schéma $(S)$ en l'écrivant en fonction de $f$ et $f'$. }
+		\reponse{Le schéma devient 
+			$$(S') : \begin{cases}
+			\widehat{y}_{n+1}=y_n - \frac{f(y_n)}{1-hf'(y_n)} \\
+			y_{n+1} = y_n + hf(t_{n+1},\widehat{y}_{n+1})
+			\end{cases}$$}
+		\item \question{ Montrer que $\forall y,z \in \mathbb{R}$, 
+		$$|f(y)(f'(z)-f(z)f'(y)| \leq 2M^2|y-z|$$ }
+		\reponse{\begin{align*}
+				|f(y)(f'(z)-f(z)f'(y)| &= |f(y)(f'(z)-f'(y))+f'(y)(f(y)-f(z)| \\
+				&\leq |f(y)||f'(z)-f'(y)|+|f'(y)||f'(y)-f(z)|\\
+				&\leq M\left(|f'(z)-f'(y)|+|f'(y)-f(z)|\right)\\
+			\end{align*}
+			Or $|f'(y)| \leq M$ et $|f''(y)| \leq M$ donc $f$ et $f'$ sont $M$-lipschitziennes, d'où le résultat.}
+		\item \question{ Montrer que $\forall y \in \mathbb{R}$ :
+		$$\left|\frac{1}{1-hf'(y)} \right| \leq 2$$ }
+		\reponse{On a $hf'(y) \leq Mh \leq \frac{1}{2}$ d'où $1-hf'(y) \geq \frac{1}{2}$ d'où le résultat demandé.}
+		\item \question{ On pose $g_R(y,h)=\frac{f(y)}{1-hf'(y)}$. Montrer que $\forall y,z \in \mathbb{R}$ :
+		$$|g_R(y,h)-g_R(z,h)| \leq 4 |f(y)f'(z)-f(y)-f(z)f'(y)+f(z)|$$
+		puis 
+		$$|g_R(y,h)-g_R(z,h)| \leq 4M(1+2Mh)|y-z|$$ }
+		\reponse{\begin{align*}
+				|g_R(y,h)-g_R(z,h)| &= \left| \frac{f(y)}{1-hf'(y)}-\frac{f(z)}{1-hf'(z)}  \right| \\
+				&= \frac{|f(y)-f(z)+h(f(z)f'(y)-f(y)f'(z) |}{|1-hf'(y)||1-hf'(z)|}\\
+				&\leq 4|f(y)-f(z)|+4h|f(z)f'(y)-f(y)f'(z)| \\
+				&\leq 4M|y-z| + 8M^2h|y-z|\\
+				&\leq 4M(1+2Mh)|y-z|
+		\end{align*} }
+		\item \question{ En déduire que la méthode est stable }
+		\reponse{On étudie la stabilité du nouveau schéma $(S')$ : il s'écrit $y_{n+1}=y_n+hF(y_n,h)$ avec $F(y,h)=f(y+hg_R(y,h))$. Or $f$ est $M$-lipschitzienne donc 
+			\begin{align*} F(y,h)-F(z,h) &\leq M(|y-z|+h|g_R(y,h)-g_R(z,h)|)\\
+				&\leq M(1+2Mh(1+2Mh))|y-z|\\
+				&\leq 5M|y-z|
+			\end{align*}
+			Donc $F$ est lipschitzienne uniformément en $h$ : cela prouve la stabilité du schéma. }
+		\item \question{ En déduire que la méthode est convergente. }
+		\reponse { La consistance ayant déjà établie dans le cas général, cela prouve que la méthode est convergente.}
+	\end{enumerate}
+\end{enumerate}}

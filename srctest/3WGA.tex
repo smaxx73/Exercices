@@ -1,0 +1,54 @@
+\uuid{3WGA}
+\titre{Introduction à la loi binomiale}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	Une urne contient 2 boules noires et 8 boules blanches.  }
+	\begin{enumerate}
+		\item \texte{ Un joueur tire successivement 5 boules en remettant la boule dans l'urne après chaque tirage. S'il tire une boule blanche il gagne 2 points dans le cas contraire il perd trois points. Soit $X$ le nombre de points obtenus par le joueur en une partie. }
+		\begin{enumerate}
+			\item \question{ Dresser le tableau définissant la loi de $X$. }
+			\reponse{ On peut dénombrer les cas possibles en regardant le nombre de boules blanches au sein d'un tirage de 5 boules : \\
+				0 boule blanche : $X=5 \times (-3) = -15$ pts \\
+				1 boule blanche : $X = 2 + 4 \times (-3) = -11$ pts \\
+				2 boules blanches : $X = 2 \times 2 + 3 \times (-3) = -5$ pts \\
+				3 boules blanches : $X = 3 \times 2 + 2 \times (-3) = 0$ pts \\
+				4 boules blanches : $X = 4 \times 2 + 1 \times (-3) = 5$ pts \\
+				5 boules blanches : $X = 5 \times 2 = 10$ pts \\
+				
+				A chaque tirage, la probabilité d'avoir une boule noire est $0.2$ et la probabilité d'avoir une boule blanche est $0.8$ car il y a remise. La probabilité d'avoir un certain tirage contenant $k$ boules blanches et $5-k$ boules noires est donc $(0.8)^k \times (0.2)^{5-k}$. Sur un tirage de 5 boules, il y a $\binom{5}{k}$ combinaisons possibles pour avoir $k$ boules blanches parmi ces 5 boules. Au final, on a une probabilité d'avoir $k$ boules blanches : $\binom{5}{k} \times (0.8)^k \times (0.2)^{5-k}$.
+				
+				Pour $k=2$ par exemple, on a une probabilité de $0.0512$. Le nombre de points $X$ étant déterminé par le nombre de boules blanches, on en déduit directement la loi de la variable $X$ : 
+				\begin{center}
+					\begin{tabular}{|c|c|c|c|c|c|c|}
+						\hline $k$ & -15 & -11 & -5 & 0 & 5 & 10 \\ 
+						\hline $\PP(X=k)$ & 0{,}00032 & 0{,}0064 & 0{,}0512 & 0{,}2048 & 0{,}4096 & 0{,}32768 \\ 
+						\hline 
+					\end{tabular} 
+			\end{center} }
+			\item \question{ Calculer l'espérance et la variance de $X$. }
+			\reponse{ L'espérance de $X$ se calcule à partir du tableau et on trouve $\EX = 4$ : c'est le nombre de points que l'on peut obtenir en moyenne à ce jeu. }
+		\end{enumerate}
+		\item \question{ Le joueur tire 5 boules simultanément, les 10 boules de l'urne étant numérotées de 1 à 10. 	Soit $Y$ le plus grand des numéros tirés. Déterminer la loi de probabilité de $Y$ et calculer son espérance. }
+	\reponse{ La variable $Y$ est le plus grand des numéros tirés sur les 5 boules. Sur 5 boules tirées, la plus grande valeur est nécessairement supérieure ou égale à 5. Ainsi, les valeurs possibles prises par $Y$ sont $\{5,6,7,8,9,10\}$.
+		
+		Il y a $\binom{10}{5}$ tirages possibles, ils sont équiprobables. 
+		
+		Pour obtenir $Y=5$, il n'y a qu'un seul tirage possible : 5 boules parmi les 5 plus petits numéros. \\
+		Pour obtenir $Y \leq 6$, il y a $\binom{6}{5}$ tirages possibles : 5 boules parmi les 6 plus petits numéros. \\
+		On généralise : pour obtenir $Y \leq k$, il y a $\binom{k}{5}$ tirages possibles : 5 boules parmi les k plus petits numéros (avec $k$ compris entre $5$ et $10$). On en déduit la fonction de répartition de $Y$ : $$\PP(Y \leq k) = \frac{\binom{k}{5}}{\binom{10}{5}}$$
+		puis on obtient $\PP(Y=k) = \PP(Y \leq k) - \PP(Y \leq k-1)$.
+		Numériquement, cela donne :
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline $k$ & 5 & 6 & -7 & 8 & 9 & 10 \\ 
+				\hline $\PP(Y \leq k)$ & 0{,}003968 & 0{,}0238095 & 0{,}083333 & 0{,}222222 & 0{,}5 & 1 \\ 
+				\hline $\PP(Y=k)$ & 0{,}003968 & 0{,}019841 & 0{,}059524 & 0{,}138889 & 0{,}277778 & 0{,}5 \\
+				\hline
+			\end{tabular} 
+	\end{center}	 }
+	\end{enumerate}
+}

@@ -1,0 +1,37 @@
+\uuid{BAmc}
+\titre{Calcul de dérivées partielles}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	On pose $f: \R^2 \to \R,\ (x,y) \mapsto \dfrac{x^2+xy}{y^2}$. }
+\begin{enumerate}
+	\item \question{ \label{Q1} Préciser l'ensemble de dérivabilité de $f$ et calculer $\dpa{f}{x}(x,y)$ et $\dpa{f}{y}(x,y)$. }
+	\reponse{La fonction $f$ admet des dérivées partielles en tout point $(x,y)\in \R^2$ tel que $y \neq 0$ :
+		\begin{align*}
+		\dpa{f}{x}(x,y) &= \frac{2x+y}{y^2} \\
+		\dpa{f}{y}(x,y) &= -\frac{2x^2}{y^3}-\frac{x}{y^2} \\
+		&= \frac{-2x^2-xy}{y^3}
+		\end{align*}	
+	}
+	\item \question{ On note $F: \R \to \R,\ t \mapsto t^2+t$. En remarquant que $f(x,y) = F\left(\dfrac{x}{y}\right)$, et en utilisant les règles de dérivation composée, retrouver les expressions obtenues à la question~\ref{Q1}. }
+	\reponse{Dans un premier temps, on remarque que $F$ est dérivable en tout point $t \in \R$ et $F'(t) = 2t+1$. 
+		
+		D'autre part, par application de la règle des chaînes, on peut calculer 
+		\begin{align*}
+		\dpa{f}{x}(x,y) &= \dpa{}{x}\left( F\left(\dfrac{x}{y}\right)\right) \\
+		&= \left( F'\left(\dfrac{x}{y}\right)\right) \times \dpa{}{x}\left( \frac{x}{y} \right)  \\
+		&= \left(2\left(\dfrac{x}{y}\right)+1\right) \times \frac{1}{y} \\
+		&= \frac{2x+y}{y^2}
+		\end{align*}
+		De même, 
+		\begin{align*}
+		\dpa{f}{y}(x,y) &= \dpa{}{y}\left( F\left(\dfrac{x}{y}\right)\right) \\
+		&= \left( F'\left(\dfrac{x}{y}\right)\right) \times \dpa{}{y}\left( \frac{x}{y} \right)  \\
+		&= \left(2\left(\dfrac{x}{y}\right)+1\right) \times \frac{-x}{y^2} \\
+		&= \frac{-2x^2-xy}{y^3}
+		\end{align*}
+	}
+\end{enumerate}
+}

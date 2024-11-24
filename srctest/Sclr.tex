@@ -1,0 +1,94 @@
+\uuid{Sclr}
+\titre{Inverse de matrice et application}
+\theme{calcul matriciel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soient les matrices $A=\begin{pmatrix}1 & 4 & -4 \\ -6 & -13 & 12 \\ -6 & -12 & 11\end{pmatrix}$ et $P=\begin{pmatrix}1 & -2 & 0 \\ -3 & 4 & 1 \\ -3 & 3 & 1\end{pmatrix}$. }
+
+\begin{enumerate}
+	\item \question{ Parmi les trois matrices suivantes, dire laquelle est l'inverse de $P$ en justifiant.
+		$$
+		B=\begin{pmatrix}
+			1 & 2 & -2 \\
+			0 & 1 & -1 \\
+			2 & 0 & -2
+		\end{pmatrix} \quad C=\begin{pmatrix}
+			1 & 2 & -2 \\
+			0 & 1 & -1 \\
+			3 & 3 & -2
+		\end{pmatrix} \quad D=\begin{pmatrix}
+			1 & 2 & 0 \\
+			0 & 1 & 1 \\
+			2 & 1 & 2
+		\end{pmatrix}
+		$$
+		}
+	\reponse{ On a :
+		$$
+		P \cdot B=\left(\begin{array}{ccc}
+			1 & -2 & 0 \\
+			-3 & 4 & 1 \\
+			-3 & 3 & 1
+		\end{array}\right) \cdot\left(\begin{array}{ccc}
+			1 & 2 & -2 \\
+			0 & 1 & -1 \\
+			2 & 0 & -2
+		\end{array}\right)=\left(\begin{array}{ccc}
+			1 & 0 & 0 \\
+			-1 & -2 & 0 \\
+			-1 & -3 & 1
+		\end{array}\right) \neq I d
+		$$
+		donc $P^{-1} \neq B$
+		$$
+		P \cdot C=\left(\begin{array}{ccc}
+			1 & -2 & 0 \\
+			-3 & 4 & 1 \\
+			-3 & 3 & 1
+		\end{array}\right) \cdot\left(\begin{array}{ccc}
+			1 & 2 & -2 \\
+			0 & 1 & -1 \\
+			3 & 3 & -2
+		\end{array}\right)=\left(\begin{array}{lll}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1
+		\end{array}\right)=I d
+		$$
+		et $P^{-1}=C$
+		Par unicité de la matrice inverse, sans calcul, on peut affirmer $P^{-1} \neq D$. }
+	\item \texte{  Calculer $D = P^{-1} \cdot A \cdot P$. }
+	\reponse{ $$
+		P^{-1} \cdot A \cdot P=\left(\begin{array}{ccc}
+			1 & 2 & -2 \\
+			0 & 1 & -1 \\
+			3 & 3 & -2
+		\end{array}\right) \cdot\left(\begin{array}{ccc}
+			1 & 4 & -4 \\
+			-6 & -13 & 12 \\
+			-6 & -12 & 11
+		\end{array}\right) \cdot\left(\begin{array}{ccc}
+			1 & -2 & 0 \\
+			-3 & 4 & 1 \\
+			-3 & 3 & 1
+		\end{array}\right)=\left(\begin{array}{ccc}
+			1 & 0 & 0 \\
+			0 & -1 & 0 \\
+			0 & 0 & -1
+		\end{array}\right)=D
+		$$ }
+	\item \question{ En déduire $A^{-1}, A^{2 n}$ et $A^{2 n+1}$, pour $n \in \mathbb{N}$. }
+	\reponse{ On a :
+		$$
+		\begin{gathered}
+			D^2=D \cdot D=I \Rightarrow F^{-1}=F \\
+			\left(P^{-1} \cdot A \cdot P\right)^{-1}=P^{-1} \cdot A^{-1} \cdot P=P^{-1} \cdot A \cdot P \\
+			\Rightarrow A^{-1} \cdot P=P \cdot P^{-1} \cdot A \cdot P=A \cdot P \\
+			\Rightarrow A^{-1}=A \cdot P \cdot P^{-1}=A
+		\end{gathered}
+		$$
+		Donc $A^{-1}=A$ d'où $A^2 = I$ et pour tout $n \in \N$, on déduit par récurrence que $A^{2n} = I$ et $A^{2n+1} = A$. }
+\end{enumerate}
+}

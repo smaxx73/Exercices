@@ -1,0 +1,36 @@
+\uuid{4Idt}
+\titre{Inégalités et loi de Poisson}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{ Soit $X$ une variable aléatoire de loi de Poisson de paramètre $\lambda>0$. }
+\begin{enumerate}
+	\item \question{ En utilisant l'inégalité de Markov, montrer que: $\prob(X\geq 2\lambda)\leq\frac{1}{2}$. }
+	\reponse{Par l'inégalité de Markov, on a:
+		\[ \prob(|X|\geq 2\lambda)\leq \frac{\E(|X|)}{2\lambda}\]
+		or $X\sim\mathcal{P}(\lambda)$ donc $X(\Omega)=\N$ et on a
+		\[ \prob(X\leq 2\lambda) \geq \frac{\E(X)}{2\lambda}=\frac{\lambda}{2\lambda}=\frac{1}{2}.\]
+	}
+	
+	\item \question{ Montrer que $\prob(|X-\lambda| \geq \lambda) \leq \frac{1}{\lambda}$ et en déduire que $\prob(X\geq 2\lambda)\leq \frac{1}{\lambda}$. }
+	\reponse{ Par l'inégalité de Bienaymé-Tchebychev, on a
+		\[ \prob(|X-\E(X)|\geq \lambda)\leq \frac{\sigma^2(X)}{\lambda^2}=\frac{\lambda}{\lambda^2}=\frac{1}{\lambda}\]
+		donc
+		\[ \prob(|X-\lambda|)\geq \frac{1}{\lambda}.\]
+		Or
+		\[ \prob(X\geq 2\lambda)=\prob(X-\lambda \geq \lambda)
+		\leq \prob(|X-\lambda|\geq \lambda)\leq \frac{1}{\lambda},
+		\]
+		d'où
+		\[ \prob(X\geq 2\lambda) \leq \frac{1}{\lambda}.\]
+	}
+	
+	\item \question{ Pour $\lambda$ assez grand, laquelle des deux inégalités est la meilleure ? }
+	\reponse{ Pour $\lambda \geq 2$, $\frac{1}{\lambda}\leq \frac{1}{2}$ donc l'inégalité de Bienaymé-Tchebychev est meilleure que celle de Markov.
+	}
+	
+\end{enumerate}
+}

@@ -1,0 +1,50 @@
+\uuid{xheQ}
+\titre{ Lois pour les statistiques}
+\theme{statistiques}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+\contenu{
+
+	On définit trois variables aléatoires indépendantes $(X_1,X_2,X_3)$ suivant chacune une loi normale d'espérance $\mu=10$ et de variance $\sigma^2=4$.
+	
+	
+	
+	On pose 
+	$$\overline{X} = \frac{1}{3}\sum_{i=1}^{3} X_i \qquad {T} = \frac27 X_1+\frac37 X_2+\frac27 X_3$$
+	$$U = \frac{1}{4}\sum_{i=1}^{3}  {(X_i-10)^2} \qquad V = \frac{1}{4}\sum_{i=1}^{3}  {(X_i-\overline{X})^2}$$
+	
+	\begin{enumerate}
+		\item\question{  Déterminer, en justifiant par un calcul, la loi de la variable aléatoire $T$. }
+		\reponse{ Par linéarité, on calcule $\mathbb{E}(T) = \frac{2+3+2}{7} \times 10  = 10$. Par indépendance et propriété de la variance, $\sigma^2(\overline{T}) = \frac{4+9+4}{49} \times  4= \frac{68}{49}$. Par somme de lois normales, $\overline{X}$ suit une loi normale $\mathcal{N}(10,\sigma^2 = \frac{68}{49})$. }
+%		\item \question{ Vérifier que $\overline{X}$ et $T$ sont deux estimateurs sans biais de $\mu$. Lequel de ces deux estimateurs de $\mu$ est le plus efficace ? }
+%		\reponse{ Pour étudier le biais d'un estimateur, on doit calculer leur espérance. Par linéarité, $\mathbb{E}(\overline{X}) = \mu$ donc le biais de $\overline{X}$ est $B(\overline{X}) = \mathbb{E}(\overline{X}-\mu) = 0$. De même, $B(T)=0$.
+%		 }
+		\item \question{ Vérifier que $\overline{X}$ et $T$ sont deux estimateurs sans biais de $\mu$. Lequel de ces deux estimateurs de $\mu$ est le plus efficace ? }
+\reponse{ Pour étudier le biais d'un estimateur, on doit calculer leur espérance. Par linéarité, $\mathbb{E}(\overline{X}) = \mu$ donc le biais de $\overline{X}$ est $B(\overline{X}) = \mathbb{E}(\overline{X}-\mu) = 0$. De même, $B(T)=0$.
+	
+		Pour comparer l'efficacité de ces deux estimateurs, on peut comparer leurs variances respectives : par indépendance et propriété de la variance, $\sigma^2(\overline{X}) = \frac{3 \times 4}{9} = \frac{4}{3} < \frac{68}{49} = \sigma^2(T)$. Par conséquent, $\overline{X}$ est plus efficace que $T$ pour estimer $\mu$. }
+		\item \question{ Déterminer, en justifiant, la loi de la variable aléatoire $U$ et la loi de la variable $V$. }
+		\reponse{ $U = \frac{1}{4}\sum_{i=1}^{3}  {(X_i-10)^2} = \sum_{i=1}^{3}  {  \left( \frac{ X_i-10}{2}\right)^2}$. Or les variables aléatoires $X_i$ sont indépendantes et $ \frac{ X_i-10}{2}$ suit une loi normale centrée réduite donc par définition $U$ suit une loi $\chi^2(3)$.
+	
+	Par théorème du cours (Théorème de Fisher), $V$ suit une loi $\chi^2(2)$. }
+		\item \question{ A l'aide des tables de valeurs, déterminer un réel $t$ tel que $\PP(V>t) = 0.95$. }
+		\reponse{ Par lecture de la table d'une loi $\chi^2(2)$, on a $\PP(V \leq 0.1026) = 0.05$ donc on peut prendre $t=0{,}1026$. }
+%		\item \question{ On pose $$Y = \frac{\overline{X}-10}{\sqrt{\frac{2V}{3}}}$$
+%		Déterminer la loi de $Y$. }
+%	\reponse{  on a $$Y = \frac{\overline{X}-10}{\sqrt{\frac{2V}{3}}} = \frac{\overline{X}-10}{\sqrt{\frac{4}{3} \frac{V}{2}}} = 
+%		\frac{ \frac{ \overline{X}-10}{\sqrt{\frac43}}}{\sqrt{\frac{V}{2}}}$$ et on reconnaît une loi de Student $St(2)$. }
+\item \question{  On pose $$Y = \frac{\overline{X}-10}{\sqrt{\frac{2V}{3}}}$$ 
+Parmi les formules suivantes, laquelle permet de déterminer le réel $t$ tel que $\prob(Y > t) = 0.025$ ?
+\begin{itemize}
+	\item \texttt{=LOI.NORMALE.STANDARD.INVERSE(0.95)}
+	\item \texttt{=LOI.KHIDEUX.INVERSE(0,975;2)}
+	\item \texttt{=1-LOI.KHIDEUX.INVERSE(0,025;3)}
+	\item \texttt{=LOI.STUDENT.INVERSE.N(0,975;2)}
+	\item \texttt{=1-LOI.STUDENT.INVERSE.N(0,025;3)}
+\end{itemize}
+}
+\reponse{  on a $$Y = \frac{\overline{X}-10}{\sqrt{\frac{2V}{3}}} = \frac{\overline{X}-10}{\sqrt{\frac{4}{3} \frac{V}{2}}} = 
+			\frac{ \frac{ \overline{X}-10}{\sqrt{\frac43}}}{\sqrt{\frac{V}{2}}}$$ et on reconnaît une loi de Student $St(2)$. On cherche $t$ tel que $\prob(Y > t) = 0.025 \iff \prob(Y \leq t) = 0.975$ d'où la formule : {=LOI.STUDENT.INVERSE.N(0,975;2)}  }
+	\end{enumerate}
+
+}

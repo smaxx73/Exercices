@@ -1,0 +1,23 @@
+\uuid{Louq}
+\titre{Fonctions de répartition et changement de variable}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit $X$ une variable aléatoire suivant une loi uniforme sur $[0;1]$. On rappelle que $X$ admet pour densité : $$f(x)=\textbf{1}_{[0;1]}(x)$$ }
+\question{   A l'aide d'une fonction de répartition, déterminer la loi de la variable aléatoire $2X$. }
+ \reponse{Soit $t \in \R$ et $F_{2X}$ la fonction de répartition de la variable aléatoire $2X$ : alors
+ \begin{align*}
+ F_{2X}(t) &= \PP(2X \leq t) \\
+           &= \PP\left(X \leq \frac{t}{2}\right)\\
+           &= \int_{-\infty}^{\frac{t}{2}} 1_{[0;1]}(x) dx\\
+           &=\begin{cases}
+           0& \text{ si } t \leq 0 \\
+           \frac{t}{2} & \text{ si } 0 < t \leq 2 \\
+           1 & \text{ si } t \geq 2
+           \end{cases}
+ \end{align*}	
+La fonction $F_{2X}$ est dérivable presque partout (sauf en ${0}$ et en $2$). Sa dérivée coïncide donc presque partout avec une fonction densité $g$ de la variable $2X$. On peut donc poser 
+$$g(x)=\frac{1}{2}\textbf{1}_{[0;2]}(x)$$
+et on conclut que $2X$ suit une loi uniforme sur $[0;2]$. }}

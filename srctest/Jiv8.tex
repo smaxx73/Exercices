@@ -1,0 +1,24 @@
+\uuid{Jiv8}
+\titre{Lois pour les statistiques}
+\theme{statistiques}
+
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Soient 9 variables aléatoires indépendantes, normales centrées réduites notées $(U_i)_{1 \leq i \leq 9}$.}
+ \begin{enumerate}
+  \item \question{Quelle est la loi suivie par la variable aléatoire $X=\sum\limits_{i=1}^{9}U_i^2$ ? Déterminer le réel $x$ tel que $\PP(X > x) = 0.05$.}
+  \reponse{
+    On a $X \sim \chi^2(9)$ et $x = 16.92$.
+  }
+  \item \question{Soit $Y$ une variable aléatoire suivant une loi normale de moyenne 10 et d'écart-type 3, indépendante de $X$. Quelle est la loi suivie par la variable aléatoire $Z=\frac{Y-10}{\sqrt{X}}$ ? Déterminer le réel $z$ tel que $\PP(Z > z) = 0.05$.}
+  \reponse{
+    On a $Z = \frac{\frac{Y-10}{3}}{\sqrt{\frac{X}{9}}}$ donc par définition, $Z$ suit une loi de Student $St(9)$ et $z = 1.833$.
+  }
+  \item \question{Soit $V$ une variable aléatoire distribuée selon une loi du $\chi^2$ à 3 degrés de liberté, indépendante de $X$. Quelle est la loi suivie par $W_1=\frac{X}{3V}$ ? Quelle est la loi suivie par $W_2=\frac{3V}{X}$ ? Déterminer le réel $w_2$ tel que $\PP(W_2 > w_2) = 0.05$.}
+  \reponse{
+    On a $W_1 = \frac{\frac{X}{9}}{\frac{V}{3}}$ donc $W_1$ suit une loi de Fisher $F(9,3)$. De même, $W_2 = \frac{3V}{\frac{X}{9}}$ donc $W_2$ suit une loi de Fisher $F(3,9)$. On a $w_2 = 0.325$.
+  }
+ \end{enumerate}
+}

@@ -1,0 +1,22 @@
+\uuid{J4Ag}
+\titre{Fonction caractéristique et loi de Poisson}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+	\begin{enumerate}
+		\item \question{ Soit $X$ une variable aléatoire de loi de Poisson de paramètre $\lambda$. Calculer sa fonction caractéristique. }
+		      \reponse{ Soit $t\in\mathbb{R}$.
+		      	\begin{align*}
+		      	\phi_X(t)=\mathbb{E}(e^{itX})
+		      	=\sum_{k\geq 0} e^{itk}\p(X=k)
+		      	=\sum_{k\geq 0} e^{itk}\frac{\lambda^k}{k!}e^{-\lambda}
+		      	=e^{-\lambda}\sum_{k\geq 0} \frac{(\lambda e^{it})^k}{k!}
+		      	=e^{\lambda(e^{it}-1)}
+		      	\end{align*} }
+		\item \question{ Soit $X$ et $Y$ deux variables aléatoires indépendantes de loi de Poisson de paramètres respectifs $\lambda$ et $\mu$. En utilisant la fonction caractéristique, montrer que la variable $X+Y$ suit une loi de Poisson de paramètre à déterminer. }
+		      \reponse{ Comme les variables aléatoires $X$ et $Y$ sont indépendantes, on a pour tout $t\in\mathbb{R}$,
+		      	\[ \phi_{X+Y}(t)=\phi_X(t) \phi_Y(t)=e^{(\lambda + \mu)(e^{it}-1)},\]
+		      	ce qui correspond à la fonction caractéristique d'une loi de Poisson de paramètre $\lambda+\mu$. Donc $X+Y \sim \mathcal{P}(\lambda+\mu)$. }
+	\end{enumerate}}

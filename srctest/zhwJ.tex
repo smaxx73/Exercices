@@ -1,0 +1,64 @@
+\uuid{zhwJ}
+\titre{Etude d'extrema}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+	On étudie la fonction de deux variables $$f \colon (x,y) \mapsto x\ln(y)-y\ln(x)$$
+	
+	\begin{enumerate}
+		\item \question{ Déterminer l'ensemble de définition de la fonction $f$ et vérifier que $f$ est de classe $\mathcal{C}^2$ sur son ensemble de définition. }
+		\reponse{L'ensemble de définition de $f$ est $D_f = \{(x,y) \in \R^2\, , \, x>0, y>0 \}$}
+		\item \question{ On pose $h(t) = t-\ln(t)-\frac{1}{t}$ : déterminer l'ensemble de définition de $h$ et étudier ses variations. }
+		\reponse{L'ensemble de définition de $h$ est $D_h = \{t \in \R\, , \, t>0\}= \R_+^*$. La fonction $h$ est dérivable sur son ensemble de définition et $\forall t \in \R_+^*$ : 
+			$$h'(t) = 1-\frac{1}{t}+\frac{1}{t^2} = \frac{t^2-t+1}{t^2} = \frac{(t+1)^2+t}{t^2} > 0$$
+			Par conséquent, $h$ est strictement croissante sur $]0;+\infty[$. 
+		}
+		\item \question{ Démontrer que $\mathrm{grad}_f(x,y)=(0,0) \iff 	\begin{cases}
+			h\left(\frac{x}{y}\right) = 0\\
+			\frac{x}{y} - \ln(x) =0
+		\end{cases}$ }
+		\reponse{ 	\begin{align*}
+				\begin{cases}
+					\frac{\partial f}{\partial x}(x,y) = 0\\
+					\frac{\partial f}{\partial y}(x,y) =0
+				\end{cases}
+				\Leftrightarrow
+				\begin{cases}
+					\ln(y) - \frac{y}{x} = 0\\
+					\frac{x}{y} - \ln(x)=0
+				\end{cases}		
+				\Leftrightarrow
+				\begin{cases}
+					\ln(y) - \ln(x) +  \frac{x}{y}  - \frac{y}{x} = 0            \\
+					\frac{x}{y} - \ln(x) = 0
+				\end{cases}		
+				\Leftrightarrow
+				\begin{cases}
+					h\left(\frac{x}{y}\right) = 0            \\
+					\frac{x}{y} - \ln(x) = 0
+				\end{cases}			
+		\end{align*}}
+		\item \question{ En déduire l'ensemble des points stationnaires de $f$. }
+		\reponse{La fonction $h$ s'annule une et une seule fois sur son ensemble définition en $t=1$ donc $(x,y)$ est un point stationnaire si et seulement si $x=y=e$. Il existe un unique point stationnaire qui est le point $(e,e)$. }
+		\item \question{ Déterminer l'ensemble des points extrémaux (locaux et globaux) de $f$. }
+		\reponse{Il est clair que $f$ n'admet pas d'extremum global. En effet, on peut voir par exemple que $\lim\limits_{x \to +\infty}f(x,1) = -\infty$ et $\lim\limits_{y \to +\infty}f(1,y) = +\infty$.
+			
+			De plus, au voisinage du point stationnaire $(e,e)$, on peut étudier les conditions du second ordre en formant la matrice hessienne : 
+			
+			$$Hess_f(x,y)=\begin{pmatrix} 
+				\frac{\partial^2 f}{\partial x^2}(x,y) = 1/x^2 & \frac{\partial^2 f}{\partial x \partial y}(x,y) = 1/y-1/x \\
+				\frac{\partial^2 f}{\partial y \partial x}(x,y) = 1/y-1/x & \frac{\partial^2 f}{\partial y^2}(x,y) = -1/y^2 
+			\end{pmatrix}$$
+			d'où 
+			$$Hess_f(e,e)=\begin{pmatrix} 
+				1/e^2 &  0 \\
+				0 & -1/e^2 
+			\end{pmatrix}$$
+			
+			On a un déterminant négatif, donc le point $(e,e)$ est un point selle. 
+		}
+	\end{enumerate}
+}

@@ -1,0 +1,68 @@
+\uuid{fGoC}
+\titre{ Estimation d'un paramètre de Pareto }
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+\texte{ Soient $a = 3$ et $b$ deux réels strictement positifs. Soit $X$ une variable aléatoire suivant une loi de Pareto de paramètres $(3,b)$. Alors $X$ admet pour densité  la fonction $f$ définie pour tout $x \in \R$ par : 
+$$f(x)=\frac{3 b^3}{x^{4}} \mathbf{1}_{[b;+\infty[}(x).$$
+Soit $n \in \N^*$ et soit $X_1,X_2,\cdots{},X_n$ un échantillon de $n$ variables aléatoires indépendantes suivant chacune la loi de Pareto de paramètres $(3,b)$. On définit alors les deux variables aléatoires : $$Y_n = \frac{1}{n} \sum_{i=1}^n X_i \quad \text{et} \quad Z_n = \min(X_1,X_2,\cdots{},X_n).$$
+
+Le but de l'exercice est de construire un bon estimateur du paramètre $b$ de la loi de Pareto.
+
+}
+
+\begin{enumerate}
+    \item \question{ Déterminer l'espérance et la variance de $Y_n$. }
+    \reponse{
+        On a $\E(Y_n) = \frac{1}{n} \sum_{i=1}^n \E(X_i) = \frac{1}{n} \sum_{i=1}^n \frac{3b}{2} = \frac{3b}{2}$.
+        On calcule d'abord $\E(X_i^2)$ pour tout $i \in \{1,...,n\}$ : 
+        \begin{align*}
+            \E(X_i^2) &= \int_b^{+\infty} \frac{3 b^3}{x^{4}} x^2 dx \\
+            &= \left[ -\frac{3 b^3}{x} \right]_b^{+\infty} \\
+            &= 3b^2
+        \end{align*}
+        Donc $\var(X_i) = \E(X_i^2) - \E(X_i)^2 = 3b^2 - \left(\frac{3b}{2}\right)^2 = \frac{3b^2}{4}$.
+    }
+    \item \question{ En déduire un estimateur sans biais de $b$ sous la forme $\alpha_n Y_n$ où $\alpha_n$ est un réel à déterminer. }
+    \reponse{
+        Il suffit de prendre $\alpha_n = \frac{2}{3}$ pour que $\alpha_n Y_n$ soit un estimateur sans biais de $b$.
+    }
+    \item \question{ Déterminer la fonction de répartition de $Z_n$. }
+    \reponse{
+        Soit $t \geq b$. On a : 
+        \begin{align*}
+            \prob(Z_n \leq t) &= \prob(\min(X_1,X_2,\cdots{},X_n) \leq t) \\
+            &= 1 - \prob(\min(X_1,X_2,\cdots{},X_n) > t) \\
+            &= 1 - \prob(X_1 > t, X_2 > t, \cdots{}, X_n > t) \\
+            &= 1 - \prod_{i=1}^n \prob(X_i > t) \\
+            &= 1 - \left(1 - \prob(X_1 \leq t)\right)^n \\
+            &= 1 - \left(1 - F_{X_1}(t)\right)^n \\
+            &= 1 - \left(1 - \left(1 - \frac{b^3}{t^3}\right)\right)^n \\
+            &= 1 - \left(\frac{b^3}{t^3}\right)^n \\
+            &= 1 - \frac{b^{3n}}{t^{3n}}
+        \end{align*}
+        et si $t < b$, $\prob(Z_n \leq t) = 0$. 
+    }
+    \item \question{ En déduire que $Z_n$ suit une loi de Pareto de paramètres $(3n, b)$. }
+    \reponse{
+        D'après la partie 1, question 2, on reconnait la fonction de répartition d'une loi de Pareto de paramètres $(3n, b)$.
+    }
+    \item \question{ En déduire un estimateur sans biais de $b$ sous la forme $\beta_n Z_n$ où $\beta_n$ est un réel à déterminer. }
+    \reponse{
+        L'espérance de $Z_n$ est donnée par $\E(Z_n) = \frac{3nb}{3n-1}$. Donc on pose $\beta_n = \frac{3n-1}{3n}$ pour que $\beta_n Z_n$ soit un estimateur sans biais de $b$.
+    }
+    \item \question{ Lequel des deux estimateurs de $b$ est le meilleur ? Justifier. }
+    \reponse{
+        On a $\var(\alpha_n Y_n) = \alpha_n^2 \var(Y_n) = \frac{4}{9} \frac{3b^2}{4n} = \frac{b^2}{3n}$. 
+
+        Pour calculer la variance de $\beta_n Z_n$, on doit d'abord connaître la variance d'une loi de Pareto de paramètres $(3n, b)$. Après calculs, on a $\var(Z_n) = \frac{3nb^2}{(3n-1)^2(3n-2)}$. 
+        
+        D'autre part,  $\var(\beta_n Z_n) = \beta_n^2 \var(Z_n) = \frac{b^2}{3n(3n-2)}$ < $\frac{b^2}{3n}$. 
+
+        Donc $\beta_n Z_n$ est un meilleur estimateur de $b$ que $\alpha_n Y_n$.
+    }
+\end{enumerate}
+
+}

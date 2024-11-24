@@ -1,0 +1,88 @@
+\uuid{AcJl}
+\titre{Système linéaire à paramètre}
+\theme{systèmes linéaires}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\begin{enumerate}
+	\item  \question{ Soit $M_a=\left(\begin{array}{ccc}2 a+1 & -a & a+1 \\ a-2 & a-1 & a-2 \\ 2 a-1 & a-1 & 2 a-1\end{array}\right)$, calculer $\operatorname{det}\left(M_a\right)$ sous forme factorisée en fonction de $a \in \mathbb{R}.$  }
+\reponse{ On a :
+$$
+\begin{aligned}
+\Delta_a & =\operatorname{det}\left(M_a\right)=\left|\begin{array}{ccc}
+2 a+1 & -a & a+1 \\
+a-2 & a-1 & a-2 \\
+2 a-1 & a-1 & 2 a-1
+\end{array}\right| \\ &=\left|\begin{array}{ccc}
+a & -a & a+1 \\
+0 & a-1 & a-2 \\
+0 & a-1 & 2 a-1
+\end{array}\right| \\ &=a\left|\begin{array}{cc}
+a-1 & a-2 \\
+a-1 & 2 a-1
+\end{array}\right| \\ &=a\left|\begin{array}{cc}
+a-1 & a-2 \\
+0 & a+1
+\end{array}\right| \\
+& =a(a-1)(a+1)
+\end{aligned}
+$$
+ }
+\item \question{ Déterminer les valeurs de $a \in \R$ pour lesquelles le système $M_a \cdot X=\left(\begin{array}{c}a-1 \\ a \\ a\end{array}\right)$ admet une unique solution puis la déterminer par les formules de CRAMER. }
+
+
+\reponse{ Le système $M_a \cdot X=\left(\begin{array}{c}a-1 \\ a \\ a\end{array}\right)$ admet une unique solution ssi $det(M_a) \neq 0 \iff a \in \mathbb{R} \backslash\{-1,0,1\}$. Dans ce cas, par les formules de CRAMER :
+$$
+\Delta_a=\left|\begin{array}{ccc}
+2 a+1 & -a & a+1 \\
+a-2 & a-1 & a-2 \\
+2 a-1 & a-1 & 2 a-1
+\end{array}\right|=a(a-1)(a+1)
+$$
+
+$$
+\begin{aligned}
+& \Delta_x=\left|\begin{array}{ccc}
+a-1 & -a & a+1 \\
+a & a-1 & a-2 \\
+a & a-1 & 2 a-1
+\end{array}\right|=\begin{array}{c}
+\ell_1 \\
+\ell_2 \\
+\ell_3-\ell_2
+\end{array}\left|\begin{array}{ccc}
+a-1 & -a & a+1 \\
+a & a-1 & a-2 \\
+0 & 0 & a+1
+\end{array}\right|=(a+1)\left[(a-1)^2+a^2\right] \\
+& =(a+1)\left(2 a^2-2 a+1\right) \\
+& \Delta_y=\left|\begin{array}{ccc}
+2 a+1 & a-1 & a+1 \\
+a-2 & a & a-2 \\
+2 a-1 & a & 2 a-1
+\end{array}\right|=\left|\begin{array}{ccc}
+c_1-c_2 & c_2 & c_3 \\
+a & a-1 & a+1 \\
+0 & a & a-2 \\
+0 & a & 2 a-1
+\end{array}\right|=a^2[(2 a-1)-(a-2)] \\
+& =a^2(a+1) \\
+& \Delta_z=\left|\begin{array}{ccc}
+2 a+1 & -a & a-1 \\
+a-2 & a-1 & a \\
+2 a-1 & a-1 & a
+\end{array}\right|=\begin{array}{c}
+\ell_1 \\
+\ell_3-\ell_2
+\end{array}\left|\begin{array}{ccc}
+2 a+1 & -a & a-1 \\
+a-2 & a-1 & a \\
+a+1 & 0 & 0
+\end{array}\right|=-(a+1)\left[(a-1)^2+a^2\right] \\
+& =-(a+1)\left(2 a^2-2 a+1\right)
+\end{aligned}
+$$
+$$S_a=\left\{\left(\frac{2 a^2-2 a+1}{a(a-1)}, \frac{a}{(a-1)},-\frac{2 a^2-2 a+1}{a(a-1)}\right)\right\}$$ }
+
+\end{enumerate}}

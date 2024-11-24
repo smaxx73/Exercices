@@ -1,0 +1,36 @@
+\uuid{kWDX}
+\titre{ Fiabilité d'un système électronique }
+\theme {probabilités}
+\auteur{ }
+\organisation{ AMSCC }
+
+\contenu{
+    \texte{ Un système électronique est constitué de $n$ composants disposés en série. Cela implique que la panne d'un composant entraîne la panne de tout le système. Chacun des composants a une durée de vie $T_k$ qui suit une loi exponentielle de paramètre $\lambda = 1$, pour tout $k \in \{1, \ldots, n\}$. On admet que les variables aléatoires $T_1, \ldots, T_n$ sont indépendantes. On note $S$ la durée de vie du système et on note $t \geq 0$ la variable de temps. }
+
+    \begin{enumerate}
+        \item \question{ 
+            Soit $t \geq 0$. Pour tout $k \in \{1, \ldots, n \}$, on note $R_k(t) = \prob(T_k > t)$ la fiabilité du composant $k$ à l'instant $t$. C'est la probabilité que le composant $k$ fonctionne encore après un temps d'utilisation $t$. Déterminer $R_k(t)$.
+        }
+        \reponse{
+            $R_k(t) = \int_{t}^{+\infty} e^{-x} dx = e^{-t}$ pour tout $t \geq 0$.
+        }
+        \item \question{
+            Calculer $\E(T_k)$ et déterminer la probabilité que le composant $k$ fonctionne après un temps d'utilisation égal à $\E(T_k)$.
+        }
+        \reponse{
+            $\E(T_k) = \frac{1}{\lambda} = 1$ et $R_k(\E(T_k)) = e^{-\E(T_k)} = e^{-1} \approx 0,37$.
+        }
+        \item \question{
+            On note $R(t) = \prob(S > t)$ la fiabilité du système à l'instant $t$. C'est la probabilité que le système fonctionne encore après un temps d'utilisation $t$. Exprimer $R(t)$ en fonction de $R_1(t), \ldots, R_n(t)$ et en déduire que $S$ suit une loi exponentielle dont on précisera le paramètre.
+        }
+        \reponse{
+            $R(t) = \prob(S > t) = \prob(T_1 > t, \ldots, T_n > t) = \prod_{k=1}^{n} \prob(T_k > t) = \prod_{k=1}^{n} R_k(t) = e^{-nt}$ pour tout $t \geq 0$. Donc $S$ suit une loi exponentielle de paramètre $n$.
+        }
+        \item \question{
+            Déterminer le temps moyen de bon fonctionnement du système.
+        }
+        \reponse{
+            $\E(S) = \frac{1}{\lambda} = \frac{1}{n}$.
+        }
+    \end{enumerate}
+}

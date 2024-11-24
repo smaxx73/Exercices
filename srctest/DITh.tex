@@ -1,0 +1,45 @@
+\uuid{DITh}
+\titre{Fonctions périodiques}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	Soit $f \colon \mathbb{R}^2 \to \mathbb{R}$ une fonction différentiable telle que pour tout $t \in \mathbb{R}$ et pour tout $(x,y) \in \mathbb{R}^2$, 
+	$$f(x+t,y+t) = f(x,y)$$ }
+
+\textbf{Partie A}
+	\begin{enumerate}
+		\item \question{ On fixe $(x,y) \in \mathbb{R}^2$ et pour tout $t \in \mathbb{R}$ on pose $g(t) = f(x+t,y+t)$. Calculer $g'(t)$ pour tout $t \in \mathbb{R}$, en l'exprimant en fonction de $\dfrac{\partial f}{\partial x}(x,y)$ et $\dfrac{\partial f}{\partial y}(x,y)$. }
+		\reponse{Par la règle des chaînes, $g$ est dérivable sur $\mathbb{R}$ et $g'(t) = 1 \times \dfrac{\partial f}{\partial x}(x,y) + 1 \times \dfrac{\partial f}{\partial y}(x,y)$. }
+		\item \question{ En déduire que $\dfrac{\partial f}{\partial x}(x,y) + \dfrac{\partial f}{\partial y}(x,y) = 0$. }
+		\reponse{Par hypothèse sur la fonction $f$, $g(t) = f(x,y)$ donc $g$ est constante par rapport à $t$ donc $g'(t) = 0$. D'où l'égalité demandée.}
+	\end{enumerate}
+\textbf{Partie B}
+
+%$$\left{ \begin{array}{c} u = x+y \\ v = x-y \end{array}\right. \Rightarrow  \left{ \begin{array}{c} x = \dfrac{u+v}{2} \\ y = \dfrac{u-v}{2} \end{array}\right. $$
+		
+		On définit la fonction $h : \mathbb{R}^{2} \to \mathbb{R}$ par  $ h(u,v) = f \left(\dfrac{u+v}{2}, \dfrac{u-v}{2} \right) $.
+	
+	\begin{enumerate}	
+		\item \question{ En utilisant la règle des chaînes, exprimer la dérivée partielle $\frac{\partial h}{\partial u}(u,v)$, en fonction des dérivées partielles de $f$. }
+		\reponse{
+			Par la règle des chaînes, $h$ admet des dérivées partielles en tout point $(u,v) \in \mathbb{R}^2$ et on a :
+			\begin{align*}
+				\frac{\partial h}{\partial u}(u,v) & = \frac{\partial f}{\partial x}\left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right) \times \frac{1}{2} + \frac{\partial f}{\partial y}\left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right) \times \frac{1}{2} \\
+				& = \frac{1}{2}\left(\frac{\partial f}{\partial x}\left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right) + \frac{\partial f}{\partial y}\left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right)\right).
+			\end{align*}
+		}
+		
+		\item \question{ En utilisant une question précédente, en déduire que $\frac{\partial h}{\partial u}(u,v) = 0$ }
+		\reponse{
+			D'après la question 2 de la partie A, on a $\dfrac{\partial f}{\partial x}\left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right) + \dfrac{\partial f}{\partial y}\left(\dfrac{u+v}{2}, \dfrac{u-v}{2}\right) = 0$. Donc, $\frac{\partial h}{\partial u}(u,v) = 0$.
+		}
+		
+		\item \question{ En déduire qu'il existe une fonction $k \colon  \mathbb{R} \to \mathbb{R}$ telle que pour tout $(x,y) \in \R^2$, $$f(x,y) = k(x-y).$$ }
+		\reponse{
+			On a démontré à la question précédente que $\frac{\partial h}{\partial u}(u,v) = 0$. Donc, $h$ est constante par rapport à $u = x+y$. Il existe donc une fonction $k \colon \mathbb{R} \to \mathbb{R}$ telle que pour tout $(x,y) \in \R^2$, $f(x,y) = k(x-y)$.
+		}
+	\end{enumerate}
+}

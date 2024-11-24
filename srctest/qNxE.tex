@@ -1,0 +1,43 @@
+\uuid{qNxE}
+\titre{Simulation de loi : Rademacher, Laplace, Géométrique}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+%qyPc raccourci
+\texte{ On donne ou on rappelle la définition de quelques lois usuelles :
+	
+	\underline{Définition} : 
+	Soit $p \in ]0;1[$ : une variable $X$ suit une loi de Rademacher $\mathcal{R}(p)$ si :
+	\begin{itemize}
+		\item $\PP(X=1)=p$
+		\item $\PP(X=-1)=1-p$
+	\end{itemize}
+	
+	
+	\underline{Définition} : 
+	Soit $\lambda >0$ : une variable $X$ suit une loi de Laplace $\mathcal{L}(\lambda)$ si elle admet pour densité :
+	$$f_X(x) = \frac{\lambda}{2} e^{-\lambda |x|}$$
+	
+	Soient $X$ et $Y$ deux variables aléatoires indépendantes telles que $X$ suit une loi Rademacher $\mathcal{R}(1/2)$ et $Y$ suit une loi uniforme sur $[0;1]$. Soit $\lambda >0$. On pose $U = \frac{1}{\lambda} X \ln(Y)$.  }
+
+	\reponse{ Soit $\lambda>0$ et $U = \frac{1}{\lambda} X \ln(Y)$ }
+	\begin{enumerate}
+		\item \question{ Soit $a \in \mathbb{R}$. Calculer $\PP(\ln(Y) \leq a, X=1)$ et $\PP(\ln(Y) \geq a, X=-1)$ }
+		\reponse{ Soit $a \in \mathbb{R}$. Par indépendance de $X$ et $Y$, on a $\PP(\ln(Y) \leq a, X=1) = \PP(\ln(Y) \leq a) \times \PP(X=1) = \PP(Y \leq e^a) \times \frac{1}{2}$. Or 
+			$\PP(Y \leq t) = 1$ si $t >1$ et $\PP(Y \leq t) = t$ si $0<t<1$ étant donnée la loi suivie par $Y$. Par conséquent, on a  $\PP(\ln(Y) \leq a, X=1) = \begin{cases} \frac{1}{2} \text{ si } a>0 \\ \frac{1}{2} e^a \text{ sinon}\end{cases} $.
+			
+			De même, $\PP(\ln(Y) \geq a, X=-1) = \begin{cases} 0 \text{ si } a>0 \\ \frac{1}{2} (1-e^a) \text{ sinon}\end{cases} $ }
+		\item \question{ Déterminer la fonction de répartition de la variable $U$. }
+		\reponse{ Soit $F_U$ la fonction de répartition de la variable $U$. Par définition, pour tout réel $t$, 
+			$$F_U(t) = \PP(\frac{1}{\lambda} X\, \ln(Y) \leq t) = \PP(X \, \ln(Y) \leq \lambda t)$$
+			
+			Par application du théorème des probabilités totales au système d'événements $\{(X=1), (X=-1)\}$, 
+			$$F_U(t) = \PP(X=1,Y \leq e^{\lambda t}) + \PP(X=-1,Y \geq e^{-\lambda t})$$
+			D'après le calcul précédent, on obtient 
+			$$F_U(t) =   \begin{cases} 1-\frac{1}{2} e^{-\lambda t} \text{ si } t>0 \\ \frac{1}{2} e^{\lambda t} \text{ sinon}\end{cases} $$ }
+		\item \question{ En déduire que $U$ suit une loi de Laplace $\mathcal{L}(\lambda)$. }
+		\reponse{ On dérive la fonction de répartition pour obtenir la densité : $F_U'(t) = \begin{cases} \frac{1}{2} \lambda e^{-\lambda t} \text{ si } t>0 \\ \frac{1}{2} \lambda e^{\lambda t} \text{ sinon}\end{cases} = \frac{1}{2} \lambda e^{-\lambda |t|}$. On reconnaît la fonction densité d'une loi de Laplace de paramètre $\lambda$. }
+		\item A partir de la fonction \texttt{rand()} qui permet de simuler une loi uniforme sur $[0;1]$ et en utilisant les résultats des questions précédentes, écrire un programme qui permet de simuler une loi de Laplace 
+	\end{enumerate}
+}

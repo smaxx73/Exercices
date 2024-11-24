@@ -1,0 +1,103 @@
+\uuid{aiup}
+\titre{\'Etude d'une fonction}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 	Soit $f \colon \mathbb{R}^2 \to \mathbb{R}$ une fonction définie par 
+$$f(x,y) = x^3+y^3-3xy-1$$ }
+\begin{enumerate}
+	\item \question{ Vérifier que $f$ admet deux points critiques (stationnaires) : $(0,0)$ et $(1,1)$. }
+	\reponse{Il s'agit de résoudre le système :
+		\begin{align*}
+			\begin{cases}
+				\frac{\partial f}{\partial x}(x,y) = 0\\
+				\frac{\partial f}{\partial y}(x,y) =0
+			\end{cases}
+			\Leftrightarrow
+			\begin{cases}
+				3x^2-3y = 0\\
+				3y^2-3x =0
+			\end{cases}		
+			\Leftrightarrow
+			\begin{cases}
+				x^2 = x^3\\
+				y^2 = x
+			\end{cases}
+			\iff (x,y)=(1,1) \text{ ou } (x,y)=(0,0)	
+		\end{align*}	
+	}
+	\item \question{ La fonction $f$ admet-elle un maximum ou un minimum local sur $\mathbb{R}^2$ ? }
+	\reponse{Pour distinguer les types de points stationnaires, on peut étudier leur nature à l'aide des conditions d'ordre 2. Pour cela, on calcule la matrice hessienne :
+		$$Hess_f(x,y) =  \begin{pmatrix} 6x & -3 \\ -3 & 6y \end{pmatrix}$$
+		et son déterminant vaut $\Delta(x,y) = 36xy-9$.
+		
+		On évalue en les deux points stationnaires ; $\Delta(0,0) = -9<0$ et $\Delta(1,1) = 27>0$. Le cours nous permet de conclure que $(0,0)$ est un point selle. De plus, pour $(x,y)=(1,1)$, $6x=6>0$ donc le point $(1,1)$ réalise un minimum local de $f$. 
+	}
+	\item \question{ Parmi les trois graphiques ci-dessous, lequel représente des lignes de niveaux de $f$ ? Justifier brièvement.
+\begin{figure}[h!]
+	\begin{minipage}{0.32\textwidth}
+		
+		\includegraphics[width=1\linewidth]{niveau1}
+		\caption{N1}
+		\label{fig:niveau1}
+		
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		
+		\includegraphics[width=1\linewidth]{niveau2}
+		\caption{N2}
+		\label{fig:niveau2}
+		
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		
+		\includegraphics[width=1\linewidth]{niveau3}
+		\caption{N3}
+		\label{fig:niveau3}
+		
+	\end{minipage}
+\end{figure} }
+\reponse{La figure N3 ne respecte pas les symétries en $x$ et $y$ de la fonction. La figure N2 ne présente clairement pas un point stationnaire en $(1,1)$ puisqu'on y voit passer \\
+	des lignes de niveau qui laissent penser que la pente y est non nulle, notamment dans la direction $y=x$. La figure N1 laisse assez clairement deviner la présence des deux points stationnaires trouvés plus haut.}
+\item \question{ Calculer $\lim\limits_{x \to +\infty} f(x,0)$ et $\lim\limits_{x \to -\infty} f(x,0)$. }
+\reponse{ $\lim\limits_{x \to +\infty} f(x,0) =  \lim\limits_{x \to +\infty} x^3-1 = +\infty$ ; $\lim\limits_{x \to -\infty} f(x,0) =  \lim\limits_{x \to -\infty} x^3-1 = -\infty$} 
+\item \question{ La fonction $f$ admet-elle un maximum ou un minimum global sur $\mathbb{R}^2$ ? }
+\reponse{Les limites trouvées précédemment prouvent qu'il n'existe pas de maximum global, ni de minimum global puisque $f(x,y)$ peut atteindre des valeurs aussi grandes (respectivement petites) que l'on veut avec $(x,y)$ variant dans l'ensemble de définition qui est ici $\R^2$.}
+%\item \texte{ Soit l'ensemble $D = \{(x,y) \in \mathbb{R}^2 \, \mid \, x^2 + y^2 \leq 9 \}$. }
+%\begin{enumerate}
+%	\item \question{ Décrire l'ensemble $D$ de manière géométrique. }
+%	\reponse{On reconnaît ici l'écriture algébrique d'un disque fermé de centre $(0,0)$ et de rayon $3$.}
+%	\item \question{ Pour la norme euclidienne, l'ensemble $D$ est-il ouvert ? fermé ? ni l'un ni l'autre ?  }
+%	\reponse{On a bien un ensemble fermé ici. En effet, le complémentaire de $D$ est l'ensemble $\{(x,y) \in \mathbb{R}^2 \, \mid \, x^2 + y^2 > 9 \}$ est clairement ouvert.}
+%	\item \question{ On restreint $f$ à l'ensemble $D$ et on considère $f_{|D} \colon D \to \mathbb{R}$ une fonction définie par 
+%	$$f_{|D}(x,y) = x^3+y^3-3xy-1$$
+%	La fonction $f_{|D}$ admet-elle un maximum global sur $D$ ? justifier. On ne demande pas de calculer l'éventuel maximum de $f_{|D}$. }
+%	\reponse{La fonction $f$ restreinte à un ensemble fermé borné $D$ est continue donc elle atteint ses bornes d'après le théorème des valeurs extrêmes. La fonction $f$ n'admettant pas de maximum local sur l'intérieur de $D$, il est certain que le maximum global est atteint sur le bord de $D$, donc le cercle d'équation $x^2+y^2 = 9$. Pour le déterminer, on pourrait appliquer la méthode du Lagrangien.}
+%\end{enumerate}
+	\item \texte{ Soit l'ensemble $D = \{(x,y) \in \mathbb{R}^2 \, \mid \, x^3 + y^3 - 3xy \leq 8\, , \, x \geq 0 \, , \, y \geq 0 \}$ dont voici une représentation graphique ci-dessous. 
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\linewidth]{graphique.png}
+		\caption{Représentation graphique de $D$.}
+		\label{fig:graphique}
+	\end{figure} }
+    \begin{enumerate}
+    	\item \question{ Vérifier par le calcul que les deux points de coordonnées respectives $(1,1)$ et $(0,2)$  appartiennent à $D$. Ces deux points appartiennent-ils à l'intérieur de $D$ ou au bord (frontière) de $D$ ?}
+    	\reponse{ On a des coordonnées positives, de plus $1^3+1^3-3 \leq 8$ et $0^3 + 2^3 - 0 \leq 8$ donc ces deux points appartiennent bien à $D$. Le premier point appartient à l'intérieur de $D$ (car $1>0$ et $1^3+1^3-3 < 8$) et le point $(0,2)$ appartient au bord de $D$.  }
+    	\item \question{ Justifier que la fonction $f$ admet un maximum et un minimum global sur $D$. }
+    	\reponse{ On remarque $D$ est fermé et borné, de plus $f$ est continue sur $D$ donc par théorème elle admet un maximum et un minimum global qui sont atteints sur $D$. }
+    	\item \question{ Déterminer les extrema de $f$ sur $D$ en précisant en quel(s) point(s) ils sont atteints.   }
+    	\reponse{ On a vu précédemment que $f$ admet un minimum local en $(1,1) \in D$. On a $f(1,1) = -2$. On étudie maintenant $f$ sur le bord du domaine : soient les points $O(0,0)$, $A(2,0)$ et $B(0,2)$.
+    		\begin{itemize}
+    			\item Sur le segment $[OA]$, $f(x,y) = f(x,0) = x^3 - 1$ avec $x \in [0,2]$. Puisque la fonction $x \mapsto x^3-1$ est croissante sur $[0,2]$, La valeur minimale est $f(0,0) = -1$ et la valeur maximale est $f(2,0) = 7$. 
+    			\item Sur le segment $[OB]$, $f(x,y) = f(0,y) = y^3 - 1$ avec $y \in [0,2]$. Comme le cas précédent, la valeur minimale est $f(0,0) = -1$ et la valeur maximale est $f(0,2) = 7$.
+    			\item Sur la portion de courbe $(AB)$, on a $x^3 + y^3 - 3xy = 8$  (c'est l'équation de la courbe) donc $f(x,y) = 8-1 = 7$ : la fonction $f$ est constante sur cette courbe. 
+    		\end{itemize}	
+    	La fonction $f$ admet donc un maximum global sur le bord, c'est la valeuur $7$ et ce maximum est atteint en tout point de la courbe d'équation $x^3 + y^3 - 3xy = 8$. 
+    	
+    	La fonction $f$ admet un minimum global à l'intérieur de $D$, au point $(1,1)$, ce minimum vaut $-2$.
+     }
+    \end{enumerate}
+\end{enumerate}}

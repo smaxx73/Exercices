@@ -1,0 +1,97 @@
+\uuid{PPhD}
+\titre{Etude d'une variable aléatoire à densité}
+\theme{probabilités}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+
+\contenu{
+
+Soit $X$ une variable aléatoire absolument continue de densité $f$ définie sur $\R$ par :
+$$f_X \colon x \mapsto \begin{cases}
+    kx^2 & \text{si } x \in [-1;1] \\
+    0 & \text{sinon}
+\end{cases}$$
+
+\begin{enumerate}
+    \item \question{ Déterminer la valeur de $k$. }
+    \reponse{ Pour que $f_X$ soit une densité, il faut que $\int_{\R} f_X(x) dx = 1$. On a donc :
+    \begin{align*}
+        \int_{\R} f_X(x) dx &= \int_{-1}^1 kx^2 dx \\
+        &= \left[ \frac{k}{3}x^3 \right]_{-1}^1 \\
+        &= \frac{2k}{3} = 1
+    \end{align*}
+    Donc $k = \frac{3}{2}$. }
+    \item \question{ Déterminer la fonction de répartition $F_X$ de $X$. }
+    \reponse{
+    \begin{align*}
+        F_X \colon t \mapsto \begin{cases}
+            0 & \text{si } t < -1 \\
+            \frac{3}{2} \int_{-1}^t x^2 dx & \text{si } t \in [-1;1] \\
+            1 & \text{si } t > 1
+        \end{cases}
+    \end{align*}
+    donc :
+    \begin{align*}
+        F_X \colon x \mapsto \begin{cases}
+            0 & \text{si } t < -1 \\
+            \frac{1}{2}t^3 + \frac{1}{2} & \text{si } t \in [-1;1] \\
+            1 & \text{si } t > 1
+        \end{cases}
+    \end{align*}
+    }
+    \item \question{ Calculer $\prob(X \leq \frac{1}{2} \mid X > 0)$. }
+    \reponse{
+D'après la formule des probabilités conditionnelles, on a :
+\begin{align*}
+    \prob(X \leq \frac{1}{2} \mid X > 0) &= \frac{\prob(X \leq \frac{1}{2} \cap X > 0)}{\prob(X > 0)} \\
+    &= \frac{\prob(0 < X \leq \frac{1}{2})}{\prob(X > 0)}
+\end{align*}
+Or $\prob(X>0) = 1 - \prob(X \leq 0) = 1 - F_X(0) = 1 - \frac{1}{2} = \frac{1}{2}$ et : 
+\begin{align*}
+    \prob(0 < X \leq \frac{1}{2}) &= F_X(\frac{1}{2}) - F_X(0) \\
+    &= \frac{1}{2}(\frac{1}{2})^3 + \frac{1}{2} - \frac{1}{2} \\
+    &= \frac{1}{16} 
+\end{align*}
+Donc $\prob(X \leq \frac{1}{2} \mid X > 0) = \frac{\frac{1}{16}}{\frac{1}{2}} = \frac{1}{8}$. }
+    \item \question{ Calculer $\E(X)$ et $\var(X)$. }
+    \reponse{
+    \begin{align*}
+        \E(X) &= \int_{\R} xf_X(x) dx \\
+        &= \int_{-1}^1 x \frac{3}{2}x^2 dx \\
+        &= \left[ \frac{3}{8}x^4 \right]_{-1}^1 \\
+        &= 0
+    \end{align*}
+    D'après le théorème de transfert, on a : 
+    \begin{align*}
+        \E(X^2) &= \int_{\R} x^2 f_X(x) dx \\
+        &= \int_{-1}^1 x^2 \frac{3}{2}x^2 dx \\
+        &= \left[ \frac{3}{10}x^5 \right]_{-1}^1 \\
+        &= \frac{3}{5}
+    \end{align*}
+    Donc $\var(X) = \E(X^2) - \E(X)^2 = \frac{3}{5}$.
+    }
+    \item \question{ Soit $Y = X^2$. Déterminer la fonction de répartition $F_Y$ de $Y$ et en déduire sa densité. }
+    \reponse{
+    Par définition, si $t \in \R$ alors $F_Y(t) = \prob(Y \leq t) = \prob(X^2 \leq t)$. Donc : 
+    $$F_Y(t) = \begin{cases}
+        0 & \text{si } t < 0 \\
+        \prob(-\sqrt{t} \leq X \leq \sqrt{t}) & \text{si } t \geq 0
+    \end{cases}$$
+    Or si $t \geq 0$, $\prob(-\sqrt{t} \leq X \leq \sqrt{t}) = F_X(\sqrt{t}) - F_X(-\sqrt{t}) = \begin{cases}
+        1 & \text{si } t \geq 1 \\
+        \left[ \frac{1}{2} x^3 \right]_{-\sqrt{t}}^{\sqrt{t}} = t\sqrt{t} & \text{si } t \in [0;1]
+    \end{cases}$.
+
+    En définitive, $$F_Y(t) = \begin{cases}
+        0 & \text{si } t < 0 \\
+        t\sqrt{t} & \text{si } t \in [0;1] \\
+        1 & \text{si } t \geq 1
+    \end{cases}$$
+Par dérivation de la fonction de répartition, on obtient la densité de $Y$ : 
+$$f_Y(t) = \begin{cases}
+    \frac{3}{2}\sqrt{t} & \text{si } t \in [0;1] \\
+    0 & \text{sinon}
+\end{cases}$$
+    }
+\end{enumerate}
+}

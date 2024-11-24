@@ -1,0 +1,87 @@
+\uuid{hLkm}
+\titre{Etude d'un schéma numérique}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+ %53 p 169 etude d'un schéma 
+
+\texte{ Soit $f$ une application de classe $\mathcal{C}^2 \colon [0;T] \times \mathbb{R} \to \mathbb{R}$, $a \in \mathbb{R}$ et l'équation différentielle :
+$$(E)	\begin{cases} 
+y'(t) = f(t,y(t)) \\
+y(0) = a
+\end{cases} $$
+
+pour laquelle on admet l'existence et l'unicité d'une solution $y$ de classe $\mathcal{C}^1$.  }
+
+\begin{enumerate}
+	\item \question{ Montrer que $y$ est de classe $\mathcal{C}^3$. }
+	\reponse{Comme $y'(t)=f(t,y(t))$, $y'$ est de classe $\mathcal{C}^2$ donc $y$ est de classe $\mathcal{C}^3$.}
+	\item \question{ Montrer que pour tout $t,h \in \mathbb{R}^+$, 
+	$$y(t+h)=y(t)+hf(t,y(t)) + \frac{h^2}{2}\left( \frac{\partial f}{\partial t}(t,y(t))+f(t,y(t)) \frac{\partial f}{\partial y}(t,y(t)) \right) + O(h^3)$$ }
+	\reponse{ D'après la formule de Taylor, on a 
+		$$y(t+h) = y(t)+hy'(t)+\frac{h^2}{2}y''(t) + O(h^3)$$
+		Or $y''(t) = \frac{\partial}{\partial t} f(t,y(t)) = \frac{\partial f}{\partial t}(t,y(t))+y'(t)\frac{\partial f}{\partial y}(t,y(t))$
+		d'où le résultat.}
+	\item \texte{ Pour approcher la solution de $(E)$, on propose le schéma numérique suivant : 
+	$h=T/N$, $t_n=nh$, $y_0=a$ et 
+	$$(S) \colon y_{n+1} = y_n + hf(t_n,y_n) + \frac{h^2}{2}\left( \frac{\partial f}{\partial t}(t_n,y_n)+f(t_n,y_n)\frac{\partial f}{\partial y}(t_n,y_n) \right)$$ }
+	\begin{enumerate}
+		\item \question{ Expliquer cette méthode, puis vérifier qu'elle est consistante. Quel est son ordre de consistance ? }
+		\reponse{Ce schéma revient à négliger le terme $O(h^3)$ dans le développement de Taylor. Il est consistant car si on pose $F(t,y,h) = f(t,y(t)) + \frac{h}{2}\left( \frac{\partial f}{\partial t}(t,y(t))+f(t,y(t)) \frac{\partial f}{\partial y}(t,y(t)) \right)$, le schéma s'écrit $y_{n+1} = y_n + hF(t_n,y_n,h)$ avec $F(t,y,0)=f(t,y)$.
+			
+			De plus, $f^{[1]}(t,y) = \frac{\partial f}{\partial t}(t,y(t))+f(t,y(t)) \frac{\partial f}{\partial y}(t,y(t))$ donc $\frac{\partial F}{\partial h}(t,y,h) = \frac{1}{2}f^{[1]}(t,y)$.
+			
+			D'après la propriété de consistance vue à l'exercice 5, le schéma est donc consistant d'ordre au moins 2. Par ailleurs, $\frac{\partial^2 F}{\partial h^2}(t,y,h) = 0$ donc la méthode est d'ordre 2 en général.}
+		\item \texte{ On suppose que : 
+			\begin{itemize}
+				\item l'équation est autonome, c'est-à-dire que $f$ ne dépend pas de $t$ ;
+				\item il existe une constante $L>0$ telle que $f$ et $f'$ sont $L$-lipschitziennes ;
+				\item il existe une constante $M>0$ telle que pour tout $y \in \mathbb{R}$, $|f(y)|\leq M$ et $|f'(y)| \leq M$. 
+			\end{itemize}}
+		
+		\question{ Démontrer que la méthode est stable et convergente.  }
+		\reponse{Si l'équation est autonome, $f$ ne dépend pas de $t$ et $F$ non plus, ce qui permet de réécrire 
+			$$F(t,y,h) = F(y,h) = f(y)+\frac{h}{2}f(y)f'(y)$$
+			Pour montrer que la méthode est stable, il suffit de montrer que $F$ est lipschitzienne en $y$ uniformément en $h$ :
+			
+			\begin{align*}
+				|F(y,h)-F(z,h)| &\leq |f(y)-f(z)|+\frac{h}{2}|f(y)f'(y)-f(z)f'(z)| \\
+				&\leq |f(y)-f(z)|+\frac{h}{2}\left( |f(y)|\cdot|f'(y)-f'(z)|+|f'(z)|\cdot|f(y)-f(z)|  \right)\\
+				&\leq (L+TLM)|y-z|
+			\end{align*}
+			La méthode est donc stable et consistante, elle est donc convergente.}
+		\item \question{ Soit $N$ un entier supérieur ou égal à 2. En exploitant le travail ci-dessus, proposer un schéma d'ordre $N$.  }
+		\reponse{Si $f$ est de classe $\mathcal{C}^N$, on a 
+			$$y(t+h) = y(t)+hy'(t)+\frac{h^2}{2}y''(t)+...+\frac{h^N}{N!}y^{(N)}(t) + O(h^{N+1})$$
+			Or $y^{(k)}(t) = f^{[k-1]}(t,y(t))$
+			donc on peut proposer le schéma :
+			$$y_{n+1}=y_n + h \left( f+ \frac{h}{2}f^{[1]}+...+\frac{h^{N-1}}{N!}f^{[N-1]}  \right)(t_n,y_n)$$}
+	\end{enumerate}
+	\item \question{ On pose $f(t,x)=-tx$. \'Ecrire un algorithme pour le schéma $(S)$ calculant un terme $y_n$. }
+	\reponse{Avec $f(t,y) = -ty$, $\frac{\partial f}{\partial t}(t,y(t)) = -y(t)$ et $\frac{\partial f}{\partial y}(t,y(t)) = -t$, le schéma devient :
+		$$y_{n+1}=y_n \left( 1-h^2\left(n+ \frac{1}{2}(1-(nh)^2) \right)  \right)$$}
+	\item \question{ Résoudre analytiquement l'équation différentielle $y' = -ty$.  }
+	\item \question{ Calculer les 20 premières valeurs données par le schéma défini précédemment et comparer avec le résultat exact et ceux obtenus avec la méthode d'Euler et la méthode d'Euler améliorée (méthode du point milieu). }
+	\reponse{La solution exacte de l'EDO pour $f(t,y) = -ty$ et $y(0)=a=1$ est $y(t = e^{-t^2/2})$. Pour un pas $h=1/5$, on obtient les valeurs suivantes :
+		
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline 
+			$n$ & 1 & 3 & 5 & 10 & 15 & 20 \\ 
+			\hline 
+			$t_n$ & 0.2 & 0.6 & 1 & 2 & 3 & 4 \\ 
+			\hline 
+			$y(t_n)$ & 0.9802 & 0.8353 & 0.6065 & 0.1353 & 0.1111 & 0.0003 \\ 
+			\hline 
+			Euler & 1 & 0.8832 & 0.6529 & 0.1244 & 0.0046 & 0.00001 \\ 
+			\hline 
+			Euler améliorée & 0.9801 & 0.8323 & 0.5961 & 0.1167 & 0.0065 & 0.00009 \\ 
+			\hline 
+	%		Taylor & 0.9800 & 0.8327 & 0.6014 & 0.1332 & 0.0118 & 0.0005 \\ 
+	%		\hline 
+		\end{tabular} 
+		
+		En lecture rapide de ce tableau, on voit que la méthode d'Euler explicite (d'ordre 1) est moins bonne que les autres sur cet exemple.}
+
+\end{enumerate}}

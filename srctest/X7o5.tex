@@ -1,0 +1,68 @@
+\uuid{X7o5}
+\titre{ Estimation d'un paramètre de Pareto }
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+    \texte{ Soient $a > 1$ et $b=1$ deux réels. Soit $X$ une variable aléatoire suivant une loi de Pareto de paramètres $(a,1)$. Alors $X$ admet pour densité  la fonction $f$ définie pour tout $x \in \R$ par : 
+$$f(x)=\frac{a}{x^{a+1}} \mathbf{1}_{[1;+\infty[}(x).$$
+Soit $\left(X_n\right)_{n \in \N^*}$ une suite de variables aléatoires indépendantes suivant chacune la loi de Pareto de paramètres $(a,1)$. 
+
+%Pour tout $n \in \N^*$, on pose : $$W_n = \ln(X_n).$$
+    }
+
+    \begin{enumerate}
+        \item \question{ Calculer l'espérance de $X_1$. }
+        \reponse{ 
+            Avec $a>1$, on a $\EX_1 = \int_1^{+\infty} \frac{a}{x^{a+1}} dx = \left[ -\frac{a}{x^a} \right]_1^{+\infty} = \frac{a}{a-1}$.
+        }
+        \item \question{ On pose $\displaystyle T_n = \frac{n}{\sum\limits_{i=1}^n \ln(X_i)}$. Montrer que $T_n$ est un estimateur de $a$ issu de la méthode du maximum de vraisemblance. }
+        \reponse{
+            La fonction de vraisemblance de l'échantillon $\left(X_1,X_2,\cdots{},X_n\right)$ est donnée par : 
+            \begin{align*}
+                L(a) &= \prod_{i=1}^n f_{X_i}(x_i) \\
+                &= \prod_{i=1}^n \frac{a}{x_i^{a+1}} \mathbf{1}_{[1;+\infty[}(x_i) \\
+                &= a^n \prod_{i=1}^n \frac{1}{x_i^{a+1}} \mathbf{1}_{[1;+\infty[}(x_i) \\
+                &= a^n \frac{1}{\prod_{i=1}^n x_i^{a+1}} \mathbf{1}_{[1;+\infty[}(x_i) \\
+                &= \begin{cases}
+                    a^n \left(\prod_{i=1}^n x_i \right)^{-a-1}  & \text{si } \forall i \in  \{1,...,n\}, x_i \geq 1 \\
+                    0 & \text{sinon}
+                \end{cases}
+            \end{align*}
+            La log vraisemblance est donc donnée par :
+            \begin{align*}
+                \ln(L(a)) &= \ln(a^n) - (a+1) \sum_{i=1}^n \ln(x_i) \\
+                &= n \ln(a) - (a+1) \sum_{i=1}^n \ln(x_i)
+            \end{align*}
+            Donc $\ln(L(a))$ est maximal pour $a = \frac{n}{\sum_{i=1}^n \ln(x_i)}$.
+        }
+        \item \question{ Montrer que $a \ln(X_1)$ suit une loi exponentielle de paramètre $1$. }
+        \reponse{
+            On détermine la fonction de répartition de $a \ln(X_1)$. 
+            Soit $t \geq 0$. On a : 
+            \begin{align*}
+                \prob(a \ln(X_1) \leq t) &= \prob(\ln(X_1) \leq \frac{t}{a}) \\
+                &= \prob(X_1 \leq e^{\frac{t}{a}}) \\
+                &= F_{X_1}(e^{\frac{t}{a}}) \\
+                &= 1 - \left( e^{\frac{t}{a}} \right)^{a} \text{ car } e^{\frac{t}{a}} \geq 1 \\
+                &= 1 - e^t
+            \end{align*}
+            Si $t < 0$, $e^{\frac{t}{a}} < 1$ donc $\prob(a \ln(X_1) \leq t) = 0$. Donc $a \ln(X_1)$ suit une loi exponentielle de paramètre $1$.
+        }
+        \item \question{ En déduire l'espérance et la variance de $\frac{1}{T_n}$. }
+        \reponse{
+            Par linéarité de l'espérance, on a $\E\left(\frac{1}{T_n}\right)  = \frac{1}{an}\sum_{i=1}^n \E\left(a \ln(X_i)\right) = \frac{1}{an} \sum_{i=1}^n \frac{1}{1} = \frac{1}{a}$. 
+
+            Par propriétés de la variance, on a $\var\left(\frac{1}{T_n} \right) = \frac{1}{a^2 n^2} \sum_{i=1}^n \var(a \ln(X_i)) = \frac{1}{a^2 n^2} \sum_{i=1}^n 1 = \frac{1}{a^2 n}$.
+        }
+        \item \question{ Montrer que la suite de variables aléatoires $\left(\frac{1}{T_n}\right)_{n \in \N^*}$ converge presque sûrement vers une constante que l'on déterminera. }
+        \reponse{
+            D'après la loi forte des grands nombres, on a $\frac{1}{T_n} = \frac{1}{n} \sum_{i=1}^n \ln(X_i) \xrightarrow[n \to +\infty]{\text{p.s.}} \E(\ln(X_1))$. Or $\E(a\ln(X_1)) = \frac{1}{1} = 1$. Donc $\frac{1}{T_n} \xrightarrow[n \to +\infty]{\text{p.s.}} \frac{1}{a}$.
+        }
+        \item \question{ Pour tout $n \in \N^*$, on pose $Z_n = \sqrt{n}\left(\frac{a}{T_n} - 1 \right)$. Montrer que la suite de variables aléatoires $\left(Z_n\right)_{n \in \N^*}$ converge en loi vers une loi normale centrée réduite. }
+        \item \question{ En déduire un intervalle de confiance au niveau de confiance $95\%$ pour $a$ sous la forme : $$\left[ \frac{\sqrt{n}-c}{\sqrt{n}}T_n~;~\frac{\sqrt{n}+c}{\sqrt{n}}T_n \right]$$ où $c$ est un réel à déterminer. }
+
+    \end{enumerate}
+        
+}

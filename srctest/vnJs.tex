@@ -1,0 +1,144 @@
+\uuid{vnJs}
+\titre{Calcul de déterminants de matrices triangulaires}
+\theme{calcul déterminant}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Calculer les déterminants suivants :
+	$$
+	\left|\begin{array}{cc}
+		1 & 2 \\
+		2 & 3
+	\end{array}\right| \quad\left|\begin{array}{ccc}
+		1 & 0 & 2 \\
+		3 & -1 & 2 \\
+		1 & -1 & 0
+	\end{array}\right| \quad\left|\begin{array}{ccc}
+		1 & 1 & 5 \\
+		2 & 1 & -1 \\
+		3 & 2 & 5
+	\end{array}\right| \quad\left|\begin{array}{ccc}
+		1 & -1 & 2 \\
+		-2 & 3 & 0 \\
+		2 & 4 & 8
+	\end{array}\right| \quad\left|\begin{array}{cccc}
+		2 & 3 & 1 & -4 \\
+		-1 & 2 & 1 & 0 \\
+		0 & 4 & 3 & -1 \\
+		-5 & 1 & -2 & 1
+	\end{array}\right|\left|\begin{array}{cccc}
+		2 & -54 & 120 & -40 \\
+		0 & 3 & -56 & 132 \\
+		0 & 0 & -5 & 212 \\
+		0 & 0 & 0 & 4
+	\end{array}\right|
+	$$
+ }
+
+\reponse{ 
+	$$
+	\left|\begin{array}{ll}
+		1 & 2 \\
+		2 & 3
+	\end{array}\right|=1 \times 3-2 \times 2=-1
+	$$
+	Développement par rapport à la première ligne :
+	$$
+	\left|\begin{array}{ccc}
+		1 & 0 & 2 \\
+		3 & -1 & 2 \\
+		1 & -1 & 0
+	\end{array}\right|=1 \times\left|\begin{array}{cc}
+		-1 & 2 \\
+		-1 & 0
+	\end{array}\right|-0+2 \times\left|\begin{array}{cc}
+		3 & -1 \\
+		1 & -1
+	\end{array}\right|=1 \times(2)-0+2 \times(-2)=-2
+	$$
+	On fait apparaitre des 0 dans la première colonne :
+	$$
+	\left|\begin{array}{ccc}
+		1 & 1 & 5 \\
+		2 & 1 & -1 \\
+		3 & 2 & 5
+	\end{array}\right|=\begin{gathered}
+		\ell_1 \\
+		\ell_3-3 \ell_1
+	\end{gathered}\left|\begin{array}{ccc}
+		1 & 1 & 5 \\
+		0 & -1 & -11 \\
+		0 & -1 & -10
+	\end{array}\right|=\begin{gathered}
+		\ell_1 \\
+		\ell_2 \\
+		\ell_3+\ell_2
+	\end{gathered}\left|\begin{array}{ccc}
+		1 & 1 & 5 \\
+		0 & -1 & -11 \\
+		0 & 0 & 1
+	\end{array}\right|=1 \times(-1) \times 1=-1
+	$$
+	On fait apparaitre des 0 dans la première colonne :
+	$$
+	\left|\begin{array}{ccc}
+		1 & -1 & 2 \\
+		-2 & 3 & 0 \\
+		2 & 4 & 8
+	\end{array}\right|=\begin{gathered}
+		\ell_1 \\
+		\ell_3-2 \ell_1 \\
+		2
+	\end{gathered}\left|\begin{array}{ccc}
+		1 & -1 & 2 \\
+		0 & 1 & 4 \\
+		0 & 6 & 4
+	\end{array}\right|=\begin{gathered}
+		\ell_1 \\
+		\ell_2 \\
+		\ell_3-6 \ell_2
+	\end{gathered}\left|\begin{array}{ccc}
+		1 & -1 & 2 \\
+		0 & 1 & 4 \\
+		0 & 0 & -20
+	\end{array}\right|=1 \times 1 \times(-20)=-20
+	$$
+	On fait apparaitre des 0 dans la deuxième ligne :
+	$$
+	\begin{aligned}
+		\left|\begin{array}{cccc}
+			\mathcal{c}_1 & \mathcal{c}_2 & c_3 & \mathcal{c}_4 \\
+			-1 & 3 & 1 & -4 \\
+			0 & 2 & 1 & 0 \\
+			-5 & 1 & 3 & -1 \\
+			-2 & 1
+		\end{array}\right| & =\left|\begin{array}{cccc}
+			\mathcal{c}_1+\mathcal{C}_3 & c_2-2 \mathcal{C}_3 & \mathcal{c}_3 & \mathcal{c}_4 \\
+			0 & 1 & 1 & -4 \\
+			0 & 0 & 1 & 0 \\
+			3 & -2 & 3 & -1 \\
+			-7 & 5 & -2 & 1
+		\end{array}\right|=-0+0-1 \times\left|\begin{array}{ccc}
+			3 & 1 & -4 \\
+			3 & -2 & -1 \\
+			-7 & 5 & 1
+		\end{array}\right|+0 \\
+		& =(-1) \times\left[3 \times\left|\begin{array}{cc}
+			-2 & -1 \\
+			5 & 1
+		\end{array}\right|-1 \times\left|\begin{array}{cc}
+			3 & -1 \\
+			-7 & 1
+		\end{array}\right|+(-4) \times\left|\begin{array}{cc}
+			3 & -2 \\
+			-7 & 5
+		\end{array}\right|\right] \\
+		& =-[3 \times 3-1 \times(-4)+(4) \times 1] \\
+		& =-9
+	\end{aligned}
+	$$
+	Le déterminant est triangulaire. Il est donc égal au produit des termes de la diagonale :
+	
+	$\left|\begin{array}{cccc}2 & -54 & 120 & -40 \\ 0 & 3 & -56 & 132 \\ 0 & 0 & -5 & 212 \\ 0 & 0 & 0 & 4\end{array}\right|=2 \times 3 \times(-5) \times 4=-120$
+ }}

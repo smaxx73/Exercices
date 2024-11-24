@@ -1,0 +1,22 @@
+\uuid{Qds7}
+\titre{Nature de séries}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Pour chacune des séries ci-dessous, préciser si elle est absolument convergente, semi-convergente, grossièrement divergente ou divergente sans l'être grossièrement. Donner une courte justification de votre réponse. }
+
+\colonnes{\solution}{3}{1}
+	\begin{enumerate}
+		\item \question{ $\displaystyle \sum\limits_{n \geq 2} \dfrac{1}{\left(\sqrt{n}\right)^7} $ }
+		\reponse{ $\displaystyle \sum\limits_{n \geq 2} \dfrac{1}{\left(\sqrt{n}\right)^7}  = \sum\limits_{n \geq 2} \dfrac{1}{n^{\frac{7}{2}}}$ : c'est une série à termes positifs, une série de Riemann avec $\alpha = \frac{7}{2} >1$ absolument convergente. }
+		\item \question{ $\displaystyle \sum\limits_{n \geq 0} \dfrac{\cos\left(\frac{2n\pi}{3}\right)}{n^3+1}$ }
+		\reponse{ On peut majorer la valeur absolue du terme général de cette série : \\ $\left|\dfrac{\cos\left(\frac{2n\pi}{3}\right)}{n^3+1}   \right| =  \dfrac{\left|\cos\left(\frac{2n\pi}{3}\right)\right|}{n^3+1}    \leq \dfrac{1}{n^3+1}$ ; or $n^3+1 \underset{n\to +\infty}{\sim}n^3$ donc $\dfrac{1}{n^3+1}  \underset{n\to +\infty}{\sim} \frac{1}{n^3}$ ; or $\frac{1}{n^3}$ est le terme général d'une série de Riemann convergente, donc par majoration, la série de terme général $\left|\dfrac{\cos\left(\frac{2n\pi}{3}\right)}{n^3+1}   \right|$ est convergente. Cela prouve que la série $\displaystyle \sum\limits_{n \geq 0} \dfrac{\cos\left(\frac{2n\pi}{3}\right)}{n^3+1}$ est absolument convergente. }
+		\item \question{ $\displaystyle \sum\limits_{n \geq 2} \dfrac{(-1)^n}{n^{\frac{1}{4}}}$ }
+		\reponse{ On constate que $\left|\dfrac{(-1)^n}{n^{\frac{1}{4}}} \right| = \dfrac{1}{n^{\frac{1}{4}}}$ qui est le terme général d'une série de Riemann divergente. Cela prouve que la série $\displaystyle \sum\limits_{n \geq 2} \dfrac{(-1)^n}{n^{\frac{1}{4}}}$ n'est pas absolument convergente.
+			
+			Par ailleurs, $\dfrac{(-1)^n}{n^{\frac{1}{4}}} = (-1)^n a_n$ avec $a_n = \frac{1}{n^{\frac{1}{4}}}$ ; il est clair que pour tout $n \geq 2$, $a_n \geq 0$, $\lim\limits_{n\to +\infty} a_n = 0$ et $\frac{a_{n+1}}{a_n} = \left(\frac{n}{n+1}\right)^{\frac{1}{4}}<1$ donc la suite $(a_n)$ est décroissante. Les trois hypothèses du Théorème Spécial des Séries Alternées sont réunies : la série $\displaystyle \sum\limits_{n \geq 2} \dfrac{(-1)^n}{n^{\frac{1}{4}}}$ est donc convergente }
+	\end{enumerate}
+\fincolonnes{\solution}{3}{1}
+}

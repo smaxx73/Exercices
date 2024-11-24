@@ -1,0 +1,59 @@
+\uuid{b1T2}
+\titre{Etude d'une matrice tridiagonale}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ 
+Soit $A \in \mathcal{M}_{n}(\mathbb{R})$ la matrice tridiagonale d'ordre $n > 2$ définie par 
+$$A = \begin{pmatrix}
+	2 & -1 &  &  & & \\
+	-1 & 2 & -1 &      & &\\
+	&   \ddots & \ddots & \ddots  && \\
+	& & -1 &2 &-1 \\
+	& & & -1 & 2 \\
+\end{pmatrix}
+$$
+
+On admet que l'ensemble des valeurs propres de $A$ est $$sp(A) = \left\{ \lambda_k = 4 \sin^2\left(\frac{k\pi}{2(n+1)} \right) \, , \, k \in \{1,...,n \} \right\}$$
+
+On souhaite résoudre un système linéaire $AX=b$ à l'aide d'une méthode itérative et on note $X$ sa solution. }
+
+\begin{enumerate}
+	\item  \question{ Exprimer la suite des itérés de la méthode de Jacobi sous la forme $X^{(k+1)}=BX^{(k)}+C$ en exprimant la matrice $B$ en fonction de la matrice identité $I_n$ et de la matrice $A$. La matrice $A$ est-elle à diagonale strictement dominante ? }
+	\reponse{Avec les notations du cours, $A=M-N$ avec $M=2I$ d'où la suite de Jacobi $x^{(k+1)}=M^{-1}Nx^{(k)}+M^{-1}b = (I-\frac{1}{2}A) x^{(k)} + \frac{1}{2}b$.
+		La matrice $A$ n'est pas à diagonale strictement dominante donc la convergence de la méthode de Jacobi n'est pas acquise.	
+	}	
+	
+	\item  \question{ On définit l'erreur $e^{(k)}=X^{(k)}-X$ à la $k$-ème itération. Exprimer $e^{(k)}$ en fonction de $e^{(k-1)}$ et en déduire que $\Vert e^{(k)}\Vert \leq \vvvert B\vvvert^k\Vert e^{(0)}\Vert$ où $\Vert.\Vert$ est une norme quelconque sur $\mathbb{R}^{n}$ et $\vvvert.\vvvert$ la norme induite sur $\mathcal{M}_{n}(\mathbb{R})$. }
+	\reponse{
+		\begin{align*}
+			e^{(k)} &= X^{k}-X\\
+			&=(BX^{k-1}+ C) - (BX+C) \\
+			&= B(X^{(k-1)}-X) \\
+			&=B e^{(k-1)} 
+		\end{align*}
+		donc par récurrence $e^{(k)}=B^ke^{(0)}$.	En passant à la norme et par inégalité des normes induites, $|| e^{(k)}|| \leq \vvvert B\vvvert^k || e^{(0)}||$
+	}
+	\item \question{ Calculer $\vvvert B\vvvert_{\infty}$. Qu'en conclure ? }
+	\reponse{On calcule $B = \begin{pmatrix}
+			0 & \frac{1}{2} &  &  & & \\
+			\frac{1}{2} & 0 & \frac{1}{2} &      & &\\
+			&   \ddots & \ddots & \ddots  && \\
+			& & \frac{1}{2} &0 &\frac{1}{2} \\
+			& & & \frac{1}{2} & 0 \\
+		\end{pmatrix}
+		$ D'après le cours,   $\displaystyle\vvvert B\vvvert_{\infty} =  \sup\limits_{1 \leq i \leq N} \sum_{j=1}^N|b_{i,j}| = \frac{1}{2}+\frac{1}{2} = 1$. Donc ce choix de norme ne permet pas de conclure que l'erreur tend vers $0$.
+	}
+	
+	\item \question{ Vérifier que le rayon spectral de $B$ est  $\rho(B)=\cos\left(\frac{\pi}{n+1}\right)$. }
+	\reponse{Les valeurs propres de $B=I-\frac{1}{2}A$ sont les valeurs $\mu_k = 1-2 \sin^2\left(\frac{k\pi}{2(n+1)}\right) = \cos\left(\frac{k\pi}{n+1}\right)$ donc $\rho(B) = \max\{|\mu_k|\} = \cos\left(\frac{\pi}{n+1}\right)$.} 		
+	
+	\item \question{ En déduire que la méthode de Jacobi converge pour la matrice $A$ quelque soit l'initialisation. }
+	\reponse{
+		On remarque que $A$ est une matrice symétrique donc $B$ est une matrice symétrique. D'après la propriété 1 admise, $||B||_2 =\rho(B) =  \cos\left(\frac{\pi}{n+1}\right)$ donc $0<||B||_2<1$. Donc d'après la question 2, $|| e^{(k)}||_2 \to 0$ quelque soit l'erreur $e^{(0)}$.
+		commise au départ, autrement dit la méthode converge.
+	}	
+	
+\end{enumerate}}

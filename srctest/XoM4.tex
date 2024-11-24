@@ -1,0 +1,61 @@
+\uuid{XoM4}
+\titre{ Calcul approché de probabilités }
+\theme { probabilités }
+\auteur{ }
+\organisation{AMSCC}
+
+\contenu{
+    \texte{ Soit $X$ une variable aléatoire réelle telle que $\E(X) = 30$ et $\var(X) = 25$ et $Y = 2X - 5$. }
+
+    \begin{enumerate}
+        \item \question{ Déterminer l'espérance et la variance de $Y$. }
+        \reponse{
+            Par linéarité de l'espérance, $\E(X) = 2 \E(X) - 5 = 2 \times 30 - 5 = 55$. Par propriétés de la variance, $\var(Y) = 2^2 \var(X) + 0 = 4 \times 25 = 100$.
+        }
+        \item \question{ \`A l'aide de l'inégalité de Bienaymé-Tchebychev, déterminer une valeur $a > 0$ telle que $\prob\left( 20 < X < 40 \right) \geq a$. }
+        \reponse{
+            On a :
+            \begin{align*}
+                \prob\left( 20 < X < 40 \right) &= \prob\left( -10 < X - 30 < 10 \right) \\
+                &= \prob\left( \left| X - 30 \right| < 10 \right) \\
+                &= \prob\left( \left| X - \E(X) \right| < 10 \right) \\
+                &\geq 1 - \frac{\var(X)}{10^2} \text{ par l'inégalité de Bienaymé-Tchebychev} \\
+                &= 1 - \frac{25}{100} \\
+                &= \frac{3}{4}.
+            \end{align*}
+            On a donc $a = \frac{3}{4}$.
+        }
+        \item \texte{ On suppose maintenant que $X$ suit une loi normale. }
+        \begin{enumerate}
+            \item \question{ Donner la valeur de $\prob\left( 20 \leq X \leq 40 \right)$ avec une précision de $10^{-4}$. }
+            \reponse{
+                On centre et on réduit la variable $X$ pour utiliser la table de loi normale centrée réduite. On note $\Phi$ la fonction de répartition de la loi normale centrée réduite. On a :
+                \begin{align*}
+                    \prob\left( 20 \leq X \leq 40 \right) &= \prob\left( \frac{20 - 30}{5} \leq \frac{X - 30}{5} \leq \frac{40 - 30}{5} \right) \\
+                    &= \prob\left( -2 \leq \frac{X - 30}{5} \leq 2 \right) \\
+                    &= \Phi(2) - \Phi(-2)  \\
+                    &= \Phi(2) - (1 - \Phi(2)) \text{ par symétrie } \\
+                    &\approx 2 \times 0{,}9772 - 1 \text{ par lecture de table de loi} \\
+                    &\approx 0{,}9544.
+                \end{align*}
+
+            }
+            \item \question{ Déterminer la loi de $Y$. }
+            \reponse{
+                Par propriété de stabilité de la loi normale par combinaison linéaire, $Y$ suit une loi normale. On a déjà calculé que $\E(Y) = 55$ et $\var(Y) = 100$. On a donc $Y \sim \mathcal{N}(55,10)$.
+            }
+            \item \question{ Déterminer, avec une précision de $10^{-4}$, la probabilité que $Y$ prenne une valeur dans l'intervalle $[45\,;\,55]$. }
+            \reponse{
+                On a :
+                \begin{align*}
+                    \prob\left( 45 \leq Y \leq 55 \right) &= \prob\left( \frac{45 - 55}{10} \leq \frac{Y - 55}{10} \leq \frac{55 - 55}{10} \right) \\
+                    &= \prob\left( -1 \leq \frac{Y - 55}{10} \leq 0 \right) \\
+                    &= \Phi(0) - \Phi(-1) \\
+                    &= \Phi(0) - (1 - \Phi(1)) \text{ par symétrie } \\
+                    &\approx 0{,}5 - (1 - 0{,}8413) \text{ par lecture de table de loi} \\
+                    &\approx 0{,}3413.
+                \end{align*}
+            }
+        \end{enumerate}
+    \end{enumerate}
+}

@@ -1,0 +1,35 @@
+\uuid{Fg10}
+\titre{Calcul de dérivées partielles au bord du domaine de définition}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On considère la fonction $f: \R^2 \to \R,\ (x,y) \mapsto \sqrt{x+5y}$. }
+\begin{enumerate}
+\item \question{ Donner le domaine de définition de $f$. }
+\reponse{La fonction $f$ est définie sur le demi plan $\{(x,y)\in\R^2 \mid x+5y \geq 0  \}  $}
+\item \question{ Calculer $\dpa{f}{x}$ et $\dpa{f}{y}$ pour les points $(x,y)$ où c'est possible. }
+\reponse{La fonction racine étant dérivable sur $]0;+\infty[$, on peut calculer avec les règles usuelles les dérivées partielles de $f$ sur le demi plan ouvert $\{(x,y)\in\R^2 \mid x+5y > 0  \}  $ : 
+$$\frac{\partial f}{\partial x}(x,y) = \frac{1}{2\sqrt{x+5y}} \qquad \frac{\partial f}{\partial y}(x,y) = \frac{5}{2\sqrt{x+5y}}$$
+}
+\item \question{ Étudier l'existence des dérivées partielles en $(x,y) = (0,0)$. }
+\reponse{Il faut ici revenir à la définition en étudiant le taux d'accroissement des fonctions partielles en $0$.
+	
+	Pour étudier l'existence de $\frac{\partial f}{\partial x}(0,0)$, on pose pour tout $x>0$ :
+$\frac{f(x,0)-f(0,0)}{x-0} = \frac{\sqrt{x}}{x} = \frac{1}{\sqrt{x}} \xrightarrow[x \to 0]{} +\infty$. On conclut que 
+$\frac{\partial f}{\partial x}(0,0)$n'existe pas.
+
+De même, on pose pour tout $y>0$ :
+$\frac{f(0,y)-f(0,0)}{y-0} = \frac{\sqrt{5y}}{y} = \frac{\sqrt{5}}{\sqrt{y}} \xrightarrow[y \to 0]{} +\infty$. On conclut que 
+$\frac{\partial f}{\partial y}(0,0)$ n'existe pas. }
+\item \question{ Même question en $(x,y) = (5, -1)$. }
+\reponse{C'est exactement le même problème qu'en $(0,0)$ translaté en $(5,-1)$ : 
+	
+	on pose $x=5+h$ et on étudie le taux d'accroissement quand $x$ tend vers $5$, soit $h \to 0$ :  $\frac{f(5+h,-1)-f(5,-1)}{h} = \frac{\sqrt{h}}{h} = \frac{1}{\sqrt{h}}  \xrightarrow[h \to 0]{} +\infty$
+	
+	on pose $y=-1+h$ et on étudie le taux d'accroissement quand $y$ tend vers $-1$, soit $h \to 0$ :  $\frac{f(5,-1+h)-f(5,-1)}{h} = \frac{\sqrt{h}}{h} = \frac{1}{\sqrt{h}}  \xrightarrow[h \to 0]{} +\infty$
+
+On conclut que les dérivées partielles n'existent pas en $(0,0)$.
+}
+\end{enumerate}}

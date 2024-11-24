@@ -1,0 +1,90 @@
+\uuid{32ec}
+\titre{Comparaison de lois normales}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+%
+\contenu{
+
+\texte{ Deux joueurs $A$ et $B$ sont en concurrence au lancer de poids. Un observateur attentif a relevé qu'à l'entraînement, le joueur $A$ a effectué $97.7$\% de ses lancers au delà de $19$ mètres, et $84$\% en deça de $22$ mètres. Il a aussi noté que de son côté, le joueur $B$ a effectué $74.5$\% de ses lancers au delà de $19$ mètres et $90.8$\% en deça de $22$ mètres. }
+\begin{enumerate}
+	\item \question{ Déterminer les paramètres des variables aléatoires normales $X$ et $Y$ respectivement égales au lancer du joueur $A$ et au lancer du joueur $B$. }
+	\reponse{ 
+		\textbf{Joueur $A$:} 
+		\[ X\sim\mathcal{N}(\mu,\sigma), \quad \prob(X\geq 19)=0.977, \quad \prob(X\leq 22)=0.84\]
+		En posant $Z=\frac{X-\mu}{\sigma}$, on a $Z\sim \mathcal{N}(0,1)$ et:
+		\[ \begin{cases}
+			\prob\left(Z\geq \frac{19-\mu}{\sigma} \right)=0.977 \\
+			\prob\left( Z \leq \frac{22-\mu}{\sigma}\right)=0.84
+		\end{cases}
+		\quad \Leftrightarrow \quad
+		\begin{cases}
+			\prob\left(Z\leq -\frac{19-\mu}{\sigma} \right)=0.977 \\
+			\prob\left( Z \leq \frac{22-\mu}{\sigma}\right)=0.84
+		\end{cases}
+		\]
+		et par lecture de la table de loi $\mathcal{N}(0,1)$, on obtient:
+		\begin{align*}
+			\begin{cases} -\frac{19-\mu}{\sigma}=2 \\
+				\frac{22-\mu}{\sigma}=1
+			\end{cases}
+			\quad \Leftrightarrow \quad 
+			\begin{cases} -19+\mu=2\sigma \\
+				22-\mu=\sigma
+			\end{cases}
+			\quad \Leftrightarrow \quad 
+			\begin{cases} \mu=21 \\
+				\sigma=1
+			\end{cases}
+			\quad \Leftrightarrow \quad 
+			X\sim \mathcal{N}(21,\sigma=1)
+		\end{align*}
+		\vspace{2em}
+		
+		\textbf{Joueur $B$:} 
+		\[ Y\sim\mathcal{N}(\mu,\sigma), \quad \prob(Y\geq 19)=0.745, \quad \prob(Y\leq 22)=0.908\]
+		En posant $Z=\frac{Y-\mu}{\sigma}$, on a $Z\sim \mathcal{N}(0,1)$ et:
+		\[ \begin{cases}
+			\prob\left(Z\geq \frac{19-\mu}{\sigma} \right)=0.745 \\
+			\prob\left( Z \leq \frac{22-\mu}{\sigma}\right)=0.908
+		\end{cases}
+		\quad \Leftrightarrow \quad
+		\begin{cases}
+			\prob\left(Z\leq -\frac{19-\mu}{\sigma} \right)=0.745 \\
+			\prob\left( Z \leq \frac{22-\mu}{\sigma}\right)=0.908
+		\end{cases}
+		\]
+		et par lecture de la table de loi $\mathcal{N}(0,1)$, on obtient:
+		\begin{align*}
+			\begin{cases} -\frac{19-\mu}{\sigma}=0.66 \\
+				\frac{22-\mu}{\sigma}=1.33
+			\end{cases}
+			\quad \Leftrightarrow \quad 
+			\begin{cases} -19+\mu=0.66\sigma \\
+				22-\mu=1.33\sigma
+			\end{cases}
+			\quad \Leftrightarrow \quad 
+			\begin{cases} \mu=20 \\
+				\sigma=1.5
+			\end{cases}
+			\quad \Leftrightarrow \quad 
+			Y\sim \mathcal{N}(20,\sigma=1.5)
+		\end{align*}
+	}
+	
+	\item \question{ Quels sont les paramètres de la variable aléatoire normale $Z=X-Y$ ? }
+	\reponse{Les variables aléatoires $X$ et $Y$ sont indépendantes et de loi Normale, donc leur différence est encore une loi Normale de paramètres:
+		\[ Z\sim \mathcal{N}(21-20,\sigma^2=1^2+1.5^2) \quad \text{c'est-à-dire} \quad 
+		Z\sim \mathcal{N}(21-20,\sigma^2=3.25).
+		\]
+	}
+	
+	\item \question{ Exprimer en utilisant la variable aléatoire $Z$ l'événement "Le joueur $A$ gagne le concours." et en déterminer la probabilité. }
+	\reponse{ Le joueur $A$ gagne le concours signifie que le lancer $X$ du joueur $A$ est supérieur au lancer $Y$ du joueur $B$, ce qui revient à avoir $Z\geq 0$.
+		\[\prob(Z\geq 0)=\prob\left(\frac{Z-1}{\sqrt{3.25}}\geq \frac{-1}{\sqrt{3.25}}\simeq 0.55\right)=0.7088\]
+		Il y a donc $70.88$\% de chance que $A$ gagne le concours.
+	}
+	
+	
+\end{enumerate}
+}

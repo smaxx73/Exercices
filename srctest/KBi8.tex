@@ -1,0 +1,23 @@
+\uuid{KBi8}
+\titre{Changement de variables aléatoires, question de cours}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 	Soit $X$ une variable aléatoire absolument continue dont la densité est donnée par $$f(x)=\frac{1}{2}\textbf{1}_{[-1;1]}(x)$$ }
+\question{ On cherche à identifier la loi de $Y=X^2$. }
+
+\reponse{ 	\begin{enumerate}
+		\item pour tout $t$, $F_Y(t)= \PP(X^2 \leq t)$
+		\item si $t \geq 0$, $\{X^2 \leq t\} = \{X \in [-\sqrt{t};\sqrt{t}] \}$ ; \\ si $t<0$ $\{X^2 \leq t\} = \emptyset$
+		\item donc pour tout $t \geq 0$, $$F_Y(t) = \PP(X \in [-\sqrt{t};\sqrt{t}]) = \int_{-\sqrt{t}}^{+\sqrt{t}} \frac{1}{2}\textbf{1}_{[-1;1]}(x) dx$$
+		si $0 \leq t \leq 1$ alors $F_Y(t)=\int_{-\sqrt{t}}^{+\sqrt{t}} \frac{1}{2} dx = \sqrt{t}$ \\
+		si $t>1$ alors $F_Y(t)=\int_{-1}^1 \frac{1}{2} dx = 1$
+		\item pour tout $t \in ]0;1[$, $F_Y$ est dérivable en $t$ et $F_Y'(t) = \frac{1}{2} \frac{1}{\sqrt{t}}$ donc en intégrant, $F_Y(t) = \int_{0}^{t}  \frac{1}{2} \frac{1}{\sqrt{x}} dx$ de sorte que $F_Y(0)=0$ et $F_Y(1)=1$. \\
+		Pour résumer ces conditions, on peut écrire que pour tout $t \in \R $, 
+		$$F_Y(t) = \int_{-\infty}^t \frac{1}{2} \frac{1}{\sqrt{x}} \textbf{1}_{[0;1]}(x)dx$$
+		
+		On en déduit que $Y$ admet pour densité la fonction $g \colon x \mapsto   \frac{1}{2\sqrt{x}} \textbf{1}_{[0;1]}(x)$
+\end{enumerate} }}

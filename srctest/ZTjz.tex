@@ -1,0 +1,20 @@
+\uuid{ZTjz}
+\titre{Développement limité}
+\theme{analyse asymptotique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Donner le développement limité de $\ln(1+x)$ au voisinage de $0$ à l'ordre $3$. En déduire le  développement limité de $\left(\ln(1+x)\right)^2$ à l'ordre $3$.  }
+
+\reponse{
+	$$
+	\begin{aligned}
+		\ln (1+x) &=\underbrace{x-\frac{x^{2}}{2}+\frac{x^{3}}{3}}_{P_{1}(x)}+x^{3} \cdot \varepsilon(x) \\
+		\left(P_{3}(x)\right)^{2} &=\left(x-\frac{x^{2}}{2}+\frac{x^{3}}{3}\right)^{2} \\
+		&=\left(x-\frac{x^{2}}{2}+\frac{x^{3}}{3}\right) \times\left(x-\frac{x^{2}}{2}+\frac{x^{3}}{3}\right) \\
+		&=x \times\left(x-\frac{x^{2}}{2}\right)-\frac{x^{2}}{2} \times x+ o(x^3) \\
+		&=x^{2}-x^{3}+o(x^3)
+	\end{aligned}
+	$$
+	Ainsi, $(\ln (1+x))^{2}=x^{2}-x^{3}+x^{3} \cdot \varepsilon(x)= x^2-x^3 + o(x^3)$ }}

@@ -1,0 +1,44 @@
+\uuid{6TSn}
+\titre{Problème de clés}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}	
+
+\contenu{
+
+Un gardien de nuit doit ouvrir une des portes à contrôler durant sa tournée dans le noir. Il possède 10 clés d'allure semblable, mais une seule peut ouvrir la porte en question. Le gardien dispose de deux méthodes.
+\begin{itemize}
+	\item Méthode A : Il pose les 10 clés devant lui et les essaye l'une après l'autre dans l'ordre dans lequel elles se présentent ;
+	\item Méthode B : Il essaye une clé après avoir agité le trousseau, en recommençant cette opération jusqu'à ce qu'il trouve la bonne clé.
+\end{itemize}
+
+On appelle $X_A$ (respectivement $X_B$) la variable aléatoire, définie sur l'espace probabilisé $(\Omega, \mathcal{T}, \prob)$, qui désigne le nombre de clés essayées (y compris celle qui donne satisfaction) par la méthode A (respectivement B).
+
+Rappel : soit $a \in ]0 ; 1[$, alors $\displaystyle \sum_{k=0}^{n} a^k = \frac{1 - a^{n+1}}{1 - a}$ et $\displaystyle \sum_{k=0}^{+\infty} a^k = \frac{1}{1 - a}$.
+
+\begin{enumerate}
+	\item \question{ Montrer que pour tout $k \in \{1, \dots, 10\}$, $\prob(X_A = k) = p$ où $p$ est une valeur constante à déterminer.  }
+	\reponse{
+		Soit $E$ l'ensemble des permutations possibles des 10 clés. On a $|E| = 10!$ et toutes ces configurations sont équiprobables. Pour tout $k \in \{1, \dots, 10\}$, on a $X_A = k$ si et seulement si la clé correcte est à la position $k$. Il y a $9!$ permutations qui vérifient cette condition.
+		  On a donc $\prob(X_A = k) = \frac{1}{|E|} \times 9! = \frac{9!}{10!} = \frac{1}{10}$.
+	}
+	\item \question{ Quelle est la loi suivie par $X_B$ ? }
+	\reponse{
+		La méthode est vue comme un tirage avec remise d'une clé jusqu'à tomber sur la bonne. La variable aléatoire $X_B$ modélise donc un temps d'attente du premier succès pour une expérience de Bernoulli de paramètre $\frac{1}{10}$. Donc $X_B$ suit une loi géométrique de paramètre $\frac{1}{10}$.
+	}
+	\item \question{ Quelle est la probabilité d'essayer strictement plus de 8 clés : par la méthode A ? Par la méthode B ? On notera $H$ l'événement : « essayer plus de 8 clés ». }
+	\reponse{
+		\begin{itemize}
+			\item Pour la méthode A, on a $\prob(X_A > 8) = \prob(X_A = 9) + \prob(X_A = 10) = \frac{1}{10} + \frac{1}{10} = \frac{1}{5}$.
+			\item Pour la méthode B, on a $\prob(X_B > 8) = \sum\limits_{k=9}^{+\infty} \left(1 - \frac{1}{10}\right)^{k-1} \times \frac{1}{10} = \frac{1}{10}\sum\limits_{k=8}^{+\infty} \left(\frac{9}{10}\right)^k = \frac{1}{10} \times \left(\frac{9}{10}\right)^8 \times \frac{1}{1 - \frac{9}{10}} = \frac{1}{10} \times \left(\frac{9}{10}\right)^8 \times 10 = \left(\frac{9}{10}\right)^8$.
+		\end{itemize}
+	}
+	\item \question{ On admet que le gardien utilise la méthode A deux fois sur trois. Quelle est la probabilité conditionnelle que le gardien utilise la méthode B sachant que les 8 premiers essais ont échoué ? On donnera le résultat arrondi à $10^{-2}$. }
+	\reponse{
+		Soit $B$ l'événement : « utiliser la méthode B ». On a $\prob(B) = \frac{1}{3}$. D'après la formule de Bayes, on a $\prob(B | {H}) = \frac{\prob({H} | B) \times \prob(B)}{\prob({H})}$. Or d'après le théorème des probabilités totales, $\prob(H) = \prob(H | B) \times \prob(B) + \prob(H | \overline{B}) \times \prob(\overline{B}) = \left(\frac{9}{10}\right)^8 \times \frac{1}{3} + \frac{1}{5} \times \frac{2}{3}$. 
+
+		Donc $\prob(B | {H}) = \frac{\left(\frac{9}{10}\right)^8 \times \frac{1}{3}}{\left(\frac{9}{10}\right)^8 \times \frac{1}{3} + \frac{1}{5} \times \frac{2}{3}} \approx 0.52$.
+	}
+\end{enumerate}
+
+}

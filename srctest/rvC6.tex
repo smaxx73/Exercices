@@ -1,0 +1,135 @@
+\uuid{rvC6}
+\titre{Calcul de racine carrée}
+\theme{méthodes numériques}
+\auteur{}
+\organisation{AMSCC}
+%\contenu{
+\contenu{
+
+
+\texte{ La méthode de la corde pour résoudre une équation du type $f(x)=0$ consiste à construire la suite $(x_k)$ définie par
+$$\forall k \in \mathbb{N} : \quad x_{k+1}=x_k-\frac{f(x_k)}{f'(x_0)}$$ }
+
+\begin{enumerate}
+	\item \begin{enumerate}
+		\item \question{ Sur un graphique, construire les premières itérations de cette méthode en prenant $f(x)=x^2$ et $x_0=1$. }
+		\reponse{ Le principe de construction du point $x_{k+1}$ est le suivant: on prend l'intersection de l'axe des abscisses avec la droite passant par le point $(x_k,f(x_k))$ de pente $f'(x_0)=2x_0=2$. 
+			\begin{center} 
+				\newcommand\newtfonc[1]{#1*#1) } 
+				\begin{tikzpicture}[scale=.5]
+				\begin{axis}[
+				width=14cm, height=10cm,
+				axis x line=center, 
+				axis y line=middle,
+				xlabel =$x$,
+				every axis x label/.style={
+					at={(ticklabel* cs:1.0)},
+					anchor=west,
+				},
+				ylabel = $y$,
+				every axis y label/.style={
+					at={(ticklabel* cs:1)},
+					anchor=south,},
+				legend style={draw=none,at={(-.1,1)},anchor=north west,font=\large },
+				samples=100,
+				ymin=-0.6, ymax=1.5,
+				xmin=-1.8, xmax=2.1,
+				ytick={0 },
+				xtick={0 },
+				legend cell align=left,
+				]
+				\addplot [mark=none,line width=.5mm,blue,domain= -1.7:2 ]{\newtfonc{x} };
+				\node[label={-90:{\large{$x_0$}}},circle,fill,red,inner sep=2pt] at (axis cs:1,0) {};
+				\node[label={-80:{\large{$x_1$}}},circle,fill,red,inner sep=2pt] at (axis cs:0.5 ,0) {};
+				\node[label={-120:{\large{$x_2$}}},circle,fill,red,inner sep=2pt] at (axis cs:0.375 ,0) {};
+				\addplot [dotted,thick,blue] coordinates { (1,0) (1,1)};
+				\addplot [line width=.3mm,red] {2*x-1};
+				\addplot [dotted,thick,blue] coordinates { (0.5,0) (0.5,0.25)};
+				\addplot [line width=.3mm,red] {2*x-0.75};
+				\end{axis}
+				\end{tikzpicture}
+		\end{center}}
+		
+		\item \question{ De quelle méthode générale la méthode de la corde est-elle un cas particulier ? Justifier. }
+		\reponse{La méthode de la corde est un cas particulier de la méthode de point fixe : on a $x_{k+1}=g(x_k)$, où $g$ est la fonction définie par $g(x)=x-\frac{f(x)}{f'(x_0)}$.}
+		\item \question{ En déduire l'ordre minimal de convergence de la méthode de la corde, quand celle-ci converge. }
+		\reponse{Quand une méthode de point fixe converge, elle est au minimum d'ordre $1$.} 
+		
+	\end{enumerate}
+\end{enumerate}
+\texte{ On souhaite trouver une méthode efficace pour trouver une approximation de la racine carrée d'un nombre positif $A$ donné. Considérons tout d'abord l'algorithme suivant: étant donné une valeur $x_0$, on calcule
+\[x_{k+1}=x_k+\frac{A-x^2_k}{2}, \quad k=0,1,2,... \] }
+%\begin{enumerate}
+%	\setcounter{enumi}{1}
+%	\item \question{ Vérifier que si $x_0=1$, alors l'algorithme proposé coïncide avec la méthode de la corde pour résoudre $x^2-A=0$. }
+%	\reponse{Soit $f(x)=x^2-A$. Alors $f'(x)=2x_0=2$ pour $x_0=1$ et on a bien
+%		\[ x_{k+1}=x_k-\frac{f(x_k)}{f'(x_0)}=x_k+\frac{A-x^2_k}{2}.\]
+%	}
+%	\item 
+%	\begin{enumerate}
+%		\item \question{ Montrer que si la suite $(x_n)$ converge, alors sa limite est soit $\sqrt{A}$, soit $-\sqrt{A}$. }
+%		\reponse{Si la suite converge vers une limite $l$, alors $l$ vérifie $l=l+\frac{A-l^2}{2}$, c'est-à-dire $l=\sqrt{A}$ ou $l=-\sqrt{A}$.
+%		}
+%		
+%		\item \question{ On considère le cas où $A\in]0;4[$. Montrer qu'il existe $\epsilon>0$ tel que, si $|x_0-\sqrt{A}|\leq \epsilon$, alors la suite $(x_n)$ converge vers $\sqrt{A}$. }
+%		\reponse{La méthode peut s'écrire sous la forme d'une méthode de point fixe où la fonction $g$ est définie particulier
+%			\[g(x)=x+\frac{A-x^2}{2}. \]
+%			Si $A\in]0;4[$, comme $g'(x)=1-x$, on a $|g'(\sqrt{A})|=|1-\sqrt{A}|<1$. Ceci implique que $\sqrt{A}$ est un point fixe attractif de $g$. Par conséquent, il existe un voisinage de $\sqrt{A}$ tel que si $x_0$ est pris dans ce voisinage, la suite $(x_n)$ converge vers $\sqrt{A}$.
+%		}
+%		
+%		\item \question{ Vérifier graphiquement que si $x_0$ est proche de $-\sqrt{A}$ mais différent de $-\sqrt{A}$, alors la suite $(x_n)$ ne converge pas vers $-\sqrt{A}$. }
+%		\reponse{En prenant $A=\frac{1}{2}$ par exemple, la fonction $g$ correspondante est $g(x)=\frac{-1}{2}x^2+\frac{1}{4}+x$ et on vérifie que:
+%			\begin{itemize}
+%				\item pour $x_0<-\sqrt{A}$, la suite $(x_n)$ diverge,
+%				\item pour $-\sqrt{A}<x_0\leq \sqrt{A}$, la suite $(x_n)$ converge vers $\sqrt{A}$.
+%			\end{itemize}
+%			\begin{center} 
+%				\newcommand\newtfonc[1]{-1/2*#1*#1+#1+0.25) } 
+%				\begin{tikzpicture}[scale=.5]
+%				\begin{axis}[
+%				width=14cm, height=10cm,
+%				axis x line=center, 
+%				axis y line=middle,
+%				xlabel =$x$,
+%				every axis x label/.style={
+%					at={(ticklabel* cs:1.0)},
+%					anchor=west,
+%				},
+%				ylabel = $y$,
+%				every axis y label/.style={
+%					at={(ticklabel* cs:1)},
+%					anchor=south,},
+%				legend style={draw=none,at={(-.1,1)},anchor=north west,font=\large },
+%				samples=100,
+%				ymin=-1.8, ymax=1,
+%				xmin=-1.5, xmax=3,
+%				ytick={0 },
+%				xtick={0 },
+%				legend cell align=left,
+%				]
+%				\addplot [mark=none,line width=.5mm,blue,domain= -1.5:2.5 ]{\newtfonc{x} };
+%				\node[label={90:{\large{$-\sqrt{A}$}}},circle,fill,red,inner sep=2pt] at (axis cs:-0.707,0) {};
+%				\node[label={-90:{\large{$\sqrt{A}$}}},circle,fill,red,inner sep=2pt] at (axis cs:0.707 ,0) {};
+%				\addplot [dotted,thick,blue] coordinates { (-0.707,0) (-0.707,-0.707)};
+%				\addplot [dotted,thick,blue] coordinates { (0.707,0) (0.707,0.707)};
+%				\addplot [line width=.3mm,red] {x};
+%				\end{axis}
+%				\end{tikzpicture}
+%			\end{center}
+%			Il est intéressant de noter que pour $x_0=2+\sqrt{A}$, la suite $(x_n)$ converge en une itération vers $-\sqrt{A}$.
+%		}
+%		
+%		
+%		
+%		\item \question{ Quel est l'ordre de convergence de la méthode de la corde dans ce cas-là ? }
+%		\reponse{On a $g'(x)=1-x$ donc $g'(\sqrt{A})= 1-\sqrt{A}\neq 0$ si $A\neq 1$. On en conclut que la méthode de la corde a une convergence linéaire pour $A\neq 1$.
+%		}
+%	\end{enumerate}
+%		\item \question{ Proposer un algorithme plus efficace pour calculer la racine carrée d'un nombre positif $A$. }
+%		\reponse{En choisissant la méthode de Newton pour résoudre $f(x)=0$ avec $f(x)=x^2-A$, on a
+%			\[x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}=x_k-\frac{x_k^2-A}{2x_k}, \quad \text{pour } k=0,1,2,... \]
+%			Cette méthode est plus efficace que la méthode de la corde car la méthode de Newton converge à l'ordre $2$ pour tout $x_0>0$ (on montre d'abord que $|g'(x)|<1 \Leftrightarrow x>\sqrt{\frac{A}{3}}$, puis que $]\sqrt{\frac{A}{3}};+\infty[$ est stable par $g$, ce qui prouve la convergence globale pour tout $x_0>\sqrt{\frac{A}{3}}$. Enfin, en considérant le cas $x_0<\sqrt{\frac{A}{3}}$, on montre que $x_1 \in]\sqrt{\frac{A}{3}};+\infty[$ et on se retrouve dans le cas précédent à partir de $x_1$). 
+%		}
+%\end{enumerate}
+%}
+}

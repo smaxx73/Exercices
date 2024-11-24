@@ -1,0 +1,164 @@
+\uuid{hWFx}
+\titre{Loi conjointe}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+	
+\texte{ Soient $X$ et $Y$ deux variables aléatoires réelles et soient $y$ et $a$ deux paramètres réels tels que la loi du couple $(X,Y)$ soit donnée par le tableau joint:
+\begin{center}
+	{\renewcommand{\arraystretch}{1.2}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$X \backslash Y$ & $-1$ & $y$ \\
+		\hline
+		$-2$ & $\frac{1}{6}$ & $\frac{2}{18}$ \\
+		\hline
+		$-1$ & $\frac{1}{9}$ & $0$ \\
+		\hline
+		$1$ & $0$ & $a$ \\
+		\hline
+		$2$ & $\frac{1}{18}$ & $\frac{2}{6}$ \\
+		\hline
+	\end{tabular}}
+\end{center} }
+\begin{enumerate}
+	\item \question{ Quelle est la valeur du paramètre $a$ ? }
+	\reponse{ On a nécessairement:
+		\[ \frac{1}{6}+\frac{2}{18}+\frac{1}{9}+ a +\frac{1}{18}+\frac{2}{6}=1\]
+		donc $a=\frac{2}{9}$.
+	}
+	
+	\item \question{ Déterminer les lois marginales de $X$ et de $Y$. Ces variables sont-elles indépendantes ? }
+	\reponse{
+		\begin{center}
+			\begin{tabular}{|c|c|c||c|}
+				\hline
+				$X \backslash Y$ & $-1$ & $y$ & $\prob_X$ (loi de $X$) \\
+				\hline
+				$-2$ & $\frac{3}{18}$ & $\frac{2}{18}$ & $\frac{5}{18}$ \\
+				\hline
+				$-1$ & $\frac{2}{18}$ & $0$ & $\frac{2}{18}$ \\
+				\hline
+				$1$ & $0$ & $\frac{4}{18}$ & $\frac{4}{18}$ \\
+				\hline
+				$2$ & $\frac{1}{18}$ & $\frac{6}{18}$ & $\frac{7}{18}$ \\
+				\hline
+				\hline
+				$\prob_Y$ (loi de $Y$) & $\frac{6}{18}$ & $\frac{12}{18}$ & 1 \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
+		Il n'y a pas indépendance des variables $X$ et $Y$ car $\prob(X=1,Y=-1)=0$ et $\prob(X=1)\prob(Y=-1)=\frac{6}{18}\times \frac{4}{18}\neq 0$.
+	}
+	
+	
+	
+	\item \question{ Calculer $\E(X)$ et $\E(Y)$. }
+	\reponse{L'espérance de $X$ est la suivante:
+		\begin{align*}
+		\E(X)&= (-2)\prob(X=-2)+(-1)\prob(X=-1)+1\prob(X=1)+2\prob(X=2) \\
+		&= (-2)\times \frac{5}{18}+(-1) \frac{2}{18}+\frac{4}{18}+2\times \frac{7}{18} \\
+		&=\frac{1}{3}.
+		\end{align*}
+		L'espérance de $Y$ est
+		\begin{align*}
+		\E(Y)&= (-1)\prob(Y=-1)+y\prob(Y=-y) \\
+		&= (-1)\times \frac{6}{18}+y\times \frac{12}{18} \\
+		&=\frac{-1}{3}+\frac{2}{3}y.
+		\end{align*}
+	}
+	
+	\item \question{ Déterminer $y$ de sorte que $\E(X.Y)=0$. }
+	\reponse{Il faut déterminer la loi de $XY$. Les valeurs possibles prises par $XY$ sont données dans le tableau suivant:
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$X \backslash Y$ & $-1$ & $y$  \\
+				\hline
+				$-2$ & $XY=2$ & $XY=-2y$  \\
+				\hline
+				$-1$ & $XY=1$ & $XY=-y$  \\
+				\hline
+				$1$ & $XY=-1$ & $XY=y$  \\
+				\hline
+				$2$ & $XY=-2$ & $XY=2y$  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		On en déduit la loi de $XY$:
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+				\hline
+				$k$ & $-2$ & $-1$ & $1$ & $2$ & $-2y$ & $-y$ & $y$ & $2y$ \\
+				\hline
+				$\prob(XY=k)$ & $\frac{1}{18}$ & $0$ & $\frac{2}{18}$ & $\frac{3}{18}$ & $\frac{2}{18}$ & $0$ & $\frac{4}{18}$ & $\frac{6}{18}$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		soit de manière plus synthétique:
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				$k$ & $-2$ & $1$ & $2$ & $-2y$  & $y$ & $2y$ \\
+				\hline
+				$\prob(XY=k)$ & $\frac{1}{18}$ & $\frac{2}{18}$ & $\frac{3}{18}$ & $\frac{2}{18}$ & $\frac{4}{18}$ & $\frac{6}{18}$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		L'espérance de $XY$ est donc la suivante:
+		\[ \E(XY)= \frac{1}{18} \times (-2+2+6-4y+4y+12y)=\frac{1}{18}\times (6+12y).\]
+		On a ainsi
+		\begin{align*}
+		\E(XY)=0 \quad & \Leftrightarrow \quad \frac{1}{18}\times (6+12y)=0 \\
+		& \Leftrightarrow \quad y=\frac{-1}{2}.
+		\end{align*}
+	}
+	
+	\item \question{ On pose désormais $y=1$ et on considère les variables aléatoires $U=Y$ et $V=\frac{X}{Y}$.
+	Déterminer le tableau de la loi de probabilité du couple $(U,V)$. Que peut-on dire des variables aléatoires $U$ et $V$ ? }
+	\reponse{On s'intéresse d'abord aux valeurs que le couple $(U=Y,V=\frac{X}{Y})$ peut prendre:
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$X \backslash Y$ & $-1$ & $1$  \\
+				\hline
+				$-2$ & $(U,V)=(-1,2)$ & $(U,V)=(1,-2)$  \\
+				& $\frac{3}{18}$ & $\frac{2}{18}$ \\
+				\hline
+				$-1$ & $(U,V)=(-1,1)$ & $(U,V)=(1,-1)$  \\
+				& $\frac{2}{18}$ & $0$ \\
+				\hline
+				$1$ & $(U,V)=(-1,-1)$ & $(U,V)=(1,1)$  \\
+				& $0$ & $\frac{4}{18}$ \\
+				\hline
+				$2$ & $(U,V)=(-1,-2)$ & $(U,V)=(1,2)$  \\
+				& $\frac{1}{18}$ & $\frac{6}{18}$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		On obtient ainsi la loi du couple $(U,V)$:
+		\begin{center}
+			\begin{tabular}{|c|c|c|c||c|}
+				\hline
+				$X \backslash Y$ & $-2$ & $1$ & $2$ & $\prob_U$ (loi de $U$)  \\
+				\hline
+				$-1$ & $\frac{1}{18}$ & $\frac{2}{18}$ & $\frac{3}{18}$ & $\frac{6}{18}$  \\
+				\hline
+				$1$ & $\frac{2}{18}$ & $\frac{4}{18}$ & $\frac{6}{18}$ & $\frac{12}{18}$  \\
+				\hline
+				\hline
+				$\prob_V$ (loi de $V$) & $\frac{3}{18}$ & $\frac{6}{18}$ & $\frac{9}{18}$ & $1$  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		On peut vérifier que:
+		\[ \forall i\in\{-1,1\}, \forall j\in\{-2,1,2\}, \quad \prob(U=i,V=j)=\prob(U=i)\times \prob(V=j)\]
+		donc les variables aléatoires $U$ et $V$ sont indépendantes.
+	}
+	
+\end{enumerate}
+
+}

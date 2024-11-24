@@ -1,0 +1,24 @@
+\uuid{Po88}
+\titre{Limite et continuité d'une fonction définie sur $\R^2$}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit $f \colon \R^2 \to \R$,
+$$ (x,y) \mapsto \left\{ \begin{array}{ll} \dfrac{x^2 y}{x^4 - 2x^2y + 3y^2} & \text{ si } (x,y) \neq (0,0) \\
+0 & \text{ si } (x,y) = (0,0) \end{array} \right.
+$$ }
+\begin{enumerate}
+	\item \question{ Montrer que la restriction de $f$ à toute droite passant par l'origine est continue en $(0,0)$. Autrement dit, montrer que les trois limites suivantes existent et sont égales à $0$ :
+	\begin{enumerate}
+		\item $\lim\limits_{x \to 0} f(x,0)$,
+		\item $\lim\limits_{x \to 0} f(x,ax)$, pour $a \in \R^*$,
+		\item $\lim\limits_{y \to 0} f(0,y)$
+	\end{enumerate} }
+	\reponse{On a effectivement $f(x,0) = 0  \xrightarrow[x \to 0]{} 0$, $f(x,ax) = \frac{ax}{x^2-2ax+3a^2}  \xrightarrow[x \to 0]{} 0$ et $f(0,y) = 0 \xrightarrow[y \to 0]{} 0$.  }
+	\item \question{ Calculer la limite en $(0,0)$ de la restriction de $f$ à la courbe d'équation $y=x^2$. }
+	\reponse{On évalue $f$ sur la courbe d'équation $y=x^2$ : quelque soit $x$, $f(x,x^2) = \frac{x^4}{x^4(1-2+3)} = \frac{1}{2} \xrightarrow[x \to 0]{} \frac{1}{2}$.}
+	\item \question{ La fonction $f$ est-elle continue en $(0,0)$~? Justifier. }
+	\reponse{D'après ce qui précède, $f$ n'est pas continue en $(0,0)$ puisqu'on observe des limites différentes en $(0,0)$ selon le chemin suivi.}
+\end{enumerate}}

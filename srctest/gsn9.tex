@@ -1,0 +1,34 @@
+\uuid{gsn9}
+\titre{Fonction de répartition}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit $\lambda>0$ et $X$ une variable aléatoire admettant pour densité $f(x)=\lambda e^{-\lambda x}1_{[0;+\infty[}(x)$.  }
+
+\begin{enumerate}
+    \item \question{ Vérifier que $f$ définit bien une fonction densité, puis déterminer la fonction de répartition $F_X$ de $X$. }
+    \reponse{Il suffit de vérifier que $f(x) \geq 0$ pour tout $x \in \R$ puis de calculer :
+        \begin{align*}
+        \int_{-\infty}^{+\infty} f(x)dx &= \int_0^{+\infty} \lambda e^{-\lambda x} dx \\
+                                       &= \left[-e^{-\lambda x}\right]_0^{+\infty} \\
+                                       &= 1
+        \end{align*}
+   On détermine maintenant la fonction de répartition : soit $t \in \R$ ;
+   \begin{itemize}
+       \item si $t<0$, alors $F_X(t) = \int_{-\infty}^t f(x)dx = \int_{-\infty}^t 0 dx = 0$ ;
+       \item si $t \geq 0$, alors $F_X(t) = \int_{-\infty}^t f(x)dx = \int_{-\infty}^0 0 dx + \int_0^t \lambda e^{-\lambda x} dx = 0 + \left[-e^{-\lambda x}\right]_0^t = 1 - e^{-\lambda t}$.
+   \end{itemize} 
+   }
+
+    \item \question{ Exprimer $\prob(-1 \leq X \leq 1)$ en fonction de $F_X$ et en déduire une valeur numérique. }
+    \reponse{
+        \begin{align*}
+            \prob(-1 \leq X \leq 1) &= F_X(1) - F_X(-1) \\
+                                    &= (1-e^{-\lambda}) - 0 \\
+                                    &= 1-e^{-\lambda}
+        \end{align*}
+    }
+\end{enumerate}
+}

@@ -1,0 +1,27 @@
+\uuid{aWAS}
+\titre{Développement limité}
+\theme{analyse asymptotique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Donner le développement limité de $e^x$ et de $\sin(x)$ au voisinage de $0$ à l'ordre $3$. En déduire le  développement limité de $e^x \cdot \sin(x)$ à l'ordre $3$.  }
+
+\reponse{ 
+	On prend d'abord les développements usuels :
+	$$
+	\begin{aligned}
+		e^{x} &=1+x+\frac{x^{2}}{2 !}+\frac{x^{3}}{3 !}+x^{3} \cdot \varepsilon(x)=1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6}+o\left(x^{3}\right) \\
+		\sin x &=x-\frac{x^{3}}{3 !}+x^{3} \cdot \varepsilon(x)=x-\frac{x^{3}}{6}+o\left(x^{3}\right)
+	\end{aligned}
+	$$
+	Effectuons le produit $\left(1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6}\right) \times\left(x-\frac{x^{3}}{6}\right)$ en ne conservant que les termes de degré $\leq 3$ :
+	$$
+	\begin{aligned}
+		\left(1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6}\right) \times\left(x-\frac{x^{3}}{6}\right) &=1 \times\left(x-\frac{x^{3}}{6}\right)+x \times(x)+\frac{x^{2}}{2} \times(x)+\ldots \\
+		&=x+x^{2}+\left(-\frac{1}{6}+\frac{1}{2}\right) x^{3}+\ldots \\
+		&=x+x^{2}+\frac{x^{3}}{3}+\ldots
+	\end{aligned}
+	$$
+	Ainsi : $e^{x} \cdot \sin (x)=x+x^{2}+\frac{x^{3}}{3}+o\left(x^{3}\right)=x+x^{2}+\frac{x^{3}}{3}+x^{3} \cdot \varepsilon(x)$
+}}

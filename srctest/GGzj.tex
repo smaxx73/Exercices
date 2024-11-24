@@ -1,0 +1,30 @@
+\uuid{GGzj}
+\titre{\'Etude d'une fonction de deux variables}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Soit la fonction $f \colon \R^2 \to \R$ définie par : $$f(x,y) = \frac{x+y}{x^2+y^2}$$ }
+
+\begin{enumerate}
+	\item \question{ Donner l'ensemble de définition de $f$. }
+	\reponse{ La fonction $f$ est définie pour tout $(x,y) \in \R^2$ tels que $x^2+y^2 \neq 0$, c'est-à-dire $(x,y) \neq (0,0)$. L'ensemble de définition est donc $\mathcal{D}_f = \{(x,y) \in \R^2 \, , \, (x,y) \neq (0,0) \}$. }
+	\item \question{ Montrer que la courbe de niveau $k=0$ est une droite dont on précisera l'équation. }
+		\reponse{ $f(x,y) = 0 \iff y = -x$, la courbe de niveau $0$ est donc la droite d'équation $y=-x$. }
+	\item \question{ Quelle est la forme des courbes de niveau $k \neq 0$ ? }
+		\reponse{ Soit $k \neq 0$ : $f(x,y) = k \iff x+y = k(x^2+y^2) \iff x^2 + y^2 - \frac{1}{k}x - \frac{1}{k}y = 0$, la courbe de niveau $k$ est donc un cercle. }	
+	\item \question{ Calculer $\lim\limits_{x \to 0} f(x,0)$, $\lim\limits_{x \to 0} f(x,x)$ et $\lim\limits_{x \to 0} f(x,-x)$.  }
+	\reponse{ $\lim\limits_{x \to 0} f(x,0) = \lim\limits_{x \to 0}\frac{1}{x} = \begin{cases}
+			+\infty & \text{ si } x > 0 \\
+			-\infty & \text{ si } x < 0
+			\end{cases}$. \\
+		De même, $\lim\limits_{x \to 0} f(x,x) = \lim\limits_{x \to 0} \frac{2x}{2x^2} =  \begin{cases}
+			+\infty & \text{ si } x > 0 \\
+			-\infty & \text{ si } x < 0
+		\end{cases}$. \\
+	Enfin, $\lim\limits_{x \to 0} f(x,-x) = \lim\limits_{x \to 0} 0 = 0$.
+		}
+	\item \question{ Peut-on prolonger la fonction $f$ en $(0,0)$ afin qu'elle soit continue en $(0,0)$ ? Justifier. }
+	\reponse{ Pour pouvoir prolonger la fonction $f$ en $(0,0)$ afin qu'elle soit continue en $(0,0)$, il faudrait que $f$ admette une limite quand $(x,y) \to (0,0)$. D'après la question précédente, ce n'est pas le cas. }
+\end{enumerate}}

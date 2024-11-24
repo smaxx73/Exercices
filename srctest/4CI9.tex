@@ -1,0 +1,53 @@
+\uuid{4CI9}
+\titre{Fonctions homogènes}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+%FCTPV97, Erwan ex17
+\texte{ Soit $\alpha \in \R$. Soit $f \colon \R^* \times \R^* \to \R$ de classe $\mathcal{C}^1$. On dit que $f$ est homogène de degré $\alpha$ si pour tout $(x,y,t) \in \left(\R^*\right)^3$ :
+$$f(tx,ty) = t^\alpha f(x,y)$$ }
+
+\begin{enumerate}
+	\item \question{ Donner un exemple de fonction de deux variables homogène de degré 2 et vérifier que ses dérivées partielles sont homogènes de degré 1.  }
+	\reponse{Posons par exemple $f(x,y) = x^2+xy+y^2$ : on observe que que pour tout $t \in \R^*$, $f(tx,ty) = t^2x^2+t^2xy+t^2y^2 = t^2(x^2+xy+y^2) = t^2f(x,y)$ ce qui prouve que $f$ est homogène de degré 2.}
+	\item \question{ Soit $f \colon \R^* \times \R^* \to \R$ de classe $\mathcal{C}^1$ et $t \in \R^*$. Pour tout $(x,y) \in \R^* \times \R^*$, on pose $g_t(x,y) = f(tx,ty)$. En calculant les dérivées partielles de $g$ de deux manières différentes, montrer que si $f$ est homogène de degré $\alpha$ alors $\frac{\partial f}{\partial x}$ et $\frac{\partial f}{\partial y}$ sont homogènes de degré $\alpha-1$. }
+	\reponse{On dérive l'expression qui caractérise les fonctions homogènes pour faire apparaître des relations mettant en jeu les dérivées partielles de $f$. D'une part, on a en vertu de la règle des chaînes :
+		$$\frac{\partial}{\partial x}\left( f(tx,ty) \right) = t\frac{\partial f}{\partial x}(tx,ty)$$
+		D'autre part, on a 
+		$$\frac{\partial}{\partial x}\left( t^\alpha f(x,y) \right) = t^\alpha\frac{\partial f}{\partial x}(x,y)$$
+		Si $f$ est homogène de degré $\alpha$, alors on peut égaliser ces deux expressions, ce qui donne 
+		$$t\frac{\partial f}{\partial x}(tx,ty) = t^\alpha\frac{\partial f}{\partial x}(x,y)$$
+		Comme $t$ est supposé non nul, on en déduit que 
+		$$\frac{\partial f}{\partial x}(tx,ty) = t^{\alpha-1}\frac{\partial f}{\partial x}(x,y)$$
+		Ceci étant vrai pour tout $(x,y,t) \in \left(\R^*\right)^3$, on en déduit que $\frac{\partial f}{\partial x}$ est bien une fonction homogène de degré $\alpha-1$.
+		
+		De même, on démontre que $\frac{\partial f}{\partial y}$ est bien une fonction homogène de degré $\alpha-1$.
+	}
+	\item \question{ Démontrer que si $f$ est homogène de degré $\alpha$ alors $f$ vérifie la relation d'Euler :
+	$$\forall (x,y) \in \R^* \times \R^* \qquad x \frac{\partial f}{\partial x}(x,y) + y \frac{\partial f}{\partial y}(x,y) = \alpha f(x,y)$$ }
+	\reponse{ On dérive cette fois-ci par rapport à $t$ : d'après la règle des chaînes, on obtient d'une part :
+		$$\frac{\partial}{\partial t}\left( f(tx,ty) \right) = x\frac{\partial f}{\partial x}(tx,ty) +y\frac{\partial f}{\partial y}(tx,ty) $$
+		et d'autre part :
+		$$\frac{\partial}{\partial t}\left( t^\alpha f(x,y) \right) = \alpha t^{\alpha-1}f(x,y)$$
+		Supposons que $f$ est homogène de degré $\alpha$, alors ces deux expressions sont égales pour tout $(x,y,t) \in \left(\R^*\right)^3$ :
+		$$x\frac{\partial f}{\partial x}(tx,ty) +y\frac{\partial f}{\partial y}(tx,ty) = \alpha t^{\alpha-1}f(x,y)$$
+		D'après la question précédente, on sait que les dérivées partielles sont homogènes de degré $\alpha-1$ donc par définition :
+		$$xt^{\alpha-1}\frac{\partial f}{\partial x}(x,y) +yt^{\alpha-1}\frac{\partial f}{\partial y}(x,y) = \alpha t^{\alpha-1}f(x,y)$$
+		On divise par $t^{\alpha-1} \neq 0$ et on obtient la relation d'Euler attendue.
+	}
+	\item \question{ Démontrer que si $f$ est de classe $\mathcal{C}^2$ et homogène de degré $\alpha$ alors 
+	$$\forall (x,y) \in \R^* \times \R^* \qquad x^2 \frac{\partial^2 f}{\partial x^2}(x,y) + 2xy \frac{\partial^2 f}{\partial x \partial y}(x,y) + y^2 \frac{\partial^2 f}{\partial y^2}(x,y) = \alpha (\alpha-1) f(x,y)$$ }
+	\reponse{On exploite les questions précédentes : on sait désormais que $\frac{\partial f}{\partial x}$ est une fonction homogène de degré $\alpha-1$, on en déduit que $\frac{\partial f}{\partial x}$  vérifie  la relation d'Euler :
+		$$ x \frac{\partial^2 f}{\partial x^2}(x,y) + y \frac{\partial^2 f}{\partial y \partial x}(x,y) = (\alpha-1) \frac{\partial f}{\partial x}(x,y)$$
+		De même, $\frac{\partial f}{\partial y}$  vérifie  la relation d'Euler :
+		$$ x \frac{\partial^2 f}{\partial x \partial y}(x,y) + y \frac{\partial^2 f}{\partial y^2}(x,y) = (\alpha-1) \frac{\partial f}{\partial y}(x,y)$$
+		Or $f$ vérifie également la relation d'Euler et en multipliant celle-ci par $(\alpha-1)$ on obtient :
+		$$(\alpha-1)x \frac{\partial f}{\partial x}(x,y) + (\alpha-1)y \frac{\partial f}{\partial y}(x,y) = (\alpha-1)\alpha f(x,y)$$
+		En y substituant les égalités précédentes, on obtient :
+		$$x^2 \frac{\partial^2 f}{\partial x^2}(x,y) + xy \frac{\partial^2 f}{\partial y \partial x}(x,y) +  yx \frac{\partial^2 f}{\partial x \partial y}(x,y) + y^2 \frac{\partial^2 f}{\partial y^2}(x,y)$$
+		Or $xy=yx$ et d'après le théorème de Schwarz (Th 2.10 du cours) : $\frac{\partial^2 f}{\partial y \partial x}(x,y) = \frac{\partial^2 f}{\partial x \partial y}(x,y)$ d'où l'égalité attendue :
+		$$x^2 \frac{\partial^2 f}{\partial x^2}(x,y) + 2xy \frac{\partial^2 f}{\partial x \partial y}(x,y) + y^2 \frac{\partial^2 f}{\partial y^2}(x,y) = \alpha (\alpha-1) f(x,y)$$
+	}
+\end{enumerate}}

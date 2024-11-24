@@ -1,0 +1,67 @@
+\uuid{Ocbl}
+\titre{ Convergence vers une loi exponentielle }
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Soit une suite de variables indépendantes $(U_i)_{i \in \N^*}$ suivant chacune une loi uniforme $\mathcal{U}([0;1])$. Pour tout $n \in \N^*$, on pose $M_n = \max(U_1,...,U_n)$. }
+
+\begin{enumerate}
+	\item \question{ Démontrer que $M_n \xrightarrow[]{\mathcal{P}} 1$. }
+	      \reponse{ Soit $M_n=\max \left(U_1, \ldots, U_n\right)$. Pour tout $i$, $U_i \leqslant 1$ donc  $M_n \leqslant 1$. 
+	      	Soit $\varepsilon>0$. On cherche la limite de
+	      	$$
+	      	P\left(\left|M_n-1\right|<\varepsilon\right)=P\left(1-M_n<\varepsilon\right) = P\left(M_n > 1-\varepsilon\right)
+	      	$$
+	      	Or la fonction de répartition de $M_n$ est définie pour tout réel $t$ par 
+	      	\begin{align*}
+	      	F_n(t) &=\PP\left(\Pi_n \leq t\right)=P\left(\bigcap_{i=1}^n\left(U_i \leqslant t\right)\right)\\
+	      	       & = \prod_{i=1}^n \PP\left(U_i \leq t\right) \text { par indépendance }\\
+	      	       &=\PP\left(U_1 \leqslant t\right)^n \text { car les variables sont identiquement distribuées }\\
+	      	       &= \begin{cases}
+	      	       	      	0   & \text{si } t<0\\
+	      	                t^n & \text{si } t \in [0;1]\\
+	      	                1   & \text{si } t>1
+	      	          \end{cases} \\
+	      	\end{align*}
+	      	Donc 
+	      	\begin{align*}
+	      	  \PP(M_n > 1- \varepsilon) &= 1 - \PP(M_n \leq 1- \varepsilon)  \\
+	      	                            &= 1 - \left(1-\varepsilon\right)^n  \\
+	      	                            &\xrightarrow[n \to +\infty]{} 1
+	      	\end{align*}
+	      	ce qui achève la démonstration de la convergence en probabilité de la suite $(M_n)$ vers $1$. 
+	      	 }
+	\item \question{ En déduire que $M_n \xrightarrow[]{\text{p.s.}} 1$ et $M_n \xrightarrow[]{\text{en loi}} 1$. }
+	      \reponse{ On remarque que pour tout $\omega \in \Omega$, la suite $(M_n(\omega))$ est une suite réelle croissante. Cette suite est également majorée par $1$ puisque chaque variable $U_i$ est majorée par $1$. La suite $(M_n(\omega))$ est donc une suite convergente, notons $L(\omega)$ sa suite. Il existe donc une variable aléatoire $L$ telle que la suite $(M_n)$ converge vers $L$ presque sûrement. 
+	      	
+	      Or on sait que la convergence presque sûre implique la convergence en probabilité. Et d'après la question précédente, la suite $(M_n)$ converge en probabilité vers la variable aléatoire constante $1$. 
+	      
+	      Par unicité de la limite, on déduit que pour tout $\omega \in \Omega$, $L(\omega) = 1$. 
+	      	
+	      	On a donc montré que $M_n \xrightarrow[]{\text{p.s.}} 1$, ce qui implique directement par théorème du cours que $M_n \xrightarrow[]{\text{en loi}} 1$.
+	  
+	         
+       }
+	\item \question{ Pour tout $n \in \N^*$, on pose $Y_n = n(1-M_n)$. Démontrer que la suite $(Y_n)$ converge en loi vers une loi exponentielle dont on précisera le paramètre.  }
+	      \reponse{ On cherche à étudier la convergence de la fonction de répartition $F_{Y_n}$ de $Y_n$. Soit $t \in \R$. On constate que $$Y_n\leq t\iff M_n\geq 1-\frac {t}{n}$$
+	      Si $t \leq 0$ alors $\PP(Y_n \leq t) = \PP(M_n\geq 1-\frac {t}{n}) = 0$ car $M_n \leq 1$. 
+	      
+	      Si $t \in [0;n]$ alors $\PP(Y_n \leq t) = 1 - \left(1-\frac {t}{n}\right)^n$ d'après la question précédente.
+	      
+	      Si $t >n$  alors $\PP(Y_n \leq t) = 1 $ car $M_n \geq 0$.
+	      
+	      Or $\lim\limits_{n\to+\infty}\left(1-\frac tn\right)^n=e^{-t}.$
+	      
+	      Donc : 
+	      \begin{itemize}
+	      	\item si $t<0$, $F_{Y_n}(t) \xrightarrow[n \to +\infty]{} 0$ ;
+	      	\item si $t \geq 0$, $F_{Y_n}(t) \xrightarrow[n \to +\infty]{} 1-e^{-t}$.
+	      \end{itemize}
+	      
+	      On en déduit que la suite de fonctions $\left(F_{Y_n}\right)$ converge simplement vers la fonction de répartition d'une loi exponentielle de paramètre $1$.
+	      
+	      Cela prouve la convergence en loi de la suite $(Y_n)$ vers une loi exponentielle de paramètre $1$. 
+       }
+\end{enumerate}}

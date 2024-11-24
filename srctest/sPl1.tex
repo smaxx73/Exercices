@@ -1,0 +1,72 @@
+\uuid{sPl1}
+\titre{Inversibilité de matrices}
+\theme{calcul matriciel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Soit la matrice $A=\left(\begin{array}{ccc}3 & 2 & -2 \\ -1 & 0 & 1 \\ 1 & 1 & 0\end{array}\right)$.  }
+
+\question{ Calculer $A^3-3 \cdot A^2+3 \cdot A$ et en déduire la matrice $A^{-1}$. }
+
+
+\reponse{ $$
+	\begin{aligned}
+		& A=\left(\begin{array}{ccc}
+			3 & 2 & -2 \\
+			-1 & 0 & 1 \\
+			1 & 1 & 0
+		\end{array}\right) \\
+		& A^2=A \cdot A=\left(\begin{array}{ccc}
+			3 & 2 & -2 \\
+			-1 & 0 & 1 \\
+			1 & 1 & 0
+		\end{array}\right) \cdot\left(\begin{array}{ccc}
+			3 & 2 & -2 \\
+			-1 & 0 & 1 \\
+			1 & 1 & 0
+		\end{array}\right)=\left(\begin{array}{ccc}
+			5 & 4 & -4 \\
+			-2 & -1 & 2 \\
+			2 & 2 & -1
+		\end{array}\right) \\
+		& A^3=A^2 \cdot A=\left(\begin{array}{ccc}
+			5 & 4 & -4 \\
+			-2 & -1 & 2 \\
+			2 & 2 & -1
+		\end{array}\right) \cdot\left(\begin{array}{ccc}
+			3 & 2 & -2 \\
+			-1 & 0 & 1 \\
+			1 & 1 & 0
+		\end{array}\right)=\left(\begin{array}{ccc}
+			7 & 6 & -6 \\
+			-3 & -2 & 3 \\
+			3 & 3 & -2
+		\end{array}\right) \\
+		& A^3-3 \cdot A^2+3 \cdot A=\left(\begin{array}{ccc}
+			7 & 6 & -6 \\
+			-3 & -2 & 3 \\
+			3 & 3 & -2
+		\end{array}\right)-3\left(\begin{array}{ccc}
+			5 & 4 & -4 \\
+			-2 & -1 & 2 \\
+			2 & 2 & -1
+		\end{array}\right)+3\left(\begin{array}{ccc}
+			3 & 2 & -2 \\
+			-1 & 0 & 1 \\
+			1 & 1 & 0
+		\end{array}\right)=\left(\begin{array}{lll}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1
+		\end{array}\right)=I_3
+	\end{aligned}
+	$$
+	On en déduit :
+	$$
+	\begin{gathered}
+		A^3-3 \cdot A^2+3 \cdot A=I_3 \Leftrightarrow A \cdot \underbrace{\left(A^2-3 \cdot A+3 \cdot I_3\right)}_{=A^{-1}}=I_3 \\
+		\Rightarrow A^{-1}=A^2-3 \cdot A+3 \cdot I_3
+	\end{gathered}
+	$$ }}

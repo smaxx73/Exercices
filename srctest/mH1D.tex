@@ -1,0 +1,181 @@
+\uuid{mH1D}
+\titre{Fonction de deux variables et surface représentative}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+	A chaque fonction définie ci-dessous (1-6), associer sa surface représentative (A-F).
+
+\begin{multicols}{3}
+	\begin{enumerate}
+		\item $f(x,y) = |x|+|y|$
+		\item $f(x,y) = |xy|$
+		\item $f(x,y) = \frac{1}{1+x^2+y^2}$
+		\item $f(x,y) = (x^2-y^2)^2$
+		\item $f(x,y) = (x-y)^2$
+		\item $f(x,y) = \sin(|x|+|y|)$
+	\end{enumerate}
+\end{multicols}
+
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=1]
+	\begin{axis}[
+	title={Surface $A$},
+	view={30}{20},
+	mesh/interior colormap name=red,
+	colormap/viridis,
+	xmin=-1, xmax=1,
+	ymin=-1, ymax=1,
+	zmin=0, zmax=2,
+xlabel=$x$,
+ylabel=$y$,
+zlabel={$f(x,y)$},
+axis equal,
+grid=major
+	]
+	\addplot3[
+	domain=-1:1,
+	domain y=-1:1,
+	samples=40,
+	samples y=40,
+	surf,
+	] {abs(x)+abs(y)};
+	\end{axis}
+	\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+	\begin{tikzpicture}[scale=1]
+	\begin{axis}[
+	title={Surface $B$},
+	view={30}{20},
+	mesh/interior colormap name=red,
+	colormap/viridis,
+	xmin=-1, xmax=1,
+    ymin=-1, ymax=1,
+	zmin=0, zmax=1,
+xlabel=$x$,
+ylabel=$y$,
+zlabel={$f(x,y)$},
+axis equal,
+grid=major
+	]
+	\addplot3[
+	domain=-1:1,
+    domain y=-1:1,
+	samples=40,
+	samples y=40,
+	surf,
+	] {abs(x*y)};
+	\end{axis}
+	\end{tikzpicture}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+	\begin{tikzpicture}[scale=1]
+	\begin{axis}[
+	title={Surface $C$},
+	view={30}{20},
+	mesh/interior colormap name=red,
+	colormap/viridis,
+	xmin=-2, xmax=2,
+	ymin=-2, ymax=2,
+	zmin=0, zmax=1,
+xlabel=$x$,
+ylabel=$y$,
+zlabel={$f(x,y)$},
+grid=major
+	]
+	\addplot3[
+	domain=-2:2,
+	domain y=-2:2,
+	samples=40,
+	samples y=40,
+	surf,
+	] {1/(1+x^2+y^2)};
+	\end{axis}
+	\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+		\begin{tikzpicture}[scale=1]
+		\begin{axis}[
+	title={Surface $D$},
+		view={30}{20},
+		mesh/interior colormap name=red,
+		colormap/viridis,
+		xmin=-1, xmax=1,
+		ymin=-1, ymax=1,
+		zmin=0, zmax=0.3,
+	xlabel=$x$,
+	ylabel=$y$,
+	zlabel={$f(x,y)$},
+	axis equal,
+	grid=major
+		]
+		\addplot3[
+		domain=-1:1,
+		domain y=-1:1,
+		samples=40,
+		samples y=40,
+		surf,
+		] {(x^2-y^2)^2};
+		\end{axis}
+		\end{tikzpicture}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+	title={Surface $E$},
+	view={10}{20},
+	mesh/interior colormap name=red,
+	colormap/viridis,
+	xmin=-0.5, xmax=0.5,
+	ymin=-0.5, ymax=0.5,
+zmin=0, zmax=1,
+xlabel=$x$,
+ylabel=$y$,
+zlabel={$f(x,y)$},
+axis equal,
+grid=major
+]
+\addplot3[
+domain=-0.5:0.5,
+domain y=-0.5:0.5,
+samples=40,
+samples y=40,
+surf
+] {(x-y)^2};
+\end{axis}
+\end{tikzpicture}	
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+	title={Surface $F$},
+view={30}{20},
+mesh/interior colormap name=red,
+colormap/viridis,
+xmin=-10, xmax=10,
+ymin=-10, ymax=10,
+zmin=-2, zmax=2,
+xlabel=$x$,
+ylabel=$y$,
+zlabel={$f(x,y)$},
+axis equal,
+grid=major
+]
+\addplot3[
+domain=-10:10,
+domain y=-10:10,
+samples=40,
+samples y=40,
+surf,
+fill opacity=0.9,
+] {sin((abs(x)+abs(y)) r)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}}

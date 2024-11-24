@@ -1,0 +1,52 @@
+\uuid{pWdA}
+\titre{Résolution de système linéaire à coefficients complexes}
+\theme{systèmes linéaires}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Résoudre le système linéaire à coefficients complexes suivant :
+$$
+\left\{\begin{aligned}
+(1+i) x+(1-2 i) y+(-1+3 i) z & =2+i \\
+x-2 y+z & =0 \\
+i x+(2-i) y-2 z & =0
+\end{aligned}\right.
+$$ }
+
+\reponse{ 
+$$
+\begin{aligned}
+& \left\{\begin{aligned}
+(1+i) x+(1-2 i) y+(-1+3 i) z & =2+i \\
+x-2 y+z & =0 \\
+i x+(2-i) y-2 z & =0
+\end{aligned}\right. \\
+& \begin{array}{l}
+\ell_1 \leftarrow \ell_2 \\
+\ell_2 \leftarrow \ell_1-(1+i) \ell_2 \\
+\ell_3 \leftarrow \ell_3-i \ell_2
+\end{array}\left\{\begin{aligned}
+x-2 y+z & =0 \\
+((1-2 i)+(2+2 i)) y+((-1+3 i)-(1+i)) z & =2+i \\
+((2-i)+2 i) y+(-2-i) z & =0
+\end{aligned}\right. \\
+& \Leftrightarrow\left\{\begin{aligned}
+x-2 y+z & =0 \\
+3 y+(-2+2 i) z & =2+i \\
+(2+i) y+(-2-i) z & =0
+\end{aligned}\right. \\
+& \Leftrightarrow\left\{\begin{array}{c}
+x-2 y+z=0 \\
+3 y+(-2+i) z=2+i \\
+(-5 i) z=-3-4 i
+\end{array}\right. \\
+& \Rightarrow\left\{\begin{array}{l}
+x=\frac{4}{5}-\frac{3}{5} i \\
+y=\frac{4}{5}-\frac{3}{5} i \\
+z=\frac{4}{5}-\frac{3}{5} i
+\end{array}\right. \\
+&
+\end{aligned}
+$$
+$$\mathcal{S}  = \left\{\left(\frac{4}{5}-\frac{3}{5} i,\frac{4}{5}-\frac{3}{5} i,\frac{4}{5}-\frac{3}{5} i\right)\right\}$$ }}

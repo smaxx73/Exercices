@@ -1,0 +1,26 @@
+\uuid{9UsO}
+\titre{Séries entières solutions d'équations différentielles}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+	\question{ Déterminer les fonctions développables en série entière au voisinage de $0$ solutions de l'équation différentielle $(E)$ suivante:
+$$ x^2(1-x)y''(x)-x(1+x)y'(x)+y(x)=0.$$ }
+
+\reponse{
+Soit $y$ une solution développable en série entière, de rayon de convergence $R$: on note $\displaystyle y(x)=\sum_{n=0}^{+\infty} a_n x^n$ et on a
+ \[ \forall x \in ]-R;R[, \qquad y'(x)=\sum_{n=1}^{+\infty} na_n x^{n-1} \quad \text{ et } \quad y''(x)=\sum_{n=2}^{+\infty} n(n-1)a_n x^{n-2}.\]
+ On a les équivalences suivantes:
+ \begin{align*}
+  y \text{ solution de }(E) \ & \Leftrightarrow \ 
+   \forall x \in ]-R;R[, \ a_0+(a_2-a_1)x^2 + \sum_{n=3}^{+\infty} [(n^2-2n+1)a_n - (n^2-2n+1)a_{n-1}] x^n =0  \\
+  \ & \Leftrightarrow \
+   a_0=0 \quad \text{ et } \quad a_2=a_1 \quad \text{ et } \quad  \forall n \geq 3, \ a_n=a_{n-1}
+ \end{align*}
+On en conclut que $a_0=0$ et pour tout $n\geq 1$, $a_n=a_1$ et donc les solutions développables en série entière au voisinage de $0$ de cette équation différentielle sont les fonctions $y_\alpha$, avec $\alpha\in\R$, définies par:
+ \[ y(x)=\alpha \sum_{n=1}^{+\infty} x^n\]
+ sur l'intervalle $]-1;1[$. On peut également déterminer la fonction somme, ce qui donne
+\[\forall x \in ]-1;1[, \qquad  y(x)=\alpha x\sum_{n=0}^{+\infty} x^n=\frac{\alpha x}{1-x}.\]
+}
+}

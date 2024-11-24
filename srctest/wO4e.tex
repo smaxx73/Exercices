@@ -1,0 +1,33 @@
+\uuid{wO4e}
+\titre{Résolution de système linéaire à paramètre}
+\theme{systèmes linéaires}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Résoudre le système d'équations suivant, où $x, y, z \in \mathbb{R}_{+}^*$ :
+$$(\mathcal{S})\left\{\begin{array}{l}y^3 \times z^5=2 x^2 \\ x \times y^4 \times z^3=1 \\ x \times z^2=3 y\end{array}\right.$$ }
+
+\reponse{ 
+On pose $X = \ln(x)$, $Y = \ln(y)$, $Z = \ln(z)$ et on utilise les formules suivantes :
+$$
+\begin{aligned}
+& \ln (a \times b)=\ln a+\ln b \\
+& \ln \left(a^n\right)=n \ln a \\
+& (\mathcal{S})\Leftrightarrow \quad \begin{array}{c}
+\ell_1 \\
+11 \ell_3+5 \ell_2
+\end{array}\left\{\begin{array}{l}
+X+4 Y+3 Z=0 \\
+Y+Z=\frac{\ln 2}{11} \\
+44 Z=11 \cdot \ln 3+5 \cdot \ln 2
+\end{array}\right. \\
+& \Leftrightarrow\left\{\begin{array}{l}
+X=\frac{11 . \ln 3-11 . \ln 2}{44} \\
+Y=\frac{-11 . \ln 3-\ln 2}{44} \\
+Z=\frac{11 . \ln 3+5 \ln 2}{44}
+\end{array}\right. \\
+&
+\end{aligned}
+$$
+$\Rightarrow\left\{\begin{array}{l}x=e^X=e^{\frac{11}{44} \ln 3-\frac{11}{44} \ln 2}=\frac{3^{\frac{1}{4}}}{2^{\frac{1}{4}}} \\ y=e^Y=e^{-\frac{11}{44} \ln 3-\frac{1}{44} \ln 2}=3^{-\frac{1}{4}} \times 2^{-\frac{1}{44}} \\ z=e^Z=e^{\frac{11}{44} \ln 3+\frac{5}{44} \ln 2}=3^{\frac{1}{4}} \times 2^{\frac{5}{44}}\end{array}\right.$ }}

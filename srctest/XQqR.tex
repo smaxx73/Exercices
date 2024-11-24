@@ -1,0 +1,29 @@
+\uuid{XQqR}
+\titre{Méthode du point milieu (Euler améliorée)}
+\theme{analyse numérique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+
+\texte{ La méthode d'Euler explicite est convergente et consistante d'ordre 1. On considère l'approximation suivante :
+	 $$\int_{t_n}^{t_{n+1}}f(s,y(s))ds \approx h\cdot f\left( t_n+\frac{h}{2},y\left( t_n+\frac{h}{2} \right)  \right).$$
+
+La méthode qui en découle s'écrit donc sous la forme 
+$$y_{n+1} = y_n + h\cdot f\left( t_n + \frac{h}{2},y_{n+1/2} \right)$$
+où $y_{n+1/2}$ reste à définir sous la forme 
+$$y_{n+1/2} = y_n + \frac{h}{2}G(t_n,y_n,h)$$ }
+
+\question{ Déterminer une fonction $G$ permettant à ce schéma d'être consistant d'ordre 2. }
+
+\reponse{
+La méthode s'écrit donc sous la forme $y_{n+1} = y_n + H(t_n,y_n,h)$ avec $H(t,y,h) = f\left(t+\frac{h}{2},y+\frac{h}{2}G(t,y,h)  \right)$
+
+Quel que soit le choix de $G$, on obtient $H(t,y,0) = f(t,y)$ de sorte que par théorème, la méthode est consistante au moins d'ordre 1.
+
+On dérive $H$ par rapport à $h$ :
+...
+
+et on trouve que $\frac{\partial H}{\partial h}(t,y,0) = \frac{1}{2} f^{[1]}(t,y)$ si et seulement si $G(t,y,0)=f(t,y)$. On prend donc $G(t,y,h)=f(t,y)$.
+}}

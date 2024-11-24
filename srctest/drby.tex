@@ -1,0 +1,64 @@
+\uuid{drby}
+\titre{Temps d'attente}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+%
+\contenu{
+
+	\texte{ Le temps d'attente à une caisse de supermarché peut être modélisé par une variable aléatoire $T$ qui suit une loi exponentielle de paramètre $\lambda >0$.  }
+\begin{enumerate}
+	\item \question{ Vérifier que le choix d'un paramètre $\lambda = 0{,}12$ permet d'avoir environ $\prob(T \leq 10) = 0{,}7$. Par la suite, on fixera $\lambda = 0{,12}$. }
+	\reponse{
+		\begin{align*}
+			\prob(T \leq 10) &= \int_{-\infty}^{10} \lambda e^{-\lambda x} \dx \\
+			                 &= \int_0^{10} \lambda e^{-\lambda x} \dx \\
+			                 &= \left[ -e^{-\lambda x} \right]_0^{10} \\
+			                 &= 1 - e^{-\lambda \times 10} \\
+			                 &= 1 - e^{-1{,}2} \\
+			                 &\approx 0{,}7
+		\end{align*}
+	}
+	\item \question{ Calculer $\prob(T > 5)$ et interpréter. }
+	\reponse{
+		\begin{align*}
+			\prob(T > 5) &= 1 - \prob(T \leq 5) \\
+			             &= 1 - \int_{-\infty}^5 \lambda e^{-\lambda x} \dx \\
+			             &= 1 - \int_0^5 \lambda e^{-\lambda x} \dx \\
+			             &= 1 - \left[ -e^{-\lambda x} \right]_0^5 \\
+			             &= 1 - \left( -e^{-\lambda \times 5} + 1 \right) \\
+			             &= e^{-\lambda \times 5} \\
+			             &= e^{-0{,}12 \times 5} \\
+						 &= e^{-0{,}6} \\
+						 &= 0{,}5488
+		\end{align*}
+		La probabilité que le temps d'attente soit supérieur à 5 minutes est d'environ 55\%.
+	}
+	\item \question{ Sachant qu'un client a déjà attendu 10 minutes à la caisse, quelle est la probabilité que son attente totale dépasse 15 minutes ? }
+	\reponse{
+		\begin{align*}
+			\prob(T > 15 \mid T > 10) &= \frac{\prob(T > 15 \cap T > 10)}{\prob(T > 10)} \\
+			                          &= \frac{\prob(T > 15)}{\prob(T > 10)} \\
+			                          &= \frac{e^{-\lambda \times 15}}{e^{-\lambda \times 10}} \\
+			                          &= e^{-\lambda \times 5} \\
+			                          &= e^{-0{,}12 \times 5} \\
+			                          &= e^{-0{,}6} = \prob(T > 5)
+			                          &= 0{,}5488
+		\end{align*}
+		La probabilité que le temps d'attente soit supérieur à 15 minutes sachant qu'il est déjà supérieur à 10 minutes est la même que la probabilité que le temps d'attente soit supérieur à 5 minutes. Cette probabilité est d'environ 55\%. Cette propriété est appelée \textit{absence de mémoire} de la loi exponentielle. 
+	}
+	\item \question{ On suppose que chaque caisse fonctionne manière indépendante. Etant donné que 6 caisses sont ouvertes, on note $Y$ la variable aléatoire donnant le nombre de caisses pour lesquelles la durée d'attente est supérieure à 10 minutes. Quelle est la loi suivie par la variable $Y$ ? Calculer la probabilité qu'au moins 4 des 6 caisses imposent une durée d'attente supérieure à 10 minutes, ce qui obligerait le magasin à ouvrir une nouvelle caisse. }
+	\reponse{ 
+		On a $Y \sim \mathcal{B}(6, \prob(T > 10))$ avec $\prob(T > 10) = e^{-1{,}2} \approx 0{,}3012$. \\
+		Donc \begin{align*}
+			\prob(Y \geq 4) &= \prob(Y = 4) + \prob(Y = 5) + \prob(Y = 6) \\
+			                &= \binom{6}{4} \times \prob(T > 10)^4 \times \prob(T \leq 10)^2 + \binom{6}{5} \times \prob(T > 10)^5 \times \prob(T \leq 10)^1 \\
+			                &+ \binom{6}{6} \times \prob(T > 10)^6 \times \prob(T \leq 10)^0 \\
+			                &= \binom{6}{4} \times e^{-1{,}2 \times 4} \times (1 - e^{-1{,}2})^2 + \binom{6}{5} \times e^{-1{,}2 \times 5} \times (1 - e^{-1{,}2})^1\\
+			                 &+ \binom{6}{6} \times e^{-1{,}2 \times 6} \times (1 - e^{-1{,}2})^0 \\
+			                &\approx 0{,}07
+		\end{align*}
+		La probabilité qu'au moins 4 des 6 caisses imposent une durée d'attente supérieure à 10 minutes est d'environ 7\%.
+	}
+\end{enumerate}
+}

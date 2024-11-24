@@ -1,0 +1,39 @@
+\uuid{z5Rl}
+\titre{Décomposition en éléments simples}
+\theme{fractions rationnelles}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\begin{enumerate}
+\item \question{ Vérifier que le polynôme $B(X)=X^2-X+1$ est irréductible sur $\mathbb{R}[X]$. Effectuer la division euclidienne du polynôme $A(X)=X^3+2 X-1$ par le polynôme $B(X)$, et en déduire les coefficients $a, b, c$ et $d$ de la décomposition en éléments simples de :
+$$
+F(X)=\frac{A(X)}{(B(X))^2}=\frac{X^3+2 X-1}{\left(X^2-X+1\right)^2}=\frac{a \cdot X+b}{\left(X^2-X+1\right)^2}+\frac{c X+d}{X^2-X+1}
+$$ }
+
+\reponse{ $$
+A(X)=X^3+2 X-1=\underbrace{\left(X^2-X+1\right)}_{B(X)} \cdot(X+1)+2 X-2
+$$
+On en déduit :
+$$
+\begin{aligned}
+	F(X) & =\frac{A(X)}{(B(X))^2}=\frac{X^3+2 X-1}{\left(X^2-X+1\right)^2} \\
+	& =\frac{\left(X^2-X+1\right) \cdot(X+1)+2 X-2}{\left(X^2-X+1\right)^2} \\
+	& =\frac{2 X-2}{\left(X^2-X+1\right)^2}+\frac{X+1}{X^2-X+1}
+\end{aligned}
+$$ }
+
+\item \question{ En s'inspirant de la question précédent, décomposer en éléments simples sur $\mathbb{R}(X)$ :
+$$
+F(X)=\frac{-3 X^2+X-3}{\left(X^2+1\right)^8}
+$$ }
+\reponse{ $F(X)$ n'a pas de partie entière.
+Effectuons une division euclidienne de $-3 X^2+X-3$ par $X^2+1$ :
+$$
+-3 X^2+X-3=(-3) \cdot\left(X^2+1\right)+X
+$$
+en divisant par $\left(X^2+1\right)^8$ :
+$$
+F(X)=\frac{-3 X^2+X-3}{\left(X^2+1\right)^8}=\frac{-3}{\left(X^2+1\right)^7}+\frac{X}{\left(X^2+1\right)^8}
+$$ }
+\end{enumerate}}

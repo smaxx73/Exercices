@@ -1,0 +1,87 @@
+\uuid{tLxt}
+\titre{Modélisation et matrices}
+\theme{calcul matriciel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Voici les ventes d'une buvette lors d'un festival de musique, ainsi que les prix pratiqués en euros:
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+	\hline Ventes & Sandwichs & Frites & Boissons \\
+	\hline Jour 1 & 70 & 110 & 225 \\
+	\hline Jour 2 & 105 & 135 & 290 \\
+	\hline Jour 3 & 65 & 90 & 185 \\
+	\hline
+\end{tabular}
+\begin{tabular}{|l|c|}
+	\hline Prix & \euro \\
+	\hline Sandwichs & 2,10 \\
+	\hline Frites & 1,00 \\
+	\hline Boissons & 0,50 \\
+	\hline
+\end{tabular}
+\end{center} }
+
+\begin{enumerate}
+	\item \question{ Traduire matriciellement ces données et calculer le bénéfice à l'aide d'un produit matriciel. }
+	\reponse{ Soient les matrices $V$ (ventes), $P$ (prix) et $B$ (bénéfices) :
+		$$
+		V=\left(\begin{array}{ccc}
+			70 & 110 & 225 \\
+			105 & 135 & 290 \\
+			65 & 90 & 185
+		\end{array}\right) \quad P=\left(\begin{array}{c}
+			2,10 \\
+			1 \\
+			0,50
+		\end{array}\right) \quad B=\left(\begin{array}{l}
+			b_1 \\
+			b_2 \\
+			b_3
+		\end{array}\right)
+		$$
+		où les coefficients de $B$ sont les bénéfices journaliers : $b_i$ bénéfice du jour $\mathrm{n}^{\circ} i$.
+		On a :
+		$$
+		B=\left(\begin{array}{l}
+			b_1 \\
+			b_2 \\
+			b_3
+		\end{array}\right)=V . P=\left(\begin{array}{ccc}
+			70 & 110 & 225 \\
+			105 & 135 & 290 \\
+			65 & 90 & 185
+		\end{array}\right) \cdot\left(\begin{array}{c}
+			2,10 \\
+			1 \\
+			0,50
+		\end{array}\right)=\left(\begin{array}{c}
+			369,5 \\
+			500,5 \\
+			319
+		\end{array}\right)
+		$$
+		Le bénéfice total est la somme de ces bénéfices journaliers, que l'on obtient en effectuant le produit :
+		$$
+		\left(\begin{array}{lll}
+			1 & 1 & 1
+		\end{array}\right) \cdot B=\left(\begin{array}{lll}
+			1 & 1 & 1
+		\end{array}\right) \cdot\left(\begin{array}{l}
+			b_1 \\
+			b_2 \\
+			b_3
+		\end{array}\right)=b_1+b_2+b_3
+		$$
+		Ici, il vaut :
+		$$
+		369,50+500,50+319=1189
+		$$ }
+	\item \question{  Certains festivaliers ont laissé entendre au gérant de la buvette qu'il pratiquait des prix trop élevés. En prévision du festival de l'année prochaine, le gérant estime qu'en baissant les prix de $20 \%$, il augmentera ses ventes de $20 \%$. A-t-il intérêt à baisser ses prix ? }
+	
+	\reponse{ Baisser les prix de $20 \%$ revient à multiplier la matrice $P$ par 0,80 . Augmenter les ventes de $20 \%$ revient à multiplier la matrice $V$ par 1,20 .
+	Dans ce cas le bénéfice total devient :
+	Ce qui revient à une diminution de $4 \%$ du bénéfice total. Il ne doit donc pas suivre ce conseil ! }
+\end{enumerate}}

@@ -1,0 +1,25 @@
+\uuid{gl15}
+\titre{Estimation par inégalité}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ Une population de personnes doit voter à l'élection présidentielle. La proportion souhaitant voter pour la candidate Mme A. est inconnue, on la note $p$. Pour approcher cette valeur, on effectue un sondage sur $n$ personnes : l'échantillon est modélisé par une suite de variables aléatoires indépendantes $(X_1,...,X_n)$ suivant chacune une loi de Bernoulli de paramètre $p$ ($X_i=1$ si le $i$-ème individu souhaite voter pour Mme A., $X_i=0$ sinon). 
+
+On note $S_n=\sum_{i=1}^n X_i$ de sorte que $\frac{S_n}{n}$ représente la proportion de personnes votant pour Mme A. dans l'échantillon. }
+
+\begin{enumerate}
+	\item \question{ Quelle est la loi suivie par $S_n$ ? }
+	\reponse{ $S_n$ suit une loi binomiale $\mathcal{B}(n,p)$. }
+	\item \question{ Déterminer l'espérance et la variance de $\frac{S_n}{n}$. }
+	\reponse{ On en déduit que $\mathbb{E}(S_n)=np$ et $V(S_n)=np(1-p)$. D'après les propriétés de l'espérance et de la variance, on en déduit que $\mathbb{E}\left(\frac{S_n}{n}\right)=p$ et $V\left(\frac{S_n}{n}\right)=\frac{p(1-p)}{n}$. }
+	\item \question{ Soit $\varepsilon >0$. Démontrer que 
+	$$\PP\left(\left| \frac{S_n}{n}-p \right| > \varepsilon \right) \leq \frac{1}{4n\varepsilon^2}$$ }
+\reponse{ D'après l'inégalité de Bienaymé-Tchebychev, 
+	$$\PP\left(\left| \frac{S_n}{n}-p \right| > \varepsilon \right) \leq \frac{p(1-p)}{n\varepsilon^2}$$
+	et on conclut en remarquant que $p(1-p) \leq \frac{1}{4}$. }
+	\item \question{ Comment choisir la taille de l'échantillon de sorte que le résultat du sondage soit proche de $p$ à $\varepsilon=0.05$ près avec une probabilité supérieure à $95\%$ ? }
+	\reponse{ Il faut choisir $n$ tel que $\frac{1}{4} n \varepsilon^2 \leq 0.05$, on peut prendre $n=2000$. }
+\end{enumerate}
+}

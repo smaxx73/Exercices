@@ -1,0 +1,23 @@
+\uuid{BGJz}
+\titre{Densité et transformation affine}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Soit $X$ une variable aléatoire absolument continue admettant pour densité $f$. Soit $(a,b) \in \mathbb{R}^2$ avec $a>0$ et $Y=aX+b$. }
+
+\question{Démontrer que $Y$ est une variable aléatoire absolument continue en exprimant sa densité en fonction de $f$.}
+
+\reponse{
+	On utilise le théorème d'identification. La densité $f_Y$ de $Y$ est l'unique fonction telle que pour toute fonction $h$ continue bornée, on ait
+	\[ \E(h(Y))=\int_\R h(y)f_Y(y)\ dy.\]
+	Or, étant donné $h$, on a
+	\begin{align*}
+		\E(h(Y))&=\E(h(aX+b)) \\
+		&= \int_\R h(ax+b) f_X(x) \ dx \quad \text{(par le théorème de transfert)} \\
+		&= \int_\R h(y) f_X\left(\frac{y-b}{a}\right) \frac{1}{a} dy \quad \text{(par changement de variable } y=ax+b \text{)}
+	\end{align*}
+	d'où son identification
+	\[ f_Y(y)=\frac{1}{a}f_X\left(\frac{y-b}{a}\right).\]
+}}

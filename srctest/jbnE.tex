@@ -1,0 +1,21 @@
+\uuid{jbnE}
+\titre{Loi d'une somme de variables aléatoires, question de cours}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Soient $X$ et $Y$ deux variables aléatoires indépendantes suivant chacune une loi uniforme sur $[0;1]$.  } 
+
+\question{ Déterminer la loi de $S=X+Y$. }
+
+\reponse{ Si $X$ et $Y$ suivent chacune une loi uniforme sur $[0;1]$, alors $S=X+Y$ admet une densité $h$ définie par 
+	$$h(s) = \int_0^1 \textbf{1}_{[0;1]}(s-x) dx = \int_{s-1}^s \textbf{1}_{[0;1]}(u)du$$
+	\begin{itemize}
+		\item si $s < 0$ alors $s-x <0$ et $h(s) = 0$
+		\item si $0<s<1$ alors $h(s) = \int_{0}^s \textbf{1}_{[0;1]}(u)du = s$
+		\item si $1<s<2$ alors $h(s) = \int_{s-1}^1 \textbf{1}_{[0;1]}(u)du = 2-s$
+		\item si $2 < s$ alors $h(s) = 0$
+	\end{itemize}
+	En traçant cette densité, on voit apparaître une loi triangulaire. }}

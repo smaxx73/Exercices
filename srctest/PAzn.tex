@@ -1,0 +1,18 @@
+\uuid{PAzn}
+\titre{Règle des chaînes}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Soit $f \colon \mathbb{R}^2 \to \mathbb{R}$ une fonction différentiable.  } 
+	
+	\begin{enumerate}
+		\item \question{ On fixe $(x,y) \in \mathbb{R}^2$ et pour tout $t \in \mathbb{R}$ on pose $g(t) = f(x+t,y+t)$. Calculer $g'(t)$ quelque soit $t \in \mathbb{R}$ en l'exprimant en fonction de $\dfrac{\partial f}{\partial x}(x+t,y+t)$ et $\dfrac{\partial f}{\partial y}(x+t,y+t)$. }
+		\reponse{Par la règle des chaînes, $g$ est dérivable sur $\mathbb{R}$ et $g'(t) = 1 \times \dfrac{\partial f}{\partial x}(x,y) + 1 \times \dfrac{\partial f}{\partial y}(x,y)$. }
+		\item \question{ On suppose que pour tout $t \in \mathbb{R}$ et pour tout $(x,y) \in \mathbb{R}^2$, 
+			$$f(x+t,y+t) = f(x,y)$$En déduire que $\dfrac{\partial f}{\partial x}(x,y) + \dfrac{\partial f}{\partial y}(x,y) = 0$. }
+		\reponse{ Par hypothèse sur la fonction $f$, $g(t) = f(x,y)$ donc $g$ est constante par rapport à $t$ donc $g'(t) = 0$. D'où l'égalité demandée.}
+	\end{enumerate}
+}

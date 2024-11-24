@@ -1,0 +1,99 @@
+\uuid{ingl}
+\titre{Durée de vie et temps d'attente}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+	\texte{ On considère $n$ lampes, $n \in \mathbb{N}^*$. La durée de vie (en années) d'une lampe est une variable aléatoire absolument continue dont la densité $f$ est définie sur $\mathbb{R}$ par 
+	$$ f \colon t \mapsto \frac{1}{16} t e^{-\frac{t}{4}} 1_{[0;+\infty[}(t)$$
+	On suppose que les lampes évoluent de manière indépendante. 
+	
+	Pour tout entier $i \in \{1,...,n\}$, on note $X_i$ la variable aléatoire égale à la durée de vie de la $i$-ème lampe. }
+
+\begin{enumerate}
+	% \item Justifier que la fonction $f$ définit bien une densité de probabilité.
+	\item \question{ Déterminer la fonction de répartition de la variable aléatoire $X_1$. }
+\reponse{ On note $F_{X_1}$  la fonction de répartition de la variable aléatoire $X_1$. Par définition, 
+	\begin{align*}
+		\forall t\in\R, F_{X_1}(t) &= \int_{-\infty}^t f(x)dx \\
+		&=\begin{cases}
+			0 & \text{ si } t<0 \\
+			\int_0^t \frac{1}{16}xe^{-\frac{x}{4}}dx & \text{ si } t\geq 0
+		\end{cases}
+	\end{align*}
+	c'est-à-dire pour $t\in\R^+$,
+	\begin{align*}
+		F_{X_1}(t) &=\left[ \frac{-1}{4}xe^{-\frac{x}{4}}\right]_0^t +\int_0^t \frac{1}{4}e^{-\frac{x}{4}} dx \quad \text{ par une I.P.P.}\\
+		&=\frac{-1}{4}te^{-\frac{t}{4}} +\left[-e^{-\frac{x}{4}} \right]_0^t \\
+		&=1-e^{-\frac{t}{4}} \left(\frac{t}{4}+1 \right)
+	\end{align*}
+	Finalement on a :
+	\[ \forall t\in\R, \quad F_{X_1}(t)=\left(1-e^{-\frac{t}{4}} \left(\frac{t}{4}+1 \right)\right) \mathbf{1}_{[0;+\infty[}(t)\] }
+	\item \texte{ Un appareil de type $A$ comporte 6 lampes, toutes nécessaires à son fonctionement. On note $T = \min\limits_{i \in \{1,...,6\} }(X_i)$. }
+	\begin{enumerate}
+		\item \question{ Que modélise la variable aléatoire $T$ ? }
+		\reponse{ 	La variable aléatoire $T$ modélise la durée de fonctionnement de l'appareil de type $A$. }
+		\item \question{ Déterminer la loi de $T$. }
+		\reponse{  On détermine la fonction de répartition de $T$:
+			\[ \forall t \in \mathbb{R}, \quad F_T(t)=\p(T\leq t).\]
+			Si $t\leq 0$, \ $F(t)=0$. Soit $t\in\R^+$. Alors
+			\begin{align*}
+				F_T(t) &= \p(  \min\limits_{i \in \{1,...,6\} }(X_i) \leq t) \\
+				&= 1- \p( \min\limits_{i \in \{1,...,6\} }(X_i)>t) \\
+				&=1-\p(\{X_1>t\}\cap \cdots \cap \{X_6>t\}) \\
+				&=1-\prod_{i=1}^6 \p(X_i>t) \quad \text{ par indépendance des } (X_i)_{i\in\{1,\cdots,6\}} \\
+				&=1-\p(X_1>t)^6 \quad \text{ car les } (X_i)_{i\in\{1,\cdots,6\}} \text{ sont de même loi} \\
+				&=1-(1-F_{X_1}(t))^6.
+			\end{align*}
+		En utilisant la question 1, on en déduit que : 
+			  	\[ \forall t \in \R, \quad 
+		F_T(t)=\left(1-e^{-\frac{3t}{2}}\left(1+\frac{t}{4}\right)^6 \right)\mathbf{1}_{[0;+\infty[}(t).
+		\]	
+		 }
+		\item \question{ Calculer la probabilité que l'appareil de type $A$ fonctionne de manière continue pendant au moins 4 ans à partir de sa mise en marche, sans changer de lampe. }
+		\reponse{ 
+			On cherche à déterminer la probabilité $\PP(T\geq 4)$:
+			\[\PP(T\geq 4)=1-\p(T<4)=1-F_T(4)=2^6e^{-6} \simeq 0.1586.\]
+			La probabilité que l'appareil de type $A$ fonctionne de manière continue pendant au moins $4$ ans à partir de sa mise en marche est d'environ $15.86$\%.
+		}
+	\end{enumerate}
+	\item \texte{ Un appareil de type $B$ fonctionne avec une lampe seulement. On dispose cette fois d'une lampe de remplacement. Lorsque l'appareil fonctionne et que la lampe tombe en panne, celle-ci est immédiatement remplacée par la lampe de remplacement. Soit $U$  la variable aléatoire donnant la durée de fonctionnement d'un appareil de type $B$ avec une lampe de remplacement.}
+	\begin{enumerate}
+		\item \question{  Exprimer $U$ en fonction de $X_1$ et $X_2$. }
+		\reponse{ D'après l'énoncé,   	$U=X_1+X_2$.  }
+		\item \question{ Déterminer la loi de $U$. } %la  probabilité  que  l'appareil  de  type $B$  fonctionne  pendant au moins 2 ans à partir de sa mise en marche.
+		\reponse{ 
+		Comme $U$ est une somme de deux variables aléatoires indépendantes de densité $f$, une densité de $U$ se calcule à l'aide du produit de convolution~: pour $s\in\R$,
+		\begin{align*}
+		f_U(s)&=f * f(s) \\
+			  &= \int_{\R} f(s-x)f(x) dx \\
+				&=\frac{1}{16^2}e^{-\frac{s}{4}}\mathbf{1}_{[0;+\infty[}(s) \int_0^s x(s-x)dx\\
+				&=\frac{1}{16^2}e^{-\frac{s}{4}}\mathbf{1}_{[0;+\infty[}(s) \left[ \frac{1}{2}x^2s-\frac{1}{3}x^3\right]_{x=0}^{x=s} \\
+				&=\frac{1}{16^2}e^{-\frac{s}{4}}\mathbf{1}_{[0;+\infty[}(s) \left( \frac{1}{2}-\frac{1}{3}\right)s^3 \\
+				&=\frac{1}{16^2\times 6}s^3e^{-\frac{s}{4}}\mathbf{1}_{[0;+\infty[}(s) \\
+				&=\frac{1}{1536}s^3e^{-\frac{s}{4}}\mathbf{1}_{[0;+\infty[}(s),
+		\end{align*}
+			ce qui détermine la loi de $U$.
+		}
+	\end{enumerate}
+	\item \texte{ On dispose de 4 appareils de type $B$, sans aucune lampe de remplacement. On met en marche ces 4 appareils simultanément. On note $V$ le temps durant lequel au moins un des 4 appareils fonctionne. }
+	\begin{enumerate}
+		\item \question{ Exprimer $V$ en fonction de  $X_1$, $X_2$, $X_3$, $X_4$. }
+		\reponse{ D'après l'énoncé,
+			$V=\max\limits_{i \in \{1,...,4\} }(X_i)$.
+		}
+		\item \question{ En déduire la loi de $V$. }
+		\reponse{ 
+			Pour tout $t\in\R$, on a:
+			\begin{align*}
+				F_V(t) &= \p(  \max\limits_{i \in \{1,...,4\} }(X_i) \leq t) \\
+				&=\p(\{X_1\leq t\}\cap \cdots \cap \{X_4\leq t\}) \\
+				&=\prod_{i=1}^4 \p(X_i\leq t) \quad \text{ par indépendance des } (X_i)_{i\in\{1,\cdots,4\}} \\
+				&=F_{X_1}(t)^4 \quad \text{ car les } (X_i)_{i\in\{1,\cdots,4\}} \text{ sont de même loi} \\
+				&= \left(1-e^{-\frac{t}{4}} \left(1+\frac{t}{4} \right)\right)^4 \mathbf{1}_{[0;+\infty[}(t)
+			\end{align*}
+		}
+	\end{enumerate}
+\end{enumerate}
+}

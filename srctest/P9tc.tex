@@ -1,0 +1,24 @@
+\uuid{P9tc}
+\titre{Calcul d'erreur} %PROBA112
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On suppose qu'un ordinateur effectue $10^6$ opérations élémentaires pour un calcul donné. On suppose également que les erreurs d'arrondi à chaque opération sont indépendantes et suivent chacune une loi uniforme sur l'intervalle $\left[-5 \cdot 10^{-10};5 \cdot 10^{-10} \right]$. Enfin, on suppose que l'erreur finale est la somme des erreurs commises à chaque opération. }
+
+\question{ 	\'Evaluer la probabilité que l'erreur finale soit en valeur absolue inférieure à $\frac{1}{2} 10^{-6}$.  }
+
+\reponse{
+	Soit $X_i$ la variable aléatoire représentant l'erreur d'arrondi sur la $i$-ème opération. D'après l'énoncé, les variables $X_i$ sont indépendantes et de même loi $\mathcal{U}([-5.10^{-10};5.10^{-10}])$, donc en particulier
+	\[ \mathbb{E}(X_i)=0 \quad \text{ et } \quad \sigma(S)=\frac{10^{-9}}{\sqrt{12}}.\]
+	Soit $\displaystyle Y=\sum_{i=1}^{10^6} X_i$ l'erreur finale commise. On cherche à déterminer la probabilité suivante:
+	\begin{align*}
+		\mathbb{P}(|Y|<\frac{1}{2}10^{-6})
+		&= \mathbb{P}\left(\left| \frac{Y-\mathbb{E}(Y)}{\sigma(Y)\sqrt{10^6}}\right|< \frac{1}{2}\frac{10^{-6}}{\frac{10^{-9}}{\sqrt{12}} \sqrt{10^6}} \right) \\
+		&\simeq \mathbb{P}(|Z|<\sqrt{3}) \quad \text{ par le théorème central-limite, avec } Z\sim \mathcal{N}(0,1) \\
+		& \simeq 2\mathbb{P}(Z<1.73)-1 \\
+		& \simeq 2\times 0.9582-1 \quad \text{ par lecture de la table de loi } \mathcal{N}(0,1) \\
+		& \simeq 0.9164
+	\end{align*}
+}}

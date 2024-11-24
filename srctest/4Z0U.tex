@@ -1,0 +1,29 @@
+\uuid{4Z0U}
+\titre{Etude d'un jeu}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Timothée vient d'ouvrir un salon de jeux. Pour l'instant, il n'a installé qu'une roulette et a simplifié le jeu de la manière suivante : on ne peut miser que 1 euro sur 1 seul des numéros (de 0 à 36 ) à la fois. Si le numéro misé sort, le joueur récupère sa mise plus 34 fois celle-ci ; sinon il perd sa mise.
+ }
+\begin{enumerate}
+	\item \texte{ Camille vient au salon de jeux de Timothée et mise un euro sur le 21 . On note $X$ la variable aléatoire donnant le gain algébrique de Camille. }
+	\begin{enumerate}
+		\item\question{  Donner la loi de $X$ . }%
+		\reponse{  $X(\Omega)=\{-1 ; 34\}, \mathbb{P}(X=-1)=\frac{36}{37}$ et $\mathbb{P}(X=34)=\frac{1}{37}$ }
+		\item\question{  Calculer l'espérance de $X$. } %
+		\reponse{ Commenter. $-\frac{2}{37}$ }
+		\item \question{ Calculer l'écart type de $X$. } %
+	\reponse{ 	$\frac{210}{37}$ }
+	\end{enumerate}
+	\item \texte{ Timothée s'attend à avoir 5000 mises de un euro effectuées par mois dans son salon de jeux. On note $X_1, X_2, \ldots, X_{5000}$ les 5000 variables aléatoires représentant les gains algébriques des clients correspondant à 5000 mises de un euro. On suppose les mises et donc les variables $X_1, X_2, \ldots, X_{5000}$ indépendantes. }
+	\begin{enumerate}
+		\item \question{ Donner une approximation de la loi de la variablea léatoire $\bar{X}_{5000}$. } \reponse{ $\bar{X}_{5000} \underset{a p p r o x}{\sim} \mathcal{N}\left(-\frac{2}{37} ; \frac{21 \sqrt{2}}{370}\right)$ }
+		\item \question{ Quelle est la probabilité que Timothée et son salon de jeux perdent de l'argent sur 5000 mises ? }
+		\reponse{  $\simeq 0.25$ }
+		\item \question{ À partir de combien de mises la probabilité que Timothée et son salon de jeux perdent de l'argent sur ces mises soit inférieure à $5 \%$ ? } 
+		\reponse{ $29834$ }
+	\end{enumerate}
+\end{enumerate}}

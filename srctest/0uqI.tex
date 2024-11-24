@@ -1,0 +1,36 @@
+\uuid{0uqI}
+\titre{Optimisation par approximation}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+    \texte{ 
+        Un usager de train effectue régulièremment $100$ trajets par mois en première classe. On admet qu'à chacun de ses voyages, cet usager a une chance sur dix d'être contrôlé. 
+
+        On suppose que cet usager fraude systématiquement en voyageant en première classe avec un titre de transport de seconde classe. La différence entre le prix d'un billet de première classe et celui d'un billet de seconde classe est de $1$ euro. En cas de contrôle, le montant de l'amende à payer est noté $\alpha$ euros. 
+    }
+
+    \question{ Quel est le montant minimum de l'amende $\alpha$ qu'il faudrait infliger à cet usager pour qu'il soit dissuadé de frauder en étant financièrement perdant à la fin du mois avec une probabilité supérieure à $95\%$ ? }
+
+    \reponse{
+        Soit $X$ le nombre de fois dans le mois où l'usager est contrôlé. On a $X\sim\mathcal{B}(100,0.1)$. 
+
+        Sur un mois, l'usager fait un bénéfice de $100\times1$ euros sur sa fraude et perd $X\times\alpha$ euros en amende.
+
+        On cherche $\alpha$ tel que $\prob(100-X\alpha<0) \geq 0.95$.
+
+        On sait que $\E(X) = 100\times0.1 = 10$ et $\V(X) = 100\times0.1\times0.9 = 9$.
+
+        D'après le théorème central limite, la variable aléatoire $Z = \frac{X-10}{3}$ suit approximativement une loi normale centrée réduite.
+
+        Or $\prob(100-X\alpha<0) = \prob(X>\frac{100}{\alpha}) = \prob(Z>\frac{100/\alpha-10}{3})$. On cherche donc $\alpha$ tel que $\prob(Z>\frac{100/\alpha-10}{3}) \geq 0.95$. 
+
+        On a $\prob(Z>\frac{100/\alpha-10}{3}) = 1-\prob\left(Z\leq\frac{100/\alpha-10}{3}\right) = 1-\Phi\left(\frac{100/\alpha-10}{3}\right)$. On cherche donc $\alpha$ tel que $1-\Phi\left(\frac{100/\alpha-10}{3}\right) \geq 0.95$ soit $\Phi\left(\frac{100/\alpha-10}{3}\right) \leq 0.05$. 
+
+        Par lecture de la table de la loi normale centrée réduite, on trouve $\frac{100/\alpha-10}{3} \leq -1.65$ soit $100/\alpha \leq -1.65\times3+10 = 5.05$ soit $\alpha \geq 100/5.05 = 19.8$.
+
+        L'amende doit donc être supérieure à $19.8$ euros pour que l'usager soit dissuadé de frauder en étant financièrement perdant à la fin du mois avec une probabilité supérieure à $95\%$.
+
+    }
+}

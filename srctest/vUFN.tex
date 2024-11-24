@@ -1,0 +1,70 @@
+\uuid{vUFN}
+\titre{Loi d'un couple}
+\theme{probabilités}
+\auteur{}
+\organisation{AMSCC}	
+
+\contenu{
+
+Soit $(\Omega, \mathcal{A}, \prob)$ un espace probabilisé. On considère deux variables aléatoires discrètes $X$ et $Y$ telles que $X(\Omega) = \{1,2,3\}$, $Y(\Omega) = \{1,2,3,4\}$ et $\prob(X = x, Y = y)$ et : 
+$$\forall i \in \{1,2,3\}, \quad \prob(X=i, Y=i) = \prob(X=i, Y=i+1) = \frac{1}{6}.$$
+
+\begin{enumerate}
+	\item \question{ Déterminer la loi du couple de variables aléatoires $(X,Y)$ sous forme d'un tableau.  } 
+	\reponse{
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$X/Y$ & 1 & 2 & 3 & 4 & $\prob(X = x)$ \\
+				\hline
+				1 & $\frac{1}{6}$ & $\frac{1}{6}$ & 0 & 0 & $\frac{1}{3}$ \\
+				\hline
+				2 & 0 & $\frac{1}{6}$ & $\frac{1}{6}$ & 0 & $\frac{1}{3}$ \\
+				\hline
+				3 & 0 & 0 & $\frac{1}{6}$ & $\frac{1}{6}$ & $\frac{1}{3}$ \\
+				\hline
+				$\prob(Y = y)$ & $\frac{1}{6}$ & $\frac{1}{3}$ & $\frac{1}{3}$ & $\frac{1}{6}$ & 1 \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+	\item \question{ Déterminer les lois marginales du couple $(X,Y)$ puis calculer $\mathbb{E}(X)$ et $\mathbb{E}(Y)$. }
+	\reponse{
+		\begin{itemize}
+			\item $\prob(X = 1) = \frac{1}{3}$, $\prob(X = 2) = \frac{1}{3}$, $\prob(X = 3) = \frac{1}{3}$.
+			\item $\prob(Y = 1) = \frac{1}{6}$, $\prob(Y = 2) = \frac{1}{3}$, $\prob(Y = 3) = \frac{1}{3}$, $\prob(Y = 4) = \frac{1}{6}$.
+			\item $\mathbb{E}(X) = \sum\limits_{i=1}^{3} i \times \prob(X = i) = 1 \times \frac{1}{3} + 2 \times \frac{1}{3} + 3 \times \frac{1}{3} = 2$.
+			\item $\mathbb{E}(Y) = \sum\limits_{i=1}^{4} i \times \prob(Y = i) = 1 \times \frac{1}{6} + 2 \times \frac{1}{3} + 3 \times \frac{1}{3} + 4 \times \frac{1}{6} = 2.5$.
+		\end{itemize}
+	}
+	\item \question{ Les variables aléatoires $X$ et $Y$ sont-elles indépendantes ? }
+	\reponse{
+		Non, car $\prob(X = 1, Y = 1) = \frac{1}{6} \neq \prob(X = 1) \times \prob(Y = 1) = \frac{1}{3} \times \frac{1}{6} = \frac{1}{18}$.
+	}
+	\item \question{ On pose $Z = X - Y$. Déterminer la loi du couple $(X,Z)$. Les variables aléatoires $X$ et $Z$ sont-elles indépendantes ? }
+	\reponse{
+L'ensemble des valeurs prises par $Z$ est $\{-3, -2, -1, 0, 1, 2\}$. On a $\prob(X = 1, Z = -2) = \prob(X = 1, Y = 3) = 0$. De même, on obtient le tableau de la loi du couple $(X,Z)$ : 
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		$X/Z$ & -3 & -2 & -1 & 0 & 1 & 2 & $\prob(X = x)$ \\
+		\hline
+		1 & 0 & 0 & $\frac{1}{6}$ & $\frac{1}{6}$ & $0$ & $0$ & $\frac{1}{3}$ \\
+		\hline
+		2 & 0 & 0 & $\frac{1}{6}$ & $\frac{1}{6}$ & $0$ & $0$ & $\frac{1}{3}$ \\
+		\hline
+		13 & 0 & 0 & $\frac{1}{6}$ & $\frac{1}{6}$ & $0$ & $0$ & $\frac{1}{3}$ \\
+		\hline
+		$\prob(Z = z)$ & $0$ & $0$ & $\frac{1}{2}$ & $\frac{1}{2}$ & $0$ & $0$ & 1 \\
+		\hline
+	\end{tabular}
+\end{center}
+On en déduit que les variables aléatoires $X$ et $Z$ sont indépendantes (toutes les colonnes sont proportionnelles entre elles).
+	}
+%	\item \question{ Déterminer $\mathbb{E}(Z)$. }
+%	\reponse{
+%		$\mathbb{E}(Z) = \sum\limits_{i=-3}^{2} i \times \prob(Z = i) = -1 \times \frac{1}{2} + 0 \times \frac{1}{2} = -\frac{1}{2}$.
+%	}
+\end{enumerate}
+}

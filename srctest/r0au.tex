@@ -1,0 +1,175 @@
+\uuid{r0au}
+\titre{Courbes de niveau}
+\theme{fonctions de plusieurs variables}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+	
+		A chaque fonction définie ci-dessous (1-6), associer ses courbes de niveaux (A-F).
+\begin{enumerate}
+	\item \question{  $f(x,y) = \sin(xy)$ }
+	\reponse{1-B : la fonction est périodique en $x$ et en $y$ ; $f$ ne change pas quand on échange $x$ et $y$, i.e. le graphe est symétrique par rapport au plan d’équation $y = x$ ; $f (0, y) = f (x,0) = 0$.}
+	\item \question{  $f(x,y) = \sin(x-y)$ }
+	\reponse{2-A : la fonction est périodique en $x$ et en $y$ ; $f$ est constante si $y = x +k$ (lignes de niveau parallèles à la droite d'équation $y=x$}
+	\item \question{ $f(x,y) = (1-x^2)(1-y^2)$ }
+	\reponse{3-F : $f (\pm1, y) = f (x,\pm1) = 0$ ; la trace dans le plan $xz$ est $z = 1-x^2$ et dans le plan $yz$ est $z = 1-y^2$.}
+	\item \question{ $f(x,y) = \frac{x-y}{1+x^2+y^2}$ }
+	\reponse{4-E : $f (x,x) = 0$ ; $f (x, y) > 0$ si $x > y$ ; $f (x, y) < 0$ si $x < y$.}
+	\item \question{ $f(x,y) = e^x \cos(y)$ }
+	\reponse{5-D : la fonction est périodique en $y$ ;}
+	\item \question{ $f(x,y) = \sin(x)-\sin(y)$ }
+	\reponse{6-C : la fonction est périodique en $x$ et en $y$.}
+\end{enumerate}
+
+\begin{minipage}{0.5\textwidth}
+	\begin{tikzpicture}
+\begin{axis}[
+title={A},
+enlarge x limits,
+view={0}{90},
+xlabel=$x$, ylabel=$y$,
+small,
+axis equal,
+axis x line=center,
+axis y line=center,
+%grid=major,
+]
+\addplot3[
+domain=-3:3,
+domain y=-3:3,
+contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+samples=40,
+thick,
+]
+{sin((x-y) r)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+	\begin{tikzpicture}
+\begin{axis}[
+title={B},
+enlarge x limits,
+view={0}{90},
+xlabel=$x$, ylabel=$y$,
+small,
+axis equal,
+axis x line=center,
+axis y line=center,
+%grid=major,
+]
+\addplot3[
+domain=-3:3,
+domain y=-3:3,
+contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+samples=40,
+thick,
+]
+{sin((x*y) r)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+	\begin{tikzpicture}
+\begin{axis}[
+title={C},
+enlarge x limits,
+view={0}{90},
+xlabel=$x$, ylabel=$y$,
+small,
+axis equal,
+axis x line=center,
+axis y line=center,
+%grid=major,
+]
+\addplot3[
+domain=-3:3,
+domain y=-3:3,
+contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+samples=40,
+thick,
+]
+{sin((x) r) - sin((y) r)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+	\begin{tikzpicture}
+\begin{axis}[
+title={D},
+enlarge x limits,
+view={0}{90},
+xlabel=$x$, ylabel=$y$,
+small,
+axis equal,
+axis x line=center,
+axis y line=center,
+%grid=major,
+]
+\addplot3[
+domain=-3:3,
+domain y=-3:3,
+contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+samples=40,
+thick,
+]
+{exp(x)*cos((y) r)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+	\begin{tikzpicture}
+\begin{axis}[
+title={E},
+enlarge x limits,
+view={0}{90},
+xlabel=$x$, ylabel=$y$,
+small,
+axis equal,
+axis x line=center,
+axis y line=center,
+%grid=major,
+]
+\addplot3[
+domain=-3:3,
+domain y=-3:3,
+contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+samples=40,
+thick,
+]
+{(x-y)/(1+x^2+y^2)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+	\begin{tikzpicture}
+\begin{axis}[
+title={F},
+enlarge x limits,
+view={0}{90},
+xlabel=$x$, ylabel=$y$,
+small,
+axis equal,
+axis x line=center,
+axis y line=center,
+%grid=major,
+]
+\addplot3[
+domain=-3:3,
+domain y=-3:3,
+contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+samples=40,
+thick,
+]
+{(1-x^2)*(1-y^2)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+}
