@@ -1,0 +1,37 @@
+\titre{Contrôle de première intention avec la loi de Benford}
+\theme{statistique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ 
+Le principe de ce contrôle est le suivant : on relève au hasard 120 montants apparaissant dans une zone éventuellement falsifiée de la comptabilité de l'entreprise.
+
+On a remarqué que dans des comptes d'entreprises, les zones falsifiées comportent plus de montants commençant par le chiffre 6 que dans les zones non falsifiées, pour lesquelles la proportion théorique de montants commençant par 6 est égale à $6.7 \%$ selon la loi de Benford.
+
+En première intention, le contrôleur décide de regarder la proportion de montants commençant par 6 dans les montants qu'il a relevés. }
+
+\begin{enumerate}
+\item \question{ On souhaite construire un test avec $\left(H_0\right): \theta=0.067$ contre $\left(H_1\right): \theta>0.067$. Que signifie ce choix d'hypothèses? }
+
+\reponse{ On souhaite savoir si la proportion de montants commençant par 6 est anormalement élevé. En faisant ce choix d'hypothèse, on se prémunit en priorité du risque de déclarer que la zone considérée est falsifiée alors qu'elle ne l'est pas. }
+
+\item \question{ Sur les 120 montants relevés par le contrôleur, 18 commencent par le chiffre 6. À l'aide d'un test de niveau $5 \%$, peut-on conclure sur une éventuelle falsification des données ? }
+\reponse{ (a) Hypothèses : $\left(H_0\right): \theta=0.067$ contre $\left(H_1\right): \theta>0.067$ (test unilatéral droit)
+(b) Variable aléatoire de décision :
+$$
+Z=\frac{F-0.067}{\sqrt{\frac{0.067(1-0.067)}{120}}} \simeq \frac{F-0.067}{0.022824},
+$$
+où $F$ est la fréquence empirique et $Z \sim \mathcal{N}(0,1)$ si $H_0$ est vraie.
+(c) Zone de rejet:
+$W=] u ;+\infty[$, avec $u$ le réel tel que $\mathbb{P}(Z \leq u)=1-0.05=0.95$ et $Z \sim \mathcal{N}(0,1)$, c'est-à-dire $u=1.64$.
+La zone de rejet est donc $W=] 1.64 ;+\infty[$.
+
+(d) Valeur observée:
+$$
+z_{o b s}=\frac{\frac{18}{120}-0.067}{0.022824} \simeq 3.6365
+$$
+(e) Conclusion :
+$z_{o b s} \in W$ donc on rejette $H_0$ et on peut considérer que les données sont a priori falsifiées. }
+\end{enumerate}}

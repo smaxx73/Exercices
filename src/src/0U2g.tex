@@ -1,0 +1,57 @@
+\titre{Dépendance des couleurs}
+\theme{statistique}
+\auteur{}
+
+\organisation{AMSCC}
+\contenu{
+
+\texte{ On cherche à établir s'il existe un lien entre le sexe, la couleur des cheveux et la couleur des yeux d'une personne. Pour cela, on se base sur les résultats d'un sondage établi sur 592 étudiants à l'Université du Delaware. Les résultats obtenus sont les suivants: (source: http://euclid.psych.yorku.ca/ftp/sas/vcd/catdata/haireye.sas)
+
+\begin{center}
+	\begin{tabular}{|c|ccc|c|}
+	\hline Femme & Yeux verts & Yeux marrons & Yeux bleus & Total \\
+	\hline Cheveux noirs & 2 & 41 & 9 & 52 \\
+	Cheveux marrons & 14 & 95 & 34 & 143 \\
+	Cheveux roux & 7 & 23 & 7 & 37 \\
+	Cheveux blonds & 8 & 9 & 64 & 81 \\
+	\hline Total & 31 & 168 & 114 & 313 \\
+	\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+	\begin{tabular}{|c|ccc|c|}
+	\hline Homme & Yeux verts & Yeux marrons & Yeux bleus & Total \\
+	\hline Cheveux noirs & 3 & 42 & 11 & 56 \\
+	Cheveux marrons & 15 & 78 & 50 & 143 \\
+	Cheveux roux & 7 & 17 & 10 & 34 \\
+	Cheveux blonds & 8 & 8 & 30 & 46 \\
+	\hline Total & 33 & 145 & 101 & 279 \\
+	\hline
+\end{tabular}
+\end{center} }
+
+\begin{enumerate}
+	\item \question{  Chez les femmes de cette université, peut-on dire avec un risque de $5\%$ qu'il y a une corrélation entre la couleur des yeux et la couleur des cheveux ? Même question concernant les hommes de cette université. }
+	\reponse{ Il s'agit de réaliser un test du $\chi^2$. La variable de décision $Q$ suit une loi $\chi^2(6)$ donc pour un risque de $5\%$, la zone de rejet est $[12.59;+\infty[$. Tout calcul fait (voir le \href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/ESyNWFHCZnVEr0vro6Zbs2cB_86sCRHQNVVYIhmjHuLozQ?e=EfJtSI}{tableau}), la valeur observée $Q_{obs} = 98.2$ pour les femmes, $Q_{obs} = 37.5$ pour les hommes. On peut donc rejeter dans les deux cas l'hypothèse d'indépendance entre ces deux variables <<couleur des yeux>> et <<couleur des cheveux>>.  }
+	\item \question{ Y a-t-il indépendance entre le sexe et la couleur des yeux ? le sexe et la couleur des cheveux ? Justifier.  }
+	\reponse{ On récrée un tableau d'effectifs adaptés à la question à partir des données initiales : 
+	
+	\begin{center}
+		\begin{tabular}{|c|ccc|c|}
+			\hline  & Yeux verts & Yeux marrons & Yeux bleus & Total \\
+		\hline	 Femme & 31 & 168 & 114 & 313 \\
+			Homme & 33 & 145 & 101 & 279 \\
+	\hline Total & 64 & 313 & 215 & 592 \\
+	\hline
+		\end{tabular}
+	\end{center}
+puis les effectis théoriques.  On réalise un test du $\chi^2$. La variable de décision $Q$ suit une loi $\chi^2(2)$ donc pour un risque de $5\%$, la zone de rejet est $[5.99;+\infty[$. Tout calcul fait (voir le \href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/ESyNWFHCZnVEr0vro6Zbs2cB_86sCRHQNVVYIhmjHuLozQ?e=EfJtSI}{tableau}), la valeur observée $Q_{obs} = 0{,}59$. 
+
+On ne rejette pas l'hypothèse d'indépendance entre la couleur des yeux et le sexe.
+
+En revanche, en faisant de même pour la couleur des cheveux et le sexe, on trouve une valeur observée $Q_{obs} = 7{,}99$ pour une zone de rejet $[7.81;+\infty[$.
+
+On rejette (de justesse), avec un risque d'erreur de $5\%$, l'hypothèse d'indépendance entre la couleur des cheveux et le sexe.
+ }
+\end{enumerate}}

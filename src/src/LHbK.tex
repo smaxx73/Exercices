@@ -1,0 +1,58 @@
+\titre{\'Etude d'une série numérique}
+\theme{Série}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{ Soit $\alpha$ un nombre r\'eel et $(u_n)$ la suite d\'efinie pour tout entier naturel $n\geq 1$ par:
+$$u_n=\left[\left(1+\frac{1}{n^{\alpha}}\right)\times\left(1+\frac{2}{n^{\alpha}}\right)\times \cdots \times \left(1+\frac{n}{n^{\alpha}}\right) \right]-1.$$
+
+Pour tout entier naturel $n \geq 1$, on pose : 
+$$v_n =  \frac{n(n+1)}{2n^{\alpha}} \quad \text{et} \quad w_n = \left(1+\frac{n}{n^{\alpha}}\right)^{n}-1 \,. $$
+\begin{enumerate}
+	\item \question{ Déterminer un équivalent simple de $v_n$ quand $n$ tend vers l'infini. }
+	\reponse{
+		$$v_n = \frac{n(n+1)}{2n^{\alpha}} = \underset{n\to +\infty}{\sim} \frac{n^2}{2n^{\alpha}} = \frac{1}{2}n^{2-\alpha} \, .$$
+	}
+	\item \question{ En déduire que l'ensemble des valeurs de $\alpha$ pour lesquelles la série $\displaystyle\sum_{n\geq 1}v_n$ diverge.  }
+	\reponse{
+		Il s'agit du terme général d'une série de Riemann. La série $\displaystyle\sum_{n\geq 1}v_n$ diverge si et seulement si $\alpha - 2 \leq 1$ c'est-à-dire $\alpha \leq 3$.
+	}
+	\item \question{ Donner un développement limité de $\ln\left(1+\frac{1}{n^{\alpha-1}}\right)$ à l'ordre $1$ quand $n \to +\infty$. En déduire que : $$w_n = \frac{1}{n^{\alpha-2}} + \underset{n\to +\infty}o\left(\frac{1}{n^{\alpha-2}}\right) \, .$$ }
+	\reponse{
+		D'après le cours, on a :
+		$$\ln\left(1+\frac{1}{n^{\alpha-1}}\right) = \frac{1}{n^{\alpha-1}} + o\left(\frac{1}{n^{\alpha-1}}\right) \, .$$
+		Or $\left(1+\frac{n}{n^{\alpha}}\right)^{n} = \exp\left(n\ln\left(1+\frac{1}{n^{\alpha-1}}\right)\right)$. En utilisant le développement limité de $\ln\left(1+\frac{1}{n^{\alpha-1}}\right)$ à l'ordre $1$, on obtient :
+		$$w_n = \exp\left(\frac{n}{n^{\alpha-1}} + o\left(\frac{n}{n^{\alpha-1}}\right)\right) = \exp\left(\frac{1}{n^{\alpha-2}} + o\left(\frac{1}{n^{\alpha-2}}\right)\right)$$
+		Or $\exp(x) = 1 + x + o(x)$, donc $\exp(x)-1 = x + o(x)$. On a donc :
+		$$w_n = \frac{1}{n^{\alpha-2}} + o\left(\frac{1}{n^{\alpha-2}}\right) \, .$$
+	}
+	\item \question{Montrer l'inégalité suivante, pour tout $n \geq 1:$
+$$0\le u_n \leq \left(1+\frac{n}{n^{\alpha}}\right)^{n}-1.$$
+En déduire que la série $\displaystyle\sum_{n\geq 1}u_n$ converge si $\alpha>3$.
+}
+\reponse{
+	Pour tout $k \in \{1, \ldots, n\}$, on a $1+\frac{k}{n^{\alpha}} \leq 1+\frac{n}{n^{\alpha}}$. Par produit, on obtient : 
+	$$\left(1+\frac{1}{n^{\alpha}}\right)\times\left(1+\frac{2}{n^{\alpha}}\right)\times \cdots \times \left(1+\frac{n}{n^{\alpha}}\right) \leq \left(1+\frac{n}{n^{\alpha}}\right)^n \, .$$
+	De plus, pour tout $k \in \{1, \ldots, n\}$, on a $1+\frac{k}{n^{\alpha}} \geq 1$ donc par produit, on obtient :
+	$$\left(1+\frac{1}{n^{\alpha}}\right)\times\left(1+\frac{2}{n^{\alpha}}\right)\times \cdots \times \left(1+\frac{n}{n^{\alpha}}\right) \geq 1 \, .$$
+	En combinant les deux inégalités précédentes, on obtient :
+	$$0\le u_n \leq \left(1+\frac{n}{n^{\alpha}}\right)^{n}-1 \, .$$
+	Or $\left(1+\frac{n}{n^{\alpha}}\right)^{n}-1 = w_n$. D'après la question précédente, on a $w_n = \frac{1}{n^{\alpha-2}} + o\left(\frac{1}{n^{\alpha-2}}\right)$. Donc $w_n \underset{n\to +\infty}{\sim} \frac{1}{n^{\alpha-2}}$. Or si $\alpha > 3$, alors $\alpha - 2 > 1$ et la série $\displaystyle\sum_{n\geq 1}\frac{1}{n^{\alpha-2}}$ converge. Donc par comparaison de séries à termes positifs, la série $\displaystyle\sum_{n\geq 1}u_n$ converge.
+}
+\item \question{Montrer que pour tout entier naturel $n \geq 1,$ la suite $(u_n)$ v\'erifie l'inégalité suivante:
+	$$u_n \geq \frac{n(n+1)}{2n^{\alpha}} \,.$$
+}
+\reponse{
+	En développant le produit, on observe que :
+	$$\left(1+\frac{1}{n^{\alpha}}\right)\times\left(1+\frac{2}{n^{\alpha}}\right)\times \cdots \times \left(1+\frac{n}{n^{\alpha}}\right) = 1 \times \cdots \times 1 + 1 \times \cdots \times 1 \times  \frac{1}{n^{\alpha}} + \cdots + \frac{n}{n^{\alpha}} + \cdots$$
+	Donc :
+	$$u_n \geq  1 + \frac{1}{n^{\alpha}} + \cdots + \frac{n}{n^{\alpha}} - 1 = \frac{n(n+1)}{2n^{\alpha}} \, .$$
+}
+\item \question{ Déduire des questions précédentes l'ensemble des valeurs de $\alpha$ pour lesquelles  la série $\displaystyle\sum_{n\geq 1}u_n$ converge. }
+\reponse{
+	Le terme général $u_n$ est minoré par $v_n$ qui est le terme général d'une série divergente si $\alpha \leq 3$, donc $\displaystyle\sum_{n\geq 1}u_n$ diverge si $\alpha \leq 3$. De plus, le terme général $u_n$ est majoré par $w_n$ qui est le terme général d'une série convergente si $\alpha > 3$, donc $\displaystyle\sum_{n\geq 1}u_n$ converge si $\alpha > 3$. 
+
+	Finalement, la série $\displaystyle\sum_{n\geq 1}u_n$ converge si et seulement si $\alpha > 3$.
+}
+\end{enumerate}
+}

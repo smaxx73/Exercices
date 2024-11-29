@@ -1,0 +1,57 @@
+\titre{Cryptographie}
+\theme{AM}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+\texte{
+On considère deux entiers naturels \(a\) et \(b\). Pour tout entier \(n\), on note \(r(n)\) le reste de la division euclidienne de \(na + b\) par 29 (autrement dit : \(r(n) \equiv na+b \, [29]\)).
+
+On décide de coder un message, en procédant comme suit : à chaque lettre de l’alphabet ou l’un des trois symboles de ponctuation (virgule, point, point d’exclamation), on associe un entier compris entre 0 et 28, selon le tableau suivant :
+
+\[
+\begin{array}{|c|c c c c c c c c c c c c c c c|}
+\hline
+\text{Lettre} & A & B & C & D & E & F & G & H & I & J & K & L & M & N & O \\
+\text{Entier} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+\hline
+\text{Lettre} & P & Q & R & S & T & U & V & W & X & Y & Z & , & . & ! & \\
+\text{Entier} & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 \\
+\hline
+\end{array}
+\]
+
+Pour chaque lettre (ou symbole) \(\alpha\) du message, on détermine l’entier \(n_{\alpha}\) associé puis on calcule \(r(n_{\alpha})\). La lettre (ou symbole) \(\alpha\) est alors codée par la lettre (ou symbole) \(r(n_{\alpha})\).
+
+\begin{enumerate}
+    \item On suppose que \(a = 17\) et \(b = 3\). Coder le mot « ESCC ».
+    \item On ne connaît pas les entiers \(a\) et \(b\), mais on sait que la lettre C est codée par la lettre I et que la virgule « , » est codée par la lettre K.
+    \begin{itemize}
+        \item[a)] Montrer que les entiers \(a\) et \(b\) sont tels que :
+       $$
+        \begin{cases}
+        2a + b \equiv 8 \, [29] \\
+       26a+b \equiv 10 \, [29]
+        \end{cases}
+        $$
+        \item[b)] Déterminer tous les couples d’entiers \((a, b)\) tels que :
+       $$
+        \begin{cases}
+        2a + b \equiv 8 \, [29] \\
+        26a+b \equiv 10 \, [29]
+        \end{cases}
+       $$
+    \end{itemize}
+    \item On suppose de nouveau que \(a = 17\) et \(b = 3\). On admet que deux lettres distinctes de l’alphabet sont codées par deux lettres distinctes.
+    \begin{itemize}
+        \item[a)] Soit \(n\) un entier naturel. Montrer que :
+    $$
+        n \equiv 12r(n) -  7 \, [29]
+       $$
+        \item[b)] En déduire un procédé de décodage.
+        \item[c)] Décoder la lettre « N ».
+        \item[d)] Question bonus : Décoder le mot « NEXDP ».
+    \end{itemize}
+\end{enumerate}
+
+}
+}

@@ -1,0 +1,103 @@
+\titre{Cryptographie}
+\theme{AM}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+\texte{
+\textbf{Cryptosystème de EL-GAMAL :}
+
+Le cryptosystème de El-Gamal est un protocole de cryptographie asymétrique inventé par Taher El-Gamal en 1984, dont la sécurité vient de la difficulté à retrouver $\alpha$ dès lors que $g^\alpha \mod p$ est connu, en un temps de calcul acceptable, appelé problème du logarithme discret.
+
+Alice veut transmettre un message à Bob. Bob choisit :
+\begin{itemize}
+    \item $p$ un nombre premier suffisamment grand ;
+    \item $g$ un générateur du groupe cyclique $\big((\mathbb{Z}/p\mathbb{Z})^{\ast}, \times\big)$ ;
+    \item $\alpha$ un entier inférieur à $p-1$.
+\end{itemize}
+
+Bob calcule $\beta = g^\alpha \mod p$.
+
+\begin{itemize}
+    \item La clé publique de ce système est le triplet $(p, g, \beta)$ ;
+    \item La clé secrète est $\alpha$.
+\end{itemize}
+
+Soit $M$ le message qu'Alice veut transmettre à Bob. Alice découpe le message en blocs $M$, dont la "valeur numérique" est inférieure à $p$.
+
+\textbf{Codage :}
+
+Pour chacun des blocs $M$, Alice choisit un entier $k$ inférieur à $p-1$ et calcule :
+\[
+y_1 \equiv g^k \mod p
+\]
+\[
+y_2 = M \cdot \beta^k 
+\]
+
+Pour chacun des blocs, le message codé qu'Alice envoie à Bob est la paire $(y_1, y_2)$. Un message constitué de $r$ blocs est donc codé en une suite de $r$ couples $(y_1, y_2)$, qui peuvent être obtenus avec des valeurs de $k$ différentes.
+
+\textbf{Décodage :}
+
+Pour retrouver chaque bloc $M$, Bob calcule : $y_2 \cdot (y_1^{\alpha})^{-1} \equiv M \mod p$
+
+
+\textbf{Questions :}
+\begin{enumerate}
+    \item Justifier que $M \equiv y_2 \cdot y_1^{-\alpha} \mod p$.
+    
+    \item Supposons que Bob choisisse $p = 7$. Quelles sont les valeurs possibles de $g$ ? Autrement dit, quels sont les générateurs de $\big((\mathbb{Z}/7\mathbb{Z})^{\ast}, \times \big)$ ?
+    
+    \item Supposons désormais que Bob choisisse : $p = 13$, $g = 2$ et $\alpha = 5$. Vérifier que $g = 2$ est un générateur de $\big((\mathbb{Z}/13\mathbb{Z})^{\ast}, \times \big)$. Quelle est la clé publique de Bob ? Quelle est sa clé secrète ?
+    
+    \item Si Alice veut envoyer le message « BAC » en remplaçant chaque lettre par son rang dans l’alphabet. Le message à coder devient $\mathcal{M}=M_1-M_2-M_3$ avec $M_1 = 02$, $M_2 = 01$, $M_3 = 03$, en ayant choisi les trois valeurs de $k$ : $k_1 = 3$, $k_2 = 7$, $k_3 = 11$. Quel message codé (constitué de 3 couples) Bob va-t-il recevoir ?
+
+\item Recopier et compléter la table des inverses dans $\big((\mathbb{Z}/13\mathbb{Z})^{\ast}, \times \big)$ ;
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+x & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+\hline
+x^{-1} \pmod{13} &  &  &  & 10 & & 11 & &  & & 4 & 6 &  \\
+\hline
+\end{array}
+\]
+\item Bob reçoit le message $(2, 6), \, (4, 432), \, (8, 1080), \, (3, 1296).$
+
+Quel message (en latin) Alice a-t-elle voulu lui envoyer ? On pourra utiliser le tableau suivant :
+
+\begin{center}
+\begin{tabular}{l|l}
+A & 1 \\
+B & 2 \\
+C & 3 \\
+D & 4 \\
+E & 5 \\
+F & 6 \\
+G & 7 \\
+H & 8 \\
+I & 9 \\
+J & 10 \\
+K & 11 \\
+L & 12 \\
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+}
+}

@@ -1,0 +1,55 @@
+\titre{Loi normale, question de cours}
+\theme{probabilité}
+\auteur{Maxime NGUYEN}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{ Soit $X$ une variable aléatoire dont la loi est déterminée par la fonction densité définie pour tout $x \in \R$ par : $$
+	f_X(x)=\frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right]
+	$$ }
+
+\begin{enumerate}
+\item \question{ A l'aide d'un changement de variable, calculer $\mathbb{E}(X)$. }
+
+\reponse{ On exprime l'intégrale en posant le changement de variable affine $u=\frac{x-\mu}{\sigma} \iff x = \sigma u + \mu$ :
+	\begin{align*}
+		\mathbb{E}(X) &= \int_{-\infty}^{+\infty}xf(x)dx \\
+		&= \int_{-\infty}^{+\infty} (\sigma u + \mu) \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{u^2}{2}} \sigma du\\
+		&= \frac{\sigma}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} u e^{-\frac{u^2}{2}} du + \mu \times \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} e^{-\frac{u^2}{2}}du\\
+		&= 0 + \mu \times \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} e^{-\frac{u^2}{2}}du \\
+		&= 0 + \mu \times 1 \\
+		&= \mu
+\end{align*}   }
+
+\item \question{ Calculer la variance de $X$. }
+
+\reponse{ On utilise le même changement de variable : 
+	$$
+	\mathbb{E}\left((X-\mu)^2\right)=\frac{1}{\sigma \sqrt{2 \pi}} \int_{-\infty}^{+\infty}(x-\mu)^2 \exp \left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right] \mathrm{d} x
+	$$
+	devient, après changement de variables ci-dessus :
+	$$
+	E\left((X-\mu)^2\right)=\frac{\sigma^2}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} u^2 \exp \left[-\frac{u^2}{2}\right] \mathrm{d} u .
+	$$
+	En intégrant par parties, on trouve directement que
+	$$
+	E\left((X-\mu)^2\right)=\sigma^2 .
+	$$ }
+
+\item \question{ Soit $Z = \frac{X-\mu}{\sigma}$. Déterminer la loi de $Z$. }
+
+\reponse{ En effectuant toujours le même changement de variables $u=\frac{x-\mu}{\sigma}$, on a pour tout réel $t$ :
+	$$
+	\PP(Z \leqslant t)=\PP(X \leq \sigma t + \mu )\int_{-\infty}^{\sigma t + \mu} \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right] \mathrm{d} x=\int_{-\infty}^t \frac{1}{\sqrt{2 \pi}} \exp \left[-\frac{u^2}{2}\right] \mathrm{d} u .
+	$$
+	La densité de la variable aléatoire $Y$ est donc la fonction
+	$$
+	f_Y(u)=\frac{1}{\sqrt{2 \pi}} \exp \left[-\frac{u^2}{2}\right],
+	$$
+	qui correspond à celle de la loi normale centrée réduite $\mathscr{N}(0,1)$.
+ }
+\end{enumerate}
+}
+%\question{ Exprimer la fonction de répartition de $X$ en fonction de celle de $Z$. Connaissant une fonction densité de $Z$, en déduire une fonction densité de $X$.  }
+%\reponse{On peut écrire $X = \sigma Z + \mu$ d'où $\PP(X \leq t) = \PP\left(Z \leq \frac{t-\mu}{\sigma}\right)$. Puis on dérive et on obtient bien que $$f(x)=\frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$  }	}

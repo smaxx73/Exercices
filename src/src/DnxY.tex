@@ -1,0 +1,25 @@
+\titre{  }
+\theme{statistiques}
+\auteur{Maxime Nguyen}
+\organisation{AMSCC}
+\contenu{
+
+Voici un extrait des prix de l'essence relevés le 7 novembre 2022 sur cette base de données ouvertes : 
+
+https://data.economie.gouv.fr/explore/embed/dataset/prix-carburants-fichier-instantane-test-ods-copie/table/
+
+L'échantillon est disponible en suivant \href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EVXZBgQqo29LtxbAZJS0Y-IBz6WNroovMLS-hZVcisCSQQ?e=02c19c}{ce lien}. 
+
+\begin{enumerate}
+	\item \question{ A partir des données de l'échantillon, donner une estimation ponctuelle sans biais du prix moyen et de la variance du prix du carburant E10 en France. On précisera les estimateurs utilisés. }
+	\reponse{ Avec l'estimateur de moyenne empirique (sans biais et convergent), on trouve une estimation de la moyenne de prix de $1{,}661759$ et une variance de $0{,}0139$. }
+	\item \question{ Proposer une estimation par intervalle de confiance du prix moyen et de la variance du carburant E10 en France, respectivement pour une confiance de $95\%$ puis $99\%$.  }
+	\reponse{ On travaille sur un échantillon de taille $108$ donc les calculs se font avec la loi normale.
+	
+	Pour $\alpha = 5\%$, on trouve $[1{,}6395 ; 1{,6840}]$. 
+	
+	Pour $\alpha = 5\%$, on trouve $[1{,}6325 ; 1{,6910}]$. 
+ }
+\end{enumerate}
+
+}
