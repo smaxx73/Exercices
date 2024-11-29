@@ -1,0 +1,34 @@
+{
+  "uuid": "Bs5w",
+  "titre": "Séries entières solutions d'équations différentielles",
+  "theme": "séries",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Exprimer sous forme d'une série entière la solution de l'équation différentielle $(E)$:\n\t$$ x^2y''(x)+x(x+1)y'(x)-y(x)=0 \\qquad y'(0)=1.$$"
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $y$ une solution développable en série entière, de rayon de convergence $R$: on note $\\displaystyle y(x)=\\sum_{n=0}^{+\\infty} a_n x^n$ et on a\n\t\t\\[ \\forall x \\in ]-R;R[, \\qquad y'(x)=\\sum_{n=1}^{+\\infty} na_n x^{n-1}\\quad \\text{ et } \\quad y''(x)=\\sum_{n=2}^{+\\infty} n(n-1)a_n x^{n-2}.\\]\n\t\tOn a les équivalences suivantes:\n\t\t$$\\begin{align*}\n\t\ty \\text{ solution de }(E) \\ & \\Leftrightarrow \\ \n\t\t\\forall x \\in ]-R;R[, \\ -a_0 + \\sum_{n=2}^{+\\infty} [(n-1)(n+1)a_n - (n-1)a_{n-1}] x^n =0  \\\\\n\t\t\\ & \\Leftrightarrow \\\n\t\ta_0=0 \\quad \\text{ et } \\quad  \\forall n \\geq 2, \\ a_n=\\frac{-1}{n+1} a_{n-1}\n\t\t\\end{align*}$$\n\t\tLa condition initiale donne: $y'(0)=a_1=1$.\n\t\tOn en conclut que $a_0=0$, $a_1=1$ et pour tout $n\\geq 2$, $a_n=2\\frac{(-1)^{n+1}}{(n+1)!}$ et donc \n\t\t\\[ y(x)=2 \\sum_{n=1}^{+\\infty} \\frac{(-1)^{n+1}}{(n+1)!} x^n,\\] \n\t\tdéfinie sur l'intervalle $\\R$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer l'intervalle de convergence $I$ de la série entière solution de l'équation différentielle ci-dessus."
+    },
+    {
+      "type": "reponse",
+      "value": "Fait ci-dessus: $D=\\R$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer la fonction somme de cette série entière."
+    },
+    {
+      "type": "reponse",
+      "value": "On a:\n\t\t\\[\\forall x \\in \\R, \\qquad xy(x)=2 \\sum_{n=1}^{+\\infty} \\frac{(-1)^{n+1}}{(n+1)!}x^{n+1}=2\\sum_{n=2}^{+\\infty} \\frac{(-x)^{n}}{n!}\n\t\t=2\\left[\\sum_{n=0}^{+\\infty} \\frac{(-x)^{n}}{n!}-(1-x)\\right]\n\t\t\\]\n\t\td'où\n\t\t\\[\\forall x \\in \\R, \\qquad y(x)= \\begin{cases}\n\t\t\t\\frac{2}{x}(e^{-x}-1+x) & \\text{ si } x\\neq 0 \\\\\n\t\t\t0 & \\text{ si } x=0\n\t\t\\end{cases}\\]"
+    }
+  ]
+}

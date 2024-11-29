@@ -1,0 +1,34 @@
+{
+  "uuid": "qoul",
+  "titre": "Loi normale, calculs numériques",
+  "theme": "probabilité",
+  "auteur": "Maxime NGUYEN",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "A l'aide des tables de valeurs, calculer $\\PP(-1.2 \\leq Z \\leq 1.1)$ où $Z$ suit une loi $\\mathcal{N}(0,1)$."
+    },
+    {
+      "type": "reponse",
+      "value": "On exprime la probabilité à l'aide de la fonction de répartition de la loi normale centrée réduite notée $\\Phi$ : \n\t$$\\begin{align*}\n\t\t\\PP(-1.2 \\leq Z \\leq 1.1) &= \\PP(Z \\leq 1.1) - \\PP(Z < -1.2) \\\\\n\t\t&= \\PP(Z \\leq 1.1) - \\PP(Z > 1.2) &\\text{par symétrie}\\\\\n\t\t&= \\PP(Z \\leq 1.1) - (1-\\PP(Z \\leq 1.2)) \\\\\n\t\t&= \\Phi(1.1)+\\Phi(1.2)-1 \\\\\n\t\t&\\approx 0{,}75\n\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "A l'aide des tables de valeurs, calculer $\\PP(70 \\leq QI \\leq 130)$ où $QI$ suit une loi $\\mathcal{N}(100,\\sigma=15)$."
+    },
+    {
+      "type": "reponse",
+      "value": "On pose $Z = \\frac{QI-100}{15}$ de telle sorte que $Z$ suit une loi normale centrée réduite. On exprime alors\n\t$$\\begin{align*}\n\t\t\\PP(70 \\leq QI \\leq 130) &= \\PP\\left(\\frac{70-100}{15} \\leq \\frac{QI-100}{15} \\leq \\frac{130-100}{15}\\right) \\\\\n\t\t&= \\PP(-2 \\leq Z \\leq 2) \\\\\n\t\t&= 2\\times \\Phi(2) -1 \\\\\n\t\t&\\approx 0{,}95\n\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "A l'aide des tables de valeurs, déterminer un réel $t$ tel que $\\PP(|X-5|<t) = 95\\%$ où \n$X$ suit une loi $\\mathcal{N}(5,\\sigma=1)$."
+    },
+    {
+      "type": "reponse",
+      "value": "On pose $Z = {X-5}$ de telle sorte que $Z$ suit une loi normale centrée réduite. On exprime alors\n\t$$\\begin{align*}\n\t\t\\PP(|X-5| <t) &= \\PP\\left( -t<X-5<t\\right) \\\\\n\t\t&= \\PP\\left( -t \\leq Z \\leq t\\right) \\\\\n\t\t&= 2\\times \\Phi(t) -1 \\\\\n\t\\end{align*}$$ \n\tOn cherche $t \\in \\R$ tel que \n\t$$\\begin{align*}\n\t\t\\PP(|X-5| <t) = 0.95 &\\iff 2\\times \\Phi(t) -1 = 0.95 \\\\\n\t\t&\\iff \\Phi(t) = 0.975 \\\\\n\t\t&\\iff t \\approx 1{,}96 &\\text{par lecture inverse de la table}\n\t\\end{align*}$$"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+\uuid{Ab62}
+\titre{Développement d'une fonction en série de Fourier}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}	
+
+\contenu{
+
+
+\texte{ 	Soit $f \colon \R \to \R$ la fonction $2\pi$-périodique définie par :
+$$f(x) =\left\{
+\begin{array}{cl}
+	1&\textrm{si $x \in ]-\pi;0[$}\\
+	0& \textrm{si $x =0$}\\
+	-1&\textrm{si $x \in ]0;\pi[$}\end{array}\right.$$ }
+
+\begin{enumerate}
+	\item \question{ Représenter graphiquement l'allure de la fonction $f$ et vérifier que $f$ est une fonction impaire. }
+	\item \question{  Déterminer les coefficients de Fourier trigonométriques de la fonction $f$ et en déduire sa série de Fourier. La série de Fourier est-elle égale à $f$ en tout $x \in \R$ ?}
+	\reponse{C'est une fonction impaire donc $a_n = 0$ pour tout $n$. Il reste à calculer :
+		$$b_n=\frac{1}{\pi}\int_{-\pi}^{0}\,(1)\sin(nx)dx+\frac{1}{\pi}\int_{0}^{\pi}\,(-1)\sin(nx)dx=\frac{2}{n\pi}(\cos(n\pi)-1).$$ soit $$b_n=\left\{
+		\begin{array}{cl}
+			0&\textrm{pour $n$ pair}\\
+			\frac{4}{n\pi}&\textrm{pour $n$ impair}\end{array}\right.$$
+	}
+\end{enumerate}
+}

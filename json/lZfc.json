@@ -1,0 +1,30 @@
+{
+  "uuid": "lZfc",
+  "titre": "Produit matriciel et inverse",
+  "theme": "calcul matriciel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soient $A=\\begin{pmatrix}a & 0 & 0 \\\\ 0 & b & 0 \\\\ 0 & 0 & c\\end{pmatrix}$ et $A=\\begin{pmatrix}d & 0 & 0 \\\\ 0 & e & 0 \\\\ 0 & 0 & f\\end{pmatrix}$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer $A \\times B$ et $B \\times A$. Que remarque-t-on ?"
+    },
+    {
+      "type": "reponse",
+      "value": "On remarque que $AB = BA = \\begin{pmatrix}ad & 0 & 0 \\\\ 0 & be & 0 \\\\ 0 & 0 & cf\\end{pmatrix}$"
+    },
+    {
+      "type": "reponse",
+      "value": "On déduit de la question précédente que $A^2 = \\begin{pmatrix}a^2 & 0 & 0 \\\\ 0 & b^2 & 0 \\\\ 0 & 0 & c^2\\end{pmatrix}$ puis par récurrence que :\n\t\t$$A^k = \\begin{pmatrix}a^k & 0 & 0 \\\\ 0 & b^k & 0 \\\\ 0 & 0 & c^k\\end{pmatrix}.$$"
+    },
+    {
+      "type": "reponse",
+      "value": "Si $a \\neq 0$, $b \\neq 0$ et $c \\neq 0$ alors la matrice $A$ est inversible et \n$$A^{-1} = \\begin{pmatrix}a^{-1} & 0 & 0 \\\\ 0 & b^{-1} & 0 \\\\ 0 & 0 & c^{-1}\\end{pmatrix}$$"
+    }
+  ]
+}

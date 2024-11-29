@@ -1,0 +1,34 @@
+{
+  "uuid": "J50Z",
+  "titre": "Evolution d'une concentration chimique",
+  "theme": "analyse numérique",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "L'évolution de la concentration de certaines réactions chimiques au cours du temps peut être décrite par l'équation différentielle :\n\t$$y'(t) = - \\frac{1}{1+t^2}y(t)$$"
+    },
+    {
+      "type": "question",
+      "value": "Sachant qu'à l'instant $t=0$, la concentration vaut $y(0)=5$, déterminer la concentration en $t=2$ à l'aide de la méthode d'Euler implicite avec un pas $h=0.5$."
+    },
+    {
+      "type": "reponse",
+      "value": "Le schéma implicite s'écrit \n\t\t$$y_{n+1} = y_n + hF(t_{n+1},y_{n+1})$$\n\t\toù $F(t,y) = - \\frac{1}{1+t^2}y$.\n\t\t\n\t\tAprès réécriture sous forme explicite, on obtient \n\t\t$$y_{n+1}=\\frac{y_n}{1+ \\frac{h}{1+t_{n+1}^2} }$$\n\t\tAvec $h=0.5$, on a $t_n = \\frac{n}{2}$.\n\t\t\n\t\tAprès calculs, on trouve $y_4 = \\frac{520}{231} \\approx 2.25$ soit $y(2) \\approx 2.25$."
+    },
+    {
+      "type": "question",
+      "value": "Faire de même pour un pas de $h=10^{-3}$ et commenter la différence."
+    },
+    {
+      "type": "question",
+      "value": "Résoudre analytiquement l'équation différentielle, puis proposer sur un même graphique la solution approchée de la méthode d'Euler implicite et la solution exacte pour différentes valeurs de $h$."
+    },
+    {
+      "type": "reponse",
+      "value": "\\insertnotebook{J50Z}"
+    }
+  ]
+}

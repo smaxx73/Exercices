@@ -1,0 +1,38 @@
+{
+  "uuid": "e7W3",
+  "titre": "Loi exponentielle et loi géométrique",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $X$ une variable aléatoire réelle suivant une loi exponentielle de paramètre $\\lambda >0$. On définit $Y= \\lfloor X \\rfloor$ la partie entière de $X$. On pose $Z=X-\\lfloor X \\rfloor$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer la loi de probabilité de $Y$."
+    },
+    {
+      "type": "reponse",
+      "value": "On peut remarquer que $Y(\\Omega)=\\N$. Pour tout $n\\in \\N$, comme $X\\sim \\mathcal{E}(\\lambda)$, \n\t\t\\[\\p(Y=n)=\\p(n\\leq X<n+1)=\\int_n^{n+1} \\lambda e^{-\\lambda x} \\dx\n\t\t=\\left[ -e^{-\\lambda x} \\right]_n^{n+1}\n\t\t=e^{-\\lambda n}(1-e^{-\\lambda}), \\]\n\t\tce qui détermine entièrement la loi de $Y$ : $Y+1$ suit une loi géométrique de paramètre $(1-e^{-\\lambda})$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\PP(n \\leq X < n+t)$ pour tout $n \\in \\N $ et $t \\in ]0;1[$. En déduire la fonction de répartition de $Z$."
+    },
+    {
+      "type": "reponse",
+      "value": "\\[ \\p(n\\leq X\\leq n+t)=\\int_n^{n+t} \\lambda e^{-\\lambda x} \\dx\n\t\t=\\left[ -e^{-\\lambda x} \\right]_n^{n+t}\n\t\t=e^{-\\lambda n}-e^{-\\lambda (n+t)}.\\]\n\t\tOn a $\\{Z\\in[0;t[\\}=\\cup_{n\\in\\N} \\{n\\leq X\\leq n+t]$, la réunion étant disjointe. Ainsi, pour $t\\in[0;1[$,\n\t\t\\[ \\p(0\\leq Z\\leq t)\n\t\t=\\sum_{n\\in\\N} \\p(n\\leq X\\leq n+t)\n\t\t=\\sum_{n\\in\\N} e^{-\\lambda n} (1-e^{-\\lambda t})\n\t\t=\\frac{1-e^{-\\lambda t}}{1-e^{-\\lambda}}.\n\t\t\\]\n\t\tComme $Z$ est à valeurs dans $[0;1[$, on a\n\t\t$\n\t\tF_Z(t)=\n\t\t\\begin{cases}\n\t\t\t0 \\ \\text{ si } t<0 \\\\\n\t\t\t\\frac{1-e^{-\\lambda t}}{1-e^{-\\lambda}} \\ \\text{ si } 0\\leq t < 1 \\\\\n\t\t\t1 \\ \\text{ si } t \\geq 1\n\t\t\\end{cases}\n\t\t$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer l'espérance de $Y$ et de $Z$."
+    },
+    {
+      "type": "reponse",
+      "value": "Pour la \\va $Y$, on a\n\t\t\\[ \\E(Y)=\\sum_{n=0}^{+\\infty} n \\p(Y=n)\n\t\t=\\sum_{n=0}^{+\\infty} n(e^{-\\lambda n}-e^{-\\lambda (n+1)})\n\t\t= (1-e^{-\\lambda}) \\sum_{n=0}^{+\\infty} ne^{-\\lambda n}.\n\t\t\\]\n\t\tOn utilise la formule \n\t\t\\[ \\sum_{n=0}^{+\\infty} n t^n\n\t\t= t \\sum_{n=0}^{+\\infty} nt^{n-1}\n\t\t=t \\left[ \\sum_{n=0}^{+\\infty} t^n\\right]'\n\t\t=t\\left[\\frac{1}{1-t}\\right]'\n\t\t=\\frac{t}{(1-t)^2}.\n\t\t\\]\n\t\tIl vient\n\t\t\\[ \\E(Y)=(1-e^{-\\lambda})\\frac{e^{-\\lambda}}{(1-e^{-\\lambda})^2}\n\t\t=\\frac{1}{e^\\lambda -1}.\n\t\t\\]\n\t\tCe résultat était prévisible puisque $Y+1$ suit une loi géométrique $\\mathcal{G}(1-e^{-\\lambda})$, donc il est acquis que $\\mathbb{E}(Y+1) = \\frac{1}{1-e^{-\\lambda}}$, d'où par linéarité $\\mathbb{E}(Y) = \\frac{1}{1-e^{-\\lambda}}-1 = \\frac{e^{-\\lambda}}{1-e^{-\\lambda}} $.\n\t\t\\vspace{0.5em}\n\t\t\n\t\tPour la \\va $Z$, on procède par linéarité : \n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\ton sait que $\\E(X)=\\frac{1}{\\lambda}$ donc $\\E(Z) = \\frac{1}{\\lambda}  -  \\frac{e^{-\\lambda}}{1-e^{-\\lambda}} = \\frac{1}{\\lambda}  -  \\frac{1}{e^{\\lambda}-1}$. \n\t\t\n\t\tPar ailleurs, comme $\\lambda<e^\\lambda-1$ pour $\\lambda >0$, on a $\\frac{1}{\\lambda}>\\frac{1}{e^\\lambda -1}$ et donc $\\E(Z)>0$, ce qui est cohérent car $Z$ est à valeurs dans $[0;1]$."
+    }
+  ]
+}

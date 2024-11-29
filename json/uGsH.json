@@ -1,0 +1,34 @@
+{
+  "uuid": "uGsH",
+  "titre": "Calcul avec une densité de probabilité",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Vérifier que $f$ est bien une densité de probabilité. On note $X$ une variable aléatoire admettant $f$ pour densité de probabilité."
+    },
+    {
+      "type": "reponse",
+      "value": "Pour qu'une fonction soit une densité de probabilité, elle doit satisfaire les deux conditions suivantes :\n    \\begin{enumerate}\n        \\item $f(x) \\geq 0$ pour tout $x$ dans l'intervalle de définition.\n        \\item L'intégrale de $f(x)$ sur tout l'intervalle $[0, 2]$ doit être égale à 1.\n    \\end{enumerate}\n    \n    Vérifions la première condition : \\\\\n    $f(x) = \\frac{3}{16}(4 - x^2) \\geq 0$ sur $[0, 2]$, car $x^2 \\leq 4$ pour \n    $0\\leq x \\leq 2$.\n    \n    Vérifions maintenant la seconde condition :\n    \n    \\[\n    \\int_0^2 \\frac{3}{16}(4 - x^2) \\, dx = \\frac{3}{16} \\int_0^2 (4 - x^2) \\, dx = \\frac{3}{16} \\left[ 4x - \\frac{x^3}{3} \\right]_0^2.\n    \\]\n    \n    En évaluant les bornes :\n    \n    \\[\n    \\left[ 4x - \\frac{x^3}{3} \\right]_0^2 = \\left( 8 - \\frac{8}{3} \\right) - (0) = \\frac{24}{3} - \\frac{8}{3} = \\frac{16}{3}.\n    \\]\n    \n    Ainsi, \n    \\[\n    \\int_0^2 f(x) \\, dx = \\frac{3}{16} \\times \\frac{16}{3} = 1.\n    \\]\n    \n    Donc, $f$ est bien une densité de probabilité."
+    },
+    {
+      "type": "question",
+      "value": "Calculer la probabilité que $X$ prenne une valeur dans l'intervalle $[1, 3]$."
+    },
+    {
+      "type": "reponse",
+      "value": "On cherche $\\prob(1 \\leq X \\leq 3)$, ce qui revient à calculer l'intégrale de $f(x)$ sur l'intervalle $[1, 3]$ :\n    \n    \\[\n    \\prob(1 \\leq X \\leq 3) = \\int_1^3 f(x) \\, dx = \\int_1^2 \\frac{3}{16}(4 - x^2) \\, dx = \\frac{5}{16}\n    \\]"
+    },
+    {
+      "type": "question",
+      "value": "Calculer l'espérance et la variance de $X$."
+    },
+    {
+      "type": "reponse",
+      "value": "$$\\begin{align*}\n\t\t\\mathbb{E}[X] &= \\int_{0}^{2} x f(x) \\, dx \\\\\n\t\t&= \\int_{0}^{2} x \\left( \\frac{3}{16}(4 - x^2) \\right) dx \\\\\n\t\t&= \\frac{3}{16} \\int_{0}^{2} x (4 - x^2) \\, dx \\\\\n\t\t&= \\frac{3}{16} \\int_{0}^{2} (4x - x^3) \\, dx \\\\\n\t\t&= \\frac{3}{16} \\left( \\int_{0}^{2} 4x \\, dx - \\int_{0}^{2} x^3 \\, dx \\right) \\\\\n\t\t&= \\frac{3}{16} \\left( \\left[2x^2\\right]_{0}^{2} - \\left[\\frac{x^4}{4}\\right]_{0}^{2} \\right) \\\\\n\t\t&= \\frac{3}{16} \\left( \\left(2 \\times 2^2\\right) - \\left(\\frac{2^4}{4}\\right) - \\left(0 - 0\\right) \\right) \\\\\n\t\t&= \\frac{3}{16} \\left( 8 - 4 \\right) \\\\\n\t\t&= \\frac{3}{4}.\n\t\\end{align*}$$\n\n$$\\begin{align*}\n\t\\operatorname{Var}(X) &= \\mathbb{E}[X^2] - (\\mathbb{E}[X])^2 \\\\\n\t\\\\\n\t\\text{Calcul de } \\mathbb{E}[X^2]: \\\\\n\t\\mathbb{E}[X^2] &= \\int_{0}^{2} x^2 f(x) \\, dx \\\\\n\t&= \\int_{0}^{2} x^2 \\left( \\frac{3}{16}(4 - x^2) \\right) dx \\\\\n\t&= \\frac{3}{16} \\int_{0}^{2} x^2 (4 - x^2) \\, dx \\\\\n\t&= \\frac{3}{16} \\int_{0}^{2} (4x^2 - x^4) \\, dx \\\\\n\t&= \\frac{3}{16} \\left( \\int_{0}^{2} 4x^2 \\, dx - \\int_{0}^{2} x^4 \\, dx \\right) \\\\\n\t&= \\frac{3}{16} \\left( \\left[\\frac{4x^3}{3}\\right]_{0}^{2} - \\left[\\frac{x^5}{5}\\right]_{0}^{2} \\right) \\\\\n\t&= \\frac{3}{16} \\left( \\left( \\frac{4 \\times 8}{3} \\right) - \\left( \\frac{32}{5} \\right) - \\left( 0 - 0 \\right) \\right) \\\\\n\t&= \\frac{3}{16} \\left( \\frac{32}{3} - \\frac{32}{5} \\right) \\\\\n\t&= \\frac{4}{5}.\n\\end{align*}$$\n\n$$\\begin{align*}\n\t\\text{Calcul de } \\operatorname{Var}(X): \\\\\n\t\\operatorname{Var}(X) &= \\mathbb{E}[X^2] - (\\mathbb{E}[X])^2 \\\\\n\t&= \\frac{4}{5} - \\left( \\frac{3}{4} \\right)^2 \\\\\n\t&= \\frac{4}{5} - \\frac{9}{16} \\\\\n\t&= \\frac{64}{80} - \\frac{45}{80} \\\\\n\t&= \\frac{19}{80}.\n\\end{align*}$$"
+    }
+  ]
+}

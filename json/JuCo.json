@@ -1,0 +1,18 @@
+{
+  "uuid": "JuCo",
+  "titre": "Urnes, boules et indépendance",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "On dispose de deux urnes. La première contient 3 boules noires et 7 boules blanches. La seconde contient 5 boules noires et 5 boules blanches. \n\nOn choisit une urne au hasard et on tire successivement deux boules, avec remise, dans cette urne. On note les événements :\n\\begin{itemize}\n\t\\item $B1$ : \\og on obtient une boule blanche au premier tirage\\fg{}\n\t\\item $B2$ : \\og on obtient une boule blanche au second tirage\\fg{}\n\\end{itemize}"
+    },
+    {
+      "type": "question",
+      "value": "Les événements $B1$ et $B2$ sont-ils indépendants ?"
+    }
+  ]
+}

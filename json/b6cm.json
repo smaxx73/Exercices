@@ -1,0 +1,26 @@
+{
+  "uuid": "b6cm",
+  "titre": "Autour d'une loi exponentielle",
+  "theme": "probabilités",
+  "auteur": "Maxime Nguyen",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Déterminer $\\prob(X \\geq t)$ pour tout $t \\in \\R$."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $t \\in \\R$. Si $t \\geq 0$, on a : \n        $$\\begin{align*}\n            \\prob(X \\geq t) &= \\int_t^{+\\infty} f(x) \\d x \\\\\n            &= \\int_t^{+\\infty} 3 e^{-3x} \\d x \\\\\n            &= \\left[ -e^{-3x} \\right]_t^{+\\infty} \\\\\n            &= e^{-3t}.\n        \\end{align*}$$\n        Si $t < 0$, on a $\\prob(X \\geq t) = 1$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer $\\prob(Z \\geq t)$ pour tout $t \\in \\R$."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $t \\in \\R$. Si $t \\geq 0$, on a : \n        $$\\begin{align*}\n            \\prob(Z \\geq t) &= \\prob(X \\geq t \\text{ et } Y \\geq t) \\\\\n            &= \\prob(X \\geq t) \\prob(Y \\geq t) \\text{ par indépendance de $X$ et $Y$} \\\\\n            &= e^{-3t} \\times e^{-3t} \\\\\n            &= e^{-6t}.\n        \\end{align*}$$\n        Si $t < 0$, on a $\\prob(Z \\geq t) = 1$.\n\n        On voit ainsi que $Z = \\min(X,Y)$ suit une loi exponentielle $\\mathcal{E}(6)$."
+    }
+  ]
+}

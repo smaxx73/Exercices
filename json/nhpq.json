@@ -1,0 +1,38 @@
+{
+  "uuid": "nhpq",
+  "titre": "Estimation par intervalle de confiance",
+  "theme": "statistiques",
+  "auteur": "Maxime Nguyen",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Dans une base militaire, un nouveau type de radio est en cours de test pour évaluer sa fiabilité en conditions opérationnelles. Un échantillon de 150 radios a été testé durant un exercice, et il a été constaté que 135 de ces radios ont fonctionné sans défaillance tout au long de l'exercice."
+    },
+    {
+      "type": "question",
+      "value": "Donner une estimation de la proportion de ces nouvelles radios fonctionnant sans défaillance, en précisant l'estimateur utilisé et son biais."
+    },
+    {
+      "type": "reponse",
+      "value": "On utilise l'estimateur de fréquence empirique $F = \\frac{1}{150}\\sum_{i=1}^{150} X_i$ avec $X_i \\sim \\mathcal{B}(p)$, sans biais pour estimer la proportion $p$ de radios sans défaillance : sa réalisation ici est $p_{obs} = \\frac{130}{150} = 0{,}90$."
+    },
+    {
+      "type": "question",
+      "value": "Donner cette estimation à l'aide d'un intervalle de confiance à 90\\%, 95\\% et 99\\%."
+    },
+    {
+      "type": "reponse",
+      "value": "On utilise la formule du cours : \n\t\t$$I_{conf}(F(\\omega))=\\left[f_{obs}-u_{\\alpha/2} \\sqrt{\\frac{f_{obs}(1-f_{obs})}{n}} ~;~ f_{obs} + u_{\\alpha/2} \\sqrt{\\frac{f_{obs}(1-f_{obs})}{n}} \\right]$$\n\tavec $\\alpha = 0.1$ : $I_{conf} = [0,859709479 ; 0,940290521]$\n\t\n\t\tavec $\\alpha = 0.05$ : $I_{conf} = [0,851990883 ; 0,948009117]$\n\t\t\n\t\tavec $\\alpha = 0.01$ : $I_{conf} = [0,836905325 ; 0,963094675]$"
+    },
+    {
+      "type": "question",
+      "value": "Quelle taille d'échantillon devrait-on choisir pour que l'amplitude de l'intervalle de confiance ne dépasse pas $0.01$ avec une erreur de première espèce de $5\\%$ ?"
+    },
+    {
+      "type": "reponse",
+      "value": "On utilise la formule simplifiée du cours : \n\t\t$$I_{conf}(F(\\omega))=\\left[ f_{obs}-u_{\\alpha/2} \\frac{1}{2 \\sqrt{n}} ~;~ f_{obs} + u_{\\alpha/2} \\frac{1}{2 \\sqrt{n}} \\right]$$\n\tet on cherche $n$ tel que $u_{\\alpha/2} \\frac{1}{\\sqrt{n}} \\leq 0.01 \\iff \\sqrt{n} \\geq \\frac{1.96}{0.01}$ soit $n \\geq 38415$."
+    }
+  ]
+}

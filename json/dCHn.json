@@ -1,0 +1,58 @@
+{
+  "uuid": "dCHn",
+  "titre": "Probabilités conditionnelles",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Une usine a besoin de deux machines $m_1$ et $m_2$. La probabilité que $m_1$ tombe en panne est $0{,}005$ et la probabilité que $m_2$ tombe en panne est $0{,}007$. La probabilité que $m_2$ tombe en panne sachant que $m_1$ est en panne est $0{,}5$."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $M_1$ (respectivement $M_2$) l'événement ``la machine $m_1$ (respectivement $m_2$) fonctionne''. On a ainsi:\n\t$\\prob(\\overline{M}_1)=0{,}005$, $\\prob(\\overline{M}_2)=0{,}007$, $\\prob(\\overline{M_2}|\\overline{M}_1)=0{,}5$."
+    },
+    {
+      "type": "question",
+      "value": "Quelle est la probabilité que $m_1$ et $m_2$ soient simultanément en panne ?"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(\\overline{M}_1\\cap \\overline{M}_2)=\\prob(\\overline{M}_1)\\prob(\\overline{M}_2|\\overline{M}_1)=0{,}5\\times 0{,}005=0{,}0025$."
+    },
+    {
+      "type": "question",
+      "value": "En déduire la probabilité qu'une machine au moins fonctionne."
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(M_1\\cup M_2)=\\prob(\\overline{\\overline{M}_1\\cap \\overline{M}_2})=1-\\prob(\\overline{M}_1\\cap \\overline{M}_2)=1-0{,}0025=0{,}9975$"
+    },
+    {
+      "type": "question",
+      "value": "Quelle est la probabilité que $m_1$ (respectivement $m_2$) soit seule en panne ?"
+    },
+    {
+      "type": "reponse",
+      "value": "Probabilité que $m_1$ soit seule en panne :\n\t\t\t$$ \\prob(\\overline{M}_1\\cap M_2)=\\prob(M_2| \\overline{M}_1)\\,  \\prob(\\overline{M}_1)=0{,}005\\times 0{,}5=0{,}0025.$$\n\t\t\tOn peut aussi voir que $\\overline{M}_1\\cap M_2 = \\overline{M}_1 \\setminus \\overline{M}_1\\cap \\overline{M}_2$, ce qui donne $\\prob(\\overline{M}_1\\cap M_2) = 0{,}005-0{,}0025 = 0{,}0025$. \n\n\t\t\tProbabilité que $m_2$ soit seule en panne :\n\t\t\t\\begin{eqnarray*}\n\t\t\t\t\\prob(\\overline{M}_2\\cap M_1) = 1-\\prob(\\overline{M_1}\\cup M_2) &=& 1-(\\prob(\\overline{M}_1)+\\prob(M_2)-\\prob(\\overline{M}_1\\cap M_2))\\\\\n\t\t\t\t&=& 1- (0{,}005+0{,}993-0{,}0025) = 0{,}0045\n\t\t\t\\end{eqnarray*}\n\t\t\tOn peut aussi voir comme ci-dessus que $\\overline{M}_2\\cap M_1 = \\overline{M}_2 \\setminus \\overline{M}_2\\cap \\overline{M}_1$, ce qui donne également que $\\prob(\\overline{M}_2\\cap M_1) = 0{,}007-0{,}0025 = 0{,}0045$."
+    },
+    {
+      "type": "question",
+      "value": "En déduire la probabilité d'avoir une seule machine en panne."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $A$ l'événement : ``une seule machine est en panne''. Alors \n\t\t\t\\[ \\prob(A)=\\prob(M_1\\cap \\overline{M}_2)+\\prob(M_2\\cap \\overline{M}_1)=0{,}025+0{,}0045=0{,}007\\]"
+    },
+    {
+      "type": "question",
+      "value": "Quelle est la probabilité de n'avoir aucune machine en panne ?"
+    },
+    {
+      "type": "reponse",
+      "value": "L'événement qui nous intéresse est $M_1\\cap M_2$. Or on a\n\t\t\t\\begin{eqnarray*}\n\t\t\t\t\\prob(M_1\\cap M_2) = 1- \\prob(\\overline{M}_1\\cup \\overline{M}_2)\n\t\t\t\t&=& 1- (\\prob(\\overline{M}_1)+\\prob(\\overline{M}_2)-\\prob(\\overline{M}_1\\cap \\overline{M}_2))\\\\\n\t\t\t\t&=& 1-(0{,}005+0{,}007-0{,}0025) = 0{,}9905.\n\t\t\t\\end{eqnarray*}\n\t\t\tIl y a donc $99{,}05$\\% de chances que les deux machines fonctionnent.\n\t\t\t\n\t\t\tOn peut aussi voir que $A$, $\\overline{M}_1\\cap \\overline{M}_2$ et $M_1\\cap M_2$ forme un système complet d'événements : soit 0 machine fonctionne, soit une seule fonctionne, soit les deux fonctionnent. Ainsi, on retrouve \n\t\t\t$$\\prob(M_1 \\cap M_2)=1-\\prob(A)-\\prob(\\overline{M}_1\\cap\\overline{M}_2)=1-0{,}007-0{,}0025=0{,}9905.$$"
+    }
+  ]
+}

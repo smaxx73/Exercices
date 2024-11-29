@@ -1,0 +1,38 @@
+{
+  "uuid": "A2Gl",
+  "titre": "Loi de Poisson et estimation par maximum de vraisemblance",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "On considère un échantillon $X_1,...,X_n$ suivant une loi de Poisson $\\mathcal{P}(\\lambda)$. On cherche un estimateur de $\\lambda$ par la méthode du maximum de vraisemblance. On note $(x_1,...,x_n)$ une réalisation de cet échantillon."
+    },
+    {
+      "type": "question",
+      "value": "Exprimer la fonction de vraisemblance $L(x_1,...,x_n,\\lambda)$ en fonction de l'échantillon et du paramètre $\\lambda$ à estimer."
+    },
+    {
+      "type": "reponse",
+      "value": "$\\displaystyle L(x_1,\\cdots,x_n,\\lambda)=\\prod_{i=1}^n \\mathbb{P}(X_i=x_i)$ or $X_i \\sim \\mathcal{P}(\\lambda)$ donc\n\t\t\\[ L(x_1,\\cdots,x_n,\\lambda)=\\prod_{i=1}^n \\frac{\\lambda^{x_i}}{x_i !}e^{-\\lambda}\\]"
+    },
+    {
+      "type": "question",
+      "value": "Trouver pour quelle valeur de $\\lambda$ la fonction de vraisemblance atteint son maximum."
+    },
+    {
+      "type": "reponse",
+      "value": "On a\n\t\t$$\\begin{align*}\n\t\t\t\\ln L(x_1,\\cdots,x_n,\\lambda) &= \\sum_{i=1}^n \\left(\\ln(\\lambda^{x_i})-\\lambda - \\ln(x_i !) \\right) \\\\\n\t\t\t&= (\\ln \\lambda) \\sum_{i=1}^n x_i -n\\lambda - \\sum_{i=1}^n \\ln(x_i !)\n\t\t\\end{align*}$$\n\t\tdonc en dérivant par rapport à $\\lambda$,\n\t\t\\[ \\frac{\\partial L(x_1,\\cdots,x_n,\\lambda)}{\\partial \\lambda}=\\frac{1}{\\lambda}\\sum_{i=1}^n x_i -n.\\]\n\t\tOr \n\t\t\\[ \\frac{\\partial L(x_1,\\cdots,x_n,\\lambda)}{\\partial \\lambda}=0 \\quad \\Leftrightarrow \\quad \\lambda=\\frac{1}{n}\\sum_{i=1}^n x_i.\\]"
+    },
+    {
+      "type": "question",
+      "value": "Conclure."
+    },
+    {
+      "type": "reponse",
+      "value": "L'estimateur par maximum de vraisemblance de $\\lambda$ est $\\displaystyle\\frac{1}{n}\\sum_{i=1}^n X_i$ et une estimation de $\\lambda$ est $\\displaystyle \\frac{1}{n}\\sum_{i=1}^n x_i$."
+    }
+  ]
+}

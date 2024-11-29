@@ -1,0 +1,46 @@
+{
+  "uuid": "gl15",
+  "titre": "Estimation par inégalité",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Une population de personnes doit voter à l'élection présidentielle. La proportion souhaitant voter pour la candidate Mme A. est inconnue, on la note $p$. Pour approcher cette valeur, on effectue un sondage sur $n$ personnes : l'échantillon est modélisé par une suite de variables aléatoires indépendantes $(X_1,...,X_n)$ suivant chacune une loi de Bernoulli de paramètre $p$ ($X_i=1$ si le $i$-ème individu souhaite voter pour Mme A., $X_i=0$ sinon). \n\nOn note $S_n=\\sum_{i=1}^n X_i$ de sorte que $\\frac{S_n}{n}$ représente la proportion de personnes votant pour Mme A. dans l'échantillon."
+    },
+    {
+      "type": "question",
+      "value": "Quelle est la loi suivie par $S_n$ ?"
+    },
+    {
+      "type": "reponse",
+      "value": "$S_n$ suit une loi binomiale $\\mathcal{B}(n,p)$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer l'espérance et la variance de $\\frac{S_n}{n}$."
+    },
+    {
+      "type": "reponse",
+      "value": "On en déduit que $\\mathbb{E}(S_n)=np$ et $V(S_n)=np(1-p)$. D'après les propriétés de l'espérance et de la variance, on en déduit que $\\mathbb{E}\\left(\\frac{S_n}{n}\\right)=p$ et $V\\left(\\frac{S_n}{n}\\right)=\\frac{p(1-p)}{n}$."
+    },
+    {
+      "type": "question",
+      "value": "Soit $\\varepsilon >0$. Démontrer que \n\t$$\\PP\\left(\\left| \\frac{S_n}{n}-p \\right| > \\varepsilon \\right) \\leq \\frac{1}{4n\\varepsilon^2}$$"
+    },
+    {
+      "type": "reponse",
+      "value": "D'après l'inégalité de Bienaymé-Tchebychev, \n\t$$\\PP\\left(\\left| \\frac{S_n}{n}-p \\right| > \\varepsilon \\right) \\leq \\frac{p(1-p)}{n\\varepsilon^2}$$\n\tet on conclut en remarquant que $p(1-p) \\leq \\frac{1}{4}$."
+    },
+    {
+      "type": "question",
+      "value": "Comment choisir la taille de l'échantillon de sorte que le résultat du sondage soit proche de $p$ à $\\varepsilon=0.05$ près avec une probabilité supérieure à $95\\%$ ?"
+    },
+    {
+      "type": "reponse",
+      "value": "Il faut choisir $n$ tel que $\\frac{1}{4} n \\varepsilon^2 \\leq 0.05$, on peut prendre $n=2000$."
+    }
+  ]
+}

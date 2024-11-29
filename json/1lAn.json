@@ -1,0 +1,30 @@
+{
+  "uuid": "1lAn",
+  "titre": "Calcul de dérivées partielles",
+  "theme": "calcul différentiel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Une étude des glaciers a montré que la température T à l'instant t (mesuré en jours) à la profondeur $x$ (mesurée en pied) peut être modélisée par la fonction \n$$T(x,t) = T_0 + T_1e^{-\\lambda x}\\sin(\\omega t-\\lambda x)$$\noù $T_0$, $T_1$, $\\omega = \\frac{2\\pi}{365}$ et $\\lambda$ sont des constantes réelles."
+    },
+    {
+      "type": "question",
+      "value": "Exprimer les deux dérivées partielles de $T$."
+    },
+    {
+      "type": "reponse",
+      "value": "Les dérivées partielles sont définies pour tout $(x,t) \\in \\R^2$ :\n\t\t$$\\begin{align*}\n\t\t\\frac{\\partial T}{\\partial x}(x,t) &= -\\lambda T_1 e^{-\\lambda x}\\left( \\sin(\\omega t-\\lambda x)+ \\cos(\\omega t-\\lambda x)  \\right)\\\\\n\t\t\\frac{\\partial T}{\\partial t}(x,t) &= \\omega T_1 e^{-\\lambda x} \\cos(\\omega t-\\lambda x)\n\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "Montrer que $T$ vérifie l'équation de la chaleur :\n\t$$\\frac{\\partial T}{\\partial t}(x,t) = k\\frac{\\partial^2 T}{\\partial x^2}(x,t)$$\n\tpour une certaine constante $k$ à déterminer."
+    },
+    {
+      "type": "reponse",
+      "value": "Il suffit de dériver une seconde fois par rapport à $x$ l'expression de $\\frac{\\partial T}{\\partial x}(x,t)$ : on trouve\n\t\t$$\\begin{align*}\n\t\t\\frac{\\partial^2 T}{\\partial x^2}(x,t) &= \\frac{\\partial}{\\partial x}\\frac{\\partial T}{\\partial x}(x,t) \\\\\n\t\t&= (-\\lambda)^2 T_1 e^{-\\lambda x} \\left( \\sin(\\omega t-\\lambda x)+ \\cos(\\omega t-\\lambda x)  \\right) + (-\\lambda)^2 T_1 e^{-\\lambda x} \\left(\\cos(\\omega t-\\lambda x)- \\sin(\\omega t-\\lambda x)\\right) \\\\\n\t\t&= 2\\lambda^2 T_1 e^{-\\lambda x} \\cos(\\omega t - \\lambda x)\t\n\t\t\\end{align*}$$\n\t\tLa constante attendue est donc $k = \\frac{\\omega}{2\\lambda^2}$."
+    }
+  ]
+}

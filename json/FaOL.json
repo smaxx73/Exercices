@@ -1,0 +1,26 @@
+{
+  "uuid": "FaOL",
+  "titre": "Produit matriciel",
+  "theme": "calcul matriciel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soient les matrices $A=\\left(\\begin{array}{ll}0 & 0 \\\\ 0 & 1\\end{array}\\right)$ et $B=\\left(\\begin{array}{ll}0 & 0 \\\\ 1 & 0\\end{array}\\right)$."
+    },
+    {
+      "type": "question",
+      "value": "A-t-on $A^2-B^2=(A+B)(A-B)$ ? Justifier."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer une condition nécessaire et suffisante pour obtenir l'égalité."
+    },
+    {
+      "type": "reponse",
+      "value": "$$\n\\begin{aligned}\n\t& A^2=\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t0 & 1\n\t\\end{array}\\right) \\cdot\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t0 & 1\n\t\\end{array}\\right)=\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t0 & 1\n\t\\end{array}\\right) \\\\\n\t& B^2=\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t1 & 0\n\t\\end{array}\\right) \\cdot\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t1 & 0\n\t\\end{array}\\right)=\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t0 & 0\n\t\\end{array}\\right) \\\\\n\t& A^2-B^2=\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t0 & 1\n\t\\end{array}\\right) \\\\\n\t& A+B=\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t1 & 1\n\t\\end{array}\\right) \\\\\n\t& A-B=\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t-1 & 1\n\t\\end{array}\\right) \\\\\n\t& (A+B) \\cdot(A-B)=\\left(\\begin{array}{ll}\n\t\t0 & 0 \\\\\n\t\t1 & 1\n\t\\end{array}\\right) \\cdot\\left(\\begin{array}{cc}\n\t\t0 & 0 \\\\\n\t\t-1 & 1\n\t\\end{array}\\right)=\\left(\\begin{array}{cc}\n\t\t0 & 0 \\\\\n\t\t-1 & 1\n\t\\end{array}\\right)\n\\end{aligned}\n$$\nAinsi :\n$$\nA^2-B^2 \\neq(A+B)(A-B)\n$$\nJustification :\n$$\n(A+B)(A-B)=A^2 \\underbrace{-AB+BA}_{\\neq 0}-B^2\n$$\ncar $BA \\neq A B$.\nPour avoir l'égalité, il faut et il suffit que $A$ et $B$ commutent : $B A=A B$."
+    }
+  ]
+}

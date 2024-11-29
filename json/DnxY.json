@@ -1,0 +1,26 @@
+{
+  "uuid": "DnxY",
+  "titre": "",
+  "theme": "statistiques",
+  "auteur": "Maxime Nguyen",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "A partir des données de l'échantillon, donner une estimation ponctuelle sans biais du prix moyen et de la variance du prix du carburant E10 en France. On précisera les estimateurs utilisés."
+    },
+    {
+      "type": "reponse",
+      "value": "Avec l'estimateur de moyenne empirique (sans biais et convergent), on trouve une estimation de la moyenne de prix de $1{,}661759$ et une variance de $0{,}0139$."
+    },
+    {
+      "type": "question",
+      "value": "Proposer une estimation par intervalle de confiance du prix moyen et de la variance du carburant E10 en France, respectivement pour une confiance de $95\\%$ puis $99\\%$."
+    },
+    {
+      "type": "reponse",
+      "value": "On travaille sur un échantillon de taille $108$ donc les calculs se font avec la loi normale.\n\t\n\tPour $\\alpha = 5\\%$, on trouve $[1{,}6395 ; 1{,6840}]$. \n\t\n\tPour $\\alpha = 5\\%$, on trouve $[1{,}6325 ; 1{,6910}]$."
+    }
+  ]
+}

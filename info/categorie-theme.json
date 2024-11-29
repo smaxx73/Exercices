@@ -1,0 +1,34 @@
+{
+  "Analyse": [
+    "calcul différentiel",
+    "fonctions de plusieurs variables",
+    "topologie",
+    "optimisation",
+    "séries",
+    "séries entières",
+    "séries de Fourier",
+    "courbes paramétrées",
+    "analyse numérique",
+    "méthodes numériques",
+    "analyse asymptotique",
+    "complexes",
+    "limite",
+    "équations différentielles"
+  ],
+  "Algèbre": [
+    "systèmes linéaires",
+    "polynômes",
+    "matrices",
+    "calcul déterminant",
+    "calcul matriciel",
+    "fractions rationnelles"
+  ],
+  "Analyse de données": [
+    "statistiques",
+    "tableur",
+    "réseau de neurones"
+  ],
+  "Probabilités": [
+    "probabilités"
+  ]
+}

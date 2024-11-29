@@ -1,0 +1,30 @@
+{
+  "uuid": "tLxt",
+  "titre": "Modélisation et matrices",
+  "theme": "calcul matriciel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Voici les ventes d'une buvette lors d'un festival de musique, ainsi que les prix pratiqués en euros:\n\\begin{center}\n\t\\begin{tabular}{|c|c|c|c|}\n\t\\hline Ventes & Sandwichs & Frites & Boissons \\\\\n\t\\hline Jour 1 & 70 & 110 & 225 \\\\\n\t\\hline Jour 2 & 105 & 135 & 290 \\\\\n\t\\hline Jour 3 & 65 & 90 & 185 \\\\\n\t\\hline\n\\end{tabular}\n\\begin{tabular}{|l|c|}\n\t\\hline Prix & \\euro \\\\\n\t\\hline Sandwichs & 2,10 \\\\\n\t\\hline Frites & 1,00 \\\\\n\t\\hline Boissons & 0,50 \\\\\n\t\\hline\n\\end{tabular}\n\\end{center}"
+    },
+    {
+      "type": "question",
+      "value": "Traduire matriciellement ces données et calculer le bénéfice à l'aide d'un produit matriciel."
+    },
+    {
+      "type": "reponse",
+      "value": "Soient les matrices $V$ (ventes), $P$ (prix) et $B$ (bénéfices) :\n\t\t$$\n\t\tV=\\left(\\begin{array}{ccc}\n\t\t\t70 & 110 & 225 \\\\\n\t\t\t105 & 135 & 290 \\\\\n\t\t\t65 & 90 & 185\n\t\t\\end{array}\\right) \\quad P=\\left(\\begin{array}{c}\n\t\t\t2,10 \\\\\n\t\t\t1 \\\\\n\t\t\t0,50\n\t\t\\end{array}\\right) \\quad B=\\left(\\begin{array}{l}\n\t\t\tb_1 \\\\\n\t\t\tb_2 \\\\\n\t\t\tb_3\n\t\t\\end{array}\\right)\n\t\t$$\n\t\toù les coefficients de $B$ sont les bénéfices journaliers : $b_i$ bénéfice du jour $\\mathrm{n}^{\\circ} i$.\n\t\tOn a :\n\t\t$$\n\t\tB=\\left(\\begin{array}{l}\n\t\t\tb_1 \\\\\n\t\t\tb_2 \\\\\n\t\t\tb_3\n\t\t\\end{array}\\right)=V . P=\\left(\\begin{array}{ccc}\n\t\t\t70 & 110 & 225 \\\\\n\t\t\t105 & 135 & 290 \\\\\n\t\t\t65 & 90 & 185\n\t\t\\end{array}\\right) \\cdot\\left(\\begin{array}{c}\n\t\t\t2,10 \\\\\n\t\t\t1 \\\\\n\t\t\t0,50\n\t\t\\end{array}\\right)=\\left(\\begin{array}{c}\n\t\t\t369,5 \\\\\n\t\t\t500,5 \\\\\n\t\t\t319\n\t\t\\end{array}\\right)\n\t\t$$\n\t\tLe bénéfice total est la somme de ces bénéfices journaliers, que l'on obtient en effectuant le produit :\n\t\t$$\n\t\t\\left(\\begin{array}{lll}\n\t\t\t1 & 1 & 1\n\t\t\\end{array}\\right) \\cdot B=\\left(\\begin{array}{lll}\n\t\t\t1 & 1 & 1\n\t\t\\end{array}\\right) \\cdot\\left(\\begin{array}{l}\n\t\t\tb_1 \\\\\n\t\t\tb_2 \\\\\n\t\t\tb_3\n\t\t\\end{array}\\right)=b_1+b_2+b_3\n\t\t$$\n\t\tIci, il vaut :\n\t\t$$\n\t\t369,50+500,50+319=1189\n\t\t$$"
+    },
+    {
+      "type": "question",
+      "value": "Certains festivaliers ont laissé entendre au gérant de la buvette qu'il pratiquait des prix trop élevés. En prévision du festival de l'année prochaine, le gérant estime qu'en baissant les prix de $20 \\%$, il augmentera ses ventes de $20 \\%$. A-t-il intérêt à baisser ses prix ?"
+    },
+    {
+      "type": "reponse",
+      "value": "Baisser les prix de $20 \\%$ revient à multiplier la matrice $P$ par 0,80 . Augmenter les ventes de $20 \\%$ revient à multiplier la matrice $V$ par 1,20 .\n\tDans ce cas le bénéfice total devient :\n\tCe qui revient à une diminution de $4 \\%$ du bénéfice total. Il ne doit donc pas suivre ce conseil !"
+    }
+  ]
+}

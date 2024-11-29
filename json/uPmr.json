@@ -1,0 +1,30 @@
+{
+  "uuid": "uPmr",
+  "titre": "Calculs avec une loi normale",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "On suppose que la température (en degré Celsius) dans la ville de Rennes au mois de janvier est une variable aléatoire $T$ qui suit une loi normale $\\mathcal{N}(\\mu,\\sigma)$, d'écart-type $\\sigma=4$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer $\\mu$ lorsque $\\prob(T>2)=0.33$."
+    },
+    {
+      "type": "reponse",
+      "value": "$T\\sim \\mathcal{N}(\\mu,\\sigma=4)$ \n\t\t$$\\begin{align*}\n\t\t\t\\prob(T>2)=0.33 \\quad & \\Leftrightarrow \\quad \\p\\left(\\frac{T-\\mu}{4}>\\frac{2-\\mu}{4}\\right)=0.33 \\\\\n\t\t\t& \\Leftrightarrow \\quad \\p\\left(Z>\\frac{2-\\mu}{4}\\right)=0.33 \\quad \\text{ où } Z\\sim\\mathcal{N}(0,1) \\\\\n\t\t\t& \\Leftrightarrow \\quad \\p\\left(Z\\leq \\frac{2-\\mu}{4}\\right)=0.67\n\t\t\\end{align*}$$\n\t\tdonc $\\frac{2-\\mu}{4}=0.44$ par lecture de la table de loi $\\mathcal{N}(0,1)$.\n\t\tD'où $\\mu=0.24$."
+    },
+    {
+      "type": "question",
+      "value": "Pour la valeur de $\\mu$ ainsi obtenue, déterminer $\\prob(T\\leq 0)$."
+    },
+    {
+      "type": "reponse",
+      "value": "$$\\begin{align*}\n\t\t\t\\prob(T\\leq 0)\n\t\t\t&=\\p\\left(\\frac{T-\\mu}{4}\\leq \\frac{-\\mu}{4}\\right) \\\\\n\t\t\t&=\\p\\left(\\frac{T-0.24}{4}\\leq -0.06\\right) \\\\\n\t\t\t&=\\prob(Z\\leq -0.06) \\quad \\text{ en posant } Z=\\frac{T-0.24}{4}, \\quad \\text{ ainsi } Z \\sim \\mathcal{N}(0,1) \\\\\n\t\t\t&= \\prob(Z\\geq 0.06) \\\\\n\t\t\t&= 1-\\prob(Z\\leq 0.06) \\\\\n\t\t\t&= 1- 0.5239 \\\\\n\t\t\t&= 0.4761\n\t\t\\end{align*}$$"
+    }
+  ]
+}

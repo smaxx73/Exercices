@@ -1,0 +1,22 @@
+{
+  "uuid": "ZIua",
+  "titre": "Loi d'une variable aléatoire",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Une variable aléatoire $X$ prend les valeurs 3,4,5 et 6."
+    },
+    {
+      "type": "question",
+      "value": "Quelle est la loi de probabilité de X sachant que\n\t\t$$\\PP(X > 5) = 1/2 \\qquad \\PP(X < 5) = 1/3 \\qquad P(X=3)=P(X=4)$$"
+    },
+    {
+      "type": "question",
+      "value": "Calculer l'espérance mathématique, la variance puis l'écart type de la variable $X$."
+    }
+  ]
+}

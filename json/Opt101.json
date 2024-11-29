@@ -1,0 +1,46 @@
+{
+  "uuid": "Opt101",
+  "titre": "Fonction deux variables",
+  "theme": "Optimisation",
+  "auteur": "Jean-François Culus",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "On considère la fonction $f(x,y)=x^3+3x^2y+y^3$.\n\n\\begin{enumerate}\n\\item \n\\question{Calculer les dérivées partielles de cette fonction.}\n\\reponse{\nLes dérivées partielles de \\( f(x, y) \\) sont :\n\n\\[\n\\frac{\\partial f}{\\partial x} = 3x^2 - 6xy\n\\]\n\n\\[\n\\frac{\\partial f}{\\partial y} = -3x^2 + 3y^2\n\\]\n}\n\n\\item \\question{Rechercher alors les points critiques de cette fonction.}\n\\reponse{Les points critiques sont obtenus en résolvant le système d'équations suivant :\n\n\\[\n3x^2 - 6xy = 0 \\quad \\text{(1)}\n\\]\n\\[\n-3x^2 + 3y^2 = 0 \\quad \\text{(2)}\n\\]\n\nRésolvons ce système: De l'équation (1): \\( 3x(x - 2y) = 0 \\) nous déduisons que\n\\( x = 0 \\) ou \\( x = 2y \\).\n\\\\ De l'équation (2): \\(-3x^2 + 3y^2 = 0 \\), nous obtenons \\( x^2 = y^2 \\).\nEtudions alors différents cas: \n\\\\ Cas 1 : \\( x = 0 \\) alors de \\( x^2 = y^2 \\), nous obtenons \\( y = 0 \\), d'où $(0,0)$ est un point critique.\n\\\\ Cas 2 : \\( x = 2y \\): alors de \\( (2y)^2 = y^2 \\), nous obtenons \\( 4y^2 = y^2 \\) donc \\( y = 0 \\).\nNous obtenons encore \\((0, 0)\\) pour point critique. \n\\\\ Ainsi, l'unique point critique de cette fonction est \\((0, 0)\\).\n}\n\n\n\\item \\question{Calculer la Hessienne: pouvez-vous alors conclure à la nature du ou des points critiques de cette fonction ?} \n\\reponse{\nPour déterminer si le point critique \\((0, 0)\\) est un maximum, minimum ou un point selle, nous utilisons le critère de la matrice Hessienne.\nLa matrice Hessienne de \\( f \\) est donnée par :\n\n\\[\nH = \\begin{bmatrix}\n\\frac{\\partial^2 f}{\\partial x^2} & \\frac{\\partial^2 f}{\\partial x \\partial y} \\\\\n\\frac{\\partial^2 f}{\\partial y \\partial x} & \\frac{\\partial^2 f}{\\partial y^2}\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n6x - 6y & -6x \\\\\n-6x & 6y\n\\end{bmatrix}\n\\]\n\nAu point critique \\((0, 0)\\), la matrice Hessienne devient :\n\n\\[\nH(0, 0) = \\begin{bmatrix}\n0 & 0 \\\\\n0 & 0\n\\end{bmatrix}\n\\]\n\nCette matrice est dégénérée, ce qui signifie que nous ne pouvons pas conclure directement sur la nature du point critique en utilisant les dérivées secondes.}\n\n\n\\item \\question{En étudiant $f(x,x)$, montrer que $f$ n'admet aucun extremum local.}\n\\reponse{Nous avons $f(x,x) = 5x^3$: ainsi, $f$ change de signe autour de $(0;0)$, et donc $f$ n'admet pas d'extremum local en $(0,0)$.\nAinsi, la fonction \\( f(x, y) = x^3 - 3x^2y + y^3 \\) a un point critique en \\((0, 0)\\), qui est un point selle et non un extremum local (ni maximum ni minimum).\n\n\\begin{tikzpicture}\n    \\begin{axis}[\n        view={30}{30},        \n        colormap/cool,        \n        domain=-3:3,          \n        samples=40,           \n        xlabel=$x$,           \n        ylabel=$y$,           \n        zlabel={$f(x,y)$},    \n        zmax=20,              \n        zmin=-20              \n    ]\n    \\addplot3[\n        surf,                 \n    ]\n    {x^3 - 3*x^2*y + y^3};    \n    \\end{axis}\n\\end{tikzpicture} }\n\\end{enumerate}"
+    },
+    {
+      "type": "question",
+      "value": "Calculer les dérivées partielles de cette fonction."
+    },
+    {
+      "type": "reponse",
+      "value": "Les dérivées partielles de \\( f(x, y) \\) sont :\n\n\\[\n\\frac{\\partial f}{\\partial x} = 3x^2 - 6xy\n\\]\n\n\\[\n\\frac{\\partial f}{\\partial y} = -3x^2 + 3y^2\n\\]"
+    },
+    {
+      "type": "question",
+      "value": "Rechercher alors les points critiques de cette fonction."
+    },
+    {
+      "type": "reponse",
+      "value": "Les points critiques sont obtenus en résolvant le système d'équations suivant :\n\n\\[\n3x^2 - 6xy = 0 \\quad \\text{(1)}\n\\]\n\\[\n-3x^2 + 3y^2 = 0 \\quad \\text{(2)}\n\\]\n\nRésolvons ce système: De l'équation (1): \\( 3x(x - 2y) = 0 \\) nous déduisons que\n\\( x = 0 \\) ou \\( x = 2y \\).\n\\\\ De l'équation (2): \\(-3x^2 + 3y^2 = 0 \\), nous obtenons \\( x^2 = y^2 \\).\nEtudions alors différents cas: \n\\\\ Cas 1 : \\( x = 0 \\) alors de \\( x^2 = y^2 \\), nous obtenons \\( y = 0 \\), d'où $(0,0)$ est un point critique.\n\\\\ Cas 2 : \\( x = 2y \\): alors de \\( (2y)^2 = y^2 \\), nous obtenons \\( 4y^2 = y^2 \\) donc \\( y = 0 \\).\nNous obtenons encore \\((0, 0)\\) pour point critique. \n\\\\ Ainsi, l'unique point critique de cette fonction est \\((0, 0)\\)."
+    },
+    {
+      "type": "question",
+      "value": "Calculer la Hessienne: pouvez-vous alors conclure à la nature du ou des points critiques de cette fonction ?"
+    },
+    {
+      "type": "reponse",
+      "value": "Pour déterminer si le point critique \\((0, 0)\\) est un maximum, minimum ou un point selle, nous utilisons le critère de la matrice Hessienne.\nLa matrice Hessienne de \\( f \\) est donnée par :\n\n\\[\nH = \\begin{bmatrix}\n\\frac{\\partial^2 f}{\\partial x^2} & \\frac{\\partial^2 f}{\\partial x \\partial y} \\\\\n\\frac{\\partial^2 f}{\\partial y \\partial x} & \\frac{\\partial^2 f}{\\partial y^2}\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n6x - 6y & -6x \\\\\n-6x & 6y\n\\end{bmatrix}\n\\]\n\nAu point critique \\((0, 0)\\), la matrice Hessienne devient :\n\n\\[\nH(0, 0) = \\begin{bmatrix}\n0 & 0 \\\\\n0 & 0\n\\end{bmatrix}\n\\]\n\nCette matrice est dégénérée, ce qui signifie que nous ne pouvons pas conclure directement sur la nature du point critique en utilisant les dérivées secondes."
+    },
+    {
+      "type": "question",
+      "value": "En étudiant $f(x,x)$, montrer que $f$ n'admet aucun extremum local."
+    },
+    {
+      "type": "reponse",
+      "value": "Nous avons $f(x,x) = 5x^3$: ainsi, $f$ change de signe autour de $(0;0)$, et donc $f$ n'admet pas d'extremum local en $(0,0)$.\nAinsi, la fonction \\( f(x, y) = x^3 - 3x^2y + y^3 \\) a un point critique en \\((0, 0)\\), qui est un point selle et non un extremum local (ni maximum ni minimum).\n\n\\begin{tikzpicture}\n    \\begin{axis}[\n        view={30}{30},        \n        colormap/cool,        \n        domain=-3:3,          \n        samples=40,           \n        xlabel=$x$,           \n        ylabel=$y$,           \n        zlabel={$f(x,y)$},    \n        zmax=20,              \n        zmin=-20              \n    ]\n    \\addplot3[\n        surf,                 \n    ]\n    {x^3 - 3*x^2*y + y^3};    \n    \\end{axis}\n\\end{tikzpicture}"
+    }
+  ]
+}

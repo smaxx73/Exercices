@@ -1,0 +1,22 @@
+{
+  "uuid": "iboj",
+  "titre": "Intervalle de confiance pour une proportion",
+  "theme": "statistiques",
+  "auteur": "Maxime NGUYEN",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "On effectue un contrôle de fabrication sur des pièces dont la proportion $p$ est défectueuse."
+    },
+    {
+      "type": "question",
+      "value": "On contrôle un lot de 200 pièces et on trouve $n=24$ pièces défectueuses. Donner les intervalles de confiance pour l'estimation de $p$, au risque $\\alpha=0.05$."
+    },
+    {
+      "type": "question",
+      "value": "Combien faudrait-il contrôler de pièces pour que, au risque  $\\alpha=0.05$, l'intervalle de confiance centré soit d'amplitude $0.04$ ?"
+    }
+  ]
+}

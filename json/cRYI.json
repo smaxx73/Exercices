@@ -1,0 +1,74 @@
+{
+  "uuid": "cRYI",
+  "titre": "Mélange de lois, fonction de répartition",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $Z$ une variable aléatoire admettant une fonction de répartition $F_Z$ définie par :\n\t$$F_Z(x)=\\begin{cases}\n\t\t\\frac{1}{(2-x)^2} & \\text{si } x<0 \\\\\n\t\t\\frac{1}{2}  & \\text{si } 0 \\leq x<1 \\\\\n\t\t1-\\frac{1}{3x} &   \\text{si } x \\geq 1 \\\\\n\t\\end{cases}$$\n\t\n\tGraphique : \\url{https://www.geogebra.org/m/vat8nub8}"
+    },
+    {
+      "type": "question",
+      "value": "Vérifier que $F_Z$ définit bien une fonction de répartition."
+    },
+    {
+      "type": "reponse",
+      "value": "$F_Z$ est définie continue à droite et croissante sur $\\R$. De plus, on a $\\lim\\limits_{x \\to -\\infty}F_Z(x)=0$ et $\\lim\\limits_{x\\to+\\infty} F_Z(x)=1$. Il s'agit donc bien d'une fonction de répartition."
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\PP(Z=0)$ et $\\PP(Z=1)$. Peut-on dire que $Z$ est une variable aléatoire absolument continue ?"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\p(Z=0)=F_Z(0^+)-F_Z(0^-)=\\frac{1}{2}-\\frac{1}{4}=\\frac{1}{4}$.\n\t\tet $\\p(Z=1)=F_Z(1^+)-F_Z(1^-)=\\frac{2}{3}-\\frac{1}{2}=\\frac{1}{6}$. Comme $\\p(Z=0)\\neq 0$, la variable $Z$ n'est pas absolument continue."
+    },
+    {
+      "type": "texte",
+      "value": "On considère $Y \\colon \\Omega \\rightarrow \\{0;1\\}$ une variable aléatoire discrète dont la loi est définie par $\\PP(Y = k) = \\alpha \\PP(Z=k)$ pour tout $k \\in \\{0;1\\}$ où $\\alpha$ est un paramètre réel à déterminer."
+    },
+    {
+      "type": "question",
+      "value": "Montrer que nécessairement, $\\alpha = \\frac{12}{5}$."
+    },
+    {
+      "type": "reponse",
+      "value": "On a $\\p(Y=0)=\\alpha \\p(Z=0)=\\frac{1}{4}\\alpha$ et $\\p(Y=1)=\\alpha \\p(Z=1)=\\frac{1}{6}\\alpha$. Comme $\\p(Y=0)+\\p(Y=1)=1$, on en déduit que $\\alpha=\\frac{12}{5}$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer la fonction de répartition $F_Y$ de la variable aléatoire $Y$."
+    },
+    {
+      "type": "reponse",
+      "value": "La fonction de répartition de $Y$ vaut\n\t\t\t$ F_Y(t)=\n\t\t\t\\begin{cases}\n\t\t\t\t0 \\text{ pour } t<0 \\\\\n\t\t\t\t\\p(Y=0) \\text{ pour } 0\\leq t <1 \\\\\n\t\t\t\t\\p(Y=0)+\\p(Y=1) \\text{ pour } t \\geq 1.\n\t\t\t\\end{cases}\n\t\t\t$ donc\n\t\t\t$ F_Y(t)=\n\t\t\t\\begin{cases}\n\t\t\t\t0 \\text{ pour } t<0 \\\\\n\t\t\t\t\\frac{3}{5} \\text{ pour } 0\\leq t <1 \\\\\n\t\t\t\t1 \\text{ pour } t \\geq 1.\n\t\t\t\\end{cases}\n\t\t\t$"
+    },
+    {
+      "type": "question",
+      "value": "On pose $F(x)=F_Z(x)-\\frac{5}{12}F_Y(x)$ pour tout $x \\in \\R$. Tracer le graphe de la fonction $F$."
+    },
+    {
+      "type": "reponse",
+      "value": "$ F(x)=F_Z(x)-\\frac{5}{12}F_Y(x)=\n\t\t\\begin{cases}\n\t\t\t\\frac{1}{(2-x)^2} \\text{ pour } x<0 \\\\\n\t\t\t\\frac{1}{4} \\text{ pour } 0 \\leq x <1 \\\\\n\t\t\t\\frac{7}{12}-\\frac{1}{3x} \\text{ pour } x\\geq 1.\n\t\t\\end{cases}\n\t\t$"
+    },
+    {
+      "type": "question",
+      "value": "Démontrer qu'en multipliant $F$ par une constante, on obtient la fonction de répartition d'une variable aléatoire que l'on notera $X$."
+    },
+    {
+      "type": "reponse",
+      "value": "La fonction $\\frac{12}{7}F_Z$ est définie continue et croissante sur $\\R$. De plus, on a $\\lim\\limits_{x \\to -\\infty}\\frac{12}{7}F_Z(x)=0$ et $\\lim\\limits_{x\\to+\\infty}\\frac{12}{7} F_Z(x)=1$. Il est donc clair que $\\frac{12}{7} F$ est la fonction de répartition d'une \\va $X$, qui est absolument continue."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer une densité de probabilité de la variable $X$."
+    },
+    {
+      "type": "reponse",
+      "value": "Par dérivation,  \n\t\t\\[ f_X(x)= \\frac{12}{7}F'_X(x)\n\t\t\\begin{cases}\n\t\t\t\\frac{24}{7(2-x)^3} \\text{ pour } x<0 \\\\\n\t\t\t0 \\text{ pour } 0 \\leq x <1 \\\\\n\t\t\t\\frac{4}{7x^2} \\text{ pour } x\\geq 1\n\t\t\\end{cases}\n\t\t.\\]"
+    }
+  ]
+}

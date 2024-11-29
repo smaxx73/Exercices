@@ -1,0 +1,18 @@
+{
+  "uuid": "qjd1",
+  "titre": "Factoriser dans un déterminant",
+  "theme": "calcul déterminant",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Soit $P=\\left(\\begin{array}{ccc}a^2 & a b & a c \\\\ a b & b^2 & b c \\\\ a c & b c & c^2\\end{array}\\right)$. Justifier que $\\operatorname{det} P=0$."
+    },
+    {
+      "type": "reponse",
+      "value": "On remarque que l'on peut mettre :\n- $a$ en facteur de la première ligne ;\n- $b$ en facteur de la deuxième ligne ;\n- $c$ en facteur de la troisième ligne ;\nAinsi :\n$$\n\\operatorname{det} P=\\left|\\begin{array}{lll}\n\ta^2 & a b & a c \\\\\n\ta b & b^2 & b c \\\\\n\ta c & b c & c^2\n\\end{array}\\right|=a\\left|\\begin{array}{ccc}\n\ta & b & c \\\\\n\ta b & b^2 & b c \\\\\n\ta c & b c & c^2\n\\end{array}\\right|=a b\\left|\\begin{array}{ccc}\n\ta & b & c \\\\\n\ta & b & c \\\\\n\ta c & b c & c^2\n\\end{array}\\right|=a b c\\left|\\begin{array}{lll}\n\ta & b & c \\\\\n\ta & b & c \\\\\n\ta & b & c\n\\end{array}\\right|=0\n$$\n$\\left|\\begin{array}{lll}a & b & c \\\\ a & b & c \\\\ a & b & c\\end{array}\\right|=0$"
+    }
+  ]
+}

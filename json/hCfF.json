@@ -1,0 +1,30 @@
+{
+  "uuid": "hCfF",
+  "titre": "Lignes de niveau d'un polynôme",
+  "theme": "calcul différentiel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $f\\ : \\R^{2} \\to \\R$ définie par $f(x,y) = x^{2}-4x +y^{2}+6y$."
+    },
+    {
+      "type": "question",
+      "value": "Trouver une écriture de la forme\n\t\n\t$$ f(x,y) = (x+a)^{2} + (y+b)^{2} + c $$ \n\t\n\toù $a,b,c$ sont trois réels que l'on explicitera."
+    },
+    {
+      "type": "reponse",
+      "value": "Obtenir cette écriture est un des classiques de manipulation du trinôme du second degré~: on écrit $x^2-4x = x^2 - 2 \\cdot 2x + 2^2 - 2^2 = (x-2)^2 - 4$. De même $y^{2}+6y = (y+3)^2-9$. Ainsi $f(x,y) = (x-2)^2 + (y+3)^2 - 13$ ce qui donne la forme voulue avec $a = 2, b=-3, c=-13$"
+    },
+    {
+      "type": "question",
+      "value": "En déduire une équation et la nature de la ligne de niveau $k$ de $f$, pour $k\\in \\R$ (on peut distinguer selon la valeur de $k$)."
+    },
+    {
+      "type": "reponse",
+      "value": "La ligne de niveau $k$ de $g$ a pour équation $f(x,y) = k$, donc d'après la question 1 \n\t\t$$ (x-2)^2 + (y+3)^2 = k+13 $$. \n\t\t\n\t\tIl s'agit de l'équation d'un cercle de centre $(2, -3)$ à condition que $k+13 \\geq 0$. Sinon c'est l'ensemble vide. Si $k+13 =0$, le cercle est de rayon $0$ et est donc réduit à un point (son centre), et si $k+13 >0$ c'est un cercle de rayon $\\sqrt{k+13}$ de centre $(2,-3)$."
+    }
+  ]
+}

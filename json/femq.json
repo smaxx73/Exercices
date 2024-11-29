@@ -1,0 +1,18 @@
+{
+  "uuid": "femq",
+  "titre": "Matrices inversibles",
+  "theme": "calcul déterminant",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Dire si les matrices suivantes sont inversibles. Si oui, donner leur inverse :\n\n$$\\begin{align*}\n\t& A=\\left(\\begin{array}{cccc}\n\t\t-3 & 0 & 0 & 0 \\\\\n\t\t0 & 2 i & 0 & 0 \\\\\n\t\t0 & 0 & 3+4 i & 0 \\\\\n\t\t0 & 0 & 0 & -2\n\t\\end{array}\\right) \\quad B=\\left(\\begin{array}{cccc}\n\t\t1 & 2 & -1 & 0 \\\\\n\t\t0 & 0 & 0 & -1 \\\\\n\t\t0 & 0 & i & 0 \\\\\n\t\t0 & 0 & 0 & 2\n\t\\end{array}\\right) \\quad C=\\left(\\begin{array}{cccc}\n\t\ti & 2 & -1 & 0 \\\\\n\t\t0 & -2 & 4 & -1 \\\\\n\t\t2 & 0 & i & 0 \\\\\n\t\t0 & 1 & -2 & 0,5\n\t\\end{array}\\right) \\\\ & D=\\left(\\begin{array}{cc}\n\t\t-2 & -3 \\\\\n\t\t1 & 2\n\t\\end{array}\\right) \n\tE=\\left(\\begin{array}{cc}\n\t\t2 & 3 \\\\\n\t\t-4 & -6\n\t\\end{array}\\right) \\quad F=\\left(\\begin{array}{ccc}\n\t\t2 & 3 & -1 \\\\\n\t\t-4 & -6 & 3\n\t\\end{array}\\right) \\\\ &G=\\left(\\begin{array}{ll}\n\t\tx & 3 \\\\\n\t\t2 & 1\n\t\\end{array}\\right) \\text { en fonction du paramètre } x \\in \\mathbb{C}\n\\end{align*}$$"
+    },
+    {
+      "type": "reponse",
+      "value": "$$\nA=\\left(\\begin{array}{cccc}-3 & 0 & 0 & 0 \\\\ 0 & 2 i & 0 & 0 \\\\ 0 & 0 & 3+4 i & 0 \\\\ 0 & 0 & 0 & -2\\end{array}\\right)\n$$\nest une matrice diagonale dont le déterminant est non nul :\n$$\n\\operatorname{det} A=(-3) \\times(2 i) \\times(3+4 i) \\times(-2) \\neq 0\n$$\nElle est donc inversible, et :\n$$\nA^{-1}=\\left(\\begin{array}{cccc}\n\t-\\frac{1}{3} & 0 & 0 & 0 \\\\\n\t0 & -\\frac{i}{2} & 0 & 0 \\\\\n\t0 & 0 & \\frac{1}{3+4 i} & 0 \\\\\n\t0 & 0 & 0 & -\\frac{1}{2}\n\\end{array}\\right)\n$$\n$B=\\left(\\begin{array}{cccc}1 & 2 & -1 & 0 \\\\ 0 & 0 & 0 & -1 \\\\ 0 & 0 & i & 0 \\\\ 0 & 0 & 0 & 2\\end{array}\\right)$\nest une matrice diagonale dont le déterminant est nul :\n$B$ n'est pas inversible.\n$$\n\\operatorname{det} B=1 \\times 0 \\times i \\times 2=0\n$$\n$$\n\\operatorname{det} C=\\left|\\begin{array}{cccc}\n\ti & 2 & -1 & 0 \\\\\n\t0 & -2 & 4 & -1 \\\\\n\t2 & 0 & i & 0 \\\\\n\t0 & 1 & -2 & 0,5\n\\end{array}\\right|=0 \\text { car } \\ell_2=-2 \\ell_4 \\text {. Donc } C \\text { n'est pas inversible. }\n$$\n\n$D=\\left(\\begin{array}{cc}-2 & -3 \\\\ 1 & 2\\end{array}\\right)$ est une matrice $2 \\times 2$ dont le déterminant est non nul :\n$$\n\\operatorname{det} D=(-2) \\times 2-1 \\times(-3)=-1 \\neq 0\n$$\n$D$ est inversible, et :\n$$\nD^{-1}=-\\left(\\begin{array}{cc}\n\t2 & 3 \\\\\n\t-1 & -2\n\\end{array}\\right)=\\left(\\begin{array}{cc}\n\t-2 & -3 \\\\\n\t1 & 2\n\\end{array}\\right)=D\n$$\n$E=\\left(\\begin{array}{cc}2 & 3 \\\\ -4 & -6\\end{array}\\right)$ est une matrice $2 \\times 2$ dont le déterminant est nul :\n$$\n\\operatorname{det} E=2 \\times(-6)-3 \\times(-4)=0\n$$\n$E$ n'est pas inversible.\n$F=\\left(\\begin{array}{lll}2 & 3 & -1 \\\\ -4 & -6 & 3\\end{array}\\right)$ n'est pas une matrice carrée, elle n'est donc pas inversible.\n$$\n\\begin{array}{r}\n\t\\operatorname{det}(G)=\\left|\\begin{array}{ll}\n\t\tx & 3 \\\\\n\t\t2 & 1\n\t\\end{array}\\right|=x-2 \\times 3=x-6 \\neq 0 \\Leftrightarrow x \\neq 6 . \\text { Pour } x \\in \\mathbb{R} \\backslash\\{6\\}: \\\\\n\tG^{-1}=\\frac{1}{x-6} \\times\\left(\\begin{array}{cc}\n\t\t1 & -3 \\\\\n\t\t-2 & x\n\t\\end{array}\\right)=\\left(\\begin{array}{cc}\n\t\t\\frac{1}{x-6} & \\frac{-3}{x-6} \\\\\n\t\t\\frac{-2}{x-6} & \\frac{x}{x-6}\n\t\\end{array}\\right)\n\\end{array}\n$$"
+    }
+  ]
+}

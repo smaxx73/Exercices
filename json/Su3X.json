@@ -1,0 +1,54 @@
+{
+  "uuid": "Su3X",
+  "titre": "Approximation d'une intégrale",
+  "theme": "probabilités",
+  "auteur": "Maxime Nguyen",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "On suppose dans cet exercice que l'on dispose d'une fonction \\texttt{normale()} pour simuler la variable $\\mathcal{N}(0,1)$ et de \\texttt{rand()} pour simuler la loi  $\\mathcal{U}([0;1])$. \n\t\n\tSoient $(X_i)_{i \\geq 1}$ une suite de variables aléatoires indépendantes et identiquement distribuées (iid) selon la loi $\\mathcal{N}(0,1)$. \n\t\n\tOn cherche une valeur approchée de l'intégrale suivante : \n\t$$I = \\int_{0}^{+\\infty} x^2 e^{-\\frac{x^2}{2}} dx$$"
+    },
+    {
+      "type": "question",
+      "value": "Pour tout $i \\geq 1$, exprimer $\\mathbb{E}(X_i^2)$ sous forme d'intégrale."
+    },
+    {
+      "type": "reponse",
+      "value": "On applique le théorème de transfert : \n\t\t\t$$\\begin{align*}\n\t\t\t\t\\mathbb{E}(X_i^2) &= \\int_{-\\infty}^{+\\infty} x^2 e^{-\\frac{x^2}{2}} \\frac{1}{\\sqrt{2\\pi}} dx \\\\\n\t\t\t\t&= 2 \\int_{0}^{+\\infty} x^2 e^{-\\frac{x^2}{2}} \\frac{1}{\\sqrt{2\\pi}} dx \\\\\n\t\t\t\t&= \\sqrt{\\frac{2}{\\pi}}I\n\t\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "Montrer que $\\displaystyle \\frac{1}{n}\\sum_{i=1}^n X_i^2 \\xrightarrow[n \\to \\infty]{{\\rm{p.s.}}} \\sqrt{\\frac{2}{\\pi}}I$."
+    },
+    {
+      "type": "reponse",
+      "value": "On applique la loi forte des grands nombres à la suite de variables aléatoires iid $(X_i^2)_{i \\geq 1}$ : $\\displaystyle \\frac{1}{n}\\sum_{i=1}^n X_i^2 \\xrightarrow[n \\to \\infty]{{\\rm{p.s.}}} \\mathbb{E}(X_1^2) =  \\sqrt{\\frac{2}{\\pi}}I$."
+    },
+    {
+      "type": "question",
+      "value": "Soit $\\tilde{f} \\colon x \\mapsto xe^{-\\frac{x^2}{2}} \\textbf{1}_{[0;+\\infty[}(x)$. \n\t\tVérifier que $\\tilde{f}$ définit une densité de probabilité et exprimer la fonction de répartition associée à cette loi."
+    },
+    {
+      "type": "reponse",
+      "value": "On constate que $\\tilde{f}(x) \\geq 0$ pour tout $x \\geq 0$. Par ailleurs, \n\t\t\t$$\\begin{align*}\n\t\t\t\t\\int \\tilde{f}(x) dx &= \\int_{0}^{+\\infty}  xe^{-\\frac{x^2}{2}} dx \\\\\n\t\t\t\t&=  \\left[ -e^{-\\frac{x^2}{2}}\\right]_0^{+\\infty} \\\\\n\t\t\t\t&= 1\n\t\t\t\\end{align*}$$\t\n\t\t\tDonc $\\tilde{f}$ est bien une fonction densité de probabilité. \n\t\t\t\n\t\t\tSoit $\\tilde{F}$ la fonction de répartition associée : si $t \\leq 0$, il est clair que $\\tilde{F}(t) = 0$. Soit $t>0$ : \n\t\t\t$$\\begin{align*}\n\t\t\t\t\\tilde{F}(t) &= \\int_{0}^{t}  xe^{-\\frac{x^2}{2}} dx \\\\\n\t\t\t\t&= 1 - e^{-\\frac{t^2}{2}}\n\t\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "Soit $U$ une variable aléatoire suivant une loi $\\mathcal{U}([0;1])$. Démontrer que la variable aléatoire $\\sqrt{-2\\ln(1-U)}$ admet $\\tilde{f}$ comme densité. En déduire une commande permettant de simuler la loi d'une variable aléatoire admettant $\\tilde{f}$ pour densité."
+    },
+    {
+      "type": "reponse",
+      "value": "Plusieurs méthodes sont possibles. On peut utiliser le théorème d'identification pour identifier la loi de la variable aléatoire $\\sqrt{-2\\ln(1-U)}$. On peut aussi remarquer que si $u \\in [0;1]$ alors $u=\\tilde{F}(x)$ pour $x = \\sqrt{-2\\ln(1-x)}$. D'après le théorème de simulation par inversion de la fonction de répartition, cela prouve que la fonction de répartition de la variable $\\sqrt{-2\\ln(1-U)}$ est $\\tilde{F}$, ce qui revient à dire que sa loi admet $\\tilde{f}$ pour densité."
+    },
+    {
+      "type": "question",
+      "value": "En remarquant que $\\displaystyle I = \\int_{0}^{+\\infty} x \\tilde{f}(x) dx$, \tdéterminer une nouvelle suite convergeant presque sûrement vers $I$. En déduire une méthode (que l'on détaillera) permettant d'approcher  $I$."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $J_n = \\frac{1}{n} \\sum_{i=1}^n Y_i$ où $(Y_i)$ est une suite de variables aléatoires i.i.d. selon une loi admettant $\\tilde{f}$ pour densité. Alors on remarque que $I = \\mathbb{E}(Y_1)$ et d'après la loi forte des grands nombres, \n\t\t\t$$ \\displaystyle \\frac{1}{n}\\sum_{i=1}^n Y_i \\xrightarrow[n \\to \\infty]{{\\rm{p.s.}}} I$$\n\t\t\t\n\t\t\tSachant simuler la loi de $Y_1$, on déduit l'algorithme suivant permettant de déterminer une valeur approchée de $I$ :\n\t\t\t\n\t\t\t{\\centering \\fbox{\\BUseVerbatim{Su3Xpython}}\\par}"
+    }
+  ]
+}

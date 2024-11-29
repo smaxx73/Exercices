@@ -1,0 +1,22 @@
+{
+  "uuid": "XKwm",
+  "titre": "Multiplicité d'une racine",
+  "theme": "polynomes",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Déterminer l'ordre de multiplicité de la racine 1 du polynôme $$P(X)=X^5-5 X^4+14 X^3-22 X^2+17 X-5$$\n\t\nEn déduire la factorisation de $P(X)$."
+    },
+    {
+      "type": "reponse",
+      "value": "Méthode 1: Par divisions successives.\n\nLe reste de la quatrième division euclidienne n'est pas nul, donc 1 est racine de multiplicité 3 .\nEn reprenant les calculs de division euclidienne, il vient :\n$$\n\\begin{aligned}\nX^5-X^4-X^3-X^2+4 X-2 & =(X-1)\\left(X^4-4 X^3+10 X^2-12 X+5\\right) \\\\\n& =(X-1)(X-1)\\left(X^3-3 X^2+7 X-5\\right) \\\\\n& =(X-1)(X-1)(X-1)\\left(X^2-2 X+5\\right) \\\\\n& =(X-1)^3\\left(X^2-2 X+5\\right)\n\\end{aligned}\n$$"
+    },
+    {
+      "type": "reponse",
+      "value": "Méthode 2 : par les dérivées successives.\n\n$$\n\\begin{array}{rlrl}\nP(X) & =X^5-5 X^4+14 X^3-22 X^2+17 X-5 & P(1) & =0 \\\\\nP^{\\prime}(X) & =5 X^4-20 X^3+42 X^2-44 X+17 & P^{\\prime}(1) & =0 \\\\\nP^{\\prime \\prime}(X) & =20 X^3-60 X^2+84 X-44 & P^{\\prime \\prime}(1) & =0 \\\\\nP^{(3)}(X) & =60 X^2-120 X+84 & P^{(3)}(1) & =4 \\neq 0\n\\end{array}\n$$\nDonc 1 est racine de multiplicité 3 de $P(X)$. Autrement dit, $P(X)$ est divisible par $(X-1)^3$\nOn effectue la division euclidienne de $P(X)$ par $(X-1)^3=X^3-3 X^2+3 X-1$, il vient :\n$$\n\\begin{array}{r|r}\nX^5-5 X^4+14 X^3-22 X^2+17 X-5 & X^3-3 X^2+3 X-1 \\\\\n-\\left(X^5-3 X^4+3 X^3-X^2\\right) & X^2-2 X+5 \\\\\n\\hline-2 X^4+11 X^3-21 X^2+17 X-5 & \\\\\n-\\left(-2 X^4+6 X^3-6 X^2+2 X\\right) & \\\\\n\\hline 5 X^3-15 X^2+15 X-5 & \\\\\n-\\left(5 X^3-15 X^2+15 X-5\\right) & \\\\\n\\hline X^5-X^4-X^3-X^2+4 X-2=\\left(X^3-3 X^2+3 X-1\\right)\\left(X^2-2 X+5\\right) \\\\\n=(X-1)^3\\left(X^2-2 X+5\\right)\n\\end{array}\n$$\nIl reste à factoriser $X^2-2 X+5$, polynôme du second degré dont le discriminant est: $\\Delta=(-2)^2-4 \\times 1 \\times 5=-16<0$. La factorisation en produit de polynômes irréductibles sur $\\mathbb{R}[X]:$\n$$\nP(X)=(X-1)^3\\left(X^2-2 X+5\\right)\n$$\nLes racines complexes conjuguées de $X^2-2 X+5$ sont $z=\\frac{2 \\pm(4 i)}{2}=1 \\pm 2 i$. La factorisation en produit de polynômes irréductibles sur $\\mathbb{C}[X]$ :\n$$\nP(X)=(X-1)^3(X-1-2 i)(X-1+2 i)\n$$"
+    }
+  ]
+}

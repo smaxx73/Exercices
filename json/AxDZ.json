@@ -1,0 +1,58 @@
+{
+  "uuid": "AxDZ",
+  "titre": "Loi normale et loi de Laplace",
+  "theme": "probabilités",
+  "auteur": "Maxime Nguyen",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "\\underline{Définition} : la fonction caractéristique d'une variable aléatoire $U$ est la fonction définie pour tout $t \\in \\R$ par :\n$$\\Phi_U \\colon t \\longmapsto \\mathbb{E}\\left(e^{\\textbf{i}tU}\\right)$$\n\nSoit $\\lambda >0$ et soit une variable aléatoire $X$ dont la loi est définie par la densité :\n\n$$f_X \\colon x \\mapsto \\frac{\\lambda}{2} e^{-\\lambda |x|}$$\n\nOn dit alors que $X$ suit une loi de Laplace $\\mathcal{L}(\\lambda)$."
+    },
+    {
+      "type": "question",
+      "value": "Montrer que $|X|$ suit une loi exponentielle dont on précisera le paramètre."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $t \\in \\R$, on exprime la fonction de répartition de la variable aléatoire $|X|$ :\n$$\\begin{align*}\nF_{|X|}(t) &= \\PP(|X| \\leq t) \\\\\n           &= \\begin{cases} \n           \t    \\PP(-t \\leq X \\leq t) & \\text{ si } t>0 \\\\\n           \t    0 & \\text{ sinon }\n           \t  \\end{cases}\n\\end{align*}$$\t\nSoit $t>0$ : \n$$\\begin{align*}\n \\PP(-t \\leq X \\leq t) &= \\int_{-t}^{t} \\frac{\\lambda}{2} e^{-\\lambda |x|} dx \\\\\n                       &= 2\\int_{0}^{t} \\frac{\\lambda}{2} e^{-\\lambda x} dx \\\\\n                       &= \\int_{-\\infty}^{t} \\lambda e^{-\\lambda x} \\textbf{1}_{[0;+\\infty[}(x)dx\n\\end{align*}$$\nOn en déduit que $|X|$ suit une loi exponentielle de paramètre $\\lambda$."
+    },
+    {
+      "type": "question",
+      "value": "Montrer que la fonction caractéristique de $X$ est $\\Phi_X \\colon t \\mapsto \\frac{\\lambda^2}{\\lambda^2+t^2}$."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $t\\in \\R$. Alors \n$$\\begin{align*}\t\n\\Phi_X(t) &= \\int_{-\\infty}^{+\\infty} \\frac{\\lambda}{2} e^{\\textbf{i}tx}e^{-\\lambda |x|} dx \\\\\n          &=  \\int_{-\\infty}^{0} \\frac{\\lambda}{2} e^{x(\\lambda+\\textbf{i}t)} dx + \\int_{0}^{+\\infty} \\frac{\\lambda}{2} e^{x(-\\lambda+\\textbf{i}t)} dx \\\\\n          &= \\frac{\\lambda}{2}\\frac{1}{\\lambda+\\textbf{i}t} - \\frac{\\lambda}{2}\\frac{1}{-\\lambda+\\textbf{i}t} \\\\\n          &= \\frac{\\lambda^2}{\\lambda^2+t^2}\n\\end{align*}$$"
+    },
+    {
+      "type": "texte",
+      "value": "Soient $Z_1, Z_2, Z_3, Z_4$ quatre variables aléatoires indépendantes suivant une même loi normale $\\mathcal{N}(0,1)$ .  On rappelle que si $Z$ suit une loi $\\mathcal{N}(0,1)$ alors sa fonction caractéristique est $\\Phi_Z \\colon t \\mapsto e^{-\\frac{t^2}{2}}$."
+    },
+    {
+      "type": "question",
+      "value": "Montrer que la fonction caractéristique de la variable aléatoire $Z_1 \\times Z_2$ peut s'écrire sous cette forme : $$\\Phi_{Z_1Z_2} \\colon t \\longmapsto \\int_\\mathbb{R} \\Phi_Z(tu) \\mathrm{e}^{-u^2 / 2} \\frac{1}{\\sqrt{2 \\pi}}\\mathrm{d}u.$$"
+    },
+    {
+      "type": "reponse",
+      "value": "Par indépendance, le couple de variables aléatoires $(Z_1,Z_2)$ a pour densité : \n$$(x,y) \\mapsto \\frac{1}{2\\pi}e^{-\\frac{x^2+y^2}{2}}$$\nDonc d'après le théorème de transfert puis le théorème de Fubini, on a pour tout $t \\in \\R$ : \n$$\\begin{align*}\t\n\t\\Phi_{Z_1Z_2}(t) &= \\iint_{\\R^2} e^{\\textbf{i}txy } \\frac{1}{2\\pi}e^{-\\frac{x^2+y^2}{2}} dxdy \\\\\n\t                 &= \\int_\\R \\left( \\int_\\R e^{\\textbf{i}txy} \\frac{1}{\\sqrt{2\\pi}} e^{-\\frac{x^2}{2}}dx \\right)\\frac{1}{\\sqrt{2\\pi}}e^{-\\frac{y^2}{2}}dy \\\\\n\t                 &= \\int_\\mathbb{R} \\Phi_Z(ty) \\mathrm{e}^{-y^2 / 2} \\frac{1}{\\sqrt{2 \\pi}}\\mathrm{d}y\n\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "En déduire que : $$\\Phi_{Z_1Z_2} \\colon t \\longmapsto \\frac{1}{\\sqrt{1+t^2}}.$$"
+    },
+    {
+      "type": "reponse",
+      "value": "On a pour tout $t \\in \\R$ :\n\t\t $$\\begin{align*}\n\t\t\t\\Phi_{Z_1 Z_2}(t) &=\\int_{\\mathbb{R}} \\mathrm{e}^{-y^2 \\theta^2 / 2} \\times \\mathrm{e}^{-y^2 / 2} \\frac{\\mathrm{d} y}{\\sqrt{2 \\pi}} \\\\\n\t\t\t&=\\int_{\\mathbb{R}} \\mathrm{e}^{-\\left(1+t^2\\right) y^2 / 2} \\frac{\\mathrm{d} y}{\\sqrt{2 \\pi}} \\\\\n\t\t\t&=\\frac{1}{\\sqrt{1+t^2}} \\int_{\\mathbb{R}} \\mathrm{e}^{-u^2 / 2} \\frac{\\mathrm{d} u}{\\sqrt{2 \\pi}} \\\\\n\t\t\t&=\\frac{1}{\\sqrt{1+t^2}}\n\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "En déduire la loi de la variable aléatoire $Z_1Z_2 + Z_3Z_4$ puis la loi de $|Z_1Z_2 + Z_3Z_4|$."
+    },
+    {
+      "type": "reponse",
+      "value": "La variable aléatoire $Z_3Z_4$ est indépendante de $Z_1Z_2$ et suit la même loi que $Z_1Z_2$ donc par propriété de la fonction caractéristique, pour tout $t \\in \\R$,\n$$\\begin{align*}\n  \\Phi_{Z_1Z_2 + Z_3Z_4}(t) &= \\left(\\Phi_{Z_1Z_2}(t)\\right)^2 \\\\\n  &= \\frac{1}{1+t^2}\n\\end{align*}$$\t\nOn reconnait la fonction caractéristique d'une loi de Laplace de paramètre $\\lambda = 1$. \n\nOn en déduit d'après la question 2 que la variable aléatoire $|Z_1Z_2 + Z_3Z_4|$ suit une loi exponentielle de paramètre $1$."
+    }
+  ]
+}

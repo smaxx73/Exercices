@@ -1,0 +1,50 @@
+\uuid{XGrp}
+\titre{Domaine de convergence et somme d'une série sentière}
+\theme{séries}
+\auteur{}
+\organisation{AMSCC}	
+
+\contenu{
+
+
+	On considère la série entière : 
+$$S(x) = \sum_{n=0}^{+\infty} \frac{n}{n+2}x^n$$
+\begin{enumerate}
+	\item \question{ Vérifier que : $\forall n \in \N$, $ \frac{n}{n+2} = 1 - \frac{2}{n+2}$. }
+	\reponse{Il suffit de voir que $\frac{n}{n+2} = \frac{n+2-2}{n+2} = 1 - \frac{2}{n+2} $.}
+	\item \question{  Déterminer le domaine de convergence $I$ de cette série entière. }
+	\reponse{ On pose $u_n(x) =  \frac{n}{n+2}x^n$. On utilise le théorème de d'Alembert :
+		\begin{align*}
+			\frac{|u_{n+1}(x)|}{|u_n(x)|} &= \frac{ (n+2)(n+1) }{n(n+3)}\frac{|x^{n+1}|}{|x^{n}|} \\
+			& \sim  \frac{n^2}{n^2} |x| \\
+			&\xrightarrow[n\to+\infty]{}  |x|
+		\end{align*}	
+		Donc le rayon de convergence est $R=1$.
+		
+		De plus, il $\lim\limits_{n\to+\infty} u_n(1) = 1$ et $(u_n(-1))$ n'a pas de limite donc la série est grossièrement divergente pour $x=1$ et $x=-1$.
+		
+		Par conséquent, le domaine de convergence est $I = ]-1;1[$. }
+	\item \question{ Calculer la valeur de $\displaystyle x^2 \sum_{n=0}^{+\infty} \frac{x^n}{n+2}$ pour tout $x \in I$.  }
+	\reponse{Pour tout $x \in I$ :
+		\begin{align*}
+			x^2 \sum_{n=0}^{+\infty} \frac{x^n}{n+2} &= \sum_{n=0}^{+\infty}\frac{x^{n+2}}{n+2} \\
+			&= \sum_{k=2}^{+\infty}\frac{x^{k}}{k} \\
+			&= \sum_{k=1}^{+\infty}\frac{x^{k}}{k} - x \\
+			&= -\ln(1-x) -x
+		\end{align*}	
+	}
+	\item\question{  En déduire le calcul de la somme $S(x)$ pour tout $x \in I$. }
+	\reponse{D'après la question précédente, si  $x \in ]-1;1[$ et $x \neq 0$ :
+		$$	\sum_{n=0}^{+\infty} \frac{x^n}{n+2} = \frac{-\ln(1-x)-x}{x^2}$$
+		
+		D'après la 1ère question, pour tout $x \in ]-1;1[$ et $x \neq 0$ :
+		\begin{align*}
+			S(x) &=  \sum_{n=0}^{+\infty} x^n - 2\sum_{n=0}^{+\infty}\frac{x^{n}}{n+2} \\
+			&= \frac{1}{1-x} -2\frac{-\ln(1-x)-x}{x^2}\\
+			&= \frac{1}{1-x} + \frac{2\ln(1-x)}{x^2} + \frac{2}{x} 
+		\end{align*}	
+		et trivialement $S(0) = 0$. 
+		
+	}
+\end{enumerate}
+}

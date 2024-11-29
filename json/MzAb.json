@@ -1,0 +1,38 @@
+{
+  "uuid": "MzAb",
+  "titre": "Différentiabilité",
+  "theme": "calcul différentiel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Soit $f: \\R^2 \\to \\R,\\ (x,y) \\mapsto \\sqrt[5]{2x^3+y^2}$. On note $\\mathcal{S}_f$ sa surface représentative."
+    },
+    {
+      "type": "question",
+      "value": "Quel est l'ensemble de définition de $f$~?"
+    },
+    {
+      "type": "reponse",
+      "value": "La fonction $\\sqrt[5]{~}$ est définie sur $\\R$, car c'est la bijection réciproque de $\\R \\to \\R, x \\mapsto x^5$. Une étude classique montre qu'elle est continue sur $\\R$, dérivable (et même $C^{\\infty}$) sur $\\R^*$, et non dérivable (avec tangente verticale) en $0$. Ainsi $\\mathcal{D}_f = \\R^2$."
+    },
+    {
+      "type": "question",
+      "value": "Étudier la continuité de $f$."
+    },
+    {
+      "type": "reponse",
+      "value": "$f$ est continue sur $\\R^2$ comme composée de fonctions continues."
+    },
+    {
+      "type": "question",
+      "value": "Étudier la différentiabilité de $f$"
+    },
+    {
+      "type": "reponse",
+      "value": "$f$ est $C^{\\infty}$, donc différentiable, en tout point $(x,y)$ où $2x^3 + y^2$ ne s'annule pas. Soit maintenant un point $(x_0, y_0)$ tel que $2x_0^3 + y_0^2 = 0$. On suit la méthode du poly, chap.2, \\S II.6.\n\t\t\\begin{itemize}\n\t\t\t\\item $f$ est continue. \n\t\t\t\\item On calcule, si elles existent, le dérivées partielles de $f$ en $(x_0,y_0)$. Pour ce faire, on va utiliser le théorème 2.2 du poly, appliqué à la fonction partielle $x \\mapsto f(x,y_0)$. Cette fonction est dérivable sur $\\R-\\{x_0\\}$ et sa dérivée vaut \n\t\t\t\\[ \\dpa{f}{x}(x,y_0) = \\frac{1}{5}(6x^2)(2x^3+y_0^2)^{1/5-1} = \\frac{6x^2}{5(2x^3+y_0^2)^{4/5}} \\]\n\t\t\tOr quand $x \\to x_0+$, $2x^3+y_0^2 \\to 0_+$ et $\\dpa{f}{x}(x,y_0) \\to +\\infty$. Le théorème 2.2 assure alors que le taux d'accroissement \n\t\t\t\\[ \\frac{f(x,y_0) - f(x_0,y_0)}{x-x_0} \\]\n\t\t\ttend aussi vers $+\\infty$ quand $x \\to x_0+$. Et donc $f$ n'admet pas de dérivée partielle par rapport à $x$ en $(x_0,y_0)$. Ceci permet dès à présent de conclure que $f$ n'est pas différentiable en $(x_0,y_0)$. Mais on pourrait prouver, en bonus et de  manière analogue, que $f$ n'admet pas non plus de dérivée partielle par rapport à $y$ en $(x_0,y_0)$.\n\t\t\\end{itemize}\n\t\tEn synthèse, nous avons montré que \\\\\n\t\t\\begin{center}\n\t\t\t\\fbox{$f$ est différentiable en  $(x,y)\\in\\R^2$ si et seulement si $2x^3+y^2 \\neq 0$}\n\t\t\\end{center}"
+    }
+  ]
+}

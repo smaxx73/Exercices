@@ -1,0 +1,26 @@
+{
+  "uuid": "Ab62",
+  "titre": "Développement d'une fonction en série de Fourier",
+  "theme": "Série",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $f \\colon \\R \\to \\R$ la fonction $2\\pi$-périodique définie par :\n$$f(x) =\\left\\{\n\\begin{array}{cl}\n\t1&\\textrm{si $x \\in ]-\\pi;0[$}\\\\\n\t0& \\textrm{si $x =0$}\\\\\n\t-1&\\textrm{si $x \\in ]0;\\pi[$}\\end{array}\\right.$$"
+    },
+    {
+      "type": "question",
+      "value": "Représenter graphiquement l'allure de la fonction $f$ et vérifier que $f$ est une fonction impaire."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer les coefficients de Fourier trigonométriques de la fonction $f$ et en déduire sa série de Fourier. La série de Fourier est-elle égale à $f$ en tout $x \\in \\R$ ?"
+    },
+    {
+      "type": "reponse",
+      "value": "C'est une fonction impaire donc $a_n = 0$ pour tout $n$. Il reste à calculer :\n\t\t$$b_n=\\frac{1}{\\pi}\\int_{-\\pi}^{0}\\,(1)\\sin(nx)dx+\\frac{1}{\\pi}\\int_{0}^{\\pi}\\,(-1)\\sin(nx)dx=\\frac{2}{n\\pi}(\\cos(n\\pi)-1).$$ soit $$b_n=\\left\\{\n\t\t\\begin{array}{cl}\n\t\t\t0&\\textrm{pour $n$ pair}\\\\\n\t\t\t\\frac{4}{n\\pi}&\\textrm{pour $n$ impair}\\end{array}\\right.$$"
+    }
+  ]
+}
