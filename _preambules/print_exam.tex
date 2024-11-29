@@ -1,7 +1,7 @@
 \newboolean{solution}
 \newboolean{isuuid}
 \newboolean{link}
-
+\newboolean{isindication}
 
 \newcounter{num}
 
@@ -36,6 +36,21 @@
 	interior style={top color=solutioncolor!15!white, bottom color=solutioncolor!20!white},
 	overlay={
 		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=solutioncolor, inner sep=1pt] {\textcolor{white}\checkmark};}};
+	} % Ajouter l'icône d'ampoule en tant qu'overlay
+}
+
+\newtcolorbox{indicationbox}{
+	enhanced,
+	breakable,
+	colback=yellow!30!white,
+	colframe=yellow,
+	boxsep=5pt,
+	%arc=4pt,
+	%borderline={0.8pt}{-3pt}{solutioncolor},
+	frame hidden,
+	interior style={top color=yellow!15!white, bottom color=yellow!20!white},
+	overlay={
+		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=yellow, inner sep=1pt] {\textcolor{white}i};}};
 	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
 
@@ -82,6 +97,13 @@
 			\begin{footnotesize} #1 \end{footnotesize} 
 	\end{solutionbox}}{}
 } 
+\newcommand{\indication}[1]{
+	\ifthenelse{\boolean{isindication}} 
+	{%
+		\begin{indicationbox}
+			\begin{footnotesize} #1 \end{footnotesize} 
+	\end{indicationbox}}{}
+}
 
 \newcommand{\nextexo}{
 	\addtocounter{num}{1}
