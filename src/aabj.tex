@@ -1,0 +1,56 @@
+\titre{Cryptographie}
+\theme{AM}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+\texte{
+Dans un chiffrement asymétrique ou chiffrement à clés publiques, les clés existent par paires : une clé publique pour le chiffrement et une clé secrète pour le déchiffrement. La clé de chiffrement est accessible à tous, mais pas la clé de déchiffrement. On choisit 4 entiers naturels supérieurs ou égaux à 3 : \( a \), \( b \), \( c \), et \( d \). On calcule alors les nombres suivants :
+$
+M = a \times b - 1,
+$
+$
+e = c \times M + a,
+$
+$
+f = d \times M + b,
+$
+et \( n \) tel que :
+$
+n.M= \times e \times f - 1.
+$
+Le couple $ (n, e) $ représente la clé publique et l'entier \( f \) représente la clé privée.
+
+\begin{enumerate}
+    \item Vérifier que \( e \times f - 1 \) est divisible par \( M \), autrement dit, vérifier qu’il existe bien un entier \( n \) tel que :
+    \[
+    n \times M=  e \times f - 1.
+    \]
+    
+    \item En écrivant \( e \times f - M \times n = 1 \), que peut-on dire du PGCD de \( e \) et de \( n \) ?
+
+    \item Bob désire envoyer un message à Alice. Il transforme chaque lettre du texte clair en un nombre entier \( m \), selon la correspondance suivante :
+$$    
+\begin{aligned}
+    &\text{A: 00} \quad & \text{B: 01} \quad & \text{C: 02} \quad & \text{D: 03} \quad & \text{E: 04} \quad & \text{F: 05} \\
+    &\text{G: 06} \quad & \text{H: 07} \quad & \text{I: 08} \quad & \text{J: 09} \quad & \text{K: 10} \quad & \text{L: 11} \\
+    &\text{M: 12} \quad & \text{N: 13} \quad & \text{O: 14} \quad & \text{P: 15} \quad & \text{Q: 16} \quad & \text{R: 17} \\
+    &\text{S: 18} \quad & \text{T: 19} \quad & \text{U: 20} \quad & \text{V: 21} \quad & \text{W: 22} \quad & \text{X: 23} \\
+    &\text{Y: 24} \quad & \text{Z: 25}
+\end{aligned}
+$$
+    Ensuite, il chiffre chaque lettre du message en associant à tout entier \( m \) (compris entre 0 et 25) le reste \( p \) de la division euclidienne de \( e \times m \) par \( n \). On choisit \( a = 3 \), \( b = 4 \), \( c = 5 \), et \( d = 6 \).
+
+    \begin{enumerate}
+        \item [a)] Déterminer la clé publique et la clé privée.
+        
+        \item [b)] Montrer que \( p \equiv 58m \pmod{369} \).
+        
+        \item [c)] En utilisant l’égalité \( e \times f -  M \times n  = 1\), montrer que \( m \equiv 70p \pmod{369} \).
+        
+        \item [d)] Alice veut envoyer à Bob le message suivant : « ESCC ». Chiffrer ce message.
+        
+        \item [e)] Bob a reçu le message suivant d’Alice : \( \boxed{74}, \boxed{211} \). Déchiffrer ce message.
+    \end{enumerate}
+\end{enumerate}
+}
+}
