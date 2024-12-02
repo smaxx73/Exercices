@@ -3,68 +3,70 @@
 \theme{calcul matriciel}
 \auteur{}
 \organisation{AMSCC}
+
 \contenu{
-
-\texte{ Soient les matrices $A=\left(\begin{array}{ll}0 & 0 \\ 0 & 1\end{array}\right)$ et $B=\left(\begin{array}{ll}0 & 0 \\ 1 & 0\end{array}\right)$. }
-
-\begin{enumerate}
-	\item \question{ A-t-on $A^2-B^2=(A+B)(A-B)$ ? Justifier. }
-	\item \question{ Déterminer une condition nécessaire et suffisante pour obtenir l'égalité. }
-\end{enumerate}
- 
-\reponse{ $$
-\begin{aligned}
-	& A^2=\left(\begin{array}{ll}
+	
+	\texte{ Soient les matrices $A=\begin{pmatrix}0 & 0 \\ 0 & 1\end{pmatrix}$ et $B=\begin{pmatrix}0 & 0 \\ 1 & 0\end{pmatrix}$. }
+	
+	\begin{enumerate}
+		\item \question{ A-t-on $A^2-B^2=(A+B)(A-B)$ ? Justifier. }
+		\item \question{ Déterminer une condition nécessaire et suffisante pour obtenir l'égalité. }
+	\end{enumerate}
+	
+	\reponse{ $$
+		\begin{aligned}
+		& A^2=\begin{pmatrix}
 		0 & 0 \\
 		0 & 1
-	\end{array}\right) \cdot\left(\begin{array}{ll}
+		\end{pmatrix} \cdot \begin{pmatrix}
 		0 & 0 \\
 		0 & 1
-	\end{array}\right)=\left(\begin{array}{ll}
+		\end{pmatrix}=\begin{pmatrix}
 		0 & 0 \\
 		0 & 1
-	\end{array}\right) \\
-	& B^2=\left(\begin{array}{ll}
+		\end{pmatrix} \\
+		& B^2=\begin{pmatrix}
 		0 & 0 \\
 		1 & 0
-	\end{array}\right) \cdot\left(\begin{array}{ll}
+		\end{pmatrix} \cdot \begin{pmatrix}
 		0 & 0 \\
 		1 & 0
-	\end{array}\right)=\left(\begin{array}{ll}
+		\end{pmatrix}=\begin{pmatrix}
 		0 & 0 \\
 		0 & 0
-	\end{array}\right) \\
-	& A^2-B^2=\left(\begin{array}{ll}
+		\end{pmatrix} \\
+		& A^2-B^2=\begin{pmatrix}
 		0 & 0 \\
 		0 & 1
-	\end{array}\right) \\
-	& A+B=\left(\begin{array}{ll}
+		\end{pmatrix} \\
+		& A+B=\begin{pmatrix}
 		0 & 0 \\
 		1 & 1
-	\end{array}\right) \\
-	& A-B=\left(\begin{array}{ll}
+		\end{pmatrix} \\
+		& A-B=\begin{pmatrix}
 		0 & 0 \\
 		-1 & 1
-	\end{array}\right) \\
-	& (A+B) \cdot(A-B)=\left(\begin{array}{ll}
+		\end{pmatrix} \\
+		& (A+B) \cdot(A-B)=\begin{pmatrix}
 		0 & 0 \\
 		1 & 1
-	\end{array}\right) \cdot\left(\begin{array}{cc}
+		\end{pmatrix} \cdot \begin{pmatrix}
 		0 & 0 \\
 		-1 & 1
-	\end{array}\right)=\left(\begin{array}{cc}
+		\end{pmatrix}=\begin{pmatrix}
 		0 & 0 \\
 		-1 & 1
-	\end{array}\right)
-\end{aligned}
-$$
-Ainsi :
-$$
-A^2-B^2 \neq(A+B)(A-B)
-$$
-Justification :
-$$
-(A+B)(A-B)=A^2 \underbrace{-AB+BA}_{\neq 0}-B^2
-$$
-car $BA \neq A B$.
-Pour avoir l'égalité, il faut et il suffit que $A$ et $B$ commutent : $B A=A B$. }}
+		\end{pmatrix}
+		\end{aligned}
+		$$
+		Ainsi :
+		$$
+		A^2-B^2 \neq(A+B)(A-B)
+		$$
+		Justification :
+		$$
+		(A+B)(A-B)=A^2 \underbrace{-AB+BA}_{\neq 0}-B^2
+		$$
+		car $BA \neq A B$.
+		Pour avoir l'égalité, il faut et il suffit que $A$ et $B$ commutent : $B A=A B$. }}
+
