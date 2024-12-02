@@ -50,7 +50,13 @@
 	frame hidden,
 	interior style={top color=yellow!15!white, bottom color=yellow!20!white},
 	overlay={
-		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=yellow, inner sep=1pt] {\textcolor{white}i};}};
+        \node[anchor=north west, xshift=0pt, yshift=0pt] at (frame.north west) {
+	\tikz{
+		\node[circle, draw=yellow!80!black, fill=yellow!60!black, 
+		minimum size=0.3cm, inner sep=0pt] 
+		{\textcolor{yellow}{\scriptsize \textbf{i}}};
+	}
+};
 	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
 
@@ -134,12 +140,13 @@
 }
 
 
-\newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+\newcommand{\insertexo}[6]{%contenu, solution, uuid, lien solution,numerotation,theme
 	\noindent
 	\input{\path src/#1}
 	\setboolean{solution}{#2}
 	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
+	\setboolean{isindication}{#6}
 	
 	\begin{titrebox}[#5]
 		{\bfseries{\TitreExo}}{#1} %\hfill
@@ -151,7 +158,7 @@
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}
+		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}{\isindication}
 	}
 }
 
