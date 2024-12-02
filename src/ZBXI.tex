@@ -1,20 +1,144 @@
 \uuid{ZBXI}
-\titre{}
-\theme{}
-\auteur{}
-\date{}
-\organisation{}
+\titre{Recherche d'extremum d'une fonction de deux variables}
+\theme{optimisation}
+\auteur{legall}
+\datecreate{01/10/2003}
+\organisation{exo7}
+
 \contenu{
-
-
 \texte{ 
+	Soit $f : \Rr 
+	^2\rightarrow \Rr $ l'application $(x,y) \mapsto 6xy+(y-x)^3.$ On note
+	$\Delta =\{ (x,y)\in \Rr^2 , -1\leq x\leq y \leq 1\} .$
  }
 \begin{enumerate}
-	\item \question{}
+	\item \question{ Dessiner $\Delta $. Montrer que $f$ est bornée et atteint ses 	bornes sur $\Delta .$}
 	\indication{}
-    \reponse{}
-    \item \question{}
+    \reponse{\textbf{Description de $\Delta$ :}
+    	
+    	La région $\Delta$ est définie par les inégalités :
+    	\[
+    	-1 \leq x \leq y \leq 1.
+    	\]
+    	Dans le plan $(x, y)$, $\Delta$ est la région délimitée par :
+    	\begin{itemize}
+    		\item Les droites verticales $x = -1$ et $x = 1$.
+    		\item La droite $y = x$.
+    		\item La droite horizontale $y = 1$.
+    	\end{itemize}
+    	Graphiquement, $\Delta$ est un trapèze situé entre $x = -1$ et $x = 1$, au-dessus de la droite $y = x$ et en dessous de la droite $y = 1$.
+    	
+    	\medskip
+    	
+    	\textbf{Continuité et compacité :}
+    	
+    	La fonction $f$ est une fonction polynomiale en $x$ et $y$, donc continue sur $\mathbb{R}^2$. L'ensemble $\Delta$ est fermé et borné dans $\mathbb{R}^2$, donc compact.
+    	
+    	\medskip
+    	
+    	\textbf{Conclusion :}
+    	
+    	D'après le théorème des valeurs extrêmes, toute fonction continue sur un compact atteint ses bornes sur cet ensemble. Ainsi, $f$ est bornée sur $\Delta$ et atteint ses bornes sur $\Delta$.
+    }
+    \item \question{Calculer les extrema de $f $ sur le bord de $\Delta $ puis dans 
+    	l'intérieur de $\Delta $.}
     \indication{}
-
+    \reponse{
+    \textbf{Sur le bord $\mathbf{y = x}$, avec $\mathbf{x \in [-1, 1]}$ :}
+    
+    On a $f(x, x) = 6x^2 + (x - x)^3 = 6x^2$.
+    
+    \begin{itemize}
+    	\item Le minimum est atteint en $x = 0$ : $f(0, 0) = 0$.
+    	\item Le maximum est atteint en $x = \pm 1$ : $f(\pm 1, \pm 1) = 6$.
+    \end{itemize}
+    
+    \medskip
+    
+    \textbf{Sur le bord $\mathbf{y = 1}$, avec $\mathbf{x \in [-1, 1]}$ :}
+    
+    On a $f(x, 1) = 6x \cdot 1 + (1 - x)^3 = 6x + (1 - x)^3$.
+    
+    Calcul de la dérivée :
+    \[
+    f'(x) = 6 - 3(1 - x)^2.
+    \]
+    En résolvant $f'(x) = 0$ :
+    \[
+    6 - 3(1 - x)^2 = 0 \implies (1 - x)^2 = 2 \implies x = 1 \pm \sqrt{2}.
+    \]
+    Seule la solution $x = 1 - \sqrt{2} \approx -0{,}4142$ appartient à $[-1, 1]$.
+    
+    \begin{itemize}
+    	\item $f(1, 1) = 6 + 0 = 6$ (maximum).
+    	\item $f(-1, 1) = -6 + 8 = 2$.
+    	\item $f(1 - \sqrt{2}, 1) = 6(1 - \sqrt{2}) + (1 - (1 - \sqrt{2}))^3 = 6 - 6\sqrt{2} + (\sqrt{2})^3 = 6 - 6\sqrt{2} + 2\sqrt{2} = 6 - 4\sqrt{2} \approx 0{,}3432$ (minimum).
+    \end{itemize}
+    
+    \medskip
+    
+    \textbf{Sur le bord $\mathbf{x = -1}$, avec $\mathbf{y \in [-1, 1]}$ :}
+    
+    On a $f(-1, y) = -6y + (y + 1)^3$.
+    
+    Calcul de la dérivée :
+    \[
+    f'(y) = -6 + 3(y + 1)^2.
+    \]
+    En résolvant $f'(y) = 0$ :
+    \[
+    -6 + 3(y + 1)^2 = 0 \implies (y + 1)^2 = 2 \implies y = -1 \pm \sqrt{2}.
+    \]
+    Seule la solution $y = -1 + \sqrt{2} \approx 0{,}4142$ appartient à $[-1, 1]$.
+    
+    \begin{itemize}
+    	\item $f(-1, -1) = 6 + 0 = 6$ (maximum).
+    	\item $f(-1, 1) = -6 + 8 = 2$.
+    	\item $f(-1, -1 + \sqrt{2}) = 6 - 4\sqrt{2} \approx 0{,}3432$ (minimum).
+    \end{itemize}
+    
+    \medskip
+    
+    \textbf{Dans l'intérieur de $\Delta$ :}
+    
+    Calculons les points critiques en résolvant $\nabla f = 0$ :
+    
+    \[
+    \begin{cases}
+    f_x = 6y - 3(y - x)^2 = 0, \\
+    f_y = 6x + 3(y - x)^2 = 0.
+    \end{cases}
+    \]
+    
+    En soustrayant les deux équations :
+    \[
+    f_x - f_y = 6(y - x) - 6(y - x) = 0.
+    \]
+    Ainsi, les deux équations sont équivalentes si $f_x = 0$.
+    
+    Posons $s = y - x$. Alors :
+    \[
+    \begin{cases}
+    6(y - x) - 3(y - x)^2 = 0 \implies 6s - 3s^2 = 0 \implies s(6 - 3s) = 0 \implies s = 0 \text{ ou } s = 2, \\
+    x = -\dfrac{s^2}{2}.
+    \end{cases}
+    \]
+    
+    \textbf{Cas 1 :} $s = 0$ $\implies$ $y = x$ $\implies$ $x = 0$ $\implies$ $(0, 0)$.
+    
+    \textbf{Cas 2 :} $s = 2$ $\implies$ $x = -2$ $\implies$ $x = -2$ n'appartient pas à $[-1, 1]$ $\implies$ on exclut ce cas.
+    
+    \textbf{Conclusion :} Le seul point critique intérieur est $(0, 0)$ avec $f(0, 0) = 0$.
+}
+    \item \question{ En déduire les bornes de $f$ sur $\Delta $. }
+\reponse{ D'après les calculs précédents :
+	
+	\begin{itemize}
+		\item Le maximum de $f$ sur $\Delta$ est $f_{\text{max}} = 6$, atteint en $(1, 1)$ et $(-1, -1)$.
+		\item Le minimum de $f$ sur $\Delta$ est $f_{\text{min}} = 0{,}3432$, atteint sur le bord en $(1 - \sqrt{2}, 1)$ et $(-1, -1 + \sqrt{2})$, et $f(0, 0) = 0$ à l'intérieur.
+	\end{itemize}
+	
+	Cependant, en comparant $f(0, 0) = 0$ et $f(1 - \sqrt{2}, 1) \approx 0{,}3432$, on conclut que le minimum absolu est $f_{\text{min}} = 0$, atteint en $(0, 0)$.
+ }
 \end{enumerate}
 }
