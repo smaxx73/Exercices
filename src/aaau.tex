@@ -1,0 +1,44 @@
+\titre{Théorème Chinois}
+\theme{AM}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+\texte{
+\begin{enumerate}
+\item 
+Soient \( m_1, m_2, m_3 \) des nombres deux à deux premiers entre eux. On considère le système :
+\[
+\begin{cases}
+x \equiv x_1 \mod m_1 \\
+x \equiv x_2 \mod m_2 \\
+x \equiv x_3 \mod m_3
+\end{cases}
+\]
+
+On pose \( m = m_1 \times m_2 \times m_3 \) et 
+\[
+m'_i = \frac{m}{m_i}, \quad \text{et} \quad z_i = (m'_i)^{-1} \mod m_i.
+\]
+Montrer que 
+\[
+x = x_1 m'_1 z_1 + x_2 m'_2 z_2 + x_3 m'_3 z_3 \mod m
+\]
+est solution du système.
+\item  Résoudre les systèmes d’équations suivants :
+\[
+\begin{cases}
+x \equiv 2 \mod 2 \\
+x \equiv 3 \mod 3 \\
+x \equiv 4 \mod 5
+\end{cases}
+\quad \quad
+\begin{cases}
+x \equiv 1 \mod 2 \\
+x \equiv 2\mod 3\\
+x \equiv 3\mod 4\\
+x \equiv 4\mod 5\\
+\end{cases}
+\]
+\end{enumerate}
+}
+}
