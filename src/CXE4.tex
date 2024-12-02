@@ -8,15 +8,164 @@
 \contenu{
 
 \texte{ 
+	 Vous allez travailler avec un réseau de neurones à une couche cachée, conçu pour effectuer une tâche de prédiction simple. 
+	
+	
+	
+	\textbf{Description du réseau}
+	
+	\begin{itemize}
+		\item \textbf{Entrée :}
+		\begin{itemize}
+			\item \( x \in \mathbb{R} \) (scalaire)
+		\end{itemize}
+		
+		\item \textbf{Couche cachée (2 neurones) :}
+		\begin{itemize}
+			\item \textbf{Neurone caché 1 :}
+			\begin{itemize}
+				\item Poids : \( w_1 = 0{,}15 \)
+				\item Biais : \( b_1 = 0{,}35 \)
+			\end{itemize}
+			\item \textbf{Neurone caché 2 :}
+			\begin{itemize}
+				\item Poids : \( w_2 = 0{,}20 \)
+				\item Biais : \( b_2 = 0{,}35 \)
+			\end{itemize}
+		\end{itemize}
+		
+		\item \textbf{Couche de sortie (1 neurone) :}
+		\begin{itemize}
+			\item \textbf{Neurone de sortie :}
+			\begin{itemize}
+				\item Poids : \( w_3 = 0{,}40 \) (connecté au neurone caché 1)
+				\item Poids : \( w_4 = 0{,}45 \) (connecté au neurone caché 2)
+				\item Biais : \( b_3 = 0{,}60 \)
+			\end{itemize}
+		\end{itemize}
+		
+		\item \textbf{Fonctions d'activation :}
+		\begin{itemize}
+			\item Fonction sigmoïde : \( \sigma(z) = \dfrac{1}{1 + e^{-z}} \)
+		\end{itemize}
+		
+		\item \textbf{Fonction de coût :}
+		\begin{itemize}
+			\item Erreur quadratique moyenne : \( E = \dfrac{1}{2}(y - \hat{y})^2 \)
+		\end{itemize}
+		
+		\item \textbf{Données :}
+		\begin{itemize}
+			\item \textbf{Entrée :} \( x = 0{,}05 \)
+			\item \textbf{Sortie cible :} \( y = 0{,}01 \)
+		\end{itemize}
+	\end{itemize}
  }
 
  \begin{enumerate}
-	\item \question{}
+	\item \question{Calculer les sorties des neurones de la couche cachée (\( h_1 \) et \( h_2 \)).}
 	\indication{}
-    \reponse{}
-    \item \question{}
+    \reponse{
+    	Neurone caché 1 : 
+    	\begin{align*}
+    	\text{Entrée nette : } & net_{h1} = w_1 \cdot x + b_1 \\
+    	& net_{h1} = 0{,}15 \times 0{,}05 + 0{,}35 = 0{,}3575 \\
+    	\text{Sortie : } & h_1 = \sigma(net_{h1}) = \dfrac{1}{1 + e^{-0{,}3575}} \approx 0{,}5889
+    	\end{align*}
+    	
+    	
+    	Neurone caché 2 :
+    	
+    	
+    	\begin{align*}
+    	\text{Entrée nette : } & net_{h2} = w_2 \cdot x + b_2 \\
+    	& net_{h2} = 0{,}20 \times 0{,}05 + 0{,}35 = 0{,}36 \\
+    	\text{Sortie : } & h_2 = \sigma(net_{h2}) = \dfrac{1}{1 + e^{-0{,}36}} \approx 0{,}5890
+    	\end{align*}
+    	}
+    \item \question{Calculer la sortie du neurone de sortie (\( \hat{y} \)).}
     \indication{}
+    \reponse{ 
+    	\begin{align*}
+    	\text{Entrée nette : } & net_o = w_3 \cdot h_1 + w_4 \cdot h_2 + b_3 \\
+    	& net_o = 0{,}40 \times 0{,}5889 + 0{,}45 \times 0{,}5890 + 0{,}60 \\
+    	& net_o = 0{,}2356 + 0{,}2650 + 0{,}60 = 1{,}1006 \\
+    	\text{Sortie : } & \hat{y} = \sigma(net_o) = \dfrac{1}{1 + e^{-1{,}1006}} \approx 0{,}7507
+    	\end{align*}
+    	 }
+    \item \question{ Calculer l'erreur du réseau en utilisant la fonction de coût. }
+    \reponse{ 
+    	\begin{align*}
+    	E = \dfrac{1}{2}(y - \hat{y})^2 = \dfrac{1}{2}(0{,}01 - 0{,}7507)^2 = \dfrac{1}{2}(-0{,}7407)^2 \approx 0{,}2741
+    	\end{align*}
+    	
+     }
+    \item \question{ Calculer les gradients des poids \( w_3 \) et \( w_4 \) de la couche de sortie  les gradients des poids \( w_1 \) et \( w_2 \) de la couche cachée. }
+    \reponse{ Calcul de l'erreur locale au neurone de sortie (\( \delta_o \)) :
+    	
+    	
+    	\begin{align*}
+    	\delta_o = \dfrac{\partial E}{\partial net_o} = \dfrac{\partial E}{\partial \hat{y}} \cdot \dfrac{\partial \hat{y}}{\partial net_o} \\
+    	\dfrac{\partial E}{\partial \hat{y}} = \hat{y} - y = 0{,}7507 - 0{,}01 = 0{,}7407 \\
+    	\dfrac{\partial \hat{y}}{\partial net_o} = \hat{y}(1 - \hat{y}) = 0{,}7507 \times 0{,}2493 \approx 0{,}1875 \\
+    	\delta_o = 0{,}7407 \times 0{,}1875 \approx 0{,}1389
+    	\end{align*}
+    	
+    	
+    	Calcul des gradients des poids :
+    	
+    	
+    	\begin{align*}
+    	\dfrac{\partial E}{\partial w_3} = \delta_o \cdot h_1 = 0{,}1389 \times 0{,}5889 \approx 0{,}0817 \\
+    	\dfrac{\partial E}{\partial w_4} = \delta_o \cdot h_2 = 0{,}1389 \times 0{,}5890 \approx 0{,}0818
+    	\end{align*}
+    	
+    	
+    	Calcul des gradients des poids \( w_1 \) et \( w_2 \)
+    	
+    	Calcul des erreurs locales aux neurones cachés (\( \delta_{h1} \) et \( \delta_{h2} \)) :
+    	
+    	
+    	\begin{align*}
+    	\delta_{h1} = \delta_o \cdot w_3 \cdot h_1 (1 - h_1) \\
+    	& = 0{,}1389 \times 0{,}40 \times 0{,}5889 \times (1 - 0{,}5889) \\
+    	& \approx 0{,}1389 \times 0{,}40 \times 0{,}5889 \times 0{,}4111 \approx 0{,}0134 \\
+    	\delta_{h2} = \delta_o \cdot w_4 \cdot h_2 (1 - h_2) \\
+    	& = 0{,}1389 \times 0{,}45 \times 0{,}5890 \times (1 - 0{,}5890) \\
+    	& \approx 0{,}1389 \times 0{,}45 \times 0{,}5890 \times 0{,}4110 \approx 0{,}0150
+    	\end{align*}
+    	
+    	
+    	Calcul des gradients des poids :
+    	
+    	
+    	\begin{align*}
+    	\dfrac{\partial E}{\partial w_1} = \delta_{h1} \cdot x = 0{,}0134 \times 0{,}05 \approx 0{,}0007 \\
+    	\dfrac{\partial E}{\partial w_2} = \delta_{h2} \cdot x = 0{,}0150 \times 0{,}05 \approx 0{,}0008
+    	\end{align*}
+    	 }
+    \item \question{ Avec un taux d'apprentissage \( \eta = 0{,}5 \), mettre à jour tous les poids du réseau. }
+    \reponse{ Avec \( \eta = 0{,}5 \) :
+    	
+    	- Mise à jour des poids de la couche de sortie :
+    	
+    	
+    	\begin{align*}
+    	w_3^{\text{nouveau}} = w_3^{\text{ancien}} - \eta \dfrac{\partial E}{\partial w_3} = 0{,}40 - 0{,}5 \times 0{,}0817 = 0{,}3592 \\
+    	w_4^{\text{nouveau}} = w_4^{\text{ancien}} - \eta \dfrac{\partial E}{\partial w_4} = 0{,}45 - 0{,}5 \times 0{,}0818 = 0{,}4091
+    	\end{align*}
+    	
+    	
+    	- Mise à jour des poids de la couche cachée :
+    	
+    	
+    	\begin{align*}
+    	w_1^{\text{nouveau}} = w_1^{\text{ancien}} - \eta \dfrac{\partial E}{\partial w_1} = 0{,}15 - 0{,}5 \times 0{,}0007 = 0{,}1497 \\
+    	w_2^{\text{nouveau}} = w_2^{\text{ancien}} - \eta \dfrac{\partial E}{\partial w_2} = 0{,}20 - 0{,}5 \times 0{,}0008 = 0{,}1996
+    	\end{align*}
+    	 }
 
 \end{enumerate}
 
 }
+

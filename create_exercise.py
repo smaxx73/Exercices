@@ -6,7 +6,7 @@ import subprocess
 def generate_unique_id(existing_ids):
     while True:
         # Génère un identifiant alphanumérique de 4 caractères
-        unique_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
+        unique_id = ''.join(random.choices(string.ascii_letters + string.digits, k=4))
         if unique_id not in existing_ids:
             return unique_id
 
