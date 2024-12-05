@@ -9,32 +9,33 @@
 	\item 
 \question{ En utilisant le déterminant, justifier l'existence d'une matrice $A$ vérifiant :
 $$
-\left(\begin{array}{ccc}
+\begin{pmatrix}
 	5 & 4 & 3 \\
 	7 & 6 & 5 \\
 	2 & 0 & 1
-\end{array}\right)=\left(\begin{array}{ccc}
+\end{pmatrix}=\begin{pmatrix}
 	0 & 1 & -1 \\
 	1 & 1 & 1 \\
 	1 & 0 & 1
-\end{array}\right) \cdot A
+\end{pmatrix} \times A
 $$
 puis déterminer $A$. }
 
+\indication{Calculer et utiliser l'inverse de la matrice $\begin{pmatrix}0 & 1 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 1\end{pmatrix}$. }
 
 \reponse{ Remarque :
 Compte-tenu des règles du produit matriciel, si elles existent, les matrices $A$ et $B$ sont des matrices $3 \times 3$.
-Puisque $\left|\begin{array}{ccc}0 & 1 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 1\end{array}\right| \neq 0$, la matrice $M=\left(\begin{array}{ccc}0 & 1 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 1\end{array}\right)$ est inversible et :
+Puisque $\begin{vmatrix}0 & 1 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 1\end{vmatrix} \neq 0$, la matrice $M=\begin{pmatrix}0 & 1 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 1\end{pmatrix}$ est inversible et :
 $$
-\left(\begin{array}{ccc}
+\begin{pmatrix}
 	0 & 1 & -1 \\
 	1 & 1 & 1 \\
 	1 & 0 & 1
-\end{array}\right)^{-1} \cdot\left(\begin{array}{ccc}
+\end{pmatrix}^{-1} \times \begin{pmatrix}
 	5 & 4 & 3 \\
 	7 & 6 & 5 \\
 	2 & 0 & 1
-\end{array}\right)=\underbrace{\left(\begin{array}{ccc}
+\end{pmatrix}=\underbrace{\left(\begin{array}{ccc}
 		0 & 1 & -1 \\
 		1 & 1 & 1 \\
 		1 & 0 & 1
@@ -121,17 +122,17 @@ $$ }
 
 
 
-\item \question{ Peut-on utiliser le même procédé pour déterminer $B$ qui vérifie :
+\item \question{ Peut-on déterminer une matrice $B$ telle que :
 $$
-\left(\begin{array}{lll}
+\begin{pmatrix}
 	5 & 4 & 3 \\
 	7 & 6 & 5 \\
 	2 & 0 & 1
-\end{array}\right)=B \cdot\left(\begin{array}{lll}
+\end{pmatrix}=B \times \begin{pmatrix}
 	1 & 2 & 3 \\
 	2 & 3 & 4 \\
 	1 & 2 & 3
-\end{array}\right)
+\end{pmatrix} \text{ ?}
 $$ }
 
 \reponse{ En revanche, puisque $\forall M, N \in \mathcal{M}_n(\mathbb{R}) \operatorname{det}(M \times N)=\operatorname{det}(M) \times \operatorname{det}(N)$, il n'existe pas de matrice $B \in \mathcal{M}_3(\mathbb{R})$ telle que $\left(\begin{array}{lll}5 & 4 & 3 \\ 7 & 6 & 5 \\ 2 & 0 & 1\end{array}\right)=B \cdot\left(\begin{array}{lll}1 & 2 & 3 \\ 2 & 3 & 4 \\ 1 & 2 & 3\end{array}\right)$ car $\left|\begin{array}{lll}5 & 4 & 3 \\ 7 & 6 & 5 \\ 2 & 0 & 1\end{array}\right| \neq 0$ et $\left|\begin{array}{lll}1 & 2 & 3 \\ 2 & 3 & 4 \\ 1 & 2 & 3\end{array}\right|=0$. }
