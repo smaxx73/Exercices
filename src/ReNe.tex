@@ -75,9 +75,60 @@ Soit le réseau de neurones multicouches décrit pas le graphe suivant:
 \end{tikzpicture}  
 \end{center}
 \begin{enumerate}
-\item Donner les formules qui déterminent les sorties intermédiaires $f_{11},\,f_{12},\,h_{11},\,h_{12}$ et $f_{21}$ ainsi que la sortie finale $\hat{y}$.
-\item On pose la fonction d'erreur $E(w)=(y-\hat{y})^2.$ En appliquant l'algorithme de backpropagation, déterminer les dérivées partielles $\frac{\partial E(w)}{\partial w_j}$ puis $\frac{\partial \hat{y}}{\partial w_j}$. En déduire les expressions des mises à jour des paramètres $\Delta w_j$ pour $j=1,\cdots{},7$. 
+\item \question{ Donner les formules qui déterminent les sorties intermédiaires $f_{11},\,f_{12},\,h_{11},\,h_{12}$ et $f_{21}$ ainsi que la sortie finale $\hat{y}$. }
+\reponse{\[
+f_{11} = w_2 x + w_1
+\]
+\[
+f_{12} = w_4 x + w_3
+\]
+\[
+h_{11} = \sigma(f_{11}) = \frac{1}{1 + e^{-f_{11}}}
+\]
+\[
+h_{12} = \sigma(f_{12}) = \frac{1}{1 + e^{-f_{12}}}
+\]
+\[
+\hat{y} = f_{21} = w_6 h_{11} + w_7 h_{12} + w_5
+\]}
+\item \question{ On pose la fonction d'erreur $E(w)=(y-\hat{y})^2.$ En appliquant l'algorithme de backpropagation (méthode du Gradient appliqué au réseau de neurones), déterminer les dérivées partielles $\frac{\partial E(w)}{\partial w_j}$ puis $\frac{\partial \hat{y}}{\partial w_j}$. En déduire les expressions des mises à jour des paramètres $\Delta w_j$ (variation des poids) pour $j=1,\cdots{},7$.  }
+\reponse{La fonction d’erreur est donnée par :
+\[
+E(\mathbf{w}) = (y - \hat{y})^2
+\]
 
+Donc, on aura :
+\[
+\frac{\partial E(\mathbf{w})}{\partial w_j} = -2(y - \hat{y}) \frac{\partial \hat{y}}{\partial w_j}
+\]
+
+D’après la propagation en avant, on a : $\hat{y} = f_{21} = w_6 h_{11} + w_7 h_{12} + w_5$.  
+Les dérivées partielles $\frac{\partial \hat{y}}{\partial w_j}$ peuvent être calculées comme suit :
+\[
+\frac{\partial \hat{y}}{\partial w_5} = 1, \quad
+\frac{\partial \hat{y}}{\partial w_6} = h_{11}, \quad
+\frac{\partial \hat{y}}{\partial w_7} = h_{12}
+\]
+
+Pour les autres paramètres :
+\[
+\frac{\partial \hat{y}}{\partial w_1} = \frac{\partial \hat{y}}{\partial h_{11}} \times \frac{\partial h_{11}}{\partial f_{11}} \times \frac{\partial f_{11}}{\partial w_1} = w_6 h_{11}(1 - h_{11})
+\]
+\[
+\frac{\partial \hat{y}}{\partial w_2} = w_6 h_{11}(1 - h_{11}) x
+\]
+\[
+\frac{\partial \hat{y}}{\partial w_3} = w_7 h_{12}(1 - h_{12})
+\]
+\[
+\frac{\partial \hat{y}}{\partial w_4} = w_7 h_{12}(1 - h_{12}) x
+\]
+
+En fin, la mise à jour de chaque paramètre $\Delta w_j$ est donnée par :
+\[
+\Delta w_j = \alpha (y - \hat{y}) \frac{\partial \hat{y}}{\partial w_j}
+\]
+}
 
 \end{enumerate}
 
