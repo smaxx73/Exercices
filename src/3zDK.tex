@@ -9,52 +9,58 @@
 
 \texte{
 La loi de Benford, initialement appelée loi des nombres anormaux par Benford, fait référence à une fréquence de distribution statistique observée empiriquement sur de nombreuses sources de données dans la vraie vie, ainsi qu’en mathématiques. Dans une série de données numériques, on pourrait s’attendre à voir les chiffres de 1 à 9 apparaître à peu près aussi fréquemment comme premier chiffre significatif, soit avec une fréquence de $1/9 = 11,1\%$ pour chacun. Or, contrairement à cette intuition (biais d’équiprobabilité), la série suit très souvent approximativement la loi de Benford :
-\begin{tikzpicture}
+\def\data{%
+  {1}{30.10}
+  {2}{17.61}
+  {3}{12.49}
+  {4}{9.69}
+  {5}{7.92}
+  {6}{6.69}
+  {7}{5.80}
+  {8}{5.12}
+  {9}{4.58}%
+}
 
-    \begin{axis}[
-        ybar,
-        width=14cm,
-        height=8cm,
-        bar width=0.5cm,
-        enlarge x limits=0.1,
-        ymin=0,
-        ymax=35,
-        ylabel={Fréquence (\%)},
-        xlabel={1ère décimale},
-        ytick={0,5,10,15,20,25,30,35},
-        xtick={1,2,3,4,5,6,7,8,9},
-        xticklabel style={font=\small},
-        yticklabel style={font=\small},
-        title={Loi de BENFORD},
-        title style={yshift=0.5cm,font=\bfseries},
-        axis lines=left,
-        axis on top=true,
-        yminorticks=false
-    ]
-    
-    \addplot[fill=cyan!70!black,draw=black] coordinates {
-        (1,30.10)
-        (2,17.61)
-        (3,12.49)
-        (4,9.69)
-        (5,7.92)
-        (6,6.69)
-        (7,5.80)
-        (8,5.12)
-        (9,4.58)
-    };
-    
-    % Ajout du sous-titre
-    \node[font=\small,align=center,anchor=south] at (rel axis cs:0.5,1.04) {Fréquences relatives d'apparition de la 1ère décimale};
-    
-    % Ajouter les étiquettes de pourcentage sur chaque barre
-    \foreach \X/\Y in {1/30.10,2/17.61,3/12.49,4/9.69,5/7.92,6/6.69,7/5.80,8/5.12,9/4.58}{
-        \node[font=\footnotesize,anchor=south] at (axis cs:\X,\Y) {\Y\%};
-    }
-    
-    \end{axis}
-    
-    \end{tikzpicture}
+\begin{tikzpicture}[font=\small]
+
+% Dimensions axes :
+% On a 9 barres, on peut disposer les barres à x=1,2,3,...9
+% Les axes iront donc de x=0.5 à x=9.5 environ.
+% L'axe Y ira de 0% à 35%, soit 7 cm de haut.
+
+% Dessin de l'axe Y
+\draw[->,thick] (0.5,0) -- (0.5,7.5) node[above] {Fréquence (\%)};
+
+% Graduations sur l'axe Y : de 0 à 35% par pas de 5%
+\foreach \v in {0,5,10,15,20,25,30,35} {
+   \draw (0.5,\v*0.2) -- (0.45,\v*0.2) node[left]{\v};
+}
+
+% Dessin de l'axe X
+\draw[->,thick] (0.5,0) -- (9.5,0) node[right]{1ère décimale};
+
+% Ajout du titre principal
+\node[font=\bfseries,anchor=south] at (5,7.7) {Loi de BENFORD};
+% Sous-titre
+\node[font=\small,anchor=south] at (5,7.4) {Fréquences relatives d'apparition de la 1ère décimale};
+
+% Graduation et labels sur l'axe X
+\foreach \x in {1,2,3,4,5,6,7,8,9} {
+  \draw (\x,0) -- (\x,-0.1) node[below]{\x};
+}
+
+% Dessin des barres
+% Pour chaque paire (X, Y%), on dessine un rectangle
+\foreach \X/\Y in \data {
+  % Hauteur du rectangle = \Y% * 0.2 cm
+  \pgfmathsetlengthmacro{\h}{\Y*\yscale}
+  % Le rectangle va de (X - barwidth/2, 0) à (X + barwidth/2, h)
+  \filldraw[fill=cyan!70!black,draw=black] (\X-\barwidth/2,0) rectangle (\X+\barwidth/2,\h);
+  % Etiquette de pourcentage au-dessus de la barre
+  \node[font=\footnotesize,anchor=south] at (\X,\h) {\Y\%};
+}
+
+\end{tikzpicture}
 Cette loi est utilisée notamment dans la détection des fraudes. 
 
 En 2019, le mathématicien Mickäel Launay a relevé 1226 prix dans un supermarché, et a obtenu comme fréquences successives pour les premiers chiffres de 1 à 9 : 32\%, 26\%, 15\%, 9\%, 5\%, 4\%, 3\%, 2\%, 4\%.
