@@ -1,0 +1,85 @@
+\uuid{3zDK}
+\titre{Application de la loi de Benford}
+\theme{Statistiques et tests d’hypothèses}
+\auteur{Maxime NGUYEN}
+\datecreate{10/12/2024}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{
+La loi de Benford, initialement appelée loi des nombres anormaux par Benford, fait référence à une fréquence de distribution statistique observée empiriquement sur de nombreuses sources de données dans la vraie vie, ainsi qu’en mathématiques. Dans une série de données numériques, on pourrait s’attendre à voir les chiffres de 1 à 9 apparaître à peu près aussi fréquemment comme premier chiffre significatif, soit avec une fréquence de $1/9 = 11,1\%$ pour chacun. Or, contrairement à cette intuition (biais d’équiprobabilité), la série suit très souvent approximativement la loi de Benford :
+\begin{tikzpicture}
+
+    % Données d'après l'image
+    % 1: 30.10%, 2: 17.61%, 3: 12.49%, 4: 9.69%, 5: 7.92%, 6: 6.69%, 7: 5.80%, 8: 5.12%, 9: 4.58%
+    \begin{axis}[
+        ybar,
+        width=14cm,
+        height=8cm,
+        bar width=0.5cm,
+        enlarge x limits=0.1,
+        ymin=0,
+        ymax=35,
+        ylabel={Fréquence (\%)},
+        xlabel={1ère décimale},
+        ytick={0,5,10,15,20,25,30,35},
+        xtick={1,2,3,4,5,6,7,8,9},
+        xticklabel style={font=\small},
+        yticklabel style={font=\small},
+        title={Loi de BENFORD},
+        % On place le titre supplémentaire à la main avec un node
+        every axis title/.style={at={(0.5,1.07)},anchor=south,font=\bfseries},
+        axis lines=left,
+        axis on top=true,
+        % Pour un style similaire à l'image, on peut changer la couleur des barres
+        % ici un cyan
+        yminorticks=false,
+        extra description/.code={
+          \node[font=\small,anchor=south] at (rel axis cs:0.5,1.02) {Fréquences relatives d'apparition de la 1ère décimale};
+        },
+    ]
+    
+    \addplot[fill=cyan!70!black,draw=black] coordinates {
+        (1,30.10)
+        (2,17.61)
+        (3,12.49)
+        (4,9.69)
+        (5,7.92)
+        (6,6.69)
+        (7,5.80)
+        (8,5.12)
+        (9,4.58)
+    };
+    
+    % Ajouter les étiquettes de pourcentage sur chaque barre
+    \foreach \x/\y in {
+        1/30.10,
+        2/17.61,
+        3/12.49,
+        4/9.69,
+        5/7.92,
+        6/6.69,
+        7/5.80,
+        8/5.12,
+        9/4.58}
+    {
+        \node[font=\footnotesize,anchor=south] at (axis cs:\x,\y) {\y\%};
+    }
+    
+    \end{axis}
+    
+    \end{tikzpicture}
+Cette loi est utilisée notamment dans la détection des fraudes. 
+
+En 2019, le mathématicien Mickäel Launay a relevé 1226 prix dans un supermarché, et a obtenu comme fréquences successives pour les premiers chiffres de 1 à 9 : 32\%, 26\%, 15\%, 9\%, 5\%, 4\%, 3\%, 2\%, 4\%.
+}
+
+
+\begin{enumerate}
+    \item \question{Avec un risque de première espèce de 5\%, peut-on affirmer que l’observation du mathématicien est incompatible avec la loi de Benford ?}
+    \indication{Effectuer un test du $\chi^2$ pour comparer les fréquences observées avec celles attendues selon la loi de Benford.}
+    \reponse{À compléter.}
+\end{enumerate}
+
+}
