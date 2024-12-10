@@ -16,9 +16,18 @@ Un vaccin produit par un laboratoire français contient, selon la notice, 45 $\m
 \begin{enumerate}
 	\item \question{On considère trois tests de conformité de la moyenne $m$, définis par les hypothèses suivantes : 
     \begin{itemize}
-        \item A : $H_0 : m = 45$, $H_1 : m > 45$,
-        \item B : $H_0 : m = 45$, $H_1 : m < 45$,
-        \item C : $H_0 : m = 45$, $H_1 : m \neq 45$.
+        \item $A : \begin{cases}
+                    H_0 : m = 45,\\
+                    H_1 : m > 45,
+                \end{cases}$
+    \item $B : \begin{cases}
+                    H_0 : m = 45,\\
+                    H_1 : m < 45,
+                \end{cases}$
+    \item $C : \begin{cases}
+                    H_0 : m = 45,\\
+                    H_1 : m \neq 45,
+                \end{cases}$
     \end{itemize}
     Si on veut se prémunir en priorité du risque :
     \begin{enumerate}
@@ -38,10 +47,10 @@ Un vaccin produit par un laboratoire français contient, selon la notice, 45 $\m
     \reponse{À compléter.}
 
     \item \question{On considère le test défini par les hypothèses suivantes : 
-    \begin{itemize}
-        \item $H_0 : m = 45$, 
-        \item $H_1 : m = m_1$.
-    \end{itemize}
+    $$\begin{cases}
+        H_0 : m = 45, 
+        H_1 : m = m_1.
+    \end{cases}$$
     Calculer la puissance du test $A'$ pour $m_1 = 46$ et $m_1 = 47$.}
     \indication{La puissance est $1 - \beta$, où $\beta$ est la probabilité d’erreur de seconde espèce.}
     \reponse{À compléter.}
