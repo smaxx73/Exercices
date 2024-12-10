@@ -11,8 +11,6 @@
 La loi de Benford, initialement appelée loi des nombres anormaux par Benford, fait référence à une fréquence de distribution statistique observée empiriquement sur de nombreuses sources de données dans la vraie vie, ainsi qu’en mathématiques. Dans une série de données numériques, on pourrait s’attendre à voir les chiffres de 1 à 9 apparaître à peu près aussi fréquemment comme premier chiffre significatif, soit avec une fréquence de $1/9 = 11,1\%$ pour chacun. Or, contrairement à cette intuition (biais d’équiprobabilité), la série suit très souvent approximativement la loi de Benford :
 \begin{tikzpicture}
 
-    % Données d'après l'image
-    % 1: 30.10%, 2: 17.61%, 3: 12.49%, 4: 9.69%, 5: 7.92%, 6: 6.69%, 7: 5.80%, 8: 5.12%, 9: 4.58%
     \begin{axis}[
         ybar,
         width=14cm,
@@ -28,16 +26,10 @@ La loi de Benford, initialement appelée loi des nombres anormaux par Benford, f
         xticklabel style={font=\small},
         yticklabel style={font=\small},
         title={Loi de BENFORD},
-        % On place le titre supplémentaire à la main avec un node
-        every axis title/.style={at={(0.5,1.07)},anchor=south,font=\bfseries},
+        title style={yshift=0.5cm,font=\bfseries},
         axis lines=left,
         axis on top=true,
-        % Pour un style similaire à l'image, on peut changer la couleur des barres
-        % ici un cyan
-        yminorticks=false,
-        extra description/.code={
-          \node[font=\small,anchor=south] at (rel axis cs:0.5,1.02) {Fréquences relatives d'apparition de la 1ère décimale};
-        },
+        yminorticks=false
     ]
     
     \addplot[fill=cyan!70!black,draw=black] coordinates {
@@ -52,19 +44,12 @@ La loi de Benford, initialement appelée loi des nombres anormaux par Benford, f
         (9,4.58)
     };
     
+    % Ajout du sous-titre
+    \node[font=\small,align=center,anchor=south] at (rel axis cs:0.5,1.04) {Fréquences relatives d'apparition de la 1ère décimale};
+    
     % Ajouter les étiquettes de pourcentage sur chaque barre
-    \foreach \x/\y in {
-        1/30.10,
-        2/17.61,
-        3/12.49,
-        4/9.69,
-        5/7.92,
-        6/6.69,
-        7/5.80,
-        8/5.12,
-        9/4.58}
-    {
-        \node[font=\footnotesize,anchor=south] at (axis cs:\x,\y) {\y\%};
+    \foreach \X/\Y in {1/30.10,2/17.61,3/12.49,4/9.69,5/7.92,6/6.69,7/5.80,8/5.12,9/4.58}{
+        \node[font=\footnotesize,anchor=south] at (axis cs:\X,\Y) {\Y\%};
     }
     
     \end{axis}
