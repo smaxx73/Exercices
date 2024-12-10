@@ -26,7 +26,7 @@
     		\item La droite $y = x$.
     		\item La droite horizontale $y = 1$.
     	\end{itemize}
-    	Graphiquement, $\Delta$ est un trapèze situé entre $x = -1$ et $x = 1$, au-dessus de la droite $y = x$ et en dessous de la droite $y = 1$.
+    	Graphiquement, $\Delta$ est un triangle situé délimité par les points $(-1, -1)$, $(1, 1)$ et $(-1, 1)$.
     	
     	\medskip
     	
@@ -40,8 +40,45 @@
     	
     	D'après le théorème des valeurs extrêmes, toute fonction continue sur un compact atteint ses bornes sur cet ensemble. Ainsi, $f$ est bornée sur $\Delta$ et atteint ses bornes sur $\Delta$.
     }
-    \item \question{Calculer les extrema de $f $ sur le bord de $\Delta $ puis dans 
-    	l'intérieur de $\Delta $.}
+	\item \question{ La fonction $f$ admet-elle un minimum local ou maximum local dans l'intérieur de $\Delta$ ? Si oui, les déterminer.}
+	\reponse{ Calculons les points stationnaires en résolvant $\nabla f = 0$ :
+		\[
+		\begin{cases}
+			\frac{\partial f}{\partial x}(x,y) = 6y - 3(y - x)^2 = 0, \\
+			\frac{\partial f}{\partial y}(x,y) = 6x + 3(y - x)^2 = 0.
+		\end{cases}
+		\]
+		$\iff$
+		\[
+		\begin{cases}
+			6y + 6x = 0, \\
+			6x + 3(2x)^2 = 0.
+		\end{cases}
+		\]
+		$\iff$
+		\[
+		\begin{cases}
+			x = -y, \\
+			6x(1 + 2x) = 0.
+		\end{cases}
+		\]
+		$\iff$
+		$(x,y) = (0,0)$ ou $(x,y) = \left(-\frac{1}{2}, \frac{1}{2}\right)$. Le point $(0,0)$ n'est pas dans l'intérieur de $\Delta$. 
+
+		On détermine la nature en calculant la matrice hessienne de $f$ : 
+		\[
+		H_f(x,y) = \begin{pmatrix}
+			\frac{\partial^2 f}{\partial x^2}(x,y) & \frac{\partial^2 f}{\partial x \partial y}(x,y) \\
+			\frac{\partial^2 f}{\partial y \partial x}(x,y) & \frac{\partial^2 f}{\partial y^2}(x,y)
+		\end{pmatrix} = \begin{pmatrix}
+			6(y-x) & 6-6(y-x) \\
+			6-6(y-x) & 6(y-x)
+		\end{pmatrix}.
+		\]
+		En $\left(-\frac{1}{2}, \frac{1}{2}\right)$, $H_f\left(-\frac{1}{2}, \frac{1}{2}\right) = \begin{pmatrix} 6 & 0 \\ 0 & 6 \end{pmatrix}$, 
+		de déterminant $36 > 0$  et définie positive, donc $\left(-\frac{1}{2}, \frac{1}{2}\right)$ est un minimum local de $f$ et ce minimum vaut $f\left(-\frac{1}{2}, \frac{1}{2}\right) = -\frac{1}{2}$.
+		 }
+    \item \question{Calculer les extrema de $f$ sur le bord de $\Delta $.}
     \indication{}
     \reponse{
     \textbf{Sur le bord $\mathbf{y = x}$, avec $\mathbf{x \in [-1, 1]}$ :}
@@ -96,39 +133,6 @@
     	\item $f(-1, 1) = -6 + 8 = 2$.
     	\item $f(-1, -1 + \sqrt{2}) = 6 - 4\sqrt{2} \approx 0{,}3432$ (minimum).
     \end{itemize}
-    
-    \medskip
-    
-    \textbf{Dans l'intérieur de $\Delta$ :}
-    
-    Calculons les points critiques en résolvant $\nabla f = 0$ :
-    
-    \[
-    \begin{cases}
-    f_x = 6y - 3(y - x)^2 = 0, \\
-    f_y = 6x + 3(y - x)^2 = 0.
-    \end{cases}
-    \]
-    
-    En soustrayant les deux équations :
-    \[
-    f_x - f_y = 6(y - x) - 6(y - x) = 0.
-    \]
-    Ainsi, les deux équations sont équivalentes si $f_x = 0$.
-    
-    Posons $s = y - x$. Alors :
-    \[
-    \begin{cases}
-    6(y - x) - 3(y - x)^2 = 0 \implies 6s - 3s^2 = 0 \implies s(6 - 3s) = 0 \implies s = 0 \text{ ou } s = 2, \\
-    x = -\dfrac{s^2}{2}.
-    \end{cases}
-    \]
-    
-    \textbf{Cas 1 :} $s = 0$ $\implies$ $y = x$ $\implies$ $x = 0$ $\implies$ $(0, 0)$.
-    
-    \textbf{Cas 2 :} $s = 2$ $\implies$ $x = -2$ $\implies$ $x = -2$ n'appartient pas à $[-1, 1]$ $\implies$ on exclut ce cas.
-    
-    \textbf{Conclusion :} Le seul point critique intérieur est $(0, 0)$ avec $f(0, 0) = 0$.
 }
     \item \question{ En déduire les bornes de $f$ sur $\Delta $. }
 \reponse{ D'après les calculs précédents :
@@ -138,7 +142,7 @@
 		\item Le minimum de $f$ sur $\Delta$ est $f_{\text{min}} = 0{,}3432$, atteint sur le bord en $(1 - \sqrt{2}, 1)$ et $(-1, -1 + \sqrt{2})$, et $f(0, 0) = 0$ à l'intérieur.
 	\end{itemize}
 	
-	Cependant, en comparant $f(0, 0) = 0$ et $f(1 - \sqrt{2}, 1) \approx 0{,}3432$, on conclut que le minimum absolu est $f_{\text{min}} = 0$, atteint en $(0, 0)$.
+	Cependant, en comparant $f\left(-\frac{1}{2}, \frac{1}{2}\right) = -\frac{1}{2}$ avec $f_{\text{min}}$, on conclut que le minimum global de $f$ sur $\Delta$ est $-\frac{1}{2}$, atteint en $\left(-\frac{1}{2}, \frac{1}{2}\right)$.
  }
 \end{enumerate}
 }
