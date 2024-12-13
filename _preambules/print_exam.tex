@@ -10,6 +10,7 @@
 
 %liens vers des ressources extérieures :
 \newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
+\newcommand{\pathlatex}{https://github.com/smaxx73/Exercices/blob/main/src/}
 \newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
 
@@ -69,7 +70,7 @@
 		};
 		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=north east, inner ysep=5pt, inner xsep=5pt, align=right] at (frame.north east) {
-				\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}
+				\ifthenelse{\boolean{link}}{\href{\pathlatex#3.tex}{\texttt{#3}}}{\texttt{#3}}
 			};
 		}{}
 	},
