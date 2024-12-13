@@ -7,7 +7,9 @@
 
 \contenu{
 
-\texte{ On considère le réseau de neurones à deux couches suivant :
+\texte{ On considère le réseau de neurones à deux couches suivant où la fonction d'activation de la première couche est $\sigma \colon x \mapsto \frac{1}{1+e^{-x}}$ et la fonction d'activation de la seconde couche est $id \colon x \mapsto x$. 
+	
+	
 \begin{center}
 	\begin{tikzpicture}[scale=1.5]
 		\def\layersep{2cm}
@@ -86,8 +88,9 @@
 \begin{enumerate}
 	\item \question{ Exprimer la sortie de la première couche en fonction de $x,y,a,b,\omega_1,\cdots,\omega_4$. }
 	\item \question{ Donner une expression de la sortie $F(x,y,a,b,c,\omega_1,\cdots,\omega_6)$.  }
+	\item \question{ Exprimer la dérivée $\sigma'$ en fonction de $\sigma$. }
 	\item \question{ Déterminer les dérivées partielles $\frac{\partial F}{\partial \omega_5}$ et $\frac{\partial F}{\partial \omega_6}$. }
-	\item \question{ Exprime $\frac{\partial F}{\partial a}$ en fonction de $\frac{\partial F}{\partial \omega_5}$ et $\frac{\partial F}{\partial \omega_6}$. }
+	\item \question{ Exprimer $\frac{\partial F}{\partial a}$ en fonction de $\frac{\partial F}{\partial \omega_5}$ et $\frac{\partial F}{\partial \omega_6}$. }
 	\item \question{ On considère l'entrée suivante : 
 	$$(x,y) = \left(0{,}05 \, ; \, 0{,}10\right)$$
 	Les poids initiaux sont : 
@@ -98,6 +101,6 @@
 	$$E_{\circ} = (0.99 - 1.006117)^2 = 0.00026$$
 	Calculer le gradient de $F$ puis le gradient de $E$ pour $W_{init}$ avec l'entrée $(x,y) = \left(0{,}05 \, ; \, 0{,}10\right)$. 
  }
-  \item \question{ En utilisant la méthode du gradient à pas constant $\delta = 0.1$, réaliser un apprentissage de ce réseau en déterminant les nouveaux poids $W_{nouveaux}$. }
+  \item \question{ En utilisant la méthode du gradient à pas constant $\delta = 0.1$, réaliser un apprentissage de ce réseau en déterminant les nouveaux poids $W_{new}$. }
 \end{enumerate}
 }
