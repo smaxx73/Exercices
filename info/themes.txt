@@ -1,0 +1,25 @@
+analyse asymptotique
+analyse numérique
+calcul différentiel
+calcul déterminant
+calcul matriciel
+complexes
+courbes paramétrées
+fonctions de plusieurs variables
+fractions rationnelles
+limite
+matrices
+méthodes numériques
+optimisation
+polynômes
+probabilités
+réseaux de neurones
+statistiques
+systèmes linéaires
+séries
+séries de Fourier
+séries entières
+tableur
+tests d'hypothèses
+topologie
+équations différentielles

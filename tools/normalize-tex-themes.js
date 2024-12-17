@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
 
-// Fonction pour créer une interface de lecture
 function createReadlineInterface() {
     return readline.createInterface({
         input: process.stdin,
@@ -10,7 +9,6 @@ function createReadlineInterface() {
     });
 }
 
-// Fonction pour poser une question et obtenir une réponse
 function askQuestion(rl, question) {
     return new Promise(resolve => {
         rl.question(question, answer => {
@@ -19,26 +17,22 @@ function askQuestion(rl, question) {
     });
 }
 
-// Fonction pour extraire les thèmes d'une commande LaTeX
 function extractTeXThemes(content) {
     const regex = /\\theme{([^}]*)}/s;
     const match = content.match(regex);
     if (!match) return [];
 
-    // Séparer et nettoyer les thèmes
     return match[1]
         .split(',')
         .map(theme => theme.trim())
         .filter(theme => theme !== '');
 }
 
-// Fonction pour remplacer les thèmes dans une commande LaTeX
 function replaceTeXThemes(content, newThemes) {
     const regex = /(\\theme{)[^}]*(})/s;
     return content.replace(regex, `$1${newThemes.join(', ')}$2`);
 }
 
-// Fonctions de calcul de similarité (identiques à la version précédente)
 function levenshteinDistance(str1, str2) {
     const matrix = [];
 
@@ -82,7 +76,6 @@ function calculateSimilarity(str1, str2) {
     return 1 - (distance / maxLength);
 }
 
-// Fonction pour regrouper les thèmes similaires
 function clusterThemes(themes, similarityThreshold = 0.8) {
     const clusters = [];
     const processed = new Set();
@@ -109,37 +102,43 @@ function clusterThemes(themes, similarityThreshold = 0.8) {
     return clusters;
 }
 
-// Fonction pour choisir le meilleur représentant d'un cluster
-function chooseBestRepresentative(cluster) {
-    return cluster.reduce((a, b) => a.length >= b.length ? a : b);
+async function chooseRepresentative(cluster, rl) {
+    if (cluster.length === 1) return cluster[0];
+
+    console.log('\nGroupe de thèmes similaires :');
+    cluster.forEach((theme, index) => {
+        console.log(`${index + 1}. ${theme}`);
+    });
+
+    const answer = await askQuestion(rl, 'Choisissez le numéro du thème à utiliser (ou entrez un nouveau thème) : ');
+    const choiceIndex = parseInt(answer) - 1;
+
+    if (!isNaN(choiceIndex) && choiceIndex >= 0 && choiceIndex < cluster.length) {
+        return cluster[choiceIndex];
+    }
+    return answer.trim();
 }
 
-// Fonction principale
 async function normalizeThemesInDirectory(directoryPath, similarityThreshold = 0.8) {
     const rl = createReadlineInterface();
 
     try {
-        // Vérifier si le dossier existe
         if (!fs.existsSync(directoryPath)) {
             console.error(`Erreur : Le dossier "${directoryPath}" n'existe pas.`);
-            rl.close();
             return;
         }
 
-        // Collecter tous les thèmes uniques
         const allThemes = new Set();
         const files = await fs.promises.readdir(directoryPath);
         const texFiles = files.filter(file => path.extname(file) === '.tex');
         
         if (texFiles.length === 0) {
             console.error(`Erreur : Aucun fichier .tex trouvé dans "${directoryPath}"`);
-            rl.close();
             return;
         }
 
         console.log(`Traitement de ${texFiles.length} fichiers .tex...`);
         
-        // Premier passage : collecter tous les thèmes
         for (const file of texFiles) {
             const content = await fs.promises.readFile(
                 path.join(directoryPath, file),
@@ -151,57 +150,37 @@ async function normalizeThemesInDirectory(directoryPath, similarityThreshold = 0
 
         console.log(`\n${allThemes.size} thèmes uniques trouvés.`);
 
-        // Regrouper les thèmes similaires
         const clusters = clusterThemes(Array.from(allThemes), similarityThreshold);
-        
-        // Créer un dictionnaire de normalisation
         const normalizationMap = new Map();
-        clusters.forEach(cluster => {
-            const representative = chooseBestRepresentative(cluster);
-            cluster.forEach(theme => {
-                normalizationMap.set(theme, representative);
-            });
-        });
 
-        // Afficher les groupes trouvés
-        console.log('\nGroupes de thèmes similaires trouvés :');
-        clusters.forEach(cluster => {
-            const representative = chooseBestRepresentative(cluster);
+        for (const cluster of clusters) {
             if (cluster.length > 1) {
-                console.log(`\nGroupe normalisé vers "${representative}" :`);
+                const representative = await chooseRepresentative(cluster, rl);
                 cluster.forEach(theme => {
-                    if (theme !== representative) {
-                        console.log(`  - ${theme}`);
-                    }
+                    normalizationMap.set(theme, representative);
                 });
             }
-        });
+        }
 
-        // Demander confirmation
         const answer = await askQuestion(rl, '\nVoulez-vous procéder à la normalisation des thèmes ? (o/n) : ');
         
         if (answer.toLowerCase() !== 'o') {
             console.log('Opération annulée.');
-            rl.close();
             return;
         }
 
-        // Deuxième passage : mettre à jour les fichiers
         let filesModified = 0;
         for (const file of texFiles) {
             const filePath = path.join(directoryPath, file);
             let content = await fs.promises.readFile(filePath, 'utf8');
             const originalThemes = extractTeXThemes(content);
             
-            // Normaliser chaque thème individuellement
             const normalizedThemes = originalThemes.map(theme => 
                 normalizationMap.get(theme) || theme
             );
 
-            // Supprimer les doublons après normalisation
             const uniqueNormalizedThemes = [...new Set(normalizedThemes)];
 
-            // Vérifier si les thèmes ont changé
             if (JSON.stringify(originalThemes) !== JSON.stringify(uniqueNormalizedThemes)) {
                 content = replaceTeXThemes(content, uniqueNormalizedThemes);
                 await fs.promises.writeFile(filePath, content, 'utf8');
@@ -218,12 +197,10 @@ async function normalizeThemesInDirectory(directoryPath, similarityThreshold = 0
     }
 }
 
-// Vérifier les arguments de la ligne de commande
 if (process.argv.length !== 3) {
     console.error('Usage : node normalize-tex-themes.js <dossier>');
     process.exit(1);
 }
 
-// Lancer le script avec le dossier spécifié
 const directoryPath = process.argv[2];
 normalizeThemesInDirectory(directoryPath, 0.8);
