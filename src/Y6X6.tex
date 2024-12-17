@@ -58,8 +58,21 @@ Les fonctions d'activation sont données: pour la première couche, il s'agit de
 
  \begin{enumerate}
 	\item \question{Dessiner l'allure du graphe de $F$. }
-	\indication{}
+	\indication{
+Déterminer $F(x)$ en distinguant les valeurs selon que $x +2 \geq 0$ et $x \geq 0$. 	
+}
     \reponse{
+    	\begin{itemize}
+    		\item Si $x \geq 0$ alors la première couche renvoie $(x+2,x)$ ;
+    		\item Si $-2 \leq x < 0$ alors la première couche renvoie $(x+2,0)$ ;
+    		\item Si $x < -2$ alors la première couche renvoie $(0,0)$.
+    	\end{itemize}
+    La deuxième couche réalise la soustraction des deux composantes de sortie de la première couche : 
+    	\begin{itemize}
+    		\item Si $x \geq 0$ alors $F(x) = x+2-x = 2$ ;
+    		\item Si $-2 \leq x < 0$ alors $F(x) = x+2 - 0 = x+2$ ;
+    		\item Si $x < -2$ alors $F(x) = 0-0 = 0$.
+    	\end{itemize}
 \begin{center}
 	\begin{tikzpicture}[scale=1.0]
 	
