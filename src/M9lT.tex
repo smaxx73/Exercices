@@ -7,6 +7,17 @@
 \contenu{
 	\begin{enumerate}
 		\item \question{ La série $\displaystyle \sum_{n \geq 0} \frac{3}{4^n}$ est-elle convergente ? si oui, calculer la somme de cette série. }
+		\reponse{
+			La série $\displaystyle \sum_{n \geq 0} \frac{3}{4^n}$ est une série géométrique de raison $\frac{1}{4}$ donc elle converge et sa somme est donnée par la formule de la somme d'une série géométrique:
+			$$\sum_{n \geq 0} \frac{3}{4^n} = \frac{3}{1-\frac{1}{4}} = 4$$
+		}
 		\item \question{ La série $\displaystyle \sum_{n \geq 0} \frac{1}{n}\ln\left(1+\frac{1}{\sqrt{n}}\right)$ est-elle convergente ? absolument convergente ?}
+		\reponse{
+			La série $\displaystyle \sum_{n \geq 0} \frac{1}{n}\ln\left(1+\frac{1}{\sqrt{n}}\right)$ est une série à termes positifs. On a:
+			$$\lim_{n \to +\infty} \frac{1}{n}\ln\left(1+\frac{1}{\sqrt{n}}\right) = 0$$
+			et
+			$$\frac{1}{n}\ln\left(1+\frac{1}{\sqrt{n}}\right) \leq \frac{1}{n}\left(\frac{1}{\sqrt{n}}\right) = \frac{1}{n^{3/2}}$$
+			La série $\displaystyle \sum_{n \geq 0} \frac{1}{n^{3/2}}$ est une série de Riemann convergente donc la série $\displaystyle \sum_{n \geq 0} \frac{1}{n}\ln\left(1+\frac{1}{\sqrt{n}}\right)$ est convergente. Elle n'est pas absolument convergente car la série $\displaystyle \sum_{n \geq 0} \frac{1}{n}$ est divergente.
+		}
 	\end{enumerate}
 }
