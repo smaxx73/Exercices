@@ -18,6 +18,7 @@ fractions rationnelles
 intervalle de confiance
 intervalles de confiance
 intégration
+inégalité de probabilité
 limite
 loi binomiale
 loi conjointe
@@ -50,9 +51,11 @@ séries de Fourier
 séries entières
 tableur
 tests d'hypothèses
+tests statistiques
 théorème central limite
 topologie
 variables aléatoires
 variables aléatoires discrètes
 variables aléatoires à densité
+équation différentielle
 équations différentielles
