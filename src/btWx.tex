@@ -10,14 +10,7 @@
 \texte{ Pour une fonction $f$ continue par morceaux sur $[a;b]$, on pose $\theta \in [0;1]$ on considère l'approximation :
 $$\int_a^b f(s)ds \approx (b-a)(\theta f(a) + (1-\theta)f(b))$$ }
 \begin{enumerate}
-<<<<<<< HEAD
 	\item \question{ \'A partir de ce choix d'approximation, construire un schéma de résolution d'une EDO $y'(t)=f(t,y)$. }
-=======
-	\item \question{ A partir de ce choix d'approximation, construire un schéma de résolution d'une EDO $y'(t)=f(t,y)$. }
-	\reponse{ On a $y(t_{n+1}) = y(t_n) + \int_{t_n}^{t_{n+1}} f\left(s,y(s)\right) ds$ d'où le schéma défini par :
-		$$y_{n+1} = y_n + h \left( \theta f(t_n,y(t_n)) + (1-\theta) f(t_{n+1}, y(t_{n+1}))\right)$$
-	}
->>>>>>> 375a5e41094b13767807c5e246dbdce0810354c6
 	\item \question{ Reconnaître des schémas usuels pour les valeurs $\theta \in \{0,\frac{1}{2},1\}$. }
 	\reponse{ 
 		\begin{itemize}

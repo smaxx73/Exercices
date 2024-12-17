@@ -1,6 +1,6 @@
 \uuid{7mIi}
 \titre{ Résolution d'un système linéaire }
-\theme{matrices}
+\theme{matrices, systèmes linéaires}
 \auteur{}
 \organisation{AMSCC}
 
@@ -14,6 +14,18 @@
     }
 \begin{enumerate}
     \item \question{ Montrer que $M$ est inversible et calculer $M^{-1}$. }
+    \indication{ On pourra calculer le déterminant de $M$. }
+    \reponse{
+        On calcule le déterminant de $M$ :
+        \begin{align*}
+            \det(M) &= 0 \times \begin{vmatrix} 1&2\\2&3 \end{vmatrix} - 1 \times \begin{vmatrix} 1&2\\0&3 \end{vmatrix} + 2 \times \begin{vmatrix} 1&1\\0&2 \end{vmatrix} \\
+            &= -1 \times (3-0) + 2 \times (2-0) = -3+4 = 1.
+        \end{align*}
+        Donc $M$ est inversible. On calcule $M^{-1}$ :
+        \begin{align*}
+            M^{-1} &= \frac{1}{\det(M)} \begin{pmatrix} 3&-2&1\\-2&1&0\\1&0&-1 \end{pmatrix} = \begin{pmatrix} 3&-2&1\\-2&1&0\\1&0&-1 \end{pmatrix}.
+        \end{align*}
+    }
     \item \question{ Résoudre le système linéaire suivant : 
         $$
         \left\{\begin{aligned}
