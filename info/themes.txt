@@ -1,19 +1,46 @@
 analyse asymptotique
 analyse numérique
+approximation de loi
 calcul différentiel
 calcul déterminant
 calcul matriciel
 complexes
+convergence en loi
+convergence en probabilité
+courbes de niveaux
 courbes paramétrées
+densité
+dénombrement
+estimateurs
+fonction caractéristique
 fonctions de plusieurs variables
 fractions rationnelles
+intervalles de confiance
 limite
+loi binomiale
+loi conjointe
+loi de Fisher
+loi de Poisson
+loi de Student
+loi du chi2
+loi exponentielle
+loi forte des grands nombres
+loi géométrique
+loi hypergéométrique
+loi normale
+loi uniforme
 matrices
+maximum de vraisemblance
+méthode de Monte Carlo
 méthodes numériques
+nombres complexes
 optimisation
 polynômes
 probabilités
+probabilités conditionnelles
 réseaux de neurones
+simulation
+simulation de loi
 statistiques
 systèmes linéaires
 séries
@@ -21,5 +48,9 @@ séries de Fourier
 séries entières
 tableur
 tests d'hypothèses
+théorème central limite
 topologie
+variables aléatoires
+variables aléatoires discrètes
+variables aléatoires à densité
 équations différentielles
