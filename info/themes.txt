@@ -15,7 +15,9 @@ estimateurs
 fonction caractéristique
 fonctions de plusieurs variables
 fractions rationnelles
+intervalle de confiance
 intervalles de confiance
+intégration
 limite
 loi binomiale
 loi conjointe
