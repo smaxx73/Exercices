@@ -6,7 +6,7 @@
 \contenu{
 
 \begin{enumerate}
-	\item  \question{ Soit $M_a=\left(\begin{array}{ccc}2 a+1 & -a & a+1 \\ a-2 & a-1 & a-2 \\ 2 a-1 & a-1 & 2 a-1\end{array}\right)$, calculer $\operatorname{det}\left(M_a\right)$ sous forme factorisée en fonction de $a \in \mathbb{R}.$  }
+	\item  \question{ Soit $M_a=\begin{pmatrix}2 a+1 & -a & a+1 \\ a-2 & a-1 & a-2 \\ 2 a-1 & a-1 & 2 a-1\end{pmatrix}$, calculer $\operatorname{det}\left(M_a\right)$ sous forme factorisée en fonction de $a \in \mathbb{R}.$  }
 \reponse{ On a :
 $$
 \begin{aligned}
@@ -29,10 +29,10 @@ a-1 & a-2 \\
 \end{aligned}
 $$
  }
-\item \question{ Déterminer les valeurs de $a \in \R$ pour lesquelles le système $M_a \cdot X=\left(\begin{array}{c}a-1 \\ a \\ a\end{array}\right)$ admet une unique solution puis la déterminer par les formules de CRAMER. }
+\item \question{ Déterminer les valeurs de $a \in \R$ pour lesquelles le système $M_a  X=\begin{pmatrix}a-1 \\ a \\ a\end{pmatrix}$ admet une unique solution puis la déterminer par les formules de CRAMER. }
 
 
-\reponse{ Le système $M_a \cdot X=\left(\begin{array}{c}a-1 \\ a \\ a\end{array}\right)$ admet une unique solution ssi $det(M_a) \neq 0 \iff a \in \mathbb{R} \backslash\{-1,0,1\}$. Dans ce cas, par les formules de CRAMER :
+\reponse{ Le système $M_a \cdot X=\begin{pmatrix}a-1 \\ a \\ a\end{pmatrix}$ admet une unique solution ssi $det(M_a) \neq 0 \iff a \in \mathbb{R} \backslash\{-1,0,1\}$. Dans ce cas, par les formules de CRAMER :
 $$
 \Delta_a=\left|\begin{array}{ccc}
 2 a+1 & -a & a+1 \\
