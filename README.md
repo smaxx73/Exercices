@@ -4,7 +4,7 @@ Chaque exercice est contenu dans un fichier du répertoire ```src/```.
 
 Pour créer un exercice à partir du template, exécuter le script ```create_exercise.py```.
 
-Pour insérer un exercice dans un document .tex, insérer le préambule minimal ou recopier et adapter son contenu : 
+Pour insérer un exercice dans un document .tex, insérer le préambule : 
 
 ```
 \newcommand{\path}{} %insérer le chemin vers le répertoire où se trouve le dépot Exercice
@@ -53,6 +53,7 @@ Chaque exercice a la structure suivante :
 \titre{}
 \theme{}
 \auteur{}
+\datecreate{}
 \organisation{}
 
 \contenu{
