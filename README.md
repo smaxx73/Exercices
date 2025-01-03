@@ -2,6 +2,8 @@
 ## Exercices de maths
 Chaque exercice est contenu dans un fichier du répertoire ```src/```.
 
+Pour créer un exercice à partir du template, exécuter le script ```create_exercise.py```.
+
 Pour insérer un exercice dans un document .tex, insérer le préambule minimal ou recopier et adapter son contenu : 
 
 ```
@@ -30,6 +32,7 @@ Si on a plusieurs exercices, on peut utiliser la commande suivante :
 Si on a un seul exercice et qu'on veut contrôler finement l'affichage des paramètres : 
 ```
 \def\solution{true}
+\def\isindication{true}
 \def\isuuid{true}
 \def\link{true}
 
