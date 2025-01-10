@@ -18,12 +18,13 @@ $$ }
 
 \begin{enumerate}
 \item \question{  Quel est le degré du polynôme $P(x)=\Delta$ ? }
+\indication{Exprimer, sans le calculer, le déterminant en développant par rapport à la dernière colonne. }
 \reponse{ Si l'on développe le déterminant $\Delta$ par rapport à sa 4 ème colonne, on voit que $P(x)$ est un polynôme de degré au plus 3. }
 \item \question{ Sans calculer $\Delta$, donner trois racines évidentes du polynôme $P(x)$. En déduire $\Delta$. }
 \reponse{ Pour $x=a, \Delta=0$ car deux colonnes sont identiques. De même, pour $x=b$ et pour $x=c$. Ainsi, $a, b$ et $c$ sont trois racines évidentes de $P(x)$.
 Ainsi :
 $$
-P(x)=k \cdot(x-a)(x-b)(x-c)
+P(x)=k(x-a)(x-b)(x-c)
 $$
 où $k$ est le coefficient de $x^3$. Ainsi :
 $$
@@ -53,6 +54,7 @@ P(x)=(b-a)(c-a)(c-b)(x-a)(x-b)(x-c)
 $$ }
 
 \item \question{ Calculer $\left|\begin{array}{cccc}1 & 1 & 1 & 1 \\ 1 & i & -1 & -i \\ 1 & -1 & 1 & -1 \\ 1 & -i & -1 & i\end{array}\right|$. }
+\indication{Utiliser les questions précédentes en remplaçant $a$, $b$ et $c$ par des valeurs judicieuses. }
 
 \reponse{ $\left|\begin{array}{cccc}1 & 1 & 1 & 1 \\ 1 & i & -1 & -i \\ 1 & -1 & 1 & -1 \\ 1 & -i & -1 & i\end{array}\right|=P(-i)$ pour $a=1, b=i$ et $c=-1$.
 Aussi :

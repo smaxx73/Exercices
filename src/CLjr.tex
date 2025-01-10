@@ -11,14 +11,15 @@
 
 \begin{enumerate}
 	\item  \question{ $P(X)=X^4-X^3-3 X^2+5 X-2 \quad x_0=1$.}
+	\indication{Calculer $P(1)$, puis $P'(1)$...}
 \reponse{
 $$
 P(X)=X^4-X^3-3 X^2+5 X-2 .
 $$ 
 
  On a :
-$$
-\begin{aligned}
+
+\begin{align*}
 P(1) & =1-1-3+5-2=0 \\
 P^{\prime}(X) & =4 X^3-3 X^2-6 X+5 \\
 P^{\prime}(1) & =4-3-6+5=0 \\
@@ -26,41 +27,41 @@ P^{\prime \prime}(X) & =12 X^2-6 X-6 \\
 P^{\prime \prime}(1) & =12-6-6=0 \\
 P^{(3)}(X) & =24 X-6 \\
 P^{(3)}(1) & \neq 0
-\end{aligned}
-$$
-Ainsi $x_0=1$ est racine d'ordre 3 de $P$ et :
-$$
-\begin{gathered}
-P(X)=(X-1)^3 \cdot(X-a)=\left(X^3-3 X^2+3 X-1\right) \cdot(X-a)=X^4 \ldots+a \\
-=X^4-X^3-3 X^2+5 X-2 \\
-\quad \Rightarrow a=-2 \\
-P(X)=(X-1)^3 \cdot(X+2)
-\end{gathered}
-$$ }
+\end{align*}
+
+Ainsi $x_0=1$ est racine d'ordre 3 de $P$, donc par définition il existe un polynôme $Q$ tel que : 
+$$P(X) = (X-1)^3 Q(X)$$
+
+Or $P$ est d'ordre $4$ donc $Q$ est de degré $1$ De plus, le coefficient de plus haut degré de $P$ est $1$, donc celui de $Q$ aussi et il est existe $a \in \mathbb{C}$ tel que $Q(X) = X-a$. Ainsi :
+$$P(X)=(X-1)^3 (X-a)$$
+Or $P(0) = -1 \times (-a) = a$ d'une part et $P(0) = -2$ d'après la définition de $P$ donc $a=-2$ et :
+$$P(X)=(X-1)^3 (X+2)$$
+}
 
 \item \question{ $P(X)=X^3-iX^2+X-i \quad x_0=i$. }
+	\indication{Calculer $P(i)$, puis $P'(i)$...}
 \reponse{ $$
-P(X)=X^3-i . X^2+X-i .
+P(X)=X^3-iX^2+X-i .
 $$
 
 On a :
-$$
-\begin{aligned}
+
+\begin{align*}
 P(i) & =i^3-i . i^2+i-i=0 \\
 P^{\prime}(X) & =3 X^2-2 i X+1 \\
-P^{\prime}(i) & =3 \cdot i^2-2 . i . i+1=0 \\
+P^{\prime}(i) & =3 i^2-2 . i . i+1=0 \\
 P^{\prime \prime}(X) & =6 X-2 i \\
 P^{\prime \prime}(i) & =6 i-2 i \neq 0
-\end{aligned}
-$$
-Ainsi $x_0=1$ est racine double de $P$ et :
-$$
-\begin{aligned}
-P(X)= & (X-i)^2 \cdot(X-a)=\left(X^2-2 i X-1\right) \cdot(X-a)=X^3 \ldots+a \\
-= & X^3-i X^2+X-i \\
-& \Rightarrow a=-i
-\end{aligned}
-$$
+\end{align*}
+
+Ainsi $x_0=1$ est racine double de $P$, donc par définition il existe $a \in \mathbb{C}$ tel que :
+
+
+$$P(X)=  (X-i)^2 (X-a)$$
+
+Or $P(0) = a = -i$ 
+
+
 d'où 
 $$P(X) = (X-i)^2(X+i)$$ }
 

@@ -5,18 +5,24 @@
 \datecreate{2023-01-24}
 \organisation{AMSCC}
 \contenu{
+	
+	\texte{ Soit les polynômes à coefficients réels $A(X)=X^3+2 X-5$ et $B(X)=X-1$.  }
 
-\question{ Effectuer la division euclidienne du polynôme $A(X)=X^3+2 X-5$ par le polynôme $B(X)=X-1$ et en déduire les coefficients $a, b, c$ et $d$ de la décomposition en éléments simples de $$\frac{A(X)}{B(X)}=\frac{X^3+2 X-5}{X-1}=a  X^2+b  X+c+\frac{d}{X-1}$$. }
-
-
-
-\reponse{ $$
-A(X)=X^3+2 X-5=\underbrace{(X-1)}_{B(X)} \cdot\left(X^2+X+3\right)-2
+\begin{enumerate}
+	\item \question{ Effectuer la division euclidienne du polynôme $A$ par le polynôme $B$. }
+	\reponse{ On trouve : 
 $$
-On en déduit :
-$$
-\begin{aligned}
-	F(X) & =\frac{A(X)}{B(X)}=\frac{X^3+2 X-5}{X-1}=\frac{(X-1) \cdot\left(X^2+X+3\right)-2}{X-1} \\
+A(X)=X^3+2 X-5=\underbrace{(X-1)}_{B(X)} \left(X^2+X+3\right)-2
+$$	
+ }
+	\item \question{  En déduire les coefficients $a, b, c$ et $d$ de la décomposition en éléments simples de $$\frac{A(X)}{B(X)}=\frac{X^3+2 X-5}{X-1}=a X^2+b  X+c+\frac{d}{X-1}$$ }.
+\reponse{ 
+	On en déduit :
+	$$
+	\begin{aligned}
+	F(X) & =\frac{A(X)}{B(X)}=\frac{X^3+2 X-5}{X-1}=\frac{(X-1) \left(X^2+X+3\right)-2}{X-1} \\
 	& =\frac{(X-1) \cdot\left(X^2+X+3\right)}{X-1}-\frac{2}{X-1}=X^2+X+3-\frac{2}{X-1}
-\end{aligned}
-$$ }}
+	\end{aligned}
+	$$ }
+\end{enumerate}
+}

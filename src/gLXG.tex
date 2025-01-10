@@ -8,18 +8,20 @@
 
 \question{ Soit $n \in \mathbb{N} \backslash\{0,1\}$. Montrer que $P_n(X)=(X+1)^{2 n}-X^{2 n}-2 X-1$ est divisible par $Q(X)=X(X+1)(2 X+1)$. }
 
+\indication{ Traduire cette information de divisibilité de polynômes en termes de racines : si $P_n$ est divisible par $Q$ alors les racines de $Q$ sont également des racines de $P_n$. }
 
-\reponse{ On a :$$
-\begin{aligned}
+
+\reponse{ On a :
+\begin{align*}
 P_n(0) & =(1)^{2 n}-0-0-1=0 \\
 P_n(-1) & =(-1+1)^{2 n}-(-1)^{2 n}-2 \cdot(-1)-1=0-1+2-1=0 \\
 P_n\left(-\frac{1}{2}\right) & =\left(-\frac{1}{2}+1\right)^{2 n}-\left(-\frac{1}{2}\right)^{2 n}-2 \cdot\left(-\frac{1}{2}\right)-1=\left(\frac{1}{2}\right)^{2 n}-\left(\frac{1}{2}\right)^{2 n}+1-1=0
-\end{aligned}
-$$
-0 racine signifie que $X$ divise $P_n(X): P_n(X)=X . Q_1(X)$;
-$-1$ racine signifie que $(X+1)$ divise $P_n(X): P_n(X)=(X+1) \cdot \underbrace{Q_2(X)}_{X \cdot Q_3(X)}=X \cdot(X+1) \cdot Q_3(X)$;
+\end{align*}
+
+$0$ racine signifie que $X$ divise $P_n(X): P_n(X)=X Q_1(X)$;
+$-1$ racine signifie que $(X+1)$ divise $P_n(X): P_n(X)=(X+1) \underbrace{Q_2(X)}_{X \cdot Q_3(X)}=X \cdot(X+1)  Q_3(X)$;
 $-\frac{1}{2}$ racine signifie que $(2 X+1)$ divise $P_n(X)$ :
 $$
-P_n(X)=(2 X+1) \cdot Q_4(X)=\underbrace{X \cdot(X+1) \cdot(2 X+1)}_{Q(X)} \cdot Q_5(X)
+P_n(X)=(2 X+1) \cdot Q_4(X)=\underbrace{X (X+1) (2 X+1)}_{Q(X)} \cdot Q_5(X)
 $$
 donc $Q(X)=X(X+1)(2 X+1)$ divise $P_n(X)=(X+1)^{2 n}-X^{2 n}-2 X-1$. }}
