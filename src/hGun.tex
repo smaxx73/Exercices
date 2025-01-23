@@ -47,22 +47,22 @@
 
 \item \question{ Soient $X$ et $Y$ deux variables aléatoires indépendantes. Démontrer que  pour tout $t\geq 0$ : $$\mathcal{L}_t(X+Y)=\mathcal{L}_t(X)\mathcal{L}_t(Y).$$ }
 
-\item D\'eterminer $\mathcal{L}_{t}(Z_1)$ et en déduire $\mathcal{L}_t(S_n)$ pour tout $t\geq 0$. 
+\item \question{D\'eterminer $\mathcal{L}_{t}(Z_1)$ et en déduire $\mathcal{L}_t(S_n)$ pour tout $t\geq 0$. }
 \reponse{
     On a $\mathcal{L}_t(Z) = \mathbb{E}(e^{-tZ}) = \int_0^{+\infty} e^{-tz} \frac{1}{2} e^{-\frac{z}{2}} dz = \frac{1}{2} \int_0^{+\infty} e^{-\frac{z}{2}(2t+1)} dz = \frac{1}{2} \left[ \frac{e^{-\frac{z}{2}(2t+1)}}{-\frac{2t+1}{2}} \right]_0^{+\infty} = \frac{1}{2t+1}$. 
     On a $\mathcal{L}_t(S_n) = \prod_{i=1}^n \mathcal{L}_t(Z_i) = \prod_{i=1}^n \frac{1}{2t+1} = \left( \frac{1}{2t+1} \right)^n$. 
 }
 
-\item On pose pour tout $x \in \R$ :
+\item \question{On pose pour tout $x \in \R$ :
 $$f_U(x)=\mathrm{1}_{\R^{+}}(x)\frac{1}{2^n}\frac{x^{n-1}}{(n-1)!}\,e^{-\frac{x}{2}}.$$
 
-V\'erifier que $f_U$ est bien une fonction densité de probabilité. 
+V\'erifier que $f_U$ est bien une fonction densité de probabilité. }
 
 \reponse{
     On a $\int_{\R} f_U(x) dx = \frac{1}{2^n} \int_0^{+\infty} \frac{x^{n-1}}{n-1!} e^{-\frac{x}{2}} dx = \int_0^{+\infty} \frac{y^{n-1}}{n-1!} e^{-y} dy = 1$. Donc $f_U$ est bien une densité de probabilité.
 }
 
-\item Soit $U$ une variable aléatoire absolument continue de densit\'e de probabilit\'e $f_U$. Calculer, pour tout $t\geq 0,$ $\mathcal{L}_t(U)$. Conclure.
+\item \question{Soit $U$ une variable aléatoire absolument continue de densit\'e de probabilit\'e $f_U$. Calculer, pour tout $t\geq 0,$ $\mathcal{L}_t(U)$. Conclure.}
 \reponse{
     On a 
     \begin{align*}
