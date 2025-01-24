@@ -1,0 +1,24 @@
+\titre{Décomposition en élément simple et racine}
+\theme{Algèbre linéaire}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+
+\contenu{
+Considérons les deux fractions rationnelles $P$ et $Q$ suivantes:
+$$Q(X) = X^3+X-2,\quad P(X) = \frac{X^4 + 2X^3 - X^2 + 5X - 4}{Q(X)}.$$
+
+\begin{enumerate}
+    \item \question{Vérifier que $1$ est racine de $Q$ et donner la décomposition en facteurs irréductibles de $Q$ dans $\mathbb{R}[X]$.}
+    \reponse{$Q$ a pour racine réelle $1$ et possède un discriminant $\Delta$ égal à $\Delta=1-4\times 1 \times 2=-7$. $Q$ admet donc deux racines complexes $x_1=\frac{-1-i\sqrt{7}}{2}$ et $x_2=\frac{-1+i\sqrt{7}}{2}$. La factorisation de $Q$ en polynômes irréductibles sur \(\mathbb{R}[X]\) est donc $Q(X)=(X-1)(X^2+X+2)$. }
+    \item \question{Décomposer \(P\) en éléments simples dans $\mathbb{R}(X)$.}
+       \reponse{$P$ peut s'écrire sous la forme
+       $$P(X)=E(X)+\frac{a}{X-1}+\frac{bX+c}{X^2+X+2}$$ avec $E$ la partie entière, $a,b$ et $c$ étant des constantes réelles. La division euclidienne de $X^4 + 2X^3 - X^2 + 5X - 4$ par $Q$ donne:  
+       $$X^4 + 2X^3 - X^2 + 5X - 4=Q(X)(X+2)+5X-2X^2.$$
+       Ainsi $E=X+2.$ 
+       En calculant $(X-1)P(X)$ de deux manières différentes puis en posant $X=1$ on obtient $a=\frac{3}{4}.$\\
+       En posant $X=0$ on obtient l'équation $P(0)=\frac{-4}{(-1\times 2)}=2=2+\frac{3/4}{-1}+\frac{c}{2},$
+d'où $c=\frac{3}{2}.$ En évaluant en $X=2$ on trouve la dernière constante $b$ égale à $-\frac{11}{4}$. La décomposition de $P$ est donc:
+$$P(X)=X+2+\frac{3/4}{X-1}+\frac{-11X+6}{4(X^2+X+2)}$$ }
+       
+\end{enumerate}
+}

@@ -1,0 +1,27 @@
+\titre{Polynômes et décomposition en facteurs irréductibles}
+\theme{Algèbre}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+
+\contenu{
+\texte{L'enjeu de cet exercice est la factorisation du polynôme $R(X)=X^9+X^6+X^3+1$.
+}
+\begin{enumerate}
+\item
+\question{Déterminer les coefficients du polynôme $Q$ donné par $Q(X)=(X-1)P(X)$ où $P$ est le polynôme $P$ défini par $P(X)=X^3+X^2+X+1$ }
+\reponse{$Q(X)=X^4+X^3+X^2+X-X^3-X^2-X-1=X^4-1.$}
+\item \question{Donner les racines complexes de $Q$.}
+\reponse{$1$ et $-1$ sont les racines réelles de $Q$ et $-i$ et $i$ sont les racines complexes de $Q$.}
+\item \question{En déduire une factorisation du polynôme $P$ en produit de facteurs irréductibles dans $\mathbb{C}[X]$.}
+\reponse{On peut écrire $Q$ comme un produit de facteurs de degré $1$ dans $\mathbb{C}[X]:$ $Q(X)=(X-1)(X+1)(X-i)(X+i).$}
+\item \question{Établir une égalité entre le polynôme $P$ et $R$.}
+\reponse{$R(X)=P(X^3)$}
+\item \question{Donner la décomposition en produit de facteurs irréductibles sur $\mathbb{R}[X]$ de $X^3+1$.}
+\reponse{$-1$ est une racine réelle de $X^3+1$ et $X^3+1=(X-1)(X^2+X+1)$. Ainsi $j=\exp(2i\pi/3)$ et $\bar{j}$ sont les racines complexes de $X^2+X+1$ donc de $X^3+1$.}
+\item \question{En déduire la décomposition en produit de facteurs irréductibles de $R$ sur $\mathbb{C}[X]$.\\
+\emph{Pour cette question on pourra utiliser que les racines complexes de $X^6+1$ sont les $z_k=\exp(i(\pi+2k\pi)/6)$ avec $k=0,\cdots{},5$.}}
+\reponse{On peut écrire: 
+$$R(X)=P(X^3)=(X^3+1)(X^6+1).$$ Les racines complexes de $X^6+1$ sont les $z_k=\exp(i(\pi+2k\pi)/6)$ avec $k=0,\cdots{},5$. On obtient:
+$$R(X)=(X-1)(X-j)(X-\bar{j})\prod_{k=0}^{5}(X-z_k).$$}
+\end{enumerate}
+}
