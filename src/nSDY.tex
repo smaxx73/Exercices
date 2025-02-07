@@ -1,48 +1,73 @@
-\uuid{nSDY}
-\titre{Calcul de dérivées partielles}
-\theme{calcul différentiel}
+\uuid{phsf}
+\titre{Calcul de probabilité}
+\theme{probabilités}
 \auteur{}
-\datecreate{2023-03-31}
+\datecreate{2023-01-24}
 \organisation{AMSCC}
 \contenu{
-
-%Pour chacune des fonctions suivantes, calculer  $\dpa{f}{x}$, $\dpa{f}{y}$, $\dpsp{f}{x}$, $\dpsp{f}{y}$ et $\dpsm{f}{x}{y}$ sur leur ensemble de définition. 
-\begin{enumerate}
-	\item \question{ Soit $g\colon \mathbb{R}^2 \rightarrow \mathbb{R}$ définie par 
-		
-		$$g(x,y) = \begin{cases}
-			\frac{x^3+3xy^2}{x^2+y^2} &\text{ si } (x,y)\neq(0,0) \\
-			0 &\text{ sinon}
-			\end{cases}
-		$$
-		Étudier l'existence de la dérivée partielle de $g$ selon $x$ en $(0,0)$.  }
-	\reponse{ Il faut revenir au taux d'accroissement : 
-$$\frac{g(0+h,0) - g(0,0)}{h} = \frac{h^3}{h\times h^2} = 1 \xrightarrow[h \to 0]{} 1$$
-donc la dérivée partielle existe : $\frac{\partial g}{\partial x}(0,0) = 1$. 	
- }
-%\item \question{ $f_1(x,y) = \frac{x^3 + 3xy}{x+y}$ }
-%\reponse{La fonction $f$ est polynomiale en $x$ et $y$, elle définie sur $\R^2$. Les dérivées partielles existent également pour tout $(x,y) \in \R^2$ :
-%	\begin{align*}
-%\frac{\partial f}{\partial x}(x,y) &=  \\
-%\frac{\partial f}{\partial y}(x,y) &=  \\
-%\frac{\partial^2 f}{\partial x^2}(x,y) &=  \\
-%\frac{\partial^2 f}{\partial y^2}(x,y) &=  \\
-%\frac{\partial^2 f}{\partial x \partial y}(x,y) &= \frac{\partial^2 f}{\partial y \partial x}(x,y)= -6 
-%\end{align*}}
-\item \question{ Soit $h \colon \R^2 \to \R$ la fonction définie pour tout $(x,y) \in \mathcal{D}$ par :  $$h(x, y) = \ln(1 + x + xy + e^{y})$$ où  $ \mathcal{D}=\{(x,y)\in\mathbb{R}^2 \,|\, 1+x+xy+e^y>0\}$. 
 	
-	 Calculer  $\dpa{h}{x}$, $\dpa{h}{y}$, $\dpsp{h}{y}$ et $\dpsm{h}{x}{y}$. }
-\reponse{ Les dérivées partielles premières sont :
-	\begin{align*}
-		\frac{\partial h}{\partial x}(x,y) &= \frac{1 + y}{1 + x + xy + e^y} \\
-		\frac{\partial h}{\partial y}(x,y) &= \frac{x + e^y}{1 + x + xy + e^y}
-	\end{align*}
-	
-	Les dérivées partielles secondes demandées sont :
-	\begin{align*}
-		\frac{\partial^2 h}{\partial y^2}(x,y) &= \frac{e^y(1-x+xy) - x^2}{(1 + x + xy + e^y)^2} \\
-		\frac{\partial^2 h}{\partial x \partial y}(x,y) &= \frac{1 - ye^y}{(1 + x + xy + e^y)^2}
-	\end{align*}
-	
+	\texte{ 	On  jette un dé à 6 faces et on observe le résultat. }
+	\begin{enumerate}
+		\item \question{ Quel univers peut-on définir pour modéliser cette expérience aléatoire ? }
+		\reponse{ L'univers $\Omega$ peut être défini comme l'ensemble des résultats possibles lorsqu'on jette un dé à 6 faces. Ainsi, $\Omega = \{1, 2, 3, 4, 5, 6\}$. }
+		\item \question{ On observe que $\PP(1)=0.3$, $\PP(2)=0.15$, $\PP(3)=0.1$, $\PP(4)=\PP(2)$, $\PP(5)=\PP(6)$. Le dé est-il truqué ? Déterminer $\PP(5)$ et $\PP(6)$. }
+		\reponse{ Le dé est truqué car les probabilités ne sont pas égales pour chaque face. Pour déterminer $\PP(5)$ et $\PP(6)$, nous utilisons la somme des probabilités égale à 1 :
+			$$
+			\PP(1) + \PP(2) + \PP(3) + \PP(4) + \PP(5) + \PP(6) = 1
+			$$
+			En substituant les valeurs données :
+			$$
+			0.3 + 0.15 + 0.1 + 0.15 + \PP(5) + \PP(5) = 1
+			$$
+			$$
+			0.7 + 2\PP(5) = 1
+			$$
+			$$
+			2\PP(5) = 0.3
+			$$
+			$$
+			\PP(5) = 0.15
+			$$
+			Donc, $\PP(5) = \PP(6) = 0.15$.
+		}
+		\item \texte{ On considère les deux événements suivants :
+			\begin{enumerate}
+				\item $A$ : \og le nombre obtenu est impair \fg{}
+				\item $B$ : \og le nombre obtenu est supérieur ou égal à 3 \fg{}.
+		\end{enumerate} }
+		\question{ Calculer les probabilités $\PP(A)$, $\PP(B)$, $\PP(A \cap B)$. }
+		\reponse{
+			\begin{align*}
+				\PP(A) &= \PP(1) + \PP(3) + \PP(5) = 0.3 + 0.1 + 0.15 = 0.55 \\
+				\PP(B) &= \PP(3) + \PP(4) + \PP(5) + \PP(6) = 0.1 + 0.15 + 0.15 + 0.15 = 0.55 \\
+				\PP(A \cap B) &= \PP(3) + \PP(5) = 0.1 + 0.15 = 0.25
+			\end{align*}
+		}
+		\item \question{ Calculer $\PP(A \cup B)$ de deux manières différentes. }
+		\reponse{ Première méthode :
+			$$
+			\PP(A \cup B) = \PP(A) + \PP(B) - \PP(A \cap B) = 0.55 + 0.55 - 0.25 = 0.85
+			$$
+			Deuxième méthode :
+			$$
+			\PP(A \cup B) = \PP(1) + \PP(3) + \PP(4) + \PP(5) + \PP(6) = 0.3 + 0.1 + 0.15 + 0.15 + 0.15 = 0.85
+			$$
+		}
+		\item \question{ Décrire à l'aide d'une phrase les événements $\bar A$ et $\bar B$ puis calculer leur probabilité. }
+		\reponse{ $\bar A$ : \og le nombre obtenu est pair \fg{}. $\bar B$ : \og le nombre obtenu est inférieur à 3 \fg{}.
+			\begin{align*}
+				\PP(\bar A) &= 1 - \PP(A) = 1 - 0.55 = 0.45 \\
+				\PP(\bar B) &= 1 - \PP(B) = 1 - 0.55 = 0.45
+			\end{align*}
+		}
+		\item\question{  Donner un exemple de deux événements incompatibles $C$ et $D$ puis calculer $\PP(C)$, $\PP(D)$, $\PP(C \cap D)$, $\PP(C \cup D)$. }
+		\reponse{ $C$ : \og le nombre obtenu est 1 \fg{}. $D$ : \og le nombre obtenu est 2 \fg{}.
+			\begin{align*}
+				\PP(C) &= 0.3 \\
+				\PP(D) &= 0.15 \\
+				\PP(C \cap D) &= 0 \quad \text{(puisque $C$ et $D$ sont incompatibles)} \\
+				\PP(C \cup D) &= \PP(C) + \PP(D) = 0.3 + 0.15 = 0.45
+			\end{align*}
+		}
+	\end{enumerate}
 }
-\end{enumerate}}
