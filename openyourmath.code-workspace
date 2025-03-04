@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "."
+		},
+		{
+			"path": "../convert_exo7"
 		}
 	],
 	"settings": {

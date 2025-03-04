@@ -16,19 +16,129 @@ On pose \( Y = UX \) et on admet que \( Y \) est une variable aléatoire absolum
 $$ \forall x \in \mathbb{R}, \quad \mathbb{P}(Y \leq x) = \mathbb{P}(U = 1) \mathbb{P}(X \leq x) + \mathbb{P}(U = -1) \mathbb{P}(X > -x) $$
 
 et en déduire que \( Y \) suit la même loi que \( X \). }
+\reponse{
+Soient \( X \sim \mathcal{N}(0,1) \) et \( U \) une variable discrète uniforme sur \(\{-1,1\}\), indépendantes. Pour tout \( x \in \mathbb{R} \), on a
+\[
+\mathbb{P}(Y\le x) = \mathbb{P}(UX\le x)
+= \mathbb{P}(\{U=1\}\cap\{X\le x\}) + \mathbb{P}(\{U=-1\}\cap\{-X\le x\}).
+\]
+Lorsque \( U = -1 \), l'inégalité \(-X\le x\) s'écrit \( X\ge -x \). Par indépendance de \( U \) et \( X \) et en utilisant la formule des probabilités totales, on obtient
+\[
+\mathbb{P}(Y\le x)
+=\mathbb{P}(U=1)\,\mathbb{P}(X\le x) + \mathbb{P}(U=-1)\,\mathbb{P}(X\ge -x).
+\]
+Étant donné que \( \mathbb{P}(U=1)=\mathbb{P}(U=-1)=\frac{1}{2} \) et que la symétrie de la loi normale implique que
+\[
+\mathbb{P}(X\ge -x)=\mathbb{P}(X\le x),
+\]
+il vient
+\[
+\mathbb{P}(Y\le x)
+=\frac{1}{2}\,\mathbb{P}(X\le x) + \frac{1}{2}\,\mathbb{P}(X\le x)
+=\mathbb{P}(X\le x).
+\]
+Ainsi, la fonction de répartition de \( Y \) est identique à celle de \( X \) et donc \( Y \sim \mathcal{N}(0,1) \).
+}
 
-\item \question{  Calculer l'espérance de \( U \), puis montrer que \( \mathbb{E}(XY) = 0 \). En déduire que \( \text{Cov}(X, Y) = 0 \). }
+
+\item \question{  Calculer l'espérance de \( U \), puis montrer que \( \mathbb{E}(XY) = 0 \). En déduire que \( \mathrm{Cov}(X, Y) = 0 \). }
+\reponse{
+Tout d'abord, comme \( U \) prend les valeurs \( -1 \) et \( 1 \) avec même probabilité,
+\[
+\mathbb{E}(U)=\frac{1}{2}(-1)+\frac{1}{2}(1)=0.
+\]
+En écrivant \( Y = UX \), on a
+\[
+\mathbb{E}(XY)=\mathbb{E}(X\,(UX))=\mathbb{E}(U\,X^2).
+\]
+Comme \( U \) et \( X \) sont indépendantes, on peut séparer l'espérance :
+\[
+\mathbb{E}(U\,X^2)=\mathbb{E}(U)\,\mathbb{E}(X^2)=0\times\mathbb{E}(X^2)=0.
+\]
+La covariance est donnée par
+\[
+\mathrm{Cov}(X,Y)=\mathbb{E}(XY)-\mathbb{E}(X)\,\mathbb{E}(Y).
+\]
+Or, \( \mathbb{E}(X)=0 \) (pour une loi normale centrée) et, comme \( Y \sim \mathcal{N}(0,1) \), \( \mathbb{E}(Y)=0 \). Ainsi,
+\[
+\mathrm{Cov}(X,Y)=0-0=0.
+\]
+}
 
 \item \question{ Rappeler la valeur de \( \mathbb{E}(X^2) \) et en déduire que :
 $$ \int_{0}^{+\infty} x^2 e^{-\frac{x^2}{2}} \, dx = \frac{\sqrt{\pi}}{2} $$ }
+\reponse{
+Pour \( X \sim \mathcal{N}(0,1) \), on connaît que
+\[
+\mathbb{E}(X^2)=1.
+\]
+D'autre part, en utilisant la densité de \( X \),
+\[
+f_X(x)=\frac{1}{\sqrt{2\pi}}\,e^{-x^2/2},
+\]
+on a
+\[
+\mathbb{E}(X^2)=\int_{-\infty}^{+\infty} x^2\,f_X(x)\,dx
+=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} x^2 e^{-x^2/2}\,dx.
+\]
+La fonction \( x\mapsto x^2e^{-x^2/2} \) est paire, donc
+\[
+\int_{-\infty}^{+\infty} x^2 e^{-x^2/2}\,dx = 2\int_{0}^{+\infty} x^2 e^{-x^2/2}\,dx.
+\]
+Ainsi,
+\[
+1=\frac{1}{\sqrt{2\pi}} \cdot 2\int_{0}^{+\infty} x^2 e^{-x^2/2}\,dx,
+\]
+ce qui donne
+\[
+\int_{0}^{+\infty} x^2 e^{-x^2/2}\,dx
+=\frac{\sqrt{2\pi}}{2}.
+\]
+}
 
 \item \question{ En déduire, s'il existe, le moment d'ordre $4$ de $X$. }
 
-%b) Montrer, grâce à une intégration par parties, que :
-%\[ \forall A \in \mathbb{R}_+, \int_{0}^{A} x^4 e^{-\frac{x^2}{2}} \, dx = -A^3 e^{-\frac{A^2}{2}} + 3 \int_{0}^{A} x^2 e^{-\frac{x^2}{2}} \, dx \]
-%
-%c) En déduire que l'intégrale \( \int_{0}^{+\infty} x^4 e^{-\frac{x^2}{2}} \, dx \) converge et vaut \( \frac{3}{2} \sqrt{2\pi} \).
-%
-%d) Établir que \( X \) possède un moment d'ordre 4 et que \( \mathbb{E}(X^4) = 3 \).
+\reponse{
+Nous souhaitons calculer
+\[
+\mathbb{E}(X^4)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} x^4 e^{-x^2/2}\,dx.
+\]
+Comme la fonction \( x\mapsto x^4e^{-x^2/2} \) est paire, on peut écrire
+\[
+\mathbb{E}(X^4)=\frac{2}{\sqrt{2\pi}}\int_{0}^{+\infty} x^4 e^{-x^2/2}\,dx.
+\]
+Pour évaluer l'intégrale
+\[
+I = \int_{0}^{+\infty} x^4 e^{-x^2/2}\,dx,
+\]
+nous effectuons une intégration par parties en posant
+\[
+\begin{cases}
+u = x^3, \quad & du = 3x^2\,dx,\\[1mm]
+dv = x\,e^{-x^2/2}\,dx, \quad & v = -e^{-x^2/2}.
+\end{cases}
+\]
+Ainsi, par intégration par parties,
+\[
+I = \Bigl[-x^3e^{-x^2/2}\Bigr]_0^{+\infty} + \int_0^{+\infty} 3x^2e^{-x^2/2}\,dx.
+\]
+Le terme d'évaluation aux bornes s'annule (en effet, \( x^3 e^{-x^2/2}\to 0 \) quand \( x\to+\infty \) et vaut 0 en 0), ce qui donne
+\[
+I = 3\int_{0}^{+\infty} x^2 e^{-x^2/2}\,dx.
+\]
+D'après la question précédente, on a établi que
+\[
+\int_{0}^{+\infty} x^2 e^{-x^2/2}\,dx = \frac{\sqrt{2\pi}}{2}.
+\]
+Il s'ensuit que
+\[
+I = 3\,\frac{\sqrt{2\pi}}{2}.
+\]
+Finalement,
+\[
+\mathbb{E}(X^4)=\frac{2}{\sqrt{2\pi}}\;I=\frac{2}{\sqrt{2\pi}}\cdot\frac{3\sqrt{2\pi}}{2}=3.
+\]
+Ainsi, le moment d'ordre 4 de \( X \) existe et vaut \( 3 \).
+}
 \end{enumerate}
 }
