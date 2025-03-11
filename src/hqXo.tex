@@ -14,7 +14,7 @@ Soit la fonction $f \colon \R^2 \to \R$ définie par :
 
 \begin{enumerate}
 	\item \question{ La fonction $f$ est-elle continue sur $\R^2$~? }
-	\reponse{Tout d'abord, on remarque que $f$ est bien définie sur $\R^2$. Elle est continue (et même $C^{\infty}$ sur $\R^2-\{(0,0)\}$ en tant que fraction rationnelle. Pour étudier la continuité en $(0,0)$, on passe en polaires~:
+	\reponse{Tout d'abord, on remarque que $f$ est bien définie sur $\R^2$. Elle est continue (et même $C^{\infty}$ sur $\R^2-\{(0,0)\}$ en tant que fraction rationnelle. Pour étudier la continuité en $(0,0)$, on passe en coordonnées polaires~:
 		\begin{align*}
 		f(r\cos\theta, r\sin\theta) - f(0,0) &= \frac{(r\cos\theta)^2(r\sin\theta)^3}{ (r\cos\theta)^2 + (r\sin\theta)^2 } \\
 		&= r\cos^2\theta \sin^3\theta
@@ -41,8 +41,8 @@ Soit la fonction $f \colon \R^2 \to \R$ définie par :
 	\reponse{Nous avons
 		\begin{itemize}
 			\item existence des dérivées partielles\\
-			\[\dfrac{f(h,0) - f(0,0)}{h} = 0 \tvq{0}{h}{0}\hspace*{5mm} \text{ donc $\dpa{f}{x}(0,0)$ existe et vaut $0$} \]
-			\[\dfrac{f(0,h) - f(0,0)}{h} = 0 \tvq{0}{h}{0}\hspace*{5mm} \text{ donc $\dpa{f}{y}(0,0)$ existe et vaut $0$} \]
+			\[\dfrac{f(h,0) - f(0,0)}{h} = 0 \xrightarrow[h \to 0]{} 0\hspace*{5mm} \text{ donc $\dpa{f}{x}(0,0)$ existe et vaut $0$} \]
+			\[\dfrac{f(0,h) - f(0,0)}{h} = 0 \xrightarrow[h \to 0]{} 0 \hspace*{5mm} \text{ donc $\dpa{f}{y}(0,0)$ existe et vaut $0$} \]
 			\item continuité des dérivées partielles
 			\begin{align*}
 			\dpa{f}{x}(x,y) - \dpa{f}{x}(0,0) &= \frac{2xy^5}{(x^2+y^2)^2} \\
