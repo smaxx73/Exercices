@@ -1,5 +1,6 @@
+%print_devoir
 \newboolean{solution}
-\newboolean{uuid}
+\newboolean{isuuid}
 \newboolean{link}
 \newboolean{isindication}
 
@@ -165,16 +166,15 @@
 	\setboolean{link}{#4}
 	
 	\begin{titrebox}[#5]
-		{\bfseries{\TitreExo}}{#1} %\hfill
-		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+		{\bfseries{\TitreExo}}{#1}
 		\Contenu
-	\end{titrebox}	
+	\end{titrebox}    
 }
 
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexobis{\ex}{\solution}{\isuuid}{\link}{\thenum}
+		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}
 	}
 }
 
