@@ -1,0 +1,27 @@
+\uuid{hSGF}
+\titre{Continuité de Fonctions}
+\theme{}
+\auteur{Grégoire Menet}
+\datecreate{2025-03-20}
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{}
+	
+	\begin{enumerate}
+		\item \question{La fonction $f$ définie sur $\R^2$ par $f(x,y)=\frac{xy}{\sqrt{x^2+y^2}}$ si $(x,y)\neq(0,0)$ et $f(0,0)=0$ est-elle continue en $(0,0)$ ?}
+		\indication{}
+		\reponse{On passe en coordonnées polaires :
+			$$f(r\cos(\theta),r\sin(\theta))=\frac{r\cos(\theta)r\sin(\theta)}{\sqrt{r^2\cos^2(\theta)+r^2\sin^2(\theta)}}=r\cos(\theta)\sin(\theta).$$
+			Donc :
+			$$\left|f(r\cos(\theta),r\sin(\theta))\right|=\left|r\cos(\theta)\sin(\theta)\right|\leq r,$$
+			avec $r$ qui tend vers 0 quand $r$ tend vers 0. Donc : $$\lim_{(x,y)\rightarrow (0,0)}f(x,y)=0=f(0,0).$$
+			Par conséquent $f$ est bien continue en $(0,0)$.}
+		\item \question{La fonction $f$ définie sur $\R^2$ par $f(x,y)=\frac{x+y}{\sqrt{x^2+y^2}}$ si $(x,y)\neq(0,0)$ et $f(0,0)=0$ est-elle continue en $(0,0)$ ?}
+		\indication{}
+		\reponse{On considère les deux suites $(u_n)$ et $(v_n)$ de termes générales $u_n=(\frac{1}{n},\frac{1}{n})$ et $v_n=(0,\frac{1}{n})$ respectivement.
+			On a bien $\lim u_n=\lim v_n=(0,0)$. Cependant $\lim f(u_n)=\frac{2}{\sqrt{2}}$ et $\lim f(v_n)=1$, comme $\frac{2}{\sqrt{2}}\neq 1$ la fonction $f$ n'a pas de limite en $(0,0)$ et a fortiori n'est pas continue en $(0,0)$.}
+	\end{enumerate}
+	
+}

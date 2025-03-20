@@ -1,0 +1,25 @@
+\uuid{lJaW}
+\titre{Limite d'une Fonction}
+\theme{}
+\auteur{Grégoire Menet}
+\datecreate{2025-03-20}
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{
+		On considère la fonction définie par $f(x,y)=\frac{x^2y}{x^4+y^2}$. De plus on considère la suite de termes générales $u_n=\left(\frac{1}{n},\frac{1}{n^2}\right)$ pour $n\in\N^*$.
+	}
+	
+	\begin{enumerate}
+		\item \question{Calculer $f(u_n)$ et déterminer sa limite quand $n$ tend vers $+\infty$.}
+		\indication{}
+		\reponse{On a $f(u_n)=\frac{\frac{1}{n^2}\frac{1}{n^2}}{\frac{1}{n^4}+\frac{1}{n^4}}=\frac{1}{2}$. Donc $\lim f(u_n)=\frac{1}{2}$.}
+		\item \question{La fonction $f$ admet-elle une limite en $(0,0)$ ? Justifier précisément votre réponse.}
+		\indication{}
+		\reponse{On considère $v_n=\left(\frac{1}{n},\frac{1}{n}\right)$.
+			On a $f(v_n)=\frac{\frac{1}{n^2}\frac{1}{n}}{\frac{1}{n^4}+\frac{1}{n^2}}=\frac{\frac{1}{n}}{\frac{1}{n^2}+1}$. Donc $\lim f(v_n)=0$.
+			On a $\lim u_n=(0,0)$ et $\lim v_n=(0,0)$, cependant $\lim f(u_n)\neq \lim f(v_n)$, donc $f$ n'admet pas de limite en $(0,0)$.}
+	\end{enumerate}
+	
+}
