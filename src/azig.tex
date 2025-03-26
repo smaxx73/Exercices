@@ -1,0 +1,69 @@
+\uuid{azig}
+\titre{}
+\theme{AM}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+\texte{
+
+
+L'état-major d'une armée souhaite optimiser l'entretien de ses véhicules blindés en fonction de leur durée opération en environnement hostile. Pour cela, on cherche à modéliser la relation entre :
+
+\begin{itemize}
+    \item  X : Nombre de mois en mission dans une zone de conflit.
+    \item  Y : Coût moyen des réparations après mission (en milliers d'euros).
+\end{itemize}
+
+Les valeurs suivantes ont été observées sur un échantillon de véhicules après différentes missions :
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Mois en mission X} & \textbf{Coût de réparation Y (k€)} \\
+        \hline
+        2  & 56 \\
+        3 & 61 \\
+        4 & 72 \\
+        6 & 95 \\
+        8  & 150 \\
+        9 & 207 \\
+        10 & 312 \\
+        12 & 560 \\
+      
+        \hline
+    \end{tabular}
+\end{center}
+
+
+\begin{enumerate}
+    \item Déterminer la nature des variables étudiées \( X \) et \( Y \).
+    \item Calculer les caractéristiques statistiques suivantes pour \( X \) et \( Y \) :
+    \begin{itemize}
+        \item La moyenne \( \bar{X} \) et \( \bar{Y} \).
+        \item L’écart-type \( \sigma_X \) et \( \sigma_Y \).
+        \item La covariance de $(X,Y),$ noté $Cov(X,Y)$.
+    \end{itemize}
+\end{enumerate}
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Tracer le nuage de points \( (X, Y) \) et calculer le coefficient de corrélation $\rho(X,Y)$.
+\end{enumerate}
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item On pose $Z = \ln(Y)$. Calculer $Cov(X,Z)$ et calculer le coefficient de corrélation linéaire $\rho(X,Z)$ entre $X$ et $Z$. Interpréter.
+   \item  Déterminer l’équation de la droite de régression des moindres carrés entre \( X \) et $ Z$, $$Z = aX + b.$$
+    En déduire l’équation de la relation entre \( X \) et \( Y \) sous forme exponentielle: $Y = e^{aX + b}$.
+    \item Prédire le coût moyen des réparations pour un véhicule ayant effectué 7 mois en mission.
+
+ 
+\end{enumerate}
+
+
+
+
+
+
+}
+}
