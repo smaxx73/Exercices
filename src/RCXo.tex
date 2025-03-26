@@ -1,0 +1,24 @@
+\uuid{RCXo}
+\exo7id{4325}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Intégration}
+\sousChapitre{Intégrale de Riemann dépendant d'un paramètre}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Soit $f : {[0,1]} \to \R$ continue.
+    Montrer que $ \int_{t=0}^1 f(t^n)\,d t \to f(0)$  lorsque $n\to\infty$.}
+\reponse{Couper en $ \int_{t=0}^{1-\varepsilon} +  \int_{t=1-\varepsilon}^1$}
+    \item \question{Chercher un équivalent pour $n\to\infty$ de $ \int_{t=0}^1 \frac{t^n\,d t}{1+t^n}$.}
+\reponse{$=\left[\frac{t\ln(1+t^n)}n\right]_{t=0}^1 - \frac1n \int_{t=0}^1 \ln(1+t^n)\,d t \sim \frac{\ln 2}n$.}
+    \item \question{Chercher un équivalent pour $n\to\infty$ de $-1 +  \int_{t=0}^1 \sqrt{1+t^n}\,d t$.}
+\reponse{$\frac1n \int_{t=0}^1  \frac{d t}{\sqrt{1+t}+1} = \frac{2\sqrt2-2+2\ln(2\sqrt2-2)}n$.}
+\end{enumerate}
+}

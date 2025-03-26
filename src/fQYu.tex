@@ -1,0 +1,31 @@
+\uuid{fQYu}
+\exo7id{6949}
+\auteur{ruette}
+\organisation{exo7}
+\datecreate{2013-01-24}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Loi, indépendance, loi conditionnelle}
+\sousChapitre{Loi, indépendance, loi conditionnelle}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Soit $X$ une variable aléatoire de loi de Poisson $\mathcal{P}(\lambda)$. Calculer sa
+fonction caractéristique.}
+\reponse{$\displaystyle\varphi_X(t)=\sum_{k=0}^{+\infty}e^{itk}e^{-\lambda}
+\frac{\lambda^k}{k!}=e^{-\lambda}\sum_{k=0}^{+\infty}
+\frac{(\lambda e^{it})^k}{k!}=e^{-\lambda}\exp(\lambda e^{it})$, donc
+$\varphi_X(t)=\exp(\lambda(e^{it}-1))$.}
+    \item \question{Soit $Y$ une variable aléatoire indépendante de $X$ telle que $P_Y=\mathcal{P}(\lambda')$.
+Quelle est la fonction caractéristique de $X+Y$ ? En déduire
+que $\mathcal{P}(\lambda)*\mathcal{P}(\lambda')=\mathcal{P}(\lambda+\lambda')$.}
+\reponse{$\varphi_Y(t)=\exp(\lambda'(e^{it}-1))$ par 1. Par indépendance,
+$\varphi_{X+Y}(t)=\varphi_X(t)\varphi_Y(t)=
+\exp((\lambda+\lambda')(e^{it}-1))$. C'est la fonction caractéristique
+de la loi de Poisson $\mathcal{P}(\lambda+\lambda')$. Donc
+$\mathcal{P}(\lambda)*\mathcal{P}(\lambda')=\mathcal{P}(\lambda+\lambda')$.}
+\end{enumerate}
+}

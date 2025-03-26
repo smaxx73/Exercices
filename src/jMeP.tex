@@ -1,0 +1,27 @@
+\uuid{jMeP}
+\exo7id{7248}
+\auteur{megy}
+\organisation{exo7}
+\datecreate{2021-03-06}
+\isIndication{false}
+\isCorrection{false}
+\chapitre{Formule de Cauchy}
+\sousChapitre{Formule de Cauchy}
+
+\contenu{
+\texte{
+Cet exercice a pour but de donner une introduction à la géométrie du disque. Cela donnera aussi une interprétation géométrique du lemme de Schwarz. On note \(\mathbb{D}\) le disque unité. Étant donné un vecteur tangent \(\xi\) en un point \(z\in \mathbb{D}\), on note sa norme euclidienne par \(\|\xi\|_{2}\) et on défini sa norme \emph{hyperbolique} ou sa norme de \emph{Poincaré} 
+par \[\|\xi\|_{\rm hyp}:=\frac{\|\xi\|_2}{1-|z|^2}.\]
+La \emph{longueur hyperbolique} d'un chemin \(\gamma:[a,b]\to\mathbb D\) est définie par
+\[\ell_{\rm hyp}(\gamma)=\int_{a}^b\|\gamma'(t)\|_{\rm hyp}dt=\int_a^b\frac{\|\gamma'(t)\|_2}{1-|\gamma(t)|^2}dt.\]
+La \emph{distance hyperbolique} ou \emph{distance de Poincaré} entre deux points \(z_0,z_1\in \mathbb D\) est définie par
+\[d_{\rm hyp}(z_0,z_1):=\inf_{\gamma}\ell_{\rm hyp}(\gamma)\]
+où le \(\inf\) est pris sur tous les chemins \(\mathcal{C}^1\) par morceaux de \(\mathbb D\) allant de \(z_0\) à \(z_1\). L'espace métrique \((\mathbb D,d_{\rm hyp})\) est appelé \emph{disque de Poincaré}. Les courbes de longueur minimale sont appelées \emph{géodésiques} ou \emph{droites hyperboliques}.
+}
+\begin{enumerate}
+    \item \question{\begin{enumerate}}
+    \item \question{À l'aide du lemme de Schwarz-Pick, montrer que toute application holomorphe \(f:\mathbb D\to \mathbb D\) est décroissante par rapport à la distance de Poincaré, c'est à dire que pour tout \(z_0,z_1\in \mathbb D\),
+\[d_{\rm hyp}(f(z_1),f(z_1))\leqslant d_{\rm hyp}(z_0,z_1).\]}
+    \item \question{En déduire que pour tout automorphisme du disque \(f\in \rm{Aut}(\mathbb D)\) est une isométrie de \((\mathbb D,d_{\rm hyp})\).}
+\end{enumerate}
+}

@@ -1,0 +1,30 @@
+\uuid{CzFp}
+\exo7id{2345}
+\auteur{queffelec}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace topologique, espace métrique}
+\sousChapitre{Espace topologique, espace métrique}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Si $(x,y)\in\Rr^2$, on pose $||(x,y)||=\max(|x+y|,|x-2y|)$. Montrer qu'il
+s'agit d'une norme sur $\Rr^2$ et dessiner sa boule unit\'e ferm\'ee.}
+    \item \question{Soit $p,q$ deux normes sur $\Rr^n$, $B_p$ et $B_q$ leurs boules unit\'es
+ferm\'ees. Montrer que 
+$$ B_q\subset B_p\Longleftrightarrow p\leq q.$$
+
+Que signifie $ {1\over2}B_p\subset B_q\subset 2B_p$ ? Exemples.}
+\reponse{
+\begin{enumerate}
+Si $||(x,y)||=0$ alors $\max(|x+y|,|x-2y|)=0$ donc $x+y=0$ et $x-2y=0$ donc $x=0$ et $y=0$. Réciproquement $\|(0,0)\|=0$.
+$||\lambda.(x,y)||= ||(\lambda x,\lambda y)||=\max(|\lambda x+ \lambda y|,|\lambda x-2\lambda y|) = |\lambda|\max(|x+y|,|x-2y|) = |\lambda|.||(x,y)||$.
+$\|(x,y)+(x',y')\| = \|(x+x',y+y')\| =  \max(|x+x'+y+y'|,|x+x'-2y-2y'|) \le \max (|x+y|+|x'+y'|,|x-2y|+|x'-2y'|) \le \max(|x+y|,|x-2y|)+\max(|x'+y'|, |x'-2y'|) \le ||(x,y)||+ ||(x',y')||$.
+}
+\end{enumerate}
+}

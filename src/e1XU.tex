@@ -1,0 +1,67 @@
+\uuid{e1XU}
+\exo7id{6994}
+\auteur{blanc-centi}
+\organisation{exo7}
+\datecreate{2015-07-04}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Equation différentielle}
+\sousChapitre{Résolution d'équation différentielle du premier ordre}
+
+\contenu{
+\texte{
+Résoudre les équations différentielles suivantes en trouvant 
+une solution particulière par la méthode de variation de la constante :
+}
+\begin{enumerate}
+    \item \question{$y' - (2x - \frac{1}{x})y = 1$ sur $]0;+\infty[$}
+    \item \question{$y'-y = x^k \exp(x)$ sur $\R$, avec $k \in \Nn$}
+    \item \question{$x(1+\ln^2(x))y'+2\ln(x)y=1$ sur $]0;+\infty[$}
+\reponse{
+$y' - (2x - \frac{1}{x})y = 1$ sur $]0;+\infty[$
+  \begin{enumerate}
+\textbf{Résolution de l'équation homogène $y' - (2x - \frac{1}{x})y = 0$.}
+    
+    Une primitive de $a(x) = 2x - \frac1x$ est $A(x) = x^2 - \ln x$,
+    donc les solutions de l'équation homogène sont les $y(x) = \lambda \exp(x^2 - \ln x) = \lambda \frac1x\exp(x^2)$,
+    pour $\lambda$ une constante réelle quelconque.
+\textbf{Recherche d'une solution particulière.}
+    
+    Nous allons utiliser la méthode de variation de la constante pour trouver une solution particulière 
+    à l'équation $y' - (2x - \frac{1}{x})y = 1$.
+    On cherche une telle solution sous la forme $y_0(x) = \lambda(x) \frac1x\exp(x^2)$ 
+    où $x \mapsto \lambda(x)$ est maintenant une fonction.
+    
+    On calcule d'abord 
+    $$y_0'(x) = \lambda'(x) \frac1x\exp(x^2) + \lambda(x) \left(-\frac{1}{x^2}+2\right) \exp(x^2)$$
+    
+    Maintenant :
+    \begin{align*}
+          & y_0 \quad \text{ est  solution de }  y' - (2x + \frac{1}{x})y = 1 \\
+    \iff & y_0' - (2x - \frac{1}{x})y_0 = 1 \\
+    \iff& \lambda'(x) x\exp(x^2) + \lambda(x) \left(-\frac{1}{x^2}+2\right) \exp(x^2)
+        - (2x - \frac{1}{x})\lambda(x) \frac1x\exp(x^2) = 1 \\
+    \iff& \lambda'(x) \frac1x\exp(x^2) = 1 \qquad \text{cela doit se simplifier !}\\
+    \iff& \lambda'(x) = x\exp(-x^2)
+    \end{align*}
+    
+    Ainsi on peut prendre $\lambda(x) = -\frac12\exp(x^2)$, ce qui fournit la solution particulière :
+    $$y_0(x) = \lambda(x) \frac1x\exp(x^2) = -\frac12\exp(-x^2)\frac1x\exp(x^2) = -\frac1{2x}$$
+    
+    Pour se rassurer, on n'oublie pas de vérifier que c'est bien une solution !
+\textbf{Solution générale.}    
+    
+    L'ensemble des solutions s'obtient par la somme de la solution particulière avec les solutions de l'équation
+    homogène. Autrement dit, les solutions sont les :
+    $$y(x) = -\frac1{2x} + \lambda \frac1x\exp(x^2)\qquad (\lambda\in\Rr).$$
+}
+\indication{Solution particulière :
+\begin{enumerate}
+  \item $-\frac1{2x}$
+  
+  \item $\frac{x^{k+1}}{k+1} \exp(x)$
+  
+  \item $\frac{\ln x}{1+\ln^2(x)}$
+\end{enumerate}}
+\end{enumerate}
+}

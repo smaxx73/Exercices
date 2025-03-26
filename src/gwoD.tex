@@ -1,0 +1,28 @@
+\uuid{gwoD}
+\exo7id{4259}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Calcul d'intégrales}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $f : {[a,b]} \to {\R^{+*}}$ continue.
+}
+\begin{enumerate}
+    \item \question{Montrer qu'il existe une subdivision de $[a,b]$~:
+    ${a=x_0 < x_1 < \dots < x_n = b}$ telle que~:
+
+    $\forall\ k \in [[0,n-1]],\  \int_{t=x_k}^{x_{k+1}}f(t)\,d t =
+        \frac1n  \int_{t=a}^{b}f(t)\,d t$.}
+    \item \question{Étudier $\lim_{n\to\infty} \frac1n \sum_{k=0}^{n-1}f(x_k)$.}
+\reponse{
+Soit $F(x) =  \int_{t=a}^{x}f(t)\,d t$ et $G = F^{-1}$.
+Alors $\frac1n \sum_{k=0}^{n-1}f(x_k) = \frac 1n \sum_{k=0}^{n-1} f\circ G(\frac kn)
+\to  \int_{t=a}^{b}f^2(t)\,d t\Bigm/ \int_{t=a}^{b}f(t)\,d t$ lorsque $n\to\infty$.
+}
+\end{enumerate}
+}

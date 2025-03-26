@@ -1,0 +1,26 @@
+\uuid{x9Sr}
+\exo7id{6927}
+\auteur{ruette}
+\organisation{exo7}
+\datecreate{2013-01-24}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Probabilité continue}
+\sousChapitre{Loi faible des grands nombres}
+
+\contenu{
+\texte{
+On suppose que le nombre de pièces sortant d'une
+usine donnée en une journée est une variable aléatoire
+d'espérance $50$.
+}
+\begin{enumerate}
+    \item \question{Peut-on estimer la probabilité que la production de demain
+dépasse 75 pièces~?}
+\reponse{Inégalité de Markov : $P(X\ge 75)\le \frac{E(X)}{75}=\frac 23$.}
+    \item \question{Que peut-on dire de plus sur cette probabilité si on sait que l'écart-type de la production quotidienne est
+de $5$ pièces~?}
+\reponse{Inégalité de Bienaymé-Tchebychev : $P(|X-50|\ge 25)\le \frac{\text{Var}(X)}{25^2}=
+\frac{5^2}{25^2}=0,04$. Donc $P(X\ge 75)\le 0,04$.}
+\end{enumerate}
+}

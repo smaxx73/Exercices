@@ -1,0 +1,22 @@
+\uuid{36Yn}
+\exo7id{4457}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série numérique}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $\sum u_n$ une série à termes positifs.
+On pose $v_n = \frac{ u_n + u_{n+1} + \dots + u_{2n-1} }n$.
+Montrer que $\sum v_n$ a même nature que $\sum u_n$.
+}
+\reponse{
+$\sum_{n=1}^N v_n = \sum_{k=1}^{2N-1} u_k\sum_{k/2<n\le k}\frac 1n
+           \Rightarrow  \frac12\sum_{k=1}^{2N-1} u_k \le \sum_{n=1}^N v_n \le
+              2\sum_{k=1}^{2N-1} u_k$.
+}
+}

@@ -1,0 +1,41 @@
+\uuid{YbjM}
+\exo7id{1341}
+\auteur{ortiz}
+\organisation{exo7}
+\datecreate{1999-04-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Groupe, anneau, corps}
+\sousChapitre{Ordre d'un élément}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Soient  $G$ un groupe et $x, y\in G$ des \'el\'ements
+qui commutent et d'ordres respectifs $m$ et $n$
+premiers entre eux. Montrer que $xy$ est d'ordre
+$mn.$ Montrer que l'hypoth\`ese $m$ et $n$
+\textit{premiers entre eux} est indispensable.}
+\reponse{Déjà $(xy)^{mn} = x^{mn}y^{mn}= (x^m)^n(y^n)^m=e.e=e$. Soit $p$
+tel que $(xy)^p = e$, alors $e= (xy)^{mp} = x^{mp}y^{mp}=y^{mp}$,
+et donc $mp$ est divisible par l'ordre de $y$ , c'est-à-dire $n$.
+Comme $m$ et $n$ sont premiers entre eux alors d'après le théorème
+de Gauss $n$ divise $p$. Un raisonnement semblable à partir de
+$(xy)^{np}=e$ conduit à : $m$ divise $p$. Finalement $m|p$ et
+$n|p$ donc $mn|p$ car $m$ et $n$ sont premiers entre eux.
+
+Voici un contre exemple dans le cas o\`u $m$ et $n$ ne sont pas
+premiers entre eux : dans le groupe $\Zz/12\Zz$ : $\bar{2}$ est
+d'ordre $6$, $\bar{4}$ est d'ordre $3$, mais $\bar{2}+\bar{4} =
+\bar{6}$ est d'ordre $2 \not= 3\times 6$.}
+    \item \question{Montrer que $A:=\left(\begin{smallmatrix} 0&-1\\1&0
+\end{smallmatrix}\right)$ et $B:=\left(\begin{smallmatrix}
+0&1\\-1&-1\end{smallmatrix}\right)$ sont des
+\'el\'ements de $\text{GL}(2,\Rr)$ d'ordres finis
+et que $AB$ n'est pas d'ordre fini.}
+\reponse{$A$ est d'ordre $4$, $B$ est d'ordre $3$, $(AB)^n =
+\begin{pmatrix} 1&n\\0&1\\ \end{pmatrix}$ n'est jamais la matrice identité pout $n\geq 1$.}
+\end{enumerate}
+}

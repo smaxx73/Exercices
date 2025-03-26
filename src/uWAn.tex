@@ -1,0 +1,23 @@
+\uuid{uWAn}
+\exo7id{4013}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Développement limité}
+\sousChapitre{Formule de Taylor}
+
+\contenu{
+\texte{
+Soit $f : \R \to \R$ une fonction de classe $\mathcal{C}^2$.
+On suppose : $\forall\ x \in \R,\ |f(x)| \le \alpha$ et $|f''(x)| \le \beta$.
+}
+\begin{enumerate}
+    \item \question{Montrer que : $\forall\ h > 0,\ \forall\ x \in \R,\ |f'(x)| \le \frac {2\alpha}h + \frac {h\beta}2$.}
+\reponse{$f(x+h) = f(x) + hf'(x) + \frac {h^2}2f''(x+\theta h)  \Rightarrow 
+     f'(x) = \frac {f(x+h) - f(x)}h -\frac h2f''(x+\theta h)$.}
+    \item \question{Pour quelle valeur de $h$ obtient-on la meilleure inégalité ?}
+\reponse{$h = 2\sqrt{\alpha/\beta}  \Rightarrow  |f'| \le 2\sqrt{\alpha\beta}$.}
+\end{enumerate}
+}

@@ -1,0 +1,27 @@
+\uuid{md5M}
+\exo7id{7086}
+\auteur{megy}
+\organisation{exo7}
+\datecreate{2017-01-21}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Géométrie affine euclidienne}
+\sousChapitre{Géométrie affine euclidienne du plan}
+
+\contenu{
+\texte{
+% tags : homothéties, cercle circonscrit, cercle des neuf points
+% cercle de Feuerbach, cercle de Terquem, cercle médian
+Soit $ABC$ un triangle. On note $G$, $\Omega$ et $H$ le centre de gravité, le centre du cercle circonscrit $\mathcal C$ et l'orthocentre. Soit $\mathcal C'$ le cercle passant par les milieux $I_A$, $I_B$ et $I_C$ des côtés de $ABC$.
+}
+\begin{enumerate}
+    \item \question{Montrer que le centre de $\mathcal C'$ appartient à la droite $(G\Omega)$. Calculer son rayon.}
+\reponse{Le triangle des milieux est l'image de $ABC$ par l'homothétie de centre $G$ et de rapport $-1/2$. On en déduit que $\mathcal C$ est l'image du cercle circonscrit par cette homothétie, et donc que son centre est l'image de $\Omega$ par cette homothétie : il est donc sur la droite $(G\Omega)$.}
+    \item \question{Montrer que $\mathcal C'$ coupe les segments reliant les sommets à l'orthocentre $H$ en leur milieu.}
+\reponse{Montrons que $\mathcal C'$ est l'image de $\mathcal C$ par l'homothétie de centre $H$ et de rapport $1/2$. Considérons la composition de l'homothétie de centre $G$ et de rapport $-1/2$ avec l'homothétie de rapport $-1$ et de centre $J$. C'est une homothétie de rapport $1/2$ qui envoie $\mathcal C$ sur $\mathcal C'$. Comme elle envoie de plus $\Omega$ sur $J$, son centre est le point $M$ tel que $\overrightarrow{MJ}=\frac12\overrightarrow{M\Omega}$. Or on sait déjà, par exemple en considérant l'homothétie de centre $G$ et de rapport $-\frac12$, que $\overrightarrow{G\Omega}=-\frac12\overrightarrow{GH}$. On en déduit que $M=H$.}
+\indication{\begin{enumerate}
+\item Considérer une homothétie de centre $G$.
+\item Considérer une homothétie de centre $H$. On rappelle que $\overrightarrow{G\Omega}=-\frac12\overrightarrow{GH}$.
+\end{enumerate}}
+\end{enumerate}
+}

@@ -1,0 +1,25 @@
+\uuid{xKnc}
+\exo7id{3501}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Valeur propre, vecteur propre}
+
+\contenu{
+\texte{
+Soit $A = \begin{pmatrix} 0 &1      &       &(0)     \cr
+                    1 &\ddots &\ddots          \cr
+                      &\ddots &\ddots &1       \cr
+                    (0)&      &1      &0       \cr \end{pmatrix} \in \mathcal{M}_n(\R)$.
+}
+\begin{enumerate}
+    \item \question{Calculer $D_n(\theta) = \det(A+(2\cos\theta) I)$ par récurrence.}
+\reponse{$D_n = 2\cos\theta D_{n-1} - D_{n-2}  \Rightarrow 
+              D_n = \frac{\sin(n+1)\theta}{\sin\theta}$.}
+    \item \question{En déduire les valeurs propres de $A$.}
+\reponse{$-2\cos\left(\frac{k\pi}{n+1}\right)$, $1 \le k \le n$.}
+\end{enumerate}
+}

@@ -1,0 +1,21 @@
+\uuid{2EAi}
+\exo7id{4359}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Intégration}
+\sousChapitre{Intégrale de Riemann dépendant d'un paramètre}
+
+\contenu{
+\texte{
+On pose pour $n\ge2$~: $v_n= \int_{x=0}^1 \frac 1{1+x^n}\, d x$.
+Montrer que la suite $(v_n)$ converge. Nature de la série $\sum(v_n-1)$ ?
+}
+\reponse{
+$v_n\to 1$ (lorsque $n\to\infty$) par convergence dominée.
+$v_n-1 =  \int_{x=0}^1\frac{x^n}{1+x^n}\, d x = \frac1n \int_{u=0}^1\frac{u^{-1/n}}{1+u}\,d u
+\sim \frac{\ln 2}n$ donc la série diverge.
+}
+}

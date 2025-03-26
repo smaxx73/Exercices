@@ -1,0 +1,50 @@
+\uuid{Nj3B}
+\exo7id{2475}
+\auteur{matexo1}
+\organisation{exo7}
+\datecreate{2002-02-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Matrice}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+\label{exo2475}
+Trouver toutes les matrices de $\mathcal{M}_3(\Rr)$ qui vérifient
+}
+\begin{enumerate}
+    \item \question{$M^2 = 0$ ;}
+    \item \question{$M^2 = M$ ;}
+    \item \question{$M^2 = I$.}
+\reponse{
+Soit $M$ une matrice telle que $M^2=0$ et soit $f$ l'application linéaire associée à $M$.
+Comme $M^2=0$ alors $f\circ f = 0$. Cela entraîne $\Im f \subset \Ker f$. Discutons suivant la dimension
+du noyau :
+   \begin{enumerate}
+Si $\dim \Ker f=3$ alors $f=0$ donc $M=0$ (la matrice nulle).
+Si $\dim \Ker f=2$ alors prenons une base de $\Rr^3$ formée de deux vecteurs du noyau et d'un troisième vecteur.
+Dans cette base la matrice de $f$ est
+$M'=\begin{pmatrix}0&0&a\\0& 0 & b\\0&0&c\end{pmatrix}$ mais comme $f\circ f=0$ alors $M'^2=0$ ;
+un petit calcul implique $c=0$. Donc $M$ et $M'$ sont les matrices de la même application linéaire $f$ mais exprimées dans des bases différentes,
+donc $M$ et $M'$ sont semblables.
+Si $\dim \Ker f=1$ alors comme $\Im f \subset \Ker f$ on a $\dim \Im f \le 1$ mais alors cela contredit le théorème
+du rang : $\dim \Ker f + \dim \Im f = \dim \Rr^3$. Ce cas n'est pas possible.
+Conclusion : $M$ est une matrice qui vérifie $M^2=0$ si et seulement si 
+il existe une matrice inversible $P$ et des réels $a,b$ tels que 
+$$M=P^{-1} \begin{pmatrix}0&0&a\\0& 0 & b\\0&0&0\end{pmatrix}P$$
+}
+\indication{Il faut trouver les propriétés de l'application linéaire $f$ associée à chacune de ces matrices.
+Les résultats s'expriment en explicitant une (ou plusieurs) matrice $M'$ qui est la matrice de $f$ dans une base bien choisie
+et ensuite en montrant que toutes les autres matrices sont de la forme
+$M=P^{-1}M'P$.
+
+Plus en détails pour chacun des cas :
+\begin{enumerate}
+  \item $\Im f \subset \Ker f$ et discuter suivant la dimension du noyau.
+  \item Utiliser l'exercice \ref{exo1093} : $\Ker f \oplus \Im f$ et il existe une base telle que 
+$f(e_i)=0$ ou $f(e_i)=e_i$.
+  \item Poser $N= \frac{I+M}{2}$ (et donc $M=\cdots$) chercher à quelle condition $M^2=I$.
+\end{enumerate}}
+\end{enumerate}
+}

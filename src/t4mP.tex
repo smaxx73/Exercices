@@ -1,0 +1,25 @@
+\uuid{t4mP}
+\exo7id{4814}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Topologie}
+\sousChapitre{Topologie des espaces vectoriels normés}
+
+\contenu{
+\texte{
+Soit $E$ un espace vectoriel norm{\'e} et $u,v \in \mathcal{L}(E)$ tels que
+$u\circ v - v \circ u = \mathrm{id}_E$.
+}
+\begin{enumerate}
+    \item \question{Calculer $u\circ v^n - v^n \circ u$ pour $n \in \N^*$.}
+\reponse{$nv^{n-1}$.}
+    \item \question{Montrer que $u$ ou $v$ est discontinu.}
+\reponse{Si $u$ et $v$ sont continus,
+             $n\|v^{n-1}\| \le 2\|u\|\,\|v^n\| \le 2\|u\|\,\|v^{n-1}\|\,\|v\|$.\par
+             S'il existe $k$ tel que $v^k = 0$, on peut remonter jusqu'{\`a} $v = 0$, absurde.
+             Sinon, on a aussi une contradiction.}
+\end{enumerate}
+}

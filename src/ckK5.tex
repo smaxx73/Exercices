@@ -1,0 +1,63 @@
+\uuid{ckK5}
+\exo7id{5871}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-10-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Suite et série de fonctions}
+\sousChapitre{Suite et série de matrices}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{\begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{Soit $\overrightarrow{\omega}\in\Rr^3$. Pour $\overrightarrow{x}\in\Rr^3$, on pose $f_{\overrightarrow{\omega}}(\overrightarrow{x})=\overrightarrow{\omega}\wedge\overrightarrow{x}$. Vérifier que $f_{\overrightarrow{\omega}}\in\mathcal{A}(\Rr^3)$.}
+\reponse{Soit $\overrightarrow{\omega}\in\Rr^3$. $f_{\overrightarrow{\omega}}$ est un endomorphisme de $\Rr^3$ par bilinéarité du produit vectoriel. De plus, pour $(\overrightarrow{x},\overrightarrow{y})\in(\Rr^3)^2$,
+
+\begin{center}
+$f_{\overrightarrow{\omega}}\left(\overrightarrow{x}\right).\overrightarrow{y}=\left(\overrightarrow{\omega}\wedge\overrightarrow{x}\right).\overrightarrow{y}=\left[\overrightarrow{\omega},\overrightarrow{x},\overrightarrow{y}\right]=-\left[\overrightarrow{\omega},\overrightarrow{y},\overrightarrow{x}\right]=-\left(\overrightarrow{\omega}\wedge\overrightarrow{y}\right).\overrightarrow{x}=-\overrightarrow{x}.f_{\overrightarrow{\omega}}\left(\overrightarrow{y}\right)$.
+\end{center}
+
+Donc,
+
+\begin{center}
+\shadowbox{
+$\forall\overrightarrow{x}\in\Rr^3$, $f_{\overrightarrow{\omega}}\in\mathcal{A}(\Rr^3)$.
+}
+\end{center}}
+    \item \question{Réciproquement, soit $f\in\mathcal{A}(\Rr^3)$. Montrer qu'il existe un vecteur $\overrightarrow{\omega}$ unique tel que $f=f_{\overrightarrow{\omega}}$.}
+\reponse{Soit $\begin{array}[t]{cccc}
+\varphi~:&\Rr^3&\rightarrow&\mathcal{A}(\Rr^3)\\
+ &\overrightarrow{\omega}&\mapsto&f_{\overrightarrow{\omega}}
+\end{array}$. 
+
+\textbullet~Vérifions que $\varphi\in\mathcal{L}(\Rr^3,\mathcal{A}(\Rr^3))$. Soient $(\lambda_1,\lambda_2)\in\Rr^2$ et $(\overrightarrow{\omega}_1,\overrightarrow{\omega}_2)\in(\Rr^3)^2$. Pour tout $\overrightarrow{x}\in\Rr^3$,
+
+\begin{align*}\ensuremath
+\left(\varphi(\lambda_1\overrightarrow{\omega}_1+\lambda_2\overrightarrow{\omega}_2)\right)\left(\overrightarrow{x}\right)&=f_{\lambda_1\overrightarrow{\omega}_1+\lambda_2\overrightarrow{\omega}_2}\left(\overrightarrow{x}\right)=\left(\lambda_1\overrightarrow{\omega}_1+\lambda_2\overrightarrow{\omega}_2\right)\wedge=\lambda_1\left(\overrightarrow{\omega}_1\wedge\overrightarrow{x}\right)+\lambda_2\left(\overrightarrow{\omega}_2\wedge\overrightarrow{x}\right)\\
+ &=\lambda_1f_{\overrightarrow{\omega}_1}\left(\overrightarrow{x}\right)+\lambda_2f_{\overrightarrow{\omega}_2}\left(\overrightarrow{x}\right)=\left((\lambda_1\varphi(\overrightarrow{\omega}_1)+\lambda_2\varphi(\overrightarrow{\omega}_2)\right)\left(\overrightarrow{x}\right)
+\end{align*}
+
+et donc $\varphi(\lambda_1\overrightarrow{\omega}_1+\lambda_2\overrightarrow{\omega}_2)=\lambda_1\varphi(\overrightarrow{\omega}_1)+\lambda_2\varphi(\overrightarrow{\omega}_2)$. On a montré que $\varphi\in\mathcal{L}(\Rr^3,\mathcal{A}(\Rr^3))$.
+
+\textbullet~Vérifions que $\varphi$ est injective. Soit $\omega\in\Rr^3$.
+
+\begin{center}
+$\overrightarrow{\omega}\in\text{Ker}(\varphi)\Rightarrow f_{\overrightarrow{\omega}}=0\Rightarrow\forall\overrightarrow{x}\in\Rr^3$, $\overrightarrow{\omega}\wedge\overrightarrow{x}=\overrightarrow{0}$.
+\end{center}
+
+On applique alors ce dernier résultat à deux vecteurs non colinéaires $\overrightarrow{u}$ et $\overrightarrow{v}$. On obtient $\overrightarrow{\omega}\wedge\overrightarrow{u}=\overrightarrow{\omega}\wedge\overrightarrow{v}=\overrightarrow{0}$ et donc $\overrightarrow{x}\in\text{Vect}\left(\overrightarrow{u},\overrightarrow{v}\right)=\left\{\overrightarrow{0}\right\}$. On a montré que $\varphi$ est injective.
+
+\textbullet~Enfin, $\text{dim}\left(\mathcal{A}_3(\Rr)\right)= \frac{3\times(3-1)}{2}=3=\text{dim}(\Rr^3)<+\infty$. On en déduit que $\varphi$ est un isomorphisme de $\Rr^3$ sur $\mathcal{A}(\Rr^3)$. En particulier,
+
+\begin{center}
+\shadowbox{
+$\forall f\in\mathcal{A}(\Rr^3)$, $\exists\overrightarrow{\omega}\in\Rr^3/\;f=f_{\overrightarrow{\omega}}$.
+}
+\end{center}}
+\end{enumerate}
+}

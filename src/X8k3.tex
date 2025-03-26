@@ -1,0 +1,28 @@
+\uuid{X8k3}
+\exo7id{3962}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Dérivabilité des fonctions réelles}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soient ${u,v} : {\R} \to {\R}$ deux fonctions telles que :
+$\begin{cases}\forall\ x \in \R,\ u(x) \ne v(x) \cr
+        \lim_{x\to0}u(x) = \lim_{x\to0}v(x) = a > 0.\cr\end{cases}$
+}
+\begin{enumerate}
+    \item \question{Chercher $\lim_{x\to0} \frac {u^v - v^v}{u - v}$.}
+\reponse{AF $ \Rightarrow  \exists\ w(x)$ compris entre $u(x)$ et $v(x)$ tel que
+    $\frac {u^v - v^v}{u - v} = vw^{v-1} \to a^a$.}
+    \item \question{Chercher $\lim_{x\to0} \frac {u^v - v^u}{u^u - v^v}$.}
+\reponse{$u^v - v^u = (u^v - v^v) + (v^v - v^u) = (u-v)(vw_1^{v-1} - (\ln v)v^{w_2})$
+
+    $u^u - v^v = (u-v)w_3^{w_3}(1 + \ln w_2)$
+
+    $ \Rightarrow  \lim = \frac {1-\ln a}{1 + \ln a}$.}
+\end{enumerate}
+}

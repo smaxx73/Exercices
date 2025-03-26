@@ -1,0 +1,26 @@
+\uuid{XwQM}
+\exo7id{4642}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série de Fourier}
+\sousChapitre{Calcul de coefficients}
+
+\contenu{
+\texte{
+Soit $f:\R \to \R$ continue $2\pi$-périodique paire dont
+la restriction à $[0,2\pi]$ est concave. Montrer que les
+coefficients de Fourier trigonométriques de~$f$ vérifient~: $a_k \le 0$ pour
+$k\ge 1$.
+}
+\reponse{
+\begin{align*}
+\pi a_k &=  \int_{t=0}^{2\pi}f(t)\cos(kt)\,d t\cr
+        &= \sum_{i=0}^{k-1} \int_{t=0}^{2\pi/k}f(t+2i\pi/k)\cos(kt)\,d t\cr
+        &= \sum_{i=0}^{k-1} \int_{t=0}^{\pi/2k}\Bigl(
+                 f(t+2i\pi/k) - f(t+2i\pi/k+\pi/k)
+                -f(t+2(i+1)\pi/k-\pi/k) + f(t+2(i+1)\pi/k)\Bigr)\cos(kt)\,d t.\cr\end{align*}
+}
+}

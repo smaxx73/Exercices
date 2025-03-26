@@ -1,0 +1,25 @@
+\uuid{jLkp}
+\exo7id{4474}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série numérique}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $(u_n)$ une série convergente à termes positifs décroissants.
+}
+\begin{enumerate}
+    \item \question{Montrer que $nu_n\to 0$ lorsque $n\to\infty$.}
+\reponse{$nu_{2n} \le \sum_{k=n+1}^{2n} u_k$,
+             $nu_{2n+1} \le \sum_{k=n+2}^{2n+1} u_k$.}
+    \item \question{Montrer que $\sum_{u_k \ge 1/n} \frac 1{u_k} = \text{o}(n^2)$.}
+\reponse{$\varepsilon > 0$ : Pour $k$ suffisament grand,
+             $u_k \le \frac \varepsilon k$,
+             donc $u_k \ge \frac 1n  \Rightarrow  k\le n\varepsilon$.
+             Alors $\sum_{u_k \ge 1/n} \frac 1{u_k} \le n^2\varepsilon + Kn$.}
+\end{enumerate}
+}

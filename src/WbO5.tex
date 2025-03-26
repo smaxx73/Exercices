@@ -1,0 +1,30 @@
+\uuid{WbO5}
+\exo7id{5896}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-10-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Fonction de plusieurs variables}
+\sousChapitre{Différentiabilité}
+
+\contenu{
+\texte{
+Déterminer $\text{Max}\{|\sin z|,\;z\in\Cc,\;|z|\leqslant1\}$.
+}
+\reponse{
+Pour tout complexe $z$ tel que $|z|\leqslant1$,
+
+\begin{center}
+$|\sin(z)|=\left|\sum_{n=0}^{+\infty}(-1)^n \frac{z^{2n+1}}{(2n+1)!}\right|\leqslant\sum_{n=0}^{+\infty} \frac{|z|^{2n+1}}{(2n+1)!}=\sh(|z|)\leqslant\sh1$,
+\end{center}
+
+l'égalité étant obtenue effectivement pour $z=i$ car $|\sin(i)|=\left| \frac{e^{i^2}-e^{-i^2}}{2i}\right|= \frac{e-e^{-1}}{2}=\sh(1)$.
+
+\begin{center}
+\shadowbox{
+$\text{Max}\{|\sin z|,\;z\in\Cc,\;|z|\leqslant1\}=\sh(1)$.
+}
+\end{center}
+}
+}

@@ -1,0 +1,25 @@
+\uuid{JNuz}
+\exo7id{4493}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série numérique}
+\sousChapitre{Familles sommables}
+
+\contenu{
+\texte{
+On pose $a_{n,p} = \frac1{\strut n^2-p^2}$ si $n\ne p$ et $a_{n,n} = 0$.
+}
+\begin{enumerate}
+    \item \question{Expliquer simplement pourquoi la suite double $(a_{n,p})_{(n,p)\in\N^2}$
+    n'est pas sommable.}
+\reponse{$\sum_{n=1}^\infty a_{n,n-1}$ diverge.}
+    \item \question{Calculer $\sum_{n=0}^\infty\sum_{p=0}^\infty a_{n,p}$ et
+    $\sum_{p=0}^\infty\sum_{n=0}^\infty a_{n,p}$.}
+\reponse{$\sum_{p=0}^\infty a_{n,p} = \frac1{4n^2}$ si $n\ne 0$, $-\frac{\pi^2}6$ si $n=0$.
+             $\sum_{n=0}^\infty\sum_{p=0}^\infty a_{n,p} = -\frac{\pi^2}{8}
+             =-\sum_{p=0}^\infty\sum_{n=0}^\infty a_{n,p}$.}
+\end{enumerate}
+}

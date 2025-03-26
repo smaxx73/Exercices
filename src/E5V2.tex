@@ -1,0 +1,70 @@
+\uuid{E5V2}
+\exo7id{1080}
+\auteur{monthub}
+\organisation{exo7}
+\datecreate{2001-11-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Matrice}
+\sousChapitre{Propriétés élémentaires, généralités}
+
+\contenu{
+\texte{
+Soient $(x_n)_{n \in \N}$ et  $(y_n)_{n \in \N}$
+deux suites réelles, vérifiant la relation de récurrence linéaire
+suivante :
+$$\Big\{
+  \begin{array}{rccc}
+x_{n+1}&=&-9 x_n &-18 y_n \\
+y_{n+1}&=&6 x_n &+ 12y_n\\
+  \end{array}$$
+avec $x_0=-137$ et $y_0=18$. On se propose dans ce problème de
+trouver les termes généraux de ces deux suites.
+}
+\begin{enumerate}
+    \item \question{Montrer qu'il existe une matrice $A \in M_2(\R)$ telle que la relation
+  de récurrence linéaire ci-dessus soit équivalente à la relation
+  $U_{n+1}=AU_n$, où $U_n=  \begin{pmatrix}    x_n\\y_n  \end{pmatrix}$.}
+\reponse{$A=
+  \begin{pmatrix}
+    -9&-18\\6&12
+  \end{pmatrix}$}
+    \item \question{Trouver une expression de $U_n$ en fonction de $A$ et de $U_0$.}
+\reponse{$U_n=A^nU_0$}
+    \item \question{Trouver le noyau de $A$, et en donner une base $B_1$. Calculer le rang de $A$.}
+\reponse{C'est la droite engendrée par $
+  \begin{pmatrix}
+    -2\\1
+  \end{pmatrix}$. Le rang est 1.}
+    \item \question{Montrer que l'ensemble des vecteurs $X \in \R^2$ tels que $AX=3X$ est un
+  sous-espace vectoriel de $\R^2$. Quelle
+  est sa dimension ? En donner une base, qu'on notera $B_2$.}
+\reponse{C'est la droite engendrée par $
+  \begin{pmatrix}
+    -3\\2
+  \end{pmatrix}$.}
+    \item \question{Montrer que la réunion $B_1 \cup B_2$ forme une base $B$ de $\R^2$. Soit
+  $P$ la matrice formée des composantes des vecteurs de $B$ relativement à la
+  base canonique de $\R^2$. Montrer que $P$ est inversible, et que  le produit
+  $P^{-1}AP$ est une matrice diagonale $D$ qu'on calculera.}
+\reponse{Ce sont deux vecteurs non colinéaires. On a
+$$P^{-1}AP=D=
+\begin{pmatrix}
+  3&0\\0&0
+\end{pmatrix}$$}
+    \item \question{Montrer que $A^n=PD^nP^{-1}$. Calculer $D^n$, et en déduire $A^n$, pour tout $n \in \N$.}
+\reponse{On a $A=PDP^{-1}$ donc $A^n=PD^nP^{-1}=
+  \begin{pmatrix}
+   -3^{n+1} & -2\cdot 3^{n+1} \\
+2\cdot 3^n & 4\cdot 3^n \\
+  \end{pmatrix}
+$}
+    \item \question{Donner les termes généraux  $x_n$ et $y_n$.}
+\reponse{Donc
+$$\Big\{
+\begin{array}{rcc}
+x_n &=& -137\cdot 3^{n+1}-36\cdot 3^{n+1}\\
+y_n &=& 274(3^n)+72\cdot 3^n
+\end{array}$$}
+\end{enumerate}
+}

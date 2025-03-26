@@ -1,0 +1,21 @@
+\titre{Polynômes et division euclidienne}
+\theme{Algèbre}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+
+\contenu{
+\begin{enumerate}
+\item \question{Déterminer les racines complexes de $P(X)=X^4-4X^3+5X^2-2X$ ainsi que leur ordre de multiplicité.}
+\reponse{$P(0)=0,\,P(1)=0$ et $P(2)=0$. Calculons $P'(X)$ et $P''(X)$. On obtient
+$$P'(X)=4X^3-12X^2+10X-2,\quad P''(X)=12X^2-24X+10.$$
+Ainsi $P'(0)\neq 0$ et $P'(2)\neq 0$ mais $P'(1)=0,\,P''(1)\neq 0$. $1$ est racine multiplicité double, $0$ et $2$ sont racines simples. On obtient la factorisation $P(X)=X(X-1)^2(X-2)$.
+ }
+\item \question{Effectuer la division euclidienne de $P$ par $(X-2)^2$.}
+\reponse{La division euclidienne de $P$ par $(X-2)^2$ donne l'égalité suivante:
+$$P(X)=(X-2)^2(X^2+1)+2X-4.$$}
+\item \question{En déduire l'égalité suivante:
+$$\frac{P(X)}{X^2-4X+4}=X^2+1+\frac{2X-4}{(X-2)^2}.$$}
+\reponse{$\frac{P(X)}{X^2-4X+4}=\frac{P(X)}{(X-2)^2}=X^2+1+\frac{2X-4}{(X-2)^2},$
+d'après la question précédente.}
+\end{enumerate}
+}

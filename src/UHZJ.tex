@@ -1,0 +1,33 @@
+\uuid{UHZJ}
+\exo7id{5146}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-06-30}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Propriétés de R}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soient $x$ et $y$ deux réels tels que $0<x\leq y$. On pose $m=\frac{x+y}{2}$ (moyenne arithmétique), $g=\sqrt{xy}$
+(moyenne géométrique) et $\frac{1}{h}=\frac{1}{2}(\frac{1}{x}+\frac{1}{y})$ (moyenne harmonique). Montrer que $x\leq
+h\leq g\leq m\leq y$.
+}
+\reponse{
+On a déjà $x=\frac{x+x}{2}\leq\frac{x+y}{2}=m\leq\frac{y+y}{2}=y$ et donc \shadowbox{$x\leq m\leq y$}.
+
+(on peut aussi écrire~:~$m-x=\frac{x+y}{2}-x=\frac{y-x}{2}\geq0$).
+On a ensuite $x=\sqrt{x.x}\leq\sqrt{xy}=g\leq\sqrt{y.y}=y$ et donc \shadowbox{$x\leq g\leq y$}.
+$m-g=\frac{x+y}{2}-\sqrt{xy}=\frac{1}{2}((\sqrt{x})^2-2\sqrt{xy}+(\sqrt{y})^2)=\frac{1}{2}(\sqrt{y}-\sqrt{x})^2
+\geq0$ et donc, \shadowbox{$x\leq g\leq m\leq y$}.
+D'après 1), la moyenne arithmétique de $\frac{1}{x}$ et $\frac{1}{y}$ est comprise entre $\frac{1}{x}$ et
+$\frac{1}{y}$, ce qui fournit $\frac{1}{y}\leq\frac{1}{h}\leq\frac{1}{x}$, ou encore \shadowbox{$x\leq h\leq y$}.
+D'après 3), la moyenne géométrique des deux réels $\frac{1}{x}$ et $\frac{1}{y}$ est inférieure ou égale à leur moyenne arithmétique. Ceci
+fournit $\sqrt{\frac{1}{x}.\frac{1}{y}}\leq\frac{1}{2}(\frac{1}{x}+\frac{1}{y})$ ou encore
+$\frac{1}{g}\leq\frac{1}{h}$ et finalement 
+\begin{center}
+\shadowbox{$x\leq h\leq g\leq m\leq y$ où $\frac{1}{h}=\frac{1}{2}\left(\frac{1}{x}+\frac{1}{y}\right)$, $g=\sqrt{xy}$ et $m=\frac{x+y}{2}$.}
+\end{center}
+}
+}

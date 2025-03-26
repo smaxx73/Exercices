@@ -1,0 +1,24 @@
+\uuid{7mHG}
+\exo7id{4350}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Intégration}
+\sousChapitre{Intégrale de Riemann dépendant d'un paramètre}
+
+\contenu{
+\texte{
+Soit $f:\R \to \R$ continue. On définit pour $x \in \R^*$ et $y \in \R$ :
+$g(x,y) = \frac 1x  \int_{t=x}^{xy} f(t)\,d t$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $g$ peut être prolongée en une fonction continue sur $\R^2$.}
+\reponse{$g(x,y) =  \int_{u=1}^y f(ux)\,d u$.}
+    \item \question{On suppose de plus $f$ dérivable en 0. Montrer que $g$ est de classe $\mathcal{C}^1$.}
+\reponse{$\frac{\partial g}{\partial x} =
+             \frac1x \Bigl( yf(xy)-f(x) -  \int_{u=1}^y f(ux)\,d u\Bigr)
+             \to \frac{y^2-1}2f'(0)$ lorsque $x\to0$.}
+\end{enumerate}
+}

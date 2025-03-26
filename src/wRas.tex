@@ -1,0 +1,26 @@
+\uuid{wRas}
+\exo7id{4497}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série numérique}
+\sousChapitre{Familles sommables}
+
+\contenu{
+\texte{
+Soient $a,b,c\in\N^*$. On pose $f(z) = \sum_{n=0}^\infty \frac{z^{bn}}{1-z^{an+c}}$.
+}
+\begin{enumerate}
+    \item \question{Étudier la convergence de la série et montrer qu'on peut intervertir
+    $b$ et $c$ dans la formule.}
+\reponse{Il y a convergence si $|z|<1$.
+On a alors $f(z) = \sum_{(n,p)\in\N^2}z^{anp + bn+cp}$.
+Il y a aussi convergence pour $|z|>1$ lorsque $a>b$ et on a dans ce cas~:
+$f(z) = \sum_{(n,p)\in\N\times\N^*}z^{-anp + bn - cp}$ (non symétrique en $b,c$).}
+    \item \question{Développer en série entière~: $\sum_{m=1}^\infty\frac{z^{2m}}{1-z^m}$.}
+\reponse{$f(z) = \sum_{n=2}^\infty d_nz^n$ avec $d_n =$ nombre de diviseurs de~$n$
+dans~$[[1,n-1]]$.}
+\end{enumerate}
+}

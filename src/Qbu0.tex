@@ -1,0 +1,29 @@
+\uuid{Qbu0}
+\exo7id{4886}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-17}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Géométrie affine dans le plan et dans l'espace}
+\sousChapitre{Barycentre}
+
+\contenu{
+\texte{
+Soit $P = A_1A_2\dots A_n$ un polygone à $n$ sommets :
+on lui associe le polygone $P' = A'_1A'_2\dots A'_{n-1}A'_n$
+où $A'_i$ est le milieu de $A_i$ et $A_{i+1}$ ($A_{n+1} = A_1$).
+
+On définit alors une suite de polygones par récurrence :
+$\begin{cases} P_0 = P\cr P_{k+1} = (P_k)'.\cr \end{cases}$
+
+Montrer que chaque sommet de $P_k$ converge vers le centre de gravité de $P_0$
+lorsque $k$ tend vers l'infini.
+
+(\'Ecrire un sommet de $P_k$ comme barycentre de $A_1,\dots,A_n$)
+}
+\reponse{
+$A_i^{(k)} = \text{Bar}\left(
+          A_j : \frac 1{2^k}\sum_{l\equiv j(\mathrm{mod}\, n)} C_k^{|l-i|}\right)$.
+}
+}

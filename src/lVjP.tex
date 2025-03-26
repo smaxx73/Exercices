@@ -1,0 +1,37 @@
+\uuid{lVjP}
+\exo7id{5500}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-07-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Orthonormalisation}
+
+\contenu{
+\texte{
+Sur $E=\Rr_n[X]$, on pose $P|Q=\int_{-1}^{1}P(t)Q(t)\;dt$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $(E,|)$ est un espace euclidien.}
+    \item \question{Pour $p$ entier naturel compris entre $0$ et $n$, on pose $L_p=((X^2-1)^p)^{(p)}$.
+Montrer que $\left(\frac{L_p}{||L_p||}\right)_{0\leq p\leq n}$ est l'orthonormalisée de \textsc{Schmidt} de la base canonique de $E$.
+
+Déterminer $||Lp||$.}
+\reponse{
+La symétrie, la bilinéarité et la positivité sont claires. Soit alors $P\in\Rr_n[X]$. 
+
+\begin{align*}\ensuremath
+P|P=0&\Rightarrow\int_{0}^{1}P^2(t)\;dt=0\\
+ &\Rightarrow\forall t\in[0,1],\;P^2(t)=0\;(\mbox{fonction continue, positive, d'intégrale nulle})\\
+ &\Rightarrow P=0\;(\mbox{polynôme ayant une infinité de racines}).
+\end{align*}
+Ainsi, l'application $(P,Q)\mapsto\int_{0}^{1}P(t)Q(t)\;dt$ est un produit scalaire sur $\Rr_n[X]$.
+Pour vérifier que la famille $\left(\frac{L_p}{||L_p||}\right)_{0\leq p\leq n}$ est l'orthonormalisée de \textsc{Schmidt} de la base canonique de $E$, nous allons vérifier que
+  \begin{enumerate}
+$\forall p\in\llbracket0,n\rrbracket,\;\mbox{Vect}(L_0,L_1,...,L_p)=\mbox{Vect}(1,X,...,X^p)$,\rule[-4mm]{0mm}{0mm}
+la famille $\left(\frac{L_p}{||L_p||}\right)_{0\leq p\leq n}$ est orthonormale,
+$\forall p\in\llbracket0,n\rrbracket,\;L_p|X^p>0$.\rule{0mm}{5mm}
+}
+\end{enumerate}
+}

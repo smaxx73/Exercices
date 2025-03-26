@@ -1,0 +1,80 @@
+\uuid{l6ix}
+\exo7id{5840}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-10-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Topologie}
+\sousChapitre{Topologie des espaces vectoriels normés}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Inégalités de \textsc{Hölder} et de \textsc{Minkowski}. Soit $(p,q)\in]0,+\infty[^2$  tel que $ \frac{1}{p}+ \frac{1}{q}=1$. 
+   \begin{enumerate}}
+\reponse{Puisque $p>0$ et $q>0$, $1= \frac{1}{p}+ \frac{1}{q}> \frac{1}{p}$ et donc $p>1$. De même, $q>1$. D'autre part, $q= \frac{p}{p-1}$.
+
+  \begin{enumerate}}
+    \item \question{Montrer que pour $(x,y)\in[0,+\infty[^2$, $xy\leqslant \frac{x^p}{p}+ \frac{x^q}{q}$.}
+\reponse{L'inégalité est immédiate quand $y=0$. Soit $y > 0$ fixé.
+
+Pour $x\geqslant0$, on pose $f(x)= \frac{x^p}{p}+ \frac{y^q}{q} -xy$. Puisque $p > 1$, la fonction $f$ est dérivable sur $[0,+\infty[$ et $\forall x\geqslant0$, $f'(x)=x^{p-1}-y$. $f$ admet donc un minimum en $x_0=y^{1/(p-1)}$ égal à 
+
+\begin{center}
+$f\left(y^{1/(p-1)}\right)= \frac{y^{p(p-1)}}{p}+ \frac{y^{p/(p-1)}}{q}-y^{1/(p-1)}y=y^{p/(p-1}\left( \frac{1}{p}+ \frac{1}{q}-1\right)= 0$.
+\end{center}
+
+Finalement, $f$ est positive sur $[0,+\infty[$ et donc
+
+\begin{center}
+\shadowbox{
+$\forall x\geqslant0$, $\forall y\geqslant0$, $xy\leqslant \frac{x^p}{p}+ \frac{y^q}{q}$.
+}
+\end{center}}
+    \item \question{En déduire que $\forall((a_1,...,a_n),(b_1,...,b_n))\in(\Rr^n)^2$, $\left|\sum_{k=1}^{n}a_kb_k\right|\leqslant\left(\sum_{k=1}^{n}|a_k|^p\right)^{1/p}\left(\sum_{k=1}^{n}|b_k|^q\right)^{1/q}$.}
+\reponse{Posons $A=\sum_{k=1}^{n}|a_k|^p$ et $B =\sum_{k=1}^{n}|b_k|^q$.
+
+Si $A$ (ou $B$) est nul, tous les $a_k$ (ou tous les $b_k$) sont nuls et l'inégalité est vraie.
+
+On suppose dorénavant que $A > 0$ et $B > 0$. D'après la question a),
+
+\begin{center}
+$\sum_{k=1}^{n} \frac{|a_k|}{A^{1/p}}\times \frac{|b_k|}{B^{1/q}}\leqslant\sum_{k=1}^{n}\left( \frac{|a_k|^p}{pA}+ \frac{|b_k|^q}{qB}\right) = \frac{1}{pA}\sum_{k=1}^{n}|a_k|^p+ \frac{1}{qB}\sum_{k=1}^{n}|b_k|^q= \frac{1}{pA}\times A+ \frac{1}{qB}\times B= \frac{1}{p}+ \frac{1}{q}=1$,
+\end{center}
+
+et donc $\sum_{k=1}^{n}|a_k||b_k|\leqslant A^{1/p}B^{1/q}=\left(\sum_{k=1}^{n}|a_k|^p\right)^{1/p}\left(\sum_{k=1}^{n}|b_k|^q\right)^{1/q}$. Comme $\left|\sum_{k=1}^{n}a_kb_k\right|\leqslant\sum_{k=1}^{n}|a_k||b_k|$, on a montré que
+
+\begin{center}
+\shadowbox{
+$\forall((a_k)_{1\leqslant k\leqslant n},(b_k)_{1\leqslant k\leqslant n})\in(\Rr^n)^2$, $\sum_{k=1}^{n}|a_kb_k|\leqslant\left(\sum_{k=1}^{n}|a_k|^p\right)^{1/p}\left(\sum_{k=1}^{n}|b_k|^q\right)^{1/q}$  (Inégalité de \textsc{Hölder}).
+}
+\end{center}
+
+\textbf{Remarque.} Quand $p=q=2$, on a bien $ \frac{1}{p}+ \frac{1}{q}=1$ et l'inégalité de \textsc{Hölder} s'écrit 
+
+\begin{center}
+$\sum_{k=1}^{n}|a_kb_k|\leqslant\left(\sum_{k=1}^{n}|a_k|^2\right)^{1/2}\left(\sum_{k=1}^{n}|b_k|^2\right)^{1/2}$ (inégalité de \textsc{Cauchy}-\textsc{Schwarz}).
+\end{center}}
+    \item \question{En déduire que $\forall((a_1,...,a_n),(b_1,...,b_n))\in(\Rr^n)^2$,  $\left(\sum_{k=1}^{n}\left|a_k+b_k\right|^p\right)^{1/p}\leqslant\left(\sum_{k=1}^{n}\left|a_k\right|^p\right)^{1/p}+\left(\sum_{k=1}^{n}\left|b_k\right|^p\right)^{1/p}$.}
+\reponse{Soit $((a_k)_{1\leqslant k\leqslant n},(b_k)_{1\leqslant k\leqslant n})\in(\Rr^n)^2$. D'après l'inégalité de \textsc{Hölder}, on a
+
+\begin{align*}
+\sum_{k=1}^{n}(|a_k|+|b_k|)^p&=\sum_{k=1}^{n}|a_k|(|a_k|+|b_k|)^{p-1}+\sum_{k=1}^{n}|b_k|(|a_k|+|b_k|)^{p-1}\\
+ &\Leftrightarrow\left(\sum_{k=1}^{n}|a_k|^p\right)^{1/p}\left(\sum_{k=1}^{n}(|a_k|+|b_k|)^{(p-1)q}\right)^{1/q}\left(\sum_{k=1}^{n}|b_k|^p\right)^{1/p}\left(\sum_{k=1}^{n}(|a_k|+|b_k|)^{(p-1)q}\right)^{1/q}\\
+ &=\left(\left(\sum_{k=1}^{n}|a_k|^p\right)^{1/p}+\left(\sum_{k=1}^{n}|b_k|^p\right)^{1/p}\right)\left(\sum_{k=1}^{n}(|a_k|+|b_k|)^{p}\right)^{1-\frac{1}{p}}.
+\end{align*}
+
+Si  $\sum_{k=1}^{n}(|a_k|+|b_k|)^p = 0$, tous les $a_k$ et les $b_k$ sont nuls et l'inégalité est claire.
+
+Sinon $\sum_{k=1}^{n}(|a_k|+|b_k|)^p > 0$ et après simplification des deux membres de l'inégalité précédente par le réel strictement positif $\sum{k=1}^{n}(|a_k|+|b_k|)^p$,  on obtient $\left(\sum_{k=1}^{n}|a_k+b_k|^p\right)^{1/p}\leqslant\left(\sum_{k=1}^{n}|a_k|^p\right)^{1/p}+\left(\sum_{k=1}^{n}|b_k|^p\right)^{1/p}$
+
+\begin{center}
+\shadowbox{
+$\forall((a_k)_{1\leqslant k\leqslant n},(b_k)_{1\leqslant k\leqslant n})\in(\Rr^n)^2$, $\left(\sum_{k=1}^{n}|a_k+b_k|^p\right)^{1/p}\leqslant\left(\sum_{k=1}^{n}|a_k|^p\right)^{1/p}+\left(\sum_{k=1}^{n}|b_k|^p\right)^{1/p}$  (Inégalité de \textsc{Minkowski}).
+}
+\end{center}}
+\end{enumerate}
+}

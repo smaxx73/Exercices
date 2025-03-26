@@ -1,0 +1,40 @@
+\uuid{8hfP}
+\exo7id{209}
+\auteur{bodin}
+\organisation{exo7}
+\datecreate{1998-09-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Logique, ensemble, raisonnement}
+\sousChapitre{Relation d'équivalence, relation d'ordre}
+
+\contenu{
+\texte{
+Dans $\Cc$ on d\'efinit la relation $\mathcal{R}$
+par :
+$$z\mathcal{R}z'\Leftrightarrow |z|=|z'|.$$
+}
+\begin{enumerate}
+    \item \question{Montrer que $\mathcal{R}$ est une relation d'\'equivalence.}
+    \item \question{D\'eterminer la classe d'\'equivalence de chaque $z \in \Cc$.}
+\reponse{
+Soient $z,z',z''$ des complexes quelconques.
+\begin{itemize}
+[$\bullet$] Reflexivit\'e : $ z\mathcal{R}z$ car $|z|=|z|$.
+[$\bullet$] Sym\'etrie : $z\mathcal{R}z' \Rightarrow z'\mathcal{R}z$ car
+$|z|=|z'|$ et donc $|z'|=|z|$.
+[$\bullet$] Transitivit\'e : $z\mathcal{R}z'$ et $z'\mathcal{R}z''$ alors
+$|z|=|z'|=|z''|$ donc $z\mathcal{R}z''$.
+\end{itemize}
+En fait, nous avons juste retranscrit que l'\'egalit\'e ``$=$'' est
+une relation d'\'equivalence.
+La classe d'\'equivalence d'un point $z\in\Cc$
+est l'ensemble des complexes qui sont en relation avec $z$,
+\emph{i.e.} l'ensemble des complexes dont le module est \'egal \`a
+$|z|$. G\'eom\'etriquement la classe d'\'equivalence de $z$ est le
+cerlce $\mathcal{C}$ de centre $0$ et de rayon $|z|$ :
+$$\mathcal{C} = \left\{ |z|e^{i\theta} \ / \ \theta \in \Rr \right\}.$$
+}
+\indication{Un dessin permettra d'avoir une bonne id\'ee de ce qui se passe...}
+\end{enumerate}
+}

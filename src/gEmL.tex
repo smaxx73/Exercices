@@ -1,0 +1,41 @@
+\uuid{gEmL}
+\exo7id{1506}
+\auteur{barraud}
+\organisation{exo7}
+\datecreate{2003-09-01}
+\isIndication{false}
+\isCorrection{false}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Orthonormalisation}
+
+\contenu{
+\texte{
+On considère un espace euclidien $(E,<>)$.
+}
+\begin{enumerate}
+    \item \question{\textbf{Théorème de Pythagore :}
+
+Soient $u$ et $v$ deux vecteurs orthogonaux de $E$. Calculer $||u+v||^{2}$. Illustrer le
+résultat obtenu à l'aide d'un dessin.}
+    \item \question{\textbf{Projection orthogonale et distance à un sous-espace :}
+
+Soit $F$ un sous-espace de $E$. On rappelle que $E=F\oplus F^{\bot}$, et donc que tout
+vecteur $x$ de $E$ se décompose de manière unique en une somme $x=x_{1}+_{2}$ avec
+$x_{1}\in F$ et $x_{2}\in F^{\bot}$. Le vecteur $x_{1}$ s'appelle alors la projection
+orthogonale de $x$ sur $F$.
+\begin{enumerate}}
+    \item \question{Montrer que l'application $p$ qui à un vecteur asocie sa projection orthogonale sur $E$
+est une application linéaire. Vérifier que : $\forall y\in F, <x-p(x),y>=0$.}
+    \item \question{\label{q: proj-realise-d}
+On considère maintenant un vecteur $x$ de $E$. On appelle distance de $x$ à $F$ le nombre
+$\mathrm{dist}(x,F)=\inf_{y\in F}\Vert x-y\Vert$.
+
+Pour $y\in F$, vérifier que $x-p(x)$ et $y-p(x)$ sont orthogonaux. Utiliser alors la
+question 1 pour montrer que $||x-y||^{2}\geq ||x-p(x)||^{2}$. Illustrer sur un dessin.
+
+En déduire que $\mathrm{dist}(x,F)=||x-p(x)||$.}
+    \item \question{\label{q: proj-en-coord}
+Soit $(e_{1},\ldots,e_{r})$ une base orthonormée de $F$. Montrer que
+$p(x)=\sum_{i=1}^{r}<x,e_{i}>\;e_{i}$.}
+\end{enumerate}
+}

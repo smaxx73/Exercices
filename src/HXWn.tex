@@ -1,0 +1,70 @@
+\uuid{HXWn}
+\exo7id{6957}
+\auteur{exo7}
+\organisation{exo7}
+\datecreate{2014-04-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Polynôme, fraction rationnelle}
+\sousChapitre{Pgcd}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Déterminer les pgcd des polynômes suivants:
+\begin{enumerate}}
+\reponse{L'algorithme d'Euclide permet de calculer le pgcd par 
+une suite de divisions euclidiennes.
+
+\begin{enumerate}}
+    \item \question{$X^3-X^2-X-2$ et $X^5-2X^4+X^2-X-2$}
+\reponse{$X^5-2X^4+X^2-X-2=(X^3-X^2-X-2)(X^2-X)+2X^2-3X-2$ 
+
+puis $X^3-X^2-X-2=(2X^2-3X-2)(\frac{1}{2}X+\frac{1}{4})+\frac{3}{4}X-\frac{3}{2}$ 
+
+puis $2X^2-3X-2=(\frac{3}{4}X-\frac{3}{2})(\frac{8}{3}X+\frac{4}{3})$
+
+
+Le pgcd est le dernier reste non nul, 
+divisé par son coefficient dominant: 
+$$\pgcd(X^3-X^2-X-2,X^5-2X^4+X^2-X-2)=X-2$$}
+    \item \question{$X^4+X^3-2X+1$ et $X^3+X+1$}
+\reponse{$X^4+X^3-2X+1=(X^3+X+1)(X+1)-X^2-4X$
+
+puis $X^3+X+1=(-X^2-4X)(-X+4)+17X+1$
+
+$$\begin{array}{rl}\text{donc}\ \pgcd&(X^4+X^3-2X+1,X^3+X+1)\\
+&=\pgcd(-X^2-4X,17X+1)=1\end{array}$$
+
+car $-X^2-4X$ et $17X+1$ n'ont pas de racine (même complexe) commune.}
+    \item \question{$X^5+3X^4+X^3+X^2+3X+1$ et $X^4+2X^3+X+2$}
+\reponse{$X^5+3X^4+X^3+X^2+3X+1=(X^4+2X^3+X+2)(X+1)-X^3-1$
+
+puis $X^4+2X^3+X+2=(-X^3-1)(-X-2)+2X^3+2$
+
+$$\pgcd(X^5+3X^4+X^3+X^2+3X+1,X^4+2X^3+X+2)=X^3+1$$}
+    \item \question{$nX^{n+1}-(n+1)X^n+1$ et $X^n-nX+n-1$ ($n\in\N^*)$}
+\reponse{$nX^{n+1}-(n+1)X^n+1$
+
+\ \ \ \ \ \ \ \ \ \ \ $=(X^n-nX+n-1)(nX-(n+1))+n^2(X-1)^2$ 
+
+Si $n=1$ alors $X^n-nX+n-1=0$ et le $\pgcd$ vaut $(X-1)^2$.
+On constate que $1$ est racine de $X^n-nX+n-1$, 
+et on trouve $X^n-nX+n-1=(X-1)(X^{n-1}+X^{n-2}+\cdots+X^2+X-(n-1))$.
+
+Si $n\ge 2$: $1$ est racine de $X^{n-1}+X^{n-2}+\cdots+X^2+X-(n-1)$ et on trouve 
+
+$X^{n-1}+X^{n-2}+\cdots+X^2+X-(n-1)$
+
+\ \ \ \ \ \ \ $=(X-1)(X^{n-2}+2X^{n-3}+\cdots+(n-1)X^2+nX+(n+1))$, donc finalement 
+$(X-1)^2$ divise $X^n-nX+n-1$ (on pourrait aussi remarquer 
+que $1$ est racine de multiplicité au moins deux de 
+$X^n-nX+n-1$, puisqu'il est racine de ce polynôme et de sa dérivée). 
+Ainsi 
+$$\text{si}\ n\ge 2,\ \pgcd(nX^{n+1}-(n+1)X^n+1,X^n-nX+n-1)=(X-1)^2$$}
+\indication{Le calcul du pgcd se fait par l'algorithme d'Euclide, et la "remontée" 
+de l'algorithme permet d'obtenir $U$ et $V$.}
+\end{enumerate}
+}

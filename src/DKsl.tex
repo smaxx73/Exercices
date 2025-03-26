@@ -1,0 +1,25 @@
+\uuid{DKsl}
+\exo7id{5111}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-06-30}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Injection, surjection, bijection}
+\sousChapitre{Bijection}
+
+\contenu{
+\texte{
+Parmi $f\circ g\circ h$, $g\circ h\circ f$ et $h\circ f\circ g$ deux sont injectives et une est surjective. Montrer que
+$f$, $g$ et $h$ sont bijectives.
+}
+\reponse{
+On peut supposer sans perte de généralité que $f\circ g\circ h$ et $g\circ h\circ f$ sont injectives et que $h\circ
+f\circ g$ est surjective. D'après l'exercice \ref{exo:suprou8}, puisque $f\circ g\circ h=(f\circ g)\circ h$ est injective, $h$ est injective
+et puisque $h\circ f\circ g=h\circ(f\circ g)$ est surjective, $h$ est surjective. Déjà $h$ est bijective. Mais alors,
+$h^{-1}$ est surjective et donc $f\circ g=h^{-1}\circ(h\circ f\circ g)$ est surjective en tant que composée de
+surjections. Puis $h^{-1}$ est injective et donc $f\circ g=(f\circ g\circ h)\circ h^{-1}$ est injective. $f\circ g$ est
+donc bijective. $f\circ g$ est surjective donc $f$ est surjective. $g\circ h\circ f$ est injective donc $f$ est
+injective. Donc $f$ est bijective. Enfin $g=f^{-1}\circ(f\circ g)$ est bijective en tant que composée de bijections.
+}
+}

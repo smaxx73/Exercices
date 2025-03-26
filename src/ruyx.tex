@@ -1,0 +1,57 @@
+\uuid{ruyx}
+\exo7id{5847}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-10-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Topologie}
+\sousChapitre{Topologie des espaces vectoriels normés}
+
+\contenu{
+\texte{
+Soit $A$ une partie non vide d'un espace vectoriel normé $(E,\|\;\|)$.
+
+Pour $x\in E$, on pose $d_A(x) =d(x,A)$ où $d(x,A) =\text{Inf}\left\{\|x-a\|,\;a\in A\right\}$.
+}
+\begin{enumerate}
+    \item \question{Justifier l'existence de $d_A(x)$ pour chaque $x$ de $E$.}
+\reponse{Soit $x\in E$. $\left\{\|x-a\|,\;a\in A\right\}$ est une partie non vide et minorée (par $0$) de $\Rr$. $\left\{\|x-a\|,\;a\in A\right\}$ admet donc une borne inférieure dans $\Rr$. On en déduit l'existence de $d_A(x)$.}
+    \item \question{\begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{Montrer que si $A$ est fermée, $\forall x\in E$, $d_A(x) = 0\Leftrightarrow x\in A$.}
+\reponse{Soit $A$ une partie fermée et non vide de $E$. Soit $x\in E$.
+
+\textbullet~Supposons que $x\in A$. Alors $0\leqslant f(x)=\text{Inf}\{\|x-a\|,\;a\in A\}\leqslant\|x-x\|=0$ et donc $d_A(x) = 0$.
+
+\textbullet~Supposons que $d_A(x)=0$. Par définition d'une borne inférieure, $\forall\varepsilon>0$ $\exists a_\varepsilon\in A/\;\|x-a_\varepsilon\| <\varepsilon$.
+
+Soit $V$ un voisinage de $x$. $V$ contient une boule ouverte de centre $x$ et de rayon $\varepsilon>0$ puis d'après ce qui précède, $V$ contient un élément de $A$. Finalement, $\forall V\in\mathcal{V}(x)$, $V\cap A\neq\varnothing$ et donc $x\in\overline{A}=A$.
+
+\begin{center}
+\shadowbox{
+Si $A$ est fermée, $\forall x\in E,\;(d_A(x) = 0\Leftrightarrow x\in A)$.
+}
+\end{center}}
+    \item \question{Montrer que si $A$ est fermée et $E$ est de dimension finie, $\forall x\in E$, $\exists a\in A/\;d_A(x)=\|x-a\|$.}
+\reponse{Posons $d=d_A(x)$. Pour chaque entier naturel $n$, il existe $a_n\in A$ tel que $d\leqslant \|x-a_n\|\leqslant d+ \frac{1}{n}$.
+
+La suite $(a_n)_{n\in\Nn}$ est bornée. En effet, $\forall n\in\Nn^*$ $\|a_n\|\leqslant \|a_n-x\|+\|x\|\leqslant d+ \frac{1}{n}+\| x\|\leqslant d+\|x\|+1$.
+
+Puisque $E$ est de dimension finie, d'après le théorème de \textsc{Bolzano}-\textsc{Weierstrass},  on peut extraire de la suite $(a_n)_{n\geqslant1}$ une suite $(a_{\varphi(n)})_{n\geqslant1}$ convergeant vers un certain élément $a$ de $E$.
+
+Ensuite, puisque $A$ est fermée, on en déduit que $a\in A$. Puis, comme
+
+\begin{center}
+$\forall n\in\Nn^*$, $d\leqslant\|x-a_{\varphi(n)}\| \leqslant d+ \frac{1}{\varphi(n)}$,
+\end{center}
+
+et puisque $\varphi(n)$ tend vers l'infini quand $n$ tend vers $+\infty$, on obtient quand $n$ tend vers l'infini, $d =\lim_{n \rightarrow +\infty}\|x-a_{\varphi(n)}\|$. Maintenant on sait que l'application $y\mapsto\|y\|$ est continue sur l'espace normé $(E,\|\;\|)$ et donc 
+
+\begin{center}
+$\lim_{n \rightarrow +\infty}\left\|x-a_{\varphi(n)}\right\|=\left\|x-\lim_{n \rightarrow +\infty}a_{\varphi(n)}\right\|=\|x-a\|$.
+\end{center}
+
+On a montré qu'il existe $a\in A$ tel que $d_A(x)=\|x-a\|$.}
+\end{enumerate}
+}

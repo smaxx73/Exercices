@@ -1,0 +1,45 @@
+\uuid{Rqkp}
+\exo7id{6024}
+\auteur{quinio}
+\organisation{exo7}
+\datecreate{2011-05-20}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Probabilité discrète}
+\sousChapitre{Lois de distributions}
+
+\contenu{
+\texte{
+On suppose qu'il y a une probabilité égale à $p$ d'être contrôlé lorsqu'on prend le tram. 
+Monsieur A fait $n$ voyages par an sur cette ligne.
+}
+\begin{enumerate}
+    \item \question{On suppose que $p=0.10$, $n=700$.
+\begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{Quelle est la probabilité que Monsieur A soit contrôlé entre
+60 et 80 fois dans l'année ?}
+\reponse{Pour calculer la probabilité que Monsieur A soit contrôlé
+entre 60 et 80 fois dans l'année, posons le nombre de contrôles
+comme une variable aléatoire. Elle obéit à une loi binomiale
+$B(700;0.1)$.
+On peut l'approcher par la loi normale $N(70;\sqrt{63})$.
+
+$P[60\leq X\leq 80]=P[-10/\sqrt{63}\leq X\leq 10/\sqrt{63}]\simeq 2F(10.5/\sqrt{63})-1=0.814$.
+La probabilité d'être contrôlé entre 60 et 80 fois dans l'année est $81.4$.}
+    \item \question{Monsieur A voyage en fait toujours sans ticket. Afin de
+prendre en compte la possibilité de faire plusieurs passages avec le même ticket, on suppose que le prix d'un ticket est de 1,12 euros.
+Quelle amende minimale la compagnie doit-elle fixer pour que le fraudeur
+ait, sur une période d'une année, une probabilité supérieure 
+à $0.75$ d'être perdant ?}
+\reponse{Calculons le prix que devrait payer le voyageur: $1,12 \times 700=
+784$ euros. Il est perdant si l'amende dépasse ce prix.
+Or l'amende est $aX$, si $a$ est l'amende fixée par la compagnie.
+
+On cherche donc $a$ pour que : $P[aX\geq 784]\geq 0.75:$
+Soit $P[aX\leq 784]\leq 0.25:$
+Par lecture de table:
+$a=784/64.642=12.128$
+Il faut que l'amende dépasse 13 euros.}
+\end{enumerate}
+}

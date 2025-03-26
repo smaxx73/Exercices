@@ -1,0 +1,24 @@
+\uuid{UzUN}
+\exo7id{4425}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série numérique}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $(a_n)$ une suite réelle positive.
+On pose $u_n = \frac {a_n}{(1+a_1)(1+a_2)\dots(1+a_n)}$.
+}
+\begin{enumerate}
+    \item \question{Montrer que la série $\sum u_n$ converge.}
+\reponse{$u_1 + \dots + u_n = 1 - \frac1{(1+a_1)\dots(1+a_n)} \le 1$.}
+    \item \question{Calculer $\sum_{n=1}^\infty u_n$ lorsque $a_n = \frac 1{\sqrt n}$.}
+\reponse{$\ln\bigl((1+a_1)\dots(1+a_n)\bigr)
+              = \sum_{k=1}^n \ln\left(1+\frac1{\sqrt k}\right)
+              \to +\infty  \Rightarrow  \sum u_n = 1$ lorsque $n\to\infty$.}
+\end{enumerate}
+}

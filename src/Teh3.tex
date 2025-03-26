@@ -1,0 +1,39 @@
+\uuid{Teh3}
+\exo7id{5421}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-07-06}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Dérivabilité des fonctions réelles}
+\sousChapitre{Théorème de Rolle et accroissements finis}
+
+\contenu{
+\texte{
+Soient $f$ et $g$ deux fonctions continues sur $[a,b]$ et dérivables sur $]a,b[$.
+
+Soit $\begin{array}[t]{cccc}
+\Delta~:&[a,b]&\rightarrow&\Rr\\
+ &x&\mapsto&\left|
+ \begin{array}{ccc}
+ f(a)&f(b)&f(x)\\
+ g(a)&g(b)&g(x)\\
+ 1&1&1
+ \end{array}
+ \right|
+\end{array}$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $\Delta$ est continue sur $[a,b]$, dérivable sur $]a,b[$ et calculer sa dérivée.}
+    \item \question{En déduire qu'il existe $c$ dans $]a,b[$ tel que $(g(b)-g(a))f'(c)=(f(b)-f(a))g'(c)$.}
+\reponse{
+En pensant à l'expression développée de $\Delta$, on voit que $\Delta$ est continue sur $[a,b]$, dérivable sur $]a,b[$ et vérifie $\Delta(a)=\Delta(b)(=0)$ (un déterminant ayant deux colonnes identiques est nul).
+
+Donc, d'après le théorème de \textsc{Rolle}, $\exists c\in]a,b[/\;\Delta'(c)=0$.
+
+Mais, pour $x\in]a,b[$, $\Delta'(x)=f'(x)(g(a)-g(b))-g'(x)(f(a)-f(b))$ (dérivée d'un déterminant). L'égalité $\Delta'(c)=0$ s'écrit~: $f'(c)(g(b)-g(a))=g'(c)(f(b)-f(a))$ ce qu'il fallait démontrer.
+
+(Remarque. Ce résultat généralise le théorème des accroissements finis ($g=Id$ \og~est~\fg~le théorème des accroissements finis.))
+}
+\end{enumerate}
+}

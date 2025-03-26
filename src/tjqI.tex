@@ -1,0 +1,61 @@
+\uuid{tjqI}
+\exo7id{6984}
+\auteur{blanc-centi}
+\organisation{exo7}
+\datecreate{2015-07-04}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Courbes planes}
+\sousChapitre{Courbes paramétrées}
+
+\contenu{
+\texte{
+Soit $\mathcal{C}$ la courbe plane paramétrée par 
+$$\left\{\begin{array}{l}x(t)=t\ln t\\ y(t)=\frac{\ln t}{t}\end{array}\right.\ (t\in]0;+\infty[)$$
+}
+\begin{enumerate}
+    \item \question{Comparer les points de paramètres $t$ et $1/t$, en déduire un domaine d'étude de $\mathcal{C}$.}
+    \item \question{Représenter $\mathcal{C}$.}
+\reponse{
+Soit $t>0$:
+$$\left\{\begin{array}{l}
+x(\frac{1}{t})=\frac{1}{t}\ln(\frac{1}{t})=-y(t)\\
+\ \\
+y(\frac{1}{t})=t\ln(\frac{1}{t})=-x(t)
+\end{array}\right.$$
+et par conséquent, le point $M(\frac{1}{t})$ est le symétrique 
+de $M(t)$ par rapport à la droite d'équation $y=-x$. 
+\fbox{On restreint l'étude à l'intervalle $]0;1]$}, 
+puis on obtiendra l'intégralité de la courbe par symétrie 
+par rapport à la seconde bissectrice.
+Les fonctions $x$ et $y$ sont de classe $\mathcal{C}^1$ sur $]0;1]$.
+\begin{itemize}
+Tableau de variations conjointes\\
+Pour $t\in]0;1]$: 
+$$\begin{array}{lcl}
+x(t)=t\ln t&\ &y(t)=\frac{\ln t}{t}\\
+x'(t)=1+\ln t&\ &y'(t)=\frac{1-\ln t}{t^2}\\
+x'(t)>0\Longleftrightarrow t>1/e&\ &y'(t)>0 \\
+x'(t)=0\Longleftrightarrow t=1/e &\ &y'(t)\not=0
+\end{array}$$
+puisque $\frac{1}{e}<1<e$. On obtient donc le tableau suivant:
+$$\begin{array}{c|lcccr}
+t&0&\ &1/e&\ &1\\\hline
+x'(t)&-\infty &-&0&+&1 \\\hline
+\ &0  &\ & & & 0\\
+x&\ &\searrow &\ &\nearrow & \\
+\ & & &-1/e &\ & \\\hline
+\ & &\ & & &0 \\
+&\ & &\ &\nearrow& \\
+&\ & &-e & & \\
+y&\ &\nearrow &\ &\ & \\
+\ &-\infty & & &\ & \\\hline
+y'(t)&+\infty & + &2e^2 & +&1 \\
+\end{array}$$
+Il n'y a pas de point singulier.
+\'Etude des branches infinies\\
+Comme $x(t)\xrightarrow[t\to 0^+]{}0$ et $y(t)\xrightarrow[t\to 0^+]{}-\infty$, l'axe des ordonnées est asymptote à $\mathcal{C}$.
+\end{itemize}
+}
+\end{enumerate}
+}

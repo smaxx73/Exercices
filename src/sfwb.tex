@@ -1,0 +1,27 @@
+\uuid{sfwb}
+\exo7id{3994}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Dérivabilité des fonctions réelles}
+\sousChapitre{Fonctions convexes}
+
+\contenu{
+\texte{
+Soit $f : \R \to \R$ convexe dérivable.
+}
+\begin{enumerate}
+    \item \question{Montrer que $p = \lim_{x\to+\infty} (f(x) - xf'(x))$ existe.}
+\reponse{Fonction décroissante sur $\R^+$.}
+    \item \question{On suppose $p$ fini. En utilisant le fait que $f(x) - xf'(x)$ est
+    bornée au voisinage de $+\infty$, montrer que $\frac{f(x)}x$ et $f'(x)$
+    admettent une même limite $m$ finie en $+\infty$.}
+\reponse{$f(x) - xf'(x) = -x^2\frac {d}{d x}\left(\frac {f(x)}x\right)$.
+    Donc, $x \mapsto \frac {f(x) - p}x \searrow$ et
+          $x \mapsto \frac {f(x) - f(0)}x \nearrow$.}
+    \item \question{Montrer alors que $f(x) - mx - p \to 0$ lorsque $x\to {+\infty}$.}
+\reponse{$p\le f(x) - mx \le f(x) - xf'(x)$.}
+\end{enumerate}
+}

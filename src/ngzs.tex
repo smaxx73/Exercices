@@ -1,0 +1,33 @@
+\uuid{ngzs}
+\exo7id{3683}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Produit scalaire, norme}
+
+\contenu{
+\texte{
+Soit $E = \R_n[X]$ et $(P\mid Q) =  \int_{t=0}^1 P(t)Q(t)\,d t$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $E$, muni de $(\ \mid\ )$, est un espace euclidien.}
+    \item \question{Soit $K = \R_{n-1}[X]^\bot$ et $P \in K\setminus\{0\}$.
+    Quel est le degré de~$P$~?}
+    \item \question{Soit $\Phi\ :\ x  \mapsto  \int_{t=0}^1 P(t)t^x\,d t$.
+    Montrer que $\Phi$ est une fonction rationnelle.}
+    \item \question{Trouver $\Phi$ à une constante multiplicative près.}
+    \item \question{En déduire les coefficients de~$P$.}
+    \item \question{En déduire une base orthogonale de~$E$.}
+\reponse{
+$ \int_{t=0}^1 t^kt^x\,d t = \frac 1{k+x+1}$.
+$\Phi$ a pour pôles au plus simples $-1,-2,\dots,-n-1$ et
+             pour racines $0,1,\dots,n-1$. Comme $\Phi(x) \to 0$ lorsque $x\to\infty$,
+             on a donc $\Phi(x) = \lambda\frac{x(x-1)\dots(x-n+1)}{(x+1)\dots(x+n+1)}$.
+$a_k =$ résidu de $\Phi$ en $-k-1 =
+             (-1)^{n+k}\lambda\frac{(n+k)!}{(k!)^2(n-k)!}$.
+}
+\end{enumerate}
+}

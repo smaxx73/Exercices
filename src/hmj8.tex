@@ -1,0 +1,24 @@
+\uuid{hmj8}
+\exo7id{3692}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Produit scalaire, norme}
+
+\contenu{
+\texte{
+Soit $E$ un espace euclidien et $u\in\mathcal{L}(E)$ tel que
+$\forall\ x\in E,\ \|u(x)\| \le \|x\|$. Montrer que
+$E = \mathrm{Ker}(u-\mathrm{id})\mathop\oplus\limits^\perp\Im(u-\mathrm{id})$.
+}
+\reponse{
+Soient $x\in\mathrm{Ker}(u-\mathrm{id})$ et $y=u(z)-z\in\Im(u-\mathrm{id})$.
+On a $y = u(z+\lambda x)-(z+\lambda x)$ d'où~:
+$$\|z+\lambda x\|^2\ge \|u(z+\lambda x)\|^2 = \|z+\lambda x\|^2 + 2\lambda(x\mid y) + 2(z\mid y) + \|y\|^2.$$
+En faisant tendre $\lambda$ vers $\pm\infty$ on obtient $(x\mid y) = 0$
+et on conclut avec le théorème du rang.
+}
+}

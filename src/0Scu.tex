@@ -1,0 +1,35 @@
+\uuid{0Scu}
+\exo7id{4583}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série entière}
+\sousChapitre{Calcul de la somme d'une série entière}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Montrer l'existence de~$f(z) = \sum_{k=1}^{\infty} kz^k$ pour~$z\in\C$,
+    $|z|<1$.}
+    \item \question{Soit~$A\in\mathcal{M}_n(\C)$. Montrer que $\sum_{k=1}^{\infty} kA^k$ converge
+    si et seulement si les valeurs propres de~$A$ sont de module strictement
+    inférieur à~$1$.}
+    \item \question{La somme $S = \sum_{k=1}^\infty kA^k$ est-elle inversible~?}
+\reponse{
+S'il existe $\lambda\in\mathrm{Sp}(A)$ tel que $|\lambda|\ge 1$
+    et si $x$ est un vecteur propre associé alors $kA^kx = k\lambda^kx\not\rightarrow0$
+    donc la série diverge.
+
+    Si toutes les valeurs propres de~$A$ sont de module $<1$, comme
+    $kA^k = \sum_\lambda \lambda^kP_\lambda(k)$ où les $P_\lambda$
+    sont des polynômes à coefficients matriciels, la série converge absolument.
+$S = \sum_{k=0}^\infty (k+1)A^{k+1} = AS + \sum_{k=0}^\infty A^{k+1}
+                = AS + A(I-A)^{-1}$ donc $S = A(I-A)^{-2}$ est inversible ssi
+             $A$ l'est.
+}
+\end{enumerate}
+}

@@ -1,0 +1,31 @@
+\uuid{p9w3}
+\exo7id{645}
+\auteur{ridde}
+\organisation{exo7}
+\datecreate{1999-11-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Continuité, limite et étude de fonctions réelles}
+\sousChapitre{Continuité : théorie}
+
+\contenu{
+\texte{
+Soient $I$ un intervalle de $\Rr$ et $f : I \rightarrow \Rr$ continue, telle que pour chaque $x \in I$, $f (x)^2 = 1$.
+Montrer que $f = 1$  ou $f = -1$.
+}
+\indication{Ce n'est pas tr\`es dur mais il y a quand m\^eme quelque chose \`a d\'emontrer :
+ce n'est pas parce que $f(x)$ vaut $+1$ ou $-1$ que la fonction est constante.
+Raisonner par l'absurde et utiliser le th\'eor\`eme des valeurs interm\'ediaires.}
+\reponse{
+Comme $f(x)^2 = 1$ alors $f(x) = \pm 1$. 
+Attention ! Cela ne veut pas dire que 
+la fonction est constante \'egale \`a $1$ ou $-1$.
+Supposons, par exemple, qu'il existe $x$ tel que $f(x)=+1$.
+Montrons que $f$ est constante \'egale \`a $+1$.
+S'il existe $y \not= x$ tel que $f(y) = -1$
+alors $f$ est positive en $x$, n\'egative en $y$
+et continue sur $I$. Donc, par le th\'eor\`eme des valeurs interm\'ediaires,
+il existe $z$ entre $x$ et $y$ tel que $f(z) = 0$, ce qui contredit
+$f(z)^2 = 1$. Donc $f$ est constante \'egale \`a $+1$.
+}
+}

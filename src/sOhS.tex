@@ -1,0 +1,64 @@
+\uuid{sOhS}
+\exo7id{5728}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-10-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Suite et série de fonctions}
+\sousChapitre{Continuité, dérivabilité}
+
+\contenu{
+\texte{
+Soit $f$ une application continue sur $[0,1]$ à valeurs dans $\Rr$. Pour $n$ entier naturel non nul, on définit le $n$-ème polynôme de \textsc{Bernstein} associé à $f$ par 
+
+\begin{center}
+$B_n(f) =\sum_{k=0}^{n}\dbinom{n}{k}f\left(\frac{k}{n}\right)X^k(1-X)^{n-k}$.
+\end{center}
+}
+\begin{enumerate}
+    \item \question{\begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{Calculer $B_n(f)$ quand $f$ est la fonction $x\mapsto 1$,  quand $f$ est la fonction $x\mapsto x$, quand $f$ est la fonction $x\mapsto x(x-1)$.}
+\reponse{Soit $n\in\Nn^*$.
+
+\textbullet~Si $\forall x\in[0,1]$, $f(x)= 1$,
+
+\begin{center}
+$B_n(f)=\sum_{k=0}^{n}\dbinom{n}{k}X^k(1-X)^{n-k}= (X+(1-X))^n = 1$.
+\end{center}
+
+\textbullet~Si $\forall x\in[0,1]$, $f(x)=x$,
+
+\begin{align*}\ensuremath
+B_n(f)&=\sum_{k=0}^{n}\frac{k}{n}\dbinom{n}{k}X^k(1-X)^{n-k}=\sum_{k=1}^{n}\dbinom{n-1}{k-1}X^k(1-X)^{n-k}=X\sum_{k=1}^{n}\dbinom{n-1}{k-1}X^{k-1}(1-X)^{(n-1)-(k-1)}\\
+ &= X\sum_{k=0}^{n-1}\dbinom{n-1}{k}X^k(1-X)^{n-1-k}= X.
+\end{align*}
+	
+
+\textbullet~Si $\forall x\in[0,1]$, $f(x)=x(x-1)$, alors $B_n(f)=\sum_{k=0}^{n}\dbinom{n}{k}\frac{k}{n}\left(\frac{k}{n}-1\right)X^k(1-X)^{n-k}$ et donc $B_1(f)=0$. Pour $n\geqslant2$ et $k\in\llbracket1,n-1\rrbracket$
+
+\begin{center}
+$\frac{k}{n}\left(\frac{k}{n}-1\right)\dbinom{n}{k}=-\frac{1}{n^2}k(n-k)\frac{n!}{k!(n-k)!}=-\frac{n-1}{n}\frac{(n-2)!}{(k-1)(n-k-1)!}=-\frac{n-1}{n}\dbinom{n-2}{k-1}$.
+\end{center}
+
+Par suite,
+
+\begin{align*}\ensuremath
+B_n(f)&=-\frac{n-1}{n}\sum_{k=1}^{n-1}\dbinom{n-2}{k-1}X^k(1-X)^{n-k}  = -\frac{n-1}{n}X(1-X)   \sum_{k=1}^{n-1}X^{k-1}(1-X)^{(n-2)-(k-1)}\\
+ &=-\frac{n-1}{n}X(1-X)\sum_{k=0}^{n-2}\dbinom{n-2}{k}X^k(1-X)^{n-2-k}=-\frac{n-1}{n} X(1-X).
+\end{align*}
+
+ce qui reste vrai pour n = 1.}
+    \item \question{En déduire que $\sum_{k=0}^{n}\dbinom{n}{k}(k-nX)^2X^k(1-X)^{n-k}= nX(1-X)$.}
+\reponse{D'après la question précédente
+
+\begin{align*}\ensuremath
+\sum_{k=0}^{n}\dbinom{n}{k}(k-nX)^2X^k(1-X)^{n-k}&=\sum_{k=0}^{n}\dbinom{n}{k}k^2X^k(1-X)^{n-k}- 2nX\sum_{k=0}^{n}\dbinom{n}{k}kX^k(1-X)^{n-k}+n^2X^2\sum_{k=0}^{n}\dbinom{n}{k}X^k(1-X)^{n-k}\\
+ &=\sum_{k=0}^{n}\dbinom{n}{k}k(k-n)X^k(1-X)^{n-k}-n(2X-1)\sum_{k=0}^{n}\dbinom{n}{k}kX^k(1-X)^{n-k}\\
+  &+n^2X^2\sum_{k=0}^{n}\dbinom{n}{k}X^k(1-X)^{n-k}\\
+  &=n^2\sum_{k=0}^{n}\frac{k}{n}\left(\frac{k}{n}-1\right)\dbinom{n}{k}X^k(1-X)^{n-k}-n^2(2X-1)\sum_{k=0}^{n}\dbinom{n}{k}\frac{k}{n}X^k(1-X)^{n-k}+n^2X^2\\
+ &= -n(n-1)X(1-X) -n^2(2X-1)X + n^2X^2 = -nX^2 + nX = nX(1-X).
+\end{align*}}
+\end{enumerate}
+}

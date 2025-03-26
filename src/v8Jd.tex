@@ -1,0 +1,22 @@
+\uuid{v8Jd}
+\exo7id{3759}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Projection, symétrie}
+
+\contenu{
+\texte{
+Soit $f : {\R^n} \to {\R^n}, {(x_1,\dots,x_n)} \mapsto {(x_1-x_n,x_2-x_1,\dots,x_n-x_{n-1}).}$
+Avec la structure euclidienne canonique de~$\R^n$, calculer la norme de~$f$.
+}
+\reponse{
+$f = \mathrm{id}-r$ où $r(x_1,\dots,x_n) = (x_n,x_1,\dots,x_{n-1})$.
+Donc $f^*\circ f = 2\mathrm{id}-r-r^{-1}$ a pour valeurs propres les nombres
+$2-2\cos(2k\pi/n)$, $k\in{[[0,2n-1]]}$ et
+$\|f\| = \begin{cases}2&\text{ si } n \text{ est pair}\cr2\cos(\pi/2n)&\text{ si } n \text{ est impair.}\cr \end{cases}$.
+}
+}

@@ -1,0 +1,34 @@
+\uuid{XuOB}
+\exo7id{3557}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Polynôme annulateur}
+
+\contenu{
+\texte{
+Soit~$E$ un~$\C$-ev de dimension~$n\in\N^*$ et $u_1,\dots,u_p$ ($p\ge 2$)
+des endomorphismes de~$E$ vérifiant~:
+$$\forall\ k,\ u_k^2 = -\mathrm{id}_E,
+  \quad\forall\ k\ne\ell,\ u_k\circ u_\ell = -u_\ell\circ u_k.$$
+}
+\begin{enumerate}
+    \item \question{Montrer que les~$u_k$ sont des automorphismes et qu'ils sont diagonalisables.}
+    \item \question{Montrer que~$n$ est pair.}
+    \item \question{Donner le spectre de chaque~$u_k$.}
+    \item \question{Donner les ordres de multiplicité des valeurs propres des~$u_k$.}
+    \item \question{Calculer~$\det(u_k)$.}
+\reponse{
+3. $\mathrm{Spec}(u_k)\subset \{i,-i\}$ d'après la relation $u_k^2 = -\mathrm{id}_E$.
+    Si le spectre était réduit à un élément alors $u_k$ serait scalaire car
+    diagonalisable, mais ceci est incompatible avec la relation d'anticommutation
+    entre~$u_k$ et $u_\ell$. Donc $\mathrm{Spec}(u_k)=\{i,-i\}$.
+    
+  4. $u_\ell$ avec $\ell\ne k$ échange les sous-espaces propres de~$u_k$
+    donc ils ont même dimension~$n/2$.
+}
+\end{enumerate}
+}

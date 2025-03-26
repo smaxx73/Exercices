@@ -1,0 +1,28 @@
+\uuid{obXP}
+\exo7id{4085}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Equation différentielle}
+\sousChapitre{Equations différentielles linéaires}
+
+\contenu{
+\texte{
+Soit~$E$ l'ensemble des fonctions $f : \R \to \R$ de classe $\mathcal{C}^\infty$
+telle que pour tout~$k\in\N$, $f^{(k)}$ est bornée.
+
+Soit $u : E \to E, f \mapsto {f+f'.}$
+}
+\begin{enumerate}
+    \item \question{Montrer que $u\in\mathcal{L}(E)$.}
+    \item \question{Est-ce que~$u$ est injectif~?}
+    \item \question{Est-ce que~$u$ est surjectif~?}
+\reponse{
+Oui, $\mathrm{Ker} u = \{0\}$.
+Oui~: si $g\in E$ alors $f = t \mapsto \int_{s=-\infty}^t e^{s-t}g(s)\,d s$
+    appartient~à~$E$ et $f+f'=g$.
+}
+\end{enumerate}
+}

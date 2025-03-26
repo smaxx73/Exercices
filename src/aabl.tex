@@ -1,0 +1,71 @@
+\titre{Cryptographie}
+\theme{AM}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+\texte{
+{\bf{Partie A:}}\\
+L'algorithme RSA (du nom de leurs auteurs RIVEST, SHAMIR et ADELMAN) permet d'envoyer des informations chiffrées en mode confidentiel. On rappelle ci-dessous le principe de l'algorithme :
+
+Bernard souhaite envoyer à Alice une information dont elle seule doit pouvoir prendre connaissance. Pour cela, Alice choisit une clé privée, constituée d’un triplet \((p, q, d) \in \mathbb{N}^* \times \mathbb{N}^* \times \mathbb{N}^*\), où \(p\) et \(q\) sont deux nombres premiers distincts, et \(d \in \mathbb{N}\) tel que \(\text{pgcd}(d, (p-1)(q-1)) = 1\). 
+
+Posons \(n = p \times q\). On a :
+$$
+\phi(n) = (p-1)(q-1),
+$$
+où \(\phi\) est l'indicatrice d'Euler. La clé privée d'Alice est parfois notée \((\phi(n), d)\). D'après le théorème de Bézout, il existe deux entiers \(e\) et \(\ell\) tels que :
+$$
+e \times d +\ell \phi(n)= 1
+$$
+Alice calcule le plus petit entier positif \(e\) satisfaisant cette relation de Bézout. Le couple \((n, e)\) constitue la clé publique d'Alice. Alice transmet cette clé à Bernard mais ne communique pas sa clé privée.
+
+\begin{enumerate}
+    \item Alice choisit \(p = 13\), \(q = 5\) et \(d = 7\). Montrer que ce triplet constitue les conditions nécessaires pour constituer la clé privée d'Alice. Quelle est la clé publique d'Alice ?
+    
+    \item Bernard souhaite envoyer à Alice une information notée \(m\), comprise entre 0 et \(n - 1\), tel que \(\text{pgcd}(m, n) = 1\). Pour cela, il calcule \(c= m^e \mod n\). \(c\) est le message crypté qu'il envoie à Alice. Ce message est dit « confidentiel ». Calculer \(c\) pour \(m = 12\).
+    
+    \item Lorsqu'elle reçoit un message crypté \(c\) en provenance de Bernard, Alice calcule \(m = c^d \mod n\) et obtient \(m\). Si elle reçoit le message \(c = 53\) en provenance de Bernard, quel message \(m\) Bernard a-t-il voulu lui transmettre ?
+    
+    \textbf{Remarque :} Par le petit théorème de Fermat, on a :
+    
+ $   c^d \equiv m^{ed} \equiv m \mod n \equiv m^{1-\ell(p-1)(q-1)} \equiv m (m^{(p-1)(q-1)})^{\ell} \equiv m 1^{\ell} \equiv m \pmod n$
+    
+    On note que seule Alice peut effectuer ce calcul puisqu'elle seule connaît \(d\), garantissant ainsi la confidentialité de l'échange.
+\end{enumerate}
+{\bf{Partie B:}}
+Alice et Bernard décident désormais de communiquer en procédant de la façon suivante :  
+Alice choisit une clé privée notée \(\text{Cléprivée Alice} = (p_A, q_A, d_A)\) et calcule selon le principe du RSA sa clé publique notée \(\text{Clépublique Alice} = (n_A, e_A)\). Bernard fait de même et choisit \(\text{Cléprivée Bernard} = (p_B, q_B, d_B)\) puis calcule \(\text{Clépublique Bernard} = (n_B, e_B)\). Tous deux rendent publiques leurs clés publiques.
+
+
+Ensuite, au lieu d’utiliser le procédé classique du RSA, ils décident de procéder comme suit :  
+Si Alice veut envoyer un message \(m\) à Bernard, elle crypte le message en utilisant sa clé privée \(\text{Cléprivée Alice} = (p_A, q_A, d_A)\). Elle obtient un premier message crypté \(M \equiv m^{d_A} \mod n_A\), qu’elle crypte de nouveau en utilisant la clé publique de Bernard : \(C \equiv M^{e_B} \mod n_B\). Elle transmet le message \(C\) ainsi obtenu.\\
+Pour décrypter le message \(C\) provenant d’Alice, Bernard calcule :
+$c \equiv C^{d_B} \mod n_B,$ puis $c^{e_A} \mod n_A,$ et récupère le message \(m\).
+
+
+\begin{enumerate}
+    \item Pour envoyer un message \(m'\) à Alice, Bernard procède de façon similaire. Comment calcule-t-il son premier message \(M'\) ? Quel message crypté \(C'\) reçoit Alice ? Comment Alice calcule-t-elle \(c'\), le premier message qu'elle décrypte ? Comment récupère-t-elle le message \(m'\) ?
+    
+    \item Alice utilise toujours sa clé privée avec \(p_A = 13\), \(q_A = 5\) et \(d_A = 7\). Bernard choisit \(p_B = 11\), \(q_B = 7\) et \(d_B = 19\), ce qui constitue sa clé privée. Quelle est la clé publique de Bernard ?
+    
+    \item Alice et Bernard ont décidé de se transmettre par ce procédé l'initiale du prénom de leur bien-aimé(e). Ils se sont mis d’accord au préalable sur la façon de coder chaque lettre. Les correspondances sont les suivantes :  
+    \(A = 16\), \(B = 17\), \(C = 18\), \dots, \(X = 39\), \(Y = 40\), \(Z = 41\).  
+    Hélas pour Bernard, Alice n’a d’yeux que pour Christian. Quel message crypté notre pauvre Bernard va-t-il recevoir ?
+    
+    \item Alice quant à elle reçoit de Bernard le message 9. Vérifier que l'initiale du prénom de la bien-aimée de Bernard est A.
+    
+    \item \textbf{[QUESTION BONUS]} : En utilisant la remarque de la partie A, justifier que lorsqu'il reçoit le message \(C\) provenant d'Alice, en calculant :
+    $  c \equiv C^{d_B} \mod n_B,$ puis $ c^{e_A} \mod n_A,$
+
+Bernard parvient à décrypter le message reçu. On dit que le message adressé par Alice en employant cette méthode est « confidentiel et authentifié », car seule Alice peut envoyer un tel message « confidentiel ».
+\end{enumerate}
+
+
+
+
+
+
+
+
+}
+}

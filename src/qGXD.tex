@@ -1,0 +1,37 @@
+\uuid{qGXD}
+\exo7id{2413}
+\auteur{mayer}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Théorème de Stone-Weirstrass, théorème d'Ascoli}
+\sousChapitre{Théorème de Stone-Weirstrass, théorème d'Ascoli}
+
+\contenu{
+\texte{
+Soient $E,F$ des espaces norm\'es et $(f_n)$ une suite d'applications  de $E$ dans $F$
+\'equicontinue en $a\in E$. Montrer que, si la suite $(f_n(a))$ converge vers $b$,
+alors $(f_n(x_n))$ converge \'egalement vers $b$, si $(x_n)$ est une suite de $E$
+telle que $\lim_{n\to \infty} x_n =a$.
+
+L'\'equicontinuit\'e est-elle n\'ecessaire ici?
+}
+\indication{Démarrer avec l'inégalité : 
+$$|f_n(x_n)-b| \le |f_n(x_n)-f_n(a)|+|f_n(a)-b|.$$
+
+Si $(f_n)$ n'est pas équicontinue le résultat peut \^etre faux. Prendre $f_n(x) =  (1+x)^n$
+et $x_n= \frac 1 n$.}
+\reponse{
+\begin{enumerate}
+Soit $(x_n)$ une suite convergeant vers $a$, alors
+$$|f_n(x_n)-b| \le |f_n(x_n)-f_n(a)|+|f_n(a)-b|.$$
+Soit $\epsilon >0$, il existe $N_1$ tel que pour $n\ge N_1$ on ait
+$|f_n(a)-b| < \frac \epsilon 2$.
+$(f_n)$ est équicontinue en $a$, donc il existe $\eta >0$ tel que
+pour tout $n\in \Nn$ et tout $x\in E$, $(|x-a| < \eta \Rightarrow |f_n(x)-f_n(a)| < \frac \epsilon 2)$.
+Comme $x_n\rightarrow a$ alors il existe $N_2$ tel que pour $n\ge N_2$  on ait $|x_n-a| < \eta$.
+Donc pour $n \ge \max(N_1,N_2)$ on a $|f_n(x_n)-b| \le |f_n(x_n)-f_n(a)|+|f_n(a)-b| < \frac \epsilon 2 + \frac \epsilon 2 = \epsilon$. Donc
+$(f_n(x_n))$ converge vers $b$.
+}
+}

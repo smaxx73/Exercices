@@ -1,0 +1,26 @@
+\uuid{KSP0}
+\exo7id{4378}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Intégration}
+\sousChapitre{Intégrale de Riemann dépendant d'un paramètre}
+
+\contenu{
+\texte{
+Soit $I(a) =  \int_{x=0}^{+\infty}\frac{\sh x}xe^{-ax}\,d x$.
+}
+\begin{enumerate}
+    \item \question{Quel est le domaine de définition de~$I$~?}
+    \item \question{Étudier la continuité et la dérivabilité de~$I$.}
+    \item \question{Calculer $I(a)$.}
+\reponse{
+$]1,+\infty[$.
+$I'(a) = - \int_{x=0}^{+\infty}\sh xe^{-ax}\,d x = \frac12\Bigl(\frac1{a-1}-\frac1{a+1}\Bigr)$.
+D'où $I(a) = \frac12\ln\Bigl(\frac{a-1}{a+1}\Bigr) +$ cste et $I(a)\to 0$ lorsque $a\to+\infty$
+donc la constante est nulle.
+}
+\end{enumerate}
+}

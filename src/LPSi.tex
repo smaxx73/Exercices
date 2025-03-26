@@ -1,0 +1,23 @@
+\uuid{LPSi}
+\exo7id{2214}
+\auteur{matos}
+\organisation{exo7}
+\datecreate{2008-04-23}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Autre}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $A$ une matrice carr\'ee d'ordre $n$ inversible et $B$ une approximation de $A^{-1}$ On pose $X=I-AB$ et on suppose que $\|X\|<1$. Montrer que
+$$\|A^{-1}-B\| \leq \frac{\|BX\|}{1-\|X\|}.$$
+}
+\reponse{
+$AB=I-X\Rightarrow B^{-1}A^{-1} = (I-X)^{-1}\Rightarrow A^{-1}=B(I-X)^{-1}=B(I+X+X^2+\cdots )$
+
+$$\|A^{-1}-B\|\leq \|BX\|\|I+X+\cdots \|\leq \|BX\|(1+\|X\|
++\|X\|^2+ \cdots )\leq \frac{\|BX\|}{1-\|X\|} .$$
+pour $\|X\|<1$
+}
+}

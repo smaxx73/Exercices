@@ -1,0 +1,23 @@
+\uuid{eoKM}
+\exo7id{3540}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Polynôme caractéristique, théorème de Cayley-Hamilton}
+
+\contenu{
+\texte{
+Soit $p$ premier et $A\in\mathcal{M}_n(\Z)$. Montrer que $\mathrm{tr}(A^p)\equiv \mathrm{tr}(A) \pmod p$.
+}
+\reponse{
+Soit $ K=\Z/p\Z$. Il faut en fait prouver que pour toute matrice $A\in\mathcal{M}_n(K)$
+on a $\mathrm{tr}(A^p)=\mathrm{tr}(A)$. Remarquer qu'on n'a pas forcément $A^p=A$ dans $\mathcal{M}_n(K)$,
+c'est faux, entre autres, si $A$ est nilpotente d'indice 2.
+Soit $X$ une indéterminée sur $ K$. On a dans l'anneau $\mathcal{M}_n(K[X])$~:
+$(A-XI_n)^p = A^p-X^pI_n$, d'où, en prenant les déterminants~:
+$\chi_{A^p}(X^p) = \chi_A(X)^p = \chi_A(X^p)$ et on égale les coefficients de $X^{(n-1)p}$.
+}
+}

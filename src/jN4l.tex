@@ -1,0 +1,22 @@
+\uuid{jN4l}
+\exo7id{4377}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Intégration}
+\sousChapitre{Intégrale de Riemann dépendant d'un paramètre}
+
+\contenu{
+\texte{
+\smallskip
+Soit $f(x) =  \int_{t=0}^1\frac{1-t}{\ln t}t^x\,d t$.
+Étudier le domaine de définition de~$f$, sa dérivabilité, puis calculer $f(x)$.
+}
+\reponse{
+Il y a convergence si et seulement si $x>-1$.
+$f'(x) =  \int_{t=0}^1 (1-t)t^x\,d t = \frac1{x+1} - \frac1{x+2}$,
+donc $f(x) = \ln\Bigl(\frac{x+1}{x+2}\Bigr) + C$ et $f(x)\to 0$ (lorsque $x\to+\infty$) d'où $C=0$.
+}
+}

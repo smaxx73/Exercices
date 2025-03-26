@@ -1,0 +1,39 @@
+\uuid{ZFIn}
+\exo7id{7505}
+\auteur{mourougane}
+\organisation{exo7}
+\datecreate{2021-08-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Géométrie affine euclidienne}
+\sousChapitre{Géométrie affine euclidienne du plan}
+
+\contenu{
+\texte{
+On munit le plan affine euclidien $(P,<,>)$ d'un repère orthonormé
+$(O,\vec{\imath},\vec{\jmath})$.
+On considère les points $A$ de coordonnées $(-2,1)$ et $B$ de coordonnées $(4,4)$.
+}
+\begin{enumerate}
+    \item \question{Déterminer les coordonnées du barycentre $G$ des points massiques $A(2)$ et $B(1)$.}
+\reponse{Comme la somme des masses $2+1$ est non nulle, le barycentre est bien défini.
+    L'abscisse de $G$ est $\frac{2\times (-2)+1\times 4}{2+1}=0$
+    et l'ordonnée $\frac{2\times 1+1\times 4}{2+1}=2$.}
+    \item \question{Calculer $2GA^ 2+GB^2$.}
+\reponse{$2GA^ 2+GB^2=2((-2)^2+(1-2)^2)+(4^2+(4-2)^2)=30$.}
+    \item \question{Démontrer que pour tout point $M$ du plan, on a $$2MA^2+MB^2=3MG^2 +2GA^ 2+GB^2.$$}
+\reponse{Soit $M$ un point du plan $P$.
+    \begin{eqnarray*}
+        2MA^2+MB^2&=&2\vec{MA}^2+\vec{MB}^2=2(\vec{MG}+\vec{GA})^2+(\vec{MG}+\vec{GB})^2\\
+        &=&3\vec{MG}^2+<\vec{MG},2\vec{GA}+\vec{GB}>+2\vec{GA}^ 2+\vec{GB}^2\\
+        &=&3MG^2+2GA^ 2+GB^2.
+    \end{eqnarray*}}
+    \item \question{Déterminer l'ensemble $\mathcal L$ des points $M$ du plan tels que $2MA^2+MB^2=42$.}
+\reponse{Soit $M$ un point du plan $P$.
+    \begin{eqnarray*}
+        M\in\mathcal{L}&\iff & 2MA^2+MB^2=42\iff 3MG^2+2GA^ 2+GB^2=42\\
+        &\iff& 3MG^2+30=42\iff MG^2=4.
+    \end{eqnarray*}
+    L'ensemble $\mathcal L$ est donc le cercle de centre $G$ et de rayon $2$.}
+\end{enumerate}
+}

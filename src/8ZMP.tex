@@ -1,0 +1,43 @@
+\uuid{8ZMP}
+\exo7id{6993}
+\auteur{blanc-centi}
+\organisation{exo7}
+\datecreate{2015-07-04}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Equation différentielle}
+\sousChapitre{Résolution d'équation différentielle du premier ordre}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Résoudre l'équation différentielle $(x^2+1)y'+2xy=3x^2+1$ sur $\R$.
+Tracer des courbes intégrales. Trouver la solution vérifiant $y(0) = 3$.}
+    \item \question{Résoudre l'équation différentielle $y'\sin x-y\cos x+1=0$ sur $]0;\pi[$.
+Tracer des courbes intégrales. Trouver la solution vérifiant $y(\frac\pi4) = 1$.}
+\reponse{
+Comme le coefficient de $y'$ ne s'annule pas, on peut réécrire l'équation sous la forme
+$$y'+\frac{2x}{x^2+1}y=\frac{3x^2+1}{x^2+1}$$
+  \begin{enumerate}
+Les solutions de l'équation homogène associée sont les $y(x)=\lambda e^{A(x)}$, 
+    où $A$ est une primitive de $a(x)=-\frac{2x}{x^2+1}$ et $\lambda\in\R$. 
+    Puisque $a(x)$ est de la forme $-\frac{u'}{u}$ avec $u>0$, on peut choisir $A(x)=-\ln(u(x))$ 
+    où $u(x)=x^2+1$. Les solutions sont donc les 
+    $\displaystyle y(x)=\lambda e^{-\ln(x^2+1)}=\frac{\lambda}{x^2+1}$.
+Il suffit ensuite de trouver une solution particulière de l'équation 
+    avec second membre: on remarque  que $y_0(x)=x$ convient.
+Les solutions sont obtenues en faisant la somme:  
+    $$y(x)=x+\frac{\lambda}{x^2+1}\quad (x\in\R)$$
+    où $\lambda$ est un paramètre réel.
+$y(0)=3$ si et seulement si $\lambda=3$. La solution cherchée est donc
+    $y(x)=x+\frac{3}{x^2+1}$.
+}
+\indication{\ 
+\begin{enumerate}
+  \item $x$ est solution particulière
+  \item $\cos$ est solution particulière
+\end{enumerate}}
+\end{enumerate}
+}
