@@ -1,0 +1,105 @@
+\uuid{4}
+\titre{Estimation et Tests pour une Loi Uniforme}
+\theme{}
+\auteur{}
+\datecreate{2025-03-20}
+\organisation{}
+
+\contenu{
+
+\texte{
+Soit $X_1, \ldots, X_n$ un échantillon de loi uniforme sur $[0, q]$.
+}
+
+\begin{enumerate}
+ %   \item \question{Le modèle est-il régulier ?}
+%    \indication{}
+ %_{[x,+\infty[}(q)$ est discontinue en $x$ et le modèle n’est donc pas régulier.}
+
+    \item \question{Par la méthode des moments, proposer un estimateur de $q$. Montrer sa consistance et sa normalité asymptotique. En déduire un intervalle de confiance asymptotique de niveau $1 - \alpha$.}
+    \indication{}
+    \reponse{On a $E[X] = \frac{q}{2}$ et $V[X] = \frac{q^2}{12}$, et on a donc l’estimateur $\hat{q}_n = 2\bar{X}_n$. On a la consistance via la LFGN et le théorème de continuité, et comme
+    \[
+    \sqrt{n} (\bar{X}_n - \frac{q}{2}) \xrightarrow{L} \mathcal{N}(0, \frac{q^2}{12}).
+    \]
+    En multipliant par 2, on obtient
+    \[
+    \sqrt{n} (\hat{q}_n - q) \xrightarrow{L} \mathcal{N}(0, \frac{q^2}{3}).
+    \]
+    Intervalle de confiance, version 1 : De plus, par Slutsky, on a
+    \[
+    \sqrt{3n} \frac{\hat{q}_n - q}{\hat{q}_n} \xrightarrow{L} \mathcal{N}(0, 1)
+    \]
+    et on obtient donc l’intervalle de confiance
+    \[
+    \left[ \hat{q}_n - q_{1-\alpha} \frac{\hat{q}_n}{\sqrt{3n}}, \hat{q}_n + q_{1-\alpha} \frac{\hat{q}_n}{\sqrt{3n}} \right]
+    \]
+    où $q_{1-\alpha}$ est le quantile d’ordre $1 - \alpha$ de la loi normale centrée réduite.
+
+    Intervalle de confiance version 2 : En divisant par $\frac{q}{\sqrt{3}}$ le TLC, on obtient
+    \[
+    \sqrt{3n} \left( \frac{\hat{q}_n}{q} - 1 \right) \xrightarrow{L} \mathcal{N}(0, 1)
+    \]
+    et donc
+    \[
+    P \left( \frac{\hat{q}_n}{q} - 1 \leq q_{1-\alpha} \frac{1}{\sqrt{3n}} \right) \approx 1 - \alpha.
+    \]
+    On obtient donc l’intervalle (pour $n > q^2_{1-\alpha}$)
+    \[
+    \left[ \hat{q}_n \left( 1 - q_{1-\alpha} \frac{1}{\sqrt{3n}} \right), \hat{q}_n \left( 1 + q_{1-\alpha} \frac{1}{\sqrt{3n}} \right) \right].
+    \]
+    }
+
+    \item \question{Soit $q_0 > 0$, proposer un test de niveau asymptotique $\alpha$ pour tester $H_0 : q = q_0$ contre $H_1 : q \neq q_0$.}
+    \indication{}
+    \reponse{On a la zone de rejet
+    \[
+    ZR = \left( \sqrt{3n} \frac{\hat{q}_n - q_0}{\hat{q}_n} > q_{1-\alpha} \right) = \left( \hat{q}_n > q_0 + q_{1-\alpha} \frac{\hat{q}_n}{\sqrt{3n}} \right).
+    \]
+    }
+
+    \item \question{Calculer l’estimateur du maximum de vraisemblance et calculer son risque quadratique.}
+    \indication{}
+    \reponse{On a pour tout $q > 0$,
+    \[
+    L_X(q) = \prod_{i=1}^n \frac{1}{q} 1_{[0,q]}(X_i) = \frac{1}{q^n} 1_{[X_{(n)},+\infty[}(q).
+    \]
+    et le maximum est donc atteint en $X_{(n)}$.
+    }
+
+    \item \question{Calculer la loi limite de $n(q_{MV} - q)$.}
+    \indication{}
+    \reponse{Pour tout $x \in [0, nq]$, on a par indépendance des $X_i$
+    \[
+    P(n(q - X_{(n)}) \geq x) = P(X_{(n)} \leq q - \frac{x}{n}) = \left( P(X_1 \leq q - \frac{x}{n}) \right)^n = \left( 1 - \frac{x}{qn} \right)^n \xrightarrow{n \to \infty} \exp \left( -\frac{x}{q} \right).
+    \]
+    et donc $n(q - X_{(n)})$ converge en loi vers une loi exponentielle de paramètre $q^{-1}$.
+    }
+
+    \item \question{Déterminer $c_{\alpha,n}$ tel que $[X_{(n)}, c_{\alpha,n}X_{(n)}]$ soit un intervalle de confiance de niveau $1 - \alpha$.}
+    \indication{}
+    \reponse{On a
+    \[
+    P(q \leq c_{\alpha,n}X_{(n)}) = 1 - P(X_{(n)} \leq \frac{q}{c_{\alpha,n}}) = 1 - \left( P(X_1 \leq \frac{q}{c_{\alpha,n}}) \right)^n = 1 - \frac{1}{c_{\alpha,n}^n}.
+    \]
+    De plus,
+    \[
+    \frac{1}{c_{\alpha,n}^n} = \alpha \implies c_{\alpha,n} = \exp \left( -\frac{1}{n} \ln(\alpha) \right).
+    \]
+    }
+
+    \item \question{Calculer la médiane de $X_1$ et en déduire un nouvel estimateur de $q$. Donner sa normalité asymptotique ainsi qu’un nouvel intervalle de confiance asymptotique.}
+    \indication{}
+    \reponse{On a $X_{([n/2])} = \frac{q}{2}$ et on propose donc l’estimateur $2X_{([n/2])}$. On a la convergence de $X_{([n/2])}$ via le théorème du cours et donc la consistance de $2X_{([n/2])}$. On a de plus
+    \[
+    \sqrt{n} \left( X_{([n/2])} - \frac{q}{2} \right) \xrightarrow{L} \mathcal{N}(0, \frac{q^2}{4})
+    \]
+    et on obtient en multipliant par 2 la normalité asymptotique. On obtient les intervalles de confiances comme pour l’estimateur des moments.
+    }
+
+    \item \question{Quel intervalle choisiriez-vous ?}
+    \indication{}
+    \reponse{Non seulement celui obtenu avec le maximum de vraisemblance est plus précis quand $n$ est grand (faire un DL pour le vérifier), mais en plus il est non asymptotique.}
+\end{enumerate}
+
+}

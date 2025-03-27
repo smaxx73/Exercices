@@ -1,0 +1,35 @@
+
+
+\titre{Maximum de vraisemblance et tests}
+\theme{Statistique}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{
+
+
+On observe un échantillon \( X_1, \dots, X_n \) dont la loi admet
+la densité
+$$
+f_\theta(x) = \exp(- (x - \theta)) \mathrm{1}_{[\theta, +\infty[}(x),
+$$
+où \( \theta \) est un paramètre réel inconnu.}
+
+\begin{enumerate}
+  \item \question{Quels estimateurs de \( \theta \) pouvez-vous proposer en utilisant les méthodes usuelles ?}
+  \item \question{Déterminer la loi de \( n(\hat{\theta}_n - \theta) \), où \( \hat{\theta}_n \) est l’estimateur du maximum de vraisemblance. En déduire un intervalle de confiance pour \( \theta \) de niveau \( 1 - \alpha \).}
+  \item \question{Soit \( \alpha \in ]0, 1[ \). On souhaite tester au niveau \( \alpha \):
+    $$ H_0:\,\, \theta \geq 0\,\,\, \text{contre} \,\,\, H_1:\,\, \theta < 0 .$$
+    
+    \begin{enumerate}
+      \item \question{Construire un test à partir de l’intervalle de confiance de la question 2, calculer sa puissance et donner son allure (pour \( n \) et \( \alpha \) fixés). Quelle est sa taille \( \alpha^* \) ?}
+      \item \question{Proposer un autre test qui soit, lui, de taille \( \alpha \).}
+      \item \question{Calculer la fonction puissance du test. La représenter en fonction de \( \theta \) pour \( n \) et \( \alpha \) fixés.}
+      \item \question{Comment varie la puissance en fonction de \( \alpha \) ? en fonction de \( n \) ?}
+    \end{enumerate}
+  }
+  \item \question{Proposer un test de niveau \( \alpha \) de \( H_0 : \) « La loi de \( X_1 \) est une loi exponentielle » contre \( H_1 : \) « La loi de \( X_1 \) n’est pas une loi exponentielle ». Calculer la puissance de ce test.}
+\end{enumerate}
+}

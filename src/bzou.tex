@@ -1,0 +1,172 @@
+\titre{Anova}
+\theme{statistiques}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+\texte{
+
+Un chercheur en psychologie cognitive souhaite étudier l'impact de différentes méthodes d'apprentissage sur les performances de mémorisation. Il recrute 30 étudiants qu'il répartit aléatoirement en 5 groupes de 6 personnes. Chaque groupe utilise une méthode d'apprentissage différente pour mémoriser une liste de 50 mots en 15 minutes :
+
+\begin{itemize}
+    \item Groupe 1 : Méthode de répétition simple
+    \item Groupe 2 : Méthode des loci (palais mental)
+    \item Groupe 3 : Cartes mémoire (flashcards)
+    \item Groupe 4 : Méthode d'association d'images
+    \item Groupe 5 : Méthode de découpage (chunking)
+\end{itemize}
+
+Après la phase d'apprentissage, le chercheur soumet les participants à un test où ils doivent rappeler le maximum de mots possible. Le nombre de mots correctement rappelés est enregistré pour chaque participant et présenté dans le tableau suivant :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Participant & Groupe 1 & Groupe 2 & Groupe 3 & Groupe 4 & Groupe 5 \\
+\hline
+1 & 21 & 35 & 27 & 32 & 29 \\
+\hline
+2 & 18 & 38 & 25 & 29 & 26 \\
+\hline
+3 & 23 & 37 & 28 & 34 & 30 \\
+\hline
+4 & 19 & 40 & 30 & 33 & 27 \\
+\hline
+5 & 20 & 36 & 26 & 31 & 28 \\
+\hline
+6 & 22 & 39 & 29 & 30 & 25 \\
+\hline
+\end{tabular}
+\end{center}
+}
+\begin{enumerate}
+\item \question{Formulez les hypothèses nulles et alternatives appropriées pour cette étude.}
+\reponse{
+\textbf{Hypothèse nulle $H_0$} : Il n'y a pas de différence significative entre les moyennes des scores de mémorisation obtenus par les différentes méthodes d'apprentissage.
+
+Mathématiquement : $\mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5$
+
+\textbf{Hypothèse alternative $H_1$} : Il existe au moins une différence significative entre les moyennes des scores de mémorisation obtenus par les différentes méthodes d'apprentissage.
+
+Mathématiquement : Il existe au moins un couple $(i,j)$ tel que $\mu_i \neq \mu_j$ (pour $i, j \in \{1, 2, 3, 4, 5\}$)
+}
+\item \question{Calculez les statistiques descriptives pour chaque groupe (moyenne, variance).}
+\reponse{
+\textbf{Groupe 1 (Répétition simple) :}
+\begin{align*}
+\bar{x}_1 &= \frac{21 + 18 + 23 + 19 + 20 + 22}{6} = \frac{123}{6} = 20,5\\
+s_1^2 &= \frac{(21-20,5)^2 + (18-20,5)^2 + (23-20,5)^2 + (19-20,5)^2 + (20-20,5)^2 + (22-20,5)^2}{5}\\
+&= \frac{0,25 + 6,25 + 6,25 + 2,25 + 0,25 + 2,25}{5}\\
+&= \frac{17,5}{5} = 3,5
+\end{align*}
+
+\textbf{Groupe 2 (Méthode des loci) :}
+\begin{align*}
+\bar{x}_2 &= \frac{35 + 38 + 37 + 40 + 36 + 39}{6} = \frac{225}{6} = 37,5\\
+s_2^2 &= \frac{(35-37,5)^2 + (38-37,5)^2 + (37-37,5)^2 + (40-37,5)^2 + (36-37,5)^2 + (39-37,5)^2}{5}\\
+&= \frac{6,25 + 0,25 + 0,25 + 6,25 + 2,25 + 2,25}{5}\\
+&= \frac{17,5}{5} = 3,5
+\end{align*}
+
+\textbf{Groupe 3 (Cartes mémoire) :}
+\begin{align*}
+\bar{x}_3 &= \frac{27 + 25 + 28 + 30 + 26 + 29}{6} = \frac{165}{6} = 27,5\\
+s_3^2 &= \frac{(27-27,5)^2 + (25-27,5)^2 + (28-27,5)^2 + (30-27,5)^2 + (26-27,5)^2 + (29-27,5)^2}{5}\\
+&= \frac{0,25 + 6,25 + 0,25 + 6,25 + 2,25 + 2,25}{5}\\
+&= \frac{15,5}{5} = 3,1
+\end{align*}
+
+\textbf{Groupe 4 (Association d'images) :}
+\begin{align*}
+\bar{x}_4 &= \frac{32 + 29 + 34 + 33 + 31 + 30}{6} = \frac{189}{6} = 31,5\\
+s_4^2 &= \frac{(32-31,5)^2 + (29-31,5)^2 + (34-31,5)^2 + (33-31,5)^2 + (31-31,5)^2 + (30-31,5)^2}{5}\\
+&= \frac{0,25 + 6,25 + 6,25 + 2,25 + 0,25 + 2,25}{5}\\
+&= \frac{15,5}{5} = 3,1
+\end{align*}
+
+\textbf{Groupe 5 (Découpage/Chunking) :}
+\begin{align*}
+\bar{x}_5 &= \frac{29 + 26 + 30 + 27 + 28 + 25}{6} = \frac{165}{6} = 27,5\\
+s_5^2 &= \frac{(29-27,5)^2 + (26-27,5)^2 + (30-27,5)^2 + (27-27,5)^2 + (28-27,5)^2 + (25-27,5)^2}{5}\\
+&= \frac{2,25 + 2,25 + 6,25 + 0,25 + 0,25 + 6,25}{5}\\
+&= \frac{15,5}{5} = 3,1
+\end{align*}
+
+\textbf{Récapitulatif :}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Groupe & Méthode & Moyenne & Variance \\
+\hline
+1 & Répétition simple & 20,5 & 3,5 \\
+\hline
+2 & Méthode des loci & 37,5 & 3,5 \\
+\hline
+3 & Cartes mémoire & 27,5 & 3,1 \\
+\hline
+4 & Association d'images & 31,5 & 3,1 \\
+\hline
+5 & Découpage (chunking) & 27,5 & 3,1 \\
+\hline
+\end{tabular}
+\end{center}
+}
+\item \question{Réalisez une ANOVA à un facteur pour déterminer s'il existe des différences significatives entre les méthodes d'apprentissage. Utilisez un seuil de signification $\alpha = 0.05$.}
+\reponse{
+Calculons d'abord la moyenne générale :
+\[\bar{x} = \frac{20,5 + 37,5 + 27,5 + 31,5 + 27,5}{5} = \frac{144,5}{5} = 28,9\]
+
+\textbf{Somme des carrés inter-groupe (SCA) :}
+\begin{align*}
+SCA &= \sum_{j=1}^{k} n_j(\bar{x}_j - \bar{x})^2\\
+&= 6 \times [(20,5 - 28,9)^2 + (37,5 - 28,9)^2 + \cdots{}+ (27,5 - 28,9)^2]\\
+&= 6 \times [(-8,4)^2 + (8,6)^2 + (-1,4)^2 + (2,6)^2 + (-1,4)^2]\\
+&= 6 \times [70,56 + 73,96 + 1,96 + 6,76 + 1,96]\\
+&= 6 \times 155,2 = 931,2
+\end{align*}
+
+\textbf{Somme des carrés intra-groupe (SCE) :}
+\begin{align*}
+SCE &= \sum_{j=1}^{k} (n_j - 1) \times s_j^2\\
+&= (6-1) \times 3,5 + (6-1) \times 3,5 + (6-1) \times 3,1 + (6-1) \times 3,1 + (6-1) \times 3,1\\
+&= 5 \times (3,5 + 3,5 + 3,1 + 3,1 + 3,1)\\
+&= 5 \times 16,3 = 81,5
+\end{align*}
+
+\textbf{Somme des carrés totale (SCT) :}
+\[SCT = SCA + SCE = 931,2 + 81,5 = 1012,7\]
+
+\textbf{Table d'ANOVA :}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Source & SC & ddl & CM & F \\
+\hline
+Inter-groupe & 931,2 & 4 & 232,8 & 71,4 \\
+\hline
+Intra-groupe & 81,5 & 25 & 3,26 & \\
+\hline
+Total & 1012,7 & 29 & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Calcul de F :}
+\[F = \frac{CM_{inter}}{CM_{intra}} = \frac{232,8}{3,26} = 71,4\]
+
+La valeur critique de F pour $\alpha = 0.05$, avec 4 degrés de liberté au numérateur et 25 degrés de liberté au dénominateur est approximativement 2,76.
+
+Comme F calculé (71,4) > F critique (2,76), nous rejetons l'hypothèse nulle $H_0$.
+
+\textbf{Conclusion :} Il existe des différences significatives entre les moyennes des scores de mémorisation obtenus par les différentes méthodes d'apprentissage.
+}
+
+\item \question{Calculez la taille d'effet ($\eta^2=$) et interprétez sa valeur.}
+\reponse{
+La taille d'effet $\eta^2$ (êta carré) se calcule comme suit :
+\[\eta^2 = \frac{SCA}{SCT} = \frac{931,2}{1012,7} = 0,92\]
+
+\textbf{Interprétation :} Une valeur de $\eta^2 = 0,92$ indique que 92\% de la variance totale des scores de mémorisation est expliquée par les différences entre les méthodes d'apprentissage. Selon les conventions de Cohen, une valeur $\eta^2 > 0,14$ est considérée comme un effet de grande taille. Dans notre cas, l'effet est donc très large, suggérant que le choix de la méthode d'apprentissage a un impact très important sur les performances de mémorisation.
+}
+
+\end{enumerate}
+
+}
