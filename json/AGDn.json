@@ -1,0 +1,18 @@
+{
+  "uuid": "AGDn",
+  "titre": "Calcul de déterminant",
+  "theme": "calcul déterminant",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Calculer :\n$$\n\\Delta=\\left|\\begin{array}{cccc}\n\ta^2 & a b & a b & b^2 \\\\\n\ta b & a^2 & b^2 & a b \\\\\n\ta b & b^2 & a^2 & a b \\\\\n\tb^2 & a b & a b & a^2\n\\end{array}\\right|,\n$$\noù $a$ et $b$ sont deux réels non nuls."
+    },
+    {
+      "type": "reponse",
+      "value": "$$\n\\begin{aligned}\n\t& \\Delta=\\left|\\begin{array}{cccc}\n\t\ta^2 & a b & a b & b^2 \\\\\n\t\ta b & a^2 & b^2 & a b \\\\\n\t\ta b & b^2 & a^2 & a b \\\\\n\t\tb^2 & a b & a b & a^2\n\t\\end{array}\\right|=\\ell_2-\\ell_3\\left|\\begin{array}{cccc} \n\t\t& \\ell_4 \\\\\n\t\ta^2-b^2 & 0 & 0 & b^2-a^2 \\\\\n\t\t0 & a^2-b^2 & b^2-a^2 & 0 \\\\\n\t\ta b & b^2 & a^2 & a b \\\\\n\t\tb^2 & a b & a b & a^2\n\t\\end{array}\\right| \\\\\n\t& =\\left(a^2-b^2\\right)^2 \\cdot\\left|\\begin{array}{cccc}\n\t\t1 & 0 & 0 & -1 \\\\\n\t\t0 & 1 & -1 & 0 \\\\\n\t\ta b & b^2 & a^2 & a b \\\\\n\t\tb^2 & a b & a b & a^2\n\t\\end{array}\\right|=(a-b)^2 \\cdot(a+b)^2 \\cdot\\left|\\begin{array}{cccc}\n\t\t1 & 0 & 0 & -1 \\\\\n\t\t0 & 1 & -1 & 0 \\\\\n\t\ta b & b^2 & a^2 & a b \\\\\n\t\tb^2 & a b & a b & a^2\n\t\\end{array}\\right| \\\\\n\t& c_1+c_2+c_3+c_4 \\\\\n\t& =(a-b)^2 \\cdot(a+b)^2 \\cdot\\left|\\begin{array}{cccc}\n\t\t0 & 0 & 0 & -1 \\\\\n\t\t0 & 1 & -1 & 0 \\\\\n\t\t(a+b)^2 & b^2 & a^2 & a b \\\\\n\t\t(a+b)^2 & a b & a b & a^2\n\t\\end{array}\\right| \\\\\n\t& =(a-b)^2 \\cdot(a+b)^4 \\cdot\\left|\\begin{array}{cccc}\n\t\t0 & 0 & 0 & -1 \\\\\n\t\t0 & 1 & -1 & 0 \\\\\n\t\t1 & b^2 & a^2 & a b \\\\\n\t\t1 & a b & a b & a^2\n\t\\end{array}\\right|=(a-b)^2 \\cdot(a+b)^4 \\cdot\\left|\\begin{array}{ccc}\n\t\t0 & 1 & -1 \\\\\n\t\t1 & b^2 & a^2 \\\\\n\t\t1 & a b & a b\n\t\\end{array}\\right| \\\\\n\t& \\Delta^{\\prime}=\\left|\\begin{array}{ccc}\n\t\t0 & 1 & -1 \\\\\n\t\t1 & b^2 & a^2 \\\\\n\t\t1 & a b & a b\n\t\\end{array}\\right|=\\left|\\begin{array}{ccc}\n\t\t0 & 1 & 0 \\\\\n\t\t1 & b^2 & a^2+b^2 \\\\\n\t\t1 & a b & 2 a b\n\t\\end{array}\\right|=-\\left|\\begin{array}{cc}\n\t\t1 & a^2+b^2 \\\\\n\t\t1 & 2 a b\n\t\\end{array}\\right|=a^2+b^2-2 a b \\\\\n\t& \\Delta=(a-b)^4 \\cdot(a+b)^4 \\\\\n\t&\n\\end{aligned}\n$$"
+    }
+  ]
+}

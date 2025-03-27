@@ -1,0 +1,49 @@
+\chapitre{Probabilité continue}
+\sousChapitre{Lois des grands nombres, théorème central limite}
+\uuid{Vss4}
+\titre{Contrôle de qualité sur des pièces d'un euro}
+\theme{théorème central limite, approximation de loi}
+\auteur{ }
+\datecreate{2024-09-27} 
+\organisation{ AMSCC }
+\contenu{
+On effectue un contrôle sur des pièces d'un euro dont une proportion $p = 0{,}05$ est fausse. On considère un lot de 1000 pièces d'un euro. Soit $X$ la variable aléatoire égale au nombre de pièces fausses parmi les 1000.
+
+\begin{enumerate}
+    \item \question{ Quelle est la loi de la variable aléatoire $X$ ? Quelle est son espérance, son écart-type ? }
+    \reponse{
+        La variable aléatoire $X$ suit une loi binomiale de paramètres $n = 1000$ et $p = 0{,}05$, ce qui se note $X \hookrightarrow \mathcal{B}(1000, 0{,}05)$. On a $\mathbb{E}(X) = n \times p = 1000 \times 0{,}05 = 50$ et $\sigma(X) = \sqrt{n \times p \times (1-p)} = \sqrt{1000 \times 0{,}05 \times 0{,}95} = \sqrt{47{,}5}$.
+    }
+    \item \question{ En utilisant l'inégalité de Bienaymé-Tchebychev, majorer la probabilité que le nombre de pièces fausses soit supérieur à 100. }
+    \reponse{
+        D'après l'inégalité de Bienaymé-Tchebychev appliquée à la variable aléatoire $X$ admettant une espérance $50$, on a pour tout $k > 0$ :
+        \[
+        \prob(|X - \mathbb{E}(X)| > k) \leq \frac{\sigma(X)^2}{k^2}.
+        \]
+        Donc, pour $k = 50$, on a :
+        \[
+        \prob(|X - 50| > 50) \leq \frac{47{,}5}{50^2} = 0{,}019.
+        \]
+        Donc, $\prob(X > 100) = \prob(X - 50 > 50) \leq \prob(|X - 50| > 50) \leq 0{,}019$.
+    }
+    \item \question{ Justifier que $X$ peut être approchée par une variable suivant une loi normale de moyenne $\mu = 50$ et d’écart-type $\sigma = \sqrt{47{,}5}$. }
+    \reponse{
+        Soit $S_n = X_1+\cdots X_n$ une somme de variables aléatoires indépendantes et identiquement distribuées suivant une loi de Bernoulli de paramètre $p = 0{,}05$. D'après le théorème central limite, la variable aléatoire $\frac{S_n - 0.05n}{\sqrt{n\times 0.05 \times 0.95}}$ suit approximativement une loi normale centrée réduite pour $n$ grand (supérieur à $30$ en pratique), donc $S_n$ suit approximativement une loi normale de moyenne $0.05n$ et d'écart-type $\sqrt{n\times 0.05 \times 0.95}$.
+
+        Or $X$ suit la même loi que $S_{1000}$ donc $X$ peut être approchée par une variable suivant une loi normale de moyenne $\mu = 50$ et d’écart-type $\sigma = \sqrt{47{,}5}$. 
+    }
+    \item \question{ À l’aide de cette approximation, estimer la probabilité que le nombre de pièces fausses soit compris entre 48 et 52. }
+    \reponse{
+        On calcule : 
+        \begin{align*}
+            \prob\left( 48 \leq X \leq 52 \right) & = \prob\left( \frac{48 - 50}{\sqrt{47{,}5}} \leq \frac{X - 50}{\sqrt{47{,}5}} \leq \frac{52 - 50}{\sqrt{47{,}5}} \right) \\
+            & = \prob\left( -\frac{2}{\sqrt{47{,}5}} \leq \frac{X - 50}{\sqrt{47{,}5}} \leq \frac{2}{\sqrt{47{,}5}} \right) \\
+            & = \prob\left( -\frac{2}{\sqrt{47{,}5}} \leq Z \leq \frac{2}{\sqrt{47{,}5}} \right) \\
+            &= 2 \times \prob\left( Z \leq \frac{2}{\sqrt{47{,}5}} \right) - 1 \\
+            & = 2 \times \Phi\left( \frac{2}{\sqrt{47{,}5}} \right) - 1 \\
+            & \approx 2 \times 0{,}6142 - 1 \\
+            & \approx 0{,}2283.
+        \end{align*}
+    }
+\end{enumerate}
+}

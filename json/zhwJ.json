@@ -1,0 +1,50 @@
+{
+  "uuid": "zhwJ",
+  "titre": "Etude d'extrema",
+  "theme": "calcul différentiel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Déterminer l'ensemble de définition de la fonction $f$ et vérifier que $f$ est de classe $\\mathcal{C}^2$ sur son ensemble de définition."
+    },
+    {
+      "type": "reponse",
+      "value": "L'ensemble de définition de $f$ est $D_f = \\{(x,y) \\in \\R^2\\, , \\, x>0, y>0 \\}$"
+    },
+    {
+      "type": "question",
+      "value": "On pose $h(t) = t-\\ln(t)-\\frac{1}{t}$ : déterminer l'ensemble de définition de $h$ et étudier ses variations."
+    },
+    {
+      "type": "reponse",
+      "value": "L'ensemble de définition de $h$ est $D_h = \\{t \\in \\R\\, , \\, t>0\\}= \\R_+^*$. La fonction $h$ est dérivable sur son ensemble de définition et $\\forall t \\in \\R_+^*$ : \n\t\t\t$$h'(t) = 1-\\frac{1}{t}+\\frac{1}{t^2} = \\frac{t^2-t+1}{t^2} = \\frac{(t+1)^2+t}{t^2} > 0$$\n\t\t\tPar conséquent, $h$ est strictement croissante sur $]0;+\\infty[$."
+    },
+    {
+      "type": "question",
+      "value": "Démontrer que $\\mathrm{grad}_f(x,y)=(0,0) \\iff \t\\begin{cases}\n\t\t\th\\left(\\frac{x}{y}\\right) = 0\\\\\n\t\t\t\\frac{x}{y} - \\ln(x) =0\n\t\t\\end{cases}$"
+    },
+    {
+      "type": "reponse",
+      "value": "$$\\begin{align*}\n\t\t\t\t\\begin{cases}\n\t\t\t\t\t\\frac{\\partial f}{\\partial x}(x,y) = 0\\\\\n\t\t\t\t\t\\frac{\\partial f}{\\partial y}(x,y) =0\n\t\t\t\t\\end{cases}\n\t\t\t\t\\Leftrightarrow\n\t\t\t\t\\begin{cases}\n\t\t\t\t\t\\ln(y) - \\frac{y}{x} = 0\\\\\n\t\t\t\t\t\\frac{x}{y} - \\ln(x)=0\n\t\t\t\t\\end{cases}\t\t\n\t\t\t\t\\Leftrightarrow\n\t\t\t\t\\begin{cases}\n\t\t\t\t\t\\ln(y) - \\ln(x) +  \\frac{x}{y}  - \\frac{y}{x} = 0            \\\\\n\t\t\t\t\t\\frac{x}{y} - \\ln(x) = 0\n\t\t\t\t\\end{cases}\t\t\n\t\t\t\t\\Leftrightarrow\n\t\t\t\t\\begin{cases}\n\t\t\t\t\th\\left(\\frac{x}{y}\\right) = 0            \\\\\n\t\t\t\t\t\\frac{x}{y} - \\ln(x) = 0\n\t\t\t\t\\end{cases}\t\t\t\n\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "En déduire l'ensemble des points stationnaires de $f$."
+    },
+    {
+      "type": "reponse",
+      "value": "La fonction $h$ s'annule une et une seule fois sur son ensemble définition en $t=1$ donc $(x,y)$ est un point stationnaire si et seulement si $x=y=e$. Il existe un unique point stationnaire qui est le point $(e,e)$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer l'ensemble des points extrémaux (locaux et globaux) de $f$."
+    },
+    {
+      "type": "reponse",
+      "value": "Il est clair que $f$ n'admet pas d'extremum global. En effet, on peut voir par exemple que $\\lim\\limits_{x \\to +\\infty}f(x,1) = -\\infty$ et $\\lim\\limits_{y \\to +\\infty}f(1,y) = +\\infty$.\n\t\t\t\n\t\t\tDe plus, au voisinage du point stationnaire $(e,e)$, on peut étudier les conditions du second ordre en formant la matrice hessienne : \n\t\t\t\n\t\t\t$$Hess_f(x,y)=\\begin{pmatrix} \n\t\t\t\t\\frac{\\partial^2 f}{\\partial x^2}(x,y) = 1/x^2 & \\frac{\\partial^2 f}{\\partial x \\partial y}(x,y) = 1/y-1/x \\\\\n\t\t\t\t\\frac{\\partial^2 f}{\\partial y \\partial x}(x,y) = 1/y-1/x & \\frac{\\partial^2 f}{\\partial y^2}(x,y) = -1/y^2 \n\t\t\t\\end{pmatrix}$$\n\t\t\td'où \n\t\t\t$$Hess_f(e,e)=\\begin{pmatrix} \n\t\t\t\t1/e^2 &  0 \\\\\n\t\t\t\t0 & -1/e^2 \n\t\t\t\\end{pmatrix}$$\n\t\t\t\n\t\t\tOn a un déterminant négatif, donc le point $(e,e)$ est un point selle."
+    }
+  ]
+}

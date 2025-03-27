@@ -1,0 +1,22 @@
+{
+  "uuid": "kMXh",
+  "titre": "Couple de variables aléatoires, question de cours",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Supposons que $(X,Y)$ suive la loi uniforme sur le disque unité $D$ centré en $(0,0)$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer la loi de $X$."
+    },
+    {
+      "type": "reponse",
+      "value": "Alors $(X,Y)$ admet pour densité $f(x,y)=\\frac{1}{\\pi} \\textbf{1}_D(x,y)$. Alors $X$ admet pour densité $f_X$ définie par  $f_X(x) = \\int_{\\R}^{} f(x,y)dy = \\frac{1}{\\pi} \\int_{\\{y^2<1-x^2\\}}^{} dy$.\n\t\n\tOr $ y^2<1-x^2 \\iff \\begin{cases}\n\t\t-\\sqrt{1-x^2} < y < \\sqrt{1-x^2} \\\\\n\t\t-1<x<1\n\t\\end{cases}$ donc $$f_X(x) = \\frac{1}{\\pi} \\textbf{1}_{]-1;1[}(x)\\int_{-\\sqrt{1-x^2}}^{+\\sqrt{1-x^2}} dy =  \\frac{2}{\\pi} \\sqrt{1-x^2} \\textbf{1}_{]-1;1[}(x)$$"
+    }
+  ]
+}

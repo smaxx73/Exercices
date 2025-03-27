@@ -1,0 +1,14 @@
+{
+  "uuid": "GmNP",
+  "titre": "Convergence en loi",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $\\lambda >0$. Pour tout $n \\geq \\lambda$, on définit une suite $\\left(X_k^n\\right)_{k \\in \\N}$unesuite de variables aléatoires indépendantes suivant une loi de Bernoulli de paramètre $p_n = \\frac{\\lambda}{n}$. On considère alors la variable aléatoire :\n$$N_n = \\frac{1}{n} \\inf\\{ k \\in N \\, , \\, X_k^n = 1\\}$$\n\n\\begin{enumerate}\n\t\\item Soit un entier $n \\geq \\lambda$. Justifier que la variable $nN_n$ suit une loi géométrique dont on précisera le paramètre. \n\t\\item Déterminer la fonction caractéristique de la variable aléatoire $N_n$.\n\t\\item En déduire que la suite de variables aléatoires $(N_n)$ converge en loi vers une loi usuelle que l'on précisera. \n\\end{enumerate}"
+    }
+  ]
+}

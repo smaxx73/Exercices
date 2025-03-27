@@ -1,0 +1,59 @@
+\chapitre{Probabilité discrète}
+\sousChapitre{Variable aléatoire discrète}
+\uuid{xs4r}
+\titre{Loi d'un couple de variables aléatoires}
+\theme{variables aléatoires discrètes, loi conjointe}
+\auteur{ }
+\datecreate{2024-09-27} 
+\organisation{ AMSCC }
+\contenu{
+
+Soit $(X,Y)$ un couple de variables aléatoires discrètes tel que : l'ensemble des valeurs prises par $X$ est $\{1, 3, 5\}$ et l'ensemble des valeurs prises par $Y$ est $\{2, 4, 6\}$.
+
+La loi du couple $(X,Y)$ est donnée par le tableau suivant :
+
+\begin{center}
+\begin{tabular}{c|ccc}
+\hline
+      & $Y=2$ & $Y=4$ & $Y=6$ \\
+\hline
+$X=1$ & $0{,}1$ & $0{,}05$ & $0{,}15$ \\
+$X=3$ & $0{,}2$ & $p$ & $0{,}1$ \\
+$X=5$ & $0{,}05$ & $0{,}15$ & $0{,}1$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item \question{Déterminer la valeur de $p$.}
+\reponse{
+La somme des probabilités doit être égale à 1. On a donc :
+\[
+0{,}1 + 0{,}05 + 0{,}15 + 0{,}2 + p + 0{,}1 + 0{,}05 + 0{,}15 + 0{,}1 = 1
+\]
+d'où $p = 0{,}1$.
+}
+\item \question{Déterminer les lois marginales du couple $(X,Y)$.}
+\reponse{
+pour $X$ : $\prob(X=1) = 0{,}1 + 0{,}05 + 0{,}15 = 0{,}3$, $\prob(X=3) = 0{,}2 + 0{,}1 + 0{,}1 = 0{,}4$ et $\prob(X=5) = 0{,}05 + 0{,}15 + 0{,}1 = 0{,}3$ ;\\
+pour $Y$ : $\prob(Y=2) = 0{,}1 + 0{,}2 + 0{,}05 = 0{,}35$, $\prob(Y=4) = 0{,}05 + 0{,}15 + 0{,}15 = 0{,}35$ et $\prob(Y=6) = 0{,}15 + 0{,}1 + 0{,}1 = 0{,}35$.
+}
+\item \question{Les variables $X$ et $Y$ sont-elles indépendantes ?}
+\reponse{
+Les variables $X$ et $Y$ sont indépendantes si et seulement si pour tout couple $(x,y)$, on a $\prob(X=x \cap Y=y) = \prob(X=x) \times \prob(Y=y)$. 
+
+Or on a $\prob(X=1 \cap Y=2) = 0{,}1 \neq 0{,}3 \times 0{,}35 = \prob(X=1) \times \prob(Y=2)$. Donc les variables $X$ et $Y$ ne sont pas indépendantes.
+}
+\item \question{Déterminer la loi de la variable $D = |X - Y|$.}
+\reponse{
+      On a $D = |X - Y|$ donc les valeurs possibles prises par $D$ sont $\{1, 3, 5\}$. On a : 
+      \begin{align*}
+            \prob(D = 1) & = \prob(X=1 \cap Y=2) + \prob(X=3 \cap Y=4) + \prob(X=3 \cap Y=2) \\ &+ \prob(X=5 \cap Y=6) + \prob(X=5 \cap Y=4) \\
+            & = 0{,}1 + 0{,}1 + 0{,}2 + 0{,}1 + 0{,}15 \\ &= 0{,}65 \\
+            \prob(D = 3) & = \prob(X=1 \cap Y=4) + \prob(X=3 \cap Y=6) + \prob(X=5 \cap Y=2) \\ &= 0{,}05 + 0{,}1 + 0{,}05 \\ &= 0{,}2 \\
+            \prob(D = 5) & = \prob(X=1 \cap Y=6) \\ & = 0{,}15 
+      \end{align*}
+
+}
+\end{enumerate}
+}

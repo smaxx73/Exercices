@@ -1,7 +1,8 @@
+%print
 \newboolean{solution}
-\newboolean{uuid}
+\newboolean{isuuid}
 \newboolean{link}
-
+\newboolean{isindication}
 
 \newcounter{num}
 
@@ -9,7 +10,7 @@
 \definecolor{titrecolor}{RGB}{36,76,146}
 
 %liens vers des ressources extérieures :
-\newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
+\newcommand{\pathcorrige}{https://openyourmath.org/exercice?uuid=}
 \newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
 
@@ -39,6 +40,27 @@
 	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
 
+\newtcolorbox{indicationbox}{
+	enhanced,
+	breakable,
+	colback=yellow!30!white,
+	colframe=yellow,
+	boxsep=5pt,
+	%arc=4pt,
+	%borderline={0.8pt}{-3pt}{solutioncolor},
+	frame hidden,
+	interior style={top color=yellow!15!white, bottom color=yellow!20!white},
+	overlay={
+        \node[anchor=north west, xshift=0pt, yshift=0pt] at (frame.north west) {
+	\tikz{
+		\node[circle, draw=yellow!80!black, fill=yellow!60!black, 
+		minimum size=0.3cm, inner sep=0pt] 
+		{\textcolor{yellow}{\scriptsize \textbf{i}}};
+	}
+};
+	} % Ajouter l'icône d'ampoule en tant qu'overlay
+}
+
 \newtcolorbox{titrebox}[3][]{
 	enhanced,
 	breakable,
@@ -51,10 +73,10 @@
 	borderline north={0pt}{0pt}{white!100!black},
 	overlay unbroken and first={
 		\node[anchor=north west, inner xsep=-2pt, inner ysep=-7pt, rounded corners] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt] {\small\textbf{\sffamily{\textcolor{white}{Ex #1 - #2}}}};}};
-		\ifthenelse{\boolean{uuid}}{
+		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {
 				\tikz{
-					\node[] {\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}};
+					\node[] {\ifthenelse{\boolean{link}}{\href{\pathcorrige#3}{\texttt{#3}}}{\texttt{#3}}};
 				}
 			};
 		}{}
@@ -73,9 +95,7 @@
 
 \newcommand{\code}[1]{#1}
 \newcommand{\texte}[1]{#1}
-\newcommand{\theme}[1]{}
-\newcommand{\auteur}[1]{}
-\newcommand{\organisation}[1]{}
+
 \newcommand{\question}[1]{#1}
 \newcommand{\reponse}[1]{
 	\ifthenelse{\boolean{solution}} 
@@ -84,6 +104,13 @@
 			\begin{footnotesize} #1 \end{footnotesize} 
 	\end{solutionbox}}{}
 } 
+\newcommand{\indication}[1]{
+	\ifthenelse{\boolean{isindication}} 
+	{%
+		\begin{indicationbox}
+			\begin{footnotesize} #1 \end{footnotesize} 
+	\end{indicationbox}}{}
+}
 
 \newcommand{\nextexo}{
 	\addtocounter{num}{1}
@@ -103,7 +130,7 @@
 	\noindent
 	\input{../src/#1}
 	\setboolean{solution}{#2}
-	\setboolean{uuid}{#3}
+	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
 	
 	\begin{titrebox}[#5]
@@ -114,12 +141,13 @@
 }
 
 
-\newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+\newcommand{\insertexo}[6]{%contenu, solution, uuid, lien solution,numerotation,theme
 	\noindent
 	\input{\path src/#1}
 	\setboolean{solution}{#2}
-	\setboolean{uuid}{#3}
+	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
+	\setboolean{isindication}{#6}
 	
 	\begin{titrebox}[#5]
 		{\bfseries{\TitreExo}}{#1} %\hfill
@@ -131,7 +159,7 @@
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexo{\ex}{\solution}{\uuid}{\link}{\thenum}
+		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}{\isindication}
 	}
 }
 
@@ -176,8 +204,8 @@
 	% Crée une minipage pour chaque exercice avec son numéro, son titre et son QR code
 	\begin{minipage}{0.24\textwidth}  % ajustez la largeur pour avoir 4 QR codes par ligne
 		\centering
-		\href{\pathcorrige\exo.pdf}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
-		{\qrcode{\pathcorrige\exo.pdf}}  % génère le QR code
+		\href{\pathcorrige\exo}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
+		{\qrcode{\pathcorrige\exo}}  % génère le QR code
 		\par\vspace{2em}  % espace vertical entre les QR codes
 	\end{minipage}
 	% Incrémente le compteur

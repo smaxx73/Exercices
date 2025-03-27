@@ -1,0 +1,22 @@
+{
+  "uuid": "TORD",
+  "titre": "Produit matriciel",
+  "theme": "calcul matriciel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "On considère la matrice $A=\\begin{pmatrix}1 & 2 & 1 & 3 \\\\ 1 & 0 & 2 & 1\\end{pmatrix}$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer $A^T\\times A$ et $A \\times A^T$."
+    },
+    {
+      "type": "reponse",
+      "value": "$$\n\\begin{aligned}\n\t& A=\\left(\\begin{array}{llll}\n\t\t1 & 2 & 1 & 3 \\\\\n\t\t1 & 0 & 2 & 1\n\t\\end{array}\\right) \\Rightarrow{ }^t A=\\left(\\begin{array}{ll}\n\t\t1 & 1 \\\\\n\t\t2 & 0 \\\\\n\t\t1 & 2 \\\\\n\t\t3 & 1\n\t\\end{array}\\right) \\\\\n\t& \\left({ }^t A\\right) \\cdot A=\\left(\\begin{array}{ll}\n\t\t1 & 1 \\\\\n\t\t2 & 0 \\\\\n\t\t1 & 2 \\\\\n\t\t3 & 1\n\t\\end{array}\\right)\\left(\\begin{array}{llll}\n\t\t1 & 2 & 1 & 3 \\\\\n\t\t1 & 0 & 2 & 1\n\t\\end{array}\\right)=\\left(\\begin{array}{cccc}\n\t\t2 & 2 & 3 & 4 \\\\\n\t\t2 & 4 & 2 & 6 \\\\\n\t\t3 & 2 & 5 & 5 \\\\\n\t\t4 & 6 & 5 & 10\n\t\\end{array}\\right) \\\\\n\t& \\text { A. }\\left({ }^t A\\right)=\\left(\\begin{array}{llll}\n\t\t1 & 2 & 1 & 3 \\\\\n\t\t1 & 0 & 2 & 1\n\t\\end{array}\\right)\\left(\\begin{array}{ll}\n\t\t1 & 1 \\\\\n\t\t2 & 0 \\\\\n\t\t1 & 2 \\\\\n\t\t3 & 1\n\t\\end{array}\\right)=\\left(\\begin{array}{cc}\n\t\t15 & 6 \\\\\n\t\t6 & 6\n\t\\end{array}\\right) \\\\\n\t&\n\\end{aligned}\n$$"
+    }
+  ]
+}

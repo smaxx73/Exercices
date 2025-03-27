@@ -1,0 +1,70 @@
+{
+  "uuid": "2Aui",
+  "titre": "Urne et trois couleurs",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Une urne contient neuf boules identiques dont cinq sont de couleur blanche, trois de couleur rouge et une de couleur noire. On tire successivement et sans remise trois boules de cette urne, ce qui équivaut à tirer les trois boules simultanément. On considère deux variables aléatoires $X$ et $Y$, où $X$ représente le nombre de boules blanches obtenues et $Y$ le nombre de boules noires."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer $X(\\Omega)$ et $Y(\\Omega)$."
+    },
+    {
+      "type": "reponse",
+      "value": "$X(\\Omega)=\\{0,1,2,3\\}$ et $Y(\\Omega)=\\{0,1\\}$"
+    },
+    {
+      "type": "question",
+      "value": "Déterminer la loi de $X$ et calculer son espérance."
+    },
+    {
+      "type": "reponse",
+      "value": "$X\\sim \\mathcal{H}(3,\\frac{5}{9},9)$ et $\\E(X)=3\\times \\frac{5}{9}=\\frac{5}{3}$"
+    },
+    {
+      "type": "question",
+      "value": "Déterminer la loi de $Y$ et calculer son espérance."
+    },
+    {
+      "type": "reponse",
+      "value": "$Y\\sim \\mathcal{H}(3,\\frac{1}{9},9)$ et $\\E(Y)=3\\times \\frac{1}{9}=\\frac{1}{3}$"
+    },
+    {
+      "type": "question",
+      "value": "Compléter le tableau de la loi conjointe du couple $(X,Y)$ :"
+    },
+    {
+      "type": "reponse",
+      "value": "\\begin{center}\n\t\t\t{\\renewcommand{\\arraystretch}{1.3}\n\t\t\t\\begin{tabular}{|c|c|c|c|c||c|}\n\t\t\t\t\\hline\n\t\t\t\t$Y \\backslash X$ & 0 & 1 & 2 & 3 & $\\p_Y$ (loi de $Y$) \\\\\n\t\t\t\t\\hline\n\t\t\t\t0 & $\\frac{1}{84}$ & $\\frac{15}{84}$ & $\\frac{30}{84}$ & $\\frac{10}{84}$ & $\\frac{56}{84}$ \\\\\n\t\t\t\t\\hline\n\t\t\t\t1 & $\\frac{3}{84}$ & $\\frac{15}{84}$ & $\\frac{10}{84}$ & $0$  & $\\frac{28}{84}$\\\\\n\t\t\t\t\\hline\n\t\t\t\t\\hline\n\t\t\t\t$\\p_X$ (loi de $X$) & $\\frac{4}{84}$ & $\\frac{30}{84}$ & $\\frac{40}{84}$ & $\\frac{10}{84}$ & $1$ \\\\\n\t\t\t\t\\hline\n\t\t\t\\end{tabular}}\n\t\t\\end{center}"
+    },
+    {
+      "type": "question",
+      "value": "Les variables $X$ et $Y$ sont-elles indépendantes ? Justifier."
+    },
+    {
+      "type": "reponse",
+      "value": "Les variables $X$ et $Y$ ne sont pas indépendantes. En effet,\n\t\t\\begin{itemize}\n\t\t\t\\item $\\prob(X=3)=\\frac{10}{84}$ et $\\prob(Y=1)=\\frac{28}{84}$\n\t\t\t\\item $\\prob(X=3,Y=1)=0$\n\t\t\\end{itemize}\n\t\tdonc $\\prob(X=3,Y=1)\\neq \\prob(X=3)\\prob(Y=1)$."
+    },
+    {
+      "type": "question",
+      "value": "On pose $H=X.Y$. Déterminer la loi de $H$."
+    },
+    {
+      "type": "reponse",
+      "value": "\\begin{center}\n\t\t\t\\begin{tabular}{|c|c|c|c|}\n\t\t\t\t\\hline\n\t\t\t\t$k$ & $0$ & $1$ & $2$ \\\\\n\t\t\t\t\\hline\n\t\t\t\t$\\prob(H=k)$ & $\\frac{59}{84}$ & $\\frac{15}{84}$ & $\\frac{10}{84}$ \\\\\n\t\t\t\t\\hline\n\t\t\t\\end{tabular}\n\t\t\\end{center}"
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\E (X.Y)$ et $\\E(X+Y)$."
+    },
+    {
+      "type": "reponse",
+      "value": "$\\E(XY)=0\\times \\frac{59}{84}+1\\times\\frac{15}{84}+2\\times \\frac{10}{84}=\\frac{5}{12}$ \\\\\n\t\t\\hspace{0.2em}\n\t\t\n\t\t$\\E(X+Y)=\\E(X)+\\E(Y)=\\frac{5}{3}+\\frac{1}{3}=2$"
+    }
+  ]
+}

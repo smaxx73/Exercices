@@ -1,0 +1,94 @@
+\chapitre{Fonction convexe}
+\sousChapitre{Multiplicateurs de Lagrange}
+\uuid{6xzp}
+\titre{Optimisation sous contrainte (1)}
+\theme{optimisation}
+\auteur{Jean-François Culus}
+\datecreate{2024-10-18}
+\organisation{AMSCC}
+\contenu{
+
+\texte{Nous allons ici étudier, pas à pas, la résolution d'une question d'optimisation sous-contraintes. Nous souhaitons déterminer le maximum de la fonction $f: (x,y)\mapsto x^2+y^2$ sous la contrainte $x^4+y^4=1$. 
+}
+
+\begin{enumerate}
+\item 
+\question{
+Justifier que la courbe $\Gamma$: $x^4+y^4=1$ est un compact de $\R^2$. 
+\\ Que pouvez-vous en déduire pour la fonction $f$ ? }
+
+\reponse{
+Nous allons prouver que $\Gamma $ est un fermé et borné de $\mathbb{R}^2$. 
+
+La courbe $\Gamma$ est donc l'image réciproque de $\{1\}$ par l'application continue $(x,y)\mapsto x^4+y^4$: aussi, est-ce un fermé (comme image réciproque d'un fermé par une application continue).
+\\ De plus, si $(x,y)\in \Gamma$, alors nécessairement $|x|\leq 1$ et $|y|\leq 1$: aussi, la courbe $\Gamma$ est bornée dans $\mathbb{R}^2$. Aussi est-ce un compact de $\mathbb{R}^2$. 
+
+
+La fonction $f$ étant continue sur le compact $\Gamma$, elle y est bornée et atteint ses bornes. 
+}
+
+
+\item
+\question{
+Posons la fonction $g: (x,y)\mapsto x^4+y^4-1$, représentant la contrainte. Ainsi, $\Gamma$ est l'ensemble des $(x,y)\in \mathbb{R}^2$ tels que $g(x,y)=0$. 
+
+Soit $(x_0;y_0)\in \Gamma$ un point tel que $f \vert_{\Gamma}$ admet un maximum en $(x_0;y_0)$. Que pouvez-vous dire (intuitivement) de la dérivée directionnelle de $f$ en $(x_0;y_0)$ dans n'importe quelle direction tangentielle à $\Gamma$ en $(x_0;y_0)$ ? 
+}
+
+\reponse{
+Puisque  $f \vert_{\Gamma}$ admet un maximum en $(x_0;y_0)$, la dérivée directionnelle de $f \vert_{\Gamma}$ dans n'importe quelle direction tangentielle à $\Gamma$ doit être nulle. 
+}
+
+
+\item  
+\question{ Pour $u \in \mathbb{R}^2$, on désigne par $D_u f(x_0;y_0)$ la dérivée directionnelle de $f$ dans la direction du vecteur $u$ et par $\nabla f$ son gradient. 
+On rappelle que $$D_u f(x_0;y_0) = \nabla f(x_0;y_0)\cdot u $$
+
+Que pouvez-vous alors dire du gradient de $f$ en $(x_0;y_0)$ par rapport au vecteur $u$ si celui-ci est tangent à $\Gamma$ en $(x_0;y_0)$ ? 
+}
+
+\reponse{
+D'après la question précédente, la dérivée directionnelle $D_uf(x_0,y_0)$ doit être nulle,  donc $\nabla f(x_0;y_0)$ doit être orthogonal à $u$ (un vecteur tangent à $\Gamma$ en $(x_0;y_0)$). 
+}
+
+
+\item 
+\question{ En déduire alors la colinéarité de $\nabla f (x_0;y_0)$ et $\nabla g (x_0:y_0)$, et exploiter cette condition pour obtenir les couples solutions possibles du système. 
+}
+
+\reponse{ Si le gradient de $f$ est orthogonal à $u$ et que $u$ est un vecteur tangent à $\Gamma$ (la courbe des contraintes), alors $\nabla f$ et $\nabla g$ sont colinéaires car tous deux orthogonaux au même vecteur $u$. 
+\\ {\it De manière informelle,  les vecteurs tangents à la courbe de contrainte sont dans un plan: ils n'ont pas d'élévation. 
+Les vecteurs tangents à la courbe $f \vert_{\Gamma}$, eux,  ont possiblement une élévation (coordonnée en $z$) mais sinon, leur deux premières coordonnées doivent être liées au vecteur tangent à la courbe des contraintes: c'est ce que nous exprimons ici.  }
+
+Calculons alors les gradients des deux fonctions:
+\\  $\nabla f( x_0;y_0) = \left( \frac{\partial f}{\partial x}(x_0;y_0); 
+\frac{\partial f}{\partial y}(x_0;y_0) \right) = (2x_0;2y_0)$.
+\\ $\nabla g( x_0;y_0) = \left( \frac{\partial g}{\partial x}(x_0;y_0); 
+\frac{\partial f}{\partial y}(x_0;y_0) \right) = (4x_0^3;4y_0^3)$.
+
+Ces deux vecteurs étant colinéaires,  nous obtenons :
+
+$$ \det \begin{vmatrix}
+2x_0 & 4x_0^3 \\ 2y_0 & 4y_0^3\end{vmatrix} = 0$$ 
+
+En ajoutant la contrainte ($\Gamma$), nous obtenons : 
+
+$$\left\lbrace 
+\begin{array}{ll} 
+x_0y_0 (x_0^2 -y_0^2) &= 0 \\
+x_0^4+y_0^4 & = 1 \end{array}\right. $$
+
+De la première équation, nous déduisons que soit $x_0 y_0 =0$, soit $x_0^2-y_0^2=0$.
+\\ Dans le premier cas, nous obtenons les couples $(0;\pm 1)$ et $(\pm 1;0)$.
+\\ Dans le second cas, nous avons $x=\pm y$ soit les solutions 
+$\left( \pm \frac{1}{\sqrt[4]{2}};\pm  \frac{1}{\sqrt[4]{2}}\right)$. 
+
+Ainsi, nous avons $8$ points critiques possibles à étudier. 
+Evaluons $f$ en chacun d'eux: nous obtenons pour valeur maximale $\sqrt{2}$ atteints aux points $\left( \pm \frac{1}{\sqrt[4]{2}};\pm  \frac{1}{\sqrt[4]{2}}\right)$. 
+}
+
+\end{enumerate}
+
+}
+
+

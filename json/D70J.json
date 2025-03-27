@@ -1,0 +1,18 @@
+{
+  "uuid": "D70J",
+  "titre": "Dérivées partielles",
+  "theme": "fonctions de plusieurs variables",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $u \\colon t \\mapsto u(t)$ une fonction de classe $\\mathcal{C}^1$ sur $\\R$ et $h \\colon (x,y) \\mapsto h(x,y)$ une fonction de classe $\\mathcal{C}^1$ sur $\\R^2$. Pour tout $t \\in \\R$, on pose :\n$$F(t) = h(u(t),u(t)^2)$$"
+    },
+    {
+      "type": "question",
+      "value": "Vérifier que $F$ est dérivable sur $\\R$ et exprimer sa dérivée en fonction de $u(t)$ et $u'(t)$."
+    }
+  ]
+}

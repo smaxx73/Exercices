@@ -1,0 +1,26 @@
+{
+  "uuid": "nSDY",
+  "titre": "Calcul de dérivées partielles",
+  "theme": "calcul différentiel",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "Soit $g\\colon \\mathbb{R}^2 \\rightarrow \\mathbb{R}$ définie par \n\t\t\n\t\t$$g(x,y) = \\begin{cases}\n\t\t\t\\frac{x^3+3xy^2}{x^2+y^2} &\\text{ si } (x,y)\\neq(0,0) \\\\\n\t\t\t0 &\\text{ sinon}\n\t\t\t\\end{cases}\n\t\t$$\n\t\tÉtudier l'existence de la dérivée partielle de $g$ selon $x$ en $(0,0)$."
+    },
+    {
+      "type": "reponse",
+      "value": "Il faut revenir au taux d'accroissement : \n$$\\frac{g(0+h,0) - g(0,0)}{h} = \\frac{h^3}{h\\times h^2} = 1 \\xrightarrow[h \\to 0]{} 1$$\ndonc la dérivée partielle existe : $\\frac{\\partial g}{\\partial x}(0,0) = 1$."
+    },
+    {
+      "type": "question",
+      "value": "Soit $h \\colon \\R^2 \\to \\R$ la fonction définie pour tout $(x,y) \\in \\mathcal{D}$ par :  $$h(x, y) = \\ln(1 + x + xy + e^{y})$$ où  $ \\mathcal{D}=\\{(x,y)\\in\\mathbb{R}^2 \\,|\\, 1+x+xy+e^y>0\\}$. \n\t\n\t Calculer  $\\dpa{h}{x}$, $\\dpa{h}{y}$, $\\dpsp{h}{y}$ et $\\dpsm{h}{x}{y}$."
+    },
+    {
+      "type": "reponse",
+      "value": "Les dérivées partielles premières sont :\n\t$$\\begin{align*}\n\t\t\\frac{\\partial h}{\\partial x}(x,y) &= \\frac{1 + y}{1 + x + xy + e^y} \\\\\n\t\t\\frac{\\partial h}{\\partial y}(x,y) &= \\frac{x + e^y}{1 + x + xy + e^y}\n\t\\end{align*}$$\n\t\n\tLes dérivées partielles secondes demandées sont :\n\t$$\\begin{align*}\n\t\t\\frac{\\partial^2 h}{\\partial y^2}(x,y) &= \\frac{e^y(1-x+xy) - x^2}{(1 + x + xy + e^y)^2} \\\\\n\t\t\\frac{\\partial^2 h}{\\partial x \\partial y}(x,y) &= \\frac{1 - ye^y}{(1 + x + xy + e^y)^2}\n\t\\end{align*}$$"
+    }
+  ]
+}

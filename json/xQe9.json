@@ -1,0 +1,38 @@
+{
+  "uuid": "xQe9",
+  "titre": "Etude d'une loi de probabilité",
+  "theme": "probabilités",
+  "auteur": "Maxime Nguyen",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $X$ une variable aléatoire réelle suivant une loi uniforme sur $[0;1]$. Soit $\\lambda >0$ et soit la variable aléatoire  $Y=\\frac{-1}{\\lambda}\\ln(1-X)$. On note $F_X$, respectivement $F_Y$, la fonction de répartition de la variable $X$, respectivement $Y$."
+    },
+    {
+      "type": "question",
+      "value": "Exprimer $F_Y(t)$ en fonction de $F_X$."
+    },
+    {
+      "type": "reponse",
+      "value": "Soit $t\\in\\mathbb{R}$. On a\n\t\t\t$$\\begin{align*}\n\t\t\t\tF_Y(t) &= \\prob(Y\\leq t) \\\\\n\t\t\t\t&= \\prob(\\frac{-1}{\\lambda}\\ln(1-X)\\leq t) \\\\\n\t\t\t\t&= \\prob(\\ln(1-X)\\geq -\\lambda t) \\\\\n\t\t\t\t&= \\prob(1-X\\geq e^{-\\lambda t}) \\\\\n\t\t\t\t&=  \\prob(X\\leq 1-e^{-\\lambda t}) \\\\\n\t\t\t\t&= F_X(1-e^{-\\lambda t}).\n\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "En déduire la loi suivie par $Y=\\frac{-1}{\\lambda}\\ln(1-X)$ ?"
+    },
+    {
+      "type": "reponse",
+      "value": "Or $X\\sim \\mathcal{U}([0;1])$ donc $F_X(x)=\\begin{cases} 0 & \\text{ si } x<0 \\\\ x & \\text{ si } x\\in[0;1[ \\\\ 1 & \\text{ si } x\\geq 1 \\end{cases}$.\n\t\t\t\n\t\t\tDe plus, si $t\\geq 0$, $1-e^{-\\lambda t} \\in [0;1[$ et si $t\\leq 0$, $1-e^{-\\lambda t}<0$.\n\t\t\t\n\t\t\tPar conséquent,\n\t\t\t\\[ F_Y(t)=\\begin{cases}\n\t\t\t\t0 & \\text{ si } t<0 \\\\\n\t\t\t\t1-e^{-\\lambda t} & \\text{ si } t\\geq 0\n\t\t\t\\end{cases}\n\t\t\t\\]\n\t\t\tce qui nous permet de reconnaître la fonction de répartition de la loi exponentielle de paramètre $\\lambda$ donc $Y\\sim \\mathcal{E}(\\lambda)$."
+    },
+    {
+      "type": "question",
+      "value": "Dans un langage de programmation, on simule une loi uniforme sur $[0;1]$ avec la commande $\\texttt{rand()}$. Quelle commande peut-on écrire pour simuler une loi exponentielle de paramètre $\\lambda$ ?"
+    },
+    {
+      "type": "reponse",
+      "value": "Il suffit d'écrire \\texttt{-1/lambda*log(1-rand())} et même \\texttt{-1/lambda*log(rand())} car $1-X$ suit une loi uniforme sur $[0;1]$."
+    }
+  ]
+}

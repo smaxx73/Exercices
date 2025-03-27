@@ -1,0 +1,30 @@
+{
+  "uuid": "aK0v",
+  "titre": "Densité, loi, indépendance dans un couple",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $(X,Y)$ un couple de variables aléatoires admettant une densité $f$ définie pour tout $(x,y) \\in \\R^2$ par : \n\t$$f(x,y)= \\frac{3}{8}(x^2+y^2) \\textbf{1}_{[-1;1]^2}(x,y)$$"
+    },
+    {
+      "type": "question",
+      "value": "Déterminer les lois marginales du couple $(X,Y)$. Les variables $X$ et $Y$ sont-elles indépendantes ?"
+    },
+    {
+      "type": "reponse",
+      "value": "La densité de $X$ se calcule de la manière suivante : pour tout $x \\in \\R$,\n\t\t$$\\begin{align*}\n\t\t\tf_X(x)&=\\int_\\R f(x,y) dy \\\\\n\t\t\t&=\\frac{3}{8}\\mathbf{1}_{[-1;1]}(x) \\int_{-1}^{1} (x^2+y^2)dy \\\\\n\t\t\t&=\\frac{3}{8}\\mathbf{1}_{[-1;1]}(x) \\left[x^2y+\\frac{1}{3}y^3 \\right]_{y=-1}^{y=1} \\\\\n\t\t\t&=\\frac{1}{4}(3x^2+1)\\mathbf{1}_{[-1;1]}(x).\n\t\t\\end{align*}$$\n\t\tOn a ainsi déterminé la loi de $X$.\n\t\t\n\t\tPour $Y$, on obtient la même loi car les rôles de $x$ et de $y$ sont symétriques.\n\t\t\n\t\tEnfin, les \\vas $X$ et $Y$ ne sont pas indépendantes car il existe $(x,y) \\in \\R^2$ tel que $f(x,y)\\neq f_X(x)f_Y(y)$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\mathbb{E}(XY)$ et $\\mathbb{E}(X) \\times \\mathbb{E}(Y)$."
+    },
+    {
+      "type": "reponse",
+      "value": "On applique le théorème de transfert au couple $(X,Y)$ :\n\t\t$$\\begin{align*}\n\t\t\t\\E(XY)&=\\int_{\\R^2} xy\\times \\frac{3}{8}(x^2+y^2) \\textbf{1}_{[-1;1]^2}(x,y) \\dx\\dy \\\\\n\t\t\t&=\\int_{-1}^1 \\int_{-1}^1 \\frac{3}{8}(x^3y+xy^3) \\dx \\dy \\\\\n\t\t\t&= \\int_{-1}^1 \\left[ \\frac{3}{32}x^4y+\\frac{3}{16}x^2y^3 \\right]_{x=-1}^{x=1} \\dy \\\\\n\t\t\t&=0.\n\t\t\\end{align*}$$\n\t\tPour l'espérance de la \\va $X$, on a\n\t\t$$\\begin{align*}\n\t\t\t\\E(X)\n\t\t\t&= \\int_\\R xf_X(x) \\dx \\\\\n\t\t\t&= \\int_{-1}^1 \\frac{1}{4}(3x^3+x) \\dx \\\\\n\t\t\t&= \\left[ \\frac{3}{16}x^4+\\frac{1}{8}x^2y^2 \\right]_{-1}^1 \\\\\n\t\t\t&=0.\n\t\t\\end{align*}$$\n\t\tDe la même manière, on obtient $\\E(Y)=0$.\n\t\n\tAinsi, $\\E(XY)=\\E(X)\\E(Y)$ bien que $X$ et $Y$ ne soient pas indépendantes."
+    }
+  ]
+}

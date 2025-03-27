@@ -1,0 +1,46 @@
+{
+  "uuid": "B3ac",
+  "titre": "Calcul par approximation",
+  "theme": "probabilités",
+  "auteur": "Maxime Nguyen",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "L'observation a permis d'affirmer que le nombre d'étudiants qui entrent à la bibliothèque entre 9h00 et 10h30 suit une loi de Poisson de paramètre $16$ dont voici un extrait de la table:\n\t\\begin{center}\n\t\t\\begin{tabular}{|c|c|c|c|c|c|}\n\t\t\t\\hline\n\t\t\t$k$ & 14 & 15 & 16 & 17 & 18 \\\\\n\t\t\t\\hline\n\t\t\t$\\prob(X\\leq k)$ & $0.3675$ & $0.4667$ & $0.5660$ & $0.6593$ & $0.7423$ \\\\\n\t\t\t\\hline\n\t\t\\end{tabular}\n\t\\end{center}"
+    },
+    {
+      "type": "question",
+      "value": "En utilisant le tableau ci-dessus, déterminer $\\prob(X=15)$."
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(X=15)=\\prob(X\\leq 15)-\\prob(X\\leq 14)=0.4667-0.3675 \\simeq 0,0992$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer les paramètres de la loi normale que suit la variable aléatoire $Y$ qui approche $X$."
+    },
+    {
+      "type": "reponse",
+      "value": "$X$ peut être approchée par $Y$ qui suit la loi $\\mathcal{N}(\\mu=16,\\sigma^2=16)$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\alpha=\\prob(14.5\\leq Y\\leq 15.5)$. Quel est le lien entre $\\alpha$ et $\\prob(X=15)$ ?"
+    },
+    {
+      "type": "reponse",
+      "value": "On a\n\t\t\t\t$$\\begin{align*}\n\t\t\t\t\\alpha=\\prob(14.5\\leq Y\\leq 15.5)\n\t\t\t\t&= \\p\\left(\\frac{-1.5}{\\sqrt{16}}\\leq \\frac{Y-16}{\\sqrt{16}} \\leq \\frac{-0.5}{\\sqrt{16}} \\right) \\\\\n\t\t\t\t&= \\prob(-0.375\\leq Z\\leq -0.125), \\quad \\text{ où } Z \\sim \\mathcal{N}(0,1) \\\\\n\t\t\t\t&= \\prob(0.125\\leq Z\\leq 0.375) \\\\\n\t\t\t\t&= \\prob(Z\\leq 0.375)-\\prob(Z\\leq 0.125) \\\\\n\t\t\t\t&= 0.64615-0.54975 \\\\\n\t\t\t\t&= 0.0964\n\t\t\t\t\\end{align*}$$\n\t\t\t\t$\\alpha$ est une approximation (avec correction de continuité) de $\\prob(X=15)$. En effet,\n\t\t\t\t\\[ \\prob(X=15)=\\prob(14.5\\leq X\\leq 15.5) \\simeq \\prob(14.5\\leq Y\\leq 15.5).\n\t\t\t\t\\]"
+    },
+    {
+      "type": "question",
+      "value": "Déterminer une approximation de $\\prob(15\\leq X\\leq 20)$."
+    },
+    {
+      "type": "reponse",
+      "value": "$$\\begin{align*}\n\t\t\t\\prob(15\\leq X\\leq 20)\n\t\t\t&=\\prob(14.5\\leq X\\leq 20.5) \\\\\n\t\t\t&\\simeq \\prob(14.5\\leq Y\\leq 20.5) \\\\\n\t\t\t& \\simeq \\p\\left(-0.375 \\leq \\frac{Y-16}{4}\\leq 1.125\\right) \\\\\n\t\t\t& \\simeq \\prob(Z\\leq 1.125) - \\prob(Z\\leq -0.375) \\\\\n\t\t\t& \\simeq \\prob(Z\\leq 1.125) -(1-\\prob(Z\\leq 0.375)) \\\\\n\t\t\t& \\simeq 0.8697 -1 + 0.64615\\\\\n\t\t\t&\\simeq 0.51585\n\t\t\t\\end{align*}$$"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "uuid": "64Uj",
+  "titre": "Résolution d'une EDO par un schéma numérique",
+  "theme": "",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit l'équation différentielle sur $[0,1]$:\n$$(E)\t\\begin{cases} \n\ty'(t) = f(t,y(t)) \\\\\n\ty(0) = 0,\n\\end{cases} $$\noù\n$$\nf(t,y)=\\sin\\left((t+y)^2\\right).\n$$"
+    },
+    {
+      "type": "question",
+      "value": "Justifier l'existence et l'unicité locale d'une solution $y$ de classe $\\mathcal{C}^1$."
+    },
+    {
+      "type": "reponse",
+      "value": "$f$ est $C^1$: Théorème de Cauchy-Lipschitz."
+    },
+    {
+      "type": "question",
+      "value": "Justifier le caractère borné de $y$."
+    },
+    {
+      "type": "reponse",
+      "value": "$|y'(t)|\\leq 1$, donc $|y(t)|\\leq a+T=1$."
+    },
+    {
+      "type": "reponse",
+      "value": "Principe de prolongement."
+    },
+    {
+      "type": "texte",
+      "value": "Pour approcher la solution de $(E)$, on propose le schéma numérique suivant : \n\t$h=1/N$, $t_n=nh$, $y_0=0$ et \n\t$$(S) \\colon y_{n+1} = y_n +  \\frac{h}{4}\\left( f(t_n,y_n)+3f\\left(t_n+ \\frac{2h}{3},y_n+\\frac{2h}{3}f(t_n,y_n) \\right) \\right)$$"
+    },
+    {
+      "type": "question",
+      "value": "Démontrer que ce schéma est convergent."
+    },
+    {
+      "type": "reponse",
+      "value": "On vérifie qu'il est consistant en appliquant le résultat du cours : on écrit le schéma sous la forme standard $y_{n+1} = y_n+hF(t_n,y_n,h)$ et on vérifie que $F(t,y,0) = f(t,y)$.\n\t\t\n\t\tPar ailleurs, on vérifie facilement que $F$ est lipschitzienne par rapport à la deuxième variable $y$, c'est une condition suffisante de stabilité du schéma."
+    },
+    {
+      "type": "question",
+      "value": "Vérifier que ce schéma est consistant d'ordre 2."
+    },
+    {
+      "type": "reponse",
+      "value": "On applique le critère énoncé et admis ci-dessus en calculant $\\frac{1}{2}f^{[1]}(t,y)$."
+    }
+  ]
+}

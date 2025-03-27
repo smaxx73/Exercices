@@ -1,0 +1,46 @@
+{
+  "uuid": "Kdi9",
+  "titre": "\\'Etude d'une fonction de deux variables",
+  "theme": "fonctions de plusieurs variables",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit la fonction $f: \\R^2 \\to \\R$,\n$$ (x,y) \\mapsto \\left\\{ \\begin{array}{ll} \\dfrac{x^3y-xy^3}{x^2+y^2} & \\text{ si } (x,y) \\neq (0,0) \\\\\n\t0 & \\text{ si } (x,y) = (0,0)\n\\end{array}\n\\right. $$"
+    },
+    {
+      "type": "question",
+      "value": "Pour tout $(x,y) \\in \\mathbb{R}^2$, on passe en coordonnées polaires en posant $x=r\\cos(\\theta)$ et $y=r\\sin(\\theta)$ avec $(r,\\theta) \\in [0;+\\infty[ \\times [0;2\\pi[$ . \\\\\n\tVérifier que $$|f(r\\cos(\\theta),r\\sin(\\theta))| \\leq 2r^2$$"
+    },
+    {
+      "type": "reponse",
+      "value": "Le dénominateur vaut $x^2+y^2 = r^2$. On majore le numérateur : \n\t\t$$\\begin{align*}\n\t\t\t|f(r \\cos\\theta, r \\sin\\theta)| &= \\frac{|(r\\cos\\theta)^3(r\\sin\\theta)-(r\\cos\\theta)(r\\sin\\theta)^3|}{r^2} \\\\\n\t\t\t&= \\frac{|r^4 \\cos^3\\theta\\sin\\theta - r^4\\cos\\theta\\sin^3\\theta|}{r^2} \\\\\n\t\t\t&\\leq \\frac{|r^4 \\cos^3\\theta\\sin\\theta| + |r^4\\cos\\theta\\sin^3\\theta|}{r^2}  \\text{ par inégalité triangulaire} \\\\\n\t\t\t&\\leq \\frac{r^4(|\\cos^3\\theta\\sin\\theta| + |\\cos\\theta\\sin^3\\theta|)}{r^2} \\\\\n\t\t\t&\\leq \\frac{r^4(1 + 1)}{r^2}  \\text{ car } |\\cos\\theta| \\leq 1 \\text{ et } |\\sin\\theta| \\leq 1 \\\\\n\t\t\t&\\leq 2r^2\n\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "Peut-on conclure que la fonction $f$ est continue en $(0,0)$~? Justifier."
+    },
+    {
+      "type": "reponse",
+      "value": "$|f(x,y)-f(0,0)| = |f(x,y)-0| \\leq 2r^2 \\xrightarrow[r \\to 0]{}0$. La convergence en $r$ est uniforme en $\\theta$. On peut ainsi conclure que $f$ est bien continue en $(0,0)$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\dpa{f}{x}(x,y)$ et $\\dpa{f}{y}(x,y)$ pour tout $(x,y) \\neq (0,0)$."
+    },
+    {
+      "type": "reponse",
+      "value": "Les formules de dérivation usuelles s'appliquent sur l'expression de $f$ en tout point $(x,y) \\neq (0,0)$ : \n\t\t$$\\begin{align*}\n\t\t\t\\dpa{f}{x}(x,y) &= \\frac{y (x^{4}+4 x^{2} y^{2}-y^{4})}{\\left(y^{2}+x^{2}\\right)^{2}} \\\\\n\t\t\t\\dpa{f}{y}(x,y) &= \\frac{(-x) (y^{4}+4 y^{2} x^{2}-x^{4})}{\\left(x^{2}+y^{2}\\right)^{2}}\n\t\t\\end{align*}$$"
+    },
+    {
+      "type": "question",
+      "value": "Calculer $\\dpa{f}{x}(0,0)$ et $\\dpa{f}{y}(0,0)$"
+    },
+    {
+      "type": "reponse",
+      "value": "Hors de question ici d'utiliser des formules de dérivation puisqu'il n'y a pas d'expression de la fonction au voisinage de ce point... On doit donc revenir à la définition et regarder la limite du taux d'accroissement pour chaque variable.\n\t\t$$\\begin{align*}\n\t\t\t\\dpa{f}{x}(0,0) &= \\lim\\limits_{h \\to 0} \\frac{f(h,0)-f(0,0)}{h} = 0  \\\\\n\t\t\t\\dpa{f}{y}(0,0) &= \\lim\\limits_{h \\to 0} \\frac{f(0,h)-f(0,0)}{h} = 0  \n\t\t\\end{align*}$$"
+    }
+  ]
+}

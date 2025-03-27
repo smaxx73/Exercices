@@ -1,0 +1,46 @@
+{
+  "uuid": "kJz6",
+  "titre": "Probabilité d'événements",
+  "theme": "probabilités",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit $(\\Omega, \\mathcal{T}, \\prob)$ un espace probabilisé et deux événements $A$ et $B$. On note $\\overline{A}$ et $\\overline{B}$ les événements complémentaires de $A$ et $B$. \n\t\n\tOn sait que : $$\\prob(A) = \\frac{1}{2} \\quad , \\quad \\prob(A \\cup B) = \\frac{7}{8} \\quad , \\quad \\prob(\\overline{B}) = \\frac{3}{8}$$\n\t\n\n\nCalculer les probabilités suivantes : \n\\begin{enumerate}\n\t\\item \\question{ $\\prob(A \\cap B)$ ; }\n\t\\reponse{  $\\prob(A \\cap B) = \\frac{2}{8}$ }\n\t\\item \\question{ $\\prob(\\overline{A} \\cap \\overline{B})$ ; }\n\t\\reponse{  $\\prob(\\overline{A} \\cap \\overline{B}) = \\frac{1}{8}$ }\n\t\\item \\question{ $\\prob(\\overline{A} \\cup \\overline{B})$ ; }\n\t\\reponse{ $\\prob(\\overline{A} \\cup \\overline{B}) = \\frac{6}{8}$ }\n\t\\item \\question{ $\\prob(\\overline{A} \\cup B)$. }\n\t\\reponse{ $\\prob(\\overline{A} \\cup B) = \\frac{3}{8}$ }\n\\end{enumerate}"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(A \\cap B)$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(A \\cap B) = \\frac{2}{8}$"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(\\overline{A} \\cap \\overline{B})$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(\\overline{A} \\cap \\overline{B}) = \\frac{1}{8}$"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(\\overline{A} \\cup \\overline{B})$ ;"
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(\\overline{A} \\cup \\overline{B}) = \\frac{6}{8}$"
+    },
+    {
+      "type": "question",
+      "value": "$\\prob(\\overline{A} \\cup B)$."
+    },
+    {
+      "type": "reponse",
+      "value": "$\\prob(\\overline{A} \\cup B) = \\frac{3}{8}$"
+    }
+  ]
+}

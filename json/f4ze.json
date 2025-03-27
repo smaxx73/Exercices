@@ -1,0 +1,18 @@
+{
+  "uuid": "f4ze",
+  "titre": "Résolution d'une équation différentielle",
+  "theme": "Equations différentielles, Série Entière",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "question",
+      "value": "On suppose que $f$ s'écrit sous la forme d'une série entière $f(x)=\\displaystyle\\sum_{n=0}^{\\infty}a_n\\,x^{n}$. Déterminer les coefficients $(a_n)$ pour $n$ entier et déterminer le rayon de convergence de $f$."
+    },
+    {
+      "type": "question",
+      "value": "Donner une expression alternative de $f,$ solution de $(E)$, en résolvant directement l'équation différentielle avec la condition initiale $f(0)=1$."
+    }
+  ]
+}

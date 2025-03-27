@@ -1,0 +1,46 @@
+{
+  "uuid": "tPHB",
+  "titre": "Calcul d'une somme de série entière",
+  "theme": "séries",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soit la série entière $\\displaystyle \\sum_{n\\geq 2} \\frac{(-1)^n}{n(n-1)}x^n$."
+    },
+    {
+      "type": "question",
+      "value": "Déterminer le rayon de convergence $R$ de cette série. Préciser son intervalle de convergence et le comportement de la série aux extrémités de cet intervalle."
+    },
+    {
+      "type": "reponse",
+      "value": "$R=1$ et $D=[-1;1]$"
+    },
+    {
+      "type": "question",
+      "value": "Déterminer le rayon de convergence de la série $\\displaystyle \\sum_{n\\geq 2} \\frac{(-1)^n}{(n-1)}x^{n-1}$ \n\tet de la série $\\displaystyle \\sum_{n\\geq 2}(-1)^n x^{n-2}$ ? \\\\\n\tÉtudier le comportement de chacune de ces séries au bord de son intervalle de convergence."
+    },
+    {
+      "type": "reponse",
+      "value": "Pour la première, $R=1$ et $D=]-1;1]$. \\\\\n\t\tPour la deuxième, $R=1$ et $D=]-1;1[$."
+    },
+    {
+      "type": "question",
+      "value": "Calculer la somme de la série $\\displaystyle \\sum_{n\\geq 2}(-1)^n x^{n-2}$."
+    },
+    {
+      "type": "reponse",
+      "value": "\\[ \\forall x \\in ]-1;1[, \\qquad \\sum_{n=2}^{+\\infty}(-1)^n x^{n-2}\n\t\t=\\frac{1}{1+x}.\n\t\t\\]"
+    },
+    {
+      "type": "question",
+      "value": "En déduire la somme de la série $\\displaystyle \\sum_{n\\geq 2} \\frac{(-1)^n}{(n-1)}x^{n-1}$."
+    },
+    {
+      "type": "reponse",
+      "value": "\\[ \\forall x \\in ]-1;1[, \\qquad \\sum_{n=2}^{+\\infty} \\frac{(-1)^n}{(n-1)}x^{n-1}\n\t\t=\\ln(1+x).\n\t\t\\]"
+    }
+  ]
+}

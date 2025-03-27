@@ -1,6 +1,8 @@
+%print_devoir
 \newboolean{solution}
-\newboolean{uuid}
+\newboolean{isuuid}
 \newboolean{link}
+\newboolean{isindication}
 
 
 \newcounter{num}
@@ -9,7 +11,7 @@
 \definecolor{titrecolor}{RGB}{36,76,146}
 
 %liens vers des ressources extérieures :
-\newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
+\newcommand{\pathcorrige}{https://openyourmath.org/exercice?uuid=}
 \newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
 
@@ -38,6 +40,20 @@
 		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=solutioncolor, inner sep=1pt] {\textcolor{white}\checkmark};}};
 	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
+\newtcolorbox{indicationbox}{
+	enhanced,
+	breakable,
+	colback=yellow!30!white,
+	colframe=yellow,
+	boxsep=5pt,
+	%arc=4pt,
+	%borderline={0.8pt}{-3pt}{solutioncolor},
+	frame hidden,
+	interior style={top color=yellow!15!white, bottom color=yellow!20!white},
+	overlay={
+		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=yellow, inner sep=1pt] {\textcolor{white}i};}};
+	} % Ajouter l'icône d'ampoule en tant qu'overlay
+}
 
 \newtcolorbox{titrebox}[3][]{
 	enhanced,
@@ -52,7 +68,7 @@
 		\node[anchor=west, inner xsep=0pt, inner ysep=5pt, minimum width=\linewidth-2mm, text width=\linewidth-2mm, text depth=1ex, text height=1.5ex, text=black] at ([yshift=2mm]frame.north west) {
 			\small\textbf{\sffamily{\textcolor{black}{Ex #1 - #2}}}
 		};
-		\ifthenelse{\boolean{uuid}}{
+		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=east, inner ysep=5pt, inner xsep=5pt] at ([yshift=2mm]frame.north east) {
 				\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}
 			};
@@ -73,7 +89,7 @@
 		\node[anchor=west, inner xsep=0pt, inner ysep=5pt, minimum width=\linewidth-2mm, text width=\linewidth-2mm, text depth=1ex, text height=1.5ex, text=black] at ([yshift=2mm]frame.north west) {
 			\small\textbf{\sffamily{\textcolor{black}{Partie #1 - #2}}}
 		};
-		\ifthenelse{\boolean{uuid}}{
+		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=east, inner ysep=5pt, inner xsep=5pt] at ([yshift=2mm]frame.north east) {
 				\ifthenelse{\boolean{link}}{\href{\pathcorrige#3.pdf}{\texttt{#3}}}{\texttt{#3}}
 			};
@@ -94,9 +110,9 @@
 
 \newcommand{\code}[1]{#1}
 \newcommand{\texte}[1]{#1}
-\newcommand{\theme}[1]{}
-\newcommand{\auteur}[1]{}
-\newcommand{\organisation}[1]{}
+%\newcommand{\theme}[1]{}
+%\newcommand{\auteur}[1]{}
+%\newcommand{\organisation}[1]{}
 \newcommand{\question}[1]{#1}
 \newcommand{\reponse}[1]{
 	\ifthenelse{\boolean{solution}} 
@@ -105,6 +121,13 @@
 			\begin{footnotesize} #1 \end{footnotesize} 
 	\end{solutionbox}}{}
 } 
+\newcommand{\indication}[1]{
+	\ifthenelse{\boolean{isindication}} 
+	{%
+		\begin{indicationbox}
+			\begin{footnotesize} #1 \end{footnotesize} 
+	\end{indicationbox}}{}
+}
 
 \newcommand{\nextexo}{
 	\addtocounter{num}{1}
@@ -120,11 +143,11 @@
 %\end{minipage}
 %}
 
-\newcommand{\insertexobis}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+\newcommand{\insertexobis}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
 	\noindent
 	\input{\path src/#1}
 	\setboolean{solution}{#2}
-	\setboolean{uuid}{#3}
+	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
 	
 	\begin{titreboxbis}[#5]
@@ -135,28 +158,27 @@
 }
 
 
-\newcommand{\insertexo}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+\newcommand{\insertexo}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
 	\noindent
 	\input{\path src/#1}
 	\setboolean{solution}{#2}
-	\setboolean{uuid}{#3}
+	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
 	
 	\begin{titrebox}[#5]
-		{\bfseries{\TitreExo}}{#1} %\hfill
-		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+		{\bfseries{\TitreExo}}{#1}
 		\Contenu
-	\end{titrebox}	
+	\end{titrebox}    
 }
 
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexobis{\ex}{\solution}{\uuid}{\link}{\thenum}
+		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}
 	}
 }
 
-\newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
+\newcommand{\insertnotebook}[1]{%contenu, solution, isuuid, lien solution,numerotation
 	\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
 }
 

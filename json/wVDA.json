@@ -1,0 +1,22 @@
+{
+  "uuid": "wVDA",
+  "titre": "Erreur relative et consistance",
+  "theme": "analyse numérique",
+  "auteur": "",
+  "date": "",
+  "organisation": "AMSCC",
+  "contenu": [
+    {
+      "type": "texte",
+      "value": "Soient $b$ et $\\delta b$ deux vecteurs de $\\mathbb{R}^n$ avec $b\\neq 0$ et $A=(a_{ij})\\in\\mathbb{R}^{n\\times n}$ une matrice inversible. \n\tLa matrice $A$ étant inversible, soient $X$ l'unique solution de $AX=b$ et $X+\\delta X$ l'unique solution de $A(X+\\delta X)=b+\\delta b$."
+    },
+    {
+      "type": "question",
+      "value": "Démontrer que : $$\\frac{||\\delta X||}{||X||}\\leq \\text{cond}(A) \\frac{||\\delta b||}{||b||}$$"
+    },
+    {
+      "type": "question",
+      "value": "En déduire l'encadrement \n\t\t$$\n\t\t\\frac{1}{\\text{cond}(A)} \\frac{||\\delta b||}{||b||}\n\t\t\\leq \n\t\t\\frac{||\\delta X||}{||X||}\n\t\t\\leq \n\t\t\\mathrm{cond}(A) \\frac{||\\delta b||}{||b||}$$"
+    }
+  ]
+}
