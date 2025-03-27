@@ -1,0 +1,39 @@
+\titre{Cryptographie}
+\theme{AM}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+\texte{
+On considère le crypto-système sans clef suivant. Un grand nombre premier $p$ est public et les unités de message sont des entiers $m$, $1 \leq m < p$.
+\begin{enumerate}
+\item
+Si Alice veut envoyer un message $m$ à Bob, elle procède comme suit (on suppose que les transmissions s’effectuent sans erreurs) :
+\begin{enumerate}
+    \item[(i)] Alice choisit un entier $a$ tel que $1 \leq a < p$ et $pgcd(a, p - 1) = 1$. Elle calcule l’inverse $a'$ de $a$ dans $(\mathbb{Z}/(p-1)\mathbb{Z})$ et envoie
+  $  c \equiv m^a \mod p$    à Bob.
+    
+    \item[(ii)] Bob choisit un entier $b$ tel que $1 \leq b < p$, et $pgcd(b, p - 1) = 1$. Il calcule l’inverse $b'$ de $b$ dans $(\mathbb{Z}/(p-1)\mathbb{Z})$ et renvoie
+  $  d \equiv c^b \mod p$  à Alice.
+        \item[(iii)] Alice envoie $e \equiv d^{a'} \mod p$  à Bob.
+    
+    \item[(iv)] Bob calcule $ m \equiv e^{b'} \mod p$ et retrouve $m$. Pourquoi ?
+\end{enumerate}
+\item 
+Soit $p = 31$.
+\begin{enumerate}
+
+    \item Quels sont les ordres multiplicatifs possibles des éléments de $\big((\mathbb{Z}/31\mathbb{Z})^{\ast}, \times \big)$ ? Donner les ordres multiplicatifs de 2 et 4.
+        \item Soit $\mathcal{A} = \{x \in \{1, 2, \ldots, 30\} \, | \, \text{pgcd}(x, 30) = 1\}$. Calculer $card(\mathcal{A})$, puis énumérer tous ses éléments ainsi que leur inverse modulo 30.
+   
+
+    \item Trouver $b \in \mathcal{A}$, $b \neq 1$ tel que $ 4^b \equiv 4 \mod 31.$
+
+     \item On utilise le crypto-système du 1), avec $p = 31$. Un pirate intercepte les échanges entre Alice et Bob et connaît $c = 4$, $d = 4$ et $e = 8$. Montrer qu’il peut facilement retrouver $m$, dont on donnera la valeur.
+
+
+ 
+
+\end{enumerate}
+\end{enumerate}
+}
+}

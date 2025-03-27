@@ -1,0 +1,134 @@
+\titre{Calcul de dérivées partielles}
+\theme{calcul différentiel}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+\texte{
+
+
+\paragraph{Exercise 3: }
+
+
+
+
+
+\begin{center}
+\begin{animateinline}[controls, loop]{1} % 1 image par seconde, contrôles visibles, boucle activée
+    \multiframe{5}{i=1+1}{ % 5 étapes d'animation
+        \begin{tikzpicture}[scale=1]
+            \def\layersep{2cm}
+            \tikzstyle{every pin edge}=[thick]
+            \tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+            \tikzstyle{entree}=[];
+            \tikzstyle{input neuron}=[neuron, fill=green!50];
+            \tikzstyle{output neuron}=[neuron, fill=red!50];
+            \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+            \tikzstyle{annot} = [text width=4em, text centered]
+            
+            % Entree
+            \node[entree,blue] (E-1) at (-\layersep,-0.5) {$1$};
+            \node[entree,blue] (E-2) at (-\layersep,-2.5) {$x$};
+            \node[entree,blue] (E-3) at (-\layersep,-5) {$1$};
+            
+            \ifnum\i>1
+                % Première couche
+                \node[input neuron] (I-1) at (0,-1.5) {};
+                \node[input neuron] (I-3) at (0,-3.75) {};
+                
+                \node[below right=0.8ex,scale=0.7] at (I-1) {$\Sigma$};
+                \node[above right=0.8ex,scale=0.7] at (I-3) {$\Sigma$};
+                
+                % Arêtes de la première couche
+                \path[thick] (E-1) edge node[pos=0.8,above,scale=0.7]{$w_{1}$} (I-1) ;
+                \path[thick] (E-2) edge node[pos=0.8,above left,scale=0.7]{$w_{2}$} (I-1);
+                \path[thick] (E-2) edge node[pos=0.8,above,scale=0.7]{$w_4$} (I-3);
+                \path[thick] (E-3) edge node[pos=0.8,above,scale=0.7]{$w_{3}$} (I-3);
+            \fi
+            
+            \ifnum\i>2
+                % Deuxième couche (couches cachées)
+                \node[hidden neuron] (O) at (\layersep,-3.75 cm) {};
+                \node[hidden neuron] (P) at (\layersep,-1.5 cm) {};
+                \node[below right=0.8ex,scale=0.7] at (O) {$h_{11}$};
+                \node[above right=0.8ex,scale=0.7] at (P) {$h_{12}$};
+                
+                % Arêtes de la deuxième couche
+                \path[thick] (I-1) edge node[pos=0.8,above,scale=0.7]{$f_{11}$} (P);
+                \path[thick] (I-3) edge node[pos=0.8,below,scale=0.7]{$f_{12}$}(O);
+            \fi
+            
+            \ifnum\i>3
+                % Troisième couche (nouvelle couche cachée)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                % Arêtes vers la nouvelle couche
+                \path[thick] (P) edge node[pos=0.8,above,scale=0.7]{$w_{5}$} (N);
+                \path[thick] (O) edge node[pos=0.8,below,scale=0.7]{$w_{6}$} (N);
+            \fi
+            
+            \ifnum\i>4
+                % Sortie
+                \node[output neuron] (Q) at (3*\layersep,-2 cm) {};
+                \path[thick] (N) edge node[pos=0.8,above,scale=0.7]{$w_{7}$} (Q);
+                
+                % Flèche de sortie
+                \draw[->,thick] (Q)-- ++(2,0) node[right,blue]{$\hat{y}$};
+            \fi
+            
+        \end{tikzpicture}
+ 
+\end{animateinline}
+
+
+
+
+
+\end{center}
+}   
+
+
+}
