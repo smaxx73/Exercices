@@ -12,21 +12,187 @@ On observe $X_1, \ldots, X_n$ indépendantes et de même loi. On suppose qu’il
 }
 
 \begin{enumerate}
-    \item \question{Proposer un estimateur $\theta_n$ de $\theta$ et étudier sa loi.}
+    \item \question{Proposer un estimateur $\hat{\theta}_n$ de $\theta$ et étudier sa loi.}
     \indication{}
-    \reponse{}
+    \reponse{Les $X_i$ ($1 \leq i \leq n$) suivent une loi normale $\mathcal{N}(0, \theta)$ et 
+    \begin{equation}
+    \text{Var}(X_i) = \mathbb{E}(X_i^2) = \theta.
+\end{equation}
+Pour estimer $\theta$, on propose l'estimateur suivant: $$ \hat{\theta}_n = \frac{1}{n} \sum_{i=1}^{n} X_i^2.$$
+On a alors :
+  $  \frac{n\hat{\theta}_n}{\theta} = \sum_{i=1}^{n} \frac{X_i^2}{\theta}.
+$
+
+Or, comme pour tout $1 \leq i \leq n$, $\frac{X_i}{\sqrt{\theta}} \sim \mathcal{N}(0,1)$ et comme les v.a. $X_i$ sont i.i.d., on en déduit que :
+$$
+    \frac{\hat{\theta}_n}{\theta} \sim \chi^2_n.
+$$
+%Cette caractérisation de la loi de $\hat{theta}_n$ suffit, cependant, on sait aussi qu’une loi du $\chi^2_n$ est une loi $\gamma(\frac{n}{2}, \frac{1}{2})$. Ainsi :
+%\begin{equation}
+ %   \hat{\theta}_n = \frac{\theta}{n} \cdot \frac{n\hat{\theta}_n}{\theta} \sim \gamma\left(\frac{n}{2}, \frac{2\theta}{n}\right).
+%\end{equation}
+%\hat{theta}_n
+}
     \item \question{Soit $\alpha \in ]0, 1[$. Construire un intervalle de confiance $I_{1-\alpha} = [A_1, B_1]$ de niveau $(1-\alpha)$ pour $\theta$, tel que $P(\theta < A_1) = P(\theta > B_1) = \alpha/2$. Proposer deux autres intervalles de confiance de niveau $(1-\alpha)$, notés $I_{1-\alpha}^{(2)} = [A_2, B_2]$ et $I_{1-\alpha}^{(3)} = [A_3, B_3]$, tels que $P(\theta < A_2) = P(\theta > B_3) = \alpha$. Quel intervalle vous semble préférable ?}
     \indication{}
-    \reponse{}
-    \item \question{Donner la loi asymptotique de $\theta_n$ et en déduire un intervalle de confiance asymptotique $J_{1-\alpha}$.}
+    \reponse{
+On note $F_{\chi^2_n}$ la fonction de répartition de la loi du $\chi^2_n$ et $F^{-1}_{\chi^2_n}$ la fonction quantile, qui est la réciproque au sens usuel de $F_{\chi^2_n}$ car cette dernière est une bijection de $[0,\infty)$ vers $[0,1)$. On peut alors écrire :
+\begin{equation}
+    P\left(F^{-1}_{\chi^2_n}(\alpha/2) \leq \frac{n\hat{\theta}_n}{\theta} \leq F^{-1}_{\chi^2_n}(1 - \alpha/2)\right) = 1 - \alpha,
+\end{equation}
+donc
+\begin{equation}
+    P\left(\frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(1 - \alpha/2)} \leq \theta \leq \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(\alpha/2)}\right) = 1 - \alpha.
+\end{equation}
+
+En posant
+\begin{equation}
+    A_1 = \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(1 - \alpha/2)}, \quad B_1 = \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(\alpha/2)},
+\end{equation}
+on en déduit que $P(\theta < A_1) = P(\theta > B_1) = \alpha/2$ :
+\begin{equation}
+    P(\theta < A_1) = P\left(\theta < \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(1 - \alpha/2)}\right) = P\left(F^{-1}_{\chi^2_n}(1 - \alpha/2) < \frac{n\hat{\theta}_n}{\theta}\right) = 1 - F_{\chi^2_n}\left(F^{-1}_{\chi^2_n}(1 - \alpha/2)\right) = \alpha/2.
+\end{equation}
+\begin{equation}
+    P(\theta > B_1) = P\left(\theta > \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(\alpha/2)}\right) = P\left(F^{-1}_{\chi^2_n}(\alpha/2) > \frac{n\hat{\theta}_n}{\theta}\right) = F_{\chi^2_n}\left(F^{-1}_{\chi^2_n}(\alpha/2)\right) = \alpha/2.
+\end{equation}
+
+On en déduit l’intervalle de confiance :
+\begin{equation}
+    I^{(1)}_{1 - \alpha} = \left[ \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(1 - \alpha/2)}, \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(\alpha/2)} \right].
+\end{equation}
+
+Un raisonnement similaire permet d'obtenir deux autres intervalles de confiance :
+\begin{equation}
+    I^{(2)}_{1 - \alpha} = \left[ \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(1 - \alpha)}, \infty \right],
+\end{equation}
+\begin{equation}
+    I^{(3)}_{1 - \alpha} = \left[ 0, \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(\alpha)} \right].
+\end{equation}
+
+En mesurant la qualité des intervalles par leur longueur, on obtient :
+\begin{equation}
+    L_1 = n\hat{\theta}_n \left(\frac{1}{F^{-1}_{\chi^2_n}(\alpha/2)} - \frac{1}{F^{-1}_{\chi^2_n}(1 - \alpha/2)}\right),
+\end{equation}
+\begin{equation}
+    L_3 = \frac{n\hat{\theta}_n}{F^{-1}_{\chi^2_n}(\alpha)}.
+\end{equation}
+Ainsi, $I^{(1)}_{1 - \alpha}$ est plus court que $I^{(3)}_{1 - \alpha}$ si :
+\begin{equation}
+    \frac{1}{F^{-1}_{\chi^2_n}(\alpha)} + \frac{1}{F^{-1}_{\chi^2_n}(1 - \alpha/2)} - \frac{1}{F^{-1}_{\chi^2_n}(\alpha/2)} \geq 0.
+\end{equation}
+Dans le cas général, on ne peut rien dire : selon les valeurs de $n$ et $\alpha$, l'inégalité (1) est vérifiée ou non (voir aussi plus bas sur l'application numérique). Cependant, pour $\alpha \in ]0, 1[$ fixé et lorsque $n$ tend vers l'infini, on s'attend à ce que $I^{(1)}_{1-\alpha}$ se concentre autour de la vraie valeur inconnue $\theta > 0$, et ce à vitesse $1/\sqrt{n}$ puisque $\hat{\theta}_n$ est obtenu par moyennisation (voir question suivante), donc il semble raisonnable de supposer que $L_1$ tende vers 0. En revanche, ce ne sera pas le cas pour $L_3$ puisque, asymptotiquement, la borne de droite est au moins de l'ordre de $\theta$ donc $L_3$ aussi. Par ailleurs, comme précisé dans la remarque ci-dessus, en dépit de leur longueur, $I^{(2)}_{1-\alpha}$ et $I^{(3)}_{1-\alpha}$ peuvent présenter un intérêt pour la construction de tests unilatéraux.
+
+}
+    \item \question{Donner la loi asymptotique de $\hat{\theta}_n$ et en déduire un intervalle de confiance asymptotique $J_{1-\alpha}$.}
     \indication{}
-    \reponse{}
-    \item \question{On se place dans la situation où $n = 10$, $\theta_n(\omega) = 2$ et $\alpha = 5\%$. Comparer l’intervalle de confiance non asymptotique $I_{1-\alpha}^{(1)}$ à l’intervalle de confiance asymptotique $J_{1-\alpha}$.}
+    \reponse{Les $X_i$ suivent une loi normale et admettent donc des moments à tous les ordres, en particulier à l'ordre 4. Les variables aléatoires $X_i^2$ sont donc dans $L^2$ et satisfont le TCL :
+
+\[
+\sqrt{n} \left(\frac{ \hat{\theta}_n - \theta}{\sqrt{Var(X_1^2)}} \right) \xrightarrow{d} \mathcal{N}(0,1)
+\]
+
+De plus,$
+\text{Var}(X_1^2) = \theta^2 \text{Var}\left(\left(\frac{X_1}{\sqrt{\theta}}\right)^2\right) = 2\theta^2,
+$
+
+car la variance d'une $\chi^2_1$ est égale à 2. On peut alors construire un IC asymptotique pour $\theta$. La convergence en loi vue plus haut donne, en notant $\Phi$ la fonction de répartition de la $\mathcal{N}(0,1)$,
+
+\[
+P\left(-\Phi^{-1}\left(1 - \frac{\alpha}{2}\right) \leq \frac{\sqrt{n} (\hat{\theta}_n - \theta)}{\sqrt{2\theta^2}} \leq \Phi^{-1}\left(1 - \frac{\alpha}{2}\right)\right) \xrightarrow{n \to \infty} 1 - \alpha
+\]
+
+c'est-à-dire,
+
+\[
+P\left(1 - \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n/2}} \leq \frac{\hat{\theta}_n}{\theta} \leq 1 + \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n/2}}\right) \xrightarrow{n \to \infty} 1 - \alpha
+\]
+
+ou encore,
+
+\[
+P\left(\frac{\hat{\theta}_n}{1 + \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n/2}}} \leq \theta \leq \frac{\hat{\theta}_n}{1 - \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n/2}}}\right) \xrightarrow{n \to \infty} 1 - \alpha
+\]
+
+Ainsi, un intervalle de confiance asymptotique est :
+
+\[
+J_{1-\alpha} = \left[\frac{\hat{\theta}_n}{1 + \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n/2}}}, \frac{\hat{\theta}_n}{1 - \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n/2}}}\right]
+\]
+
+en prenant la convention $[a, b] = \emptyset$ si $b < a$.
+}
+    
+    
+    \item \question{On se place dans la situation où $n = 10$, $\hat{\theta}_n(\omega) = 2$ et $\alpha = 5\%$. Comparer l’intervalle de confiance non asymptotique $I_{1-\alpha}^{(1)}$ à l’intervalle de confiance asymptotique $J_{1-\alpha}$.}
     \indication{}
-    \reponse{}
-    \item \question{On souhaite à présent tester $H_0 : \theta \leq 3$ contre $H_1 : \theta > 3$. (a) À partir de la définition du niveau, construire un test $T_\alpha(X)$ de niveau non-asymptotique $\alpha$ pour les hypothèses $H_0$ et $H_1$. Déterminer la taille de ce test et sa fonction puissance. (b) Peut-on retrouver ce résultat grâce au lien avec les intervalles de confiance de la question 2 ? (c) Pour un seuil $\alpha = 5\%$, lorsque $n = 10$ et qu’on observe $\theta_n(\omega) = 4$, rejette-t-on l’hypothèse nulle ? Calculer la p-valeur du test et la comparer à $\alpha$.}
+    \reponse{On a $F^{-1}_{\chi^2_n}(\alpha/2) \approx 3.25$, $F^{-1}_{\chi^2_n}(1 - \alpha/2) \approx 20.48$ et $\Phi^{-1}(1 - \alpha/2) \approx 2$. Les réalisations des intervalles de confiance sont donc :
+
+\[
+I^{(1)}_{1-\alpha}(\omega) \approx [0.97, 6.16] \quad \text{(non-asymptotique)}
+\]
+
+\[
+J_{1-\alpha}(\omega) \approx [1.05, 18.95] \quad \text{(asymptotique)}.
+\]
+
+On remarque que l'intervalle de confiance asymptotique est différent de l'intervalle de confiance non-asymptotique. Ceci est normal car $n = 10$ est trop petit pour que l'approche asymptotique soit valide (la convergence n'a pas eu lieu). Puisque $n = 10$, on préférera bien sûr l'IC non-asymptotique.
+
+Remarque : Pour ces valeurs numériques, on peut voir que $I^{(3)}_{1-\alpha}(\omega)$ est en fait plus court que $I^{(1)}_{1-\alpha}(\omega)$ puisque $I^{(3)}_{1-\alpha}(\omega) \approx [0, 5.08]$.
+}
+    \item \question{On souhaite à présent tester $H_0 : \theta \leq 3$ contre $H_1 : \theta > 3$. \\
+   (a) À partir de la définition du niveau, construire un test $T_\alpha(X)$ de niveau non-asymptotique $\alpha$ pour les hypothèses $H_0$ et $H_1$. Déterminer la taille de ce test et sa fonction puissance. \\
+   (b) Peut-on retrouver ce résultat grâce au lien avec les intervalles de confiance de la question 2 ? \\
+   (c) Pour un seuil $\alpha = 5\%$, lorsque $n = 10$ et qu’on observe $\hat{\theta}_n(\omega) = 4$, rejette-t-on l’hypothèse nulle ? Calculer la p-valeur du test et la comparer à $\alpha$.}
     \indication{}
-    \reponse{}
+    \reponse{Puisque le test $T_{\alpha}(X)$ est, par définition, une variable de Bernoulli telle que l'on accepte $H_1$ (ou que l'on rejette $H_0$) lorsque $T_{\alpha}(X) = 1$ et que $H_1$ correspond à $\theta > 3$, on choisit comme test $T_{\alpha}(X) = 1_{\hat{\theta}_n > c_{\alpha}}$, avec $c_{\alpha} \geq 0$ un réel à déterminer de sorte que le test soit de niveau $\alpha$. Or, la taille du test est :
+
+\[
+\sup_{\text{« sous } H_0 \text{ »}} P_{\theta}(T_{\alpha}(X) = 1) = \sup_{\theta \leq 3} P_{\theta}(\hat{\theta}_n > c_{\alpha})
+\]
+
+En choisissant $c_{\alpha} = \frac{3}{n} F^{-1}_{\chi^2_n}(1 - \alpha)$, on a :
+
+\[
+P_{\theta}(T_{\alpha}(X) = 1) = \sup_{\theta \leq 3} P_{\theta}\left(\frac{n \hat{\theta}_n}{\theta} > n c_{\alpha}\right) = 1 - \inf_{\theta \leq 3} F_{\chi^2_n}\left(\frac{n c_{\alpha}}{\theta}\right) = 1 - F_{\chi^2_n}\left(\frac{n c_{\alpha}}{3}\right)
+\]
+
+Puisque $F_{\chi^2_n}(1 - \alpha) \geq 0$, il vient :
+
+\[
+\sup_{\text{« sous } H_0 \text{ »}} P_{\theta}(T_{\alpha}(X) = 1) = \alpha
+\]
+
+Autrement dit, $T_{\alpha}(X)$ est un test de taille $\alpha$, donc aussi de niveau $\alpha$.
+
+Remarque : C'est très certainement le mieux que l'on puisse faire.
+
+Le seuil $c_{\alpha}$ ainsi choisi, la fonction puissance du test $T_{\alpha}(X)$ se calcule alors facilement :
+
+\[
+\forall \theta > 0 : \pi(\theta) = P_{\theta}(T_{\alpha}(X) = 1) = P_{\theta}\left(\hat{\theta}_n > \frac{3}{n} F^{-1}_{\chi^2_n}(1 - \alpha)\right) = 1 - F_{\chi^2_n}\left(\frac{3}{\theta} F^{-1}_{\chi^2_n}(1 - \alpha)\right)
+\]
+
+Le graphe de $\pi$ (pour $\alpha = 5\%$ et $n = 10$) est représenté sur la figure ci-dessous. On remarque en particulier que la valeur maximale de $\pi$ sous $H_0$ est bien $\alpha$ (indiquant que le test est de taille $\alpha$) et qu'il est atteint en $3$, « frontière » entre $H_0$ et $H_1$.
+
+(b) Par le cours, on sait qu'en notant $\Theta_0 = [0, 3]$, alors $1_{\Theta_0 \cap I^{(1)}_{1-\alpha} = \emptyset}$, $1_{\Theta_0 \cap I^{(2)}_{1-\alpha} = \emptyset}$ et $1_{\Theta_0 \cap I^{(3)}_{1-\alpha} = \emptyset}$ sont des tests de niveau $\alpha$ pour les hypothèses considérées. Ces tests sont évidemment différents (certains seront plus conservateurs que d'autres) et donc de fonctions puissances différentes. En particulier, il vient très rapidement $1_{\Theta_0 \cap I^{(2)}_{1-\alpha} = \emptyset} = T_{\alpha}(X)$, qui est le meilleur des trois choix.
+
+(c) Pour $n = 10$ et $\alpha = 5\%$, nous avons $c_{\alpha} = \frac{3}{n} F^{-1}_{\chi^2_n}(1 - \alpha) \approx 5.49$. Ainsi, $H_0$ est acceptée lorsque $\hat{\theta}_n = 4$.
+
+De plus, la $p$-valeur est donnée par :
+
+\[
+\alpha_0 = \inf \{\alpha \in [0, 1], \text{ tel que } H_0 \text{ est rejetée au niveau } \alpha\}
+\]
+
+Or, nous avons :
+
+\[
+H_0 \text{ est rejetée au niveau } \alpha \Leftrightarrow \hat{\theta}_n > \frac{3}{n} F^{-1}_{\chi^2_n}(1 - \alpha) \Leftrightarrow \frac{n \hat{\theta}_n}{3} > F^{-1}_{\chi^2_n}(1 - \alpha) \Leftrightarrow F_{\chi^2_n}\left(\frac{n \hat{\theta}_n}{3}\right) > 1 - \alpha \Leftrightarrow \alpha > 1 - F_{\chi^2_n}\left(\frac{n \hat{\theta}_n}{3}\right)
+\]
+
+Donc, $\alpha_0 = 1 - F_{\chi^2_n}\left(\frac{n \hat{\theta}_n}{3}\right)$. Pour les valeurs numériques plus haut, cela donne $\alpha_0 = 1 - F_{\chi^2_{10}}\left(\frac{40}{3}\right) \approx 0.2$. En particulier, on retrouve bien que le test accepte $H_0$ pour $\alpha = 0.05$.
+}
 \end{enumerate}
 
 }
