@@ -1,0 +1,213 @@
+\newboolean{solution}
+\newboolean{isuuid}
+\newboolean{link}
+\newboolean{isindication}
+
+\newcounter{num}
+
+\definecolor{solutioncolor}{RGB}{0,100,0}
+\definecolor{titrecolor}{RGB}{36,76,146}
+
+%liens vers des ressources extérieures :
+\newcommand{\pathcorrige}{https://openyourmath.org/exercice?uuid=}
+\newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
+\newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
+
+\newtcolorbox{marker}[1][]{enhanced,hbox,before skip=2mm,after skip=3mm,fontupper=\small\sffamily,%
+	boxrule=0.4pt,left=1mm,right=4mm,top=1pt,bottom=1pt,colback=blue!15,colframe=yellow!20!black,%
+	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,%
+	underlay={%
+		\path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		\path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+		%\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[midway,white]{\Large\bfseries{}!} ([xshift=3mm]interior.north west);
+	},%
+	drop fuzzy shadow,#1
+}
+
+\newtcolorbox{solutionbox}{
+	enhanced,
+	breakable,
+	colback=solutioncolor!30!white,
+	colframe=solutioncolor,
+	boxsep=5pt,
+	%arc=4pt,
+	%borderline={0.8pt}{-3pt}{solutioncolor},
+	frame hidden,
+	interior style={top color=solutioncolor!15!white, bottom color=solutioncolor!20!white},
+	overlay={
+		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=solutioncolor, inner sep=1pt] {\textcolor{white}\checkmark};}};
+	} % Ajouter l'icône d'ampoule en tant qu'overlay
+}
+
+\newtcolorbox{indicationbox}{
+	enhanced,
+	breakable,
+	colback=yellow!30!white,
+	colframe=yellow,
+	boxsep=5pt,
+	%arc=4pt,
+	%borderline={0.8pt}{-3pt}{solutioncolor},
+	frame hidden,
+	interior style={top color=yellow!15!white, bottom color=yellow!20!white},
+	overlay={
+        \node[anchor=north west, xshift=0pt, yshift=0pt] at (frame.north west) {
+	\tikz{
+		\node[circle, draw=yellow!80!black, fill=yellow!60!black, 
+		minimum size=0.3cm, inner sep=0pt] 
+		{\textcolor{yellow}{\scriptsize \textbf{i}}};
+	}
+};
+	} % Ajouter l'icône d'ampoule en tant qu'overlay
+}
+
+\newtcolorbox{titrebox}[3][]{
+	enhanced,
+	breakable,
+	boxrule=0pt,
+	colframe=white,
+	colback=white,
+	sharp corners,
+	top=20pt,
+	%bottom=-2pt,
+	borderline north={0pt}{0pt}{white!100!black},
+	overlay unbroken and first={
+		\node[anchor=north west, inner xsep=-2pt, inner ysep=-7pt, rounded corners] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt] {\small\textbf{\sffamily{\textcolor{white}{Ex #1 - #2}}}};}};
+		\ifthenelse{\boolean{isuuid}}{
+			\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {
+				\tikz{
+					\node[] {\ifthenelse{\boolean{link}}{\href{\pathcorrige#3}{\texttt{#3}}}{\texttt{#3}}};
+				}
+			};
+		}{}
+		%\ifthenelse{\boolean{uuid}}{\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {\tikz{\node[] {\begin{marker}{#3}\end{marker}};}};}{}
+		%\node[anchor=south east, inner sep=2pt] at (frame.south east) {\tikz{\node[draw] {truc};}};
+	%sharp corners,
+	},
+}
+
+\newcommand{\titre}[1]{%
+	\def\TitreExo{#1}
+}
+\newcommand{\contenu}[1]{%
+	\def\Contenu{#1}
+}
+
+\newcommand{\code}[1]{#1}
+\newcommand{\texte}[1]{#1}
+
+\newcommand{\question}[1]{#1}
+\newcommand{\reponse}[1]{
+	\ifthenelse{\boolean{solution}} 
+	{%
+		\begin{solutionbox}
+			\begin{footnotesize} #1 \end{footnotesize} 
+	\end{solutionbox}}{}
+} 
+\newcommand{\indication}[1]{
+	\ifthenelse{\boolean{isindication}} 
+	{%
+		\begin{indicationbox}
+			\begin{footnotesize} #1 \end{footnotesize} 
+	\end{indicationbox}}{}
+}
+
+\newcommand{\nextexo}{
+	\addtocounter{num}{1}
+	\vspace{1em}
+}
+
+% \newcommand{\insertexo}[1]{
+% \begin{minipage}[t]{0.85\textwidth}
+%\input{../Exercices/#1}
+%\end{minipage}
+%\begin{minipage}[t]{0.15\textwidth}
+%{\tiny [#1]}
+%\end{minipage}
+%}
+
+\newcommand{\insertexobis}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+	\noindent
+	\input{../src/#1}
+	\setboolean{solution}{#2}
+	\setboolean{isuuid}{#3}
+	\setboolean{link}{#4}
+	
+	\begin{titrebox}[#5]
+		{\bfseries{\TitreExo}}{#1} %\hfill
+		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+		\Contenu
+	\end{titrebox}	
+}
+
+
+\newcommand{\insertexo}[6]{%contenu, solution, uuid, lien solution,numerotation,theme
+	\noindent
+	\input{\path src/#1}
+	\setboolean{solution}{#2}
+	\setboolean{isuuid}{#3}
+	\setboolean{link}{#4}
+	\setboolean{isindication}{#6}
+	
+	\begin{titrebox}[#5]
+		{\bfseries{\TitreExo}}{#1} %\hfill
+		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+		\Contenu
+	\end{titrebox}	
+}
+
+\newcommand{\listexo}[1]{%liste
+	\foreach \ex in #1 {
+		\nextexo
+		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}{\isindication}
+	}
+}
+
+\newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
+	\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
+}
+
+\newcommand{\colonnes}[3]{
+	\setboolean{solution}{#1}
+	\ifthenelse{\boolean{solution}} {
+		\ifnumcomp{#3}{=}{1}
+		{}%
+		{\begin{multicols}{#3}}%
+		}%
+		{%
+			\ifnumcomp{#2}{=}{1}
+			{}%
+			{\begin{multicols}{#2}}%
+			}
+		}
+		
+\newcommand{\fincolonnes}[3]{
+			\setboolean{solution}{#1}
+			\ifthenelse{\boolean{solution}} {
+				\ifnumcomp{#3}{=}{1}
+				{}%
+				{\end{multicols}}%
+		}%
+		{%
+			\ifnumcomp{#2}{=}{1}
+			{}%
+			{\end{multicols}}%
+	}
+}
+
+\newcounter{qrcodenum}
+
+\newcommand{\listeqrcode}[2]{%liste d'exercices, initiatialisation du compteur
+\setcounter{qrcodenum}{#2}
+\noindent
+\foreach \exo in #1{
+	% Crée une minipage pour chaque exercice avec son numéro, son titre et son QR code
+	\begin{minipage}{0.24\textwidth}  % ajustez la largeur pour avoir 4 QR codes par ligne
+		\centering
+		\href{\pathcorrige\exo}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
+		{\qrcode{\pathcorrige\exo}}  % génère le QR code
+		\par\vspace{2em}  % espace vertical entre les QR codes
+	\end{minipage}
+	% Incrémente le compteur
+	\stepcounter{qrcodenum}
+}
+}

@@ -1,0 +1,53 @@
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm,mathabx}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{tkz-tab} %graphiques et tableaux de variations
+\usepackage[most]{tcolorbox} %boites en environnements colorés
+\usepackage{pgfplots}
+\usepackage{calc}
+\usepackage{cancel}
+\usepackage{multicol}
+\usepackage[babel=true]{csquotes}
+\usepackage{xspace}
+\usepackage{setspace}
+\usepackage{cancel} %pour barrer du texte
+\usepackage{tabularx}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{ifthen}
+
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+%\usepackage{frcursive}
+
+\usepackage{fancyvrb} %saveVerbatim
+%\usepackage{verbatim} 
+
+%métadonnées :
+
+\newcommand{\theme}[1]{}
+\newcommand{\auteur}[1]{}
+\newcommand{\organisation}[1]{}
+\newcommand{\uuid}[1]{}
+\newcommand{\datecreate}[1]{}
+\newcommand{\similaire}[1]{}
+
+%python :
+\usepackage{listings}
+
+\lstnewenvironment{mylisting}[1][]{
+	\lstset{
+		language=Python,        % Langage par défaut
+		basicstyle=\ttfamily,  % Style de base
+		keywordstyle=\color{blue},
+		commentstyle=\color{green!70},
+		stringstyle=\color{red},
+		% Ajoutez d'autres configurations si nécessaire
+		#1                      % Permet des configurations supplémentaires lors de l'utilisation
+	}
+}{}
