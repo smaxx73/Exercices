@@ -1,51 +1,39 @@
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
+// Read all .tex files from source directory
+const sourceDir = path.join('..', 'src');
+const outputFile = path.join('..', 'info', 'themes.txt');
 
+// Create info directory if it doesn't exist
+const infoDir = path.dirname(outputFile);
+if (!fs.existsSync(infoDir)) {
+    fs.mkdirSync(infoDir, { recursive: true });
+}
 
-function extractThemes(inputDir, outputDir) {
-    const themesSet = new Set();
-  
-    // Lire tous les fichiers du répertoire d'entrée
-    const files = fs.readdirSync(inputDir);
-  
-    // Filtrer les fichiers JSON
-    const jsonFiles = files.filter((file) => path.extname(file).toLowerCase() === '.json');
-  
-    // Traiter chaque fichier JSON
-    jsonFiles.forEach((file) => {
-      const filePath = path.join(inputDir, file);
-      const data = fs.readFileSync(filePath, 'utf8');
-  
-      try {
-        const exercice = JSON.parse(data);
-        if (Array.isArray(exercice.theme)) {
-          exercice.theme.forEach((theme) => themesSet.add(theme));
+// Read all .tex files and extract themes
+let allThemes = new Set();
+
+try {
+    const files = fs.readdirSync(sourceDir)
+        .filter(file => file.endsWith('.tex'));
+
+    files.forEach(file => {
+        const content = fs.readFileSync(path.join(sourceDir, file), 'utf8');
+        const themeMatch = content.match(/\\theme{([^}]*)}/);
+        
+        if (themeMatch && themeMatch[1]) {
+            // Split themes by comma and trim whitespace
+            const themes = themeMatch[1].split(',').map(theme => theme.trim());
+            themes.forEach(theme => allThemes.add(theme));
         }
-      } catch (parseErr) {
-        console.error(`Erreur lors du parsing du fichier ${file}: ${parseErr.message}`);
-      }
     });
-  
-    // Convertir le Set en tableau et trier les thèmes
-    const themesArray = Array.from(themesSet).sort();
-  
-    // S'assurer que le répertoire de sortie existe
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
-    }
-  
-    // Chemin du fichier de sortie
-    const outputFilePath = path.join(outputDir, 'themes.txt');
-  
-    // Écrire les thèmes dans le fichier de sortie
-    fs.writeFileSync(outputFilePath, themesArray.join('\n'), 'utf8');
-    console.log(`Liste des thèmes générée avec succès dans ${outputFilePath}`);
-  }
-  
-  // Exemple d'utilisation:
-  // Le premier argument est le répertoire d'entrée, le second est le répertoire de sortie
-  const inputDirectory = 'src'; // À remplacer par votre répertoire
-  const outputDirectory = 'info'; // À remplacer par votre répertoire
-  
-  extractThemes(inputDirectory, outputDirectory);
+
+    // Write unique themes to output file
+    const sortedThemes = [...allThemes].sort();
+    fs.writeFileSync(outputFile, sortedThemes.join('\n'));
+    
+    console.log(`Extracted ${sortedThemes.length} unique themes to ${outputFile}`);
+} catch (error) {
+    console.error('Error:', error.message);
+}

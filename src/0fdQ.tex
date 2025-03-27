@@ -1,0 +1,108 @@
+\chapitre{Autre}
+\sousChapitre{Autre}
+\uuid{0fdQ}
+\titre{ Etude d'une rétropropagation }
+\theme{réseaux de neurones}
+\auteur{Rachel ABABOU}
+\datecreate{2024-11-17}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{ On considère le réseau de neurones à deux couches suivant où la fonction d'activation de la première couche est $\sigma \colon x \mapsto \frac{1}{1+e^{-x}}$ et la fonction d'activation de la seconde couche est $id \colon x \mapsto x$. 
+	
+	
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+		\def\layersep{2cm}
+		\tikzstyle{every pin edge}=[thick]
+		\tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+		\tikzstyle{entree}=[];
+		\tikzstyle{input neuron}=[neuron, fill=green!50];
+		\tikzstyle{output neuron}=[neuron, fill=red!50];
+		\tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+		\tikzstyle{annot} = [text width=4em, text centered]
+		
+		
+		% Entree
+		\node[entree,blue] (E-1) at (-\layersep,-0.5) {$x$};
+		\node[entree,blue] (E-2) at (-\layersep,-1.5) {$y$};
+		
+		
+		% Premiere couche
+		\node[input neuron] (I-1) at (0,0) {};
+		%		\node[input neuron] (I-2) at (0,-1.5) {};
+		\node[input neuron] (I-3) at (0,-2) {};
+		
+		
+		\node[above right=0.8ex,scale=0.7] at (I-1) {$\sigma$};
+		%\node[above right=0.8ex,scale=0.7] at (I-2) {$H$};
+		\node[below right=0.8ex,scale=0.7] at (I-3) {$\sigma$};
+		
+		
+		\node[below right=0.8ex,scale=0.7] at (I-1) {};
+		%\node[below right=0.8ex,scale=0.7] at (I-2) {};
+		%\node[below right=0.8ex,scale=0.7] at (I-2) {};
+		
+		
+		% \node[above right=0.8ex,blue] at (I-1) {$s_1$};
+		% \node[above right=0.8ex,blue] at (I-2) {$s_2$};
+		% \node[above right=0.8ex,blue] at (I-3) {$s_3$};
+		
+		
+		%Seconde couche et sortie
+		\node[output neuron] (O) at (\layersep,-1) {};
+		\node[below right=0.8ex,scale=0.7] at (O) {};
+		\node[above right=0.8ex,scale=0.7] at (O) {$id$};
+		
+		
+		% Arrete et poids
+		\path[thick] (E-1) edge node[pos=0.8,above,scale=0.7]{$\omega_1$} (I-1) ;
+		\path[thick] (E-2) edge node[pos=0.7,above left,scale=0.7]{$\omega_3$} (I-1);
+		\draw[-o,thick] (I-1) to node[midway,below right,scale=0.7]{$a$} ++ (-110:0.8);
+		
+		
+		%\path[thick] (E-1) edge node[pos=0.8,above,scale=0.7]{$1$} (I-2);
+		%\path[thick] (E-2) edge node[pos=0.8,above,scale=0.7]{$1$} (I-2);
+		%\draw[-o,thick] (I-2) to node[midway,below right,scale=0.7]{$-2$} ++ (-130:0.8);
+		
+		
+		\path[thick] (E-1) edge node[pos=0.8,above right,scale=0.7]{$\omega_2$} (I-3);
+		\path[thick] (E-2) edge node[pos=0.8,above,scale=0.7]{$\omega_4$} (I-3);
+		\draw[-o,thick] (I-3) to node[midway,below right,scale=0.7]{$b$} ++ (-130:0.8);
+		
+		
+		\path[thick] (I-1) edge node[pos=0.8,above,scale=0.7]{$\omega_5$} (O);
+		%\path[thick] (I-2) edge node[pos=0.8,below,scale=0.7]{$1$}(O);
+		\path[thick] (I-3) edge node[pos=0.8,below,scale=0.7]{$\omega_6$}(O);
+		\draw[-o,thick] (O) to node[midway,below right,scale=0.7]{$c$} ++ (-110:0.8) ;
+		
+		
+		% Sortie
+		\draw[->,thick] (O)-- ++(1,0) node[right,blue]{$F(x,y,a,b,c,\omega_1,\cdots,\omega_6)$};
+		
+		
+	\end{tikzpicture}   
+\end{center}
+
+}
+
+\begin{enumerate}
+	\item \question{ Exprimer la sortie de la première couche en fonction de $x,y,a,b,\omega_1,\cdots,\omega_4$. }
+	\item \question{ Donner une expression de la sortie $F(x,y,a,b,c,\omega_1,\cdots,\omega_6)$.  }
+	\item \question{ Exprimer la dérivée $\sigma'$ en fonction de $\sigma$. }
+	\item \question{ Déterminer les dérivées partielles $\frac{\partial F}{\partial \omega_5}$ et $\frac{\partial F}{\partial \omega_6}$. }
+	\item \question{ Exprimer $\frac{\partial F}{\partial a}$ en fonction de $\frac{\partial F}{\partial \omega_5}$. }
+	\item \question{ On considère l'entrée suivante : 
+	$$(x,y) = \left(0{,}05 \, ; \, 0{,}10\right)$$
+	Les poids initiaux sont : 
+	$$W_{init} = (a,b,\omega_1,\cdots,\omega_6) = (0.35, 0.5, 0.15, 0.2, 0.25, 0.3, 0.4, 0.45)$$
+	La sortie obtenue est $F_{\circ} = 1.006117$.
+	
+	On considère la donnée d'apprentissage : $((x,y),t) = \left(\left(0{,}05 \, ; \, 0{,}10\right), 0.99 \right)$. L'erreur quadratique est : 
+	$$E_{\circ} = (0.99 - 1.006117)^2 = 0.00026$$
+	Calculer le gradient de $F$ puis le gradient de $E$ pour $W_{init}$ avec l'entrée $(x,y) = \left(0{,}05 \, ; \, 0{,}10\right)$. 
+ }
+  \item \question{ En utilisant la méthode du gradient à pas constant $\delta = 0.1$, réaliser un apprentissage de ce réseau en déterminant les nouveaux poids $W_{new}$. }
+\end{enumerate}
+}

@@ -1,95 +1,111 @@
 \uuid{H0fC}
 \titre{Etude de points critiques et d'ue ligne de niveau}
 \theme{calcul différentiel}
+\chapitre{Fonction de plusieurs variables}
+\sousChapitre{Extremums locaux}
 \auteur{}
+\datecreate{2023-03-20}
 \organisation{AMSCC}
 \contenu{
 
-\texte{ 	Une usine produit deux types de matériaux, que l'on note respectivement $A$ et $B$. Si elle produit $x$ kg de type $A$ et $y$ de type $B$ sur une semaine, le coût total hebdomadaire de production est 
-$$c(x,y) = 600+200x+200y-2x^2y$$
-%$$c(x,y) = 200x+200y+10xy-0.01x^2-0.01y^2+100$$
-En pleine capacité, la production totale sur une semaine peut atteindre au maximum 30 kg. Dans cette modélisation, le coût peut être négatif.  }
+\texte{
+	Une usine produit deux types de matériaux, notés $A$ et $B$. Si, en une semaine, elle produit $x$ kg de type $A$ et $y$ kg de type $B$, le coût total de production (en euros) est modélisé par la fonction
+	$$
+	c(x,y)=10000+50x+60y-0.05xy.
+	$$
+	En pleine capacité, la production hebdomadaire totale ne peut dépasser $3000$ kg, c’est-à-dire que
+	$$
+	x\geq0,\quad y\geq 0,\quad x+y\leq3000.
+	$$
+	Dans ce modèle, le coût reste toujours positif.
+}
 
 \begin{enumerate}
-	\item \question{ Décrire et représenter graphiquement le domaine de définition de la fonction $c$. }
-	\reponse{D'après les informations données ici, on travaille sous la condition que $x+y \leq 30$ et $x\geq 0$, $y \geq 0$. Ces trois conditions définissent un triangle dans $\R^2$ :
+	\item \question{Décrire et représenter graphiquement le domaine de définition $\mathcal{D}_c$.}
+	\reponse{
+		Le domaine de définition est l’ensemble des couples $(x,y)$ tels que $x\geq0$, $y\geq0$ et $x+y\leq3000$. Géométriquement, il s’agit d’un triangle du plan dont les sommets sont $(0,0)$, $(3000,0)$ et $(0,3000)$.
+		
 		\begin{center}
-			\begin{tikzpicture}
-				\draw[thick,->] (-0.4,0)--(3.2,0)node[above] {$x$ };
-				\draw[thick,->] (0,-0.4)--(0,3.2)node[left] {$y$};
-				\draw[ultra thick, color=red, fill=red!50, opacity=0.4] (0,0)--(3,0)--(0,3) -- cycle;
-				\draw[red] (1,1) node{$\mathcal{D}_c$};
-				\draw (3,0) node[below]{$30$};
-				\draw (0,3) node[left]{$30$};
+			\begin{tikzpicture}[scale=0.0018]
+				\draw[thick,->] (-100,0) -- (3100,0) node[below right] {$x$ (kg)};
+				\draw[thick,->] (0,-100) -- (0,3100) node[above left] {$y$ (kg)};
+				\draw[ultra thick, color=blue, fill=blue!30, opacity=0.4] (0,0) -- (3000,0) -- (0,3000) -- cycle;
+				\node at (800,800) {$\mathcal{D}_c$};
+				\draw (3000,0) node[below] {$3000$};
+				\draw (0,3000) node[left] {$3000$};
 			\end{tikzpicture}
-		\end{center}	
-		
+		\end{center}
 	}
-	\item \question{ Faire une recherche de minimum local à l'intérieur du domaine du définition. }
-	\reponse{La fonction $c$ est polynomiale donc de classe $\mathcal{C}^{\infty}$ sur $\R^2$. On fait une recherche de points stationnaires $(x,y) \in \mathcal{D}_c$ :
-		\begin{align*}
-			\begin{cases}
-				\frac{\partial c}{\partial x}(x,y) = 0\\
-				\frac{\partial c}{\partial y}(x,y) =0
-			\end{cases}
-			\Leftrightarrow
-			\begin{cases}
-				200-4xy = 0\\
-				200-2x^2 =0
-			\end{cases}		
-			\Leftrightarrow
-			\begin{cases}
-				x = 10\\
-				y = 5
-			\end{cases}			
-		\end{align*}
-		Un unique point stationnaire (point critique) est trouvé, il reste à étudier sa nature en regardant les conditions d'ordre 2. 
+	\item \question{ Justifier que la fonction $c$ admet un minimum sur $\mathcal{D}_c$ et que ce minimum est atteint.  }
+	\reponse{ On remarque que $\mathcal{D}_c$ est un fermé de $\mathbb{R}^2$. De plus il est borné (c'est un triangle). Par ailleurs, la fonction $c$ est polynomiale donc continue sur $\mathcal{D}_c$. D'après le théorème des valeurs extrêmes, la fonction $c$ admet donc un minimum sur $\mathcal{D}_c$ et ce minimum est atteint en au moins un point de $\mathcal{D}_c$. }
+	
+	\item \question{Rechercher les points critiques (minimum ou maximum locaux) à l’intérieur du domaine de définition.}
+	\reponse{
+		La fonction $c$ est polynomiale (donc de classe $\mathcal{C}^{\infty}$) sur $\mathbb{R}^2$. Calculons ses dérivées partielles :
+		$$
+		\frac{\partial c}{\partial x}(x,y)=50-0.05y,\quad \frac{\partial c}{\partial y}(x,y)=60-0.05x.
+		$$
+		En annulant ces dérivées, on obtient :
+		$$
+		\begin{cases}
+			50-0.05y=0 \quad\Rightarrow\quad y=1000,\\[1mm]
+			60-0.05x=0 \quad\Rightarrow\quad x=1200.
+		\end{cases}
+		$$
+		Le seul point critique intérieur est donc $(1200,1000)$.  
 		
-		$$Hess_c(x,y)=\begin{pmatrix} 
-			\frac{\partial^2 c}{\partial x^2}(x,y) = -4y & \frac{\partial^2 c}{\partial x \partial y}(x,y) = -4x \\
-			\frac{\partial^2 c}{\partial y \partial x}(x,y) = -4x & \frac{\partial^2 c}{\partial y^2}(x,y) = 0 &
-		\end{pmatrix}$$
-		Son déterminant est $0-16x^2$ donc pour le point stationnaire, $x=10$ et le déterminant vaut $-1600 <0$. D'après le cours, cette fonction présente un point selle en $(10,5)$. C'est le seul point stationnaire, il n'y a donc pas de minimum local pour la fonction $c$ à l'intérieur de $\mathcal{D}_c$. 
+		Pour étudier sa nature, on calcule le Hessien :
+		$$
+		H_c(x,y)=
+		\begin{pmatrix}
+			\frac{\partial^2 c}{\partial x^2}(x,y) & \frac{\partial^2 c}{\partial x \partial y}(x,y)\\[1mm]
+			\frac{\partial^2 c}{\partial y \partial x}(x,y) & \frac{\partial^2 c}{\partial y^2}(x,y)
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			0 & -0.05\\[1mm]
+			-0.05 & 0
+		\end{pmatrix}.
+		$$
+		Le déterminant de ce Hessien est
+		$$
+		\det H_c = 0\cdot0 - (-0.05)^2 = -0.0025 < 0,
+		$$
+		ce qui caractérise un point selle en $(1200,1000)$.
 	}
-	\item \question{ En substituant une variable en fonction d'une autre, étudier la fonction $c$ au bord du domaine. }
-	\reponse{On travaille sur le bord :
-		\begin{itemize}
-			\item $x=0$ : on ne produit que du type B, le coût total est $c(0,y)=600+200y$, cette quantité est maximale pour $y=30$ et vaut $c(0,30)=6600$, cette quantité est minimale pour $y=0$ et vaut $c(0,0)=600$.
-			\item $y=0$ : on ne produit que du type A, le coût total est $c(x,0)=600+200x$, cette quantité est maximale pour $x=30$ et vaut $c(300,0)=6600$, cette quantité est minimale pour $x=0$ et vaut $c(0,0)=600$.
-			\item $x+y=300$ : 
-			\begin{itemize}
-				\item \textbf{Méthode par substitution} : on remplace $y$ par $30-x$ et on étudie la fonction d'une variable $f(x)=c(x,30-x) = 6600-60x^2+2x^3$ définie et dérivable sur $[0;30]$. On dérive : $f'(x) = 6x(x-20)$, on voit que $f'$ s'annule à l'intérieur du domaine en un seul point : $x_0 = 20$. On étudie la nature de ce point critique avec la dérivée seconde : 
-				$f''(x_0) = 120 >0$, en déduit qu'il s'agit d'un minimum. 
-				
-				Pour minimiser le coût, l'usine doit produire 20 kg de type A et 10 kg de de type B pour un coût hebdomadaire de $c(20,10) = -1400$.  \\
-				\textbf{Méthode du Lagrangien} : le lagrangien s'écrit ici $L(x,y,\lambda) = c(x,y)-\lambda(x+y-30) = 600+200x+200y-2x^2y-\lambda(x+y-30)$. On cherche son maximum par recherche de points critiques sur l'ensemble $]0;30[\times]0;30[\times\R$. On résout :
-				\begin{align*}
-					\begin{cases}
-						\frac{\partial L}{\partial x}(x,y,\lambda) = 0\\
-						\frac{\partial L}{\partial y}(x,y,\lambda) = 0\\
-						\frac{\partial L}{\partial \lambda}(x,y,\lambda) = 0\\
-					\end{cases}
-					\Leftrightarrow
-					\begin{cases}
-						200-4xy-\lambda = 0\\
-						200-2x^2-\lambda = 0\\
-						30-x-y = 0\\
-					\end{cases}
-					\Leftrightarrow
-					\begin{cases}
-						200-4x(30-x)-(200-2x^2) = 0\\
-						\lambda = 200-2x^2\\
-						y= 30-x\\
-					\end{cases} \\
-					\Leftrightarrow \begin{cases}
-						x = 20\\
-						\lambda = -1600\\
-						y= 10\\
-					\end{cases}
-				\end{align*}
-				Reste à vérifier que ce point réalise le maximum du lagrangien en étudiant les conditions de second ordre : on évalue $\Delta(x,y,\lambda) = \frac{\partial^2 L}{\partial x^2}(x,y,\lambda)\frac{\partial^2 L}{\partial y^2}(x,y,\lambda) - \left(\frac{\partial^2 L}{\partial x \partial y}(x,y,\lambda) \right)^2 = -16x^2<0$. D'après le cours, on ne peut pas conclure directement. On doit donc étudier le signe de $c(x,y)-c(20,10)$ au voisinage de $(20,10)$ le long de la ligne d'équation $x+y=300$ : on étudie donc $d(h,k)=c(20+h,10+k)-c(20,10)$ compte tenu de la contrainte que $10+h+20+k = 30 \iff h=-k$. On étudie donc $d(h,-h) =  2h^2(30+h) \geq 0$. Cela garantit que $c(20,10)$ est bien un minimum de la fonction $c$.
-			\end{itemize}
-		\end{itemize}
+	
+	\item \question{Étudier la fonction $c$ sur le bord du domaine en substituant une variable en fonction de l’autre.}
+	\reponse{
+		Sur le bord du domaine, la contrainte est $x+y=3000$. En posant $y=3000-x$, on définit la fonction d’une variable :
+		$$
+		f(x)=c\bigl(x,3000-x\bigr)=10000+50x+60(3000-x)-0.05x(3000-x).
+		$$
+		Calculons :
+		$$
+		f(x)=10000+50x+180000-60x-0.05\bigl(3000x-x^2\bigr)=190000-10x-150x+0.05x^2,
+		$$
+		soit
+		$$
+		f(x)=190000-160x+0.05x^2,\quad x\in[0,3000].
+		$$
 		
+		La dérivée de $f$ est
+		$$
+		f'(x)=-160+0.1x.
+		$$
+		En posant $f'(x)=0$, on trouve
+		$$
+		0.1x=160\quad\Longrightarrow\quad x=1600.
+		$$
+		Donc, $y=3000-1600=1400$.  
+		
+		La dérivée seconde vaut $f''(x)=0.1>0$, ce qui confirme que $x=1600$ est bien un minimum local sur le bord. Ainsi, pour minimiser le coût sur la frontière du domaine, l’usine doit produire $1600$ kg de type $A$ et $1400$ kg de type $B$.  
+		
+		Le coût minimal correspondant est
+		$$
+		c(1600,1400)=10000+50\times1600+60\times1400-0.05\times1600\times1400=62000\text{ euros}.
+		$$
 	}
-\end{enumerate}}
+\end{enumerate}
+
+}

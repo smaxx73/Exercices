@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "../openyourmath"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../convert_exo7"
+		},
+		{
+			"path": "../exobase"
+		}
+	],
+	"settings": {
+	}
+}

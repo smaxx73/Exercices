@@ -1,6 +1,8 @@
+%print_devoir
 \newboolean{solution}
-\newboolean{uuid}
+\newboolean{isuuid}
 \newboolean{link}
+\newboolean{isindication}
 
 
 \newcounter{num}
@@ -9,7 +11,7 @@
 \definecolor{titrecolor}{RGB}{36,76,146}
 
 %liens vers des ressources extérieures :
-\newcommand{\pathcorrige}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf/}
+\newcommand{\pathcorrige}{https://openyourmath.org/exercice?uuid=}
 \newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
 
@@ -36,6 +38,20 @@
 	interior style={top color=solutioncolor!15!white, bottom color=solutioncolor!20!white},
 	overlay={
 		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=solutioncolor, inner sep=1pt] {\textcolor{white}\checkmark};}};
+	} % Ajouter l'icône d'ampoule en tant qu'overlay
+}
+\newtcolorbox{indicationbox}{
+	enhanced,
+	breakable,
+	colback=yellow!30!white,
+	colframe=yellow,
+	boxsep=5pt,
+	%arc=4pt,
+	%borderline={0.8pt}{-3pt}{solutioncolor},
+	frame hidden,
+	interior style={top color=yellow!15!white, bottom color=yellow!20!white},
+	overlay={
+		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=yellow, inner sep=1pt] {\textcolor{white}i};}};
 	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
 
@@ -105,6 +121,13 @@
 			\begin{footnotesize} #1 \end{footnotesize} 
 	\end{solutionbox}}{}
 } 
+\newcommand{\indication}[1]{
+	\ifthenelse{\boolean{isindication}} 
+	{%
+		\begin{indicationbox}
+			\begin{footnotesize} #1 \end{footnotesize} 
+	\end{indicationbox}}{}
+}
 
 \newcommand{\nextexo}{
 	\addtocounter{num}{1}
@@ -143,16 +166,15 @@
 	\setboolean{link}{#4}
 	
 	\begin{titrebox}[#5]
-		{\bfseries{\TitreExo}}{#1} %\hfill
-		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+		{\bfseries{\TitreExo}}{#1}
 		\Contenu
-	\end{titrebox}	
+	\end{titrebox}    
 }
 
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexobis{\ex}{\solution}{\isuuid}{\link}{\thenum}
+		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}
 	}
 }
 

@@ -1,0 +1,57 @@
+\chapitre{Statistique}
+\sousChapitre{Tests d'hypothèses, intervalle de confiance}
+\uuid{HqCj}
+\titre{Conformité de la teneur en thiomersal dans un vaccin grippal pandémique}
+\theme{tests d'hypothèses}
+\auteur{Maxime NGUYEN}
+\datecreate{2024-11-24}
+\organisation{AMSCC}
+
+\contenu{
+
+\texte{
+On s’intéresse à la campagne de vaccination contre la grippe A pandémique de l’année 2009 en France. On mène une étude sur la teneur en thiomersal dans un vaccin. Le thiomersal est un composé contenant du mercure, utilisé de longue date comme conservateur dans les médicaments, et notamment dans les vaccins, pour prévenir la contamination bactérienne. Toutefois, sa toxicité oblige à limiter la quantité utilisée.
+
+Un vaccin produit par un laboratoire français contient, selon la notice, 45 $\mu g$ de thiomersal par dose. On suppose que la teneur en thiomersal suit une loi normale d'espérance $m$ et de variance $\sigma^2$, inconnues. On dispose d’un échantillon de 16 valeurs disponibles dans le fichier joint.
+}
+
+\begin{enumerate}
+	\item \question{On considère trois tests de conformité de la moyenne $m$, définis par les hypothèses suivantes : 
+$$A : \begin{cases}
+                    H_0 : m = 45,\\
+                    H_1 : m > 45,
+                \end{cases} \quad B : \begin{cases}
+                    H_0 : m = 45,\\
+                    H_1 : m < 45,
+                \end{cases} \quad C : \begin{cases}
+                    H_0 : m = 45,\\
+                    H_1 : m \neq 45,
+                \end{cases}$$
+    Si on veut se prémunir en priorité du risque :
+    \begin{enumerate}
+        \item[(a)] lié à la contamination bactérienne du vaccin,
+        \item[(b)] ou de la toxicité du thiomersal,
+    \end{enumerate}
+    quel test doit-on choisir dans chacun de ces deux cas ? Justifier rapidement.}
+	\indication{Identifier le risque que chaque hypothèse alternative $H_1$ cherche à prévenir.}
+    \reponse{À compléter.}
+
+    \item \question{Donner une estimation de $m$ par un intervalle de confiance de niveau 99\%.}
+    \indication{Utiliser les données de l’échantillon et la distribution de Student.}
+    \reponse{À compléter.}
+
+    \item \question{Réaliser le test $A$ avec un risque de première espèce de 5\%. Quelle est la valeur critique de la moyenne de l’échantillon au-delà de laquelle on rejette l’hypothèse $H_0$ ? Exprimer la prise de décision à l’issue de ce test.}
+    \indication{Utiliser la table de la loi normale centrée réduite pour déterminer la valeur critique.}
+    \reponse{À compléter.}
+
+    \item \question{On considère le test défini par les hypothèses suivantes : 
+    $$\begin{cases}
+        H_0 : m = 45, \\
+        H_1 : m = m_1.
+    \end{cases}$$
+    Calculer la puissance du test $A'$ pour $m_1 = 46$ et $m_1 = 47$.}
+    \indication{La puissance est $1 - \beta$, où $\beta$ est la probabilité d’erreur de seconde espèce.}
+    \reponse{À compléter.}
+\end{enumerate}
+
+}
