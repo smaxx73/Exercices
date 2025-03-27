@@ -1,0 +1,40 @@
+\uuid{MVnD}
+\exo7id{6868}
+\auteur{chataur}
+\organisation{exo7}
+\datecreate{2012-05-13}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Espace vectoriel}
+\sousChapitre{Définition, sous-espace}
+
+\contenu{
+\texte{
+Montrer que les ensembles ci-dessous sont des espaces vectoriels (sur $\Rr$) :
+\begin{itemize}
+  \item  $E_1 = \big\{ f : [0,1] \to \Rr \big\}$ : l'ensemble
+des fonctions à valeurs r\'eelles d\'efinies sur l'intervalle $[0,1]$, 
+muni de l'addition $f+g$ des fonctions et de la multiplication par un nombre r\'eel $\lambda \cdot f$.
+
+  \item $E_2 = \big\{ (u_n) : \Nn \to \Rr \big\}$ : l'ensemble
+des suites r\'eelles muni de l'addition des suites définie par $(u_n)+(v_n)=(u_n+v_n)$
+et de la multiplication par un nombre r\'eel $\lambda \cdot (u_n) = (\lambda \times u_n)$.
+
+  \item $E_3 = \big\{ P \in \Rr[x] \mid \deg P \le n \big\}$ : l'ensemble des polynômes
+à coefficients réels de degré inférieur ou égal à $n$
+muni de l'addition $P+Q$ des polynômes et de la multiplication par un nombre r\'eel $\lambda \cdot P$. 
+\end{itemize}
+}
+\indication{On v\'erifiera sur ces exemples la d\'efinition donn\'ee en cours.}
+\reponse{
+$x+(y+z)=(x+y)+z$ (pour tout $x,y,z \in E$)
+il existe un vecteur nul $0 \in E$ tel que $x+0=x$ (pour tout $x\in E$)
+il existe un opposé $-x$ tel que $x+(-x)=0$ (pour tout $x\in E$)
+$x+y=y+x$ (pour tout $x,y \in E$) \\
+Ces quatre premières propriétés font de $(E,+)$ un groupe abélien.
+$1\cdot x = x$ (pour tout $x\in E$)
+$\lambda \cdot (x+y) = \lambda\cdot x + \lambda \cdot y$ (pour tout $\lambda \in K=$, pour tout $x,y \in E$)
+$(\lambda+\mu) \cdot x = \lambda\cdot x+ \mu \cdot x$ (pour tout $\lambda, \mu \in K$, pour tout $x \in E$)
+$(\lambda\times\mu) \cdot x = \lambda\cdot (\mu\cdot x)$ (pour tout $\lambda, \mu \in K$, pour tout $x \in E$)
+}
+}

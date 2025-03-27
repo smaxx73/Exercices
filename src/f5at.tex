@@ -1,0 +1,30 @@
+\uuid{f5at}
+\exo7id{4833}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Topologie}
+\sousChapitre{Compacité}
+
+\contenu{
+\texte{
+Soit $E$ un espace vectoriel norm{\'e},
+$(K_n)$ une suite d{\'e}croissante de compacts non vides de $E$ et $K = \bigcap_n K_n$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $K \ne \varnothing$.}
+    \item \question{Soit $U$ un ouvert contenant $K$. Montrer qu'il existe $n$ tel que $K_n \subset U$.}
+    \item \question{Montrer que $\delta(K) = \lim_{n\to\infty} \delta(K_n)$ ($\delta$ est le diam{\`e}tre).}
+\reponse{
+Soit $\ell = \lim_{n\to\infty} \delta(K_n)$.
+Il existe $x_n,y_n \in K_n$ tels que $d(x_n,y_n) = \delta(K_n)$.
+Apr{\`e}s extraction de sous-suites, on peut supposer que $x_n \to x$ et
+$y_n \to y$. Pour $\varepsilon > 0$, $(\overline B(x,\varepsilon) \cap K_n)$
+et $(\overline B(y,\varepsilon) \cap K_n)$ forment des suites d{\'e}croissantes de
+compacts non vides, donc $\overline B(x,\varepsilon) \cap K$ et $\overline B(y,\varepsilon) \cap K$
+sont non vides. Par cons{\'e}quent, $\delta(K) \ge \ell - 2\varepsilon$.
+}
+\end{enumerate}
+}

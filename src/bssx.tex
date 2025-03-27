@@ -1,0 +1,52 @@
+\uuid{bssx}
+\exo7id{2266}
+\auteur{barraud}
+\organisation{exo7}
+\datecreate{2008-04-24}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Polynôme}
+\sousChapitre{Polynôme}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Trouver tous les polyn\^omes irr\'eductibles
+de degr\'e $2$, $3$ \`a coefficients dans le corps $\mathbb{F}_3=\Zz/3\Zz$.}
+\reponse{On raisonne exactement comme pour l'exercice \ref{exoprec}. On peut
+    réduire un peu les discussions en remarquant que puisqu'on est sur un
+    corps, on peut se contenter de chercher les irréductibles
+    \emph{unitaires}: on obtient les autres en multipliant les
+    irréductibles unitaires par les inversibles, soit $\pm1$.
+  
+    Les irréductibles de degré 2 sont caractérisés par $P(0)\neq0$,
+    $P(1)\neq0$ et $P(-1)\neq 0$. On obtient finalement la liste
+    suivante: $\{X^{2}+1, X^{2}-X-1, -X^{2}-1, -X^{2}+X+1\}$.
+
+    \bigskip
+    Sans commentaire, on obtient la liste suivante pour les irréductibles
+    de degré $3$ de $\Zz/3\Zz[X]$:
+    $\{%
+    \pm(X^{3}+X^{2}-X+1),%
+    \pm(X^{3}-X^{2}+X+1),%
+    \pm(X^{3}-X^{2}  +1),%
+    \pm(X^{3}      -X+1),%
+    \pm(X^{3}+X^{2}+X-1),%
+    \pm(X^{3}-X^{2}-X-1)%
+    \pm(X^{3}+X^{2}  -1),%
+    \pm(X^{3}      -X-1),%
+    \}$.}
+    \item \question{D\'ecomposer les polyn\^omes suivants en facteurs irr\'eductibles dans 
+$\mathbb{F}_3[x]$.
+$$
+x^2+x+1,\hspace{1cm}x^3+x+2,\hspace{1cm}x^4+x^3+x+1\; . 
+$$}
+\reponse{$X^{2}+X+1=(X-1)^{2}$
+
+    $X^{3}+X+2=(X+1)(X^{2}-X+2)$
+    
+    $X^{4}+X^{3}+X+1=(X+1)(X^{3}+1)=(X+1)^{4}$}
+\end{enumerate}
+}

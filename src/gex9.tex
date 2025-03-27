@@ -1,0 +1,46 @@
+\uuid{gex9}
+\exo7id{919}
+\auteur{liousse}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Espace vectoriel}
+\sousChapitre{Somme directe}
+
+\contenu{
+\texte{
+Soient $v_1=(0,1,-2,1),
+v_2=(1,0,2,-1), v_3=(3,2,2,-1), v_4 = (0,0,1,0)$ et
+$v_5=(0,0,0,1)$ des vecteurs de $\Rr^4$.  Les propositions
+suivantes sont-elles vraies ou fausses ?  Justifier votre r\'eponse.
+}
+\begin{enumerate}
+    \item \question{$\text{Vect}\{ v_1, v_2, v_3 \} =  \text{Vect}\{(1,1,0,0),(-1,1,-4,2)\}$.}
+\reponse{Vrai. $\text{Vect}\{(1,1,0,0),(-1,1,-4,2)\}$ est inclus dans $\text{Vect} \{v_1,v_2,v_3\}$, car
+$(1,1,0,0) = v_1+v_2$ et $(-1,1,-4,2)=v_1-v_2$. Comme ils sont de m\^eme dimension ils sont \'egaux 
+(autrement dit : comme un plan est inclus dans un autre alors ils sont égaux).}
+    \item \question{$(1,1,0,0) \in \text{Vect}\{ v_1, v_2 \} \cap \text{Vect}\{ v_2, v_3, v_4 \}$.}
+\reponse{Vrai. On a $(1,1,0,0) = v_1+v_2$ donc  $(1,1,0,0)\in \text{Vect}\{v_1,v_2\}$, or 
+$\text{Vect}\{v_1,v_2\}=\text{Vect}\{v_2,v_3\}\subset \text{Vect}\{v_2,v_3,v_4\}$. 
+Donc $(1,1,0,0) \in \text{Vect}\{v_1, v_2\} \cap    \text{Vect}\{v_2, v_3, v_4\}$.}
+    \item \question{$\dim(\text{Vect}\{ v_1, v_2 \} \cap \text{Vect}\{ v_2, v_3, v_4 \})=1$ (c'est-à-dire c'est une droite vectorielle).}
+\reponse{Faux. Toujours la m\^eme relation nous donne que 
+$\text{Vect} \{v_1, v_2\} \cap \text{Vect} \{v_2, v_3, v_4\} = \text{Vect}\{v_1, v_2\}$ donc est de dimension $2$.
+C'est donc un plan vectoriel et pas une droite.}
+    \item \question{$\text{Vect}\{ v_1, v_2 \} + \text{Vect}\{ v_2, v_3, v_4 \}= \Rr^4$.}
+\reponse{Faux. Encore une fois la relation donne que 
+$\text{Vect}\{v_1, v_2\}+\text{Vect}\{v_2, v_3, v_4\} = \text{Vect}\{v_1, v_2, v_4\}$, or $3$ vecteurs ne
+   peuvent engendrer $\Rr^4$ qui est de dimension $4$.}
+    \item \question{$\text{Vect}\{ v_4, v_5 \}$ est un sous-espace vectoriel 
+   suppl\'ementaire de $\text{Vect}\{ v_1, v_2, v_3 \}$ dans $\Rr^4$.}
+\reponse{Vrai.  Faire le calcul : l'intersection est $\{0\}$ et la somme est $\Rr^4$.}
+\indication{\begin{enumerate}
+\item Vrai.
+\item Vrai.
+\item Faux.
+\item Faux.
+\item Vrai.
+\end{enumerate}}
+\end{enumerate}
+}

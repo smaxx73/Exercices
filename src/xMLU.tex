@@ -1,0 +1,59 @@
+\uuid{xMLU}
+\exo7id{4703}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Suite}
+\sousChapitre{Suite définie par une relation de récurrence}
+
+\contenu{
+\texte{
+Étudier la convergence de la suite $(u_n)$ définie par :
+}
+\begin{enumerate}
+    \item \question{$u_0 = a > 1$, $u_{n+1} = \frac 12\left(u_n + \frac a{u_n}\right)$.}
+    \item \question{$0 < u_0 < \frac {\sqrt5-1}2$, $u_{n+1} = 1 - u_n^2$.}
+    \item \question{$u_{n+1} = u_n-u_n^2$.}
+    \item \question{$u_0 = 0$, $u_{n+1} = u_n^2+\alpha$.}
+    \item \question{$u_{n+1} = u_n + \frac{1+u_n}{1+2u_n}$.}
+    \item \question{$u_0 \in\, [0,1]$, $u_{n+1} = \frac{\sqrt{u_n}}{\sqrt{u_n}+\sqrt{1-u_n}}$.}
+    \item \question{$u_{n+1} = \sqrt{2-u_n}$.}
+    \item \question{$u_{n+1} = \sqrt{4-3u_n}$.}
+    \item \question{$u_{n+1} = \frac{u_n-\ln(1+u_n)}{u_n^2}$.}
+    \item \question{$u_{n+1} = \frac3{2u_n^2+1}$.}
+    \item \question{$u_0 > 0$, $u_{n+1} = u_n^\alpha$.}
+    \item \question{$u_0 > 0$, $u_{n+1} = \alpha^{u_n}$.}
+\reponse{
+$u_n\searrow\sqrt a$, et $u_n-\sqrt a < \frac{a-\sqrt a}{(2\sqrt a)^{2^n-1}}$.
+$u_{2n}\to0$, $u_{2n+1}\to1$.
+Si $0\le u_0 \le 1$ : $u_n\searrow0$, sinon $u_n\searrow-\infty$.
+\begin{itemize}
+$\frac{1}{4} < \alpha$ : $u_n\to\infty$;
+$- \frac{3}{4} < \alpha \le \frac{1}{4}$: $u_n\to\frac{1-\sqrt{1-4a}}2$,
+$-1 < \alpha \le - \frac{3}{4}$: 
+	  $1$ point fixe et deux points réciproques. $(u_n)$ ne converge pas.
+	  \end{itemize}
+Si $u_0 > {\scriptstyle-}\frac12$, $u_n\to\infty$;
+             si $u_0 < {\scriptstyle-}\frac12$, $u_n\to-1$.
+$u_n\to\frac12$.
+Thm du point fixe sur $]-\infty, \frac74]  \Rightarrow  u_n\to 1$.
+Si $u_0\ne 1$, $\exists\ n \text{ tq } 4-3u_n < 0  \Rightarrow $ suite finie.
+$u_n\to\alpha \approx 0.39754$.
+1 est point fixe, il y a deux points réciproques. $(u_n)$ ne converge pas.
+\begin{itemize}
+$1 < \alpha$: $u_n\to0$ si $u_0<1$, $u_n\to\infty$ si $u_0>1$
+$-1 < \alpha <1$: $u_n\to 1$
+$\alpha \le -1$: si $u_0 \ne 1$, $(u_n)$ diverge.
+    	\end{itemize}
+\begin{itemize}
+       $e^{1/e}  < \alpha$: $u_n\to\infty$.
+       $1 < \alpha < e^{1/e}$: 2 pts fixes, $\beta<\gamma$. $u_n\to\beta$ si $u_0<\gamma$, 
+       et $u_n\to\infty$ si $u_0>\gamma$. 
+       $e^{-e} \le \alpha <  1$: 1 pt fixe, $\beta$, et $u_n\to\beta$.
+       $\alpha <  e^{-e}$: 1 point fixe et deux points réciproques. $(u_n)$ ne converge pas.
+    	\end{itemize}
+}
+\end{enumerate}
+}

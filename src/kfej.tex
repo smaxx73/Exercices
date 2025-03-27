@@ -1,0 +1,34 @@
+\uuid{kfej}
+\exo7id{6874}
+\auteur{gammella}
+\organisation{exo7}
+\datecreate{2012-05-29}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Analyse vectorielle}
+\sousChapitre{Forme différentielle, champ de vecteurs, circulation}
+
+\contenu{
+\texte{
+On considère le changement de variables en coordonnées sphériques suivant :
+$$  \left\{ \begin{array}{lll}
+x& = & r\cos \varphi\cos \theta\\
+y&= & r\cos \varphi\sin \theta \\
+z & = & r \sin \varphi \\
+\end{array} \right .$$
+}
+\begin{enumerate}
+    \item \question{Calculer $dx$, $dy$, $dz$.}
+    \item \question{Vérifier que $x dx+ydy+zdz=rdr.$ En déduire 
+$ \frac{\partial r}{\partial x}$, $ \frac{\partial r}{\partial y}$ 
+et $ \frac{\partial r}{\partial z}$.}
+\reponse{
+On vérifie que :
+\begin{enumerate}
+$dx= \cos \varphi \cos \theta dr-r\sin \varphi\cos \theta d\varphi-r\sin \theta\cos \varphi 
+d\theta$
+$dy = \cos \varphi \sin \theta dr-r\sin \varphi\sin \theta d\varphi+r\cos \theta\cos\varphi d\theta $
+$dz=\sin \varphi dr+r\cos \varphi d\varphi.$
+}
+\end{enumerate}
+}

@@ -1,0 +1,44 @@
+\uuid{eFcl}
+\exo7id{120}
+\auteur{bodin}
+\organisation{exo7}
+\datecreate{1998-09-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Logique, ensemble, raisonnement}
+\sousChapitre{Logique}
+
+\contenu{
+\texte{
+Soient $f,g$ deux fonctions de $\Rr$ dans $\Rr$. Traduire
+en termes de quantificateurs les expressions suivantes :
+}
+\begin{enumerate}
+    \item \question{$f$ est major\'ee;}
+\reponse{$\exists M \in \Rr \quad \forall x \in \Rr \qquad f(x) \leq M$;}
+    \item \question{$f$ est born\'ee;}
+\reponse{$\exists M \in \Rr\quad \exists m \in \Rr \quad \forall x \in \Rr \qquad m \leq f(x) \leq M$;}
+    \item \question{$f$ est paire;}
+\reponse{$\forall x \in \Rr \qquad f(x) = f(-x)$;}
+    \item \question{$f$ est impaire;}
+\reponse{$\forall x \in \Rr \qquad f(-x) = -f(x)$;}
+    \item \question{$f$ ne s'annule jamais;}
+\reponse{$\forall x \in \Rr \qquad f(x) \not= 0$;}
+    \item \question{$f$ est p\'eriodique;}
+\reponse{$\exists a \in \Rr^* \quad \forall x \in \Rr \qquad f(x+a) = f(x)$;}
+    \item \question{$f$ est croissante;}
+\reponse{$\forall (x,y) \in \Rr^2 \qquad (x\leq y \Rightarrow f(x) \leq f(y))$;}
+    \item \question{$f$ est strictement d\'ecroissante;}
+\reponse{$\forall (x,y) \in \Rr^2 \qquad (x < y \Rightarrow f(x) > f(y))$;}
+    \item \question{$f$ n'est pas la fonction nulle;}
+\reponse{$\exists x \in \Rr \qquad  f(x) \not= 0$;}
+    \item \question{$f$ n'a jamais les m\^{e}mes valeurs en deux points distincts;}
+\reponse{$\forall (x,y) \in \Rr^2 \qquad (x\not= y \Rightarrow f(x) \not= f(y))$;}
+    \item \question{$f$ atteint toutes les valeurs de $\Nn$;}
+\reponse{$\forall n\in \Nn \quad \exists x \in \Rr \qquad f(x)=n$;}
+    \item \question{$f$ est inf\'erieure \`a $g$;}
+\reponse{$\forall x \in \Rr \qquad f(x) \leq g(x)$;}
+    \item \question{$f$ n'est pas inf\'erieure \`a $g$.}
+\reponse{$\exists x \in \Rr \qquad f(x) > g(x)$.}
+\end{enumerate}
+}

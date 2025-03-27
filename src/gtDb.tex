@@ -1,0 +1,42 @@
+\uuid{gtDb}
+\exo7id{6972}
+\auteur{blanc-centi}
+\organisation{exo7}
+\datecreate{2014-04-08}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Polynôme, fraction rationnelle}
+\sousChapitre{Fraction rationnelle}
+
+\contenu{
+\texte{
+Soit $T_n(x)=\cos\big(n \arccos(x)\big)$ pour $x\in [-1,1]$.
+}
+\begin{enumerate}
+    \item \question{\begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{Montrer que pour tout $\theta\in[0,\pi]$, $T_n(\cos\theta)=\cos(n\theta)$.}
+\reponse{Si on pose $x=\cos \theta$ alors l'égalité $T_n(x)=\cos\big(n \arccos(x)\big)$
+    devient $T_n(\cos\theta)=\cos(n\theta)$, car $\arccos (\cos \theta) = \theta$ pour $\theta \in [0,\pi]$.}
+    \item \question{Calculer $T_0$ et $T_1$.}
+\reponse{$T_0(x) = 1$, $T_1(x)=x$.}
+    \item \question{Montrer la relation de récurrence $T_{n+2}(x) = 2xT_{n+1}(x)-T_n(x)$, pour tout $n \ge0$.}
+\reponse{En écrivant $(n+2)\theta = (n+1)\theta + \theta$ et $n\theta = (n+1)\theta - \theta$ on obtient :
+    $$\begin{array}{c}
+    \cos\big( (n+2)\theta \big) = \cos\big((n+1)\theta\big)\cos \theta - \sin\big((n+1)\theta\big)\sin \theta     \\
+    \cos\big( n\theta \big) = \cos\big((n+1)\theta\big)\cos \theta + \sin\big((n+1)\theta\big)\sin \theta     \\    
+      \end{array}$$
+    Lorsque l'on fait la somme de ces deux égalités on obtient :
+    $$\cos\big( (n+2)\theta \big) + \cos\big( n\theta \big) = \cos\big((n+1)\theta\big)\cos \theta$$
+    
+    Avec $x = \cos \theta$ cela donne :
+    $$T_{n+2}(x) + T_n(x) = 2x T_{n+1}(x)$$}
+    \item \question{En déduire que $T_n$ une fonction polynomiale de degré $n$.}
+\reponse{$T_0$ et $T_1$ étant des polynômes alors, par récurrence,  $T_n(x)$ est un polynôme.
+    De plus, toujours par la formule de récurrence, il est facile de voir que le degré de $T_n$ est $n$.}
+\indication{Pour 1. exprimer $\cos\big((n+2)\theta\big)$ et $\cos(n\theta)$ 
+en fonction de $\cos\big((n+1)\theta\big)$.
+Pour 3. chercher les racines de $T_n$ : 
+$\omega_k=\cos\left(\frac{(2k+1)\pi}{2n}\right)$ pour $k=0,\ldots,n-1$.}
+\end{enumerate}
+}

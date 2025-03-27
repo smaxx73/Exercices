@@ -1,0 +1,25 @@
+\uuid{SqEQ}
+\exo7id{4213}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Equation différentielle}
+\sousChapitre{Equations aux dérivées partielles}
+
+\contenu{
+\texte{
+Soit $f : {\R^2} \to \R$ de classe $\mathcal{C}^2$.
+On pose $g(x,y) = f(2x+y,2x-y)$.
+}
+\begin{enumerate}
+    \item \question{Calculer les dérivées partielles secondes de $g$ en fonction de celles
+    de $f$.}
+\reponse{$\frac{\partial^2 g}{\partial x^2} = 4\frac{\partial^2 f}{\partial x^2} + 8\frac{\partial^2 f}{\partial x \partial y} + 4\frac{\partial^2 f}{\partial y^2}$\par
+             $\frac{\partial^2 g}{\partial y^2} =  \frac{\partial^2 f}{\partial x^2} - 2\frac{\partial^2 f}{\partial x \partial y} +  \frac{\partial^2 f}{\partial y^2}$\par
+             $\frac{\partial^2 g}{\partial x \partial y} = 2\frac{\partial^2 f}{\partial x^2} - 2\frac{\partial^2 f}{\partial y^2}$.}
+    \item \question{Trouver $f$ telle que $\frac{\partial^2 g}{\partial x^2} - 4\frac{\partial^2 g}{\partial y^2} = 1$.}
+\reponse{$f(x,y) = \frac{xy}{16} + h(x) + k(y)$.}
+\end{enumerate}
+}

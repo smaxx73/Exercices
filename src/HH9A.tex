@@ -1,0 +1,23 @@
+\uuid{HH9A}
+\exo7id{3529}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Polynôme caractéristique, théorème de Cayley-Hamilton}
+
+\contenu{
+\texte{
+Soient $x_1,\dots,x_n,y_1,\dots,y_n \in \C$.
+Calculer $\Delta_n = \det(I+(x_iy_j))$.
+}
+\reponse{
+Soit $M = (x_iy_j)$ : $M$ est de rang inférieur ou égal à $1$, donc
+$0$ est valeur propre de $M$ d'ordre au moins $n-1$.
+Comme $\mathrm{tr}(M) = x_1y_1 + \dots + x_ny_n$, le polynôme caractéristique de
+$M$ est $\chi_M(x) = (-x)^{n-1}(x_1y_1 + \dots + x_ny_n - x)$, et le déterminant demandé
+est $\Delta_n = \chi_M(-1) = x_1y_1 + \dots + x_ny_n + 1$.
+}
+}

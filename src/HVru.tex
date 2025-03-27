@@ -1,0 +1,37 @@
+\uuid{HVru}
+\exo7id{2387}
+\auteur{mayer}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Connexité}
+\sousChapitre{Connexité}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Montrer qu'il existe une surjection continue de $\Rr $ sur
+$\mathbb{S}^1 =\{z\in \Cc \; ; \;\; |z|=1\}$ et qu'il n'existe pas
+d'injection continue de $\mathbb{S}^1$ dans $\Rr$.}
+    \item \question{Montrer qu'il n'existe pas d'injection continue de $\Rr^2$
+dans $\Rr$.}
+\reponse{
+\begin{enumerate}
+$\phi : \Rr \longrightarrow \mathbb{S}^1$ définie par $\phi(t)=e^{it}$ est une surjection continue.
+$\mathbb{S}^1$ est un compact connexe donc, par l'absurde, si $\psi : \mathbb{S}^1 \longrightarrow \Rr$ est une injection continue alors $\psi(\mathbb{S}^1)$ est un compact connexe de $\Rr$ donc un segment compact $I$. Soit $y \in \mathring I$, comme $I$ est l'image de $\mathbb{S}^1$ alors il existe un unique $x \in \mathbb{S}^1$ tel que $f(x)=y$. L'application $f$ induit alors une bijection continue 
+$f : \mathbb{S}^1 \setminus \{ x \} \longrightarrow I \setminus \{ y \}$.
+Mais $\mathbb{S}^1 \setminus \{ x \}$ est connexe alors que son image par
+$f$, qui est $ I \setminus \{ y \}$ ne l'est pas (car $y\in \mathring I$).
+L'image d'un connexe par une application continue doit être un connexe, donc nous avons une contradiction.
+}
+\indication{\begin{enumerate}
+  \item Pour la surjection, pensez à l'exponentielle ou aux sinus et cosinus...
+Pour l'injection, raisonner par l'absurde et utiliser la connexité du cercle privé d'un point.
+
+  \item   Raisonner par l'absurde et utiliser la connexité de $\Rr^2$ privé d'un point.
+\end{enumerate}}
+\end{enumerate}
+}

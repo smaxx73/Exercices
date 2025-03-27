@@ -1,0 +1,27 @@
+\uuid{icAN}
+\exo7id{4656}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série de Fourier}
+\sousChapitre{Convergence, théorème de Dirichlet}
+
+\contenu{
+\texte{
+Soit $f : \R \to \C$ $2\pi$-périodique continue, $f_n$ sa
+$n$-ème somme de Fourier et $g_n = \frac{f_0 + \dots + f_n}{n+1}$.
+}
+\begin{enumerate}
+    \item \question{Exprimer $g_n$ à l'aide d'un produit de convolution, $g_n = f*k_n$.}
+    \item \question{Montrer que la suite $(k_n)$ constitue une suite d'approximations de la
+    mesure de Dirac sur $]-\pi,\pi[$. Ceci montre que la moyenne des
+    sommes partielles de la série de Fourier de~$f$ converge uniformément
+    vers~$f$ {\it pour toute $f$ continue}.}
+\reponse{
+$k_n(x)= \frac{1-\cos((n+1)x)}{(n+1)(1-\cos x)}
+                    = \frac{\sin^2((n+1)x/2)}{(n+1)\sin^2(x/2)}$.
+}
+\end{enumerate}
+}

@@ -1,0 +1,24 @@
+\uuid{h2p9}
+\exo7id{5166}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-06-30}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace vectoriel}
+\sousChapitre{Définition, sous-espace}
+
+\contenu{
+\texte{
+Soit $E$ un $\Kk$-espace vectoriel. Soient $A$, $B$ et $C$ trois sous-espaces vectoriels de $E$ vérifiant $A\cap
+B=A\cap C$, $A+B=A+C$ et $B\subset C$. Montrer que $B=C$.
+}
+\reponse{
+Il suffit de montrer que $C\subset B$.
+
+Soit $x$ un élément de $C$. Alors $x\in A+C=A+B$ et il existe $(y,z)\in A\times B$ tel que $x=y+z$. Mais $z\in
+B\subset C$ et donc, puisque $C$ est un sous-espace vectoriel de $E$, $y=x-z$ est dans $C$. Donc, $y\in A\cap C=A\cap B$
+et en particulier $y$ est dans $B$. Finalement, $x=y+z$ est dans $B$. On a montré que tout élément de $C$ est dans $B$
+et donc que, $C\subset B$. Puisque d'autre part $B\subset C$, on a $B=C$.
+}
+}

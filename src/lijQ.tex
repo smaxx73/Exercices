@@ -1,0 +1,29 @@
+\uuid{lijQ}
+\exo7id{4086}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Equation différentielle}
+\sousChapitre{Equations différentielles linéaires}
+
+\contenu{
+\texte{
+On considère l'équation différentielle~: $-y'' + \frac y{p^2} = f$
+où $p\in\N^*$ et $f$ est une fonction continue donnée.
+}
+\begin{enumerate}
+    \item \question{Donner les solutions de cette équation.
+    Montrer que $x \mapsto - \int_{t=0}^x pf(t)\sh\Bigl(\frac{x-t}p\Bigr)\,d t$
+    est solution.}
+    \item \question{Montrer qu'il existe une unique solution telle que $y(0) = y(1) = 0$.
+    On la note $u_p$.}
+    \item \question{Montrer que $(u_p)$ converge simplement vers une fonction que l'on déterminera.}
+\reponse{
+$u_p(x) = - \int_{t=0}^x pf(t)\sh\Bigl(\frac{x-t}p\Bigr)\,d t + \frac{\sh(x/p)}{\sh(1/p)} \int_{t=0}^1 pf(t)\sh\Bigl(\frac{1-t}p\Bigr)\,d t$.
+TCD : lorsque $p\to\infty$ $u_p(x)\to - \int_{t=0}^x (x-t)f(t)\,d t + x \int_{t=0}^1 (1-t)f(t)\,d t =  \int_{t=0}^x t(1-x)f(t)\,d t +  \int_{t=x}^1 x(1-t)f(t)\,d t$
+    (primitive deuxième de~$-f$ s'annulant en~$0$ et~$1$).
+}
+\end{enumerate}
+}

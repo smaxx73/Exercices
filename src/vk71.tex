@@ -1,0 +1,29 @@
+\uuid{vk71}
+\exo7id{3798}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Endomorphismes auto-adjoints}
+
+\contenu{
+\texte{
+Soit $A\in M_n(\R)$ telle que $A^3={}^t\!A A$. $A$ est-elle diagonalisable dans $M_n(\R)$, dans
+$M_n(\C)$ ?
+}
+\reponse{
+${}^t\!AA$ est $\R$-diagonalisable donc annule un polynôme
+$P$ scindé à racines simples. $A$ annule le polynôme $P(X^3)$, donc est $\C$-diagonalisable
+si $0$ n'est pas racine de~$P$ ce que l'on peut imposer si $A$ est inversible.
+
+Si $A$ n'est pas inversible, soit $P(X) = XQ(X)$ avec $Q(0)\ne 0$.
+
+On a $\R^n = \mathrm{Ker}(A^3)\oplus \mathrm{Ker}(Q(A^3))$ et $\mathrm{Ker}(A^3) = \mathrm{Ker}({}^t\!AA) = \mathrm{Ker}(A)$
+donc $AQ(A^3)=0$ et $A$ est encore $\C$-diagonalisable.
+
+Contre-exemple pour la $\R$-diagonalisabilité~: prendre une
+rotation d'angle $2\pi/3$ dans le plan.
+}
+}

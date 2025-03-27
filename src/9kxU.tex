@@ -1,0 +1,27 @@
+\uuid{9kxU}
+\exo7id{3708}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Espace vectoriel euclidien de dimension 3}
+
+\contenu{
+\texte{
+Soit $E$ un espace vectoriel euclidien orienté de dimension 3\ et
+$\vec a \in E\setminus\{\vec 0\}$. On note $\alpha = \|\vec a\,\|$.
+Soit $f$ l'endomorphisme de $E$ défini par : $f(\vec x) = \vec a\wedge\vec x$.
+}
+\begin{enumerate}
+    \item \question{Vérifier que $f^3 = -\alpha^2f$.}
+    \item \question{On pose $g(\vec x) = \sum_{k=0}^\infty \frac{f^k(\vec x)}{k!}$.
+    Simplifier $g(\vec x)$ et en déduire que $g$ est une rotation.}
+\reponse{
+$g(\vec x) = (\cos\alpha)\vec x
+                        + (1-\cos\alpha)\frac{(\vec a\mid\vec x)\vec a}{\alpha^2}
+                        + \frac{\sin\alpha(\vec a\wedge\vec x)}\alpha$.
+}
+\end{enumerate}
+}

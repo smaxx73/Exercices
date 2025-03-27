@@ -1,0 +1,31 @@
+\uuid{VbbI}
+\exo7id{926}
+\auteur{gourio}
+\organisation{exo7}
+\datecreate{2001-09-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Espace vectoriel}
+\sousChapitre{Somme directe}
+
+\contenu{
+\texte{
+Soit $$E=\big\{(u_{n})_{n\in
+  \Nn}\in \Rr^{\Nn}\ |\ (u_{n})_{n} \text{ converge }\big\}.$$
+Montrer que
+l'ensemble des suites constantes et l'ensemble des suites convergeant
+vers $0$ sont des sous-espaces suppl\'{e}mentaires dans $E.$
+}
+\indication{Pour une suite $(u_n)$ qui converge vers $\ell$ regarder la suite $(u_n-\ell)$.}
+\reponse{
+$F\cap G = \{0\}$. En effet une suite constante qui converge
+  vers $0$ est la suite nulle.
+$F+G=E$. Soit $(u_n)$ un \'el\'ement de $E$. Notons $\ell$ la
+    limite de $(u_n)$.  Soit $(v_n)$ la suite d\'efinie par
+    $v_n=u_n-\ell$, alors $(v_n)$ converge vers $0$. Donc $(v_n)\in
+    G$.  Notons $(w_n)$ la suite constante \'egale \`a $\ell$. Alors nous
+    avons $u_n=\ell+u_n-\ell$, ou encore $u_n=w_n+v_n$, ceci pour tout
+    $n\in\Nn$. En terme de suite cela donne $(u_n)=(w_n)+(v_n)$. Ce
+    qui donne la d\'ecomposition cherch\'ee.
+}
+}

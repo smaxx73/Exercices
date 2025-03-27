@@ -1,0 +1,35 @@
+\uuid{Gefw}
+\exo7id{764}
+\auteur{bodin}
+\organisation{exo7}
+\datecreate{1998-09-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Fonctions circulaires et hyperboliques inverses}
+\sousChapitre{Fonctions hyperboliques et hyperboliques inverses}
+
+\contenu{
+\texte{
+Soit $x\in\R$. On pose $t=\Arctan(\sh x)$.
+}
+\begin{enumerate}
+    \item \question{\'Etablir les relations  
+$$\tan t=\sh x \qquad\qquad \frac{1}{\cos t}=\ch x \qquad\qquad \sin t=\tanh x$$}
+    \item \question{Montrer que $x = \ln \big(\tan\big(\frac{t}{2}+\frac{\pi}{4}\big)\big)$.}
+\reponse{
+\begin{enumerate}
+Remarquons d'abord que, par construction, $t\in]-\frac{\pi}{2},\frac{\pi}{2}[$,
+    $t$ est donc dans le domaine de définition de la fonction $\tan$.
+    En prenant la tangente de l'égalité $t=\Arctan(\sh x)$ on obtient directement $\tan t=
+    \tan\big(\Arctan(\sh x)\big) =\sh x$.
+Ensuite, $\frac{1}{\cos^2t}=1+\tan^2 t= 1 + \tan^2\big(\Arctan(\sh x)\big) 
+    = 1+\sh^2x=\ch^2x$. Or la fonction $\ch$ ne prend que des valeurs positives, 
+    et $t\in]-\frac{\pi}{2},\frac{\pi}{2}[$ donc $\cos t>0$. Ainsi $\frac{1}{\cos t}=\ch x$.
+Enfin, $\sin t=\tan t \cdot \cos t= \sh x \cdot \frac{1}{\ch x}=\tanh x$.
+}
+\indication{Pour la première question calculer $\frac{1}{\cos^2t}$.
+Pour la seconde question, vérifier que 
+$y=\ln \left(\tan\left(\frac{t}{2}+\frac{\pi}{4}\right)\right)$ 
+est bien défini et calculer $\sh y$.}
+\end{enumerate}
+}

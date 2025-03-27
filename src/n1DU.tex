@@ -1,0 +1,60 @@
+\uuid{n1DU}
+\exo7id{5427}
+\auteur{exo7}
+\organisation{exo7}
+\datecreate{2010-07-06}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Développement limité}
+\sousChapitre{Calculs}
+
+\contenu{
+\texte{
+Déterminer les développements limités à l'ordre demandé au voisinage des points indiqués~:
+}
+\begin{enumerate}
+    \item \question{$\frac{1}{1-x^2-x^3}\;(\mbox{ordre}\;7\;\mbox{en}\;0)$}
+    \item \question{$\frac{1}{\cos x}\;(\mbox{ordre}\;7\;\mbox{en}\;0)$}
+    \item \question{$\Arccos\sqrt{\frac{x}{\tan x}}\;(\mbox{ordre}\;3\;\mbox{en}\;0)$}
+    \item \question{$\tan x\;(\mbox{ordre}\;3\;\mbox{en}\;\frac{\pi}{4})$}
+    \item \question{$(\ch x)^{1/x^2}\;(\mbox{ordre}\;2\;\mbox{en}\;0)$}
+    \item \question{$\tan^3x(\cos(x^2)-1)\;(\mbox{ordre}\;8\;\mbox{en}\;0)$}
+    \item \question{$\frac{\ln(1+x)}{x^2}\;(\mbox{ordre}\;3\;\mbox{en}\;1)$}
+    \item \question{$\Arctan(\cos x)\;(\mbox{ordre}\;5\;\mbox{en}\;0)$}
+    \item \question{$\Arctan\sqrt{\frac{x+1}{x+2}}\;(\mbox{ordre}\;2\;\mbox{en}\;0)$}
+    \item \question{$\frac{1}{x^2}-\frac{1}{\Arcsin^2x}\;(\mbox{ordre}\;5\;\mbox{en}\;0)$}
+    \item \question{$\int_{x}^{x^2}\frac{1}{\sqrt{1+t^4}}\;dt\;(\mbox{ordre}\;10\;\mbox{en}\;0)$}
+    \item \question{$\ln\left(\sum_{k=0}^{99}\frac{x^k}{k!}\right)\;(\mbox{ordre}\;100\;\mbox{en}\;0)$}
+    \item \question{$\tan\sqrt[3]{4(\pi^3+x^3)}\;(\mbox{ordre}\;3\;\mbox{en}\;\pi)$}
+\reponse{
+\begin{align*}\ensuremath 
+\frac{1}{1-x^2-x^3}\underset{x\rightarrow0}{=}1+(x^2+x^3)+(x^2+x^3)^2+(x^2+x^3)^3+o(x^7)= 1+x^2+x^3+x^4+2x^5+2x^6+3x^7+o(x^7).
+\end{align*}
+
+\begin{center}
+\shadowbox{
+$\frac{1}{1-x^2-x^3}\underset{x\rightarrow0}{=}1+x^2+x^3+x^4+2x^5+2x^6+3x^7+o(x^7)$.
+}
+\end{center}
+\begin{align*}\ensuremath
+\frac{1}{\cos x}&\underset{x\rightarrow0}{=}\left(1-\frac{x^2}{2}+\frac{x^4}{24}-\frac{x^6}{720}+o(x^7)\right)^{-1}
+=1+\left(\frac{x^2}{2}-\frac{x^4}{24}+\frac{x^6}{720}\right)+\left(\frac{x^2}{2}-\frac{x^4}{24}\right)^2+\left(\frac{x^2}{2}\right)^3+o(x^7)\\
+ &=1+\frac{x^2}{2}+x^4\left(-\frac{1}{24}+\frac{1}{4}\right)+x^6\left(\frac{1}{720}-\frac{1}{24}+\frac{1}{8}\right)+o(x^7)
+=1+\frac{1}{2}x^2+\frac{5}{24}x^4+\frac{61}{720}x^6+o(x^7).
+\end{align*}
+
+\begin{center}
+\shadowbox{
+$\frac{1}{\cos x}\underset{x\rightarrow0}{=}1+\frac{1}{2}x^2+\frac{5}{24}x^4+\frac{61}{720}x^6+o(x^7)$.
+}
+\end{center}
+\textbf{Remarques.}
+
+  \begin{enumerate}
+Pour $x\in\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\setminus\{0\}$, on a $0<\frac{x}{\tan x}<1$ et donc la fonction $x\mapsto\Arccos\left(\frac{x}{\tan x}\right)$ est définie sur $\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\setminus\{0\}$ (qui est un voisinage pointé de $0$).\rule[-2mm]{0mm}{6mm}
+Quand $x$ tend vers $0$, $\frac{x}{\tan x}\rightarrow1$ et donc $\Arccos\left(\frac{x}{\tan x}\right)=o(1)$ (développement limité à l'ordre $0$).
+La fonction $x\mapsto\Arccos x$ n'est pas dérivable en $1$ et n'admet donc pas en $1$ de développement limité d'ordre supérieur ou égal à $1$ (donc à priori, c'est mal parti).
+La fonction proposée est paire et, si elle admet en $0$ un développement limité d'ordre $3$, sa partie régulière ne contient que des exposants pairs.
+}
+\end{enumerate}
+}

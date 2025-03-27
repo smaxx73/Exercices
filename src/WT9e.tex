@@ -1,0 +1,37 @@
+\uuid{WT9e}
+\exo7id{3568}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Endomorphisme particulier}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit~$E$ un espace vectoriel de dimension finie et $u\in\mathcal{L}(E)$. On considère l'application~$\Phi_u$ qui à $v\in\mathcal{L}(E)$
+associe~$v\circ u$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $\Phi_u\in\mathcal{L}({\mathcal{L}(E)})$.}
+    \item \question{Montrer l'équivalence~: ($u$ est diagonalisable) $\Leftrightarrow$ ($\Phi_u$ est diagonalisable)\dots
+  \begin{enumerate}}
+    \item \question{en considérant les polynômes annulateurs de~$u$ et de~$\Phi_u$.}
+    \item \question{en considérant les spectres et sous-espaces propres de~$u$ et de~$\Phi_u$.}
+\reponse{
+\begin{enumerate}
+Pour $p\in K[X]$ on a $P(\Phi_u) = v \mapsto v\circ P(u)$ donc $u$ et $\Phi_u$ ont
+    mêmes polynômes annulateurs.
+$(\lambda\in\mathrm{Spec}(\Phi_u)) \Leftrightarrow (\exists\ v\ne 0\text{ tq }v\circ(u-\lambda\mathrm{id}_E) = 0)
+    \Leftrightarrow (u-\lambda\mathrm{id}_E\text{ n'est pas surjectif}) \Leftrightarrow (\lambda\in\mathrm{Spec}(u))$.
+    Ainsi $\Phi_u$ et $u$ ont même spectre.
+    Si $\lambda\in\mathrm{Spec}(u)$ et $v\in\mathcal{L}(E)$ on a~:
+    $(\Phi_u(v) = \lambda v) \Leftrightarrow (\Im(u-\lambda\mathrm{id}_E) \subset\mathrm{Ker} v)$ donc
+    $\mathrm{Ker}(\Phi_u-\lambda\mathrm{id}_{\mathcal{L}(E)})$ est isomorphe à $\mathcal{L}({H,E})$ où $H$ est un supplémentaire
+    de~$\Im(u-\lambda\mathrm{id}_E)$.
+    On en déduit~:
+    $\dim(\mathrm{Ker}(\Phi_u-\lambda\mathrm{id}_{\mathcal{L}(E)})) = \dim(E)\dim(\mathrm{Ker}(u-\lambda\mathrm{id}_E)$.
+}
+\end{enumerate}
+}

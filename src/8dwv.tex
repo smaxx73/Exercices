@@ -1,0 +1,28 @@
+\uuid{8dwv}
+\exo7id{4560}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Suite et série de fonctions}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+0,\pi[}$, TPE MP 2005]
+}
+\begin{enumerate}
+    \item \question{Calculer $S_n(t) = \sum_{p=1}^n t^{p-1}\sin(px)$ puis $S(t) = \lim_{n\to\infty} S_n(t)$.}
+\reponse{Lorsque $n\to\infty$, $S_n(t) = \Im\Bigl(\frac{e^{ix}-t^{n}e^{i(n+1)x}}{1-te^{ix}}\Bigr) \to
+              \Im\Bigl(\frac{e^{ix}}{1-te^{ix}}\Bigr) = 
+              \frac{\sin x}{1-2t\cos x + t^2}$ pour $-1<t<1$.}
+    \item \question{Calculer $ \int_{t=0}^1 S_n(t)\,d t$ et  $ \int_{t=0}^1 S(t)\,d t$.}
+\reponse{$ \int_{t=0}^1 S_n(t)\,d t = \sum_{p=1}^n \frac{\sin(px)}{p}$.
+             \par
+             $ \int_{t=0}^1 S(t)\,d t
+	      = (t-\cos x = u\sin x) =  \int_{u=-\cot x}^{\tan x/2} \frac{d u}{1+ u^2} = \frac{\pi-x}2$.}
+    \item \question{En déduire que $\sum_{n=1}^\infty \frac{\sin nx}n$ converge et donner sa valeur.}
+\reponse{TCD~: $|S_n(t)|\le \frac2{\sin x}$ intégrable par rapport à~$t$ sur $[0,1]$. On en déduit $\sum_{p=1}^\infty \frac{\sin(px)}{p} = \frac{\pi-x}2$.}
+\end{enumerate}
+}

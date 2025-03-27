@@ -1,0 +1,21 @@
+\uuid{0C2O}
+\exo7id{5298}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-07-04}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Arithmétique}
+\sousChapitre{Arithmétique de Z}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Montrer que $\forall(k,n)\in(\Nn^*)^2,\;[k\wedge n=1\Rightarrow n|C_n^k]$.}
+\reponse{Pour $1\leq k\leq n$, $kC_n^k=nC_{n-1}^{k-1}$. Donc, si $k$ et $n$ sont premiers entre eux, puisque $n$ divise $kC_n^k$, le théorème de \textsc{Gauss} permet d'affirmer que $n$ divise $C_n^k$.}
+    \item \question{Montrer que $\forall n\in\Nn^*,\;(n+1)|C_{2n}^n$.}
+\reponse{De même, $(n+1)C_{2n}^{n-1}=nC_{2n}^{n}$ montre que $(n+1)$ divise $nC_{2n}^{n}$ et, puisque $n$ et $(n+1)$ sont premiers entre eux (d'après \textsc{Bezout} puisque $(n+1)-n=1$), $(n+1)$ divise $C_{2n}^{n}$ d'après le théorème de \textsc{Gauss}.}
+\end{enumerate}
+}

@@ -1,0 +1,26 @@
+\uuid{JT4l}
+\exo7id{4070}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Equation différentielle}
+\sousChapitre{Equations différentielles linéaires}
+
+\contenu{
+\texte{
+Soit $E = \mathcal{C}^\infty(\R,\C)$ et
+$\Phi : E \to E$, définie par $\Phi(f) = g$ où $g$ est l'application ${g:t \mapsto f'(t)+tf(t).}$
+}
+\begin{enumerate}
+    \item \question{Trouver les valeurs propres et les vecteurs propres de $\Phi$.}
+\reponse{spectre ${}= \C$, $f_\lambda(t) = e^{-t^2/2}e^{\lambda t}$.}
+    \item \question{Trouver les valeurs propres et les vecteurs propres de $\Phi^2$.}
+\reponse{Pour $\lambda \ne 0$, $\Phi^2(f) = \lambda^2 f \Leftrightarrow
+             f = af_\lambda + bf_{-\lambda}$.\par
+             Pour $\lambda = 0$, $\Phi^2(f) = 0 \Leftrightarrow f(t) = (at+b)e^{-t^2/2}$.}
+    \item \question{Résoudre l'équation : $y'' + 2xy' + (x^2-1)y = 0$.}
+\reponse{$\Phi^2(y)=-2y \Leftrightarrow y = e^{-t^2/2}\bigl( a\cos(t\sqrt2\,) + b\sin(t\sqrt2\,)\bigr)$.}
+\end{enumerate}
+}

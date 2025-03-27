@@ -1,0 +1,31 @@
+\uuid{uTxo}
+\exo7id{3457}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Déterminant, système linéaire}
+\sousChapitre{Calcul de déterminants}
+
+\contenu{
+\texte{
+On note $\omega = e^{2i\pi/n}$, $\alpha = e^{i\pi/n}$ et $D$ le déterminant
+$n \times n$ : $D = \det\Bigl( \omega^{(k-1)(l-1)} \Bigr)$.
+}
+\begin{enumerate}
+    \item \question{Calculer $D^2$.}
+    \item \question{Montrer que $D = \prod_{k < \ell}(\omega^\ell - \omega^k)
+            = \prod_{k < \ell}\left(\alpha^{k+\ell}\cdot
+              2i\sin\frac {\ell-k}n \pi\right)$.}
+    \item \question{Exprimer $D$ sous forme trigonométrique.}
+\reponse{
+$M^2 = \begin{pmatrix}n      &0      &\dots     &0     \cr
+                              0      &0      &          &n     \cr
+                              \vdots &       &\dots           \cr
+                              0      &n      &          &0     \cr \end{pmatrix}
+                \Rightarrow  D^2 = \varepsilon_{n-1}n^n$.
+$n^{n/2}\exp\left({i\frac \pi4 (n-1)(3n+2)}\right)$.
+}
+\end{enumerate}
+}

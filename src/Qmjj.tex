@@ -1,0 +1,27 @@
+\uuid{Qmjj}
+\exo7id{4184}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Fonction de plusieurs variables}
+\sousChapitre{Dérivée partielle}
+
+\contenu{
+\texte{
+Soit ${f} : {\R^n} \to {\R^n}$ de classe $\mathcal{C}^1$ et $c>0$ tels que, pour tous $x,y$, 
+$\| f(x)-f(y)\| \ge c \|x-y\|$.
+}
+\begin{enumerate}
+    \item \question{Montrer que pour tous $x,h$, $\|d f_x(h)\|\ge c\|h\|$.}
+    \item \question{Montrer que $f$ est un $\mathcal{C}^1$-difféomorphisme sur $\R^n$ (pour la surjectivité on 
+    considèrera, si $a\in \R^n$, le minimum de $\|f(x)-a\|^2$).}
+\reponse{
+$\|f(x)\|\to+\infty$ lorsque $\|x\|\to\infty$ donc $x \mapsto\|f(x)-a\|^2$
+    admet un minimum sur~$\R^n$. En ce point on a pour tout $h\in\R^n$~:
+    $(f(x)-a\mid d f_x(h)) = 0$ et $d f_x$ est surjective
+    (linéaire injective en dimension finie) donc $f(x)=a$.
+}
+\end{enumerate}
+}

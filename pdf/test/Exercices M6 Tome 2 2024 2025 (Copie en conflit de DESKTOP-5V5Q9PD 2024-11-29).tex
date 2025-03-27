@@ -1,0 +1,36 @@
+\documentclass[fleqn,a4paper,11pt]{article}
+\usepackage{etex}
+\usepackage[french]{babel}
+\usepackage[autolanguage]{numprint}
+\usepackage{makecell} % pour les tableaux
+\usepackage{geometry}
+\usepackage{verbatim} % pour les commentaires
+\usepackage{eurosym} % pour le symbole euro
+\usepackage{qrcode} % pour les QR codes
+
+%\usepackage{hyperref} %QR codes cliquables
+
+\geometry{hmargin=2cm,vmargin=2.5cm}
+
+
+%chemin vers les sources d'exercices
+\newcommand{\path}{../}
+
+\input{\path/_preambules/general.tex}
+\input{\path/_preambules/print.tex}
+\input{\path/_preambules/macros.tex}
+\input{\path/_preambules/entetes.tex}
+
+\def\solution{true}
+\def\uuid{true}
+\def\link{true}
+
+\begin{document}
+\EnteteCours{EMIA 1}{Arithmétique modulaire}{MATH6}{}
+\Titre{Math 6: Arithmétique modulaire}
+\def\TD{ReNe}  %liste des identifiants d'exercices séparés par une virgule
+
+
+\listexo{\TD}
+
+\end{document}

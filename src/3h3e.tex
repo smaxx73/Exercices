@@ -1,0 +1,39 @@
+\uuid{3h3e}
+\exo7id{7178}
+\auteur{megy}
+\organisation{exo7}
+\datecreate{2017-07-26}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Propriétés de R}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+% application directe d'AM>GM après avoir développé
+Soient $a$, $b$, $c$ et $d$ quatre réels. Montrer que
+\[ (a^2+b^2)(c^2+d^2) \geq (ac+bd)^2.\]
+}
+\indication{Utiliser l'inégalité arithmético-géométrique.}
+\reponse{
+En développant, l'inégalité est équivalente à 
+\[
+a^2d^2+b^2c^2 \geq 2abcd.
+\]
+En appliquant l'inégalité arithmético-géométrique à $a^2d^2$ et $b^2c^2$, on obtient:
+\[
+a^2d^2+b^2c^2 \geq 
+2\sqrt{a^2d^2b^2c^2}
+=2|abcd|
+\geq 2abcd.
+\]
+
+Deuxième solution : en fait, on a l'identité remarquable
+\[ (a^2+b^2)(c^2+d^2)=  (ac+bd)^2 + (ad-bc)^2.\]
+
+Remarque : majorer chacun des deux facteurs dans le membre de gauche donne juste 
+\[ (a^2+b^2)(c^2+d^2) \geq 4|ab|\cdot|cd|,\]
+ce qui ne permet pas de conclure puisque par ailleurs on a également 
+\[ (ac+bd)^2 \geq 4|acbd|.\]
+}
+}

@@ -1,0 +1,28 @@
+\uuid{Jyae}
+\exo7id{5439}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-07-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Développement limité}
+\sousChapitre{Calculs}
+
+\contenu{
+\texte{
+Soit $f(x)=1+x+x^2+x^3\sin\frac{1}{x^2}$ si $x\neq0$ et $1$ si $x=0$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $f$ admet en $0$ un développement limité d'ordre $2$.}
+\reponse{$x^3\sin\frac{1}{x^2}\underset{x\rightarrow0}{=}O(x^3)$ et en particulier $x^3\sin\frac{1}{x}\underset{x\rightarrow0}{=}o(x^2)$. Donc, en tenant compte de $f(0)=1$,
+
+\begin{center}
+$f(x)\underset{x\rightarrow0}{=}1+x+x^2+o(x^2)$.
+\end{center}
+$f$ admet en $0$ un développement limité d'ordre $2$.}
+    \item \question{Montrer que $f$ est dérivable sur $\Rr$.}
+\reponse{$f(x)\underset{x\rightarrow0}{=}1+x+o(x)$. Donc, $f$ admet en $0$ un développement limité d'ordre $1$. On en déduit que $f$ est continue et dérivable en $0$ avec $f(0)=f'(0)=1$. $f$ est d'autre part dérivable sur $\Rr^*$ en vertu de théorèmes généraux (et donc sur $\Rr$) et pour $x\neq 0$, $f'(x)=1+2x+3x^2\sin\frac{1}{x^2}-2\cos\frac{1}{x^2}$.}
+    \item \question{Montrer que $f'$ n'admet en $0$ aucun développement limité d'aucun ordre que ce soit.}
+\reponse{$f'$ est définie sur $\Rr$ mais n'a pas de limite en $0$. $f'$ n'admet donc même pas un développement limité d'ordre $0$ en $0$.}
+\end{enumerate}
+}

@@ -1,0 +1,33 @@
+\uuid{0wIy}
+\exo7id{3778}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Endomorphismes auto-adjoints}
+
+\contenu{
+\texte{
+Soit $A \in \mathcal{M}_n(\R)$ symétrique.
+Pour $1 \le p \le n$, on note $\Delta_p$ le déterminant
+de la sous-matrice $(a_{ij})_{1\le i\le p ; 1\le j\le p}$.
+}
+\begin{enumerate}
+    \item \question{Montrer que si $A$ est définie positive, alors tous les déterminants
+    $\Delta_p$ sont strictement positifs.}
+    \item \question{Réciproque : on suppose $\Delta_1 > 0, \dots, \Delta_n > 0$.
+    Montrer qu'il existe
+    une matrice $B$ triangulaire supérieure inversible telle $A = {}^tBB$.
+    En déduire que $A$ est définie positive.}
+\reponse{
+Récurrence : pour $n=1$ c'est évident.\par
+             $n-1\to n$ : $A = \begin{pmatrix} A' &C' \cr {}^tC' &\alpha \cr\end{pmatrix}$
+             avec $A' = {}^tB'B'$.\par
+             On cherche $B = \begin{pmatrix} B' &X' \cr 0 &x \cr\end{pmatrix}$ d'où :
+             $X' = {}^tB'^{-1}C'$ et $x^2 = \alpha - {}^tX'X'
+                 = \frac{\det A}{\det A'} > 0$.
+}
+\end{enumerate}
+}

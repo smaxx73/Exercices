@@ -1,0 +1,27 @@
+\uuid{UUOs}
+\exo7id{220}
+\auteur{bodin}
+\organisation{exo7}
+\datecreate{1998-09-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Dénombrement}
+\sousChapitre{Binôme de Newton et combinaison}
+
+\contenu{
+\texte{
+En utilisant la fonction $x\mapsto(1+x)^n$, calculer :
+$$ \sum_{k=0}^{n}C_n^k \quad ; \quad \sum_{k=0}^{n}(-1)^k C_n^k \quad ; \quad
+ \sum_{k=1}^{n}kC_n^k \quad ; \quad
+ \sum_{k=0}^{n}\frac{1}{k+1}C_n^k.$$
+}
+\indication{\'Evaluer $(1+x)^n$ en $x=1$, d'une part directement et ensuite avec la formule du bin\^ome de Newton.
+Pour la deuxi\`eme \'egalit\'e commencer par d\'eriver $x\mapsto(1+x)^n$.}
+\reponse{
+En calculant $f(1)$ nous avons $2^n = \sum_{k=0}^{n} C_n^k$.
+En calculant $f(-1)$ nous avons $0 = \sum_{k=0}^{n} (-1)^k C_n^k$.
+Maintenant calculons  $f'(x) = n(1+x)^{n-1} = \sum_{k=1}^{n} kC_n^k x^{k-1}$. \'Evaluons $f'(1) = n2^{n-1} = \sum_{k=1}^{n} kC_n^k$.
+Il s'agit ici de calculer la primitive $F$ de $f$ qui correspond \`a la somme :
+$F(x) = \frac{1}{n+1}(1+x)^{n+1}-\frac{1}{n+1} = \sum_{k=0}^{n} \frac{1}{k+1}C_n^k x^{k+1}$. En $F(1) = \frac{1}{n+1}(2^{n+1}-1) = \sum_{k=0}^{n} \frac{1}{k+1}C_n^k $.
+}
+}

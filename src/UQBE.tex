@@ -1,0 +1,51 @@
+\uuid{UQBE}
+\exo7id{2596}
+\auteur{delaunay}
+\organisation{exo7}
+\datecreate{2009-05-19}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Valeur propre, vecteur propre}
+
+\contenu{
+\texte{
+Soit $P(X)$ un polyn\^ome de $\C[X]$, soit $A$ une matrice de $M_n(\C)$. On note $B$ la matrice : $B=P(A)\in M_n(\C)$.
+}
+\begin{enumerate}
+    \item \question{D\'emontrer que si $\vec x$ est un vecteur propre de $A$ de valeur propre $\lambda$, alors $\vec x$ est un vecteur propre de $B$ de valeur propre $P(\lambda)$.}
+\reponse{{\it On d\'emontre que si $\vec x$ est un vecteur propre de $A$ de valeur propre $\lambda$, alors $\vec x$ est un vecteur propre de $B$ de valeur propre $P(\lambda)$.}
+
+Soit $\vec x\neq0$ tel que $A\vec x=\lambda\vec x$, notons $P(X)=\sum_{k=0}^da_kX^k$, on a
+$$P(A)=\sum_{k=0}^da_kA^k=a_0I_n+a_1 A+\dots+a_d A^d,$$
+o\`u $I_n$ d\'esigne la matrice unit\'e.
+
+Or, pour $k\in\N$, on a $A^k\vec x=\lambda^k\vec x$, d'o\`u
+$$B\vec x=P(A)\vec x=\sum_{k=0}^da_kA^k\vec x=\left(\sum_{k=0}^da_k\lambda^k\right)\vec x=P(\lambda)\vec x,$$
+ce qui prouve que $\vec x$ est un vecteur propre de la matrice $B=P(A)$ pour la valeur propre $P(\lambda)$.}
+    \item \question{Le but de cette question est de d\'emontrer que les valeurs propres de $B$ sont toutes de la forme $P(\lambda)$, avec $\lambda$ valeur propre de $A$.
+
+ Soit $\mu\in\C$, on d\'ecompose le polyn\^ome $P(X)-\mu$ en produit de facteurs de degr\'e $1$ :
+$$P(X)-\mu=a(X-\alpha_1)\cdots(X-\alpha_r).$$
+  \begin{enumerate}}
+\reponse{Le but de cette question est de d\'emontrer que les valeurs propres de $B$ sont toutes de la forme $P(\lambda)$, avec $\lambda$ valeur propre de $A$.
+
+ Soit $\mu\in\C$, on d\'ecompose le polyn\^ome $P(X)-\mu$ en produit de facteurs de degr\'e $1$ :
+$$P(X)-\mu=a(X-\alpha_1)\cdots(X-\alpha_r).$$
+   \begin{enumerate}}
+    \item \question{D\'emontrer que 
+$$\det(B-\mu I_n)=a^n\det(A-\alpha_1I_n)\cdots\det(A-\alpha_rI_n).$$}
+\reponse{{\it On d\'emontre que} 
+$\det(B-\mu I_n)=a^n\det(A-\alpha_1I_n)\cdots\det(A-\alpha_rI_n).$
+
+Compte tenu de la d\'ecomposition du polyn\^ome $P(X)-\mu$, on a 
+$$P(A)-\mu I_n=aI_n(A-\alpha_1I_n)\cdots(A-\alpha_rI_n)$$
+d'o\`u
+$$\det(B-\mu I_n)=a^n\det(A-\alpha_1I_n)\cdots\det(A-\alpha_rI_n)$$
+car le d\'eterminant est une forme multilin\'eaire (d'o\`u le $a^n$) et le d\'eterminant d'un produit de matrices est \'egal au produit de leurs d\'eterminants.}
+    \item \question{En d\'eduire que si $\mu$ est valeur propre de $B$, alors il existe une valeur propre $\lambda$ de $A$ telle que $\mu=P(\lambda)$.}
+\reponse{{\it On en d\'eduit que si $\mu$ est valeur propre de $B$, alors il existe une valeur propre $\lambda$ de $A$ telle que $\mu=P(\lambda)$.}
+
+Si $\mu$ est une valeur propre de $B$, alors, par d\'efinition, $\det(B-\mu I_n)=0$, ainsi, compte tenu de la question pr\'ec\'edente, il existe un $\alpha_i$, $1\leq i\leq r$, tel que $\det(A-\alpha_iI_n)=0$, c'est-\`a-dire que l'un des $\alpha_i$, $1\leq i\leq r$, est valeur propre de $A$. Or, pour $1\leq i\leq r$, $P(\alpha_i)-\mu=0$ donc si $\mu$ est une valeur propre de $B$, on a $\mu=P(\alpha_i)$ o\`u $\alpha_i$ est une valeur propre de $A$.}
+\end{enumerate}
+}

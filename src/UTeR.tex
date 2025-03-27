@@ -1,0 +1,31 @@
+\uuid{UTeR}
+\exo7id{3701}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Espace vectoriel euclidien de dimension 3}
+
+\contenu{
+\texte{
+Soit $E$ un espace vectoriel euclidien orienté de dimension 3, $\vec u \in E$ unitaire,
+$\alpha \in \R$ et $f$ la rotation autour de $\vec u$ d'angle de mesure $\alpha$.
+}
+\begin{enumerate}
+    \item \question{Exprimer $f(\vec x)$ en fonction de $\vec u$, $\vec x$ et $\alpha$.}
+\reponse{$f(\vec x) = (\vec x|\vec u)\vec u
+                        + \cos\alpha(\vec u\wedge\vec x)\wedge\vec u
+                        + \sin\alpha(\vec u\wedge\vec x)$.}
+    \item \question{On donne les coordonnées de $\vec u$ dans une base orthonormée : $a,b,c$.
+    Calculer la matrice de $f$ dans cette base.}
+\reponse{$M = (\cos\alpha)I
+                + (1-\cos\alpha)\begin{pmatrix}a^2 &ab &ac \cr
+                                         ab &b^2 &bc \cr
+                                         ac &bc &c^2 \cr \end{pmatrix}
+                + \sin\alpha\begin{pmatrix}0  &-c &b \cr
+                                     c  &0  &-a \cr
+                                     -b &a  &0 \cr\end{pmatrix}$.}
+\end{enumerate}
+}

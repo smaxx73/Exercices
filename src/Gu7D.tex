@@ -1,0 +1,25 @@
+\uuid{Gu7D}
+\exo7id{5666}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-10-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Polynôme caractéristique, théorème de Cayley-Hamilton}
+
+\contenu{
+\texte{
+\label{ex:rou16}
+Soit $A$ une matrice antisymétrique réelle. Etudier la parité de son polynôme caractéristique.
+}
+\reponse{
+Soit $A\in\mathcal{M}_n(\Rr)$. $A$ est antisymétrique si et seulement si ${^t}A =-A$. Dans ce cas
+
+\begin{center}
+$\chi_A =\text{det}(A-XI) =\text{det}({^t}(A-XI))=\text{det}(-A-XI)=(-1)^n\text{det}(A+XI) =(-1)^n\chi_A(-X)$
+\end{center}
+
+Ainsi, $\chi_A$ a la parité de $n$.
+}
+}

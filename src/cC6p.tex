@@ -1,0 +1,52 @@
+\uuid{cC6p}
+\exo7id{1900}
+\auteur{legall}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace vectoriel normé}
+\sousChapitre{Espace vectoriel normé}
+
+\contenu{
+\texte{
+\ \par
+\begin{center}{\large \bf I Pr\'eliminaires}
+\end{center}
+}
+\begin{enumerate}
+    \item \question{Soit $\mathcal{P} $ l'espace vectoriel des fonctions polynomiales de 
+$[0,1]$ \`a valeurs dans $\Rr .$ Montrer que $\mathcal{P} $ est de dimension 
+infinie.}
+\reponse{Soit $\mathcal{P}$ l'espace vectoriel des fonctions polynomiales. 
+Supposons $\mathcal{P}$ de dimension finie $n$. Notons $f_k$ la fonction 
+$x\mapsto x^k$. Alors la famille $\{ f_0, \cdots ,
+f_n \}$ qui compte $n+1$ \'el\'ements est li\'ee, donc il existe 
+$a_0, \cdots , a_n$ des scalaires non tous nuls tels que, pour tout
+$x\in \Rr $ on ait $a_0+a_1x+\cdots a_n x^n=0.$ Il en r\'esulte que 
+le polyn\^ome non nul \`a coefficients r\'eels $a_0+a_1X+\cdots 
+a_nX^n$ a une infinit\'e de racines, ce qui est
+absurde.}
+    \item \question{Soit $X$ une partie born\'ee de $\Rr .$ Montrer que $\sup 
+(X)=\sup \bar{X}.$}
+\reponse{Posons $M=\sup (\bar{X}).$ On doit v\'erifier que, {\em i)} 
+pour tout $x\in X , x\leq M$ et {\em ii)} pour tout $\epsilon >0$ 
+il existe $x\in X$ tel que
+$M-\epsilon \leq x.$
+Comme $X\subset \bar{X}$ et, pour tout $x\in \bar{X} , x\leq M$ la 
+propri\'et\'e {\em i)} est v\'erifi\'ee par $M.$ Soit maintenant 
+$\epsilon >0$. Il existe
+$x\in \bar{X}$ tel que $M-\dfrac{\epsilon }{2}<x$. Comme 
+$x\in\bar{X},$ il existe aussi $y\in X$ tel que $\vert x-y\vert 
+<\dfrac{\epsilon }{2}$. Donc $ M-\epsilon< y$
+et $M$ satisfait \`a {\em ii)}.
+\vskip1mm
+{\em Remarque : } on note \'egalement que $\sup (X)\in \bar{X}$. En 
+effet, pour tout $n\in \Nn ,$ choisissons un \'el\'ement $x_n\in X$ 
+tel que $x_n\geq \sup (x)-\dfrac{1}{n}.$
+Alors la suite $(x_n)_{n\in \Nn}$ constitu\'ee d'\'el\'ements de $X$ 
+converge dans $\Rr$ vers $\sup (X)$ qui appartient donc \`a $ 
+\bar{X}.$ On peut bien s\^ur en d\'eduire la
+propri\'et\'e {\em ii)} de $M$.}
+\end{enumerate}
+}

@@ -1,0 +1,29 @@
+\uuid{OwR1}
+\exo7id{3631}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Endomorphisme particulier}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $E = \R_3[X]$ et $a,b,c \in \R$ distincts.
+On considère les formes linéaires sur E :
+$$f_a\ :\ P \mapsto P(a),\quad
+  f_b\ :\ P \mapsto P(b),\quad
+  f_c\ :\ P \mapsto P(c),\quad
+  \varphi\ :\ P  \mapsto  \int_{t=a}^b P(t)\,d t.$$
+\'Etudier la liberté de $(f_a,f_b,f_c,\varphi)$.
+}
+\reponse{
+$M = \begin{pmatrix} 1   &1   &1   &b-a         \cr
+                        a   &b   &c   &(b^2-a^2)/2 \cr
+                        a^2 &b^2 &c^2 &(b^3-a^3)/3 \cr
+                        a^3 &b^3 &c^3 &(b^4-a^4)/4 \cr \end{pmatrix}$ et
+         $\det(M) = (b-a)^4(c-a)(c-b)\frac{2c-a-b}{12}$,
+         donc la famille est libre si et seulement si $c \ne \frac {a+b}2$.
+}
+}

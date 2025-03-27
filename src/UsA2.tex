@@ -1,0 +1,23 @@
+\uuid{UsA2}
+\exo7id{4471}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série numérique}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $(a_n)$ une suite bornée telle que pour tout entier $p \ge 2$ :
+$\sum_{n=1}^\infty \frac{a_n}{n^p} = 0$.
+Montrer que : $\forall\ n\in\N^*,\ a_n = 0$.
+}
+\reponse{
+$|a_n| \le M  \Rightarrow  \left|\sum_{n=2}^\infty \frac {a_n}{n^p} \right|
+        \le M\sum_{n=2}^\infty \frac 1{n^p}
+        \le M \int_{t=1}^\infty \frac{d t}{t^p}
+        = \frac M{p-1}  \Rightarrow  a_1 = 0$.
+}
+}

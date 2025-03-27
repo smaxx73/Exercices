@@ -1,0 +1,42 @@
+\uuid{Gpyu}
+\exo7id{934}
+\auteur{cousquer}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Application linéaire}
+\sousChapitre{Image et noyau, théorème du rang}
+
+\contenu{
+\texte{
+Soit $E$ un espace vectoriel et soient $E_1$ et $E_2$ deux sous-espaces vectoriels de dimension finie
+de $E$, on d\'efinit l'application $f\colon E_1\times E_2 \to E$ par $f(x_1,x_2)=x_1+x_2$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $f$ est lin\'eaire.}
+\reponse{Aucun problème...}
+    \item \question{D\'eterminer le noyau et l'image de $f$.}
+\reponse{Par d\'efinition de $f$ et de ce qu'est la somme de deux sous-espaces vectoriels, l'image est
+$$\Im f =  \{ f(x_1,x_2) \mid x_1 \in E_1, x_2\in E_2 \} = \{ x_1+x_2 \mid x_1 \in E_1, x_2\in E_2 \} = E_1 + E_2.$$
+
+Pour le noyau :
+$$\ker f = \{ (x_1,x_2) \mid f(x_1,x_2)=0 \} = \{ (x_1,x_2) \mid x_1+x_2=0 \}$$
+
+Mais on peut aller un peu plus loin. En effet un \'el\'ement $(x_1,x_2) \in \ker f$,
+v\'erifie $x_1\in E_1$, $x_2\in E_2$ et $x_1=-x_2$. Donc $x_1 \in E_2$. Donc $x_1\in E_1 \cap E_2$.
+R\'eciproquement si $x\in E_1 \cap E_2$, alors $(x,-x)\in \ker f$.
+Donc 
+$$\ker f = \{ (x,-x) \mid x \in  E_1 \cap E_2 \}. $$
+De plus l'application $x \mapsto (x,-x)$ montre que $\ker f$ est isomorphe \`a $E_1 \cap E_2$.}
+    \item \question{Que donne le th\'eor\`eme du rang ?}
+\reponse{Le th\'eor\`eme du rang s'\'ecrit :
+$$\dim \ker f+ \dim \Im f = \dim (E_1\times E_2).$$
+Compte tenu de  l'isomorphisme entre $\ker f$ et $E_1 \cap E_2$ on obtient :
+$$\dim (E_1 \cap E_2) + \dim (E_1+E_2) = \dim (E_1\times E_2).$$
+Mais $\dim (E_1\times E_2) = \dim E_1 + \dim E_2$, donc on retrouve ce que l'on appelle le th\'eor\`eme des quatre dimensions :
+$$\dim (E_1+E_2) = \dim E_1+\dim E_2-\dim (E_1 \cap E_2).$$}
+\indication{Faire un dessin de l'image et du noyau pour $f: \Rr\times \Rr \longrightarrow \Rr$.
+Montrer que le noyau est isomorphe à $E_1 \cap E_2$.}
+\end{enumerate}
+}

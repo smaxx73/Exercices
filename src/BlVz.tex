@@ -1,0 +1,28 @@
+\uuid{BlVz}
+\exo7id{4788}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Topologie}
+\sousChapitre{Topologie des espaces vectoriels normés}
+
+\contenu{
+\texte{
+Soit $N\in\mathcal{M}_n(\C)$. Montrer que $N$ est nilpotente si et seulement si
+la matrice nulle est adh{\'e}rente {\`a} l'ensemble
+$\{P^{-1}NP,\ P\in GL_n(\C)\}$.
+}
+\reponse{
+Si $N$ est nilpotente, on peut se ramener au cas o{\`u} $N$
+est triangulaire sup{\'e}rieure stricte.
+
+Soit alors $P=\mathrm{diag}(1,\alpha,\dots,\alpha^{n-1})$ avec $\alpha\in\C^*$.
+Le coefficient g{\'e}n{\'e}ral de $P^{-1}NP$ est $\alpha^{j-i}N_{ij}\xrightarrow[\alpha\to0]{}0$.
+
+R{\'e}ciproquement, s'il existe une suite $(N_k)$ de matrices semblables
+{\`a}~$N$ convergeant vers la matrice nulle, alors par continuit{\'e} du
+polyn{\^o}me caract{\'e}ristique, on a $\chi_N=(-X)^n$ et $N$ est nilpotente.
+}
+}

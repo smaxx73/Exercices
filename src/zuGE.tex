@@ -1,0 +1,52 @@
+\uuid{zuGE}
+\exo7id{4430}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série numérique}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Calculer les sommes des séries suivantes :
+}
+\begin{enumerate}
+    \item \question{$\sum_{k=2}^\infty \frac 1{k^2-1}$.}
+\reponse{$\frac 34$.}
+    \item \question{$\sum_{k=1}^\infty \frac 1{k(k+1)(k+2)}$.}
+\reponse{$\frac 14$.}
+    \item \question{$\sum_{k=1}^\infty \frac 1{k(k+1)\dots(k+p)}$.}
+\reponse{$S_p - (p+1)S_{p+1} = S_p - \frac 1{(p+1)!} \Rightarrow 
+             S_p=\frac 1{pp!}$.}
+    \item \question{$\sum_{k=0}^\infty \frac 1{k^3+8k^2+17k+10}$.}
+\reponse{$\frac{23}{144}$.}
+    \item \question{$\sum_{k=1}^\infty \ln\left(1+\frac2{k(k+3)}\right)$.}
+\reponse{$\ln 3$.}
+    \item \question{$\sum_{k=2}^\infty \ln\left(1-\frac1{k^2}\right)$.}
+\reponse{$-\ln 2$.}
+    \item \question{$\sum_{k=0}^\infty \ln\left(\cos\frac\alpha{2^k}\right)$.}
+\reponse{$\ln\left(\frac{\sin2\alpha}{2\alpha}\right)$.}
+    \item \question{$\sum_{k=0}^\infty 2^{-k}\tan(2^{-k}\alpha)$.}
+\reponse{$\frac1\alpha-2\mathrm{cotan}(2\alpha)$.}
+    \item \question{$\sum_{k=0}^\infty \frac{2k^3-3k^2+1}{(k+3)!}$.}
+\reponse{$109 - 40e$.}
+    \item \question{$\sum_{n=p}^\infty C_n^p x^n$.}
+\reponse{$\frac{x^p}{(1-x)^{p+1}}$ pour $|x|<1$ par récurrence.}
+    \item \question{$\sum_{k=1}^\infty \frac{x^k}{(1-x^k)(1-x^{k+1})}$.}
+\reponse{$\frac x{(1-x)^2}$ si $|x| <1$,
+             $\frac 1{(1-x)^2}$ si $|x| > 1$.}
+    \item \question{$\sum_{k=1}^\infty \frac{k-n[k/n]}{k(k+1)}$.}
+\reponse{$S_n = \sum_{q=0}^\infty\sum_{r=1}^{n-1}
+                       \frac r{(qn+r)(qn+r+1)}
+                  = \sum_{q=0}^\infty\sum_{r=1}^{n-1}
+                       \frac r{qn+r} - \frac r{qn+r+1}$.
+                  \par
+             $S_n = \sum_{q=0}^\infty \left(\frac 1{qn+1} + \frac 1{qn+2}
+                       + \dots + \frac 1{qn+n} - \frac 1{q+1}\right)
+                  = \lim_{N\to\infty}\left(\sum_{k=1}^{(N+1)n} \frac 1k
+                       - \sum_{k=1}^{N+1} \frac 1k \right)
+                  = \ln n$.}
+\end{enumerate}
+}

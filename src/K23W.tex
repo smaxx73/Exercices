@@ -1,0 +1,31 @@
+\uuid{K23W}
+\exo7id{5434}
+\auteur{exo7}
+\organisation{exo7}
+\datecreate{2010-07-06}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Développement limité}
+\sousChapitre{Calculs}
+
+\contenu{
+\texte{
+Soient $a>0$ et $b>0$. Pour $n\in\Nn^*$ et $x\in\Rr$, on pose $f_n(x)=\left(1+\frac{x}{n}\right)^n$.
+}
+\begin{enumerate}
+    \item \question{Equivalent simple quand $n$ tend vers $+\infty$ de $f_n(a+b)-f_n(a)f_n(b)$.}
+\reponse{$$f_n(a)=\text{exp}\left(n\ln\left(1+\frac{a}{n}\right)\right)\underset{n\rightarrow+\infty}{=}\text{exp}\left(a-\frac{a^2}{2n}+o\left(\frac{1}{n}\right)\right)= e^a\left(1-\frac{a^2}{2n}+o\left(\frac{1}{n}\right)\right).$$
+En remplaçant $a$ par $b$ ou $a+b$, on obtient
+
+\begin{align*}\ensuremath
+f_n(a+b)-f_n(a)f_n(b)&\underset{n\rightarrow+\infty}{=}e^{a+b}\left(1-\frac{(a+b)^2}{2n}\right)-e^a\left(1-\frac{a^2}{2n}\right)e^b\left(1-\frac{b^2}{2n}\right)+o\left(\frac{1}{n}\right)\\
+ &=e^{a+b}\frac{-(a+b)^2+a^2+b^2}{2n}+o\left(\frac{1}{n}\right)=-\frac{ab\;e^{a+b}}{n}+o\left(\frac{1}{n}\right).
+\end{align*}
+Donc, si $ab\neq0$, $f_n(a+b)-f_n(a)f_n(b)\underset{n\rightarrow+\infty}{\sim}-\frac{ab\;e^{a+b}}{n}$. Si $ab=0$, il est clair que $f_n(a+b)-f_n(a)f_n(b)=0$.}
+    \item \question{Même question pour $e^{-a}f_n(a)-1+\frac{a^2}{2n}$.}
+\reponse{$e^{-a}f_n(a)\underset{n\rightarrow+\infty}{=}\text{exp}\left(-a+\left(a-\frac{a^2}{2n}+\frac{a^3}{3n^2}\right)+o\left(\frac{1}{n^2}\right)\right)
+=1+\left(-\frac{a^2}{2n}+\frac{a^3}{3n^2}\right)+\frac{1}{2}\left(-\frac{a^2}{2n}\right)^2+o\left(\frac{1}{n^2}\right)$, et donc
+
+$$e^{-a}f_n(a)-1+\frac{a^2}{2n}\underset{n\rightarrow+\infty}{\sim}\left(\frac{a^3}{3}+\frac{a^4}{8}\right)\frac{1}{n^2}.$$}
+\end{enumerate}
+}

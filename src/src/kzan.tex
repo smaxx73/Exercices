@@ -1,0 +1,23 @@
+\titre{Convergence d'une suite de variables aléatoires}
+\theme{probabilité}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+
+
+\texte{ Soit $(X_n)$ une suite de variables aléatoires i.i.d. selon une loi normale $\mathcal{N}(0,1)$. On définit la suite de variables aléatoires $(Y_n)$ par $$Y_n = \frac{1}{n} \sum_{k=1}^n \sqrt{k} X_k$$  }
+	
+\question{ 	Etudier le comportement asymptotique en loi de la suite $(Y_n)$.  }
+
+\reponse{
+	Les variables $\sqrt{k}X_k$ ne sont pas identiquement distribuées ! on se lance donc dans un calcul de limite << à la main >>. 
+	
+	Par indépendance, $Y_n$ suit une loi normale d'espérance $0$ et de variance $\frac{1}{n^2}\sum_{k=1}^n \sqrt{k}^2 \times 1 = \frac{1}{n^2} \times \frac{n(n+1)}{2}$. On peut donc écrire $Y_n = \sqrt\frac{n(n+1)}{2n^2} Z_n$ où $Z_n$ suit une loi normale $\mathcal{N}(0,1)$.
+	
+	Soit $\varphi_{Y_n}(t)$ la fonction caractéristique de $Y_n$. On sait que $\varphi_{Z_n}(t) = e^{\frac{-t^2}{2}}$ donc $$\varphi_{Y_n}(t) = \varphi_{Z_n}\left( \sqrt\frac{n(n+1)}{2n^2} t \right) = e^{- \frac{-n(n+1)}{2n^2}t^2}$$. 
+	
+	En passant à la limite, $\varphi_{Y_n}(t) \xrightarrow[n \to +\infty]{} e^{- \frac{t^2}{4}}$. On reconnait la fonction caractéristique de $\frac{1}{\sqrt{2}}Z_n$ qui suit une loi normale $\mathcal{N}(\mu=0,\sigma^2 = \frac{1}{2})$.
+	
+	On a ainsi démontré que la suite $(Y_n)$ converge en loi vers une loi normale  $\mathcal{N}(\mu=0,\sigma^2 = \frac{1}{2})$.
+}}

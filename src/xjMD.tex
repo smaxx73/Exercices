@@ -1,0 +1,37 @@
+\uuid{xjMD}
+\exo7id{4099}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Equation différentielle}
+\sousChapitre{Equations différentielles linéaires}
+
+\contenu{
+\texte{
+Soit $y : \R \to \R$ une solution non identiquement nulle de
+$y'' + e^t y = 0$.
+}
+\begin{enumerate}
+    \item \question{Montrer que l'ensemble des zéros de $y$ est infini dénombrable.}
+    \item \question{On note $a_n$ le $n$ème zéro positif de $y$.
+    En utilisant les fonctions
+    $\begin{cases} \varphi(t) = \sin\Bigl(e^{a_n/2}(t-a_n)\Bigr) \cr
+             \psi(t) = \sin\Bigl(e^{a_{n+1}/2}(t-a_n)\Bigr),\cr\end{cases}$ montrer que
+    $\frac\pi{e^{a_{n+1}/2}} \le a_{n+1}-a_n \le \frac\pi{e^{a_n/2}}$.}
+    \item \question{Donner un équivalent de $a_n$ quand $n\to\infty$.}
+\reponse{
+L'ensemble des zéros est localement fini d'après Cauchy-Lipchitz.
+
+             Si $y$ ne s'annule pas sur $[a,+\infty[$, par exemple $y > 0$,
+             alors $y$ est concave positive donc minorée, donc $y''\to-\infty$
+             ce qui implique $y',y\to-\infty$, contradiction.
+Soit $b_n = \frac\pi{e^{a_n/2}}$.
+             Alors $b_{n+1} \le 2\ln\left(\frac {b_n}{b_{n+1}}\right) \le b_n$ et
+             $b_n \to 0$ donc $b_n \sim b_{n+1} \sim 2\left(\frac{b_n}{b_{n+1}}-1\right)$.\par
+             Alors $\frac 1{b_{n+1}} - \frac 1{b_n} \to \frac 12$,
+             $b_n \sim \frac 1{2n}$ et $a_n \sim 2\ln n$.
+}
+\end{enumerate}
+}

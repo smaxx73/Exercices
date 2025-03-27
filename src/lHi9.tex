@@ -1,0 +1,34 @@
+\uuid{lHi9}
+\exo7id{4374}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Intégration}
+\sousChapitre{Intégrale de Riemann dépendant d'un paramètre}
+
+\contenu{
+\texte{
+Soit $u_n(t)$ le terme général d'une série~: $u_n(t)= t^{n-1}\sin(nx)$
+avec $0< x< \pi$.
+}
+\begin{enumerate}
+    \item \question{\'Etudier la convergence de la série.}
+\reponse{$\sum u_n(t)$ converge pour $|t|<1$.}
+    \item \question{Calculer $\sum_{p=0}^n u_p(t) = S_n(t)$.
+    Mettre $S_n(t)$ sous la forme $\frac{P_n(t)}{Q(t)}$ avec $Q(t)>\alpha$, $\alpha>0$.}
+\reponse{$P_n(t) = t^{n+1}\sin(nx) - t^n\sin((n+1)x) + \sin(x)$,
+$Q(t) = t^2 - 2t\cos(x) + 1 = (t-\cos x)^2 + \sin^2x\ge \sin^2x$.}
+    \item \question{Calculer $\lim_{n\to\infty} S_n(t)$ et $\lim_{n\to\infty} \int_{t=0}^1 S_n(t)\,d t$.}
+\reponse{Pour $|t|<1$ on a $S_n(t)\to\frac{\sin t}{Q(t)}$ lorsque $n\to\infty$
+et il y a convergence dominée vu la minoration de~$Q$ donc l'intégrale
+suit~:
+$ \int_{t=0}^1 S_n(t)\,d t\to \int_{t=0}^1 \frac{\sin x\,d t}{t^2-2t\cos x + 1}
+= (t-\cos x = u\sin x) =  \int_{u=-\cot x}^{\tan(x/2)}\frac{d u}{u^2+1}
+=  \frac{\pi-x}2$.}
+    \item \question{En déduire $\sum_{n=1}^\infty \frac{\sin(nx)}n$.}
+\reponse{$\frac{\sin(nx)}n =  \int_{t=0}^1 u_n(t)\,d t$ d'où
+$\sum_{n=1}^\infty \frac{\sin(nx)}n = \frac{\pi-x}2$.}
+\end{enumerate}
+}

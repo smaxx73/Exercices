@@ -1,0 +1,55 @@
+\uuid{QcIp}
+\exo7id{5669}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-10-16}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Applications}
+
+\contenu{
+\texte{
+Pour $\sigma\in S_n$, $n\geqslant 2$, on définit la matrice $P_\sigma$ par $P_\sigma=(\delta_{i,\sigma(j)})_{1\leqslant i,j\leqslant n}$.
+}
+\begin{enumerate}
+    \item \question{Calculer $\text{det}(P_\sigma)$ pour tout $\sigma\in S_n$.}
+\reponse{Soit $\sigma\in S_n$.
+
+\begin{center}
+$\text{det}(P_\sigma)=\sum_{\sigma'\in S_n}^{}\varepsilon(\sigma')p_{\sigma'(1),1}\ldots p_{\sigma'(n),n}=\sum_{\sigma'\in S_n}^{}\varepsilon(\sigma')\delta_{\sigma'(1),\sigma(1)}\ldots \delta_{\sigma'(n),\sigma(n)}=\varepsilon(\sigma)$,
+\end{center}
+
+car $\delta_{\sigma'(1),\sigma(1)}\ldots \delta_{\sigma'(n),\sigma(n)}\neq0\Leftrightarrow\forall i\in\llbracket1,n\rrbracket,\;\sigma'(i)=\sigma(i)\Leftrightarrow \sigma'=\sigma$.
+
+\begin{center}
+\shadowbox{
+$\forall\sigma\in S_n$, $\text{det}(P_\sigma)=\varepsilon(\sigma)$.
+}
+\end{center}}
+    \item \question{\begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{Montrer que $\forall(\sigma,\sigma')\in S_n^2$, $P_\sigma\times P_{\sigma'}=P_{\sigma\circ\sigma'}$.}
+\reponse{Soit $(\sigma,\sigma')\in S_n^2$. Soit $(i,j)\in\llbracket1,n\rrbracket^2$. Le coefficient ligne $i$, colonne $j$, de la matrice $P_\sigma\times P_{\sigma'}$ vaut
+
+\begin{center}
+$\sum_{k=1}^{n}\delta_{i,\sigma(k)}\delta_{k,\sigma'(j)}$.
+\end{center}
+
+Dans cette somme, si $k\neq\sigma'(j)$, le terme correspondant est nul et quand $k=\sigma'(j)$, le terme correspondant vaut $\delta_{i,\sigma(\sigma'(j))}$. Finalement, le coefficient ligne $i$, colonne $j$, de la matrice $P_\sigma\times P_{\sigma'}$ vaut $\delta_{i,\sigma(\sigma'(j))}$ qui est encore le coefficient ligne $i$, colonne $j$, de la matrice $P_{\sigma\circ\sigma'}$.
+
+\begin{center}
+\shadowbox{
+$\forall(\sigma,\sigma')\in S_n^2$, $P_\sigma\times P_{\sigma'}=P_{\sigma\circ\sigma'}$.
+}
+\end{center}}
+    \item \question{On pose $G=\{P_\sigma,\;\sigma\in S_n\}$. Montrer que $(G,\times)$ est un groupe isomorphe à $S_n$.}
+\reponse{Montrons que $G$ est un sous-groupe du groupe $(GL_n(\Rr),\times)$. $G$ contient $I_n=P_{Id}$ et d'autre part, $G$ est contenu dans $GL_n(\Rr)$ d'après 1).
+
+\begin{center}
+\shadowbox{
+$(G,\times)$ est un sous-groupe de $(GL_n(\Rr),\times)$.
+}
+\end{center}}
+\end{enumerate}
+}

@@ -1,0 +1,67 @@
+\uuid{nfS3}
+\exo7id{6996}
+\auteur{blanc-centi}
+\organisation{exo7}
+\datecreate{2015-07-04}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Equation différentielle}
+\sousChapitre{Résolution d'équation différentielle du premier ordre}
+
+\contenu{
+\texte{
+Pour les équations différentielles suivantes,
+trouver les solutions définies sur $\R$ tout entier :
+}
+\begin{enumerate}
+    \item \question{$x^2y'-y = 0$ $(E_1)$}
+    \item \question{$xy'+y-1 = 0$ $(E_2)$}
+\reponse{
+$x^2y'-y = 0$ $(E_1)$
+
+
+Pour se ramener à l'étude d'une équation différentielle de la forme $y'+ay=b$, 
+on résout d'abord sur les intervalles où le coefficient de $y'$ ne s'annule pas: 
+on se place donc sur $]-\infty;0[$ ou $]0;+\infty[$.
+
+\begin{enumerate}
+\textbf{Résolution sur $]-\infty;0[$ ou $]0;+\infty[$.}
+ 
+Sur chacun de ces intervalles, l'équation différentielle se réécrit 
+$$y'-\frac{1}{x^2}y=0$$ 
+qui est une équation différentielle linéaire homogène d'ordre 1 à coefficients non constants. Ses solutions sont de la forme $y(x)=\lambda e^{-1/x}$ (en effet, sur $]-\infty;0[$ ou $]0;+\infty[$, une primitive de $\frac{1}{x^2}$ est $\frac{-1}{x}$).
+\textbf{Recollement en $0$.}
+  
+Une solution $y$ de $(E_1)$ sur $\R$ doit \^etre solution sur $]-\infty;0[$ et $]0;+\infty[$, il existe donc $\lambda_+,\ \lambda_-\in\R$ tels que 
+$$y(x)=\left\lbrace\begin{array}{l}
+\lambda_+e^{-1/x}\ \mathrm{si}\ x>0\\
+\lambda_-e^{-1/x}\ \mathrm{si}\ x<0
+\end{array}\right.$$
+Il reste à voir si l'on peut recoller les deux expressions pour obtenir une solution sur $\R$: autrement dit, pour quels choix de $\lambda_+,\ \lambda_-$ la fonction $y$ se prolonge-t-elle en 0 en une fonction dérivable vérifiant $(E_1)$? 
+\begin{itemize}
+$e^{-1/x}\xrightarrow[x\to\,0^-]{}+\infty$ et $e^{-1/x}\xrightarrow[x\to\,0^+]{}0$, donc $y$ est prolongeable par continuité en 0 si et seulement si \fbox{$\lambda_-=0$}. On peut alors poser \fbox{$y(0)=0$}, quel que soit le choix de $\lambda_+$.
+Pour voir si la fonction ainsi prolongée est dérivable en 0, on étudie son taux d'accroissement:
+$$\left\{\begin{array}{l}
+\text{pour}\ x>0,\ \frac{y(x)-y(0)}{x-0}=\frac{\lambda_+e^{-1/x}}{x}=-\lambda_+(\frac{-1}{x})e^{-1/x}\xrightarrow[x\to\,0^+]{}0\\
+\ \\
+\text{pour}\ x<0,\ \frac{y(x)-y(0)}{x-0}=0\xrightarrow[x\to\,0^-]{}0
+\end{array}\right.$$
+Ainsi la fonction $y$ est dérivable en 0 et \fbox{$y'(0)=0$}.
+Par construction, l'équation différentielle $(E_1)$ est satisfaite sur $\R^*$. 
+Vérifions qu'elle est également satisfaite au point $x=0$: $0^2 \cdot y'(0)-y(0)=-y(0)=0$.
+\end{itemize}
+\textbf{Conclusion.}
+  
+Finalement, les solutions sur $\R$ sont exactement les fonctions suivantes: 
+$$y(x)=\left\lbrace\begin{array}{l}
+\lambda e^{-1/x}\quad \text{si}\ x>0\\
+0\qquad \text{si}\ x\le 0
+\end{array}\right. \qquad (\lambda\in\R)$$
+}
+\indication{\ 
+\begin{enumerate}
+  \item une infinité de solutions
+  \item une solution
+\end{enumerate}}
+\end{enumerate}
+}

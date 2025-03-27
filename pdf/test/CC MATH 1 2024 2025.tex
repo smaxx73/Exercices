@@ -1,0 +1,43 @@
+\documentclass[fleqn,a4paper,11pt]{article}
+\usepackage{etex}
+\usepackage[french]{babel}
+\usepackage[autolanguage]{numprint}
+\usepackage{makecell} % pour les tableaux
+\usepackage{geometry}
+\usepackage{verbatim} % pour les commentaires
+\usepackage{eurosym} % pour le symbole euro
+\usepackage{qrcode} % pour les QR codes
+\usepackage{python}
+%\usepackage{hyperref} %QR codes cliquables
+
+\geometry{hmargin=2cm,vmargin=2.5cm}
+
+
+%chemin vers les sources d'exercices
+\newcommand{\path}{../}
+
+\input{\path/_preambules/general.tex}
+\input{\path/_preambules/print_exam.tex}
+\input{\path/_preambules/macros.tex}
+\input{\path/_preambules/entetes.tex}
+
+\def\solution{false}
+\def\uuid{false}
+\def\link{true}
+
+\begin{document}
+\EnteteCours{EMIA 2}{MATH 1}{CC}{6-01-2025}
+
+\Titre{Contrôle Continu}
+\vspace{0.5cm}
+\begin{center}
+{\bf{L’examen dure 1h00. \\ Une feuille manuscrite est autorisée. \\
+La calculatrice n'est pas autorisée. \\
+Le sujet comporte 1 page et 2 exercices indépendants.}}
+\end{center}
+\def\TD{Syo2,2pOR}  %liste des identifiants d'exercices séparés par une virgule
+
+
+\listexo{\TD}
+
+\end{document}

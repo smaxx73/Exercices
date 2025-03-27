@@ -1,0 +1,38 @@
+\uuid{1b5o}
+\exo7id{3663}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace euclidien, espace normé}
+\sousChapitre{Produit scalaire, norme}
+
+\contenu{
+\texte{
+Soit $E$ un espace vectoriel euclidien. On pose pour $\vec x \ne \vec 0$ :
+$i(\vec x) = \frac{\vec x}{\|\vec x\,\|^2}$.
+}
+\begin{enumerate}
+    \item \question{Montrer que $i$ est une involution et conserve les angles de vecteurs.}
+    \item \question{Vérifier que : $\forall\ \vec x,\vec y \in E \setminus\{\vec 0\}$,
+    $\|i(\vec x) - i(\vec y)\| = \frac{\|\vec x - \vec y\,\|}{\|\vec x\,\|\,\|\vec y\,\|}$.}
+    \item \question{Déterminer l'image par $i$ :
+  \begin{enumerate}}
+    \item \question{d'un hyperplan affine ne passant pas par $\vec 0$.}
+    \item \question{d'une sphère passant par $\vec 0$.}
+    \item \question{d'une sphère ne passant pas par $\vec 0$.}
+\reponse{
+\'Elever au carré.
+\begin{enumerate}
+$(\vec x\mid \vec u) = 1
+                  \Leftrightarrow (i(\vec x) \mid \vec u-i(\vec x)) = 0$ :
+                  sphère passant par $\vec 0$.
+Hyperplan ne passant pas par $\vec 0$.
+$\|\vec x-\vec a\,\|^2 = R^2 \Leftrightarrow
+                  \left\|\vec x -\frac{\vec a}{\|\vec a\,\|^2-R^2}\right\|^2 =
+                  \frac{R^2}{(\|\vec a\,\|^2-R^2)^2}$ :
+                  sphère ne passant pas par $\vec 0$.
+}
+\end{enumerate}
+}

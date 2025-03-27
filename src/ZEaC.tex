@@ -1,0 +1,37 @@
+\uuid{ZEaC}
+\exo7id{4664}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série de Fourier}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $E$ l'ensemble des fonctions de~$\R$ dans~$\C$ de la forme~:
+$f(x)=\sum_{n=-\infty}^{+\infty} c_ne^{2i\pi nx}$ où $\sum |c_n|$ converge.
+On pose pour $f\in E$~: $\|f\| = \sum_{n=-\infty}^{+\infty}|c_n|$.
+}
+\begin{enumerate}
+    \item \question{Justifier la définition de $\|f\|$ et montrer que $E$ est un espace vectoriel normé complet.}
+    \item \question{Montrer que $E$ est une $\C$-algèbre et que $\|fg\| \le \|f\|\,\|g\|$.}
+    \item \question{Soit $\varphi : E \to \C$ un morphisme d'algèbres.
+  \begin{enumerate}}
+    \item \question{On suppose $\varphi$ continu, montrer qu'il existe $z_0\in\mathbb{U}$ tel
+    que $\forall\ f\in E,\ \varphi(f) = \sum_{n=-\infty}^{+\infty}c_nz_0^n$.}
+    \item \question{Vérifier que la formule précédente définit effectivement un morphisme
+    continu de~$E$ dans~$\C$.}
+\reponse{
+Si $f=0$ alors $c_n = 0$ pour tout~$n$ par intégration
+    terme à terme. Donc une fonction $f\in E$ possède un unique développement
+    trigonométrique et $\|f\|$ est bien défini. Alors $E$ est isomorphe
+    à $\ell^1(\Z)$ qui est un espace vectoriel normé complet.
+Produit de convolution de deux $\Z$-suites sommables.
+\begin{enumerate}
+$z_0 = \varphi(x \mapsto e^{2i\pi x})$. On a $|z_0| = 1$ car la suite
+    $(\varphi(x \mapsto e^{2in\pi x})_{n\in\Z})$ est bornée.
+}
+\end{enumerate}
+}

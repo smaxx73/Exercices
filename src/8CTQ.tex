@@ -1,0 +1,52 @@
+\uuid{8CTQ}
+\exo7id{2340}
+\auteur{queffelec}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Espace topologique, espace métrique}
+\sousChapitre{Espace topologique, espace métrique}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Rappeler les d\'efinitions d'une borne sup\'erieure (inf\'erieure) d'un ensemble de
+nombres r\'eels. Si $A$ et $B$ sont deux ensembles born\'es non vides de $\Rr$, comparer 
+avec $\sup A$, $\inf A$, $\sup B$ et $\inf B$ les nombres suivants : 
+
+\quad (i) $\sup(A+B)$, \quad (ii) $\sup(A\cup B)$, \quad (iii) $\sup(A\cap
+B)$, \quad (iv) $\inf(A\cup B)$, \quad (v) $\inf(A\cap B)$.}
+    \item \question{Pour $x\in\Rr^n$ et $A\subset \Rr^n$ on d\'efinit $d(x,A)=\inf_{a\in A}
+||x-a||$. Trouver $d(0,\Rr-\Qq)$, $d(\sqrt2,\Qq)$, $d(M,{\cal D})$ o\`u
+$M=(x,y,z)\in\Rr^3$ et $\cal D$ est la droite de vecteur unitaire $(a,b,c)$.}
+    \item \question{Pour  $A, B\subset \Rr^n$ on d\'efinit $d(A,B)=\inf_{a\in A,b\in B}
+||a-b||$. Trouver $d(A,B)$ lorsque $A$ est une branche de l'hyperbole
+$\{(x,y)\in{\Rr^2}\ ;\  xy=1\}$ et $B$ une asymptote.}
+    \item \question{On d\'efinit $\hbox {diam} A=\sup_{a,b\in A}||a-b||$. Quel est $\hbox
+{diam} (]0,1[\cap\Qq)$ ? $\hbox{diam} ([0,1]\cap\Rr-\Qq)$ ?}
+\reponse{
+$A$ une partie non vide de $\Rr$, un \emph{majorant} de $A$ est un 
+réel $M\in \Rr$ tel que
+$$ \forall x \in A \qquad x \leq M.$$
+Si $A$ est un partie non vide et majorée, alors par définition $\sup A$ est le plus petit des majorants.
+On a les propriétés suivantes :
+  \begin{enumerate}
+$\sup(A+B)=\sup A+\sup B$ ;
+$\sup(A \cup B)=\max(\sup A,\sup B)$ ;
+$\max(\inf A, \inf B) \leq \sup(A\cap B) \leq \min(\sup A, \sup B)$ si $A\cap B\neq \varnothing$ ;
+$\inf(A \cup B)=\min(\inf A, \inf B)$ ;
+$\max(\inf A, \inf B) \leq \inf(A\cap B) \leq \min(\sup A, \sup B)$ si $A\cap B\neq \varnothing$ ;
+}
+\indication{Vérifier que :
+  \begin{enumerate}
+  \item $\sup(A+B)=\sup A+\sup B$ ;
+  \item $\sup(A \cup B)=\max(\sup A,\sup B)$ ;
+  \item $\max(\inf A, \inf B) \leq \sup(A\cap B) \leq \min(\sup A, \sup B)$ si $A\cap B\neq \varnothing$ ;
+  \item $\inf(A \cup B)=\min(\inf A, \inf B)$ ;
+  \item $\max(\inf A, \inf B) \leq \inf(A\cap B) \leq \min(\sup A, \sup B)$ si $A\cap B\neq \varnothing$ ;
+  \end{enumerate}}
+\end{enumerate}
+}

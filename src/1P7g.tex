@@ -1,0 +1,46 @@
+\uuid{1P7g}
+\exo7id{5953}
+\auteur{tumpach}
+\organisation{exo7}
+\datecreate{2010-11-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Théorème de convergence dominée}
+\sousChapitre{Théorème de convergence dominée}
+
+\contenu{
+\texte{
+Soit \ $f\in
+\mathcal{L}^{1}(\Rr )$. Sa \emph{transform\'{e}e de Fourier}
+est la fonction \ $\hat{f}:\Rr \rightarrow \Cc$ \ \ d\'{e}finie
+par
+\[
+\hat{f}(y):=\int_{\Rr }\text{e}^{-ixy}f(x)dx,
+\]
+montrer que
+}
+\begin{enumerate}
+    \item \question{$\hat{f}$ \ est continue,}
+    \item \question{$\hat{f}$ \ est born\'{e}e et \ $\sup |\hat{f}|\leq
+\left\| f\right\| _{L^{1}}$ \ (=$\int_{\Rr }\left| f(x)\right|
+dx$),}
+    \item \question{Si $x \to xf(x)$ est int\'{e}grable, alors $\hat{f}$ \
+est d\'{e}rivable et on a
+\[
+\frac{d}{dy}\ \hat{f}\ =\widehat{-ixf(x)}.
+\]}
+\reponse{
+Notons $g(x,y)=e^{-ixy} f(x)$.
+Alors,
+\begin{enumerate}
+[{i.)}] pour tout $y\in \mathbb{R}$, la fonction $x\mapsto
+g(x,y)$ est mesurable;
+[{ii.)}] pour presque tout $x\in
+\mathbb{R}$ (pour tout les $x\in \mathbb{R}$ tels que $f(x)$ est
+finie) la fonction $y\mapsto g(x,y)$ est continue pour tout $y\in
+\mathbb{R}$;
+[{iii.)}] $|g(x,y)|=|e^{-ixy} f(x)|\leq |f(x)|$
+et $|f|\in \mathcal{L}^1(\mathbb{R},\mathbb{R}_+).$
+}
+\end{enumerate}
+}

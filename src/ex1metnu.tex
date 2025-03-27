@@ -1,0 +1,35 @@
+
+
+\titre{Rattrapage METNU }
+\theme{Méthode numérique}
+\auteur{}
+\organisation{AMSCC}
+
+\contenu{
+
+
+
+
+
+
+Soit \( f \) une application de \(\mathbb{R}\) dans \(\mathbb{R}\) définie par \( f(x) = e^{x^2} - 4x^2 \). On se propose de trouver les racines réelles de \( f \).
+
+\begin{enumerate}
+    \item Situer les quatre racines de \( f \), c'est-à-dire indiquer quatre intervalles disjoints qui contiennent chacun une et une seule racine.
+    \item Montrer qu'il y a une racine \(\hat{x}\) comprise entre 0 et 1.
+    \item Soit la méthode de point fixe : 
+    \[
+    x_0 \in ]0; 1[, \quad x_{k+1} = \varphi(x_k), \quad \text{où} \quad \varphi \text{ est l'application de } \mathbb{R} \text{ dans } \mathbb{R} \text{ définie par } \varphi(x) = \frac{1}{2}\sqrt{e^{x^2}}
+    \]
+    \begin{enumerate}
+        \item Montrer qu'il existe une constante \( C \in ]0; 1[ \) telle que pour tout \( x \in [0; 1] \), \( |\varphi'(x)| < C \).
+        \item Montrer que \( \varphi([0; 1]) \subset [0; 1] \).
+        \item En déduire la convergence de la méthode proposée.
+    \end{enumerate}
+    \item On s'intéresse maintenant à la méthode de Newton
+    \begin{enumerate}
+        \item Écrire la suite \((x_k)_{k \in \mathbb{N}}\) des itérés de la méthode de Newton pour la recherche des zéros de \( f \).
+        \item Donner un critère d'arrêt pour cette méthode.
+    \end{enumerate}
+\end{enumerate}
+}

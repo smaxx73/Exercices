@@ -1,0 +1,29 @@
+\uuid{ufMs}
+\exo7id{7157}
+\auteur{megy}
+\organisation{exo7}
+\datecreate{2017-05-13}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Géométrie affine euclidienne}
+\sousChapitre{Géométrie affine euclidienne du plan}
+
+\contenu{
+\texte{
+% groupes de frises
+}
+\begin{enumerate}
+    \item \question{Soit $\mathcal S \subset \R^2$ le graphe de la fonction sinus. Décrire les isométries de $\mathcal S$.}
+    \item \question{Même question pour le graphe de la fonction tangente.}
+\reponse{
+Soit $\phi$ un déplacement préservant $\mathcal S$. C'est une translation ou une rotation.
+% pas le groupe car il est un peu compliqué : c'est Z semi-direct Z/2Z.
+\begin{enumerate}
+Si $\phi$ est une translation de vecteur $\vec v$, alors $\vec v$ est horizontal (s'il avait une composante verticale, alors pour $n$ grand et $s\in \mathcal S$, le point $\phi^n(s)$ aurait une ordonnée qui n'appartiendrait pas à $[-1;1]$ ce qui est impossible. Si $\vec v $ est horizontal, on en déduit que $||\vec v||$ soit être une période de sinus, donc un multiple de $2\pi$. Réciproquement, toute translation horizontale d'un multiple de $2\pi$ est une isométries de $\mathcal S$.
+Si $\phi$ est une rotation, alors son centre est un point de la forme $(n\pi,0)$ pour un certain $n\in \Z$, et l'angle est $\pi$, autrement dit $\phi$ est une symétrie centrale.
+
+Réciproquement, les symétries centrales de centres les points $(n\pi,0)$ pour $n\in \Z$ sont dans $G$. La composée de deux telles symétries est une des translations trouvées plus haut.
+}
+\indication{Pour les translations ou symétries glissées, commencer par montrer que le vecteur doit être horizontal.}
+\end{enumerate}
+}

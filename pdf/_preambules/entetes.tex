@@ -1,0 +1,38 @@
+\usepackage{fancyhdr} %entetes et pieds de page
+
+\newcommand{\EnteteCours}[4]{%                 Entete de cours (classe,numéro de chap)
+	\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{1pt}
+	\headwidth = \textwidth
+	
+	\fancyhead[R]{\begin{footnotesize}#4\end{footnotesize}}
+	\fancyhead[C]{#3 - #2}
+	\fancyhead[L]{#1}
+}
+
+\newcommand{\EnteteDevoir}[3]{%                 Entete de cours (classe,numéro de chap)
+	\pagestyle{fancy}
+	%\renewcommand{\headrulewidth}{1pt}
+	\headwidth = \textwidth
+	
+	\fancyhead[R]{AMSCC}
+	\fancyhead[C]{#3 - #2}
+	\fancyhead[L]{#1}
+}
+
+%\newcommand{\Titre2}[1]{%                      Titre
+%	\vspace{4mm}
+%	\begin{center}
+%		\begin{huge}#1\end{huge}\end{center}
+%	\vspace{2mm}
+%}
+
+\newcommand{\Titre}[1]{%                      Titre
+    \begin{tcolorbox}[enhanced, colframe=white!60!black, boxrule=1pt, overlay={\node[anchor=east] at (frame.east) {\includegraphics[width=2cm]{logo.png}};},colback=white]
+        \vspace{4mm}
+        \begin{center}
+            \begin{huge}{#1}\end{huge}
+        \end{center}
+        \vspace{2mm}
+    \end{tcolorbox}
+}

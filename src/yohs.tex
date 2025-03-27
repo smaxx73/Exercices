@@ -1,0 +1,106 @@
+\uuid{yohs}
+\exo7id{5955}
+\auteur{tumpach}
+\organisation{exo7}
+\datecreate{2010-11-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace L^p}
+\sousChapitre{Espace Lp}
+
+\contenu{
+\texte{
+\ \\
+
+\textbf{Th\'eor\`eme 1.}(Th\'eor\`eme de Riesz)
+Pour tout $1\leq p\leq +\infty$, l'espace $L^{p}(\mu)$ est
+complet.
+
+\bigskip
+
+\textbf{Th\'eor\`eme 2.}
+Soit $p$  tel que $1\leq p \leq +\infty$ et soit
+$\{f_{n}\}_{n\in\mathbb{N}}$ une suite de Cauchy dans $L^{p}(\mu)$
+convergeant vers une fonction $f\in L^{p}(\mu)$. Alors il existe
+une sous-suite de $\{f_{n}\}_{n\in\mathbb{N}}$ qui converge
+ponctuellement presque-partout vers $f$.
+
+\bigskip
+
+\emph{Le but de cet exercice est de d\'emontrer les
+th\'eor\`emes~1 et 2.}
+}
+\begin{enumerate}
+    \item \question{\emph{Cas de $L^{\infty}(\mu)$.}
+  \begin{enumerate}}
+\reponse{\emph{Cas de $L^{\infty}(\mu)$.}
+
+\begin{enumerate}}
+    \item \question{Soit $\{f_{n}\}_{n\in\mathbb{N}}$ une suite de Cauchy
+de $L^{\infty}(\mu)$. Pour $k, m, n\geq 1$,  consid\'erons les
+ensembles
+\begin{eqnarray*}
+A_{k} := \{ x\in\Omega, |f_{k}(x)| > \|f_{k}\|_{\infty}\}~; &
+B_{m,n} := \{ x\in\Omega, |f_{m}(x) - f_{n}(x)| > \|f_{m} -
+f_n\|_{\infty} \}.
+\end{eqnarray*}
+Montrer que $E := \bigcup_{k} A_{k}  \bigcup_{n,m} B_{m,n}$ est de
+mesure nulle.}
+\reponse{Soit $\{f_{n}\}_{n\in\mathbb{N}}$ une suite de Cauchy
+de $L^{\infty}(\mu)$. Pour $k, m, n\geq 1$,  soient les ensembles
+\begin{eqnarray*}
+A_{k} := \{ x\in\Omega, |f_{k}(x)| > \|f_{k}\|_{\infty}\}~; &
+B_{m,n} := \{ x\in\Omega, |f_{m}(x) - f_{n}(x)| > \|f_{m} -
+f_n\|_{\infty} \},
+\end{eqnarray*}
+et $E := \bigcup_{k} A_{k}  \bigcup_{n,m} B_{m,n}$. Par
+d\'efinition de la norme infinie, les ensembles $A_k$ et $B_{n,m}$
+sont de mesure nulle. Par $\sigma$-sous-additivit\'e de $\mu$, on
+a
+$$
+\mu(E) \leq \sum_{k} \mu(A_k) + \sum_{n,m}\mu(B_{n,m}) = 0.
+$$}
+    \item \question{Montrer que sur le compl\'ementaire de
+$E$, la suite $\{f_n\}_{n\in\mathbb{N}}$ converge uniform\'ement
+vers une fonction $f$.}
+\reponse{Sur $\Omega\setminus E$, on a~:
+$$
+\sup_{x\in\Omega\setminus E}|f_{n} - f_{m}| \leq \| f_{n} -
+f_{m}\|_{\infty},
+$$
+i.e. $\{f_{n}\}_{n\in\mathbb{N}}$ est une suite de Cauchy uniforme
+sur $\Omega\setminus E$. En particulier, pour tout
+$x\in\Omega\setminus E$, la suite $\{f_{n}(x)\}_{n\in\mathbb{N}}$
+est une suite de Cauchy r\'eelle, donc est convergeante  car
+$\mathbb{R}$ est complet. Notons $f$ la limite ponctuelle de
+$f_{n}$ sur $\Omega\setminus E$. Montrons que la suite
+$\{f_n\}_{n\in\mathbb{N}}$ converge uniform\'ement vers $f$ sur le
+compl\'ementaire de $E$. On a
+$$
+|f_{n}(x) - f(x)| = \lim_{m\rightarrow +\infty}|f_{n}(x) -
+f_{m}(x)|\leq\lim_{m\rightarrow +\infty}\|f_{n} -
+f_{m}\|_{\infty}.
+$$
+Comme $\{f_{n}\}_{n\in\mathbb{N}}$ est de Cauchy dans
+$L^{\infty}(\mu)$, pour tout $\varepsilon>0$, il existe un rang
+$N_{\varepsilon}$ tel que pour $n,m > N_{\varepsilon}$, $\|f_{n} -
+f_{m}\|_{\infty} < \varepsilon$.  Alors pour $n> N_{\varepsilon}$,
+$$
+\sup_{x\in\Omega\setminus E}|f_{n}(x) - f(x)| \leq \varepsilon.
+$$
+Il est d\'ecoule que  $\{f_n\}_{n\in\mathbb{N}}$ converge
+uniform\'ement vers $f$ sur $\Omega\setminus E$.}
+    \item \question{En d\'eduire que
+$L^{\infty}(\mu)$ est complet.}
+\reponse{\'Etendons la fonction $f$ \`a $\Omega$ en posant $f =
+0$ sur $E$. Il reste \`a montrer que la fonction $f$ appartient
+\`a $L^{\infty}(\mu)$. Pour $n> N_{\varepsilon}$, et
+$x\in\Omega\setminus E$, on a
+$$
+|f(x)| < |f_n(x)| + \varepsilon \leq \|f_n(x)\|_{\infty}  +
+\varepsilon
+$$
+On en d\'eduit que $\|f\|_{\infty} \leq \|f_n(x)\|_{\infty}  +
+\varepsilon < +\infty$. Ainsi $L^{\infty}(\mu)$ est complet.}
+\end{enumerate}
+}

@@ -1,0 +1,40 @@
+\uuid{C5m6}
+\exo7id{6882}
+\auteur{gammella}
+\organisation{exo7}
+\datecreate{2012-05-29}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Analyse vectorielle}
+\sousChapitre{Forme différentielle, champ de vecteurs, circulation}
+
+\contenu{
+\texte{
+On considère la forme différentielle $$\omega= \frac{-y}{x^2+y^2}dx+\frac{x}{x^2+y^2} dy.$$
+}
+\begin{enumerate}
+    \item \question{Dans quel domaine cette forme différentielle est-elle définie ?}
+\reponse{La forme $\omega= \frac{-y}{x^2+y^2}dx+\frac{x}{x^2+y^2} dy$ est définie
+sur $\Rr^2 \setminus \{(0,0)\}$.}
+    \item \question{Calculer l'intégrale curviligne $ \int_{C} \omega$ o\`u $C$ est le cercle de centre $O$ et
+ de rayon $1$, parcouru dans le sens direct.}
+\reponse{Paramétrons le cercle $C$ par $x=\cos t$, $y=\sin t$ avec $t\in [0;2\pi]$.
+On obtient :
+\begin{align*}
+  \int_{C} \omega&=& \int_{0}^{2\pi}& (-\sin t(-\sin t)+\cos t(\cos t)) dt &\\
+ &=&\int_0^{2\pi} &\sin^2 t+\cos^2 t dt&\\
+ &=& \int_0^{2\pi}& 1 dt& \\
+ &=& 2\pi.&&
+ \end{align*}}
+    \item \question{La forme $\omega$ est-elle exacte ?}
+\reponse{La forme $\omega$ n'est pas exacte, sinon son intégrale curviligne sur la courbe
+fermée $C$ serait nulle et cela contredirait notre résultat de la
+question précédente. Remarquons cependant que
+$$
+ \frac{\partial}{\partial y}( \frac{-y}{x^2+y^2})=
+ \frac{\partial}{\partial x} ( \frac{x}{x^2+y^2})=  \frac{y^2-x^2}{(x^2+y^2)^2}.$$
+En fait, avec cet exemple, on voit que dans le théorème de Poincaré, l'hypothèse que l'ouvert doit \^etre étoilé,
+est indispensable. Ici $\Rr^2 \setminus \{(0,0)\}$ n'est pas étoilé, c'est un domaine "troué". De plus,
+$\int_{C} \omega$ n'est pas nulle car le cercle entoure le "trou".}
+\end{enumerate}
+}

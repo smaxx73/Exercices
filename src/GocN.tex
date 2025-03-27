@@ -1,0 +1,56 @@
+\uuid{GocN}
+\exo7id{5192}
+\auteur{rouget}
+\organisation{exo7}
+\datecreate{2010-06-30}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Application linéaire}
+\sousChapitre{Image et noyau, théorème du rang}
+
+\contenu{
+\texte{
+\label{exo:suprou10}
+Soient $\Kk$ un sous-corps de $\Cc$, $E$ un $\Kk$-espace vectoriel de dimension finie $n$ et $f$ un endomorphisme de $E$ non injectif. Pour $k$
+entier naturel donné, on pose $N_k=\mbox{Ker}f^k$ et $I_k=\mbox{Im}f^k$ (avec la convention $f^0=Id_E$).
+}
+\begin{enumerate}
+    \item \question{Montrer que~:~$\forall k\in\Nn,\;(N_k\subset N_{k+1}\;\mbox{et}\;I_{k+1}\subset I_k)$.}
+\reponse{Soient $k$ un entier naturel et $x$ un élément de $E$.
+
+$$x\in N_k\Rightarrow f^k(x)=0\Rightarrow f(f^k(x))=f(0)=0\Rightarrow f^{k+1}(x)=0\Rightarrow x\in N_{k+1}.$$
+On a montré que~:~$\forall k\in\Nn,\;N_k\subset N_{k+1}$. Ensuite,
+
+$$x\in I_{k+1}\Rightarrow\exists y\in E/\;x=f^{k+1}(y)\Rightarrow\exists z(=f(y))\in E/\;x=f^k(z)\Rightarrow x\in I_k.$$
+On a montré que~:~$\forall k\in\Nn,\;I_{k+1}\subset I_k$.}
+    \item \question{\begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{Montrer que~:~$(\forall k\in\Nn,\;(N_k=N_{k+1}\Rightarrow N_{k+1}=N_{k+2})$.}
+\reponse{Soit $k$ un entier naturel. Supposons que $N_k=N_{k+1}$.
+
+On a déjà $N_{k+1}\subset N_{k+2}$. Montrons que $N_{k+2}\subset N_{k+1}$.
+
+Soit $x$ un élément de $E$.
+
+\begin{align*}
+x\in N_{k+2}&\Rightarrow f^{k+2}(x)=0\Rightarrow f^{k+1}(f(x))=0\Rightarrow f(x)\in N_{k+1}=N_k
+\Rightarrow f^k(f(x))=0\\
+ &\Rightarrow f^{k+1}(x)=0\Rightarrow x\in N_{k+1}.
+\end{align*}}
+    \item \question{Montrer que~:~$\exists p\in\Nn/\;\forall k\in\Nn,\;(k<p\Rightarrow N_k\neq N_{k+1}\;\mbox{et}\;k\geq
+p\Rightarrow N_k=N_{k+1})$.}
+\reponse{On a $\{0\}=N_0\subset N_1\subset N_2...$ Supposons que chacune de ces inclusions soient strictes. Alors,
+$0=\mbox{dim }N_0<\mbox{dim }N_1<\mbox{dim }N_2$... Donc $\mbox{dim }N_1\geq1$, $\mbox{dim }N_2\geq2$ et par une récurrence
+facile, $\forall k\in\Nn,\;\mbox{dim }N_k\geq k$. En particulier, $\mbox{dim }N_{n+1}\geq n+1>n=\mbox{dim }E$, ce qui est
+impossible. Donc, il existe $k$ entier naturel tel que $N_k=N_{k+1}$.
+
+Soit $p$ le plus petit de ces entiers $k$ (l'existence de $p$ est démontrée proprement de la façon suivante~:~si
+$K=\in\{k\in\Nn/\;N_k=N_{k+1}\}$, $K$ est une partie non vide de $\Nn$ et admet donc un plus petit élément). On note
+que puisque $f$ est non injectif, $\{0\}=N_0\underset{\neq}{\subset}N_1$ et donc $p\in\Nn^*$. Par définition de $p$,
+pour $k<p$, $N_k\underset{\neq}{\subset}N_{k+1}$ et, d'après le a) et puisque $N_p=N_{p+1}$, on montre par récurrence
+que pour $k=p$, on a $N_k=N_p$.}
+    \item \question{Montrer que $p\leq n$.}
+\reponse{$0<\mbox{dim }N_1<...<\mbox{dim }N_p$ montre que pour $k\leq p$, on a $\mbox{dim }N_k=k$ et en particulier $p
+\leq\mbox{dim }N_p=n$.}
+\end{enumerate}
+}

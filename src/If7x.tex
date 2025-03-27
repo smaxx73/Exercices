@@ -1,0 +1,47 @@
+\uuid{If7x}
+\exo7id{2020}
+\auteur{liousse}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Géométrie affine dans le plan et dans l'espace}
+\sousChapitre{Géométrie affine dans le plan et dans l'espace}
+
+\contenu{
+\texte{
+On considère la famille de  plans $(P_m)_{m\in \Rr}$ définis par les équations cartésiennes :
+$$ m^2x+(2m-1)y+mz=3$$
+}
+\begin{enumerate}
+    \item \question{Déterminer les plans $P_m$ dans chacun des cas suivants :
+  \begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{$A(1,1,1)\in P_m$}
+\reponse{Un point $A$ appartient à un plan d'équation $ax+by+cz+d=0$ si et seulement si 
+$ax_A+by_A+cz_A+d=0$.
+Donc $A(1,1,1)\in P_m$ si et seulement si $ m^2+(2m-1)+m=3$.
+Ce qui équivaut à $m^2+3m-4=0$. Les deux solutions sont $m=1$ et $m=-4$.
+Donc $A$ appartient aux plans $P_1$ et $P_{-4}$ et pas aux autres.}
+    \item \question{$\vec{n}(2,-\frac 52,-1)$ est normal à $P_m$.}
+\reponse{Un plan d'équation $ax+by+cz+d=0$ a pour vecteur normal $\vec n = (a,b,c)$.
+Donc si $\vec{n}=(2,-\frac 52,-1)$ est un vecteur normal à $P_m$
+une équation cartésienne est de la forme $2 x-\frac52 y-z +d=0$.
+Or une équation de $P_m$ est $m^2x+(2m-1)y+mz-3=0$.
+Ces deux équations sont égales à un facteur multiplicatif près $\lambda\in \Rr^*$ :
+ $2 x-\frac52 y-z +d = \lambda \big(m^2x+(2m-1)y+mz-3\big)$.
+On en déduit 
+$2=\lambda m^2$, $-\frac52=\lambda(2m-1)$ et $-1=\lambda m$.
+En divisant la première égalité par la troisième on trouve : $m=-2$.
+D'où $\lambda=\frac12$. La seconde égalité est alors vérifiée.
+
+Le seul plan ayant $\vec n$ pour vecteur normal est $P_{-2}$.}
+    \item \question{$\vec{v}(1,1,1)$ est un vecteur directeur de $P_m$}
+\reponse{Un vecteur est directeur du plan $P$ si et seulement si le produit scalaire
+$\vec v\cdot \vec n=0$. Ici $\vec n = (m^2,2m-1,m)$.
+Donc $\vec{v}=(1,1,1)$ est vecteur directeur si et seulement si 
+$m^2+2m-1+m=0$. Ce qui équivaut à $m^2+3m-1=0$.
+Les deux plans qui ont pour vecteur directeur $\vec v$ sont les plans ayant le paramètre
+$m = \frac{-3\pm\sqrt{13}}{2}$.}
+\end{enumerate}
+}

@@ -1,0 +1,32 @@
+\uuid{1dXV}
+\exo7id{4598}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série entière}
+\sousChapitre{Equations différentielles}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{En utilisant la relation : $\tan' = 1 + \tan^2$, exprimer $\tan^{(n)}$
+    en fonction de $\tan,\dots,\tan{(n-1)}$.
+    En déduire que~: $\forall\ x \in {[0,\pi/2[}$, $\tan^{(n)}(x) \ge 0$.}
+    \item \question{Montrer que la série de Taylor de $\tan$ en 0 converge sur $]-\pi/2,\pi/2[$.}
+    \item \question{Soit $f$ la somme de la série précédente. Montrer que $f' = 1+f^2$ et en
+    déduire que $f = \tan$.}
+    \item \question{Prouver que le rayon de convergence est exactement $\pi/2$.}
+\reponse{
+$\tan^{(n)} =
+             \sum_{k=0}^{n-1} C_{n-1}^k \tan^{(k)}\tan^{(n-1-k)}$.
+Pour $0 \le x < \pi/2$ la série est à termes positifs et les
+             sommes partielles sont majorées par $\tan x$.
+             Pour $-\pi/2 < x \le 0$, il y a convergence absolue.
+Si $R > \pi/2$, $f$ aurait une limite finie en $\pi/2$.
+}
+\end{enumerate}
+}

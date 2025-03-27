@@ -1,0 +1,32 @@
+\uuid{UTCH}
+\exo7id{6880}
+\auteur{gammella}
+\organisation{exo7}
+\datecreate{2012-05-29}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Analyse vectorielle}
+\sousChapitre{Forme différentielle, champ de vecteurs, circulation}
+
+\contenu{
+\texte{
+On donne le champ vectoriel
+$$\vec{V}(x,y,z)=(y^2\cos x, 2y\sin x+e^{2z},2y e^{2z}).$$
+}
+\begin{enumerate}
+    \item \question{Montrer que ce champ est un champ de gradient.}
+    \item \question{Déterminer le potentiel $U(x,y,z)$ dont dérive ce champ sachant qu'il vaut $1$ à l'origine.}
+    \item \question{Quelle est la circulation de ce champ
+de $A(0,1,0)$ à $B( \frac{\pi}{2},3 ,0)$ ?}
+\reponse{
+On note $P(x,y,z)=y^2\cos x$, $Q(x,y,z)=2y\sin x+e^{2z}$ et
+$R(x,y,z)=2ye^{2z}$. La forme
+$\omega=Pdx+Qdy+Rdz$, naturellement associée au champ $\vec{V}(x,y,z)$,
+est exacte puisqu'elle est définie sur $\Rr^3$ et 
+\begin{enumerate}
+$ \frac{\partial P}{\partial y}=  \frac{\partial Q}{\partial x}=2y\cos x$
+$ \frac{\partial P}{\partial z}=  \frac{\partial R}{\partial x}= 0$
+$ \frac{\partial Q}{\partial z}=  \frac{\partial R}{\partial y}=2e^{2z}.$
+}
+\end{enumerate}
+}

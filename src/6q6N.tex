@@ -1,0 +1,26 @@
+\uuid{6q6N}
+\exo7id{4318}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Intégration}
+\sousChapitre{Intégrale de Riemann dépendant d'un paramètre}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Prouver l'existence pour $x > 0$ de
+    $I(x) =  \int_{t=0}^{+\infty} \frac{\sin t}{t+x}\,d t$.}
+    \item \question{Déterminer $\lim_{x\to+\infty} I(x)$.}
+\reponse{
+$I(x) =  \int_{t=x}^{+\infty} \frac{\sin(t-x)}t\,d t
+                   = \cos x  \int_{t=x}^{+\infty} \frac{\sin t}t\,d t
+                   - \sin x  \int_{t=x}^{+\infty} \frac{\cos t}t\,d t
+                   \to 0$ lorsque $x\to+\infty$.
+}
+\end{enumerate}
+}

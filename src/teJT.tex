@@ -1,0 +1,24 @@
+\uuid{teJT}
+\exo7id{6920}
+\auteur{ruette}
+\organisation{exo7}
+\datecreate{2013-01-24}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Probabilité discrète}
+\sousChapitre{Espérance, variance}
+
+\contenu{
+\texte{
+Soit $U$ et $V$ deux variables aléatoires de même loi, à
+valeurs dans $\{1,\ldots, N\}$. On pose $X=U-V$ et $Y=U+V$. Déterminer la
+covariance entre $X$ et $Y$.
+}
+\reponse{
+$U$ et $V$ étant à valeurs dans $\{1, \dots ,N\}$, elles admettent des moments de tout ordre, donc $X$ et $Y$ aussi, les calculs qui suivent sont donc justifiés.
+$\text{Cov}(X,Y)=E(XY)-E(X)E(Y)=E(XY)$ car $E(X)=E(U)-E(V)=0$ ($U, V$ ont
+même loi).
+$E(XY)=E((U-V)(U+V))=E(U^2)-E(V^2)=0$ ($U, V$ ont
+même loi). D'où $\text{Cov}(X,Y)=0$.
+}
+}

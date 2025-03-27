@@ -1,0 +1,28 @@
+\uuid{pdwN}
+\exo7id{4635}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Série de Fourier}
+\sousChapitre{Calcul de coefficients}
+
+\contenu{
+\texte{
+Soit $a \in \R\setminus\Z$.
+}
+\begin{enumerate}
+    \item \question{Développer en série de Fourier la fonction définie sur $[-\pi,\pi]$ par :
+    $f(x) = \cos(ax)$.}
+\reponse{$\cos ax = \frac{\sin \pi a}{\pi a} +
+              \frac{2a\sin\pi a}\pi\sum_{n=1}^\infty
+              \frac{(-1)^n\cos nx}{a^2-n^2}$.}
+    \item \question{Soit $g(t) = \sum_{n=1}^\infty \ln\left(1-\frac{t^2}{n^2}\right)$.
+    Justifier l'existence et la dérivabilité de $g$ et la calculer.}
+\reponse{$g'(t) = \sum_{n=1}^\infty \frac{2t}{t^2-n^2}
+                    = \frac{\pi\cos\pi t}{\sin\pi t} - \frac 1t  \Rightarrow 
+              g(t) = \ln\left(\lambda\frac{\sin\pi t}t\right)$ et $g(0) = 0  \Rightarrow 
+              g(t) = \ln\left(\frac{\sin\pi t}{\pi t}\right)$.}
+\end{enumerate}
+}

@@ -1,0 +1,37 @@
+\uuid{VCqa}
+\exo7id{2370}
+\auteur{mayer}
+\organisation{exo7}
+\datecreate{2003-10-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Compacité}
+\sousChapitre{Compacité}
+
+\contenu{
+\texte{
+Soit $X$ un espace m\'etrique.
+}
+\begin{enumerate}
+    \item \question{Soit $A$ et $B$ deux compacts disjoints dans $X$. Montrer qu'ils
+poss\`edent des voisinages ouverts disjoints (commencer par le cas
+o\`u $B$ est r\'eduit \`a un point).}
+    \item \question{Soit $K$ un compact non vide de $X$ et $U$ un ouvert de $X$ contenant $K$.
+Montrer qu'il existe $r>0$ tel que pour tout $x\in X$, on ait
+l'implication: $$d(x,K)<r \Rightarrow x\in U\; .$$}
+\reponse{
+\begin{enumerate}
+Si $A$ est compact et $B=\{b\}$ avec $b\notin A$.
+Soit $a\in A$ alors $a \neq b$ donc il existe un voisinage ouvert de $a$, $U_a$
+et un voisinage ouvert de $b$, $V_a$ tels que $U_a \cap V_a = \varnothing$.
+Bien évidemment $A \subset \bigcup_{a\in A} U_a$. Comme $A$ est compact on peut extraire un ensemble fini $\mathcal{A} \subset A$ tel que $A \subset \bigcup_{a\in \mathcal{A}} U_a = : U^b$. Notons alors $V^b := \bigcap_{a\in \mathcal{A}} V_a$. $U^b$ est ouvert comme union d'ouverts et $V^b$ est ouvert comme intersection \emph{finie} d'ouverts. De plus $U^b\cap V^b= \varnothing$.
+Maintenant $B$ est compact. Pour chaque $b\in B$ le point précédent nous fournit $U^b$ et $V^b$ disjoints qui sont des voisinages ouverts respectifs de $A$ et $b$. On a $B \subset \bigcup_{b\in B} V^b$. On extrait un ensemble fini $\mathcal{B}$ de telle sorte que $B \subset \bigcup_{b\in \mathcal{B}} V^b =: V'$. $V'$ est un voisinage ouvert de $B$. Et si $U':= \bigcap_{b\in \mathcal{B}} U^b$ alors $U'$ est un ouvert contenant $A$, et $U' \cap V' = \varnothing$.
+}
+\indication{\begin{enumerate}
+  \item Remarquer si $U_a$ est un voisinage de $a$, alors $A \subset \bigcup_{a\in A} U_a$.
+  \item Raisonner par l'absurde et construire une suite $(x_n)$ dont aucun élément  n'est dans $U$ et
+une suite $(y_n)$ de $K$. Quitte à extraire une sous-suite se débrouiller pour 
+qu'elle converge vers la m\^eme limite.
+\end{enumerate}}
+\end{enumerate}
+}

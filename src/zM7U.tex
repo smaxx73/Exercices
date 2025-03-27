@@ -1,0 +1,27 @@
+\uuid{zM7U}
+\exo7id{4536}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-14}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Suite et série de fonctions}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $u_n(x) = (-1)^n\ln\left(1+\frac x{n(1+x)}\right)$ et
+$f(x) = \sum_{n=1}^\infty u_n(x)$.
+}
+\begin{enumerate}
+    \item \question{Montrer que la série $f(x)$ converge simplement sur $\R^+$.}
+    \item \question{Majorer convenablement le reste de la série, et montrer qu'il y a
+    convergence uniforme sur $\R^+$.}
+    \item \question{Y a-t-il convergence normale ?}
+\reponse{
+CSA $ \Rightarrow  |R_n(x)| \le |u_{n+1}(x)| \le
+             \ln\left(1+\frac1{n+1}\right)$.
+Non, $\|u_n\|_\infty = \ln\left(1+\frac1n\right)$.
+}
+\end{enumerate}
+}

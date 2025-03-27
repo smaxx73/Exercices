@@ -1,0 +1,24 @@
+\uuid{7vwz}
+\exo7id{4033}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-11}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Développement limité}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Développer de deux manières $(1-e^x)^n$ en $0$ à l'ordre $n+2$.
+
+En déduire $\sum_{k=0}^n(-1)^kC_n^kk^p$ pour $p = 0,1,\dots,n+2$.
+}
+\reponse{
+$(1-e^x)^n = \sum_{k=0}^n(-1)^kC_n^ke^{kx}
+ = \sum_{p=0}^{n+2} \Bigl(\sum_{k=0}^n(-1)^kC_n^kk^p \Bigr) \frac {x^p}{p!}
+   + o (x^{n+2})$,
+
+$(1-e^x)^n = (-x)^n\left({1 + \frac {nx}2 + \frac {n(3n+1)}{24}x^2 + o  (x^2)}\right)$.
+}
+}

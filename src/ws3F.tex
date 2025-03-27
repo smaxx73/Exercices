@@ -1,0 +1,38 @@
+\uuid{ws3F}
+\exo7id{7365}
+\auteur{mourougane}
+\organisation{exo7}
+\datecreate{2021-08-10}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Groupe, anneau, corps}
+\sousChapitre{Groupe, sous-groupe}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Calculer les produits de matrices $ADA^{-1}$ et $BDB^{-1}$ dans $GL(2,\R)$ où
+$$A=\begin{pmatrix}0&1\\2&0\end{pmatrix} 
+\quad \text{ et } \quad B=\begin{pmatrix}1&4\\0&1\end{pmatrix}\quad \text{ et } \quad D=\begin{pmatrix}2&0\\0&3 \end{pmatrix}$$}
+\reponse{On vérifie d'abord que 
+$$A^{-1}=\begin{pmatrix}0&1/2\\1&0\end{pmatrix} 
+\quad \text{ et } \quad B^{-1}=\begin{pmatrix}1&-4\\0&1\end{pmatrix}$$
+
+Calculer les produits de matrices $ADA^{-1}$ et $BDB^{-1}$ dans $GL(2,\R)$ où
+$$ADA^{-1}=\begin{pmatrix}0&1\\2&0\end{pmatrix}
+\begin{pmatrix}2&0\\0&3 \end{pmatrix}
+\begin{pmatrix}0&1/2\\1&0\end{pmatrix} =\begin{pmatrix}3&0\\0&2 \end{pmatrix}$$
+$$BDB^{-1}=\begin{pmatrix}1&4\\0&1\end{pmatrix}
+\begin{pmatrix}2&0\\0&3 \end{pmatrix}
+\begin{pmatrix}1&-4\\0&1\end{pmatrix}=\begin{pmatrix}2&4\\0&3 \end{pmatrix}$$}
+    \item \question{Le sous-groupe de $GL(2,\R)$ des matrices diagonales inversibles est-il distingué dans $GL(2,\R)$ ?}
+\reponse{Comme $D\in\mathcal{D}$ et $B\in GL(2,\R)$ mais $BDB^{-1}$ n'appartient pas à $\mathcal D$, le sous-groupe $\mathcal{D}$ de $GL(2,\R)$ des matrices diagonales inversibles n'est pas distingué dans $GL(2,\R)$.}
+    \item \question{Calculer le produit de matrices $AB$ dans $GL(2,\R)$.}
+\reponse{$$AB=\begin{pmatrix}0&1\\2&8\end{pmatrix}.$$}
+    \item \question{L'application trace de $GL(2,\R)$ dans $(\R,+)$ est-elle un morphisme de groupes ?}
+\reponse{$trace(AB)=0+8=8$ et $trace(A)+trace(B)=0+2=2\not=8$.
+Par conséquent, $trace$ n'est pas un morphisme de groupes de $GL(2,\R)$ dans $(\R,+)$.}
+\end{enumerate}
+}

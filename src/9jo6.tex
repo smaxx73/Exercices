@@ -1,0 +1,54 @@
+\uuid{9jo6}
+\exo7id{1642}
+\auteur{barraud}
+\organisation{exo7}
+\datecreate{2003-09-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Diagonalisation}
+
+\contenu{
+\texte{
+Soit $A$ la matrice $A=
+  \begin{pmatrix}
+    1&-1&-1\\
+   -1& 1&-1\\
+   -1&-1& 1
+  \end{pmatrix}
+  $.
+}
+\begin{enumerate}
+    \item \question{Calculer $^{t}\!A$. La matrice $A$ est-elle diagonalisable~?}
+\reponse{${}^t{A}=A$ donc $A$ est diagonalisable dans une base
+    orthonormée.}
+    \item \question{Diagonaliser $A$.}
+\reponse{Par exemple~: $P=
+    \begin{pmatrix}
+      1& 1& 1\\
+      1&-1& 0\\
+      1& 0&-1
+    \end{pmatrix}
+$, $P^{-1}AP=
+\begin{pmatrix}
+  -1& 0& 0\\
+   0& 2& 0\\
+   0& 0& 2
+ \end{pmatrix}
+$.}
+    \item \question{Diagonaliser $A$ dans une base orthonormée (pour le produit scalaire
+    usuel de $\R^{3}$).}
+\reponse{$Q=
+   \begin{pmatrix}
+     1/\sqrt{3} & 1/\sqrt{2} & 1/\sqrt{6} \\
+     1/\sqrt{3} &-1/\sqrt{2} & 1/\sqrt{6} \\
+     1/\sqrt{3} &          0 &-2/\sqrt{6} 
+   \end{pmatrix}
+$, $Q^{-1}AQ=\begin{pmatrix}
+  -1& 0& 0\\
+   0& 2& 0\\
+   0& 0& 2
+ \end{pmatrix}
+$ et ${}^t{Q}=Q^{-1}$}
+\end{enumerate}
+}

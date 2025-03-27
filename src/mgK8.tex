@@ -1,0 +1,54 @@
+\uuid{mgK8}
+\exo7id{6873}
+\auteur{gammella}
+\organisation{exo7}
+\datecreate{2012-05-29}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Analyse vectorielle}
+\sousChapitre{Forme différentielle, champ de vecteurs, circulation}
+
+\contenu{
+\texte{
+Déterminer si les formes différentielles suivantes sont exactes et dans ce cas, les intégrer :
+}
+\begin{enumerate}
+    \item \question{$\omega_1=2xy dx +x^2dy $}
+    \item \question{$\omega_2=xy dx - z dy +xz dz$}
+    \item \question{$\omega_3=2xe^{x^2-y} dx -2e^{x^2-y}dy$}
+    \item \question{$\omega_4=yz^2 dx + (xz^2+z) dy + (2xyz+2z+y) dz.$}
+\reponse{
+Pour $\omega_1$, on pose $P(x,y)=2xy$ et $Q(x,y)=x^2$. Comme $\omega_1$ est définie
+sur l'ouvert étoilé $\Rr^2$
+et que $ \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}=2x$, le théorème de Poincaré
+permet de dire que $\omega_1$ est exacte. On cherche $f$ tel que $df=\omega_1$. Ceci équivaut à résoudre le système 
+$$  \left\{ \begin{array}{lll}
+\frac{\partial f} {\partial x}& = &2xy \\
+\frac{\partial f}{\partial y} &= & x^2\\
+\end{array} \right .$$
+En intégrant la première ligne par rapport à $x$, on trouve
+$f(x,y)= x^2y+c(y)$. En dérivant l'expression que l'on vient d'obtenir par
+rapport à $y$ et en identifiant avec la deuxième ligne
+du système, on trouve $$ \frac{\partial f}{\partial y}= x^2+c'(y)=x^2.$$ Il s'ensuit que $c'(y)=0$ et 
+donc que $c(y)=c \in \Rr$. Par suite, la fonction 
+$f$ cherchée est :
+$$f(x,y)=x^2y+c$$
+o\`u $c$ est une constante réelle.
+Pour $\omega_2$, on pose $P(x,y,z)=xy$, $Q(x,y,z)=-z$ et $R(x,y,z)=xz.$ 
+On constate que 
+$ \frac{\partial P}{\partial y}=x$ alors que $ \frac{\partial Q}{\partial x}=0$. La forme
+$\omega_2$ n'est donc pas exacte.
+Pour $\omega_3$, on pose $P(x,y)=2xe^{x^2-y}$ et $Q(x,y)=-2e^{x^2-y}$.
+Là aussi, $ \frac{\partial P}{\partial y}\not= \frac{\partial Q}{\partial x} $
+puisque $ \frac{\partial P}{\partial y}=-2xe^{x^2-y}$ alors
+que $ \frac{\partial Q}{\partial x}=-4xe^{x^2-y}$ ; $\omega_3$ n'est donc pas exacte.
+Pour $\omega_4$, posons
+$P(x,y,z)=yz^2$, $Q(x,y,z)=xz^2+z$, $R(x,y,z)=2xyz+2z+y$. On constate
+que 
+\begin{enumerate}
+$ \frac{\partial P}{\partial y}= \frac{\partial Q}{\partial x}= z^2$
+$ \frac{\partial P}{\partial z}= \frac{\partial R}{\partial x}=2zy$
+$ \frac{\partial Q}{\partial z}= \frac{\partial R}{\partial y}= 2xz+1$.
+}
+\end{enumerate}
+}

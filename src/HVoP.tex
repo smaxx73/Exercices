@@ -1,0 +1,37 @@
+\uuid{HVoP}
+\exo7id{2615}
+\auteur{delaunay}
+\organisation{exo7}
+\datecreate{2009-05-19}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Diagonalisation}
+
+\contenu{
+\texte{
+{\bf Questions préliminaires} :
+}
+\begin{enumerate}
+    \item \question{[(a)]  Soient  $E$ un espace vectoriel réel de dimension $n$ et  $u$ un endomorphisme de $E$. Soit $P\in\R[X]$ un polynôme. Soit $\lambda$ une valeur propre de $u$ et $\vec x$ un vecteur propre associé à $\lambda$. Démontrer que $\vec x$ est vecteur propre de l'endomorphisme $P(u)$ pour la valeur propre $P(\lambda)$.}
+\reponse{[(a)] Soient  $E$ un espace vectoriel réel de dimension $n$ et  $u$ un endomorphisme de $E$. Soit $P\in\R[X]$ un polynôme. Soit $\lambda$ une valeur propre de $u$ et $\vec x$ un vecteur propre associé à $\lambda$. 
+ 
+{\it Démontrons que $\vec x$ est vecteur propre de l'endomorphisme $P(u)$ pour la valeur propre $P(\lambda)$.}
+ 
+On a $u(\vec x)=\lambda \vec x$, et, par récurrence sur $n$, pour tout $n\in\N$, $u^n(\vec x)=\lambda^n\vec x$. Notons 
+
+$P(X)=a_0+a_1X+a_2X^2+\dots+a_dX^d$, l'endomorphisme $P(u)$ vérifie
+\begin{align*}
+P(u)(\vec x)&=(a_0\mathrm{id}_E+a_1u+a_2u^2+\dots+a_du^d)(\vec x)\\
+  &=a_0\vec x+a_1\lambda\vec x+a_2\lambda^2\vec x+\dots+a_d\lambda^d\vec x\\
+  &=P(\lambda) \vec x \\
+\end{align*}
+
+ce qui prouve que le vecteur $\vec x$ est vecteur propre de l'endomorphisme $P(u)$ pour la valeur propre $P(\lambda)$.}
+    \item \question{[(b)] Enoncer le théorème de Hamilton-Cayley.}
+\reponse{[(b)] 
+ Théorème de Hamilton-Cayley. Soient  $E$ un espace vectoriel réel de dimension $n$ et  $u$ un endomorphisme de $E$. Soit $P$ le polynôme caractéristique de $u$, alors $P(u)=0$ (le zéro étant celui de l'ensemble des endomorphisme de $E$)
+ 
+{\it Version matricielle} : Si $A\in{\cal M}_n(\C)$ est une matrice et $P_A$ son polynôme caractéristique, alors $P_A(A)=0$ (le zéro étant celui de ${\cal M}_n(\C)$).}
+\end{enumerate}
+}

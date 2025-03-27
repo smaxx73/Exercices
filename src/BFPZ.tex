@@ -1,0 +1,69 @@
+\uuid{BFPZ}
+\exo7id{1611}
+\auteur{barraud}
+\organisation{exo7}
+\datecreate{2003-09-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Valeur propre, vecteur propre}
+
+\contenu{
+\texte{
+Soit $E$ un espace vectoriel de dimension $n$ et $u$ un endomorphisme
+  de $E$ ayant $n$ valeurs propres distinctes
+  $\{\lambda_{1},...,\lambda_{n}\}$.
+}
+\begin{enumerate}
+    \item \question{Montrer que l'ensemble $\mathrm{Com}=\{v\in\mathcal{L}(E,E)/ uv=vu\}$ des
+endomorphismes de $E$ qui commutent avec $u$ est un espace vectoriel.}
+    \item \question{\begin{enumerate}}
+    \item \question{Soit $v$ un élément de $\mathrm{Com}$. Montrer que $v$ préserve les espaces
+    propres de $u$ (c'est à dire que si $E_{\lambda}$ est un espace
+    propre de $u$ associé à la valeur propre $\lambda$, on a $\forall
+    x\in E_{\lambda}, v(x)\in E_{\lambda}$).}
+    \item \question{Donner la dimension des espaces propres de $u$ et montrer que si
+    $x$ est un vecteur propre de $u$ alors c'est aussi un vecteur propre
+    de $v$.}
+    \item \question{A l'aide d'une base convenablement choisie, décrire tous les éléments
+    de $\mathrm{Com}$, et montrer que $\mathrm{Com}$ est de dimension $n$.}
+\reponse{
+Soit $(v,w)\in\mathrm{Com}$, $(\lambda,\mu)\in\R^{2}$. $u(\lambda v+\mu
+    w)=\lambda uv+\mu uw=\lambda vu+\mu wu=(\lambda v+\mu w)u$. Donc
+    $\mathrm{Com}$ est un sous espace vectoriel de $\mathcal{L}(E,E)$.
+Soit $x\in E_{\lambda}$. $u(v(x))=uv(x)=vu(x)=v(\lambda x)=\lambda
+    v(x)$ donc $v(x)\in E_{\lambda}$.
+Chaque valeur propre est de multiplicité 1 donc chaque espace propre
+    est de dimension 1. Ainsi, si $x\in E_{\lambda}\setminus\{0\}$,
+    $E_{\lambda}=\R x$. Comme $v(x)\in E_{\lambda}$,
+    $\exists\alpha\in\R, v(x)=\alpha x$. Donc $x$ est un vecteur propre
+    de $v$.
+Soit $(e_{1},...,e_{n})$ une base de vecteurs propres de $u$. C'est
+    aussi une base de vecteurs propres pour tout élément de $\mathrm{Com}$. Tout
+    élément de $\mathrm{Com}$ est donc représenté par une matrice diagonale dans
+    $(e_{1},...,e_{n})$. Réciproquement, tout endomorphisme représenté
+    dans cette base par une matrice diagonale commute avec $u$. Donc
+    $$
+    \mathrm{Com}=\{v\in\mathcal{L}(E,E), \exists (\alpha_{1},...,\alpha_{n})\in\R^{n},
+    M_{v/(e_{1},...,e_{n})}=
+      \begin{pmatrix}
+        \alpha_{1}& & \\ &\ddots& \\ & & \alpha_{n}
+      \end{pmatrix}
+      \}$$
+    On en déduit que $\mathrm{Com}$ est de dimension $n$.
+$u\,u^{i}=u(u\cdots u)=(u\cdots u)u=u^{i}\, u$. Donc $\forall
+    i\in\{0,...,n-1\}, u^{i}\in\mathrm{Com}$. Ainsi
+    $\mathrm{Vect}(\mathrm{id},u,...,u^{n-1})\subset\mathrm{Com}$.
+Soit $x_{k}\in E_{\lambda_{k}}\setminus\{0\}$.
+    $u^{i}(x)=\lambda_{k}^{i}\,x$. Donc $(\sum \alpha_{i}u^{i})x
+    =\sum\alpha_{i}u^{i}(x) =(\sum\alpha_{i}\lambda_{k}^{i})x=0$. Donc
+    $\forall k\in\{1,...,n\}, \sum\alpha_{i}\lambda_{k}^{i}=0$.
+Le déterminent du système $(*)$ est non nul. Il s'agit donc d'un
+    système de Cramer~: il n'a qu'une solution,
+    $\alpha_{0}=...=\alpha_{n-1}=0$. La famille $(\mathrm{id}, u, ..., u^{n-1})$
+    est donc libre.
+On a $\dim\mathrm{Vect}(\mathrm{id}, u, ..., u^{n-1})=n=\dim\mathrm{Com}$ et $\mathrm{Vect}(\mathrm{id}, u,
+    ..., u^{n-1})\subset\mathrm{Com}$ donc $\mathrm{Vect}(\mathrm{id}, u, ..., u^{n-1})=\mathrm{Com}$
+}
+\end{enumerate}
+}

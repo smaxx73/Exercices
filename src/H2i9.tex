@@ -1,0 +1,45 @@
+\uuid{H2i9}
+\exo7id{974}
+\auteur{gourio}
+\organisation{exo7}
+\datecreate{2001-09-01}
+\isIndication{true}
+\isCorrection{true}
+\chapitre{Application linéaire}
+\sousChapitre{Morphismes particuliers}
+
+\contenu{
+\texte{
+Soit $E$ l'espace vectoriel des fonctions de $\Rr$ dans $\Rr$. Soient $P$ le
+sous-espace des fonctions paires et $I$ le sous-espace des fonctions
+impaires. Montrer que $E=P\bigoplus I$. Donner l'expression du projecteur sur
+$P$ de direction $I$.
+}
+\indication{Pour une fonction $f$ on peut \'ecrire 
+$$f(x)= \frac{f(x)+f(-x)}{2}+\frac{f(x)-f(-x)}{2}.$$
+
+Le projecteur sur $P$ de direction $I$ est l'application $\pi : E \longrightarrow E$
+qui vérifie $\pi(f)\in P$, $\pi \circ \pi = \pi$ et $\ker \pi = I$.}
+\reponse{
+La seule fonction qui est \`a la fois paire et impaire est la fonction nulle : $P\cap I = \{0\}$. Montrons qu'une fonction $f:\Rr \longrightarrow \Rr$ se d\'ecompose en une fonction paire et une fonction impaire. 
+En effet : 
+ $$f(x)= \frac{f(x)+f(-x)}{2}+\frac{f(x)-f(-x)}{2}.$$
+La fonction $x \mapsto \frac{f(x)+f(-x)}{2}$ est paire (le v\'erifier !),
+la fonction $x \mapsto \frac{f(x)-f(-x)}{2}$ est impaire.
+Donc $P+I=E$.
+Bilan : $E=P\oplus I.$
+Le projecteur sur $P$ de direction $I$ est l'application $\pi : E \longrightarrow E$
+    qui \`a $f$ associe la fonction $x \mapsto \frac{f(x)+f(-x)}{2}$, c'est-à-dire à $f$ on associe la partie paire
+ de $f$.
+Nous avons bien 
+\begin{itemize}
+$\pi(f)\in P$. Par définition de $\pi$, $\pi(f)$ est bien une fonction paire.
+$\pi \circ \pi = \pi$. Si $g$ est une fonction paire alors $\pi(g)=g$. 
+Appliquons ceci avec $g=\pi(f)$ (qui est bien est une fonction paire) donc $\pi(\pi(f))=\pi(f)$.
+$\ker \pi = I$. Si $\pi(f)=0$ alors cela signifie exactement que la fonction $x \mapsto \frac{f(x)+f(-x)}{2}$
+est la fonction nulle. Donc pour tout $x$ : $\frac{f(x)+f(-x)}{2}=0$ donc $f(x)=-f(-x)$ ; 
+cela implique que $f$ est une fonction impaire. Réciproquement si $f\in I$ est une fonction impaire, 
+sa partie paire est nulle donc $f\in \ker f$.
+\end{itemize}
+}
+}

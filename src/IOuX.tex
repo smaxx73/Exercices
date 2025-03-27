@@ -1,0 +1,30 @@
+\uuid{IOuX}
+\exo7id{303}
+\auteur{bodin}
+\organisation{exo7}
+\datecreate{1998-09-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Arithmétique dans Z}
+\sousChapitre{Pgcd, ppcm, algorithme d'Euclide}
+
+\contenu{
+\texte{
+Notons $a=1\;111\;111\;111$ et $b=123\;456\;789$.
+}
+\begin{enumerate}
+    \item \question{Calculer le quotient et le reste de la division euclidienne de $a$ par $b$.}
+\reponse{$a=9b+10$.}
+    \item \question{Calculer $p=\, \text{pgcd}(a,b)$.}
+\reponse{Calculons le pgcd par l'algorithme d'Euclide. 
+$a = 9b+10$, $b = 12345678 \times 10 + 9$, $10 = 1 \times 9 +1$.
+Donc le pgcd vaut $1$;}
+    \item \question{D\'eterminer deux entiers relatifs $u$ et $v$ tels que $au+bv=p$.}
+\reponse{Nous reprenons les \'equations pr\'ec\'edentes en partant de la fin:
+$1 = 10 - 9$, puis nous rempla\c{c}ons $9$ gr\^{a}ce \`a la deuxi\`eme \'equation 
+de l'algorithme d'Euclide:
+$1 = 10 - (b - 12345678 \times 10) = -b + 1234679 \times 10$. Maintenant nous 
+rempla\c{c}ons $10$ gr\^{a}ce \`a la premi\`ere \'equation:
+$1 = -b+12345679 (a-9b) = 12345679a - 111111112b$.}
+\end{enumerate}
+}

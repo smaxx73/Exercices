@@ -1,0 +1,47 @@
+\uuid{URum}
+\exo7id{2598}
+\auteur{delaunay}
+\organisation{exo7}
+\datecreate{2009-05-19}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Applications}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{On note $(\vec e_1, \vec e_2, \vec e_3)$ la base canonique de $\R^3$. Soit $A$ la matrice 
+$$A=\begin{pmatrix}1&0&0 \\  0&2&0 \\  0&0&3\end{pmatrix}.$$
+Donner sans calcul les valeurs propres de $A$ et une base de vecteurs propres.}
+\reponse{On note $(\vec e_1, \vec e_2, \vec e_3)$ la base canonique de $\R^3$. Soit $A$ la matrice 
+$$A=\begin{pmatrix}1&0&0 \\  0&2&0 \\  0&0&3\end{pmatrix}.$$
+{\it Donnons sans calcul les valeurs propres de $A$ et une base de vecteurs propres.}
+
+La matrice $A$ est diagonale dans la base canonique de $\R^3$, on a $A\vec e_1=\vec e_1$, $A\vec e_2=2\vec e_2$ et $A\vec e_3=3\vec e_3$. Les valeurs propres de $A$ sont les r\'eels $1$, $2$ et $3$ et les sous-espaces propres associ\'es sont les droites vectorielles engendr\'ees respectivement par $\vec e_1$, $\vec e_2$ et $\vec e_3$.}
+    \item \question{On cherche \`a d\'eterminer, s'il en existe, les matrices $B$ telles que $\exp B=A$.
+   \begin{enumerate}}
+\reponse{On cherche \`a d\'eterminer, s'il en existe, les matrices $B$ telles que $\exp B=A$.
+   \begin{enumerate}}
+    \item \question{Montrer que si $A=\exp B$, alors $AB=BA$.}
+\reponse{{\it Montrons que si $A=\exp B$, alors $AB=BA$.}
+
+On suppose qu'il existe $B$ telle que $A=\exp B$. On a alors, par d\'efinition, 
+$$A=\sum_{k=0}^{+\infty}{\frac{1}{k!}}B^k,\ 
+{\hbox{d'o\`u}}\  AB=BA=\sum_{k=0}^{+\infty}{\frac{1}{k!}}B^{k+1}$$}
+    \item \question{En d\'eduire que la base $(\vec e_1,\vec e_2, \vec e_3)$ est une base de vecteurs propres de  B.}
+\reponse{{\it On en d\'eduit que la base $(\vec e_1,\vec e_2, \vec e_3)$ est une base de vecteurs propres de  B.}
+
+On a $(BA)\vec e_1=B(A\vec e_1)=B\vec e_1$, mais $BA=AB$, on a donc $B\vec e_1=(AB)\vec e_1=A(B\vec e_1)$. Ce qui prouve que $B\vec e_1$ est un vecteur propre de $A$ associ\'e \`a la valeur propre $1$, il est donc colin\' eaire \`a $\vec e_1$ , ainsi, $\vec e_1$ est bien un vecteur propre de $B$. De m\^eme, $BA\vec e_2=2B\vec e_2=AB\vec e_2$ donc $B\vec e_2$ est colin\'eaire \`a $\vec e_2$ et $\vec e_2$ est un vecteur propre de $B$. Et aussi, $BA\vec e_3=3B\vec e_3=AB\vec e_3$ d'o\`u $B\vec e_3$ colin\'eaire \`a $\vec e_3$ et $\vec e_3$ vecteur propre de $B$.}
+    \item \question{D\'eterminer toutes les matrices  $B\in M_3(\R)$ telles que $\exp B=A$. Justifier.}
+\reponse{{\it D\'eterminons les matrices  $B\in M_3(\R)$ telles que $\exp B=A$.}
+
+Les vecteurs $\vec e_1, \vec e_2, \vec e_3$ \'etant vecteurs propres de $B$, la matrice $B$ est diagonale dans la base canonique, il existe donc des r\'eels $\lambda_1,\lambda_2$ et $\lambda_3$ tels que 
+$$B=\begin{pmatrix}\lambda_1&0&0 \\  0&\lambda_2&0 \\  0&0&\lambda_3\end{pmatrix},\ {\hbox{ainsi}}\ \exp B=
+\begin{pmatrix}e^{\lambda_1}&0&0 \\  0& e^{\lambda_2}&0 \\  0&0&e^{\lambda_3}\end{pmatrix}=\begin{pmatrix}1&0&0 \\  0&2&0 \\  0&0&3\end{pmatrix}$$
+ce qui implique $e^{\lambda_1}=1$, $e^{\lambda_2}=2$ et $e^{\lambda_3}=3$ et donc $\lambda_1=\ln 1=0$, $\lambda_2=\ln2$ et $\lambda_3=\ln3$ d'o\`u l'existence d'une unique matrice $B$ telle que $\exp B=A$, c'est la matrice
+$$B=\begin{pmatrix}0&0&0 \\  0&\ln2&0 \\  0&0&\ln3\end{pmatrix}$$}
+\end{enumerate}
+}

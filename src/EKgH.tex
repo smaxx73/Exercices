@@ -1,0 +1,33 @@
+\uuid{EKgH}
+\exo7id{4367}
+\auteur{quercia}
+\organisation{exo7}
+\datecreate{2010-03-12}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Intégration}
+\sousChapitre{Intégrale de Riemann dépendant d'un paramètre}
+
+\contenu{
+\texte{
+\smallskip
+Soit $f(x) =  \int_{t=0}^{+\infty}\frac{e^{-t^2x}}{1+t^2}\,d t$.
+}
+\begin{enumerate}
+    \item \question{Trouver le domaine de définition de~$f$.}
+    \item \question{Montrer que $f$ est dérivable sur $\R^{+*}$.}
+    \item \question{Calculer $f-f'$.}
+    \item \question{Donner un équivalent simple de~$f'(x)$ pour $x\to+\infty$.}
+    \item \question{Montrer que $f(x) = \frac{\sqrt\pi}{2\sqrt x} - \frac{\sqrt\pi}{4x\sqrt x} +  o\Bigl(\frac1{x\sqrt x}\Bigr)$.}
+    \item \question{Tracer la courbe de~$f$.}
+\reponse{
+$[0,+\infty[$.
+$f(x) - f'(x) =  \int_{t=0}^{+\infty}e^{-t^2x}\,d t = (u=t\sqrt x) = \frac{\sqrt\pi}{2\sqrt x}$.
+$f'(x)
+    = \frac{-1}{\sqrt x} \int_{u=0}^{+\infty}\frac{u^2e^{-u^2}}{x+u^2}\,d u
+    = \frac{-1}{x\sqrt x} \int_{u=0}^{+\infty}\frac{u^2e^{-u^2}}{1+u^2/x}\,d u
+    \sim\frac{-1}{x\sqrt x} \int_{u=0}^{+\infty}u^2e^{-u^2}\,d u
+    =\frac{-\sqrt\pi}{4x\sqrt x}$.
+}
+\end{enumerate}
+}

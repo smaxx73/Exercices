@@ -1,0 +1,46 @@
+\uuid{FEX8}
+\exo7id{2424}
+\auteur{lescure}
+\organisation{exo7}
+\datecreate{2007-10-01}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Espace topologique, espace métrique}
+\sousChapitre{Espace topologique, espace métrique}
+
+\contenu{
+\texte{
+
+}
+\begin{enumerate}
+    \item \question{Soit $E$ un espace m\'etrique et $A \subset E$ une de ses parties. 
+On désigne par $\overline A$ l'adhérence de $A$ et par $\mathrm{Fr} (A)$ la frontière  de $A$ dans $E.$ 
+On a $\mathrm{Fr} (A) = \overline{A} \cap \overline{A^c}$.
+
+\begin{enumerate}}
+\reponse{\begin{enumerate}}
+    \item \question{Montrez que $x \in\mathrm{Fr} (A),$ si et seulement si il existe une 
+suite $(x_n)$ d'éléments de $A$ et une suite $(y_n)$ d'éléments du complémentaire
+$E \setminus A$ de $A$ dans $E,$ qui convergent l'une et l'autre vers $x.$}
+\reponse{Si  $x \in\mathrm{Fr} (A) = \bar A \cap \overline{E \setminus A}$ , alors $\forall n \in \Nn^*$
+la boule $B(x,{\frac 1 n})$ rencontre nécessairement $A$  (respectivement $E \setminus A$). Soit donc (axiome du choix)
+$x_n $ (respectivement $y_n$) dans  $B(x,{\frac 1 n}) \cap A$ (respectivement $y_n$ dans $B(x,{\frac 1 n})\cap (E \setminus A).$
+Alors les suites $x_n$ et $y_n$ répondent clairement à la question : 
+On a une suite $(x_n)$ d'éléments de $A$ et une suite $(y_n)$ d'éléments du complémentaire
+$E \setminus A$ de $A$ dans $E,$ qui convergent l'une et l'autre vers $x.$}
+    \item \question{Soit $E=]-\infty,-1]\cup [0,1[ \cup [2,+\infty[$ muni de la topologie induite
+par $\Rr.$ Avec $A=[0,\frac 12],$ qu'elle est la frontière de $A$ dans $E.$ Considérée
+ comme sous-partie de $\Rr,$ qu'elle serait la frontière de $A$ dans $\Rr$?}
+\reponse{On voit, qu'en posant pour $n \ge 1,$ d'une part $x_n=\frac 12-{\frac 1  {4n}}$ et d'autre part,
+$y_n=\frac 12+{\frac 1 {4n}},$ on obtient, respectivement comme plus haut, une suite de points dans $A$
+et une autre dans $E \setminus A$ qui convergent vers le même point $\frac 12 \in A$ qui, adhérent 
+à $A$ comme à son complémentaire dans $E$ est donc dans la frontière de $A$ dans $E.$ Par contre,
+si $x \in A$ est différent de $+\frac 12$, on voit que la boule (dans $E$) de centre $x$ et de rayon
+$\frac 12 - x>0$ ne rencontre pas le complémentaire de $A$ et qu'en conséquence $[0, \frac 12[$ est
+l'intérieur de $A$ {\it dans} E. 
+
+A contrario une boule de centre $0$ et de rayon strictement positif rencontre toujours le complémentaire
+de $A$ {\it dans} $\Rr$ ce qui permet aisément de voir que la frontière de $A$ {\it dans} $\Rr$ est
+$\{0,\frac 12\}$.}
+\end{enumerate}
+}

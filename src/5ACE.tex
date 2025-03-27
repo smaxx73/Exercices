@@ -1,0 +1,72 @@
+\uuid{5ACE}
+\exo7id{2234}
+\auteur{matos}
+\organisation{exo7}
+\datecreate{2008-04-23}
+\isIndication{false}
+\isCorrection{true}
+\chapitre{Autre}
+\sousChapitre{Autre}
+
+\contenu{
+\texte{
+Soit $A\in\Rr^{m\times n}$. On veut construire une matrice $M\in \Rr^{m\times m}$ telle que
+\begin{itemize}
+\item $MA=S$ triangulaire sup\'erieure;
+\item $MM^T=D=$diag$(d_1,\cdots , d_m)$ , $d_i>0$
+\end{itemize}
+et appliquer cette factorisation de $A$ dans la r\'esolution de syst\`emes au sens des moindres carr\'es.
+}
+\begin{enumerate}
+    \item \question{Donner la factorisation $QR$ de $A$ en termes de $M, D$ et $S$.}
+    \item \question{On consid\`ere maintenant $m=2$. Soient $x=(x_1, x_2)^T$ et $D=$diag$(d_1,d_2)$ ($d_i>0$) donn\'es.
+\begin{enumerate}}
+    \item \question{On d\'efinit
+$$M_1=\left(\begin{array}{cc}
+\beta_1 & 1\\ 1&\alpha_1\end{array}\right).$$
+Supposons $x_2\neq 0$. Calculer $M_1x$ et $M_1DM_1^T$.
+
+Comment choisir $\alpha_1$ et $\beta_1$ de fa\c con \`a ce que la deuxi\`eme composante de $M_1x$ soit nulle et que $M_1DM_1^T$ soit diagonale?
+
+Pour le choix pr\'ec\'edent d\'eterminer $\gamma_1$ tel que
+$$M_1x=\left(\begin{array}{c}
+x_2(1+\gamma_1)\\0\end{array}\right) \mbox{ et } M_1DM_1^T=\left(\begin{array}{cc}
+d_2(1+\gamma_1)&0\\0 & d_1(1+\gamma_1)\end{array}\right)$$}
+    \item \question{Supposons $x_1\neq 0$. On d\'efinit
+$$M_2=\left(\begin{array}{cc}
+1&\alpha_2\\ \beta_2 &1\end{array}\right).$$
+Choisir $\alpha_2$ et $\beta_2$ de fa\c con \`a ce que
+$$M_2x=\left(\begin{array}{c}
+x_1(1+\gamma_2)\\0\end{array}\right) \mbox{ et } M_2DM_2^T=\left(\begin{array}{cc}
+d_1(1+\gamma_2)&0\\0 & d_2(1+\gamma_2)\end{array}\right)$$
+et d\'eterminer $\gamma_2$}
+    \item \question{Montrer que l'on peut toujours choisir $M_i$ ($i=1,2$) de fa\c con \`a ce que le ``facteur de croissance'' $(1+\gamma_i)$ soit inf\'erieur \`a 2.}
+\reponse{
+$MM^T=$diag$(d_1, \cdots , d_m)=\Delta^2$ avec $\Delta=$diag$ (\sqrt{d_1}, \cdots, \sqrt{d_m})$
+
+$\Delta^{-1}MM^T\Delta^{-1}=(\Delta^{-1}M)(\Delta^{-1}M)^T=I\Rightarrow \Delta^{-1}M$ est une matrice orthogonale
+
+ $A=M^{-1}S=(M^{-1}Delta \Delta^{-1} S=(\Delta^{-1}M)^{-1} (\Delta^{-1}S)=(\Delta^{-1}M)^{T} (\Delta^{-1}S)=(M^T\Delta^{-1})(\Delta^{-1}S)$
+
+Comme $\Delta^{-1}S$ est triangulaire sup\'erieure ona $ A=QR$ avec $Q=M^T\Delta^{-1}, R=\Delta^{-1}S$
+\begin{enumerate}
+$$M_1x=\left(\begin{array}{c}\beta_1x_1 +x_2\\x_1+\alpha_1x_2\end{array}\right)  ,\quad M_1DM_1^T=\left(\begin{array}{cc}d_2+\beta_1^2 d_1 & d_1\beta_1 +d_2\alpha_1\\ d_1\beta_1 +d_2\alpha_1 & d_1+\alpha_1^2d_2\end{array}\right)$$
+Alors
+\begin{itemize}
+$x_1+\alpha_1x_2=0\Leftrightarrow \alpha_1=-x_1/x_2$
+$d_1\beta_1 +d_2 (-x_1/x_2)=0\Leftrightarrow \beta_1=-\alpha_1 d_2/d_1=x_1d_2/(x_2d_1)$
+\end{itemize}
+ Pour le choix pr\'ec\'edent on veut d\'eterminer $\gamma_1$ tel que
+
+$x_2(1+\gamma_1)=\beta_1x_1 +x_2 =x_2(\beta_1x_1/x_2 +1) \Rightarrow \gamma_1= (d_2/d_1)(x_1/x_2)^2$ c'est-\`a-dire
+$$\gamma_1=-\alpha_1\beta_1$$
+pour cette valeur on a
+
+$d_2+\beta_1^2d_1 =d_2(1+\alpha_1^2d_2/d_1) = d_2(1+\gamma_1)$
+$d_1+\alpha_1^2d_2 =d_1(1+\alpha_1^2d_2/d_1) = d_2(1+\gamma_1)$
+le m\^eme type de calcul nous donne
+$$\beta_2=-x_2/x_1, \quad \alpha_2=-(d_1/d_2)\beta_2,\quad \gamma_2=-\alpha_2\beta_2 = (d_1/d_2)(x_2/x_1)^2$$
+on remarque que $\gamma_1 \gamma_2=1$ et donc soit $\gamma_1\leq 1$ , soit $\gamma_2\leq 1$
+}
+\end{enumerate}
+}
