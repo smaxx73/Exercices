@@ -1,10 +1,6 @@
-\chapitre{Statistique}
-\sousChapitre{Estimation}
-\uuid{dsIx}
 \titre{Estimation et loi puissance}
-\theme{estimateurs, intervalle de confiance}
+\theme{probabilités}
 \auteur{}
-\datecreate{2022-09-24}
 \organisation{AMSCC}
 \contenu{
 
@@ -17,7 +13,7 @@
 	$$f_\lambda(x) = \lambda \, x^{\lambda-1}\textbf{1}_{[0;1]}(x)$$
 }
 \begin{enumerate}
-	\item \question{ \'A l'aide de la méthode du maximum de vraisemblance, construire un estimateur du paramètre $\lambda$, pour un $n$-échantillon $(X_1,...,X_n)$. On notera cet estimateur $\widehat{\lambda_n}$. }
+	\item \question{ \`A l'aide de la méthode du maximum de vraisemblance, construire un estimateur du paramètre $\lambda$, pour un $n$-échantillon $(X_1,...,X_n)$. On notera cet estimateur $\widehat{\lambda_n}$. }
 	\reponse{ 	Avec la log-vraisemblance, on obtient l'estimateur $\widehat{\lambda_n} = \frac{n}{-\sum \ln(x_i)}$.  }
 	\item \question{ On admet que la variable aléatoire $2n\, \frac{\lambda}{\widehat{\lambda_n}}$ suit une loi $\chi^2(2n)$. En déduire l'expression d'un intervalle de confiance de niveau $1-\alpha$ sous la forme $]-\infty~;~T]$ pour le paramètre $\lambda$.  }
 	\reponse{ 	Si on note $q_{\alpha,n}$ le quantile tel que $\PP(Z<q_{\alpha,n}) = 1-\alpha$ où $Z \sim \chi^2(n)$, on obtient un intervalle de confiance 

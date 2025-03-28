@@ -1,10 +1,6 @@
-\chapitre{Statistique}
-\sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\uuid{gk1A}
-\titre{Estimation de prix}
-\theme{intervalle de confiance}
+\titre{Intervalles de confiance}
+\theme{statistiques}
 \auteur{Maxime NGUYEN}
-\datecreate{2022-09-07}
 \organisation{AMSCC}
 \contenu{
 
@@ -12,7 +8,7 @@
  $$52 \qquad 52 \qquad 43 \qquad 51 \qquad 69 \qquad 55 \qquad 49$$
 }
  \begin{enumerate}
-  \item \question{En supposant que le prix $X$ de ce produit est distribué selon une loi normale $\mathcal{N}(\mu,\sigma^2)$, calculer une estimation $\overline{x}$ de l'espérance $\EX$ et une estimation $s$ de l'écart-type $\sigma(X)$. On précisera les estimateurs choisis et on en donnera les propriétés.}
+  \item \question{En supposant que le prix $X$ de ce produit est distribué selon une loi normale $\mathcal{N}(\mu,\sigma)$, calculer une estimation $\overline{x}$ de l'espérance $\EX$ et une estimation $s$ de l'écart-type $\sigma(X)$. On précisera les estimateurs choisis et on en donnera les propriétés.}
   \reponse{Avec l'estimateur usuel $\overline{X}$, on obtient à partir de la réalisation de cet échantillon de taille $7$ une estimation $\overline{x} = 53$. Avec l'estimateur de variance corrigée $S^2$, on obtient une estimation de la variance $s^2 \approx 63{,}667$ d'où une estimation de l'écart type de $7.98$. }
   \item \question{Déterminer les intervalles de confiances symétriques au seuil de $90\%$ et $99\%$ centrés en $\mu = \EX$.}
   \reponse{Au vu de la taille de l'échantillon, la variable mère est supposée suivre une loi normale donc on utilise une loi de Student $St(6)$ pour calculer la réalisation de l'intervalle de confiance avec la formule du cours : 
