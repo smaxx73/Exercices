@@ -1,0 +1,42 @@
+\titre{Calcul de probabilité}
+\theme{probabilité}
+\auteur{Maxime Nguyen}
+
+\organisation{AMSCC}
+
+\contenu{
+    \texte{ 	Soit une fonction $f \colon x \mapsto \begin{cases}
+        2x & \text{ si } x \in [0;1] \\
+        0 & \text{ sinon }
+    \end{cases}$. }
+
+    \begin{enumerate}
+        \item \question{ Montrer que $f$ est une densité de probabilité. }
+        \reponse{
+            \begin{enumerate}
+                \item $f$ est positive sur $\R$.
+                \item $\int_{-\infty}^{+\infty} f(x) \mathrm{d}x = \int_0^1 2x \mathrm{d}x = \left[ x^2 \right]_0^1 = 1$.
+            \end{enumerate}
+            Donc $f$ est une densité de probabilité.
+        }
+        \item \question{ \'Ecrire $f$ à l'aide d'une fonction indicatrice $x \mapsto \textbf{1}_A(x)$ où $A$ est un ensemble à préciser. }
+        \reponse{
+            $f(x) = 2x \textbf{1}_{[0;1]}(x)$.
+        }
+        \item \question{  Soit $X$ une variable aléatoire admettant $f$ pour densité de probabilité. Calculer $\prob(X \leq \frac{1}{2})$ et $\prob(-1 \leq X \leq 0.2)$. }
+        \reponse{ 
+            \begin{align*}
+                \prob(X \leq \frac{1}{2}) &= \int_{-\infty}^{\frac{1}{2}} f(x) \mathrm{d}x \\
+                &= \int_0^{\frac{1}{2}} 2x \mathrm{d}x \\
+                &= \left[ x^2 \right]_0^{\frac{1}{2}} \\
+                &= \frac{1}{4}
+            \end{align*}
+            \begin{align*}
+                \prob(-1 \leq X \leq 0.2) &= \int_{-1}^{0.2} f(x) \mathrm{d}x \\
+                &= \int_0^{0.2} 2x \mathrm{d}x \\
+                &= \left[ x^2 \right]_0^{0.2} \\
+                &= 0.04
+            \end{align*}
+        }
+    \end{enumerate}
+}
