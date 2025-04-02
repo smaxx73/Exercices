@@ -1,0 +1,113 @@
+\uuid{td20}
+\titre{Loi Gamma}
+\theme{}
+\auteur{A. Guyader}
+\datecreate{2025-03-20}
+\organisation{}
+
+\contenu{
+
+\texte{
+On dit que $X$ suit une loi Gamma de paramètres $p$ et $\theta$ ($p > 0$, $\theta > 0$), notée $\gamma(p, \theta)$, si sa densité (par rapport à la mesure de Lebesgue) est : 
+$$
+f(x) = \frac{\theta^p}{\Gamma(p)} x^{p-1} \exp(-\theta x)\mathbf{1}_{[0,+\infty[}(x),
+$$
+ou de façon équivalente, si sa fonction caractéristique vaut 
+$$
+\Phi_X(t) = \frac{1}{(1-it/\theta)^p}
+$$
+pour tout réel $t$. On rappelle les propriétés suivantes de la fonction Gamma :
+$$
+\forall\alpha > 0,\,\Gamma(\alpha) = \int_0^{\infty} x^{\alpha-1} \exp(-x)dx,\,\,\, \\
+\Gamma(\alpha + 1) = \alpha\Gamma(\alpha),\,\,
+\Gamma(1/2) = \sqrt{\pi}.
+$$
+}
+\begin{enumerate}
+\item \question{Vérifier que la loi $\gamma(p, \theta)$ est bien une loi de probabilité.}
+\reponse{ Comme $f$ est positive, il suffit de vérifier que $\int_{\mathbb{R}} f(x) dx = 1$. Ceci s'obtient en faisant le changement de variable $y = \theta x$ :
+\begin{align*}
+\int_{\mathbb{R}} f(x) dx &= \int_{0}^{\infty} \frac{(\theta x)^{p-1}}{\Gamma(p)}e^{-\theta x} \theta dx \\
+&= \frac{1}{\Gamma(p)}\int_{0}^{\infty} y^{p-1}e^{-y} dy \\
+&= 1.
+\end{align*}}
+\item \question{Calculer $E(X^k)$ pour $k \geq 1$. En déduire que $E(X) = \frac{p}{\theta}$ et $\text{Var}(X) = \frac{p}{\theta^2}$.}
+\reponse{De la même façon que plus haut, on a 
+\begin{align*}
+E(X^k) &= \int_{\mathbb{R}} x^k f(x) dx \\
+&= \frac{1}{\theta^k\Gamma(p)}\int_{0}^{\infty} (\theta x)^{k+p-1}e^{-\theta x} \theta dx \\
+&= \frac{\Gamma(k+p)}{\theta^k\Gamma(p)}.
+\end{align*}
+Ainsi, on a 
+\begin{align*}
+E(X) &= \frac{\Gamma(p+1)}{\theta\Gamma(p)} = \frac{p}{\theta} \\
+E(X^2) &= \frac{\Gamma(p+2)}{\theta^2\Gamma(p)} = \frac{p(p+1)}{\theta^2} \\
+\text{Var}(X) &= E(X^2) - (E(X))^2 = \theta^{-2}(p(p+1) - p^2) = \frac{p}{\theta^2}.
+\end{align*}
+
+}
+\item \question{Soit $Y$ de loi $\mathcal{N}(0, 1)$. Calculer la densité de $Y^2$. En déduire que $\gamma(1/2, 1/2) = \chi^2(1)$.}
+\reponse{Pour toute fonction $\Psi$ borélienne bornée, 
+\begin{align*}
+E(\Psi(Y^2)) &= \frac{1}{\sqrt{2\pi}} \int_{\mathbb{R}} \Psi(y^2)e^{-y^2/2} dy\\
+&= \frac{1}{\sqrt{2\pi}} \int_{0}^{\infty} \Psi(y^2)y^{-1}e^{-y^2/2} \cdot 2y dy\\
+&= \frac{1}{\sqrt{2\pi}} \int_{0}^{\infty} \Psi(u)u^{-1/2}e^{-u/2} du,
+\end{align*}
+en posant $u = y^2$. Comme $1/\sqrt{2\pi} = 1/(\sqrt{2}\Gamma(1/2))$, on a $Y^2 \sim \gamma(1/2, 1/2)$. Par ailleurs, on sait que $Y^2 \sim \chi^2(1)$ par définition.}
+\item \question{Si $a > 0$, montrer que $X/a \sim \gamma(p, a\theta)$.}
+\reponse{Pour toute fonction $\Psi$ borélienne bornée, 
+\begin{align*}
+E(\Psi(X/a)) &= \frac{\theta^p}{\Gamma(p)} \int_{0}^{\infty} \Psi(x/a)x^{p-1}e^{-\theta x} dx\\
+&= \frac{(a\theta)^p}{\Gamma(p)} \int_{0}^{\infty} \Psi(x/a)(x/a)^{p-1}e^{-a\theta x/a} \frac{dx}{a}\\
+&= \frac{(a\theta)^p}{\Gamma(p)} \int_{0}^{\infty} \Psi(y)y^{p-1}e^{-a\theta y} dy
+\end{align*}
+d'où le résultat.}
+\item \question{Soient $X$ et $Y$ deux v.a. indépendantes de lois respectives $\gamma(p_1, \theta)$ et $\gamma(p_2, \theta)$. Montrer que $X + Y \sim \gamma(p_1 + p_2, \theta)$.}
+\reponse{Pour déterminer la loi de $X + Y$, on calcule sa fonction caractéristique $\Phi_{X+Y}(t) = E[e^{it(X+Y)}]$. Grâce à l'indépendance, cette fonction est égale au produit des fonctions caractéristiques de $X$ et de $Y$ :
+\begin{align*}
+\Phi_{X+Y}(t) &= \Phi_X(t) \cdot \Phi_Y(t)\\
+&= \frac{1}{(1-i\theta^{-1}t)^{p_1}} \cdot \frac{1}{(1-i\theta^{-1}t)^{p_2}}\\
+&= \frac{1}{(1-i\theta^{-1}t)^{p_1+p_2}}
+\end{align*}
+
+Ainsi, $\Phi_{X+Y}$ est la fonction caractéristique de la loi $\gamma(p_1 + p_2, \theta)$.}
+\item \question{Si $X_1, \ldots, X_n$ sont $n$ variables aléatoires indépendantes de même loi $\gamma(1, \theta)$ (loi exponentielle de paramètre $\theta$), donner la loi de la somme $S_n = X_1 + \ldots + X_n$ et calculer $E(S_n)$ et $\text{Var}(S_n)$.}
+\reponse{D'après la question précédente (et par une récurrence triviale), $S_n \sim \gamma(n, \theta)$. En utilisant la question 2, nous avons donc 
+\begin{align*}
+E(S_n) &= \frac{n}{\theta},\\
+\text{Var}(S_n) &= \frac{n}{\theta^2}.
+\end{align*}
+}
+\item \question{Si $X_1, \ldots, X_n$ sont $n$ variables aléatoires indépendantes de même loi $\mathcal{N}(0, 1)$, donner la loi de $S'_n = X_1^2 + \ldots + X_n^2$ et en déduire que $\gamma(n/2, 1/2) = \chi^2(n)$. Calculer $E(S'_n)$ et $\text{Var}(S'_n)$.}
+\reponse{En utilisant la question 3, les $X^2_i$ sont i.i.d. de loi $\gamma(1/2, 1/2)$. Ainsi, $S'_n \sim \gamma(n/2, 1/2)$. Comme nous savons par ailleurs que $S'_n \sim \chi^2(n)$ (par définition), nous avons $\gamma(n/2, 1/2) = \chi^2(n)$. En utilisant la question 2, on retrouve que 
+\begin{align*}
+E(S'_n) &= n,\\
+\text{Var}(S'_n) &= 2n.
+\end{align*}
+
+}
+\end{enumerate}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

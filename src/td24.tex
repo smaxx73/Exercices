@@ -8,31 +8,160 @@
 \contenu{
 
 \texte{
-On considère un échantillon i.i.d. $(X_i)_{1 \leq i \leq n}$ avec $n \geq 3$ et $X_1$ de densité $f_\theta(x) = \theta \exp(-\theta x) \mathbf{1}_{[0,+\infty[}(x)$, où $\theta > 0$ est le paramètre inconnu.
+On considère un échantillon i.i.d. $(X_i)_{1 \leq i \leq n}$ avec $n \geq 3$ et $X_1$ de densité $f_\theta(x) = \theta \exp(-\theta x) \mathbf{1}_{[0,+\infty[}(x)$, où $\theta > 0$ est le paramètre inconnu.\\
+Dans cet exercice on pourra utiliser le résultat suivant:\\
+\emph{
+Soit $(X_n)$ une suite de variables aléatoires. Supposons qu'il existe un réel $a$ et une variable $X$ tels que:
+$$\sqrt{n}(X_n-a) \xrightarrow[n\to\infty]{\mathcal{L}} X.$$
+Si $g$ est une fonction dérivable en $a$, alors 
+$$\sqrt{n}(g(X_n)-g(a)) \xrightarrow[n\to\infty]{\mathcal{L}} g'(a)X.$$
+}
 }
 
 \begin{enumerate}
-    \item \question{On propose d’estimer $\theta$ par $Y_n = \frac{1}{n} \sum_{i=1}^n X_i$. \\
+    \item \question{On propose d’estimer $\theta$ par $Y_n = \frac{n}{ \sum_{i=1}^n X_i}$. \\
 (a) Montrer que la v.a. $Y_n$ est bien définie.\\
 (b) Expliquer pourquoi il est logique de choisir $Y_n$ comme estimateur de $\theta$. \\
 (c) Déterminer la loi limite de $\sqrt{n}(Y_n - \theta)$. \\
 (d) Donner la loi de $\sum_{i=1}^n X_i$. En déduire la valeur de $E[(Y_n - \theta)^2]$.}
     \indication{}
-    \reponse{}
+    \reponse{(a) La v.a. $Y_n$ est bien définie sur l'événement $\{\sum_{i=1}^n X_i > 0\}$ qui est de probabilité 1 car les $X_i$ sont strictement positifs p.s. (la loi de $X_i$ ne charge pas 0 car elle est absolument continue par rapport à la mesure de Lebesgue). Ainsi, $Y_n$ est bien définie p.s.
+
+(b) Les v.a. $X_i$ suivent une loi exponentielle $\mathcal{E}(\theta)$. On a ainsi $E(X_1) = 1/\theta$. La loi des grands nombres appliquée aux $X_i$ (i.i.d. et intégrables) montre que $\overline{X}_n$ converge p.s. vers $1/\theta > 0$. Par le théorème de continuité, $Y_n = 1/\overline{X}_n$ converge p.s. vers $\theta$. Cela indique que $Y_n = 1/\overline{X}_n$ est un estimateur consistant et donc raisonnable de $\theta$. Ce dernier correspond à l'estimateur par la méthode des moments.
+
+(c) Comme $\text{Var}(X_1) = 1/\theta^2 < \infty$, le TCL donne que 
+$$\sqrt{n}(\overline{X}_n - E(X_1)) \xrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0, \sigma(X_1))$$
+c'est-à-dire 
+$$\sqrt{n}(\overline{X}_n - 1/\theta) \xrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0, 1/\theta).$$
+À présent, on utilise le résultat admis avec la fonction $g:\,x \mapsto 1/x$, qui est bien dérivable sur $\mathbb{R}^*_+$ de dérivée en $1/\theta$ égale à $-1/(1/\theta)^2 = -\theta^2$ : 
+$$\sqrt{n}(Y_n - \theta) \xrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0, \theta).$$
+
+(d) Les $X_i$ sont indépendantes et puisque chaque $X_i$ est de loi $\mathcal{E}(\theta) = \gamma(1, \theta)$,où $\gamma(n,\theta)$ est la densité de probabilité donnée par:
+$$
+\gamma(n,\theta)(x) = \frac{\theta^n}{\Gamma(n)} x^{n-1} \exp(-\theta x)\mathbf{1}_{[0,+\infty[}(x),
+$$
+On peut montrer que $\sum_{i=1}^n X_i \sim \gamma(n, \theta)$.\\
+En effet la fonction caractéristique associée à la loi $X:=\gamma(n,\theta)$ est $\varphi_{X}(t)=\frac{1}{(1-it/\theta)^{n}}$. Donc par exemple pour $X \sim \gamma(n_1,\theta)$ et  $Y \sim \gamma(n_2,\theta)$ indépendante on a:
+$$\varphi_{X+Y}(t)=\frac{1}{(1-it/\theta)^{n_1}}\times \frac{1}{(1-it/\theta)^{n_2}}=\frac{1}{(1-it/\theta)^{n_1+n_2}}, $$
+et ainsi $X+Y \sim \gamma(n_1+n_2,\theta)$ et le résultat pour une somme de $n$ v.a. indépendantes suit.\\
+On en déduit $E(Y_n)$, $\text{Var}(Y_n)$ et $E[(Y_n - \theta)^2]$ :
+\begin{align*}
+E(Y_n) &= E\left(\frac{n}{\sum_{i=1}^n X_i}\right) = nE\left(\frac{1}{\sum_{i=1}^n X_i}\right) \\
+&= n\int_{\mathbb{R}_+} \frac{1}{x} \frac{\theta^n}{\Gamma(n)} x^{n-1}\exp(-\theta x)dx \\
+&= \frac{n\theta}{\Gamma(n)}\int_{\mathbb{R}_+} u^{n-2}\exp(-u)du \\
+&= \frac{n\theta}{\Gamma(n)}\Gamma(n-1) = \frac{n\theta}{n-1},
+\end{align*}
+en posant $u = \theta x$ et en reconnaissant sous la dernière intégrale la densité de la $\gamma(n-1, 1)$, au facteur $\Gamma(n-1)$ près.
+
+On obtient de la même manière :
+\begin{align*}
+E(Y_n^2) &= \frac{n^2\theta^2}{\Gamma(n)}\Gamma(n-2) = \frac{n^2\theta^2}{(n-1)(n-2)},
+\end{align*}
+donc, sans même passer par la décomposition biais-variance,
+\begin{align*}
+EQM(Y_n) = E[(Y_n - \theta)^2] = E[Y_n^2] - 2\theta E[Y_n] + \theta^2 = \frac{n+2}{(n-1)(n-2)}\theta^2.
+\end{align*}}
     \item \question{Pour estimer $\theta$, on propose d’utiliser $Z_n = \frac{n-1}{n} Y_n$.\\
      (a) $Z_n$ vérifie-t-il des propriétés de convergence similaires à celles de $Y_n$ ?\\
      (b) Qui de $Y_n$ ou $Z_n$ choisiriez-vous pour estimer $\theta$ ?}
     \indication{}
-    \reponse{}
+    \reponse{Les propriétés asymptotiques de $Z_n$ sont similaires à celles de $Y_n$ : comme $\frac{n-1}{n} \xrightarrow[n\to\infty]{} 1$ et $Y_n \xrightarrow[n\to\infty]{p.s.} \theta$, on a bien sûr $Z_n \xrightarrow[n\to\infty]{p.s.} \theta$. De plus, comme $\sqrt{n}(Y_n - \theta) \xrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0, \theta)$, nous avons 
+\begin{align}
+\sqrt{n}(Z_n - \theta) &= \sqrt{n}(Y_n - \theta) - \sqrt{n}(Y_n - Z_n)\\
+&= \sqrt{n}(Y_n - \theta) - \frac{Y_n}{\sqrt{n}}\\
+&\xrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0, \theta),
+\end{align}
+où nous avons utilisé le lemme de Slutsky car $\frac{Y_n}{\sqrt{n}}$ converge en probabilité vers $0$ (constante).
+
+(b) On calcule le risque de $Z_n$ :
+\begin{align}
+E(Z_n) &= \frac{n-1}{n}E(Y_n) = \theta \quad \text{(estimateur sans biais)}\\
+E(Z_n^2) &= \left(\frac{n-1}{n}\right)^2 E(Y_n^2) = \frac{n-1}{n-2}\theta^2
+\end{align}
+\begin{align}
+EQM(Z_n) &= E[(Z_n - \theta)^2] = E[Z_n^2] - 2\theta E[Z_n] + \theta^2 =\frac{\theta^2}{n-2}.
+\end{align}
+
+On voit que l'écart quadratique moyen de $Z_n$ est inférieur à celui de $Y_n$ (pour toute valeur de $\theta$, puisque $\frac{n+2}{n-1} > 1$), l'estimateur $Z_n$ est donc un peu meilleur au sens du risque quadratique. La différence devient cependant négligeable lorsque $n$ grandit.}
     \item \question{Soit $\alpha \in ]0, 1[$. Donner un intervalle de confiance bilatère de niveau asymptotique $(1-\alpha)$ pour $\theta$.}
     \indication{}
-    \reponse{}
+    \reponse{Puisque $\frac{\sqrt{n}}{\theta}(Z_n - \theta) \xrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0,1)$ nous avons:
+    
+   $$
+P \left(- \Phi^{-1}(1 - \alpha/2) < \sqrt{n}(Z_n/\theta-1) < \Phi^{-1}(1 - \alpha/2) \right) \xrightarrow[n\to\infty]{}  1 - \alpha.
+$$    
+  On obtient un intervalle de confiance asymptotique  en réorganisant les termes de l'inégalité:  
+    $$\big[\frac{Z_n}{1 + \Phi^{-1}(1-\alpha/2)/\sqrt{n}}, \frac{Z_n}{1 - \Phi^{-1}(1-\alpha/2)/\sqrt{n}}
+    \big]
+     $$
+    
+    
+    
+    
+ 
+    
+    
+    }
     \item \question{Proposer un test de niveau asymptotique $\alpha$ pour tester $H_0 : \theta \geq 1$ contre $H_1 : \theta < 1$.}
     \indication{}
-    \reponse{}
+    \reponse{
+Pour tout $\theta > 0$, par le même raisonnement que ci-dessus, un intervalle de confiance unilatéral de
+niveau asymptotique $1 - \alpha$ pour $\theta$ est (en prenant comme convention $]a, b] = \emptyset$ pour $b \leq a$) :
+
+$$
+\left] 0, \frac{Z_n}{1 + \Phi^{-1}(\alpha) / \sqrt{n}} \right].
+$$
+
+Le lien entre intervalles de confiance (asymptotiques) et tests (asymptotiques) assure donc que le
+test consistant à rejeter $H_0$ ssi
+
+$$
+[1, +\infty[ \cap \left] 0, \frac{Z_n}{1 + \Phi^{-1}(\alpha) / \sqrt{n}} \right] = \emptyset
+$$
+
+est de niveau asymptotique $\alpha$. Dit autrement, on rejette $H_0$ ssi
+
+$$
+Z_n < 1 + \frac{\Phi^{-1}(\alpha)}{\sqrt{n}}.
+$$
+\textbf{Remarque 1} : en mettant le test sous cette dernière forme, on a supposé que
+$1 + \frac{\Phi^{-1}(\alpha)}{\sqrt{n}} > 0$, or à $n$ fixé petit ceci n’est pas toujours vrai puisque pour les valeurs de $\alpha$ courantes (i.e. inférieures à $1/2$, par exemple $\alpha = 5\%$), on a $\Phi^{-1}(\alpha) < 0$ (par exemple $\Phi^{-1}(0.05) \approx -1.64$), donc pour $n < \Phi^{-1}(\alpha)^2$
+(par exemple $n < \Phi^{-1}(0.05)^2 \approx 2.7$), il est clair que $1 + \frac{\Phi^{-1}(\alpha)}{\sqrt{n}} < 0$ et le passage à la dernière forme n’est pas licite. 
+
+Néanmoins, il faut bien garder à l’esprit que tout ce qu’on dit n’est valable que pour $n \to \infty$, or quel que soit $\alpha \in ]0,1[$ on a bien asymptotiquement $1 + \frac{\Phi^{-1}(\alpha)}{\sqrt{n}} > 0$, donc le passage à la dernière expression est correct. Quoi qu’il en soit, si on veut éviter toute discussion, il suffit de garder le test sous la forme : rejet de $H_0$ ssi
+
+$$
+\frac{Z_n}{1 + \Phi^{-1}(\alpha) / \sqrt{n}} < 1.
+$$
+
+\textbf{Remarque 2} : pour construire un test, il suffit que l’intervalle de confiance soit vrai sous $H_0$, c’est-à-dire pour tout $\theta \in \Theta_0 = [1, \infty)$, et pas nécessairement sur tout $\mathbb{R}$. On aurait donc très bien pu écrire que pour tout $\theta \geq 1$, 
+
+$$
+\left] 0, \frac{Z_n}{1+ \Phi^{-1}(\alpha) / \sqrt{n}} \right]
+$$
+
+est un intervalle de confiance de niveau asymptotique $1-\alpha$ pour $\theta$ sous $H_0$, et construire le test par intersection avec $[1, +\infty[$, ce qui sur cet exemple serait revenu au même. La situation typique où il est plus judicieux de construire l’intervalle de confiance en tenant compte du fait que $\theta \in \Theta_0$ est celle où $\Theta_0 = \{\theta_0\}$, c’est-à-dire que $H_0$ est une hypothèse simple (cf. question suivante).
+
+}
     \item \question{Proposer un test de niveau asymptotique $\alpha$ pour tester $H_0 : \theta = 1$ contre $H_1 : \theta \neq 1$.}
     \indication{}
-    \reponse{}
+    \reponse{\textbf{Sous $H_0$ : $\theta = 1$}, on sait d’après ci-dessus que
+
+$$
+\sqrt{n} (Z_n - 1) \xrightarrow{\mathcal{L}	} \mathcal{N}(0,1) \quad \text{lorsque } n \to \infty,
+$$
+
+donc un intervalle de confiance bilatéral de niveau asymptotique $1 - \alpha$ pour la valeur $1$ est
+
+$$
+\left( Z_n - \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n}}, Z_n + \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n}} \right).
+$$
+
+Le test consistant à rejeter $H_0$ ssi $1$ n’est pas dans cet intervalle est de niveau asymptotique $\alpha$, ce qui revient à dire que l’on rejette $H_0$ ssi
+
+$$
+|Z_n - 1| > \frac{\Phi^{-1}(1 - \alpha/2)}{\sqrt{n}}.
+$$}
 \end{enumerate}
 
 }
