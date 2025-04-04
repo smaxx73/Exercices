@@ -1,7 +1,5 @@
 \uuid{tbue}
 
-
-
 \titre{Vraisemblance sur un modèle de translation}
 \theme{Statistique}
 \auteur{}
@@ -14,14 +12,37 @@
 
 
 \texte{
-
-Soit \( X_1, \dots, X_n \) i.i.d. de densité commune \( f_\theta(x) = f(x - \theta) \), \( \theta \in \mathbb{R} \). Déterminer l’estimateur du maximum de vraisemblance dans les cas suivants :
+	Soit \( X_1, \dots, X_n \) i.i.d. de densité commune \( f_\theta(x) = f(x - \theta) \), \( \theta \in \mathbb{R} \). Déterminer l'estimateur du maximum de vraisemblance dans les cas suivants : }
 \begin{enumerate}
-  \item \question{\( f \) est la densité de la loi \( \mathcal{N}(0, \sigma) \) (\( \sigma \) connue) ;}
-  \item \question{\( f(x) = \frac{1}{2} e^{-|x|} \) (loi de Laplace) ;}
-  \item \question{\( f(x) = \frac{3}{4} (1 - x^2) \) sur \( [-1, 1] \).}
+	\item \question{\( f \) est la densité de la loi \( \mathcal{N}(0, \sigma^2) \) (\( \sigma \) connue) ;}
+	\reponse{
+	La vraisemblance est \( L(\theta) = \prod_{i=1}^n \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(X_i - \theta)^2}{2\sigma^2}} \).
+	La log-vraisemblance est \( \ell(\theta) = \ln L(\theta) = -\frac{n}{2} \ln(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^n (X_i - \theta)^2 \).
+	Maximiser \( \ell(\theta) \) par rapport à \( \theta \) revient à minimiser la somme des carrés \( \sum_{i=1}^n (X_i - \theta)^2 \). La dérivée par rapport à \( \theta \) est \( \frac{d}{d\theta} \sum_{i=1}^n (X_i - \theta)^2 = \sum_{i=1}^n -2(X_i - \theta) \). En annulant la dérivée, on obtient \( \sum_{i=1}^n (X_i - \theta) = 0 \), soit \( \sum X_i - n\theta = 0 \), d'où \( \theta = \frac{1}{n} \sum X_i = \bar{X}_n \).
+	\( \hat{\theta}_{MV} = \bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i \)}
+	
+	\item \question{\( f(x) = \frac{1}{2} e^{-|x|} \) (loi de Laplace) ;}
+	\reponse{
+	La vraisemblance est \( L(\theta) = \prod_{i=1}^n \frac{1}{2} e^{-|X_i - \theta|} = (\frac{1}{2})^n e^{-\sum_{i=1}^n |X_i - \theta|} \).
+	
+	La log-vraisemblance est \( \ell(\theta) = -n \ln(2) - \sum_{i=1}^n |X_i - \theta| \).
+	Maximiser \( \ell(\theta) \) revient à minimiser la somme des valeurs absolues des écarts \( \sum_{i=1}^n |X_i - \theta| \). 
+	
+	Cette somme est minimisée lorsque \( \theta \) est la médiane empirique de l'échantillon \( (X_1, \dots, X_n) \).
+	\( \hat{\theta}_{MV} = \text{med}(X_1, \dots, X_n) \), la médiane empirique de l'échantillon.}
+	
+	\item \question{\( f(x) = \frac{3}{4} (1 - x^2) \) sur \( [-1, 1] \).}
+	\reponse{
+	La densité \( f_\theta(x) = f(x - \theta) = \frac{3}{4} (1 - (x - \theta)^2) \) est définie pour \( x - \theta \in [-1, 1] \), c'est-à-dire \( \theta - 1 \le x \le \theta + 1 \).
+	
+	La vraisemblance est \( L(\theta) = \prod_{i=1}^n \frac{3}{4} (1 - (X_i - \theta)^2) \) si \( \theta - 1 \le X_i \le \theta + 1 \) pour tout \( i \), et \( L(\theta) = 0 \) sinon.
+	La condition \( \theta - 1 \le X_i \le \theta + 1 \) pour tout \( i \) équivaut à \( \max_i X_i - 1 \le \theta \le \min_i X_i + 1 \). Soient \( X_{(1)} = \min_i X_i \) et \( X_{(n)} = \max_i X_i \). La vraisemblance est non nulle pour \( \theta \in [X_{(n)} - 1, X_{(1)} + 1] \).
+	
+	Sur cet intervalle, la log-vraisemblance est : $$ \ell(\theta) = n \ln(3/4) + \sum_{i=1}^n \ln(1 - (X_i - \theta)^2). $$
+	L'estimateur du maximum de vraisemblance \( \hat{\theta}_{MV} \) est la valeur de \( \theta \) qui maximise \( \sum_{i=1}^n \ln(1 - (X_i - \theta)^2) \) sur l'intervalle \( [X_{(n)} - 1, X_{(1)} + 1] \). Il n'y a pas de solution analytique simple en général. 
+	
+	L'estimateur est défini par cette optimisation.
+	\( \hat{\theta}_{MV} = \mathrm{argmax}_{\theta \in [X_{(n)}-1, X_{(1)}+1]} \sum_{i=1}^n \ln(1 - (X_i - \theta)^2) \), où \( X_{(1)} = \min_i X_i \) et \( X_{(n)} = \max_i X_i \).}
 \end{enumerate}
 
-
-}
 }
