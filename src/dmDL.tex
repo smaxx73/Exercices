@@ -8,21 +8,107 @@
 \organisation{AMSCC}
 \contenu{
 
-\texte{ Quels sont les équivalents corrects parmi les propositions suivantes ? Justifier (en revenant à la définition si nécessaire).
-}
-    \begin{multicols}{3}
-    \begin{enumerate}
-        \item \question{$x+1 \underset{x\to+\infty}\sim x$}
-        \item \question{$x^2-x \underset{x\to+\infty}\sim x$}
-        \item \question{$ \ln(x) \underset{x\to+\infty}\sim \ln(10^6x)$}
-        \item \question{$x^2+2x+1 \underset{x\to+\infty}\sim x^2+2x$}
-        \item \question{$\sqrt{x+1} \underset{x\to 0}\sim 1$}
-        \item \question{$ x \underset{x\to 0}\sim 2x$}
-        \item \question{$e^x \underset{x\to+\infty}\sim e^{x+10^6}$}
-        \item \question{$e^x \underset{x\to 0}\sim e^{2x}$}
-        \item \question{$\frac{6x^3+2x}{2x+1} \underset{x\to+\infty}\sim 3x^2$}
-        \item \question{$\frac{6x^3+2x}{2x+1} \underset{x\to 0}\sim 2x$}
-    \end{enumerate}
-    \end{multicols}
+\colonnes{\solution}{2}{1}
+	\begin{enumerate}
+		\item \question{$x+1 \underset{x\longrightarrow+\infty}{\sim} x$}
+		\reponse{
+			Vrai. En effet, par définition, $f(x)\sim g(x)$ lorsque
+			\[
+			\frac{f(x)}{g(x)}\longrightarrow 1.
+			\]
+			Ici,
+			\[
+			\frac{x+1}{x} = 1+\frac{1}{x}\longrightarrow 1 \quad \text{lorsque } x\longrightarrow+\infty.
+			\]
+		}
+		
+		\item \question{$x^2-x \underset{x\longrightarrow+\infty}{\sim} x$}
+		\reponse{
+			Faux. On a :
+			\[
+			\frac{x^2-x}{x} = x-1,
+			\]
+			et puisque $x-1\longrightarrow+\infty$ lorsque $x\longrightarrow+\infty$, le rapport ne tend pas vers 1.
+		}
+		
+		\item \question{$\ln(x) \underset{x\longrightarrow+\infty}{\sim}\ln(10^6x)$}
+		\reponse{
+			Vrai. En utilisant la propriété logarithmique,
+			\[
+			\ln(10^6x)=\ln(10^6)+\ln(x),
+			\]
+			on obtient :
+			\[
+			\frac{\ln(10^6x)}{\ln(x)} = 1+\frac{\ln(10^6)}{\ln(x)}\longrightarrow 1 \quad \text{lorsque } x\longrightarrow+\infty.
+			\]
+		}
+		
+		\item \question{$x^2+2x+1 \underset{x\longrightarrow+\infty}{\sim} x^2+2x$}
+		\reponse{
+			Vrai. En divisant numérateur et dénominateur par $x^2$, on trouve :
+			\[
+			\frac{x^2+2x+1}{x^2+2x}=\frac{1+\frac{2}{x}+\frac{1}{x^2}}{1+\frac{2}{x}}\longrightarrow 1 \quad \text{lorsque } x\longrightarrow+\infty.
+			\]
+		}
+		
+		\item \question{$\sqrt{x+1} \underset{x\longrightarrow 0}{\sim} 1$}
+		\reponse{
+			Vrai. Par développement limité de $\sqrt{1+x}$ au voisinage de $0$, on a :
+			\[
+			\sqrt{1+x}=1+\frac{x}{2}-\frac{x^2}{8}+\cdots,
+			\]
+			ce qui implique que
+			\[
+			\frac{\sqrt{x+1}}{1}\longrightarrow 1 \quad \text{lorsque } x\longrightarrow 0.
+			\]
+		}
+		
+		\item \question{$ x \underset{x\longrightarrow 0}{\sim} 2x$}
+		\reponse{
+			Faux. En effet,
+			\[
+			\frac{x}{2x}=\frac{1}{2}\neq 1.
+			\]
+		}
+		
+		\item \question{$e^x \underset{x\longrightarrow+\infty}{\sim} e^{x+10^6}$}
+		\reponse{
+			Faux. On a :
+			\[
+			\frac{e^x}{e^{x+10^6}} = e^{-10^6}\neq 1,
+			\]
+			car $e^{-10^6}$ est une constante strictement inférieure à 1.
+		}
+		
+		\item \question{$e^x \underset{x\longrightarrow 0}{\sim} e^{2x}$}
+		\reponse{
+			Vrai. En effet,
+			\[
+			\frac{e^x}{e^{2x}}=e^{-x}\longrightarrow 1 \quad \text{lorsque } x\longrightarrow 0.
+			\]
+		}
+		
+		\item \question{$\frac{6x^3+2x}{2x+1} \underset{x\longrightarrow+\infty}{\sim} 3x^2$}
+		\reponse{
+			Vrai. Pour $x\longrightarrow+\infty$, les termes dominants sont $6x^3$ au numérateur et $2x$ au dénominateur. Ainsi,
+			\[
+			\frac{6x^3+2x}{2x+1}\sim\frac{6x^3}{2x}=3x^2.
+			\]
+		}
+		
+		\item \question{$\frac{6x^3+2x}{2x+1} \underset{x\longrightarrow 0}{\sim} 2x$}
+		\reponse{
+			Vrai. Lorsque $x\longrightarrow 0$, on a :
+			\[
+			6x^3+2x\sim 2x \quad \text{et} \quad 2x+1\sim 1,
+			\]
+			donc :
+			\[
+			\frac{6x^3+2x}{2x+1}\sim 2x.
+			\]
+		}
+		
+	\end{enumerate}
+\fincolonnes{\solution}{2}{1}
     \href{https://moodle.st-cyr.terre.defense.gouv.fr/moodle/mod/quiz/view.php?id=31595}{A faire sur Moodle}
 }
