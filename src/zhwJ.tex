@@ -9,7 +9,7 @@
 \contenu{
 
 
-	On étudie la fonction de deux variables $$f \colon (x,y) \mapsto x\ln(y)-y\ln(x)$$
+	\texte{ On étudie la fonction de deux variables $$f \colon (x,y) \mapsto x\ln(y)-y\ln(x)$$ }
 	
 	\begin{enumerate}
 		\item \question{ Déterminer l'ensemble de définition de la fonction $f$ et vérifier que $f$ est de classe $\mathcal{C}^2$ sur son ensemble de définition. }
@@ -51,15 +51,15 @@
 			
 			De plus, au voisinage du point stationnaire $(e,e)$, on peut étudier les conditions du second ordre en formant la matrice hessienne : 
 			
-			$$Hess_f(x,y)=\begin{pmatrix} 
-				\frac{\partial^2 f}{\partial x^2}(x,y) = 1/x^2 & \frac{\partial^2 f}{\partial x \partial y}(x,y) = 1/y-1/x \\
-				\frac{\partial^2 f}{\partial y \partial x}(x,y) = 1/y-1/x & \frac{\partial^2 f}{\partial y^2}(x,y) = -1/y^2 
-			\end{pmatrix}$$
+			$$Hess_f(x,y)=\begin{pmatrix}
+							\frac{y}{x^2} & \frac{1}{y} - \frac{1}{x} \\
+							\frac{1}{y} - \frac{1}{x} & -\frac{x}{y^2}
+						\end{pmatrix}$$
 			d'où 
-			$$Hess_f(e,e)=\begin{pmatrix} 
-				1/e^2 &  0 \\
-				0 & -1/e^2 
-			\end{pmatrix}$$
+			$$Hess_f(e,e)=\begin{pmatrix}
+				\frac{1}{e} & 0 \\
+				0 & -\frac{1}{e}
+				\end{pmatrix}$$
 			
 			On a un déterminant négatif, donc le point $(e,e)$ est un point selle. 
 		}
