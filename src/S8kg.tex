@@ -1,0 +1,43 @@
+\uuid{S8kg}
+\titre{Différentiabilité d'une fonction de deux variables}
+\theme{}
+\auteur{Grégoire MENET}
+\datecreate{2025-04-16}
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{ 
+		On donne \( f : \mathbb{R}^2 \to \mathbb{R} \) définie par :
+$$
+		f(x,y) =
+		\begin{cases} 
+			\frac{3xy^2+y^3}{x^2 + y^2} & \text{si } (x,y) \neq (0,0), \\[1mm]
+			0 & \text{sinon}.
+		\end{cases}
+$$
+	}
+	
+	\begin{enumerate}
+		\item \question{Déterminer la courbe de niveau 0 de \(f\).}
+		\indication{Il s'agit de trouver l'ensemble des \((x,y)\) pour lesquels \(f(x,y)=0\). Pour \((x,y)\neq (0,0)\), résoudre l'équation \(\frac{3xy^2+y^3}{x^2+y^2}=0\) afin d'identifier les conditions sur \(x\) et \(y\).}
+		\reponse{}
+		
+		\item \question{Montrer que \( f \) est continue en \((0,0)\).}
+		\indication{Utiliser notamment le passage en coordonnées polaires pour étudier la limite de \(f(x,y)\) lorsque \((x,y)\to(0,0)\) et vérifier que cette limite est égale à \(f(0,0)=0\).}
+		\reponse{}
+		
+		\item \question{Vérifier l'existence des dérivées partielles \(\frac{\partial f}{\partial x}(0,0)\) et \(\frac{\partial f}{\partial y}(0,0)\) et les calculer si elles existent.}
+		\indication{Utiliser la définition des dérivées partielles, c'est-à-dire calculer les limites \(\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}\) et \(\lim_{h\to 0}\frac{f(0,h)-f(0,0)}{h}\) pour obtenir \(\frac{\partial f}{\partial x}(0,0)\) et \(\frac{\partial f}{\partial y}(0,0)\) respectivement.}
+		\reponse{}
+		
+		\item \question{La fonction \(f\) est-elle différentiable en \((0,0)\) ?}
+		\indication{Étudier la différentiabilité en \((0,0)\) en vérifiant si l'approximation linéaire de \(f\) en ce point représente correctement le comportement de \(f\) près de \((0,0)\), c'est-à-dire si le reste est négligeable devant \(\sqrt{x^2+y^2}\).}
+		\reponse{}
+		
+		\item \question{La fonction \(f\) est-elle de classe \(\mathcal{C}^1\) en \((0,0)\) ?}
+		\indication{Examiner la continuité des dérivées partielles en \((0,0)\) afin de déterminer si \(f\) est de classe \(\mathcal{C}^1\) dans un voisinage de ce point.}
+		\reponse{}
+	\end{enumerate}
+	
+}

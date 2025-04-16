@@ -1,0 +1,54 @@
+\uuid{nQHm}
+\titre{Étude des extremums d'une fonction de deux variables}
+\theme{}
+\auteur{Grégoire MENET}
+\datecreate{2025-04-16}
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{
+		On considère la fonction \( f \) définie par \( f(x,y)=x^2+y \) sur l'ensemble :
+$$
+		\mathcal{K}=\left\{\left.(x,y)\in\R^2\right|\ x^2+y^2\leq1\ \text{et}\ x+y\geq0\right\}.
+$$
+
+On définit également les ensembles : $$B_1=\left\{ (x,-x) \in \mathbb{R}^2 \,,\,\ x\in\left[-\frac{\sqrt{2}}{2};\frac{\sqrt{2}}{2}\right]\right\} \text{ et } B_2=\left\{(\cos\theta,\sin\theta)\in \mathbb{R}^2 \,,\, \theta\in\left[-\frac{\pi}{4};\frac{3\pi}{4}\right]\right\}.$$
+	}
+	
+	\begin{enumerate}
+		\item \question{Représenter graphiquement  \(\mathcal{K}\). Le domaine \(\mathcal{K}\) est-il ouvert ? Est-il fermé ?}
+		\indication{Tracer le disque unité défini par \(x^2+y^2\leq 1\) et la demi-plan défini par \(x+y\geq0\), puis représenter l'intersection de ces deux ensembles. Analyser les conditions sur le cercle (bord du disque) et la droite \(x+y=0\) pour déterminer la nature topologique de \(\mathcal{K}\).}
+		\reponse{}
+		\item \question{Justifier que $B_1$ et $B_2$ sont des sous-ensembles de $\mathcal{K}$ et les représenter sur le graphique. }
+		\indication{Montrer que \(B_2\) est une portion du cercle unité correspondant aux angles \(\theta\in\left[-\frac{\pi}{4},\frac{3\pi}{4}\right]\) et préciser comment cette portion s'intersecte avec la condition \(x+y\geq0\).}
+		\item \question{Justifier que la fonction \(f\) admet un maximum et un minimum global sur \(\mathcal{K}\).}
+		\indication{Montrer que \(\mathcal{K}\) est un ensemble compact (fermé et borné) et appliquer le théorème des extrema sur les compacts pour conclure à l'existence d'un maximum et d'un minimum global de \(f\).}
+		\reponse{}
+		
+		\item \question{La fonction \(f\) admet-elle des points critiques ?}
+		\indication{Rechercher, dans le domaine intérieur de \(\mathcal{K}\), les points où \(\nabla f=(0,0)\) et examiner l'existence de points critiques sur le bord si nécessaire.}
+		\reponse{}
+
+		\item \question{Exprimer \(f(x,y)\) lorsque \((x,y) \in B_1\) en fonction d'une seule variable \(x\).}
+			\indication{En substituant \(y=-x\) dans \(f\), on obtient \(f(x,-x)=x^2-x\). Préciser que \(B_1\) correspond à la droite d'équation \(y=-x\) limitée par l'intersection avec \(\mathcal{K}\).}
+			\reponse{}
+			
+			\item \question{Dresser le tableau de variation de la fonction \(g: x\mapsto f(x,-x)\) sur \(\left[-\frac{\sqrt{2}}{2};\frac{\sqrt{2}}{2}\right]\).}
+			\indication{Étudier la fonction \(g(x)=x^2-x\) sur l'intervalle donné en calculant sa dérivée, en déterminant les extrema locaux, et en présentant les variations sous forme de tableau.}
+			\reponse{}
+			
+			\item \question{On pose \(h(\theta)=f(\cos\theta,\sin\theta)\) pour tout $\theta\in\left[-\frac{\pi}{4};\frac{3\pi}{4}\right]$. Montrer que \(h'\) s'annule en \(\frac{\pi}{2}\) et en \(\frac{\pi}{6}\).}
+			\indication{Calculer la dérivée de \(h(\theta)\) par rapport à \(\theta\) et résoudre l'équation \(h'(\theta)=0\) pour identifier les valeurs \(\theta=\frac{\pi}{2}\) et \(\theta=\frac{\pi}{6}\).}
+			\reponse{}
+			
+			\item \question{Dresser le tableau de variation de \(h\).}
+			\indication{Étudier les variations de \(h(\theta)\) sur l'intervalle \(\left[-\frac{\pi}{4},\frac{3\pi}{4}\right]\) en utilisant les points critiques trouvés ainsi que les valeurs aux bornes.}
+			\reponse{}
+		
+		\item \question{En utilisant les questions précédentes, déterminer le maximum et le minimum global de \(f\) sur \(\mathcal{K}\). En quels points ces extremums sont-ils atteints ?}
+		\indication{Comparer les valeurs de \(f\) obtenues dans le domaine intérieur et sur le bord de \(\mathcal{K}\), en s'appuyant sur les études réalisées précédemment, pour identifier les points où \(f\) atteint son maximum et son minimum global.}
+		\reponse{}
+	\end{enumerate}
+	
+}
