@@ -21,23 +21,68 @@ $$
 	\begin{enumerate}
 		\item \question{Déterminer la courbe de niveau 0 de \(f\).}
 		\indication{Il s'agit de trouver l'ensemble des \((x,y)\) pour lesquels \(f(x,y)=0\). Pour \((x,y)\neq (0,0)\), résoudre l'équation \(\frac{3xy^2+y^3}{x^2+y^2}=0\) afin d'identifier les conditions sur \(x\) et \(y\).}
-		\reponse{}
+		\reponse{    On a $f(x, y) = 0 \Leftrightarrow y = 0$ ou $3x + y = 0$.\\
+			Ainsi, la courbe de niveau 0 est l'union de la droite $y = 0$ et de la droite $y = -3x$.}
 		
 		\item \question{Montrer que \( f \) est continue en \((0,0)\).}
 		\indication{Utiliser notamment le passage en coordonnées polaires pour étudier la limite de \(f(x,y)\) lorsque \((x,y)\to(0,0)\) et vérifier que cette limite est égale à \(f(0,0)=0\).}
-		\reponse{}
+		\reponse{On utilise les coordonnées polaires : $x = r\cos\theta$, $y = r\sin\theta$.\\
+			On a : $f(x, y) = \frac{3xy^2 + y^3}{x^2 + y^2} = \frac{r^3 \cos\theta \sin^2\theta \cdot 3 + r^3 \sin^3\theta}{r^2} = r \cdot (3\cos\theta \sin^2\theta + \sin^3\theta)$.\\
+			Donc : $$\left|f(x,y)\right|\leq r\left(\left|3\cos\theta \sin^2\theta\right|+ \left|\sin^3\theta\right|\right)\leq4r.$$
+			On a $4r\rightarrow 0$ quand $r\rightarrow0$.
+			Donc $\lim\limits_{(x, y) \to (0, 0)} f(x, y) = 0 = f(0,0)$, donc $f$ est continue en $(0,0)$.}
 		
 		\item \question{Vérifier l'existence des dérivées partielles \(\frac{\partial f}{\partial x}(0,0)\) et \(\frac{\partial f}{\partial y}(0,0)\) et les calculer si elles existent.}
 		\indication{Utiliser la définition des dérivées partielles, c'est-à-dire calculer les limites \(\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}\) et \(\lim_{h\to 0}\frac{f(0,h)-f(0,0)}{h}\) pour obtenir \(\frac{\partial f}{\partial x}(0,0)\) et \(\frac{\partial f}{\partial y}(0,0)\) respectivement.}
-		\reponse{}
+		\reponse{On considère les fonctions partielles. On a $f(x,0)=0$ si $x\neq0$ et $f(0,0)=0$, donc $f(x,0)=0$ pour tout $x\in\R$.
+			Ainsi $\frac{\partial f}{\partial x}(0,0)=0$.
+			De même, on a $f(0,y)=y$ si $y\neq0$ et  $f(0,0)=0$, donc $f(0,y)=y$ pour tout $y\in\R$.
+			Ainsi $\frac{\partial f}{\partial y}(0,0)=1$.}
 		
 		\item \question{La fonction \(f\) est-elle différentiable en \((0,0)\) ?}
 		\indication{Étudier la différentiabilité en \((0,0)\) en vérifiant si l'approximation linéaire de \(f\) en ce point représente correctement le comportement de \(f\) près de \((0,0)\), c'est-à-dire si le reste est négligeable devant \(\sqrt{x^2+y^2}\).}
-		\reponse{}
+		\reponse{Pour tester la différentiabilité de $f$ en $(0,0)$, on doit examiner si :
+			\[
+			\lim_{(x, y) \to (0,0)} \frac{f(x,y) - f(0,0) - \frac{\partial f}{\partial x}(0,0)x - \frac{\partial f}{\partial y}(0,0)y}{\sqrt{x^2 + y^2}} = 0.
+			\]
+			
+			On a vu précédemment que :
+			\[
+			f(0,0) = 0,\quad \frac{\partial f}{\partial x}(0,0) = 0,\quad \frac{\partial f}{\partial y}(0,0) = 1.
+			\]
+			
+			Donc, on étudie la limite :
+			\[
+			\lim_{(x, y) \to (0,0)} \frac{f(x, y) - y}{\sqrt{x^2 + y^2}}.
+			\]
+			
+			On remplace $f(x,y)$ :
+			\[
+			f(x, y) = \frac{3xy^2 + y^3}{x^2 + y^2} \Rightarrow f(x,y) - y = \frac{3xy^2 + y^3 - y(x^2 + y^2)}{x^2 + y^2}.
+			\]
+			
+			Simplifions le numérateur :
+			\[
+			3xy^2 + y^3 - yx^2 - y^3 = 3xy^2 - yx^2.
+			\]
+			
+			Donc :
+			\[
+			f(x,y) - y = \frac{3xy^2 - x^2 y}{x^2 + y^2}.
+			\]
+			
+			On utilise maintenant les coordonnées polaires : $x = r\cos\theta$, $y = r\sin\theta$.\\
+			On a :
+			
+			\[
+			\frac{f(x,y) - y}{\sqrt{x^2 + y^2}} = \frac{r(3\cos\theta \sin^2\theta - \cos^2\theta \sin\theta)}{r} = 3\cos\theta \sin^2\theta - \cos^2\theta \sin\theta.
+			\]
+			
+			La limite de cette expression quand $r\rightarrow0$ dépend de $\theta$ donc le taux d'accroissement n'admet pas de limite en $(0,0)$. La fonction $f$ n'est donc pas différentiable en $(0,0)$. }
 		
 		\item \question{La fonction \(f\) est-elle de classe \(\mathcal{C}^1\) en \((0,0)\) ?}
-		\indication{Examiner la continuité des dérivées partielles en \((0,0)\) afin de déterminer si \(f\) est de classe \(\mathcal{C}^1\) dans un voisinage de ce point.}
-		\reponse{}
+
+		\reponse{Non car $f$ n'est pas différentiable en $(0,0)$.}
 	\end{enumerate}
 	
 }

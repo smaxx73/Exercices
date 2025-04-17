@@ -14,13 +14,95 @@
 	\begin{enumerate}
 		\item \question{Déterminer les points critiques de \(f\).}
 		\indication{Calculer les dérivées partielles par rapport à \(x\) et \(y\) puis résoudre le système \(\frac{\partial f}{\partial x}=0\) et \(\frac{\partial f}{\partial y}=0\).}
-		\reponse{}
+		\reponse{On commence par calculer les dérivées partielles premières :
+			\[
+			\frac{\partial f}{\partial x}(x,y) = -2xy,\quad \frac{\partial f}{\partial y}(x,y) = -x^2 + y + 1.
+			\]
+			Pour les points critiques, on cherche les points où ces deux dérivées s'annulent simultanément :
+			\[
+			\frac{\partial f}{\partial x}(x,y) = 0 \quad \Rightarrow \quad -2xy = 0,
+			\]
+			ce qui donne \( x = 0 \) ou \( y = 0 \).
+			
+			\begin{itemize}
+				\item Si \( x = 0 \), alors \(\frac{\partial f}{\partial y}(x,y) = -0 + y + 1 = y + 1 = 0 \Rightarrow y = -1 \).
+				\item Si \( y = 0 \), alors \(\frac{\partial f}{\partial y}(x,y) = -x^2 + 0 + 1 = 1 - x^2 = 0 \Rightarrow x = \pm 1 \).
+			\end{itemize}
+			
+			\textbf{Donc, les points critiques sont : } \( (0,-1),\ (1,0),\ (-1,0) \).}
 		\item \question{Déterminer la nature de ces points critiques.}
 		\indication{Étudier la nature des points critiques à l'aide du critère de la matrice hessienne.}
-		\reponse{}
+		\reponse{On calcule maintenant les dérivées partielles secondes :
+			\[
+			\frac{\partial^2 f}{\partial x^2}(x,y) = -2y,\quad
+			\frac{\partial^2 f}{\partial y^2}(x,y) = 1,\quad
+			\frac{\partial^2 f}{\partial x \partial y}(x,y) = \frac{\partial^2 f}{\partial y \partial x}(x,y) = -2x.
+			\]
+			
+			Le déterminant de la matrice hessienne est :
+			\[
+			\Delta_f(x,y) = 
+			\begin{vmatrix}
+				\frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} \\
+				\frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2}
+			\end{vmatrix}
+			= -2y-4x^2.
+			\]
+			
+			\medskip
+			\textbf{En \( (0,-1) \) :}
+			\[
+			\frac{\partial^2 f}{\partial x^2}(0,-1) = 2,\quad
+			\frac{\partial^2 f}{\partial x \partial y}(0,-1) = 0,\quad
+			\frac{\partial^2 f}{\partial y^2}(0,-1) = 1.
+			\]
+			Donc
+			\[
+			\Delta_f(0,-1) = 2 \cdot 1 - 0 = 2 > 0,\quad \text{et} \quad \frac{\partial^2 f}{\partial x^2}(0,-1) > 0
+			\]
+			$$\Rightarrow \text{la fonction}\ f\ \text{admet un minimum local en} (0,-1).$$
+			\medskip
+			\textbf{En \( (1,0) \) :}
+			\[
+			\frac{\partial^2 f}{\partial x^2}(1,0) = 0,\quad
+			\frac{\partial^2 f}{\partial x \partial y}(1,0) = -2,\quad
+			\frac{\partial^2 f}{\partial y^2}(1,0) = 1.
+			\]
+			Donc
+			\[
+			\Delta_f(1,0) = 0 \cdot 1 - (-2)^2 = -4 < 0
+			\Rightarrow \text{la fonction} f \text{ admet un point selle  en}\ (1,0).
+			\]
+			
+			\medskip
+			\textbf{En \( (-1,0) \) :}
+			\[
+			\frac{\partial^2 f}{\partial x^2}(-1,0) = 0,\quad
+			\frac{\partial^2 f}{\partial x \partial y}(-1,0) = 2,\quad
+			\frac{\partial^2 f}{\partial y^2}(-1,0) = 1.
+			\]
+			Donc
+			\[
+			\Delta_f(-1,0) = 0 \cdot 1 - (2)^2 = -4 < 0
+			\Rightarrow \text{la fonction} f \text{ admet un point selle en}\ (-1,0).
+			\]}
 		\item \question{La fonction \(f\) admet-elle des extremums globaux ? Justifier votre réponse.}
-		\indication{Analyser le comportement de \(f\) pour \(|x|\to\infty\) et \(|y|\to\infty\) afin de déterminer la bornitude de la fonction.}
-		\reponse{}
+		\indication{On peut voir que la fonction n'est pas bornée en prenant la limite sur des chemins de $\mathbb{R}^2$ bien choisis. }
+		\reponse{On examine le comportement de \( f(x,y) = -x^2y + \frac{1}{2}y^2 + y \) à l'infini.
+			
+			\textbf{Sur la courbe \( y = x^2 \) :}
+			\[
+			f(x,x^2) = -x^2 \cdot x^2 + \frac{1}{2}x^4 + x^2 = -x^4 + \frac{1}{2}x^4 + x^2 = -\frac{1}{2}x^4 + x^2.
+			\]
+			Lorsque \( x \to \infty \), cette expression tend vers \( -\infty \).
+			
+			\textbf{Sur la droite \( x = 0 \) :}
+			\[
+			f(0,y) = \frac{1}{2}y^2 + y \to +\infty \text{ lorsque } y \to +\infty.
+			\]
+			
+			\textbf{Conclusion :} La fonction n'est pas bornée supérieurement ni inférieurement sur \( \mathbb{R}^2 \).\\
+			Elle n'a donc ni minimum ni maximum global.}
 	\end{enumerate}
 	
 }
