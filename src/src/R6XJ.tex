@@ -1,0 +1,48 @@
+\titre{Multiplicité et factorisation}
+\theme{polynomes}
+\auteur{}
+\organisation{AMSCC}
+\contenu{
+
+\question{ Soient $a$ et $b$ des nombres réels. Déterminer tous les polynômes de $\mathbb{R}[X]$ de la forme $$P(X)=3 X^5-10 X^3+a X+b$$ ayant une racine d'ordre de multiplicité égal à 3 .
+Factoriser dans $\mathbb{R}[X]$ les polynômes obtenus. }
+
+
+\reponse{ $x_0$ est racine d'ordre de multiplicité 3 ssi $P\left(x_0\right)=P^{\prime}\left(x_0\right)=P^{\prime \prime}\left(x_0\right)=0$ et $P^{(3)}\left(x_0\right) \neq 0$.
+$$
+\begin{aligned}
+& P\left(x_0\right)=3 \cdot x_0^5-10 \cdot x_0^3+a \cdot x_0+b \\
+& P^{\prime}\left(x_0\right)=15 \cdot x_0^4-30 \cdot x_0^2+a=0 \\
+& P^{\prime \prime}\left(x_0\right)=60 \cdot x_0^3-60 x_0=60 \cdot x_0\left(x_0^2-1\right)=0 \\
+& P^{(3)}\left(x_0\right)=180 \cdot x_0^2-60=60\left(3 \cdot x_0^2-1\right)
+\end{aligned}
+$$
+(3) $\Leftrightarrow x_0 \cdot\left(x_0^2-1\right)=0 \Leftrightarrow x_0=0$ ou $x_0=1$ ou $x_0=-1$. 
+
+$1^{\text {er }}$ cas: $x_0=0$
+$$
+\begin{gathered}
+P^{(3)}\left(x_0\right) \neq 0 \\
+(2) \Rightarrow a=0 \\
+(1) \Rightarrow b=0 \\
+P(X)=3 \cdot X^5-10 \cdot X^3=X^3 \cdot\left(3 X^2-10\right)=3 \cdot X^3 \cdot\left(X-\sqrt{\frac{10}{3}}\right)\left(X+\sqrt{\frac{10}{3}}\right)
+\end{gathered}
+$$
+$2^{\text {ème }}$ cas: $x_0=1$
+$$
+\begin{gathered}
+P^{(3)}\left(x_0\right) \neq 0 \\
+(2) \Rightarrow 15-30+a=0 \Rightarrow a=15 \\
+(1) \Rightarrow 3-10+15+b=0 \Rightarrow b=-8 \\
+P(X)=3 \cdot X^5-10 \cdot X^3+15 \cdot X-8=(X-1)^3 \cdot\left(3 X^2+9 X+8\right)
+\end{gathered}
+$$
+${3}^{\text {ème }}$ cas: $x_0=-1$
+$$
+\begin{gathered}
+P^{(3)}\left(x_0\right) \neq 0 \\
+(2) \Rightarrow 15-30+a=0 \Rightarrow a=15 \\
+(1) \Rightarrow-3+10-15+b=0 \Rightarrow b=8 \\
+P(X)=3 \cdot X^5-10 \cdot X^3+15 \cdot X+8=(X+1)^3 \cdot\left(3 X^2-9 X+8\right)
+\end{gathered}
+$$ }}

@@ -1,0 +1,132 @@
+\titre{Cryptographie}
+\theme{AM}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+\texte{
+
+\section*{Partie A - Génération de clés, chiffrement, déchiffrement}
+
+\subsection*{Génération de clés}
+
+Alice choisit :
+\begin{itemize}
+    \item deux entiers premiers \(p\) et \(q\) et effectue leur produit \(n = p \times q\),
+    \item un entier \(e\) premier avec \(\phi(n) = (p-1)(q-1)\) tel que \(e < \phi(n)\).
+\end{itemize}
+
+Alice calcule :
+\begin{itemize}
+    \item La clé \(d\) de déchiffrement (sa clé privée) qui doit satisfaire l'équation : $  d \times e \equiv 1 \mod \phi(n). $
+\end{itemize}
+
+Enfin, elle publie dans un annuaire, par exemple sur le web, sa clé publique : \((n, e)\).
+
+\begin{enumerate}
+    \item On considère les valeurs \(p = 53\), \(q = 11\) et \(e = 3\). Calculer \(n\), \(\phi(n)\) et, en utilisant l'algorithme d'Euclide, calculer la valeur de \(d\), la clé privée.
+\end{enumerate}
+
+\subsection*{Chiffrement}
+
+Bob veut envoyer un message à Alice. Il cherche dans l'annuaire la clé de chiffrement qu'elle a publiée. Il sait maintenant qu'il doit utiliser le RSA avec les deux entiers \(n\) et \(e\). Il transforme son message en nombre en remplaçant chaque lettre par son rang dans l'alphabet :
+\[
+\text{"ESCC"} = 05\ 19\ 03\ 03.
+\]
+Puis il découpe son message chiffré en blocs de longueur 3 (en partant de la droite) représentant chacun un nombre le plus grand possible tout en restant plus petit que \(n\).  
+Son message devient :
+\[
+005\ 190\ 303.
+\]
+Un bloc \(m\) est chiffré par la formule :
+\[
+c \equiv m^e \mod n.
+\]
+Par exemple, pour \(m = 010\),
+\[
+c \equiv 010^3 \equiv 1000 \equiv 417 \pmod{583}
+\]
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Quel message obtient Bob après avoir chiffré par bloc le message \(005\ 190\ 303\) ?
+\end{enumerate}
+
+\subsection*{Déchiffrement}
+
+Alice utilise sa clé privée \(d\) telle que :
+\[
+e \times d \equiv 1 \mod (p-1)(q-1).
+\]
+Chacun des blocs \(c\) du message sera déchiffré par la formule :
+\[
+m \equiv c^d \mod n.
+\]
+En regroupant les chiffres deux par deux et en remplaçant les nombres ainsi obtenus par les lettres correspondantes, elle sait enfin le secret que Bob lui a transmis, sans que personne d'autre ne puisse le savoir.
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Soit un système RSA tel que \(n = 583 = 53 \times 11\) et \(d = 7\). Déchiffrer le cryptogramme et retrouver le nom d’un personnage :  
+    \[
+    004\ 133\ 311\ 109.
+    \]
+    \textbf{Indication} : Pour calculer un nombre à la puissance 7, il est préférable d'utiliser la décomposition :  
+    \[
+    7 = 1 + 2 + 4.
+    \]
+\end{enumerate}
+
+\section*{Partie B - Accélération de déchiffrement du système RSA}
+
+Soit \(n = p \times q\) produit de deux nombres premiers et \(d \in \mathbb{N}\). Supposons que la fonction de déchiffrement de RSA soit donnée par: $m \equiv c^d \mod n.$
+
+
+\begin{enumerate}
+    \item Justifier que \(m \equiv c^d \mod n\) ssi :
+    \[
+    \begin{cases}
+    m \equiv c^d \mod p \\
+    m \equiv c^d \mod q
+    \end{cases}
+    \]
+    \textit{(Indication : Utilisez le théorème des restes chinois.)}
+    
+    \item Soit un système RSA tel que \(n = 221 = 13 \times 17\) et \(d = 61\). En utilisant cette méthode, calculer :
+    \[
+    2^{61} \mod 13 \quad \text{et} \quad 2^{61} \mod 17
+    \]
+    et déchiffrer le message \(m \equiv 2^{61} \mod n\).
+
+    \textit{Indication : L'utilisation du petit théorème de Fermat est vivement conseillée pour réduire les calculs.}
+\end{enumerate}
+
+\section*{Partie C - Une attaque sur RSA : module commun}
+
+Bob et Catherine ont choisi le même module RSA \(n = p \times q\). Leurs exposants publics \(e_B\) et \(e_C\) sont distincts.
+
+\begin{enumerate}
+    \item Expliquez pourquoi Bob peut déchiffrer les messages reçus par Catherine et réciproquement.
+    
+    \item \textbf{BONUS} : On suppose que \(e_B\) et \(e_C\) sont premiers entre eux et qu'Alice envoie les chiffrés d'un même message \(m\) à Bob et à Catherine. Expliquez comment l'attaquant Oscar peut obtenir \(m\).
+    
+    \textit{APPLICATION :} Bob a la clé publique \((n = 221 = 13 \times 17, e_B = 11)\) et Catherine la clé \((n = 221 = 13 \times 17, e_C = 7)\). Oscar intercepte les chiffrés 210 et 58 à destination respective de Bob et Catherine. Retrouvez le message \(m\).
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}}
