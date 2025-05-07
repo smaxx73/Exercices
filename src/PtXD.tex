@@ -1,0 +1,48 @@
+\uuid{PtXD}
+\titre{ Étude d'une suite récurrente et de son équivalent }
+\theme{Suites numériques, Séries numériques, Équivalents}
+\auteur{Adapté de Quercia/Exo7}
+\datecreate{2023-10-27} % Placeholder date
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{
+		Soit $a$ un réel strictement positif et $u_1$ un réel strictement positif.
+		On définit la suite $(u_n)_{n \ge 1}$ par la relation de récurrence :
+		$$u_{n+1} = u_n + \frac{1}{n^a u_n}$$
+
+On admet que $u_n$ existe et que $u_n>0$ pour tout $n \in \N^*$.
+	}
+	
+	\begin{enumerate}
+%		\item \question{Montrer par récurrence que pour tout  $n \geq 1$, $u_n$ existe et $u_n>0$.}
+%		\reponse{Initialisation : $u_1 > 0$ par hypothèse. Hérédité : Supposons $u_n > 0$ pour un $n \ge 1$. Alors $n^a > 0$ (car $n \ge 1, a > 0$) et $u_n > 0$. Donc $\frac{1}{n^a u_n}$ est bien défini et strictement positif. Ainsi, $u_{n+1} = u_n + \frac{1}{n^a u_n} > u_n > 0$. La suite est bien définie et tous ses termes sont strictement positifs.}
+		
+		\item \question{Étudier la monotonie de la suite $(u_n)$.}
+		\indication{Calculer la différence $u_{n+1} - u_n$.}
+		\reponse{Pour tout $n \ge 1$, $u_{n+1} - u_n = \frac{1}{n^a u_n}$. Comme $n \ge 1$, $a > 0$ et $u_n > 0$ (d'après Q1), on a $\frac{1}{n^a u_n} > 0$. Donc $u_{n+1} - u_n > 0$, ce qui signifie que la suite $(u_n)$ est strictement croissante.}
+		
+		\item \question{Montrer que si la suite $(u_n)$ est majorée, il existe $\ell >0$ tel que $\lim\limits_{n \to +\infty} u_n = \ell$. 
+			
+			Si la suite  $(u_n)$ n'est pas majorée, on admet qu'alors $\lim\limits_{n \to +\infty} u_n = +\infty$. }
+
+		\reponse{La suite $(u_n)$ est croissante (d'après Q2). Si la suite $(u_n)$ est majorée alors par théorème elle converge. Sinon, $\lim_{n \to \infty} = +\infty$. }
+		\item \question{ On considère la série $\displaystyle\sum_{k \geq 1} (u_{k+1} - u_k)$. Pour tout $N \in \N^*$, simplifier sa somme partielle : $$S_N = \sum_{k=1}^{N}  (u_{k+1} - u_k).$$  }
+		\indication{Il s'agit d'une série télescopique.}
+		\reponse{ Considérons la somme partielle de la série : $S_N = \sum_{k=1}^{N} (u_{k+1} - u_k)$. Par télescopage, $S_N = (u_2 - u_1) + (u_3 - u_2) + \dots + (u_{N+1} - u_N) = u_{N+1} - u_1$. }
+		\item \question{En déduire que la suite $(u_n)$ converge vers une limite finie $\ell$ si et seulement si la série $\displaystyle \sum_{k \geq 1} (u_{k+1} - u_k)$ converge.}
+		\indication{Exprimer la somme partielle de la série $\sum (u_{k+1} - u_k)$ en utilisant la définition de $u_{n+1}$. Il s'agit d'une série télescopique.}
+		\reponse{ La série $\sum (u_{n+1} - u_n)$ converge si et seulement si la suite de ses sommes partielles $(S_N)$ converge. Or, $\lim_{N \to \infty} S_N = \lim_{N \to \infty} (u_{N+1} - u_1)$. Cette limite existe et est finie si et seulement si $\lim_{N \to \infty} u_{N+1}$ existe et est finie. Donc, la série converge si et seulement si la suite $(u_n)$ converge vers une limite finie $\ell$.}
+		
+		\item \texte{On suppose que $(u_n)$ converge vers une limite finie $\ell > 0$.}
+		
+		 \question{ Déterminer un équivalent de $u_{n+1} - u_n$ lorsque $n \to +\infty$. En déduire les valeurs possibles de $a$ pour lesquelles la série $\sum (u_{n+1} - u_n)$ convergente. }
+		\indication{Si $u_n \to \ell$ finie, utiliser cet équivalent dans l'expression $u_{n+1} - u_n = \frac{1}{n^a u_n}$. Comparer à une série de Riemann.}
+		\reponse{Si $u_n \to \ell$ avec $\ell \in ]0, +\infty[$, alors $u_n \sim \ell$ lorsque $n \to +\infty$. Par conséquent, $u_{n+1} - u_n = \frac{1}{n^a u_n} \sim \frac{1}{n^a \ell} = \frac{1}{\ell} \frac{1}{n^a}$.
+			La série $\sum (u_{n+1} - u_n)$ a la même nature que la série $\sum \frac{1}{\ell n^a}$. Comme $\ell > 0$, cette série a la même nature que la série de Riemann $\sum \frac{1}{n^a}$.
+			D'après le critère de Riemann, $\sum \frac{1}{n^a}$ converge si et seulement si $a > 1$.
+			Donc, si $(u_n)$ converge vers $\ell$ finie, alors la série $\sum (u_{n+1} - u_n)$ converge, ce qui implique $a > 1$.}		
+	\end{enumerate}
+	
+}

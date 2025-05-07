@@ -1,0 +1,173 @@
+\uuid{j0zZ}
+\titre{Fonderie et alliage : fractions de cuivre et de zinc}
+\theme{Variables aléatoires à densité, Lois conjointes, Lois marginales}
+\auteur{}
+\datecreate{2024-05-16}
+\organisation{}
+
+\contenu{
+	
+	\texte{
+		Une fonderie produit un alliage constitué de cuivre, de zinc et d'autres métaux. On modélise la répartition des deux principaux constituants par le couple \((X,Y)\), où :
+		
+		\begin{itemize}
+			\item \(X\) : fraction de cuivre dans l'alliage (entre 0 et 1),
+			\item \(Y\) : fraction de zinc dans l'alliage (entre 0 et 1),
+		\end{itemize}
+		
+		avec la contrainte \(X + Y \leq 1\) (le reste étant composé d'autres métaux).
+		
+		On suppose que \((X,Y)\) possède la densité conjointe suivante :
+		\[
+		f_{X,Y}(x,y) =
+		\begin{cases}
+			c\,(x + y), & \text{si } x \geq 0,\ y \geq 0,\ x + y \leq 1, \\
+			0, & \text{sinon},
+		\end{cases}
+		\]
+		où \(c\) est une constante.
+	}
+	
+	\begin{enumerate}
+		\item \question{Calculer la constante $c$.}
+		\indication{Pour que $f_{X,Y}$ soit une densité de probabilité, son intégrale sur $\mathbb{R}^2$ doit être égale à 1. Le domaine $\mathcal{D} = \{(x,y) \in \mathbb{R}^2 \mid x \geq 0, y \geq 0, x+y \leq 1\}$ est le support de la densité.}
+		\reponse{
+			On doit avoir $\iint_{\mathbb{R}^2} f_{X,Y}(x,y)\, dx\, dy = 1$. L'intégrale est non nulle seulement sur le domaine $\mathcal{D} = \{(x,y) \mid x \geq 0, y \geq 0, x+y \leq 1\}$.
+			\begin{align*}
+				\iint_{\mathcal{D}} c(x + y)\, dx\, dy &= 1 \\
+				\Rightarrow c \int_0^1 \left( \int_0^{1 - y} (x + y) \, dx \right) \, dy &= 1 \\
+				c \int_0^1 \left[ \frac{x^2}{2} + yx \right]_0^{1 - y} dy &= 1 \\
+				c \int_0^1 \left( \frac{(1 - y)^2}{2} + y(1 - y) \right) dy &= 1 \\
+				c \int_0^1 \left( \frac{1 - 2y + y^2}{2} + y - y^2 \right) dy &= 1 \\
+				c \int_0^1 \frac{1 - y^2}{2} dy &= 1 \\
+				c \cdot \frac{1}{3} &= 1 \Rightarrow c = 3
+			\end{align*}
+		}
+		\item \question{Déterminer les lois marginales du couple (les loi de $X$ et $Y$ séparément).}
+		\indication{Pour trouver la densité marginale $f_X(x)$, intégrer la densité conjointe $f_{X,Y}(x,y)$ par rapport à $y$ sur son support. Un raisonnement par symétrie peut être utilisé pour $f_Y(y)$.}
+\reponse{
+	Pour \( x \in [0,1] \), la variable \(y\) varie dans l'intervalle \( [0, 1 - x] \). Donc :
+	\[
+	f_X(x) = \int_0^{1 - x} f_{X,Y}(x,y)\, dy = \int_0^{1 - x} 3(x + y)\, dy
+	\]
+	Calculons l'intégrale :
+	\[
+	f_X(x) = 3 \int_0^{1 - x} (x + y)\, dy = 3 \left[ xy + \frac{y^2}{2} \right]_0^{1 - x}
+	\]
+	En évaluant aux bornes :
+	\[
+	f_X(x) = 3 \left( \left( x(1 - x) + \frac{(1 - x)^2}{2} \right) - \left( x(0) + \frac{0^2}{2} \right) \right)
+	\]
+	\[
+	f_X(x) = 3 \left( x(1 - x) + \frac{(1 - x)^2}{2} \right)
+	\]
+	\[
+	f_X(x) = 3 \left( \frac{1 - x^2}{2} \right)
+	= \frac{3}{2}(1 - x^2)
+	\]
+	Ainsi, la densité marginale de $X$ est :
+	\[
+	f_X(x) =
+	\begin{cases}
+		\frac{3}{2}(1 - x^2), & \text{si } 0 \leq x \leq 1 \\
+		0, & \text{sinon}.
+	\end{cases}
+	\]
+	Par symétrie de la densité conjointe $f_{X,Y}(x,y) = 3(x+y)$ et du domaine $\mathcal{D} = \{ (x,y) \in \mathbb{R}^2 \mid x \ge 0, y \ge 0, x+y \le 1 \}$ par rapport à la droite $y=x$, la densité marginale de $Y$ est identique :
+	\[
+	f_Y(y) =
+	\begin{cases}
+		\frac{3}{2}(1 - y^2), & \text{si } 0 \leq y \leq 1 \\
+		0, & \text{sinon}.
+	\end{cases}
+	\]
+}
+
+		\item \question{Les variables aléatoires $X$ et $Y$ sont-elles indépendantes ?}
+		\indication{Deux variables aléatoires $X$ et $Y$ sont indépendantes si et seulement si leur densité conjointe $f_{X,Y}(x,y)$ est égale au produit de leurs densités marginales $f_X(x)f_Y(y)$ pour tout $(x,y)$, et si le support de la loi conjointe est un produit cartésien des supports des lois marginales.}
+		\reponse{
+			Non, les variables $X$ et $Y$ ne sont pas indépendantes.
+			Une première raison est que le support de la densité conjointe $\mathcal{D} = \{(x,y) \mid x \geq 0, y \geq 0, x+y \leq 1\}$ n'est pas un rectangle, alors que les supports des lois marginales sont $I_X = [0,1]$ et $I_Y = [0,1]$. Le produit $I_X \times I_Y = [0,1] \times [0,1]$ (le carré unité) est différent de $\mathcal{D}$ (le triangle unité).
+			De plus, en utilisant les densités marginales calculées (même avec l'erreur potentielle) :
+			$f_X(x)f_Y(y) = \frac{1-x^2}{6} \cdot \frac{1-y^2}{6} = \frac{(1-x^2)(1-y^2)}{36}$.
+			La densité conjointe est $f_{X,Y}(x,y) = 3(x+y)$ sur $\mathcal{D}$.
+			Clairement, $3(x+y) \neq \frac{(1-x^2)(1-y^2)}{36}$ sur $\mathcal{D}$.
+			Donc, $f_{X,Y}(x,y) \neq f_X(x)f_Y(y)$. Les variables ne sont pas indépendantes.
+		}
+		\item \question{Calculer la loi de la variable aléatoire $X+Y$ qui donne la fraction de cuivre et de zinc réunis.}
+		\indication{Soit $U=X+Y$. On peut utiliser la méthode de la fonction muette (ou théorème d'identification). Pour cela, on calcule $\mathbb{E}[h(U)]$ pour une fonction $h$ continue bornée, en effectuant un changement de variables. On pose $U = X+Y$ et $V=X$ (par exemple), on calcule le Jacobien de la transformation et on détermine le nouveau domaine d'intégration.}
+		\reponse{
+			On pose $U=X+Y$. On va appliquer le théorème d'identification. Soit $h$ une fonction continue bornée. On calcule :
+			\[
+			\mathbb{E}[h(U)]=\mathbb{E}[h(X+Y)] = \iint_{\mathbb{R}^2} h(x+y)\, f_{X,Y}(x,y)\, dx\,dy.
+			\]
+			Le domaine d'intégration est $\mathcal{D} = \{(x,y) \mid x \geq 0, y \geq 0, x+y \leq 1\}$.
+			La densité est $f_{X,Y}(x,y) = 3(x+y)$ sur $\mathcal{D}$ (en utilisant $c=3$).
+			
+			\textbf{Changement de variables :}
+			
+			On pose :
+			\[
+			\begin{cases}
+				u = x + y,\\
+				v = x,
+			\end{cases}
+			\quad \text{donc} \quad
+			\begin{cases}
+				x = v,\\
+				y = u - v.
+			\end{cases}
+			\]
+			Le jacobien de la transformation $(x,y) \mapsto (u,v)$ est $\left| \det \begin{pmatrix} \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\ \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y} \end{pmatrix} \right| = \left| \det \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \right| = |-1| = 1$.
+			Le jacobien de la transformation inverse $(u,v) \mapsto (x,y)$ est :
+			\[
+			J = \left| \det
+			\begin{pmatrix}
+				\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+				\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+			\end{pmatrix}
+			\right|
+			= \left| \det
+			\begin{pmatrix}
+				0 & 1 \\
+				1 & -1
+			\end{pmatrix}
+			\right| = |0 \cdot (-1) - 1 \cdot 1| = |-1| = 1.
+			\]
+			
+			\textbf{Domaine d'intégration :}
+			
+			Les conditions $x \geq 0,\ y \geq 0,\ x+y \leq 1$ deviennent :
+			\begin{itemize}
+				\item $x \geq 0 \Rightarrow v \geq 0$.
+				\item $y \geq 0 \Rightarrow u - v \geq 0 \Rightarrow u \geq v$.
+				\item $x+y \leq 1 \Rightarrow u \leq 1$.
+			\end{itemize}
+			Donc, le nouveau domaine d'intégration $\mathcal{D}'$ pour $(u,v)$ est défini par $0 \leq v \leq u$ et $0 \leq u \leq 1$.
+			
+			\textbf{Expression de l'espérance :}
+			\[
+			\mathbb{E}[h(X+Y)]
+			= \iint_{\mathcal{D}'} h(u)\cdot f_{X,Y}(v, u - v) \cdot |J|\, du\, dv.
+			\]
+			Sur $\mathcal{D}'$, on a $f_{X,Y}(v, u - v) = 3(v + (u - v)) = 3u$.
+			\begin{align*}
+			\mathbb{E}[h(X+Y)] &= \int_{u=0}^{1} \int_{v=0}^{u} h(u) \cdot 3u \cdot 1 \, dv\, du \\
+				&= \int_0^1 h(u) \cdot 3u \left( \int_0^u dv \right) du \\
+				&= \int_0^1 h(u) \cdot 3u^2 \, du.
+			\end{align*}
+			
+			\textbf{Conclusion :}
+			Par le théorème d'identification (ou de la fonction muette), la densité de $U = X+Y$ est la fonction $f_U(u)$ telle que $\mathbb{E}[h(U)] = \int_{\mathbb{R}} h(u) f_U(u) du$.
+			On en déduit donc la densité de $U$ :
+			\[
+			f_U(u) =
+			\begin{cases}
+				3u^2, & \text{si } 0 \leq u \leq 1, \\
+				0, & \text{sinon}.
+			\end{cases}
+			\]
+			Autrement dit, $f_U(u)=3u^2\mathbf{1}_{[0;1]}(u)$.
+		}
+	\end{enumerate}
+}

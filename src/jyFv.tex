@@ -1,0 +1,51 @@
+\uuid{jyFv}
+\titre{ Séries convergentes ou divergentes }
+\theme{séries}
+\auteur{ Maxime Nguyen }
+\datecreate{ 2025-05-05 }
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{ Dire la série $\sum u_n$ est convergente ou divergente pour les cas suivants :
+	}
+	
+	\begin{enumerate}
+		\item \question{$u_n = \dfrac{e^n}{n^5+1}$. }
+		\reponse{
+			On examine la limite du terme général $u_n$ quand $n \to +\infty$.
+			Par croissance comparée, $e^n$ croît beaucoup plus vite que $n^5+1$.
+			$$ \lim_{n \to +\infty} u_n = \lim_{n \to +\infty} \dfrac{e^n}{n^5+1} = +\infty $$
+			Comme la limite du terme général n'est pas nulle ($\lim_{n \to +\infty} u_n \neq 0$), la série diverge grossièrement.
+			La série $\sum u_n$ est \textbf{divergente}.
+		}
+		\item \question{$u_n = \dfrac{e^{-n}}{2+n}$. }
+		\reponse{
+			Les termes $u_n$ sont positifs. 
+			
+			Pour $n \ge 0$, $2+n > 1$, donc $\dfrac{1}{2+n} < 1$.
+			Ainsi, $0 < u_n = \dfrac{e^{-n}}{2+n} < e^{-n} = \left(\dfrac{1}{e}\right)^n$.
+			La série $\sum \left(\dfrac{1}{e}\right)^n$ est une série géométrique de raison $q = \dfrac{1}{e}$.
+			Comme $|q| = \dfrac{1}{e} < 1$, la série géométrique $\sum \left(\dfrac{1}{e}\right)^n$ converge.
+			Par le critère de comparaison pour les séries à termes positifs, la série $\sum u_n$ converge.
+		}
+		\item \question{$u_n = \dfrac{e^{\frac{1}{n}}}{n+1}$. }
+		\reponse{
+			Les termes $u_n$ sont positifs.
+			On cherche un équivalent de $u_n$ quand $n \to +\infty$.
+			Quand $n \to +\infty$, $\dfrac{1}{n} \to 0$. Donc, $e^{\frac{1}{n}} \to e^0 = 1$.
+			Ainsi, $u_n = \dfrac{e^{\frac{1}{n}}}{n+1} \sim_{n \to +\infty} \dfrac{1}{n+1}$.
+			Or, $\dfrac{1}{n+1} \sim_{n \to +\infty} \dfrac{1}{n}$.
+			La série $\sum \dfrac{1}{n}$ est la série harmonique, qui est une série de Riemann avec $\alpha=1$. Elle est divergente.
+			Par le critère d'équivalence pour les séries à termes positifs, la série $\sum u_n$ a la même nature que $\sum \dfrac{1}{n}$.
+			Donc, la série $\sum u_n$ est \textbf{divergente}.
+			
+			\textit{Autre méthode (comparaison directe) :}
+			Pour $n \ge 1$, $\dfrac{1}{n} > 0$, donc $e^{\frac{1}{n}} > e^0 = 1$.
+			Alors $u_n = \dfrac{e^{\frac{1}{n}}}{n+1} > \dfrac{1}{n+1}$.
+			La série $\sum \dfrac{1}{n+1}$ est divergente (série harmonique décalée, ou comparaison avec $\sum \frac{1}{n}$ par critère d'équivalence).
+			Comme $u_n > \dfrac{1}{n+1}$ et $\sum \dfrac{1}{n+1}$ diverge, par le critère de comparaison, $\sum u_n$ diverge.
+		}
+	\end{enumerate}
+	
+}

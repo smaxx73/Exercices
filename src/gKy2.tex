@@ -1,0 +1,132 @@
+\uuid{gKy2}
+\titre{Variable aléatoire à densité sinus}
+\theme{}
+\auteur{Grégoire Menet}
+\datecreate{ 2025-05-05 } % Placeholder date, replace with actual if known
+\organisation{}
+
+\contenu{
+	
+	\texte{ 
+		Soit $X$ la variable aléatoire dont la fonction de densité est :
+		$$ f(x) = \begin{cases} a \sin x & \text{si } 0 < x < \frac{\pi}{2}, \\ 0 & \text{sinon,} \end{cases} $$
+		avec $a$ une constante.
+	}
+	
+	\begin{enumerate}
+		\item \question{Calculer $a$.}
+		\indication{La fonction de densité doit intégrer à 1 sur $\mathbb{R}$.}
+		\reponse{
+			Pour que $f$ soit une fonction de densité, son intégrale sur $\mathbb{R}$ doit être égale à 1.
+			On a :
+			$$ \int_{-\infty}^{\infty} f(x) dx = \int_{0}^{\pi/2} a \sin x \, dx = a [-\cos x]_0^{\pi/2} = a (-\cos(\pi/2) - (-\cos(0))) = a (0 - (-1)) = a. $$
+			Donc, il faut que $a=1$. La fonction de densité est $f(x) = \sin x$ pour $x \in ]0, \pi/2[$ et $f(x)=0$ sinon.
+		}
+		
+		\item \question{Calculer la fonction de répartition de $X$.}
+		\indication{La fonction de répartition $F(x)$ est $P(X \le x) = \int_{-\infty}^{x} f(t) dt$.}
+		\reponse{
+			La fonction de répartition $F(x)$ est définie par $F(x) = P(X \le x) = \int_{-\infty}^{x} f(t) dt$.
+			\begin{itemize}
+				\item Pour $x \le 0$, $f(t) = 0$ pour $t \le x$, donc $F(x) = \int_{-\infty}^{x} 0 \, dt = 0$.
+				\item Pour $0 < x < \frac{\pi}{2}$, on intègre la densité :
+				$$ F(x) = \int_{-\infty}^{x} f(t) dt = \int_{0}^{x} \sin t \, dt = [-\cos t]_0^x = -\cos x - (-\cos 0) = 1 - \cos x. $$
+				\item Pour $x \ge \frac{\pi}{2}$, $F(x) = \int_{-\infty}^{x} f(t) dt = \int_{0}^{\pi/2} \sin t \, dt = [-\cos t]_0^{\pi/2} = 1 - \cos(\pi/2) = 1$.
+			\end{itemize}
+			Donc :
+			$$ F(x) = \begin{cases} 0 & \text{si } x \le 0, \\ 1 - \cos x & \text{si } 0 < x < \frac{\pi}{2}, \\ 1 & \text{si } x \ge \frac{\pi}{2}. \end{cases} $$
+		}
+		
+		\item \question{On considère la variable aléatoire $Z = \lfloor \frac{4}{\pi} X \rfloor$ (où $\lfloor \cdot \rfloor$ est la fonction partie entière). Déterminer la loi de $Z$.}
+		\indication{Déterminer les valeurs possibles pour $Z$ puis calculer la probabilité de chaque valeur.}
+		\reponse{
+			La variable $X$ prend ses valeurs dans $]0, \pi/2[$.
+			Donc, la variable $\frac{4}{\pi} X$ prend ses valeurs dans $]0, 2[$.
+			La variable $Z = \lfloor \frac{4}{\pi} X \rfloor$ peut donc prendre les valeurs $0$ et $1$.
+			On a :
+			\begin{itemize}
+				\item $Z=0$ si $0 \le \frac{4}{\pi} X < 1$, c'est-à-dire $0 \le X < \frac{\pi}{4}$.
+				$$ P(Z=0) = P(0 \le X < \pi/4) = F(\pi/4) - F(0) = (1 - \cos(\pi/4)) - 0 = 1 - \frac{\sqrt{2}}{2}. $$
+				(Puisque $X$ est continue, $P(X=0)=0$, donc $P(0 \le X < \pi/4) = P(0 < X < \pi/4) = F(\pi/4)$).
+				\item $Z=1$ si $1 \le \frac{4}{\pi} X < 2$, c'est-à-dire $\frac{\pi}{4} \le X < \frac{\pi}{2}$.
+				$$ P(Z=1) = P(\pi/4 \le X < \pi/2) = F(\pi/2) - F(\pi/4) = 1 - (1 - \cos(\pi/4)) = \cos(\pi/4) = \frac{\sqrt{2}}{2}. $$
+			\end{itemize}
+			La loi de $Z$ est une loi de Bernoulli de paramètre $p = P(Z=1) = \frac{\sqrt{2}}{2}$.
+			On vérifie que $P(Z=0) + P(Z=1) = (1 - \frac{\sqrt{2}}{2}) + \frac{\sqrt{2}}{2} = 1$.
+		}
+		
+		\item \question{Calculer la fonction caractéristique de $X$.}
+		\indication{Utiliser la définition $\phi_X(t) = E[e^{itX}] = \int_{-\infty}^{\infty} e^{itx} f(x) dx$ et la formule d'Euler pour $\sin x$.}
+		\reponse{
+			On rappelle que la fonction caractéristique de $X$ est définie par :
+			$$ \phi_X(t) = E[e^{itX}] = \int_{-\infty}^{\infty} e^{itx} f(x) dx. $$
+			Comme $f(x) = \sin x$ pour $x \in ]0, \pi/2[$ et nul ailleurs, on a :
+			$$ \phi_X(t) = \int_{0}^{\pi/2} e^{itx} \sin x \, dx. $$
+			On utilise la formule d'Euler : $\sin x = \frac{e^{ix} - e^{-ix}}{2i}$.
+			Alors :
+			$$ \phi_X(t) = \int_{0}^{\pi/2} e^{itx} \frac{e^{ix} - e^{-ix}}{2i} dx = \frac{1}{2i} \int_{0}^{\pi/2} (e^{i(t+1)x} - e^{i(t-1)x}) dx. $$
+			Si $t \ne 1$ et $t \ne -1$ :
+			$$ \phi_X(t) = \frac{1}{2i} \left[ \frac{e^{i(t+1)x}}{i(t+1)} - \frac{e^{i(t-1)x}}{i(t-1)} \right]_0^{\pi/2} $$
+			$$ \phi_X(t) = \frac{1}{2i^2} \left[ \frac{e^{i(t+1)x}}{t+1} - \frac{e^{i(t-1)x}}{t-1} \right]_0^{\pi/2} $$
+			$$ \phi_X(t) = -\frac{1}{2} \left[ \left( \frac{e^{i(t+1)\pi/2}}{t+1} - \frac{e^{i(t-1)\pi/2}}{t-1} \right) - \left( \frac{1}{t+1} - \frac{1}{t-1} \right) \right] $$
+			$$ \phi_X(t) = \frac{1}{2} \left( \frac{1 - e^{i(t+1)\pi/2}}{t+1} - \frac{1 - e^{i(t-1)\pi/2}}{t-1} \right) $$
+			On peut simplifier cette expression : $e^{i(t+1)\pi/2} = e^{it\pi/2} e^{i\pi/2} = i e^{it\pi/2}$ et $e^{i(t-1)\pi/2} = e^{it\pi/2} e^{-i\pi/2} = -i e^{it\pi/2}$.
+			$$ \phi_X(t) = \frac{1}{2} \left( \frac{1 - i e^{it\pi/2}}{t+1} - \frac{1 + i e^{it\pi/2}}{t-1} \right) $$
+			$$ \phi_X(t) = \frac{1}{2} \frac{(1 - i e^{it\pi/2})(t-1) - (1 + i e^{it\pi/2})(t+1)}{(t+1)(t-1)} $$
+			$$ \phi_X(t) = \frac{1}{2} \frac{(t-1 - ite^{it\pi/2} + ie^{it\pi/2}) - (t+1 + ite^{it\pi/2} + ie^{it\pi/2})}{t^2-1} $$
+			$$ \phi_X(t) = \frac{1}{2} \frac{-2 - 2ite^{it\pi/2}}{t^2-1} = \frac{-(1 + ite^{it\pi/2})}{t^2-1} = \frac{1 + ite^{it\pi/2}}{1-t^2}. $$
+			Pour $t=1$, $\phi_X(1) = \int_0^{\pi/2} e^{ix} \sin x dx = \frac{1}{2} + \frac{i\pi}{4}$.
+			Pour $t=-1$, $\phi_X(-1) = \int_0^{\pi/2} e^{-ix} \sin x dx = \frac{1}{2} - \frac{i\pi}{4}$.
+			On peut vérifier que $\lim_{t \to \pm 1} \frac{1 + ite^{it\pi/2}}{1-t^2}$ donne bien ces valeurs.
+		}
+		
+		\item \question{Calculer l'espérance de $X$.}
+		\indication{Utiliser la définition $E[X] = \int_{-\infty}^{\infty} x f(x) dx$ et une intégration par parties.}
+		\reponse{
+			$$ \E[X] = \int_{-\infty}^{\infty} x f(x) dx = \int_{0}^{\pi/2} x \sin x \, dx. $$
+			On utilise une intégration par parties avec $u(x)=x$ et $v'(x)=\sin x$. Alors $u'(x)=1$ et $v(x)=-\cos x$.
+			\begin{align*} \E[X] &= [-x \cos x]_0^{\pi/2} - \int_{0}^{\pi/2} 1 \cdot (-\cos x) \, dx \\
+			& = (0 - 0) + [\sin x]_0^{\pi/2} = \sin(\pi/2) - \sin(0) = 1 - 0 = 1.
+			\end{align*}
+			L'espérance de $X$ est $\E[X]=1$.
+		}
+		
+		\item \question{On considère la variable aléatoire $Y = \cos(X)$. Déterminer la loi de $Y$.}
+		\indication{Utiliser la méthode de la fonction de répartition ou la méthode du théorème de transfert.}
+		\reponse{
+			Méthode 1 : Fonction de répartition.
+			$X$ prend ses valeurs dans $]0, \pi/2[$. Comme la fonction $\cos$ est strictement décroissante sur cet intervalle, $Y = \cos(X)$ prend ses valeurs dans $]\cos(\pi/2), \cos(0)[ = ]0, 1[$.
+			Soit $y \in ]0, 1[$. La fonction de répartition de $Y$ est $F_Y(y) = P(Y \le y) = P(\cos(X) \le y)$.
+			Puisque $\cos$ est décroissante sur $]0, \pi/2[$ et $y \in ]0, 1[$, l'inégalité $\cos(X) \le y$ est équivalente à $X \ge \arccos(y)$. Notez que $\arccos(y) \in ]0, \pi/2[$.
+			$$ F_Y(y) = P(X \ge \arccos(y)) = \int_{\arccos(y)}^{\pi/2} f(x) dx = \int_{\arccos(y)}^{\pi/2} \sin x dx $$
+			$$ F_Y(y) = [-\cos x]_{\arccos(y)}^{\pi/2} = -\cos(\pi/2) - (-\cos(\arccos(y))) = 0 - (-y) = y. $$
+			Pour $y \le 0$, $F_Y(y) = 0$. Pour $y \ge 1$, $F_Y(y) = 1$.
+			La fonction de répartition est donc :
+			$$ F_Y(y) = \begin{cases} 0 & \text{si } y \le 0, \\ y & \text{si } 0 < y < 1, \\ 1 & \text{si } y \ge 1. \end{cases} $$
+			C'est la fonction de répartition de la loi uniforme sur $[0, 1]$. Donc $Y \sim U(0, 1)$.
+			
+			Méthode 2 : Théorème de transfert (comme dans l'image fournie).
+			Soit $\varphi$ une fonction continue bornée sur $[0, 1]$.
+			$$ \E[\varphi(Y)] = \E[\varphi(\cos X)] = \int_{-\infty}^{\infty} \varphi(\cos x) f(x) dx = \int_{0}^{\pi/2} \varphi(\cos x) \sin x dx. $$
+			On effectue le changement de variable $y = \cos x$. Alors $dy = -\sin x dx$.
+			Quand $x=0$, $y=\cos 0 = 1$. Quand $x=\pi/2$, $y=\cos(\pi/2) = 0$.
+			$$ \E[\varphi(Y)] = \int_{1}^{0} \varphi(y) (-dy) = \int_{0}^{1} \varphi(y) dy. $$
+			Ceci est l'espérance de $\varphi(Y)$ pour une variable $Y$ de densité $f_Y(y) = 1$ sur $]0, 1[$ (et 0 ailleurs).
+			Par le théorème d'identification (ou théorème de transfert), cela montre que $Y$ suit la loi uniforme $U(0, 1)$.
+		}
+		
+		\item \question{Notre ordinateur permet de simuler un variable aléatoire de loi uniforme sur $[0, 1]$ grâce à la fonction \texttt{rand()}. On voudrait simuler la loi de $X$. Comment faudrait-il faire ?}
+		\indication{Utiliser la méthode de la transformée inverse.}
+		\reponse{
+			Pour simuler $X$, on utilise directement le résultat que $\cos(X)$ suit une loi $U(0, 1)$. On pourrait retrouver le même résultat avec le théorème d'inversion de la fonction de répartition. 
+			\begin{enumerate}
+				\item Générer une valeur $u$ à partir de la loi uniforme $U(0, 1)$ (en utilisant \texttt{rand()}).
+				\item Calculer $x = \arccos(1 - u)$.
+			\end{enumerate}
+			La valeur $x$ ainsi obtenue est une réalisation de la variable aléatoire $X$.
+			Alternativement, puisque si $U \sim U(0, 1)$, alors $1-U \sim U(0, 1)$, on peut aussi calculer $x = \arccos(u)$ où $u$ est générée par \texttt{rand()}.
+		}
+		
+	\end{enumerate}
+	
+}

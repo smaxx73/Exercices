@@ -8,15 +8,66 @@
 
 \organisation{AMSCC}
 \contenu{
-Soit l'équation différentielle $(E)$ définie pour $\alpha>0$ par :
-$$
-\alpha\,y'-(1+x)y=0.
-$$
-
-On note $f$ la solution de cette équation différentielle vérifiant la condition initiale $f(0) = 1$. 
+\texte{ Soit l'équation différentielle $(E)$ définie pour $\alpha>0$ par :
+	$$
+	(1+x)y'-\alpha\,y=0.
+	$$
+	
+	On note $f$ la solution de cette équation différentielle vérifiant la condition initiale $f(0) = 1$.  }
 \begin{enumerate}
-\item \question{ On suppose que $f$ s'écrit sous la forme d'une série entière $f(x)=\displaystyle\sum_{n=0}^{\infty}a_n\,x^{n}$. Déterminer les coefficients $(a_n)$ pour $n$ entier et déterminer le rayon de convergence de $f$. }
-\item \question{ Donner une expression alternative de $f,$ solution de $(E)$, en résolvant directement l'équation différentielle avec la condition initiale $f(0)=1$.  }
+	\item \question{ On suppose que $f$ s'écrit sous la forme d'une série entière $f(x)=\displaystyle\sum_{n=0}^{\infty}a_n\,x^{n}$. Déterminer les coefficients $(a_n)$ pour $n$ entier et déterminer le rayon de convergence de $f$. }
+	\reponse{
+		On pose $f(x)=\displaystyle\sum_{n=0}^{\infty}a_n\,x^{n}$. Alors $f'(x)=\displaystyle\sum_{n=1}^{\infty}n a_n\,x^{n-1}$.
+		L'équation différentielle $(1+x)y'-\alpha\,y=0$ devient :
+		$$ (1+x)\sum_{n=1}^{\infty}n a_n\,x^{n-1} - \alpha \sum_{n=0}^{\infty}a_n\,x^{n} = 0 $$
+		$$ \sum_{n=1}^{\infty}n a_n\,x^{n-1} + \sum_{n=1}^{\infty}n a_n\,x^{n} - \alpha \sum_{n=0}^{\infty}a_n\,x^{n} = 0 $$
+		On effectue un changement d'indice pour le premier terme. Soit $k=n-1$, donc $n=k+1$. Quand $n=1$, $k=0$.
+		$$ \sum_{k=0}^{\infty}(k+1) a_{k+1}\,x^{k} + \sum_{n=1}^{\infty}n a_n\,x^{n} - \alpha \sum_{n=0}^{\infty}a_n\,x^{n} = 0 $$
+		On peut faire commencer la deuxième somme à $n=0$ car le terme pour $n=0$ est $0 \cdot a_0 \cdot x^0 = 0$.
+		En remplaçant $k$ par $n$ dans la première somme :
+		$$ \sum_{n=0}^{\infty}(n+1) a_{n+1}\,x^{n} + \sum_{n=0}^{\infty}n a_n\,x^{n} - \alpha \sum_{n=0}^{\infty}a_n\,x^{n} = 0 $$
+		$$ \sum_{n=0}^{\infty} \left[ (n+1) a_{n+1} + n a_n - \alpha a_n \right] x^{n} = 0 $$
+		Par unicité des coefficients d'une série entière, on a pour tout $n \ge 0$ :
+		$$ (n+1) a_{n+1} + (n-\alpha) a_n = 0 $$
+		$$ a_{n+1} = -\frac{n-\alpha}{n+1} a_n = \frac{\alpha-n}{n+1} a_n $$
+		La condition initiale $f(0)=1$ donne $a_0 = 1$ (car $f(0) = \sum a_n 0^n = a_0$).
+		Calculons les premiers termes :
+		$a_0 = 1$
+		$a_1 = \frac{\alpha-0}{1} a_0 = \alpha$
+		$a_2 = \frac{\alpha-1}{2} a_1 = \frac{\alpha(\alpha-1)}{2}$
+		$a_3 = \frac{\alpha-2}{3} a_2 = \frac{\alpha(\alpha-1)(\alpha-2)}{3 \cdot 2 \cdot 1}$
+		Par récurrence, on montre que $a_n = \frac{\alpha(\alpha-1)\dots(\alpha-n+1)}{n!}$.
+		Ceci est la définition du coefficient binomial généralisé $\binom{\alpha}{n}$.
+		Donc, $a_n = \binom{\alpha}{n}$.
+		La solution est $f(x) = \displaystyle\sum_{n=0}^{\infty} \binom{\alpha}{n} x^n$.
+		
+		Pour déterminer le rayon de convergence $R$, on utilise la règle de d'Alembert :
+		$$ \lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n\to\infty} \left| \frac{\alpha-n}{n+1} \right| = \lim_{n\to\infty} \left| \frac{-n(1-\alpha/n)}{n(1+1/n)} \right| = \lim_{n\to\infty} \left| \frac{-(1-\alpha/n)}{1+1/n} \right| = |-1| = 1. $$
+		Le rayon de convergence est $R = \frac{1}{1} = 1$.
+		La série converge pour $|x|<1$.
+	}
+	
+	\item \question{ Donner une expression alternative de $f,$ solution de $(E)$, en résolvant directement l'équation différentielle avec la condition initiale $f(0)=1$.  }
+	\reponse{
+		L'équation différentielle est $(1+x)y' - \alpha y = 0$. C'est une équation différentielle linéaire du premier ordre à variables séparables.
+		Pour $x \neq -1$ et $y \neq 0$:
+		$$ (1+x)\frac{dy}{dx} = \alpha y $$
+		$$ \frac{dy}{y} = \frac{\alpha}{1+x} dx $$
+		On intègre les deux membres :
+		$$ \int \frac{1}{y} dy = \int \frac{\alpha}{1+x} dx $$
+		$$ \ln|y| = \alpha \ln|1+x| + C_1 $$
+		où $C_1$ est une constante d'intégration.
+		$$ \ln|y| = \ln|(1+x)^\alpha| + C_1 $$
+		$$ |y| = e^{C_1} |(1+x)^\alpha| $$
+		Soit $C = \pm e^{C_1}$. On peut inclure la solution $y=0$ en autorisant $C=0$.
+		La solution générale est $y(x) = C(1+x)^\alpha$.
+		
+		On utilise la condition initiale $f(0)=1$.
+		$f(0) = C(1+0)^\alpha = C \cdot 1^\alpha = C$.
+		Donc $C=1$.
+		L'expression alternative de la solution $f$ est $f(x) = (1+x)^\alpha$.
+		
+		On remarque que la série entière trouvée à la question 1, $f(x) = \displaystyle\sum_{n=0}^{\infty} \binom{\alpha}{n} x^n$, est le développement en série entière de $(1+x)^\alpha$, ce qui est cohérent.
+	}
 \end{enumerate}
-
 }

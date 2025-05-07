@@ -1,0 +1,84 @@
+\uuid{1vFG}
+\titre{Durée de vie de capteurs}
+\theme{}
+\auteur{Grégoire Menet}
+\datecreate{ 2025-05-05 } % Placeholder date, replace with actual if known
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{
+		Une usine fabrique des capteurs de température et d'humidité destinés à des stations météorologiques. Chaque capteur est composé de deux modules indépendants :
+		\begin{itemize}
+			\item un module T (température) dont la durée de vie X (en années) suit une loi exponentielle de paramètre $\lambda_T = 0,2$,
+			\item un module H (humidité) dont la durée de vie Y (en années) suit une loi exponentielle de paramètre $\lambda_H = 0,1$.
+		\end{itemize}
+		Les deux modules sont montés ensemble dans chaque capteur et fonctionnent tant que les deux modules sont opérationnels. On note $Z = \min(X, Y)$ la durée de vie du capteur complet.
+	}
+	
+	\begin{enumerate}
+		\item \question{Calculer la fonction de répartition de Z.}
+		\indication{Utiliser $F_Z(z) = \prob(Z \le z) = 1 - \prob(Z > z)$. Noter que l'événement $\{Z > z\}$ est équivalent à $\{\min(X, Y) > z\}$, ce qui signifie $\{X > z \text{ et } Y > z\}$. Utiliser l'indépendance de X et Y.}
+		\reponse{
+			Pour $z < 0$, il est impossible que la durée de vie soit négative, donc $F_Z(z) = \prob(Z \le z) = 0$.
+			Pour $z \ge 0$ :
+			\begin{align*} F_Z(z) &= \prob(Z \le z) \\ &= 1 - \prob(Z > z) \\ &= 1 - \prob(\min(X, Y) > z) \\ &= 1 - \prob(X > z \text{ et } Y > z) \end{align*}
+			Comme X et Y sont indépendantes :
+			\begin{align*} \prob(X > z \text{ et } Y > z) &= \prob(X > z) \prob(Y > z) \end{align*}
+			Pour une loi exponentielle de paramètre $\lambda$, la fonction de survie est $\prob(V > z) = e^{-\lambda z}$.
+			Donc, $\prob(X > z) = e^{-\lambda_T z} = e^{-0.2z}$ et $\prob(Y > z) = e^{-\lambda_H z} = e^{-0.1z}$.
+			Ainsi,
+			\begin{align*} \prob(Z > z) &= e^{-0.2z} e^{-0.1z} \\  &= e^{-0.3z} \end{align*}
+			Finalement, la fonction de répartition de Z est :
+			\begin{align*} F_Z(z) &= 1 - e^{-0.3z} \quad \text{pour } z \ge 0 \end{align*}
+			Soit :
+			$F_Z(z) = \begin{cases} 0 & \text{si } z < 0 \\ 1 - e^{-0.3z} & \text{si } z \ge 0 \end{cases}$
+		}
+		
+		\item \question{En déduire la loi de Z.}
+		\indication{Comparer la fonction de répartition $F_Z(z)$ trouvée à la forme générale de la fonction de répartition d'une loi connue.}
+		\reponse{
+			La fonction de répartition $F_Z(z) = 1 - e^{-0.3z}$ pour $z \ge 0$ est caractéristique d'une loi exponentielle de paramètre $\lambda = 0.3$.
+			Donc, Z suit une loi exponentielle de paramètre $\lambda = \lambda_T + \lambda_H = 0.2 + 0.1 = 0.3$.
+			On note $Z \sim \mathcal{E}(0.3)$.
+		}
+		
+		\item \texte{Le service après-vente propose, pour les capteurs tombés en panne :
+			\begin{itemize}
+				\item un remplacement gratuit si la panne survient avant 3 ans ($Z < 3$),
+				\item sinon ($Z \ge 3$), il propose :
+				\begin{itemize}
+					\item un tarif réduit à 50 euros si c'est le module T qui est tombé en panne en premier (c'est-à-dire $X < Y$),
+					\item un tarif complet à 200 euros si c'est le module H qui est tombé en panne en premier (c'est-à-dire $Y < X$).
+				\end{itemize}
+			\end{itemize}
+			On note W la variable aléatoire qui donne le coût de réparation du capteur. }
+			
+			\question{ Déterminer la loi de la variable aléatoire $W$. }
+		\indication{Identifier les valeurs possibles pour W (0, 50, 200) et calculer les probabilités associées : $\prob(W=0) = \prob(Z < 3)$, $\prob(W=50) = \prob(Z \ge 3 \text{ et } X < Y)$, et $\prob(W=200) = \prob(Z \ge 3 \text{ et } Y < X)$. On peut utiliser l'intégration double sur les domaines appropriés ou utiliser la propriété connue que $\prob(X < Y) = \frac{\lambda_T}{\lambda_T + \lambda_H}$ et le fait que l'événement $\{X<Y\}$ est indépendant de l'événement $\{Z \ge 3\}$. Alternativement, calculer $\prob(W=0)$ et $\prob(W=50)$ puis utiliser $\prob(W=200) = 1 - \prob(W=0) - \prob(W=50)$.}
+		\reponse{
+			La variable aléatoire W peut prendre les valeurs 0, 50, ou 200. Nous devons calculer $\prob(W=0)$, $\prob(W=50)$, et $\prob(W=200)$.
+			
+			1. Calcul de $\prob(W=0)$:
+			\begin{align*} \prob(W=0) &= \prob(Z < 3) \\ &= F_Z(3) \\ &= 1 - e^{-0.9} \end{align*}
+			
+			2. Calcul de $\prob(W=50)$:
+
+			\begin{align*} \prob(W=50) &= \prob(Z \ge 3 \text{ et } X < Y) \\ &= \int_3^\infty \int_x^\infty f_X(u) f_Y(v) dv du \\ 
+				&= \int_3^\infty \int_x^\infty (0.2 e^{-0.2 u}) (0.1 e^{-0.1 v}) dv du \\
+				&= \int_3^\infty 0.2 e^{-0.2 u} \left[ -e^{-0.1 v} \right]_x^\infty du \\
+				&= 0.2 \left[ \frac{e^{-0.3 u}}{-0.3} \right]_3^\infty \\
+				&= \frac{2}{3} e^{-0.9} 
+			\end{align*}
+			
+			3. Calcul de $\prob(W=200)$:
+			Puisque les événements $\{W=0\}$, $\{W=50\}$ et $\{W=200\}$ forment une partition de l'univers, la somme de leurs probabilités vaut 1.
+			\begin{align*} \prob(W=200) &= 1 - \prob(W=0) - \prob(W=50) \\ 
+				&= \frac{1}{3} e^{-0.9} 
+				\end{align*}
+
+		}
+		
+	\end{enumerate}
+	
+}
