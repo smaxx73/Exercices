@@ -8,13 +8,59 @@
 \contenu{
 	
 	\texte{ Pour tout $n \in \N^*$, on pose : $$u_n = \sin\left(\frac{1}{n}\right) - \ln\left(1+\frac{1}{n}\right)$$
+}
+
+\begin{enumerate}
+	\item \question{Calculer $\lim\limits_{n \to +\infty} u_n$. }
+	\reponse{ 
+		Lorsque $n \to +\infty$, $\frac{1}{n} \to 0$.
+		On sait que $\lim\limits_{x \to 0} \sin(x) = \sin(0) = 0$ et $\lim\limits_{x \to 0} \ln(1+x) = \ln(1) = 0$.
+		Donc, $\lim\limits_{n \to +\infty} \sin\left(\frac{1}{n}\right) = 0$ et $\lim\limits_{n \to +\infty} \ln\left(1+\frac{1}{n}\right) = 0$.
+		Par conséquent, $\lim\limits_{n \to +\infty} u_n = 0 - 0 = 0$.
 	}
+	\item \question{ Donner le développement limité de $\ln(1+x)$ à l'ordre $2$ quand $x \to 0$. }
+	\reponse{ 
+		Le développement limité de $\ln(1+x)$ à l'ordre $2$ au voisinage de $x=0$ est donné par la formule de Taylor-Young :
+		$\ln(1+x) = x - \frac{x^2}{2} + o(x^2)$.
+	}
+	\item \question{ En déduire le développement limité à l'ordre 2 de $u_n$ lorsque $n \to +\infty$ et en déduire qu'à partir d'un certain rang, $u_n \geq 0$. }
+		\reponse{
+	Posons $x = \frac{1}{n}$. Lorsque $n \to +\infty$, $x \to 0$.
+	On utilise les développements limités de $\sin(x)$ et $\ln(1+x)$ à l'ordre 2 en $x$ au voisinage de $0$.
 	
-	\begin{enumerate}
-		\item \question{Calculer $\lim\limits_{n \to +\infty} u_n$. }
-		\item \question{ Donner le développement limité de $\ln(1+x)$ à l'ordre $2$ quand $x \to 0$. }
-		\item \question{ En déduire le développement limité à l'ordre 2 de $u_n$ lorsque $n \to +\infty$ et en déduire qu'à partir d'un certain rang, $u_n \geq 0$. }
-		\item \question{ La série  $\displaystyle \sum_{n \geq 1} u_n$ est-elle convergente ? }
-	\end{enumerate}
+	$\sin(x) = x - \frac{x^3}{6} + o(x^3)$. Pour un DL à l'ordre 2 en $x$, on écrit : $\sin(x) = x + o(x^2)$ (car $x^3/6$ est un $o(x^2)$).
+	
+	De la question précédente, $\ln(1+x) = x - \frac{x^2}{2} + o(x^2)$.
+	
+	En remplaçant $x$ par $\frac{1}{n}$ :
+	$\sin\left(\frac{1}{n}\right) = \frac{1}{n} + o\left(\frac{1}{n^2}\right)$ et 
+	$\ln\left(1+\frac{1}{n}\right) = \frac{1}{n} - \frac{1}{2n^2} + o\left(\frac{1}{n^2}\right)$.
+	
+	Alors, \begin{align*}u_n &= \sin\left(\frac{1}{n}\right) - \ln\left(1+\frac{1}{n}\right)\\
+		 &= \left(\frac{1}{n} + o\left(\frac{1}{n^2}\right)\right) - \left(\frac{1}{n} - \frac{1}{2n^2} + o\left(\frac{1}{n^2}\right)\right) \\
+	     &= \frac{1}{n} - \frac{1}{n} + \frac{1}{2n^2} + o\left(\frac{1}{n^2}\right) - o\left(\frac{1}{n^2}\right) \\
+	&= \frac{1}{2n^2} + o\left(\frac{1}{n^2}\right).
+	\end{align*}
+	Ceci est le développement limité de $u_n$ à l'ordre 2 lorsque $n \to +\infty$.
+	
+	Pour $n \to +\infty$, $u_n \sim \frac{1}{2n^2}$.
+	Comme $\frac{1}{2n^2} > 0$ pour tout $n \in \N^*$, on en déduit que $u_n$ est du signe de son équivalent lorsque $n$ est suffisamment grand.
+	Ainsi, à partir d'un certain rang $N_0$, pour tout $n \geq N_0$, $u_n > 0$ (donc $u_n \geq 0$).
+}
+	\item \question{ La série  $\displaystyle \sum_{n \geq 1} u_n$ est-elle convergente ? }
+	\reponse{ 
+		D'après la question précédente, nous avons $u_n = \frac{1}{2n^2} + o\left(\frac{1}{n^2}\right)$.
+		Cela implique que $u_n \sim \frac{1}{2n^2}$ lorsque $n \to +\infty$.
+		
+		De plus, nous avons montré qu'à partir d'un certain rang, $u_n > 0$. La série $\sum u_n$ est donc une série à termes positifs à partir d'un certain rang.
+		
+		Considérons la série $\displaystyle \sum_{n \geq 1} \frac{1}{2n^2} = \frac{1}{2} \sum_{n \geq 1} \frac{1}{n^2}$.
+		Il s'agit d'une série de Riemann convergente.
+		
+		Par conséquent, la série $\displaystyle \sum_{n \geq 1} \frac{1}{2n^2}$ converge également.
+		
+		Par le critère d'équivalence pour les séries à termes positifs, puisque $u_n \sim \frac{1}{2n^2}$ et que $\displaystyle \sum_{n \geq 1} \frac{1}{2n^2}$ converge, on en conclut que la série $\displaystyle \sum_{n \geq 1} u_n$ est convergente.
+	}
+\end{enumerate}
 	
 }
