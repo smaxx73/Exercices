@@ -1,0 +1,148 @@
+\uuid{IwCg}
+\titre{Une fonction "créneau" simple et sa parité}
+\theme{Séries de Fourier, Coefficients de Fourier}
+\auteur{Maxime Nguyen}
+\datecreate{2025-05-09}
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{
+		Soit la fonction $g(x)$ définie sur $\mathbb{R}$, $2\pi$-périodique, telle que pour $x \in [-\pi, \pi]$ :
+		$$ g(x) = \begin{cases} 1 & \text{si } x \in [-\pi/2, \pi/2] \\ 0 & \text{si } x \in ]-\pi, -\pi/2[ \cup ]\pi/2, \pi[ \end{cases} $$
+		L'objectif de cet exercice est de calculer les coefficients de Fourier pour cette fonction paire simple et d'interpréter le coefficient $a_0$.
+	}
+	
+	\begin{enumerate}
+		\item \question{Tracer le graphe de $g(x)$ sur l'intervalle $[-2\pi, 2\pi]$.}
+		\indication{Commencez par tracer la fonction sur $[-\pi, \pi]$ puis utilisez la $2\pi$-périodicité pour l'étendre.}
+		\reponse{
+			La fonction $g(x)$ vaut $1$ sur l'intervalle $[-\pi/2, \pi/2]$. Elle vaut $0$ sur les intervalles $]-\pi, -\pi/2[$ et $]\pi/2, \pi[$.
+			Par $2\pi$-périodicité ($g(x+2k\pi)=g(x)$ pour $k \in \mathbb{Z}$):
+			\begin{itemize}
+				\item Sur $[-2\pi, -3\pi/2]$: $x \in [-2\pi, -3\pi/2] \implies x+2\pi \in [0, \pi/2]$. Sur cet intervalle, $g(x+2\pi)=1$, donc $g(x)=1$.
+				\item Sur $]-3\pi/2, -\pi/2[$: $x \in ]-3\pi/2, -\pi] \implies x+2\pi \in ]\pi/2, \pi]$. Sur cet intervalle, $g(x+2\pi)=0$. Et pour $x \in ]-\pi, -\pi/2[$, $g(x)=0$ par définition. Donc $g(x)=0$ sur $]-3\pi/2, -\pi/2[$.
+				\item Sur $[-\pi/2, \pi/2]$: $g(x)=1$ par définition.
+				\item Sur $]\pi/2, 3\pi/2[$: $x \in ]\pi/2, \pi] \implies g(x)=0$ par définition. Et pour $x \in ]\pi, 3\pi/2[ \implies x-2\pi \in ]-\pi, -\pi/2[$. Sur cet intervalle, $g(x-2\pi)=0$. Donc $g(x)=0$ sur $]\pi/2, 3\pi/2[$.
+				\item Sur $[3\pi/2, 2\pi]$: $x \in [3\pi/2, 2\pi] \implies x-2\pi \in [-\pi/2, 0]$. Sur cet intervalle, $g(x-2\pi)=1$, donc $g(x)=1$.
+			\end{itemize}
+			Le graphe est le suivant :
+			\begin{center}
+%				\begin{tikzpicture}[scale=0.75, every node/.style={scale=0.75}]
+%					% Axes
+%					\draw[->] (-2.3*pi,0) -- (2.3*pi,0) node[right] {$x$};
+%					\draw[->] (0,-0.3) -- (0,1.3) node[above] {$g(x)$};
+%					
+%					% Graduations x
+%					\foreach \x/\xtext in {-2*pi/$-2\pi$, -1.5*pi/$\frac{-3\pi}{2}$, -pi/$-\pi$, -0.5*pi/$\frac{-\pi}{2}$, 0.5*pi/$\frac{\pi}{2}$, pi/$\pi$, 1.5*pi/$\frac{3\pi}{2}$, 2*pi/$2\pi$} {
+%						\ifdim\x pt=0pt \else \draw (\x,0.05) -- (\x,-0.05) node[below] {\xtext}; \fi
+%					}
+%					\node[below left] at (0,0) {$0$};
+%					
+%					% Graduations y
+%					\draw (-0.05,1) -- (0.05,1) node[left] {$1$};
+%					
+%					% Graphe de g(x)
+%					\def\linewidth{1pt}
+%					\color{blue}
+%					% Segments où g(x) = 1
+%					\draw[line width=\linewidth] (-2*pi,1) -- (-1.5*pi,1);
+%					\draw[line width=\linewidth] (-0.5*pi,1) -- (0.5*pi,1);
+%					\draw[line width=\linewidth] (1.5*pi,1) -- (2*pi,1);
+%					
+%					% Segments où g(x) = 0
+%					\draw[line width=\linewidth] (-1.5*pi,0) -- (-0.5*pi,0);
+%					\draw[line width=\linewidth] (0.5*pi,0) -- (1.5*pi,0);
+%					
+%					% Lignes verticales pour les discontinuités
+%					\draw[densely dashed, blue] (-1.5*pi,0) -- (-1.5*pi,1);
+%					\draw[densely dashed, blue] (-0.5*pi,0) -- (-0.5*pi,1);
+%					\draw[densely dashed, blue] (0.5*pi,0) -- (0.5*pi,1);
+%					\draw[densely dashed, blue] (1.5*pi,0) -- (1.5*pi,1);
+%					
+%					% Points fermés sur les segments g(x)=1 (valeurs effectives aux points de saut)
+%					\foreach \xp in {-2*pi, -1.5*pi, -0.5*pi, 0.5*pi, 1.5*pi, 2*pi} {
+%						\node[circle, fill=blue, draw=blue, inner sep=0pt, minimum size=1.5pt] at (\xp,1) {};
+%					}
+%					% Points ouverts sur les segments g(x)=0 (limites aux points de saut)
+%					\foreach \xp in {-1.5*pi, -0.5*pi, 0.5*pi, 1.5*pi} {
+%						\node[circle, fill=white, draw=blue, inner sep=0pt, minimum size=1.5pt] at (\xp,0) {};
+%					}
+%				\end{tikzpicture}
+			\end{center}
+		}
+		
+		\item \question{La fonction $g(x)$ est-elle paire ? Impaire ? Ni l'une ni l'autre ? Justifier.}
+
+		\reponse{
+			Considérons $x \in [-\pi, \pi]$.
+			\begin{itemize}
+				\item Si $x \in [-\pi/2, \pi/2]$, alors $g(x)=1$. Dans ce cas, $-x \in [-\pi/2, \pi/2]$ également. Donc $g(-x)=1$. Ainsi $g(-x)=g(x)$.
+				\item Si $x \in ]-\pi, -\pi/2[$, alors $g(x)=0$. Dans ce cas, $-x \in ]\pi/2, \pi[$. Donc $g(-x)=0$. Ainsi $g(-x)=g(x)$.
+				\item Si $x \in ]\pi/2, \pi[$, alors $g(x)=0$. Dans ce cas, $-x \in ]-\pi, -\pi/2[$. Donc $g(-x)=0$. Ainsi $g(-x)=g(x)$.
+			\end{itemize}
+			Pour les points frontières $\pi$ et $-\pi$: $g(\pi) = g(-\pi)$ par périodicité ($g(\pi)=g(-\pi + 2\pi)=g(-\pi)$). De plus $g(\pi) = 0$ (car $\pi \in ]\pi/2, \pi]$ en considérant la définition sur $[-\pi, \pi[$ ou en prenant la limite pour $x \to \pi^-$). Donc $g(-\pi)=0$. Vérifions $g(-(-\pi))=g(\pi)=0$.
+			La fonction $g(x)$ est paire car $g(-x)=g(x)$ pour tout $x \in \mathbb{R}$.
+		}
+		
+		\item \question{Quelle conséquence la parité de $g(x)$ a-t-elle sur ses coefficients de Fourier $b_n$ ?}
+
+		\reponse{
+			Si une fonction $f$ est $2\pi$-périodique et paire, alors ses coefficients de Fourier $b_n$ sont tous nuls. En effet, $b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} g(x)\sin(nx) \, dx$. L'intégrande $g(x)\sin(nx)$ est le produit d'une fonction paire ($g(x)$) et d'une fonction impaire ($\sin(nx)$), ce qui donne une fonction impaire. L'intégrale d'une fonction impaire sur un intervalle symétrique par rapport à l'origine ($[-\pi, \pi]$) est nulle.
+			Donc, $b_n = 0$ pour tout $n \ge 1$.
+		}
+		
+		\item \question{Calculer le coefficient $a_0$. Quelle est son interprétation graphique ?
+			On rappelle que $a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} g(x) \, dx$.}
+
+		\reponse{
+			$a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} g(x) \, dx$.
+			Comme $g(x)$ est paire, $\int_{-\pi}^{\pi} g(x) \, dx = 2 \int_{0}^{\pi} g(x) \, dx$.
+			$a_0 = \frac{2}{\pi} \int_{0}^{\pi} g(x) \, dx$.
+			Sur $[0, \pi]$, $g(x)=1$ pour $x \in [0, \pi/2]$ et $g(x)=0$ pour $x \in ]\pi/2, \pi]$.
+			Donc, $a_0 = \frac{2}{\pi} \left( \int_{0}^{\pi/2} 1 \, dx + \int_{\pi/2}^{\pi} 0 \, dx \right) = \frac{2}{\pi} \left( [x]_{0}^{\pi/2} + 0 \right) = \frac{2}{\pi} \left( \frac{\pi}{2} - 0 \right) = 1$.
+			Donc $a_0 = 1$.
+			Interprétation graphique : $a_0/2$ est la valeur moyenne de la fonction $g(x)$ sur une période. Ici, $a_0/2 = 1/2$.
+			L'aire sous la courbe de $g(x)$ sur une période, par exemple $[-\pi, \pi]$, est $\int_{-\pi/2}^{\pi/2} 1 \, dx = \pi/2 - (-\pi/2) = \pi$. La longueur de la période est $2\pi$. La valeur moyenne est donc $\frac{\text{Aire}}{\text{Longueur période}} = \frac{\pi}{2\pi} = \frac{1}{2}$.
+		}
+		
+		\item \question{Calculer les coefficients $a_n$ pour $n \ge 1$.
+			On rappelle que $a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} g(x)\cos(nx) \, dx$. Discuter la valeur de $a_n$ selon la parité de $n$ (si $n$ est pair ou impair, en distinguant le cas $n=0$ déjà traité).}
+
+		\reponse{
+			Pour $n \ge 1$, $a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} g(x)\cos(nx) \, dx$.
+			Comme $g(x)$ est paire et $\cos(nx)$ est paire, leur produit $g(x)\cos(nx)$ est une fonction paire.
+			Donc, $a_n = \frac{2}{\pi} \int_{0}^{\pi} g(x)\cos(nx) \, dx$.
+			Sur $[0, \pi]$, $g(x)=1$ pour $x \in [0, \pi/2]$ et $g(x)=0$ pour $x \in ]\pi/2, \pi]$.
+			$a_n = \frac{2}{\pi} \left( \int_{0}^{\pi/2} 1 \cdot \cos(nx) \, dx + \int_{\pi/2}^{\pi} 0 \cdot \cos(nx) \, dx \right) = \frac{2}{\pi} \int_{0}^{\pi/2} \cos(nx) \, dx$.
+			$a_n = \frac{2}{\pi} \left[ \frac{\sin(nx)}{n} \right]_{0}^{\pi/2} = \frac{2}{\pi n} \left( \sin\left(\frac{n\pi}{2}\right) - \sin(0) \right) = \frac{2}{\pi n} \sin\left(\frac{n\pi}{2}\right)$.
+			
+			Discussion de la valeur de $a_n$ :
+			\begin{itemize}
+				\item Si $n$ est pair, $n=2k$ pour $k \in \mathbb{N}^*$.
+				Alors $\sin\left(\frac{2k\pi}{2}\right) = \sin(k\pi) = 0$.
+				Donc $a_{2k} = 0$ pour $k \ge 1$.
+				\item Si $n$ est impair, $n=2k+1$ pour $k \in \mathbb{N}$.
+				Alors $\sin\left(\frac{(2k+1)\pi}{2}\right)$ vaut $1$ si $k$ est pair (e.g., $n=1, 5, 9, \dots$) et $-1$ si $k$ est impair (e.g., $n=3, 7, 11, \dots$).
+				Ceci peut s'écrire $\sin\left(\frac{(2k+1)\pi}{2}\right) = (-1)^k$.
+				Donc $a_{2k+1} = \frac{2(-1)^k}{\pi (2k+1)}$ pour $k \ge 0$.
+			\end{itemize}
+			En résumé, pour $n \ge 1$:
+			$a_n = \begin{cases} 0 & \text{si } n \text{ est pair} \\ \frac{2(-1)^{(n-1)/2}}{\pi n} & \text{si } n \text{ est impair} \end{cases}$
+			Par exemple : $a_1 = \frac{2}{\pi}$, $a_2=0$, $a_3 = -\frac{2}{3\pi}$, $a_4=0$, $a_5 = \frac{2}{5\pi}$.
+		}
+		
+		\item \question{Écrire les premiers termes non nuls de la série de Fourier de $g(x)$.}
+
+		\reponse{
+			La série de Fourier de $g(x)$ est donnée par $S_g(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n \cos(nx) + b_n \sin(nx))$.
+			Avec $a_0=1$, $b_n=0$ pour tout $n$, et les $a_n$ calculés :
+			$S_g(x) = \frac{1}{2} + a_1 \cos(x) + a_3 \cos(3x) + a_5 \cos(5x) + \dots$
+			$S_g(x) = \frac{1}{2} + \frac{2}{\pi}\cos(x) - \frac{2}{3\pi}\cos(3x) + \frac{2}{5\pi}\cos(5x) - \dots$
+			On peut écrire la série sous forme compacte :
+			$S_g(x) = \frac{1}{2} + \sum_{k=0}^{\infty} a_{2k+1} \cos((2k+1)x) = \frac{1}{2} + \sum_{k=0}^{\infty} \frac{2(-1)^k}{\pi(2k+1)} \cos((2k+1)x)$.
+			$S_g(x) = \frac{1}{2} + \frac{2}{\pi} \left( \cos(x) - \frac{1}{3}\cos(3x) + \frac{1}{5}\cos(5x) - \frac{1}{7}\cos(7x) + \dots \right)$.
+		}
+	\end{enumerate}
+	
+}

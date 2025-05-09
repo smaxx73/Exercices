@@ -1,0 +1,164 @@
+\uuid{7rMC}
+
+\titre{À la découverte des Coefficients de Fourier}
+\theme{Séries de Fourier, Analyse Mathématique}
+\auteur{Maxime Nguyen}
+\datecreate{2025-05-09}
+\organisation{AMSCC}
+
+\contenu{
+	
+	\texte{
+		\textit{Objectif : Comprendre comment décomposer une fonction périodique en une somme de fonctions sinusoïdales plus simples, et comment calculer les "poids" de chaque composante.}
+		
+		\vspace{0.5cm}
+		\textbf{Partie 1 : L'idée de base et les coefficients réels}
+		\vspace{0.3cm}
+		
+		Imaginons une fonction $f(x)$ qui est périodique, de période $T=2\pi$. On suppose qu'on peut l'écrire comme une somme (potentiellement infinie) de cosinus et de sinus :
+		$$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(nx) + b_n \sin(nx) \right) $$
+		Les nombres $a_0, a_n, b_n$ sont appelés les \textbf{coefficients de Fourier réels} de $f$. Notre but est de trouver comment les calculer si on connaît $f(x)$.
+	}
+	
+	\begin{enumerate}
+		\item \question{Intégrer $f(x)$ entre $-\pi$ et $\pi$ et en déduire une formule pour calculer terme constant $\frac{a_0}{2}$. }
+
+		\reponse{
+			Si on intègre $f(x)$ sur une période $[-\pi, \pi]$ :
+			$$ \int_{-\pi}^{\pi} f(x) \dx = \int_{-\pi}^{\pi} \frac{a_0}{2} \dx + \sum_{n=1}^{\infty} \left( a_n \int_{-\pi}^{\pi} \cos(nx) \dx + b_n \int_{-\pi}^{\pi} \sin(nx) \dx \right) $$
+			En utilisant les propriétés rappelées :
+			$$ \int_{-\pi}^{\pi} f(x) \dx = \frac{a_0}{2} \int_{-\pi}^{\pi} \dx + \sum_{n=1}^{\infty} (a_n \cdot 0 + b_n \cdot 0) = \frac{a_0}{2} [x]_{-\pi}^{\pi} = \frac{a_0}{2} (2\pi) = a_0 \pi $$
+			Donc,
+			$$ \boxed{a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \dx} $$
+			(C'est pour cela qu'on met un $\frac{1}{2}$ devant $a_0$ dans la série, pour simplifier cette formule !)
+		}
+		
+		\item \question{Orthogonalité des fonctions trigonométriques : Pour isoler $a_k$ (où $k \ge 1$ est un entier fixé), l'idée est de multiplier $f(x)$ par $\cos(kx)$ puis d'intégrer. Pour que cela fonctionne, nous avons besoin de connaître les valeurs des intégrales suivantes (où $n, k \in \N^*$) :
+			\begin{itemize}
+				\item[(a)] $\int_{-\pi}^{\pi} \cos(nx) \cos(kx) \dx$
+				\item[(b)] $\int_{-\pi}^{\pi} \sin(nx) \cos(kx) \dx$
+				\item[(c)] $\int_{-\pi}^{\pi} \sin(nx) \sin(kx) \dx$ (utile pour $b_k$)
+			\end{itemize}
+			Que valent ces intégrales si $n \neq k$ ? Et si $n=k$ ?}
+		\indication{Utilisez les formules de trigonométrie $\cos A \cos B = \frac{1}{2}(\cos(A-B) + \cos(A+B))$, $\sin A \cos B = \frac{1}{2}(\sin(A+B) + \sin(A-B))$, $\sin A \sin B = \frac{1}{2}(\cos(A-B) - \cos(A+B))$.
+	
+		
+	}
+		\reponse{
+			Ces relations sont appelées \textbf{relations d'orthogonalité}.
+			\begin{itemize}
+				\item[(a)] $\int_{-\pi}^{\pi} \cos(nx) \cos(kx) \dx = \begin{cases} 0 & \text{si } n \neq k \\ \pi & \text{si } n = k \neq 0 \end{cases}$
+				\item[(b)] $\int_{-\pi}^{\pi} \sin(nx) \cos(kx) \dx = 0 \quad \text{pour tous } n, k \ge 1$
+				\item[(c)] $\int_{-\pi}^{\pi} \sin(nx) \sin(kx) \dx = \begin{cases} 0 & \text{si } n \neq k \\ \pi & \text{si } n = k \neq 0 \end{cases}$
+			\end{itemize}
+		}
+		
+		\item \question{Le coefficient $a_k$ ($k \ge 1$) : En utilisant les résultats de la Q2, comment exprimer $a_k$ à l'aide d'une intégrale ? Multipliez la série de Fourier par $\cos(kx)$ et intégrez de $-\pi$ à $\pi$.}
+		
+		\reponse{
+			$$ \int_{-\pi}^{\pi} f(x) \cos(kx) \dx = \int_{-\pi}^{\pi} \left( \frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n \cos(nx) + b_n \sin(nx)) \right) \cos(kx) \dx $$
+			On distribue l'intégrale et le $\cos(kx)$ :
+			$$ = \frac{a_0}{2} \underbrace{\int_{-\pi}^{\pi} \cos(kx) \dx}_{=0 \text{ car } k \ge 1} + \sum_{n=1}^{\infty} \left( a_n \int_{-\pi}^{\pi} \cos(nx)\cos(kx) \dx + b_n \underbrace{\int_{-\pi}^{\pi} \sin(nx)\cos(kx) \dx}_{=0 \text{ (Q2b)}} \right) $$
+			D'après Q2a, l'intégrale $\int_{-\pi}^{\pi} \cos(nx)\cos(kx) \dx$ est nulle sauf si $n=k$, où elle vaut $\pi$. Donc, dans toute la somme, seul le terme où $n=k$ survit :
+			$$ \int_{-\pi}^{\pi} f(x) \cos(kx) \dx = a_k \cdot \pi $$
+			Ainsi, pour $k \ge 1$ :
+			$$ \boxed{a_k = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(kx) \dx} $$
+		}
+		
+		\item \question{Le coefficient $b_k$ ($k \ge 1$) : Sur le même principe, comment exprimer $b_k$ à l'aide d'une intégrale ?}
+		
+		\reponse{
+			On multiplie $f(x)$ par $\sin(kx)$ et on intègre :
+			$$ \int_{-\pi}^{\pi} f(x) \sin(kx) \dx = \int_{-\pi}^{\pi} \left( \frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n \cos(nx) + b_n \sin(nx)) \right) \sin(kx) \dx $$
+			$$ = \frac{a_0}{2} \underbrace{\int_{-\pi}^{\pi} \sin(kx) \dx}_{=0 \text{ car } k \ge 1} + \sum_{n=1}^{\infty} \left( a_n \underbrace{\int_{-\pi}^{\pi} \cos(nx)\sin(kx) \dx}_{=0 \text{ (Q2b)}} + b_n \int_{-\pi}^{\pi} \sin(nx)\sin(kx) \dx \right) $$
+			D'après Q2c, l'intégrale $\int_{-\pi}^{\pi} \sin(nx)\sin(kx) \dx$ est nulle sauf si $n=k$, où elle vaut $\pi$. Donc, seul le terme où $n=k$ survit :
+			$$ \int_{-\pi}^{\pi} f(x) \sin(kx) \dx = b_k \cdot \pi $$
+			Ainsi, pour $k \ge 1$ :
+			$$ \boxed{b_k = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(kx) \dx} $$
+		}
+	\end{enumerate}
+	
+	\texte{
+		\vspace{0.5cm}
+		\textbf{Partie 2 : Vers les coefficients complexes}
+		\vspace{0.3cm}
+		
+		La formule d'Euler $\mathrm{e}^{\im \theta} = \cos(\theta) + \im \sin(\theta)$ est un outil puissant. Elle permet d'exprimer $\cos(\theta)$ et $\sin(\theta)$ :
+		$$ \cos(\theta) = \frac{\mathrm{e}^{\im \theta} + \mathrm{e}^{-\im \theta}}{2} \quad \text{et} \quad \sin(\theta) = \frac{\mathrm{e}^{\im \theta} - \mathrm{e}^{-\im \theta}}{2\im} $$
+	}
+	
+	\begin{enumerate}
+		\setcounter{enumi}{4} % Pour continuer la numérotation
+		\item \question{Réécriture de la série de Fourier : Remplacez $\cos(nx)$ et $\sin(nx)$ dans la série de Fourier réelle (de la Partie 1) par leurs expressions en exponentielles complexes.
+			$$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \frac{\mathrm{e}^{\im nx} + \mathrm{e}^{-\im nx}}{2} + b_n \frac{\mathrm{e}^{\im nx} - \mathrm{e}^{-\im nx}}{2\im} \right) $$
+			Regroupez les termes en $\mathrm{e}^{\im nx}$ et $\mathrm{e}^{-\im nx}$.}
+		\indication{N'oubliez pas que $1/\im = -\im$.}
+		\reponse{
+			$$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( \left(\frac{a_n}{2} + \frac{b_n}{2\im}\right) \mathrm{e}^{\im nx} + \left(\frac{a_n}{2} - \frac{b_n}{2\im}\right) \mathrm{e}^{-\im nx} \right) $$
+			En utilisant $1/\im = -\im$ :
+			$$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( \frac{a_n - \im b_n}{2} \mathrm{e}^{\im nx} + \frac{a_n + \im b_n}{2} \mathrm{e}^{-\im nx} \right) $$
+		}
+		
+		\item \question{Définition des coefficients complexes $c_k$ : On souhaite écrire la série sous la forme compacte :
+			$$ f(x) = \sum_{k=-\infty}^{\infty} c_k \mathrm{e}^{\im kx} $$
+			En comparant avec l'expression de la Q5, identifiez $c_n$ pour $n > 0$, $c_k$ pour $k < 0$ (en posant $k = -n$ avec $n>0$), et $c_0$.}
+		
+		\reponse{
+			\begin{itemize}
+				\item Pour $n > 0$, le coefficient de $\mathrm{e}^{\im nx}$ est $c_n$. En comparant avec Q5 :
+				$$ \boxed{c_n = \frac{a_n - \im b_n}{2} \quad (n > 0)} $$
+				\item Pour les termes en $\mathrm{e}^{-\im nx}$ dans Q5, cela correspond aux $c_k$ avec $k < 0$. Posons $k = -n$ (donc $n>0$). Le coefficient de $\mathrm{e}^{-\im nx}$ est $c_{-n}$. En comparant avec Q5 :
+				$$ \boxed{c_{-n} = \frac{a_n + \im b_n}{2} \quad (n > 0)} $$
+				\item Pour $k=0$, $\mathrm{e}^{\im 0 x} = 1$. Le terme constant dans la série complexe est $c_0$. Dans la série réelle, c'est $\frac{a_0}{2}$. Donc :
+				$$ \boxed{c_0 = \frac{a_0}{2}} $$
+			\end{itemize}
+		}
+		
+		\item \question{Formule intégrale directe pour $c_k$ : De la même manière que pour $a_n, b_n$, on peut trouver $c_k$ en multipliant $f(x)$ par $\mathrm{e}^{-\im kx}$ et en intégrant sur $[-\pi, \pi]$.
+			On a besoin de l'orthogonalité des exponentielles complexes :
+			$$ \int_{-\pi}^{\pi} \mathrm{e}^{\im nx} \mathrm{e}^{-\im kx} \dx = \int_{-\pi}^{\pi} \mathrm{e}^{\im (n-k)x} \dx = \begin{cases} 0 & \text{si } n \neq k \\ 2\pi & \text{si } n = k \end{cases} $$
+			Utilisez cela pour trouver la formule de $c_k$ (pour $k \in \Z$).}
+		
+		\reponse{
+			On part de $f(x) = \sum_{n=-\infty}^{\infty} c_n \mathrm{e}^{\im nx}$. On multiplie par $\mathrm{e}^{-\im kx}$ et on intègre :
+			$$ \int_{-\pi}^{\pi} f(x) \mathrm{e}^{-\im kx} \dx = \int_{-\pi}^{\pi} \left( \sum_{n=-\infty}^{\infty} c_n \mathrm{e}^{\im nx} \right) \mathrm{e}^{-\im kx} \dx $$
+			$$ = \sum_{n=-\infty}^{\infty} c_n \int_{-\pi}^{\pi} \mathrm{e}^{\im nx} \mathrm{e}^{-\im kx} \dx $$
+			Grâce à l'orthogonalité, seule l'intégrale où $n=k$ est non nulle et vaut $2\pi$. Tous les autres termes s'annulent.
+			$$ \int_{-\pi}^{\pi} f(x) \mathrm{e}^{-\im kx} \dx = c_k \cdot 2\pi $$
+			Donc, pour tout $k \in \Z$ (entier relatif) :
+			$$ \boxed{c_k = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \mathrm{e}^{-\im kx} \dx} $$
+			C'est la formule générale du \textbf{coefficient de Fourier complexe}.
+		}
+		
+		\item \question{Vérification du lien : Vérifions que cette formule intégrale pour $c_k$ est cohérente avec les expressions de $c_n, c_{-n}, c_0$ trouvées en Q6 en fonction de $a_n, b_n, a_0$.
+			Par exemple, pour $n>0$, calculez $c_n = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \mathrm{e}^{-\im nx} \dx$ en utilisant $\mathrm{e}^{-\im nx} = \cos(nx) - \im \sin(nx)$ et les formules intégrales de $a_n, b_n$ de la Partie 1.}
+		\indication{Faites de même pour $c_{-n}$ (avec $n>0$) et pour $c_0$.}
+		\reponse{
+			Pour $n > 0$ :
+			\begin{align*} c_n &= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \mathrm{e}^{-\im nx} \dx \\ &= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) (\cos(nx) - \im \sin(nx)) \dx \\ &= \frac{1}{2} \left( \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(nx) \dx \right) - \frac{\im}{2} \left( \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(nx) \dx \right) \\ &= \frac{1}{2} a_n - \frac{\im}{2} b_n = \frac{a_n - \im b_n}{2} \end{align*}
+			Ceci correspond bien à ce que nous avions trouvé en Q6 pour $c_n$ ($n>0$).
+			De même pour $c_{-n}$ ($n>0$) :
+			\begin{align*} c_{-n} &= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \mathrm{e}^{-(-\im nx)} \dx = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \mathrm{e}^{\im nx} \dx \\ &= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) (\cos(nx) + \im \sin(nx)) \dx \\ &= \frac{1}{2} \left( \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(nx) \dx \right) + \frac{\im}{2} \left( \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(nx) \dx \right) \\ &= \frac{1}{2} a_n + \frac{\im}{2} b_n = \frac{a_n + \im b_n}{2} \end{align*}
+			Ceci correspond bien à Q6 pour $c_{-n}$ ($n>0$).
+			Et pour $c_0$ :
+			$$ c_0 = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \mathrm{e}^{\im 0 x} \dx = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \dx = \frac{1}{2} \left( \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \dx \right) = \frac{a_0}{2} $$
+			Ceci correspond bien à Q6 pour $c_0$. Les formules sont cohérentes !
+		}
+		
+		\item \question{Relation entre $c_n$ et $c_{-n}$ : Si $f(x)$ est une fonction à valeurs réelles, quelle relation existe-t-il entre $a_n$ et $b_n$ (qui sont réels par définition si $f$ est réelle) et les coefficients $c_n$ et $c_{-n}$ ? En particulier, que pouvez-vous dire de $c_{-n}$ par rapport à $c_n^*$ (le conjugué complexe de $c_n$) ?}
+		
+		\reponse{
+			Si $f(x)$ est réelle, alors $a_n$ et $b_n$ sont des nombres réels.
+			On a $c_n = \frac{a_n - \im b_n}{2}$ (pour $n>0$).
+			Le conjugué complexe de $c_n$ est $c_n^* = \left(\frac{a_n - \im b_n}{2}\right)^* = \frac{a_n^* - (-\im b_n)^*}{2} = \frac{a_n + \im b_n}{2}$ (car $a_n, b_n$ sont réels).
+			Or, nous avons vu que $c_{-n} = \frac{a_n + \im b_n}{2}$ (pour $n>0$).
+			Donc, pour une fonction $f(x)$ réelle, on a la relation importante pour $n \neq 0$ :
+			$$ \boxed{c_{-n} = c_n^*} $$
+			Cela signifie que pour les fonctions réelles, les coefficients pour les fréquences négatives sont les conjugués des coefficients pour les fréquences positives.
+			Note : $c_0 = a_0/2$. Si $f(x)$ est réelle, $a_0$ est réel, donc $c_0$ est réel. Ainsi $c_0^* = c_0$, ce qui est cohérent avec la formule $c_{-n}=c_n^*$ si on l'applique à $n=0$ (où $c_{-0} = c_0$).
+		}
+	\end{enumerate}
+	
+
+	
+}
