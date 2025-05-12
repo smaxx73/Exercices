@@ -52,7 +52,7 @@
 					\item un tarif complet à 200 euros si c'est le module H qui est tombé en panne en premier (c'est-à-dire $Y < X$).
 				\end{itemize}
 			\end{itemize}
-			On note W la variable aléatoire qui donne le coût de réparation du capteur. }
+			On note $W$ la variable aléatoire qui donne le coût de réparation du capteur. }
 			
 			\question{ Déterminer la loi de la variable aléatoire $W$. }
 		\indication{Identifier les valeurs possibles pour W (0, 50, 200) et calculer les probabilités associées : $\prob(W=0) = \prob(Z < 3)$, $\prob(W=50) = \prob(Z \ge 3 \text{ et } X < Y)$, et $\prob(W=200) = \prob(Z \ge 3 \text{ et } Y < X)$. On peut utiliser l'intégration double sur les domaines appropriés ou utiliser la propriété connue que $\prob(X < Y) = \frac{\lambda_T}{\lambda_T + \lambda_H}$ et le fait que l'événement $\{X<Y\}$ est indépendant de l'événement $\{Z \ge 3\}$. Alternativement, calculer $\prob(W=0)$ et $\prob(W=50)$ puis utiliser $\prob(W=200) = 1 - \prob(W=0) - \prob(W=50)$.}
