@@ -17,7 +17,7 @@
 	}
 	
 	\begin{enumerate}
-		\item \question{Calculer la fonction de répartition de Z.}
+		\item \question{Déterminer la fonction de répartition de $Z$.}
 		\indication{Utiliser $F_Z(z) = \prob(Z \le z) = 1 - \prob(Z > z)$. Noter que l'événement $\{Z > z\}$ est équivalent à $\{\min(X, Y) > z\}$, ce qui signifie $\{X > z \text{ et } Y > z\}$. Utiliser l'indépendance de X et Y.}
 		\reponse{
 			Pour $z < 0$, il est impossible que la durée de vie soit négative, donc $F_Z(z) = \prob(Z \le z) = 0$.
@@ -35,7 +35,7 @@
 			$F_Z(z) = \begin{cases} 0 & \text{si } z < 0 \\ 1 - e^{-0.3z} & \text{si } z \ge 0 \end{cases}$
 		}
 		
-		\item \question{En déduire la loi de Z.}
+		\item \question{En déduire la loi de $Z$.}
 		\indication{Comparer la fonction de répartition $F_Z(z)$ trouvée à la forme générale de la fonction de répartition d'une loi connue.}
 		\reponse{
 			La fonction de répartition $F_Z(z) = 1 - e^{-0.3z}$ pour $z \ge 0$ est caractéristique d'une loi exponentielle de paramètre $\lambda = 0.3$.

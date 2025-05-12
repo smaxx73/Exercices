@@ -11,20 +11,20 @@
 		Une fonderie produit un alliage constitué de cuivre, de zinc et d'autres métaux. On modélise la répartition des deux principaux constituants par le couple \((X,Y)\), où :
 		
 		\begin{itemize}
-			\item \(X\) : fraction de cuivre dans l'alliage (entre 0 et 1),
-			\item \(Y\) : fraction de zinc dans l'alliage (entre 0 et 1),
+			\item \(X\) désigne la proportion de cuivre dans l'alliage (entre 0 et 1),
+			\item \(Y\) désigne la proportion de zinc dans l'alliage (entre 0 et 1),
 		\end{itemize}
 		
 		avec la contrainte \(X + Y \leq 1\) (le reste étant composé d'autres métaux).
 		
 		On suppose que \((X,Y)\) possède la densité conjointe suivante :
-		\[
+		$$
 		f_{X,Y}(x,y) =
 		\begin{cases}
 			c\,(x + y), & \text{si } x \geq 0,\ y \geq 0,\ x + y \leq 1, \\
 			0, & \text{sinon},
 		\end{cases}
-		\]
+		$$
 		où \(c\) est une constante.
 	}
 	
@@ -43,7 +43,7 @@
 				c \cdot \frac{1}{3} &= 1 \Rightarrow c = 3
 			\end{align*}
 		}
-		\item \question{Déterminer les lois marginales du couple (les loi de $X$ et $Y$ séparément).}
+		\item \question{Déterminer les lois marginales du couple $(X,Y)$ (les loi de $X$ et $Y$ séparément).}
 		\indication{Pour trouver la densité marginale $f_X(x)$, intégrer la densité conjointe $f_{X,Y}(x,y)$ par rapport à $y$ sur son support. Un raisonnement par symétrie peut être utilisé pour $f_Y(y)$.}
 \reponse{
 	Pour \( x \in [0,1] \), la variable \(y\) varie dans l'intervalle \( [0, 1 - x] \). Donc :
@@ -94,7 +94,7 @@
 			Clairement, $3(x+y) \neq \frac{(1-x^2)(1-y^2)}{36}$ sur $\mathcal{D}$.
 			Donc, $f_{X,Y}(x,y) \neq f_X(x)f_Y(y)$. Les variables ne sont pas indépendantes.
 		}
-		\item \question{Calculer la loi de la variable aléatoire $X+Y$ qui donne la fraction de cuivre et de zinc réunis.}
+		\item \question{Déterminer la loi de la variable aléatoire $X+Y$ qui donne la proportion de cuivre et de zinc réunis.}
 		\indication{Soit $U=X+Y$. On peut utiliser la méthode de la fonction muette (ou théorème d'identification). Pour cela, on calcule $\mathbb{E}[h(U)]$ pour une fonction $h$ continue bornée, en effectuant un changement de variables. On pose $U = X+Y$ et $V=X$ (par exemple), on calcule le Jacobien de la transformation et on détermine le nouveau domaine d'intégration.}
 		\reponse{
 			On pose $U=X+Y$. On va appliquer le théorème d'identification. Soit $h$ une fonction continue bornée. On calcule :
