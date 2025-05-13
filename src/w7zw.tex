@@ -1,0 +1,114 @@
+\uuid{w7zw}
+\titre{}
+
+
+\contenu{
+\texte{ Soient $X_1,...,X_n$ des variables aléatoires indépendantes et de même loi ayant pour densité :
+	$$f_\theta \colon x \mapsto \left\{
+	\begin{array}{ll}
+		\frac{2x}{\theta^2} & \mbox{si } 0 \leq x \leq \theta \\
+		0 & \mbox{sinon.}
+	\end{array}
+	\right.$$
+	où $\theta \in [\theta_{min}; \theta_{max}]$ est un paramètre, avec $0 < \theta_{min} < \theta_{max}$ des constantes connues (par exemple, $\theta_{min}=1, \theta_{max}=10$).
+}
+
+\begin{enumerate}
+	\item \question{ Montrer que pour tout $\theta \in [\theta_{min}; \theta_{max}]$, $f_\theta$ est une densité de probabilité. }
+	\reponse{
+		Pour que $f_\theta$ soit une densité de probabilité, elle doit être positive et son intégrale sur $\mathbb{R}$ doit valoir 1.
+		\begin{itemize}
+			\item Positivité : Pour $x \in [0, \theta]$, on a $x \geq 0$. Comme $\theta > 0$, $\theta^2 > 0$. Donc $f_\theta(x) = \frac{2x}{\theta^2} \geq 0$. Si $x \notin [0, \theta]$, $f_\theta(x) = 0$. Donc $f_\theta(x) \geq 0$ pour tout $x \in \mathbb{R}$.
+			\item Intégrale :
+			\begin{align*}
+				\int_{-\infty}^{+\infty} f_\theta(x) dx &= \int_{0}^{\theta} \frac{2x}{\theta^2} dx \\
+				&= \frac{2}{\theta^2} \int_{0}^{\theta} x dx \\
+				&= \frac{2}{\theta^2} \left[ \frac{x^2}{2} \right]_{0}^{\theta} \\
+				&= \frac{2}{\theta^2} \left( \frac{\theta^2}{2} - 0 \right) \\
+				&= 1
+			\end{align*}
+		\end{itemize}
+		Donc $f_{\theta}$ définit bien une densité de probabilité pour tout $\theta \in [\theta_{min}; \theta_{max}]$.
+	}
+	\item \question{ Calculer $\mathbb{E}(X_1)$ et $\mathbb{V}(X_1)$. En déduire l'espérance et la variance de la variable aléatoire $\overline{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$.  }
+	\reponse{On calcule les moments d'ordre 1 et 2 de $X_1$ :
+		\begin{align*}
+			\mathbb{E}(X_1) &= \int_{-\infty}^{+\infty} x f_\theta(x) dx \\
+			&= \int_{0}^{\theta} x \cdot \frac{2x}{\theta^2} dx \\
+			&= \frac{2}{\theta^2} \int_{0}^{\theta} x^2 dx \\
+			&= \frac{2}{\theta^2} \left[ \frac{x^3}{3} \right]_{0}^{\theta} \\
+			&= \frac{2}{\theta^2} \cdot \frac{\theta^3}{3} = \frac{2\theta}{3}
+		\end{align*}
+		De même, 		
+		\begin{align*}
+			\mathbb{E}(X_1^2) &= \int_{-\infty}^{+\infty} x^2 f_\theta(x) dx \\
+			&= \int_{0}^{\theta} x^2 \cdot \frac{2x}{\theta^2} dx \\
+			&= \frac{2}{\theta^2} \int_{0}^{\theta} x^3 dx \\
+			&= \frac{2}{\theta^2} \left[ \frac{x^4}{4} \right]_{0}^{\theta} \\
+			&= \frac{2}{\theta^2} \cdot \frac{\theta^4}{4} = \frac{\theta^2}{2}
+		\end{align*}
+		Avec la formule de Koenig-Huygens, on en déduit que :
+		$$\mathbb{V}(X_1) = \mathbb{E}(X_1^2) - (\mathbb{E}(X_1))^2 = \frac{\theta^2}{2} - \left(\frac{2\theta}{3}\right)^2 = \frac{\theta^2}{2} - \frac{4\theta^2}{9} = \theta^2 \left(\frac{9-8}{18}\right) = \frac{\theta^2}{18}$$
+		Pour la moyenne empirique $\overline{X}_n$:
+		$$\mathbb{E}(\overline{X}_n) = \mathbb{E}(X_1) = \frac{2\theta}{3}$$
+		$$\mathbb{V}(\overline{X}_n) = \frac{\mathbb{V}(X_1)}{n} = \frac{\theta^2}{18n}$$
+		car les $X_i$ sont indépendantes et identiquement distribuées.
+	}
+	\item \question{ On pose $T_n = \frac{3}{2n} \sum_{i=1}^{n} X_i = \frac{3}{2}\overline{X}_n$. Montrer que $T_n$ est un estimateur sans biais et convergent de $\theta$. }
+	\reponse{
+		Par linéarité de l'espérance :
+		$$\mathbb{E}(T_n) = \mathbb{E}\left(\frac{3}{2}\overline{X}_n\right) = \frac{3}{2} \mathbb{E}(\overline{X}_n) = \frac{3}{2} \cdot \frac{2\theta}{3} = \theta$$
+		Le biais de $T_n$ est $B(T_n) = \mathbb{E}(T_n) - \theta = \theta - \theta = 0$. Donc $T_n$ est un estimateur sans biais de $\theta$.
+		
+		Par propriétés de la variance et indépendance des $X_i$:
+		$$\mathbb{V}(T_n) = \mathbb{V}\left(\frac{3}{2}\overline{X}_n\right) = \left(\frac{3}{2}\right)^2 \mathbb{V}(\overline{X}_n) = \frac{9}{4} \cdot \frac{\theta^2}{18n} = \frac{\theta^2}{8n}$$
+		L'Erreur Quadratique Moyenne (EQM) de $T_n$ est $EQM(T_n) = \mathbb{V}(T_n) + B(T_n)^2$.
+		Donc $EQM(T_n) = \frac{\theta^2}{8n} + 0^2 = \frac{\theta^2}{8n}$.
+		Comme $\lim_{n \to +\infty} EQM(T_n) = \lim_{n \to +\infty} \frac{\theta^2}{8n} = 0$, l'estimateur $T_n$ est convergent.
+	}		
+	
+	\item \question{ \`A l'aide du Théorème Central Limite, donner une approximation de la loi de $T_n$ pour $n$ grand. }
+	\reponse{
+		Les variables $(X_i)$ sont i.i.d., admettent une espérance $\mu = \mathbb{E}(X_1) = \frac{2\theta}{3}$ et une variance $\sigma^2 = \mathbb{V}(X_1) = \frac{\theta^2}{18}$.
+		D'après le Théorème Central Limite, la variable aléatoire $\frac{\overline{X}_n - \mu}{\sigma/\sqrt{n}}$ converge en loi vers une loi normale $\mathcal{N}(0,1)$.
+		On s'intéresse à $T_n = \frac{3}{2}\overline{X}_n$. On a $\mathbb{E}(T_n) = \theta$ et $\mathbb{V}(T_n) = \frac{\theta^2}{8n}$.
+		On peut écrire $T_n - \theta = \frac{3}{2}\overline{X}_n - \frac{3}{2}\mu = \frac{3}{2}(\overline{X}_n - \mu)$.
+		Donc, $\frac{T_n - \theta}{\sqrt{\mathbb{V}(T_n)}} = \frac{\frac{3}{2}(\overline{X}_n - \mu)}{\sqrt{(\frac{3}{2})^2 \frac{\sigma^2}{n}}} = \frac{\overline{X}_n - \mu}{\sigma/\sqrt{n}}$.
+		Ainsi, $\frac{T_n - \theta}{\sqrt{\theta^2/(8n)}}$ converge en loi vers une loi normale $\mathcal{N}(0,1)$.
+		
+		Si $n$ est grand, on peut approximer la loi de $T_n$ par une loi normale $\mathcal{N}\left(\theta, \frac{\theta^2}{8n}\right)$.
+	}
+	\item \question{ Démontrer qu'il existe une constante $M_n$ ne dépendant pas de $\theta$ (mais pouvant dépendre de $\theta_{min}, \theta_{max}$ et $n$) telle que si $\lambda >0$, 
+		$$\PP(|T_n-\theta| < \lambda) \geq 1-\frac{M_n}{\lambda^2}$$ }
+	\reponse{	D'après l'inégalité de Bienaymé-Tchebychev appliquée à $T_n$:
+		$$\PP(|T_n-\mathbb{E}(T_n)| \geq  \lambda) \leq \frac{\mathbb{V}(T_n)}{\lambda^2}$$
+		Comme $\mathbb{E}(T_n) = \theta$ et $\mathbb{V}(T_n) = \frac{\theta^2}{8n}$, on a :
+		$$\PP(|T_n-\theta| \geq \lambda) \leq \frac{\theta^2}{8n\lambda^2}$$
+		Puisque $\theta \in [\theta_{min}; \theta_{max}]$, on a $\theta^2 \leq \theta_{max}^2$.
+		Donc, $\frac{\theta^2}{8n\lambda^2} \leq \frac{\theta_{max}^2}{8n\lambda^2}$.
+		En posant $M_n = \frac{\theta_{max}^2}{8n}$, qui ne dépend pas de $\theta$ (mais de $\theta_{max}$ et $n$), on obtient :
+		$$\PP(|T_n-\theta| \geq \lambda) \leq \frac{M_n}{\lambda^2}$$
+		Par passage au complémentaire, on a finalement :
+		$$\PP(|T_n-\theta| < \lambda) \geq 1-\frac{M_n}{\lambda^2} = 1-\frac{\theta_{max}^2}{8n\lambda^2}$$
+	}
+	\item \question{ En utilisant le résultat précédent, déterminer un intervalle de confiance permettant d'estimer $\theta$ avec un niveau de confiance d'au moins $95\%$. }
+	\reponse{On cherche un intervalle $I_C$ tel que $\PP(\theta \in I_C) \geq 0{,}95$.
+		D'après la question précédente :
+		$$\PP(|T_n-\theta| < \lambda) \geq 1-\frac{\theta_{max}^2}{8n\lambda^2}$$
+		L'événement $|T_n-\theta| < \lambda$ est équivalent à $-\lambda < T_n-\theta < \lambda$, ou encore $T_n - \lambda < \theta < T_n + \lambda$.
+		Donc, $\PP( \theta \in ]T_n-\lambda ; T_n + \lambda [) \geq 1-\frac{\theta_{max}^2}{8n\lambda^2}$.
+		On souhaite que le minorant soit égal à $0{,}95$ :
+		$$1-\frac{\theta_{max}^2}{8n\lambda^2} = 0{,}95$$
+		$$\frac{\theta_{max}^2}{8n\lambda^2} = 0{,}05$$
+		$$\lambda^2 = \frac{\theta_{max}^2}{8n \times 0{,}05} = \frac{\theta_{max}^2}{0{,}4n}$$
+		Donc $\lambda = \sqrt{\frac{\theta_{max}^2}{0{,}4n}} = \frac{\theta_{max}}{\sqrt{0{,}4n}}$.
+		
+		Un intervalle de confiance pour $\theta$ avec un niveau de confiance d'au moins $95\%$ est donc :
+		$$I_C = \left[T_n - \frac{\theta_{max}}{\sqrt{0{,}4n}} ; T_n + \frac{\theta_{max}}{\sqrt{0{,}4n}} \right]$$
+		(On utilise des crochets fermés car la probabilité est $\geq$, mais des ouverts sont souvent acceptés aussi).
+		Par exemple, si $\theta_{max}=10$, $\lambda = \sqrt{\frac{100}{0.4n}} = \sqrt{\frac{250}{n}} = \frac{5\sqrt{10}}{\sqrt{n}}$.
+		$I_C = \left]T_n - \frac{5\sqrt{10}}{\sqrt{n}} ; T_n + \frac{5\sqrt{10}}{\sqrt{n}} \right[$.
+	}
+\end{enumerate}
+
+}
