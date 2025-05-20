@@ -28,47 +28,47 @@
 			\end{itemize}
 			Le graphe est le suivant :
 			\begin{center}
-%				\begin{tikzpicture}[scale=0.75, every node/.style={scale=0.75}]
-%					% Axes
-%					\draw[->] (-2.3*pi,0) -- (2.3*pi,0) node[right] {$x$};
-%					\draw[->] (0,-0.3) -- (0,1.3) node[above] {$g(x)$};
-%					
-%					% Graduations x
-%					\foreach \x/\xtext in {-2*pi/$-2\pi$, -1.5*pi/$\frac{-3\pi}{2}$, -pi/$-\pi$, -0.5*pi/$\frac{-\pi}{2}$, 0.5*pi/$\frac{\pi}{2}$, pi/$\pi$, 1.5*pi/$\frac{3\pi}{2}$, 2*pi/$2\pi$} {
-%						\ifdim\x pt=0pt \else \draw (\x,0.05) -- (\x,-0.05) node[below] {\xtext}; \fi
-%					}
-%					\node[below left] at (0,0) {$0$};
-%					
-%					% Graduations y
-%					\draw (-0.05,1) -- (0.05,1) node[left] {$1$};
-%					
-%					% Graphe de g(x)
-%					\def\linewidth{1pt}
-%					\color{blue}
-%					% Segments où g(x) = 1
-%					\draw[line width=\linewidth] (-2*pi,1) -- (-1.5*pi,1);
-%					\draw[line width=\linewidth] (-0.5*pi,1) -- (0.5*pi,1);
-%					\draw[line width=\linewidth] (1.5*pi,1) -- (2*pi,1);
-%					
-%					% Segments où g(x) = 0
-%					\draw[line width=\linewidth] (-1.5*pi,0) -- (-0.5*pi,0);
-%					\draw[line width=\linewidth] (0.5*pi,0) -- (1.5*pi,0);
-%					
-%					% Lignes verticales pour les discontinuités
-%					\draw[densely dashed, blue] (-1.5*pi,0) -- (-1.5*pi,1);
-%					\draw[densely dashed, blue] (-0.5*pi,0) -- (-0.5*pi,1);
-%					\draw[densely dashed, blue] (0.5*pi,0) -- (0.5*pi,1);
-%					\draw[densely dashed, blue] (1.5*pi,0) -- (1.5*pi,1);
-%					
-%					% Points fermés sur les segments g(x)=1 (valeurs effectives aux points de saut)
-%					\foreach \xp in {-2*pi, -1.5*pi, -0.5*pi, 0.5*pi, 1.5*pi, 2*pi} {
-%						\node[circle, fill=blue, draw=blue, inner sep=0pt, minimum size=1.5pt] at (\xp,1) {};
-%					}
-%					% Points ouverts sur les segments g(x)=0 (limites aux points de saut)
-%					\foreach \xp in {-1.5*pi, -0.5*pi, 0.5*pi, 1.5*pi} {
-%						\node[circle, fill=white, draw=blue, inner sep=0pt, minimum size=1.5pt] at (\xp,0) {};
-%					}
-%				\end{tikzpicture}
+				\begin{tikzpicture}[scale=0.75, every node/.style={scale=0.75}]
+					% Axes
+					\draw[->] (-2.3*pi,0) -- (2.3*pi,0) node[right] {$x$};
+					\draw[->] (0,-0.3) -- (0,1.3) node[above] {$g(x)$};
+					
+					% Graduations x
+					\foreach \x/\xtext in {-2*pi/$-2\pi$, -1.5*pi/$\frac{-3\pi}{2}$, -pi/$-\pi$, -0.5*pi/$\frac{-\pi}{2}$, 0.5*pi/$\frac{\pi}{2}$, pi/$\pi$, 1.5*pi/$\frac{3\pi}{2}$, 2*pi/$2\pi$} {
+						\ifdim\x pt=0pt \else \draw (\x,0.05) -- (\x,-0.05) node[below] {\xtext}; \fi
+					}
+					\node[below left] at (0,0) {$0$};
+					
+					% Graduations y
+					\draw (-0.05,1) -- (0.05,1) node[left] {$1$};
+					
+					% Graphe de g(x)
+					\def\linewidth{1pt}
+					\color{blue}
+					% Segments où g(x) = 1
+					\draw[line width=\linewidth] (-2*pi,1) -- (-1.5*pi,1);
+					\draw[line width=\linewidth] (-0.5*pi,1) -- (0.5*pi,1);
+					\draw[line width=\linewidth] (1.5*pi,1) -- (2*pi,1);
+					
+					% Segments où g(x) = 0
+					\draw[line width=\linewidth] (-1.5*pi,0) -- (-0.5*pi,0);
+					\draw[line width=\linewidth] (0.5*pi,0) -- (1.5*pi,0);
+					
+					% Lignes verticales pour les discontinuités
+					\draw[densely dashed, blue] (-1.5*pi,0) -- (-1.5*pi,1);
+					\draw[densely dashed, blue] (-0.5*pi,0) -- (-0.5*pi,1);
+					\draw[densely dashed, blue] (0.5*pi,0) -- (0.5*pi,1);
+					\draw[densely dashed, blue] (1.5*pi,0) -- (1.5*pi,1);
+					
+					% Points fermés sur les segments g(x)=1 (valeurs effectives aux points de saut)
+					\foreach \xp in {-2*pi, -1.5*pi, -0.5*pi, 0.5*pi, 1.5*pi, 2*pi} {
+						\node[circle, fill=blue, draw=blue, inner sep=0pt, minimum size=1.5pt] at (\xp,1) {};
+					}
+					% Points ouverts sur les segments g(x)=0 (limites aux points de saut)
+					\foreach \xp in {-1.5*pi, -0.5*pi, 0.5*pi, 1.5*pi} {
+						\node[circle, fill=white, draw=blue, inner sep=0pt, minimum size=1.5pt] at (\xp,0) {};
+					}
+				\end{tikzpicture}
 			\end{center}
 		}
 		

@@ -1,0 +1,39 @@
+\uuid{GFDv} % Remplacez par un UUID unique
+\titre{Rayon et domaine de convergence d'une série entière}
+\theme{Séries entières}
+\auteur{}
+\datecreate{2025-05-17} % Remplacez par la date de création YYYY-MM-DD
+\organisation{}
+
+\contenu{
+	
+	\texte{
+		On considère la série entière de la variable réelle $x$ : 
+		$$\sum_{n \geq 1} \frac{(-1)^n}{\sqrt{n}+1}x^n$$
+	}
+	
+	\begin{enumerate}
+		\item \question{Vérifier que le rayon de convergence est égal à $1$.}
+		\indication{}
+		\reponse{On pose $u_n(x) = \frac{(-1)^n}{\sqrt{n}+1}x^n$ et on utilise le théorème de d'Alembert : 
+			\begin{align*}
+				\frac{|u_{n+1}(x)|}{|u_n(x)|} &= \frac{ \sqrt{n}+1 }{\sqrt{n+1}+1}\frac{|x^{n+1}|}{|x^{n}|} \\
+				& \sim  \frac{\sqrt{n}}{\sqrt{n}} |x| \\
+				&\xrightarrow[n\to+\infty]{}  |x|
+			\end{align*}
+			Donc la série converge si et seulement si $|x|<1$. Donc le rayon de convergence est bien $R=1$.
+		}
+		\item \question{Déterminer le domaine de convergence de cette série entière.}
+		\indication{}
+		\reponse{On sait que la série converge sur l'intervalle $]-R;R[ = ]-1;1[$. Il reste à étudier le cas où $x=-1$ et $x=1$. 
+			
+			Or $u_n(-1) = \frac{(-1)^n}{\sqrt{n}+1}(-1)^n = \frac{1}{\sqrt{n}+1}$. La série $\sum u_n(-1)$ est donc une série à termes positifs et le terme général est équivalent à $\frac{1}{\sqrt{n}}$, qui est le terme général d'une série de Riemann divergente ($\alpha = 1/2 < 1$). Donc la série $\sum u_n(-1)$ diverge. 
+			(Correction: $u_n(-1) = \frac{(-1)^n}{\sqrt{n}+1}(-1)^n = \frac{1}{\sqrt{n}+1}$. L'énoncé original contenait une petite erreur dans la transcription de $u_n(-1)$ en $\sum \frac{1}{n^{\frac{1}{2}}}$, il s'agit de $\frac{1}{\sqrt{n}+1} \sim \frac{1}{\sqrt{n}}$.)
+			
+			De plus, $u_n(1) = \frac{(-1)^n}{\sqrt{n}+1}$. On pose $a_n = \frac{1}{\sqrt{n}+1} >0$ pour tout $n \geq 1$. Donc $u_n(1)$ est le terme général d'une série alternée. Or il est clair que $(a_n)$ est une suite décroissante et $\lim\limits_{n\to+\infty} a_n = 0$ donc d'après le critère spécial des séries alternées, la série $\sum u_n(1)$ converge.
+			
+			En définitive, le domaine de convergence est 
+			$$D = ]-1;1]$$
+		}
+	\end{enumerate}
+}
