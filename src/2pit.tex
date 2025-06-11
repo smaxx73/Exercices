@@ -1,0 +1,116 @@
+\uuid{2pit}
+\titre{DSE et Equations différentielles}
+\theme{Analyse}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+\contenu{
+
+
+\texte{Le but de cet exercice est de résoudre l'équation différentielle $$x(x-1)y''+3xy'+y=0$$ avec les conditions initiales $y(0)=0$ et $y'(0)=1$ par la méthode des séries entières.\\
+On supposera qu'une solution $y$ peut s'exprimer sous la forme: $$y(x)=\displaystyle\sum_{n \in \mathbb{N}}a_n\,x^{n},$$ pour tout $|x|<R$ où $R$ est un réel fixé strictement positif et $(a_n)_{n\in \mathbb{N}}$ une suite de nombres réels.}
+\begin{enumerate}
+\item \question{Donner l'expression des dérivées successives de $y$: $y'$ et $y''$ sous la forme de série entière.}
+\item \question{Déterminer $a_0$ et $a_1$ en utilisant les conditions initiales.}
+\item \question{Montrer que $a_2=2$ et que pour tout $n\geq 2,$
+$$a_{n+1}=\frac{n+1}{n}a_n.$$
+}
+\item En déduire une expression explicite de $(a_n)_{n\geq 2}$ puis l'expression générale de la solution $y$. On précisera l'intervalle de convergence de la série obtenue.
+\item Déterminer la fonction somme de cette série entière.
+\end{enumerate}
+\reponse{
+Nous cherchons une solution de la forme d'une série entière:
+$$y(x) = \sum_{n=0}^{\infty} a_n x^n$$
+\textbf{Conditions Initiales}
+Les conditions initiales sont $y(0)=0$ et $y'(0)=1$.
+D'après la forme de $y(x)$, $y(0) = a_0$. Donc, $a_0 = 0$.
+D'après la forme de $y'(x)$, $y'(0) = 1 \cdot a_1 \cdot x^{1-1}|_{x=0} = a_1$. Donc, $a_1 = 1$.
+
+\textbf{Substitution dans l'Équation Différentielle}
+Substituons les séries dans l'équation $x(x-1)y''+3xy'+y=0$:
+$x(x-1)\sum_{n=2}^{\infty} n(n-1) a_n x^{n-2} + 3x\sum_{n=1}^{\infty} n a_n x^{n-1} + \sum_{n=0}^{\infty} a_n x^n = 0$
+$(x^2-x)\sum_{n=2}^{\infty} n(n-1) a_n x^{n-2} + \sum_{n=1}^{\infty} 3n a_n x^n + \sum_{n=0}^{\infty} a_n x^n = 0$
+$\sum_{n=2}^{\infty} n(n-1) a_n x^n - \sum_{n=2}^{\infty} n(n-1) a_n x^{n-1} + \sum_{n=1}^{\infty} 3n a_n x^n + \sum_{n=0}^{\infty} a_n x^n = 0$
+
+\textbf{Ajustement des Indices des Sommes}
+Pour combiner ces sommes, nous les réécrivons pour avoir la même puissance générique $x^k$:
+\begin{enumerate}
+    \item $\sum_{n=2}^{\infty} n(n-1)a_n x^n = \sum_{k=2}^{\infty} k(k-1)a_k x^k$
+    \item $-\sum_{n=2}^{\infty} n(n-1)a_n x^{n-1}$: Posons $k=n-1$, alors $n=k+1$. Quand $n=2, k=1$.
+    $$-\sum_{k=1}^{\infty} (k+1)k a_{k+1} x^k$$
+    \item $\sum_{n=1}^{\infty} 3n a_n x^n = \sum_{k=1}^{\infty} 3k a_k x^k$
+    \item $\sum_{n=0}^{\infty} a_n x^n = \sum_{k=0}^{\infty} a_k x^k$
+\end{enumerate}
+L'équation différentielle devient:
+$$\sum_{k=2}^{\infty} k(k-1)a_k x^k - \sum_{k=1}^{\infty} (k+1)k a_{k+1} x^k + \sum_{k=1}^{\infty} 3k a_k x^k + \sum_{k=0}^{\infty} a_k x^k = 0$$
+
+\textbf{Relation de Récurrence}
+Nous égalons la somme des coefficients de chaque puissance de $x$ à zéro.
+
+Coefficient de $x^0$ (pour $k=0$):
+Seul le terme $a_k x^k$ de la quatrième somme (où $k=0$) contribue.
+$$a_0 = 0$$
+Ceci est cohérent avec la condition initiale $y(0)=0$.
+
+Coefficient de $x^1$ (pour $k=1$):
+Les termes des sommes 2, 3 et 4 contribuent:
+$$-(1+1)(1)a_{1+1} + 3(1)a_1 + a_1 = 0$$
+$$-2a_2 + 4a_1 = 0 \implies a_2 = 2a_1$$
+Comme $a_1=1$ (d'après $y'(0)=1$), nous avons $a_2=2$.
+
+Coefficient de $x^k$ (pour $k \ge 2$):
+$$k(k-1)a_k - (k+1)k a_{k+1} + 3k a_k + a_k = 0$$
+Regroupons les termes en $a_k$ et $a_{k+1}$:
+$$a_k [k(k-1) + 3k + 1] - k(k+1)a_{k+1} = 0$$
+$$a_k [k^2-k+3k+1] - k(k+1)a_{k+1} = 0$$
+$$a_k [k^2+2k+1] - k(k+1)a_{k+1} = 0$$
+$$a_k (k+1)^2 = k(k+1)a_{k+1}$$
+Pour $k \ge 2$, $k+1 \neq 0$, donc nous pouvons diviser par $k+1$:
+$$a_k (k+1) = k a_{k+1}$$
+La relation de récurrence est donc:
+$$a_{k+1} = \frac{k+1}{k} a_k \quad \text{pour } k \ge 2$$
+Vérifions si cette relation est valable pour $k=1$. Pour $k=1$, elle donne $a_2 = \frac{1+1}{1} a_1 = 2a_1$. Ceci est la même relation que nous avons trouvée pour le coefficient de $x^1$.
+Donc, la relation de récurrence $a_{k+1} = \frac{k+1}{k} a_k$ est valable pour $k \ge 1$.
+
+\textbf{Calcul des Coefficients}
+Nous avons $a_0=0$ et $a_1=1$.
+\begin{itemize}
+    \item Pour $k=1$: $a_2 = \frac{1+1}{1} a_1 = 2a_1 = 2(1) = 2$.
+    \item Pour $k=2$: $a_3 = \frac{2+1}{2} a_2 = \frac{3}{2}(2) = 3$.
+    \item Pour $k=3$: $a_4 = \frac{3+1}{3} a_3 = \frac{4}{3}(3) = 4$.
+    \item Pour $k=4$: $a_5 = \frac{4+1}{4} a_4 = \frac{5}{4}(4) = 5$.
+\end{itemize}
+Il apparaît que $a_k = k$ pour $k \ge 1$. Nous pouvons le prouver par récurrence:
+\textit{Base}: Pour $k=1$, $a_1=1$.
+\textit{Hypothèse de récurrence}: Supposons $a_k=k$ pour un certain entier $k \ge 1$.
+\textit{Étape d'induction}: $a_{k+1} = \frac{k+1}{k} a_k = \frac{k+1}{k} (k) = k+1$.
+La formule $a_k=k$ est donc vraie pour tout $k \ge 1$.
+\newpage
+\textbf{Solution de l'Équation}
+La solution en série entière est $y(x) = \sum_{k=0}^{\infty} a_k x^k$.
+Puisque $a_0=0$ et $a_k=k$ pour $k \ge 1$:
+$$y(x) = \sum_{k=1}^{\infty} k x^k = x + 2x^2 + 3x^3 + 4x^4 + \dots$$
+Cette série est une série géométrique dérivée. Rappelons que pour $|x|<1$:
+$$\sum_{k=0}^{\infty} x^k = \frac{1}{1-x}$$
+En dérivant par rapport à $x$:
+$$\sum_{k=1}^{\infty} k x^{k-1} = \frac{1}{(1-x)^2}$$
+En multipliant par $x$:
+$$\sum_{k=1}^{\infty} k x^k = \frac{x}{(1-x)^2}$$
+Ainsi, la solution de l'équation différentielle avec les conditions initiales données est:
+$$y(x) = \frac{x}{(1-x)^2}$$
+Cette solution est valable pour $|x|<1$.
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+\uuid{ioa5}
+\titre{Calcul d'une somme de série entière}
+\theme{Analyse}
+\auteur{Q. Liard}
+\organisation{AMSCC}
+
+\contenu{
+
+
+
+
+
+
+
+
+
+
+
+\texte{
+On considère la série entière de la variable réelle $x$ :
+$$ \sum_{n \geq 1} \frac{4^n }{n}x^n.$$
+}
+\begin{enumerate}
+    \item \question{Déterminer le rayon de convergence $R$ de la série.}
+     \reponse{Pour déterminer le rayon de convergence $R$, nous utilisons la \textbf{règle de D'Alembert}. Soit $a_n = \frac{4^n}{n}$.
+    Nous calculons la limite du rapport $\left| \frac{a_{n+1}}{a_n} \right|$ lorsque $n \to +\infty$:
+    $$ \left| \frac{a_{n+1}}{a_n} \right| = \left| \frac{4^{n+1}}{n+1} \times \frac{n}{4^n} \right| = \left| \frac{4 \cdot 4^n}{n+1} \times \frac{n}{4^n} \right| = \left| \frac{4n}{n+1} \right| $$
+    Lorsque $n \to +\infty$, cette limite est :
+    $$ L = \lim_{n \to +\infty} \frac{4n}{n+1} = \lim_{n \to +\infty} \frac{4}{1 + 1/n} = 4 $$
+    Le rayon de convergence $R$ est donné par $R = \frac{1}{L}$. Puisque $L=4$, le \textbf{rayon de convergence est $R = \frac{1}{4}$}.
+    }
+    \item \question{Déterminer le domaine réel $I$ de convergence de la série.}
+     \reponse{Étant donné que le rayon de convergence est $R = \frac{1}{4}$, la série converge certainement pour $|x| < \frac{1}{4}$, c'est-à-dire pour $x \in \left]-\frac{1}{4}, \frac{1}{4}\right[$.
+    Nous devons maintenant examiner la convergence aux bornes de l'intervalle.
+
+    \begin{itemize}
+        \item \textbf{Pour $x = \frac{1}{4}$ :}
+        La série devient $\sum_{n \geq 1} \frac{4^n (1/4)^n}{n} = \sum_{n \geq 1} \frac{1^n}{n} = \sum_{n \geq 1} \frac{1}{n}$.
+        C'est la \textbf{série harmonique}, qui est une série de Riemann de la forme $\sum \frac{1}{n^p}$ avec $p=1$. Puisque $p=1 \le 1$, cette série \textbf{diverge}.
+
+        \item \textbf{Pour $x = -\frac{1}{4}$ :}
+        La série devient $\sum_{n \geq 1} \frac{4^n (-1/4)^n}{n} = \sum_{n \geq 1} \frac{(-1)^n}{n}$.
+        C'est la \textbf{série harmonique alternée}. Par le critère spécial des séries alternées (critère de Leibniz), puisque $\frac{1}{n}$ est une suite positive, décroissante et tendant vers 0, cette série \textbf{converge}.
+    \end{itemize}
+    En résumé, le \textbf{domaine réel de convergence} de la série est $\left[-\frac{1}{4}, \frac{1}{4}\right[$.
+    }
+    \item \question{Pour $x$ réel dans $]-R;R[$, déterminer la valeur de la somme $S(x)$ où
+    $$ S(x) = \displaystyle \sum_{n \geq 1} \frac{4^n}{n}x^n.} $$
+   \reponse{Nous pouvons réécrire la série comme :
+    $$ S(x) = \sum_{n \geq 1} \frac{(4x)^n}{n} $$
+    Nous reconnaissons la forme du développement en série de la fonction $-\ln(1-u)$.
+    En effet, pour $|u| < 1$, nous avons le développement en série de Taylor :
+    $$ \ln(1-u) = - \sum_{n \geq 1} \frac{u^n}{n} $$
+    Donc,
+    $$ -\ln(1-u) = \sum_{n \geq 1} \frac{u^n}{n} $$
+    En posant $u = 4x$, et sachant que la série converge pour $x \in \left[-\frac{1}{4}, \frac{1}{4}\right[$, ce qui implique $4x \in [-1, 1[$. La formule pour $\ln(1-u)$ est valide pour $u \in [-1, 1[$.
+
+    Par conséquent, la somme de la série est :
+    $$ S(x) = -\ln(1-4x) $$
+    }
+\end{enumerate}
+
+
+
+
+
+
+
+}
