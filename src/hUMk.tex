@@ -1,0 +1,82 @@
+% Métadonnées
+\uuid{hUMk}
+\titre{Estimateur du Maximum de Vraisemblance et ses Propriétés}
+\theme{Statistiques Inférentielles, Estimation ponctuelle, Biais, Convergence}
+\auteur{Maxime NGUYEN}
+\datecreate{2025-06-04}
+\organisation{AMSCC}
+
+	\contenu{
+		
+		\texte{
+
+			
+			\paragraph{Résultats admis sur la Loi Gamma et relation avec la loi exponentielle}
+			
+			La loi Gamma est une famille de lois de probabilité continues à deux paramètres, définies sur l'intervalle $(0, \infty)$. Elle est fréquemment utilisée pour modéliser des temps d'attente ou des variables continues positives.
+			
+			Si une variable aléatoire $X$ suit une loi Gamma de paramètre de forme $k > 0$ (souvent noté $\alpha$) et de paramètre d'intensité (ou de taux, "rate") $\lambda > 0$ (parfois noté $\beta$ dans cette paramétrisation), on écrit $X \sim \mathcal{G}amma(k, \lambda)$.
+			
+			\begin{itemize}
+				\item Fonction de densité de probabilité :
+				Pour tout $x > 0$, la densité est donnée par :
+				\[ f(x; k, \lambda) = \frac{\lambda^k x^{k-1} e^{-\lambda x}}{\Gamma(k)} \]
+				où $\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$ est la fonction Gamma d'Euler.
+				Si $k$ est un entier positif, alors $\Gamma(k) = (k-1)!$.
+				
+				\item Espérance et variance :
+				\[ \mathbb{E}[X] = \frac{k}{\lambda} \quad  \text{Var}(X) = \frac{k}{\lambda^2} \]
+				\item La loi exponentielle de paramètre $\lambda$, notée $\mathcal{E}(\lambda)$, est un cas particulier de la loi Gamma : $\mathcal{E}(\lambda) \equiv \mathcal{G}amma(1, \lambda)$.
+				\item Si $Y_1, Y_2, \dots, Y_n$ sont $n$ variables aléatoires indépendantes et identiquement distribuées (i.i.d.) suivant une loi exponentielle de paramètre $\lambda$, alors leur somme $S_n = \sum_{i=1}^n Y_i$ suit une loi Gamma de paramètres $n$ et $\lambda$:
+				\[ S_n = \sum_{i=1}^n Y_i \sim \mathcal{G}amma(n, \lambda) \]
+				Dans ce cas, $n$ (le nombre de variables sommées) devient le paramètre de forme $k$, et $\lambda$ reste le paramètre d'intensité.
+			\end{itemize}		
+		
+		\vspace{2em}
+		
+		Soit $\theta \in \left]\frac{1}{2}; 1\right[$ un paramètre inconnu et une fonction densité :
+		$$ g_\theta : x \mapsto \frac{\theta}{1-\theta} x^{\frac{2\theta-1}{1-\theta}} \mathbf{1}_{[0;1]}(x) $$	
+		}
+			\begin{enumerate}
+			\item \question{À l'aide de la méthode du maximum de vraisemblance, proposer un estimateur de $\theta$. }
+			
+			\reponse{On définit un échantillon $X_1,...,X_n$ et on considère la probabilité que cet échantillon réalise un ensemble de valeurs $V=\{x_1,...,x_n\}$ dans $[0;1]$. La fonction de vraisemblance pour une variable à densité s'écrit alors 
+				$$L(x_1,...,x_n,\theta) = \prod_{i=1}^{n} f(x_k) = \frac{\theta^n}{(1-\theta)^n} \prod_{i=1}^n x_i^{ \frac{2\theta -1}{1-\theta} }$$
+				
+				On considère la log vraisemblance :
+				
+				$$\ln L(x_1,...,x_n,\theta) = n \ln(\theta) - n \ln(1-\theta) + \frac{2\theta -1}{1-\theta} \sum_{i=1}^n \ln(x_i)$$
+				
+				On annule la log vraisemblance :
+				$$ \frac{\partial}{\partial \theta} \ln L(x_1,...,x_n,\theta) = 0 \iff \frac{n}{\theta}- \frac{n}{1-\theta}+ \frac{1}{(1-\theta)^2}\sum_{i=1}^n \ln(x_i) = 0 \iff \theta = \dfrac{n}{n-\sum_{i=1}^n \ln(x_i)}$$
+				
+				On propose donc l'estimateur $$\widehat{\theta} = \dfrac{n}{n-\sum_{n=1}^n \ln(X_i)}$$
+				
+		}
+			\item \question{Soit $Y_k = -\ln(X_k)$. Montrer que $Y_k$ suit une loi exponentielle dont vous préciserez le paramètre $\lambda$ en fonction de $\theta$.}
+				\reponse{
+			Pour $Y_k = -\ln(X_k)$. Puisque $X_k \in [0,1]$, $Y_k \in [0, +\infty)$.
+			La fonction de répartition de $Y_k$ pour $y \ge 0$ est :
+			$F_{Y_k}(y) = P(Y_k \le y) = P(-\ln(X_k) \le y) = P(\ln(X_k) \ge -y) = P(X_k \ge e^{-y})$.
+			\[ P(X_k \ge e^{-y}) = \int_{e^{-y}}^1 g_\theta(x) dx = \int_{e^{-y}}^1 \frac{\theta}{1-\theta} x^{\frac{2\theta-1}{1-\theta}} dx \]
+			Posons $\alpha = \frac{2\theta-1}{1-\theta}$. Alors $\alpha+1 = \frac{2\theta-1+1-\theta}{1-\theta} = \frac{\theta}{1-\theta}$.
+			\[ F_{Y_k}(y) = \frac{\theta}{1-\theta} \left[ \frac{x^{\alpha+1}}{\alpha+1} \right]_{e^{-y}}^1 = \frac{\theta}{1-\theta} \left[ \frac{x^{\frac{\theta}{1-\theta}}}{\frac{\theta}{1-\theta}} \right]_{e^{-y}}^1 = \left[ x^{\frac{\theta}{1-\theta}} \right]_{e^{-y}}^1 = 1 - (e^{-y})^{\frac{\theta}{1-\theta}} = 1 - e^{-y \frac{\theta}{1-\theta}} \]
+			C'est la fonction de répartition d'une loi exponentielle de paramètre $\lambda = \frac{\theta}{1-\theta}$.
+			Donc, $Y_k \sim \mathcal{E}\left(\frac{\theta}{1-\theta}\right)$.	
+			}
+				\item \question{En déduire la loi de $S_Y = \sum_{k=1}^{n} Y_k$.}
+				\reponse{
+			Les $Y_k$ sont i.i.d. car les $X_k$ le sont. La somme de $n$ variables aléatoires i.i.d. suivant une loi $\mathcal{E}(\lambda)$ suit une loi Gamma $\mathcal{G}amma(n, \lambda)$.
+			Donc, $S_Y = \sum_{k=1}^n Y_k \sim \mathcal{G}amma\left(n, \frac{\theta}{1-\theta}\right)$.
+			L'espérance de $S_Y$ est $\mathbb{E}[S_Y] = n/\lambda = n \frac{1-\theta}{\theta}$.	
+			}
+				\item \question{En déduire que $\frac{S_Y}{n}$ est un estimateur sans biais de la quantité $\frac{1-\theta}{\theta}$.}
+			\reponse{
+		On sait que $\mathbb{E}[Y_k] = \frac{1-\theta}{\theta}$. En posant :
+		\[T = \frac{1}{n} \sum_{k=1}^n Y_k = \frac{S_Y}{n} \]
+		Alors $\mathbb{E}[T] = \frac{1}{n} \mathbb{E}[S_Y] = \frac{1}{n} \left(n \frac{1-\theta}{\theta}\right) = \frac{1-\theta}{\theta}$.	
+		}
+	\item \question{On souhaite vérifier numériquement certaines propriétés de l'estimateur $\hat{\theta} = \frac{n}{n+S_Y}$. Rappeler comment simuler une variable aléatoire $Y$ suivant une loi exponentielle $\mathcal{E}(\lambda)$ à partir d'une variable aléatoire $U$ suivant une loi uniforme $\mathcal{U}[0,1]$.}
+		\item On suppose que l'on sait simuler une loi uniforme $\mathcal{U}[0,1]$ à l'aide de la méthode \texttt{rand()}. En déduire une méthode permettant d'approcher numériquement le paramètre $\theta$.
+		\end{enumerate}
+	} 

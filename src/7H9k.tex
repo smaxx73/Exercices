@@ -1,0 +1,67 @@
+\uuid{7H9k}
+\titre{Estimation et simulation d'un paramètre de densité}
+\theme{statistiques, probabilités, simulation}
+\auteur{}
+\datecreate{2025-06-10}
+\organisation{}
+\contenu{
+	\texte{Soit $\theta\in\left]1,+\infty\right[$ un paramètre inconnue. Soit $X$ une variable aléatoire absolument continue ayant la fonction de densité suivante :
+		$$g_{\theta}:x\mapsto\theta x^{\theta-1}\mathbf{1}_{]0,1[}(x).$$}
+	\begin{enumerate}
+		\item \question{À l'aide de la méthode du maximum de vraisemblance, proposer un estimateur de $\theta$.}
+		\reponse{Soit $n\in\N^*$. Soit \( X_1, \dots, X_n \) un échantillon de taille $n$ de $X$. Soit $(x_1,...,x_n)$ une réalisation de \( X_1, \dots, X_n \), on suppose que $x_i\in ]0;1[$ pour tout $i\in\left[\left|1;n\right|\right]$. La fonction de vraisemblance est :
+			\[
+			L(x_1,...,x_n,\theta) = \prod_{i=1}^n \theta x_i^{\theta - 1} = \theta^n \prod_{i=1}^n x_i^{\theta - 1}
+			\]
+			On prend le logarithme :
+			\[
+			\ln(L(x_1,...,x_n,\theta)) = n \ln \theta + (\theta - 1) \sum_{i=1}^n \ln x_i
+			\]
+			On dérive par rapport à $\theta$ et regarde où la dérivée s'annule :
+			\[
+			\frac{\partial\ln(L(x_1,...,x_n,\theta))}{\partial\theta} = \frac{n}{\theta} + \sum_{i=1}^n \ln x_i = 0
+			\Rightarrow \theta = -\frac{n}{\sum_{i=1}^n \ln x_i}
+			\]
+			On en déduit l'estimateur du maximum de vraisemblance :
+			$$\hat{\theta} = -\frac{n}{\sum_{i=1}^n \log X_i}.$$}
+		\item \question{On pose $Y=-\ln(X)$. Montrer que $Y$ suit une loi exponentielle de paramètre $\theta$.}
+		\reponse{Soit \( Y = -\ln(X) \). Alors pour tout \( y \geq 0 \),
+			\[
+			\mathbb{P}(Y \leq y) = \mathbb{P}(-\ln(X) \leq y) = \mathbb{P}(X \geq e^{-y}) = \int_{e^{-y}}^1 \theta x^{\theta - 1} dx
+			\]
+			\[
+			= \left[ x^{\theta} \right]_{e^{-y}}^1 = 1 - e^{-\theta y}
+			\]
+			Donc \( Y \sim \text{Exp}(\theta) \).}
+		\item \question{Soit $(X_1,...,X_n)$ un échantillon de taille $n\in\N^*$ de $X$. On pose pour tout $k\in \left[\left|1,n\right|\right]$, $Y_k=-\ln(X_k)$. On pose aussi $S_n=\sum_{k=1}^n Y_k$. Montrer que $\frac{S_n}{n}$ est un estimateur sans biais de $\frac{1}{\theta}$.}
+		\reponse{On note \( Y_k = -\ln(X_k) \sim \text{Exp}(\theta) \). Alors :
+			\[
+			\mathbb{E}\left[\frac{1}{n} \sum_{k=1}^n Y_k \right] = \frac{1}{n} \cdot n \cdot \frac{1}{\theta} = \frac{1}{\theta}
+			\]}
+		\item \question{Montrer que $\frac{S_n}{n}$ est un estimateur de $\frac{1}{\theta}$ convergeant en moyenne quadratique.}
+		\reponse{L'estimateur $\frac{S_n}{n}$ étant sans biais, il suffit de vérifier que la variance tend vers 0.
+			Comme les variables aléatoires $X_1,...,X_n$ sont mutuellement indépendantes, les variables aléatoires $Y_1,...,Y_n$ sont aussi mutuellement indépendantes.
+			Comme \( \text{Var}(Y_k) = \frac{1}{\theta^2} \), on a :
+			\[
+			\text{Var}\left(\frac{1}{n} \sum_{k=1}^n Y_k\right) = \frac{1}{n} \cdot \frac{1}{\theta^2} \to 0
+			\]}
+		\item \question{Montrer que $\frac{n}{S_n}\stackrel{p.s.}{\rightarrow}\theta$.}
+		\reponse{Par la loi forte des grands nombres :
+			\[
+			\frac{S_n}{n} \xrightarrow{\text{p.s.}} \frac{1}{\theta}
+			\]
+			Ainsi en composant par la fonction $x\mapsto \frac{1}{x}$ continue sur $\R^+_*$, on obtient :
+			$$\frac{n}{S_n} \xrightarrow{\text{p.s.}} \theta.$$}
+		\item \question{On souhaite vérifier numériquement certaines propriétés de l'estimateur $\hat{\theta} = \frac{n}{S_Y}$. Rappeler comment simuler une variable aléatoire $Y$ suivant une loi exponentielle $\mathcal{E}(\lambda)$ à partir d'une variable aléatoire $U$ suivant une loi uniforme $\mathcal{U}[0,1]$.}
+		\reponse{Si \( U \sim \mathcal{U}[0,1] \), alors \( Y = -\frac{1}{\lambda} \ln(U) \sim \text{Exp}(\lambda) \).}
+		\item \question{On suppose que l'on sait simuler une loi uniforme $\mathcal{U}[0,1]$ à l'aide de la fonction \texttt{rand()}. En déduire une méthode permettant de simuler la variable aléatoire $\hat{\theta}$. On pourra écrire un code en python.}
+		\reponse{On propose la fonction python suivante :
+	\texttt{
+				def simulation(theta, n):
+				S=0
+				for i in range(n):
+				S=S-log(rand())/theta
+				return n/S
+	}}
+	\end{enumerate}
+}
