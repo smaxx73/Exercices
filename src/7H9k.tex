@@ -33,7 +33,9 @@
 			= \left[ x^{\theta} \right]_{e^{-y}}^1 = 1 - e^{-\theta y}
 			\]
 			Donc \( Y \sim \text{Exp}(\theta) \).}
-		\item \question{Soit $(X_1,...,X_n)$ un échantillon de taille $n\in\N^*$ de $X$. On pose pour tout $k\in \left[\left|1,n\right|\right]$, $Y_k=-\ln(X_k)$. On pose aussi $S_n=\sum_{k=1}^n Y_k$. Montrer que $\frac{S_n}{n}$ est un estimateur sans biais de $\frac{1}{\theta}$.}
+		\item \texte{Soit $(X_1,...,X_n)$ un échantillon de taille $n\in\N^*$ de $X$. On pose pour tout $k\in \left[\left|1,n\right|\right]$ : $$Y_k=-\ln(X_k) \text{ et } S_n=\sum_{k=1}^n Y_k.$$}
+		
+		\question{ Montrer que $\frac{S_n}{n}$ est un estimateur sans biais de $\frac{1}{\theta}$.}
 		\reponse{On note \( Y_k = -\ln(X_k) \sim \text{Exp}(\theta) \). Alors :
 			\[
 			\mathbb{E}\left[\frac{1}{n} \sum_{k=1}^n Y_k \right] = \frac{1}{n} \cdot n \cdot \frac{1}{\theta} = \frac{1}{\theta}
@@ -45,7 +47,7 @@
 			\[
 			\text{Var}\left(\frac{1}{n} \sum_{k=1}^n Y_k\right) = \frac{1}{n} \cdot \frac{1}{\theta^2} \to 0
 			\]}
-		\item \question{Montrer que $\frac{n}{S_n}\stackrel{p.s.}{\rightarrow}\theta$.}
+		\item \question{Montrer que la suite de variables aléatoires $\left(\frac{n}{S_n}\right)$ converge presque sûrement vers $\theta$.}
 		\reponse{Par la loi forte des grands nombres :
 			\[
 			\frac{S_n}{n} \xrightarrow{\text{p.s.}} \frac{1}{\theta}

@@ -1,5 +1,5 @@
 \uuid{7A9D}
-\titre{Exercice sur la distribution de Gumbel et les fonctions de répartition}
+\titre{Distribution de Gumbel et les fonctions de répartition}
 \theme{Probabilités, Statistiques, Fonctions de répartition}
 \auteur{}
 \datecreate{2025-06-08}
@@ -7,28 +7,30 @@
 \contenu{
 	\texte{
 		Soient \( g \) et \( G \) deux fonctions définies pour tout \( x \in \mathbb{R} \) par :
-		\[ G(x) = e^{-e^{-x}}, \quad g(x) = e^{-x}e^{-e^{-x}} = e^{-(x + e^{-x})}. \]
+		$$ G(x) = e^{-e^{-x}}, \quad g(x) = e^{-x}e^{-e^{-x}} = e^{-(x + e^{-x})}. $$
 	}
 	
 \begin{enumerate}
-	\item \question{Calculer les limites \( \lim_{x \to -\infty} G(x) \), \( \lim_{x \to +\infty} G(x) \). En déduire que \( g \) est bien une densité de probabilité sur \( \mathbb{R} \). On dira que \( g \), resp. \( G \) sont la densité et la fonction de répartition de la loi de Gumbel.}
+	\item \question{Calculer les limites \( \lim\limits_{x \to -\infty} G(x) \), \( \lim\limits_{x \to +\infty} G(x) \). En déduire que \( g \) est bien une densité de probabilité sur \( \mathbb{R} \). On dira que \( g \), resp. \( G \) sont la densité et la fonction de répartition de la loi de Gumbel.}
 	
 	\reponse{On a \( \lim_{x \to -\infty} G(x) = e^{-\infty} = 0 \) et \( \lim_{x \to +\infty} G(x) = e^0 = 1 \). La fonction \(G\) est continue et dérivable sur \( \mathbb{R} \) et l'on vérifie que \( G'(x) = g(x) \). De plus, \( g(x) > 0 \) pour tout \(x \in \mathbb{R}\). L'intégrale de \( g \) sur \( \mathbb{R} \) vaut \( \int_{-\infty}^{+\infty} g(x)dx = [G(x)]_{-\infty}^{+\infty} = 1 - 0 = 1 \). Ainsi, \(g\) est bien une densité de probabilité.}
 	
-	\item \question{Soit \( X \) une v.a. de loi exponentielle \( \mathcal{E}(1) \) de densité \( e^{-x}1_{x \geq 0} \). Montrer que la v.a. \( Z = -\ln(X) \) suit la loi de Gumbel. On pourra chercher à calculer la fonction de répartition de \( Z \).}
+	\item \question{Soit \( X \) une variable aléatoire de loi exponentielle \( \mathcal{E}(1) \) de densité \( e^{-x}1_{x \geq 0} \). Montrer que la variable aléatoire \( Z = -\ln(X) \) suit la loi de Gumbel.}
 	
 	\reponse{Soit \( F_Z \) la fonction de répartition de \( Z \). Pour tout \( z \in \mathbb{R} \), on a :
 		\( F_Z(z) = P(Z \leq z) = P(-\ln(X) \leq z) = P(\ln(X) \geq -z) = P(X \geq e^{-z}) \).
 		Comme \( X \sim \mathcal{E}(1) \), sa fonction de survie est \( P(X \geq y) = e^{-y} \) pour \( y \geq 0 \).
 		Puisque \( e^{-z} > 0 \), il vient \( F_Z(z) = e^{-e^{-z}} = G(z) \). Donc, \( Z \) suit la loi de Gumbel.}
 	
-	\item \question{Soient \( X_1, \ldots, X_n \) des v.a. indépendantes, toutes de loi exponentielle \( \mathcal{E}(1) \). On pose \( M_n = \max(X_1, \ldots, X_n) \) et \( Z_n = M_n - \ln(n) \). Montrer que les v.a. \( M_n \) et \( Z_n \) suivent respectivement les lois de fonction de répartition
-		\[ F_{M_n}(x) = (1 - e^{-x})^n 1_{x \geq 0}, \quad F_{Z_n}(x) = \left(1 - \frac{e^{-x}}{n}\right)^n 1_{x \geq -\ln(n)}.\]}
+	\item \texte{Soient \( X_1, \ldots, X_n \) des v.a. indépendantes, toutes de loi exponentielle \( \mathcal{E}(1) \). On pose \( M_n = \max(X_1, \ldots, X_n) \) et \( Z_n = M_n - \ln(n) \).}
+	
+	\question{ Montrer que les variables aléatoires \( M_n \) et \( Z_n \) admettent respectivement les fonctions de répartition :
+		\[ F_{M_n}(x) = (1 - e^{-x})^n \mathbf{1}_{x \geq 0}, \quad F_{Z_n}(x) = \left(1 - \frac{e^{-x}}{n}\right)^n \mathbf{1}_{x \geq -\ln(n)}.\]}
 	
 	\reponse{Pour \( M_n \), \( F_{M_n}(x) = P(\max X_i \leq x) = P(\forall i, X_i \leq x) = \prod_{i=1}^n P(X_i \leq x) = (F_X(x))^n \). Avec \( F_X(x) = (1-e^{-x})1_{x\geq 0} \), on obtient la formule voulue.
 		Pour \( Z_n \), \( F_{Z_n}(x) = P(M_n - \ln n \leq x) = P(M_n \leq x + \ln n) = F_{M_n}(x + \ln n) \). En substituant, on obtient \( F_{Z_n}(x) = (1 - e^{-(x+\ln n)})^n = (1 - \frac{e^{-x}}{n})^n \), pour \( x+\ln n \geq 0 \), soit \( x \geq -\ln n \).}
 	
-	\item \question{Calculer la densité \( f_n \) de la loi de \( M_n \) et la densité \( g_n \) de la loi de \( Z_n \).}
+	\item \question{Pour tout entier $n \geq 1$, déterminer des fonctions densité \( f_n \) et \( g_n \) respectivement des variables aléatoires $M_n$ et $Z_n$.}
 	
 	\reponse{On dérive les fonctions de répartition.
 		Pour \( M_n \), \( f_n(x) = F'_{M_n}(x) = n(1-e^{-x})^{n-1}(e^{-x})1_{x \geq 0} = n e^{-x}(1-e^{-x})^{n-1}1_{x \geq 0} \).
