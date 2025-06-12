@@ -7,18 +7,22 @@
 \contenu{
 	\texte{Un centre de commandement envoie des ordres à un escadron de drones militaires. Pour des raisons opérationnelles (sécurité des fréquences, variations de propagation, interférences), chaque drone $i$ subit une latence de délai entre la réception de la commande et son exécution. On modélise cette latence aléatoire par une variable aléatoire $X_i$ (en secondes) suivant une loi uniforme sur un intervalle $\left[-d;d\right]$ (le système est calibré pour annuler le délai moyen).}
 	
+	La fonction caractéristique d'une variable aléatoire $X_i$ suivant une loi uniforme sur $[-d;d]$ est donnée par : $$\phi_{X_i}(t) = \mathbb{E}[e^{itX_i}] = \frac{1}{2d} \int_{-d}^{d} e^{itx} \, dx = \frac{\sin(dt)}{dt}.$$
+	
 	\begin{enumerate}
-		\item \question{Calculer la fonction caractéristique de la variable aléatoire $X_i$.}
-		\reponse{La fonction caractéristique d'une variable aléatoire $X_i$ suivant une loi uniforme sur $[-d;d]$ est donnée par : $$\phi_{X_i}(t) = \mathbb{E}[e^{itX_i}] = \frac{1}{2d} \int_{-d}^{d} e^{itx} \, dx = \frac{\sin(dt)}{dt}.$$}
+%		\item \question{Calculer la fonction caractéristique de la variable aléatoire $X_i$.}
+%		\reponse{La fonction caractéristique d'une variable aléatoire $X_i$ suivant une loi uniforme sur $[-d;d]$ est donnée par : $$\phi_{X_i}(t) = \mathbb{E}[e^{itX_i}] = \frac{1}{2d} \int_{-d}^{d} e^{itx} \, dx = \frac{\sin(dt)}{dt}.$$}
 		
-		\item \question{Le centre de commandement s'intéresse au temps de latence cumulé $S_n=X_1+...+X_n$. À l'aide du théorème central limite que pouvez-vous dire de la convergence de la variable aléatoire $S_n$ ?}
+		\item \question{Le centre de commandement s'intéresse au temps de latence cumulé $S_n=X_1+...+X_n$. Montrer que la suite de variable aléatoires $\left(\frac{\sqrt{3}S_n}{\sqrt{n}d}\right)$ converge en loi vers une loi normale centrée réduite.
+			%À l'aide du théorème central limite que pouvez-vous dire de la convergence de la variable aléatoire $S_n$ ?
+		}
 		\reponse{D'après le théorème central limite, la somme $S_n$ de $n$ variables aléatoires indépendantes et identiquement distribuées (i.i.d.) suit approximativement une loi normale pour un grand $n$. Plus précisément, $$\frac{S_n - \mathbb{E}[S_n]}{\sqrt{\text{Var}(S_n)}} \xrightarrow{d} \mathcal{N}(0,1).$$ Comme $\mathbb{E}[X_i] = 0$ et $\text{Var}(X_i) = \frac{d^2}{3}$, on a : $$\frac{S_n}{\sqrt{n \cdot \frac{d^2}{3}}} = \frac{S_n}{d \sqrt{\frac{n}{3}}} \xrightarrow{d} \mathcal{N}(0,1).$$}
 		
-		\item \question{En déduire l'égalité suivante : $$\lim_{n\rightarrow+\infty}\left(\frac{\sqrt{n}}{\sqrt{3}t}\sin\left(\frac{\sqrt{3}t}{\sqrt{n}}\right)\right)^n\rightarrow e^{-\frac{t^2}{2}}.$$}
+		\item \question{En déduire l'égalité suivante : $$\lim_{n\rightarrow+\infty}\left(\frac{\sqrt{n}}{\sqrt{3}t}\sin\left(\frac{\sqrt{3}t}{\sqrt{n}}\right)\right)^n = e^{-\frac{t^2}{2}}.$$}
 		\reponse{En utilisant le théorème central limite et la fonction caractéristique de $S_n$, on peut montrer que : $$\left(\frac{\sqrt{n}}{\sqrt{3}t}\sin\left(\frac{\sqrt{3}t}{\sqrt{n}}\right)\right)^n \rightarrow e^{-\frac{t^2}{2}} \text{ lorsque } n \rightarrow +\infty.$$}
 		
-		\item \question{En supposant que $n=100$ et $d=10$, calculer une valeur approchée de $\epsilon$ tel que $\mathbb{P}\left(\left|S_n\right|\leq\epsilon\right)=0,95$.}
-		\indication{Utiliser la convergence vers la loi normale et les tables de la loi normale standard.}
+		\item \question{En supposant que $n=100$ et $d=10$, déterminer une valeur approchée de $\epsilon$ tel que $\prob\left(\left|S_n\right|\leq\epsilon\right)=0{,}95$.}
+		\indication{Utiliser la convergence vers la loi normale et les tables de la loi normale centrée réduite.}
 		\reponse{Pour $n=100$ et $d=10$, on a : $$\frac{S_n}{10 \sqrt{\frac{100}{3}}} = \frac{S_n}{10 \cdot \frac{10}{\sqrt{3}}} = \frac{S_n \sqrt{3}}{100} \sim \mathcal{N}(0,1).$$ On cherche $\epsilon$ tel que $\mathbb{P}\left(\left|S_n\right| \leq \epsilon\right) = 0,95$. En utilisant les tables de la loi normale standard, on trouve que $\mathbb{P}\left(\left|Z\right| \leq 1,96\right) = 0,95$ où $Z \sim \mathcal{N}(0,1)$. Donc, $$\frac{\epsilon \sqrt{3}}{100} = 1,96 \implies \epsilon = \frac{196}{\sqrt{3}} \approx 113,28.$$}
 	\end{enumerate}
 }
