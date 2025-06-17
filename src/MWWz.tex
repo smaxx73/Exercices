@@ -7,7 +7,7 @@
 \contenu{
 	\texte{Un centre de commandement envoie des ordres à un escadron de drones militaires. Pour des raisons opérationnelles (sécurité des fréquences, variations de propagation, interférences), chaque drone $i$ subit une latence de délai entre la réception de la commande et son exécution. On modélise cette latence aléatoire par une variable aléatoire $X_i$ (en secondes) suivant une loi uniforme sur un intervalle $\left[-d;d\right]$ (le système est calibré pour annuler le délai moyen).}
 	
-	La fonction caractéristique d'une variable aléatoire $X_i$ suivant une loi uniforme sur $[-d;d]$ est donnée par : $$\phi_{X_i}(t) = \mathbb{E}[e^{itX_i}] = \frac{1}{2d} \int_{-d}^{d} e^{itx} \, dx = \frac{\sin(dt)}{dt}.$$
+	La fonction caractéristique d'une variable aléatoire $X_i$ suivant une loi uniforme sur $[-d;d]$ est donnée par : $$\phi_{X_i}(t) = \mathbb{E}[e^{itX_i}] = \frac{1}{2d} \int_{-d}^{d} e^{itx} \, \mathrm{d}x = \frac{\sin(dt)}{dt}.$$
 	
 	\begin{enumerate}
 %		\item \question{Calculer la fonction caractéristique de la variable aléatoire $X_i$.}
