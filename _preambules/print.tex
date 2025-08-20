@@ -103,6 +103,10 @@
 	\def\Contenu{#1}
 }
 
+% Amélioration : Définition de listes d'exercices courantes
+\newcommand{\TD}{}  % Liste vide par défaut, à redéfinir selon les besoins
+\newcommand{\setTD}[1]{\renewcommand{\TD}{#1}}  % Pour définir la liste TD
+
 % Amélioration : Commandes plus explicites
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\texte}[1]{#1}
@@ -174,7 +178,7 @@
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
-		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}{\isindication}
+		\insertexo{\ex}{\ifboolean{solution}{true}{false}}{\ifboolean{isuuid}{true}{false}}{\ifboolean{link}{true}{false}}{\thenum}{\ifboolean{isindication}{true}{false}}
 	}
 }
 
