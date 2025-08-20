@@ -8,11 +8,17 @@
 
 \definecolor{solutioncolor}{RGB}{0,100,0}
 \definecolor{titrecolor}{RGB}{36,76,146}
+\definecolor{indicationcolor}{RGB}{255,193,7} % Amélioration : couleur dédiée pour les indications
 
 %liens vers des ressources extérieures :
 \newcommand{\pathcorrige}{https://openyourmath.org/exercice?uuid=}
 \newcommand{\pathnotebook}{https://github.com/smaxx73/Exercices/blob/main/notebook/}
 \newcommand{\pathexercice}{https://raw.githubusercontent.com/smaxx73/Exercices/main/pdf/pdf_sansol/}
+
+% Amélioration : Ajout de commandes configurables pour les chemins
+\newcommand{\setpathcorrige}[1]{\renewcommand{\pathcorrige}{#1}}
+\newcommand{\setpathnotebook}[1]{\renewcommand{\pathnotebook}{#1}}
+\newcommand{\setpathexercice}[1]{\renewcommand{\pathexercice}{#1}}
 
 \newtcolorbox{marker}[1][]{enhanced,hbox,before skip=2mm,after skip=3mm,fontupper=\small\sffamily,%
 	boxrule=0.4pt,left=1mm,right=4mm,top=1pt,bottom=1pt,colback=blue!15,colframe=yellow!20!black,%
@@ -20,47 +26,46 @@
 	underlay={%
 		\path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
 		\path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
-		%\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[midway,white]{\Large\bfseries{}!} ([xshift=3mm]interior.north west);
 	},%
 	drop fuzzy shadow,#1
 }
 
-\newtcolorbox{solutionbox}{
+% Amélioration : Boîte de solution avec titre personnalisable
+\newtcolorbox{solutionbox}[1][Solution]{
 	enhanced,
 	breakable,
 	colback=solutioncolor!30!white,
 	colframe=solutioncolor,
 	boxsep=5pt,
-	%arc=4pt,
-	%borderline={0.8pt}{-3pt}{solutioncolor},
 	frame hidden,
 	interior style={top color=solutioncolor!15!white, bottom color=solutioncolor!20!white},
 	overlay={
-		\node[anchor=north west, inner sep=0pt] at (frame.north west) {\tikz{\node[draw, fill=solutioncolor, inner sep=1pt] {\textcolor{white}\checkmark};}};
-	} % Ajouter l'icône d'ampoule en tant qu'overlay
+		\node[anchor=north west, inner sep=2pt] at (frame.north west) {
+			\tikz{\node[draw, fill=solutioncolor, inner sep=1pt, rounded corners=2pt] {\textcolor{white}{\tiny\bfseries #1}};};
+		};
+	},
+	% Amélioration : Ajout d'un petit espace en haut pour le titre
+	top=8pt
 }
 
-\newtcolorbox{indicationbox}{
+% Amélioration : Boîte d'indication améliorée avec couleur dédiée
+\newtcolorbox{indicationbox}[1][Indication]{
 	enhanced,
 	breakable,
-	colback=yellow!30!white,
-	colframe=yellow,
+	colback=indicationcolor!30!white,
+	colframe=indicationcolor!80!black,
 	boxsep=5pt,
-	%arc=4pt,
-	%borderline={0.8pt}{-3pt}{solutioncolor},
 	frame hidden,
-	interior style={top color=yellow!15!white, bottom color=yellow!20!white},
+	interior style={top color=indicationcolor!15!white, bottom color=indicationcolor!20!white},
 	overlay={
-        \node[anchor=north west, xshift=0pt, yshift=0pt] at (frame.north west) {
-	\tikz{
-		\node[circle, draw=yellow!80!black, fill=yellow!60!black, 
-		minimum size=0.3cm, inner sep=0pt] 
-		{\textcolor{yellow}{\scriptsize \textbf{i}}};
-	}
-};
-	} % Ajouter l'icône d'ampoule en tant qu'overlay
+		\node[anchor=north west, inner sep=2pt] at (frame.north west) {
+			\tikz{\node[draw, fill=indicationcolor!80!black, inner sep=1pt, rounded corners=2pt] {\textcolor{white}{\tiny\bfseries #1}};};
+		};
+	},
+	top=8pt
 }
 
+% Amélioration : Boîte de titre avec gestion d'erreurs
 \newtcolorbox{titrebox}[3][]{
 	enhanced,
 	breakable,
@@ -69,23 +74,28 @@
 	colback=white,
 	sharp corners,
 	top=20pt,
-	%bottom=-2pt,
 	borderline north={0pt}{0pt}{white!100!black},
 	overlay unbroken and first={
-		\node[anchor=north west, inner xsep=-2pt, inner ysep=-7pt, rounded corners] at (frame.north west) {\tikz{\node[draw, fill=titrecolor, inner sep=5pt] {\small\textbf{\sffamily{\textcolor{white}{Ex #1 - #2}}}};}};
+		\node[anchor=north west, inner xsep=-2pt, inner ysep=-7pt, rounded corners] at (frame.north west) {
+			\tikz{\node[draw, fill=titrecolor, inner sep=5pt, rounded corners=3pt] {\small\textbf{\sffamily{\textcolor{white}{Ex #1 - #2}}}};}
+		};
 		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {
 				\tikz{
-					\node[] {\ifthenelse{\boolean{link}}{\href{\pathcorrige#3}{\texttt{#3}}}{\texttt{#3}}};
+					\node[fill=gray!20, rounded corners=2pt, inner sep=2pt] {
+						\ifthenelse{\boolean{link}}{
+							\href{\pathcorrige#3}{\texttt{\footnotesize #3}}
+						}{
+							\texttt{\footnotesize #3}
+						}
+					};
 				}
 			};
 		}{}
-		%\ifthenelse{\boolean{uuid}}{\node[anchor=north east, inner ysep=-7pt] at (frame.north east) {\tikz{\node[] {\begin{marker}{#3}\end{marker}};}};}{}
-		%\node[anchor=south east, inner sep=2pt] at (frame.south east) {\tikz{\node[draw] {truc};}};
-	%sharp corners,
 	},
 }
 
+% Amélioration : Variables globales avec valeurs par défaut
 \newcommand{\titre}[1]{%
 	\def\TitreExo{#1}
 }
@@ -93,23 +103,38 @@
 	\def\Contenu{#1}
 }
 
-\newcommand{\code}[1]{#1}
+% Amélioration : Commandes plus explicites
+\newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\texte}[1]{#1}
 
-\newcommand{\question}[1]{#1}
-\newcommand{\reponse}[1]{
+% Amélioration : Question avec numérotation optionnelle
+\newcounter{questionnum}
+\newcommand{\question}[2][]{%
+	\ifx\relax#1\relax
+		#2
+	\else
+		\stepcounter{questionnum}
+		\textbf{Question \thequestionnum :} #2
+	\fi
+}
+
+% Amélioration : Réponse et indication avec titres personnalisables
+\newcommand{\reponse}[2][Solution]{
 	\ifthenelse{\boolean{solution}} 
 	{%
-		\begin{solutionbox}
-			\begin{footnotesize} #1 \end{footnotesize} 
-	\end{solutionbox}}{}
+		\begin{solutionbox}[#1]
+			\footnotesize #2
+		\end{solutionbox}
+	}{}
 } 
-\newcommand{\indication}[1]{
+
+\newcommand{\indication}[2][Indication]{
 	\ifthenelse{\boolean{isindication}} 
 	{%
-		\begin{indicationbox}
-			\begin{footnotesize} #1 \end{footnotesize} 
-	\end{indicationbox}}{}
+		\begin{indicationbox}[#1]
+			\footnotesize #2
+		\end{indicationbox}
+	}{}
 }
 
 \newcommand{\nextexo}{
@@ -117,45 +142,35 @@
 	\vspace{1em}
 }
 
-% \newcommand{\insertexo}[1]{
-% \begin{minipage}[t]{0.85\textwidth}
-%\input{../Exercices/#1}
-%\end{minipage}
-%\begin{minipage}[t]{0.15\textwidth}
-%{\tiny [#1]}
-%\end{minipage}
-%}
-
-\newcommand{\insertexobis}[5]{%contenu, solution, uuid, lien solution,numerotation,theme
+% Amélioration : Gestion d'erreur pour les fichiers manquants
+\newcommand{\insertexo}[6]{%contenu, solution, uuid, lien solution, numerotation, indication
 	\noindent
-	\input{../src/#1}
-	\setboolean{solution}{#2}
-	\setboolean{isuuid}{#3}
-	\setboolean{link}{#4}
+	% Vérification de l'existence du fichier
+	\IfFileExists{\path src/#1}{
+		\input{\path src/#1}
+	}{
+		\PackageWarning{exercices}{Fichier #1 introuvable}
+		\def\TitreExo{Exercice non trouvé}
+		\def\Contenu{Le fichier d'exercice #1 n'a pas pu être chargé.}
+	}
 	
-	\begin{titrebox}[#5]
-		{\bfseries{\TitreExo}}{#1} %\hfill
-		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
-		\Contenu
-	\end{titrebox}	
-}
-
-
-\newcommand{\insertexo}[6]{%contenu, solution, uuid, lien solution,numerotation,theme
-	\noindent
-	\input{\path src/#1}
 	\setboolean{solution}{#2}
 	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
 	\setboolean{isindication}{#6}
 	
-	\begin{titrebox}[#5]
-		{\bfseries{\TitreExo}}{#1} %\hfill
-		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+	\begin{titrebox}[#5]{\TitreExo}{#1}
 		\Contenu
 	\end{titrebox}	
 }
 
+% Amélioration : Version simplifiée de insertexo
+\newcommand{\insertexosimple}[2][true]{%exercice, avec solution par défaut
+	\nextexo
+	\insertexo{#2}{#1}{false}{false}{\thenum}{false}
+}
+
+% Amélioration : Gestion plus flexible des listes
 \newcommand{\listexo}[1]{%liste
 	\foreach \ex in #1 {
 		\nextexo
@@ -163,52 +178,68 @@
 	}
 }
 
-\newcommand{\insertnotebook}[1]{%contenu, solution, uuid, lien solution,numerotation
-	\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
+% Amélioration : Lien notebook plus robuste
+\newcommand{\insertnotebook}[2][Notebook]{%titre, fichier
+	\href{\pathnotebook#2.ipynb}{#1} 
 }
 
-\newcommand{\colonnes}[3]{
-	\setboolean{solution}{#1}
+% Amélioration : Gestion des colonnes simplifiée
+\newcommand{\debutcolonnes}[3][2]{%[nb_colonnes_defaut], nb_sans_sol, nb_avec_sol
+	\setboolean{solution}{\solution}
 	\ifthenelse{\boolean{solution}} {
-		\ifnumcomp{#3}{=}{1}
-		{}%
-		{\begin{multicols}{#3}}%
-		}%
-		{%
-			\ifnumcomp{#2}{=}{1}
-			{}%
-			{\begin{multicols}{#2}}%
-			}
-		}
-		
-\newcommand{\fincolonnes}[3]{
-			\setboolean{solution}{#1}
-			\ifthenelse{\boolean{solution}} {
-				\ifnumcomp{#3}{=}{1}
-				{}%
-				{\end{multicols}}%
-		}%
-		{%
-			\ifnumcomp{#2}{=}{1}
-			{}%
-			{\end{multicols}}%
+		\ifnumcomp{#3}{=}{1}{}{\begin{multicols}{#3}}
+	}{
+		\ifnumcomp{#2}{=}{1}{}{\begin{multicols}{#2}}
+	}
+}
+
+\newcommand{\fincolonnes}[3][2]{%[nb_colonnes_defaut], nb_sans_sol, nb_avec_sol
+	\setboolean{solution}{\solution}
+	\ifthenelse{\boolean{solution}} {
+		\ifnumcomp{#3}{=}{1}{}{\end{multicols}}
+	}{
+		\ifnumcomp{#2}{=}{1}{}{\end{multicols}}
 	}
 }
 
 \newcounter{qrcodenum}
 
-\newcommand{\listeqrcode}[2]{%liste d'exercices, initiatialisation du compteur
-\setcounter{qrcodenum}{#2}
-\noindent
-\foreach \exo in #1{
-	% Crée une minipage pour chaque exercice avec son numéro, son titre et son QR code
-	\begin{minipage}{0.24\textwidth}  % ajustez la largeur pour avoir 4 QR codes par ligne
-		\centering
-		\href{\pathcorrige\exo}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
-		{\qrcode{\pathcorrige\exo}}  % génère le QR code
-		\par\vspace{2em}  % espace vertical entre les QR codes
-	\end{minipage}
-	% Incrémente le compteur
-	\stepcounter{qrcodenum}
+% Amélioration : QR codes avec gestion d'erreur et mise en page améliorée
+\newcommand{\listeqrcode}[3][4]{%[nb_par_ligne], liste, compteur_initial
+	\setcounter{qrcodenum}{#3}
+	\noindent
+	\newcounter{qrcount}
+	\setcounter{qrcount}{0}
+	
+	\foreach \exo in #2{
+		\stepcounter{qrcount}
+		\begin{minipage}{\dimexpr\textwidth/#1-2\fboxsep\relax}
+			\centering
+			\small
+			\href{\pathcorrige\exo}{\textbf{Ex \theqrcodenum}}\\
+			\texttt{\footnotesize \exo}\\[0.5em]
+			\IfFileExists{\pathcorrige\exo}{
+				\qrcode[height=2cm]{\pathcorrige\exo}
+			}{
+				\fbox{\parbox{2cm}{\centering QR\\indisponible}}
+			}
+		\end{minipage}%
+		\ifnumcomp{\value{qrcount}}{=}{#1}{
+			\setcounter{qrcount}{0}\\[1em]
+		}{\hfill}
+		\stepcounter{qrcodenum}
+	}
 }
+
+% Amélioration : Commandes de configuration globale
+\newcommand{\setexercicestyle}[4]{%solution, uuid, link, indication
+	\setboolean{solution}{#1}
+	\setboolean{isuuid}{#2}
+	\setboolean{link}{#3}
+	\setboolean{isindication}{#4}
 }
+
+% Amélioration : Raccourcis utiles
+\newcommand{\exosansol}{\setexercicestyle{false}{false}{false}{false}}
+\newcommand{\exoavecsol}{\setexercicestyle{true}{false}{false}{false}}
+\newcommand{\exocomplet}{\setexercicestyle{true}{true}{true}{true}}
