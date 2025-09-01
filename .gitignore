@@ -17,3 +17,6 @@
 *.mtc*
 *.toc
 *.out
+
+# node module
+node_modules/
