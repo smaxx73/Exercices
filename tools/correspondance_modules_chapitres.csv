@@ -1,0 +1,139 @@
+chapitre_id,chapitre_titre,module_niveau,module,nb_souschapitres
+100,"Logique, ensemble, raisonnement",L1,Algèbre,6
+101,"Injection, surjection, bijection",L1,Algèbre,4
+102,Dénombrement,L1,Algèbre,3
+103,Arithmétique dans Z,L1,Algèbre,5
+104,Nombres complexes,L1,Algèbre,6
+105,"Polynôme, fraction rationnelle",L1,Algèbre,6
+106,Espace vectoriel,L1,Algèbre,6
+107,Application linéaire,L1,Algèbre,4
+108,Matrice,L1,Algèbre,7
+120,Propriétés de R,L1,Analyse,5
+121,Suite,L1,Analyse,7
+122,Série numérique,L1,Analyse,7
+123,"Continuité, limite et étude de fonctions réelles",L1,Analyse,7
+124,Dérivabilité des fonctions réelles,L1,Analyse,5
+125,Développement limité,L1,Analyse,6
+126,Fonctions circulaires et hyperboliques inverses,L1,Analyse,3
+127,Calcul d'intégrales,L1,Analyse,13
+140,Géométrie du plan,L1,Géométrie,2
+141,Géométrie de l'espace,L1,Géométrie,5
+200,"Déterminant, système linéaire",L2,Algèbre,5
+201,"Réduction d'endomorphisme, polynôme annulateur",L2,Algèbre,9
+202,Endomorphisme particulier,L2,Algèbre,5
+203,"Groupe, anneau, corps",L2,Algèbre,8
+204,"Espace euclidien, espace normé",L2,Algèbre,10
+205,Arithmétique,L2,Algèbre,7
+220,Série entière,L2,Analyse,11
+221,Série de Fourier,L2,Analyse,4
+222,Suite et série de fonctions,L2,Analyse,5
+223,Fonction de plusieurs variables,L2,Analyse,9
+224,Intégration,L2,Analyse,5
+225,Equation différentielle,L2,Analyse,7
+229,Topologie,L2,Analyse,11
+240,Géométrie affine dans le plan et dans l'espace,L2,Géométrie,6
+241,Isométrie vectorielle,L2,Géométrie,1
+242,Géométrie affine euclidienne,L2,Géométrie,3
+243,Conique,L2,Géométrie,6
+244,Courbes planes,L2,Géométrie,9
+245,Analyse vectorielle,L2,Géométrie,3
+246,Surfaces,L2,Géométrie,3
+260,Probabilité discrète,L2,Probabilité et statistique,8
+261,Probabilité continue,L2,Probabilité et statistique,5
+262,Statistique,L2,Probabilité et statistique,3
+310,Isométrie euclidienne,L3,Algèbre et géométrie,1
+311,Géométrie différentielle élémentaire de R^n,L3,Algèbre et géométrie,1
+312,Géométrie et trigonométrie sphérique,L3,Algèbre et géométrie,1
+313,Groupe orthogonal et quaternions,L3,Algèbre et géométrie,1
+314,Géométrie projective,L3,Algèbre et géométrie,1
+315,Géométrie et trigonométrie hyperbolique,L3,Algèbre et géométrie,1
+316,Autre,L3,Algèbre et géométrie,1
+320,Groupe,L3,Algèbre et théorie des nombres,1
+321,"Sous-groupe, morphisme",L3,Algèbre et théorie des nombres,1
+322,Groupe fini,L3,Algèbre et théorie des nombres,1
+323,"Anneau, corps",L3,Algèbre et théorie des nombres,1
+324,Polynôme,L3,Algèbre et théorie des nombres,1
+325,Extension de corps,L3,Algèbre et théorie des nombres,1
+326,Extension d'anneau,L3,Algèbre et théorie des nombres,1
+327,Autre,L3,Algèbre et théorie des nombres,1
+328,Forme bilinéaire,L3,Algèbre et théorie des nombres,1
+440,Fonction holomorphe,L3,Analyse complexe,1
+441,Fonction logarithme et fonction puissance,L3,Analyse complexe,1
+442,Formule de Cauchy,L3,Analyse complexe,1
+443,Singularité,L3,Analyse complexe,1
+444,Théorème des résidus,L3,Analyse complexe,1
+445,Tranformée de Laplace et de Fourier,L3,Analyse complexe,1
+446,Autre,L3,Analyse complexe,1
+450,Interpolation polynomiale,L3,Analyse numérique,1
+451,"Courbe de Bézier, spline",L3,Analyse numérique,1
+452,Intégration numérique,L3,Analyse numérique,1
+453,Méthode de Newton,L3,Analyse numérique,1
+454,Résolution d'équation différentielle,L3,Analyse numérique,1
+455,Résolution de systèmes linéaires : méthode directe,L3,Analyse numérique,1
+456,Résolution de systèmes linéaires : méthode itérative,L3,Analyse numérique,1
+457,Résolution de systèmes linéaires : méthode de gradient,L3,Analyse numérique,1
+458,Calcul de valeurs propres et de vecteurs propres,L3,Analyse numérique,1
+459,Autre,L3,Analyse numérique,1
+370,"Différentiabilité, calcul de différentielles",L3,Calcul différentiel,1
+371,"Différentielle d'ordre supérieur, formule de Taylor",L3,Calcul différentiel,1
+372,"Difféomorphisme, théorème d'inversion locale et des fonctions implicites",L3,Calcul différentiel,1
+373,"Extremum, extremum lié",L3,Calcul différentiel,1
+374,Autre,L3,Calcul différentiel,1
+380,Solution maximale,L3,Equation différentielle,1
+381,Théorème de Cauchy-Lipschitz,L3,Equation différentielle,1
+382,Système linéaire à  coefficients constants,L3,Equation différentielle,1
+383,"Etude qualititative : équilibre, stabilité",L3,Equation différentielle,1
+384,Equation aux dérivées partielles,L3,Equation différentielle,1
+385,Autre,L3,Equation différentielle,1
+350,Variété,L3,Géométrie différentielle,1
+351,"Immersion, submersion, plongement",L3,Géométrie différentielle,1
+352,Sous-variété,L3,Géométrie différentielle,1
+353,"Espace tangent, application linéaire tangente",L3,Géométrie différentielle,1
+354,Champ de vecteurs,L3,Géométrie différentielle,1
+355,Forme différentielle,L3,Géométrie différentielle,1
+356,Orientation,L3,Géométrie différentielle,1
+357,Intégration sur les variétés,L3,Géométrie différentielle,1
+358,Autre,L3,Géométrie différentielle,1
+470,Fonction convexe,L3,Optimisation,1
+471,Multiplicateurs de Lagrange,L3,Optimisation,1
+472,Algorithme d'Uzawa,L3,Optimisation,1
+473,Algorithme du simplexe,L3,Optimisation,1
+474,Autre,L3,Optimisation,1
+480,"Loi, indépendance, loi conditionnelle",L3,Probabilité et statistique,1
+481,"Variance, covariance, fonction génératrice",L3,Probabilité et statistique,1
+482,Convergence de variables aléatoires,L3,Probabilité et statistique,1
+483,"Lois des grands nombres, théorème central limite",L3,Probabilité et statistique,1
+484,Estimateur,L3,Probabilité et statistique,1
+485,"Tests sur la moyenne, test du chi2",L3,Probabilité et statistique,1
+486,Chaînes de Markov,L3,Probabilité et statistique,1
+487,Autre,L3,Probabilité et statistique,1
+400,"Tribu, fonction mesurable",L3,"Théorie de la mesure, intégrale de Lebesgue",1
+401,Mesure,L3,"Théorie de la mesure, intégrale de Lebesgue",1
+402,"Lemme de Fatou, convergence monotone",L3,"Théorie de la mesure, intégrale de Lebesgue",1
+403,Théorème de convergence dominée,L3,"Théorie de la mesure, intégrale de Lebesgue",1
+404,"Intégrales multiples, théorème de Fubini",L3,"Théorie de la mesure, intégrale de Lebesgue",1
+405,Intégrale dépendant d'un paramètre,L3,"Théorie de la mesure, intégrale de Lebesgue",1
+406,Espace L^p,L3,"Théorie de la mesure, intégrale de Lebesgue",1
+407,Transformée de Fourier,L3,"Théorie de la mesure, intégrale de Lebesgue",1
+408,Autre,L3,"Théorie de la mesure, intégrale de Lebesgue",1
+300,"Groupe quotient, théorème de Lagrange",L3,Théorie des groupes,1
+301,Ordre d'un élément,L3,Théorie des groupes,1
+302,"Groupe symétrique, décomposition en cycles disjoints, signature",L3,Théorie des groupes,1
+303,Sous-groupe distingué,L3,Théorie des groupes,1
+304,Action de groupe,L3,Théorie des groupes,1
+305,Groupe cyclique,L3,Théorie des groupes,1
+306,Théorème de Sylow,L3,Théorie des groupes,1
+307,Autre,L3,Théorie des groupes,1
+420,"Espace topologique, espace métrique",L3,Topologie,1
+421,Compacité,L3,Topologie,1
+422,"Continuité, uniforme continuité",L3,Topologie,1
+423,Application linéaire bornée,L3,Topologie,1
+424,Espace vectoriel normé,L3,Topologie,1
+425,"Espace métrique complet, espace de Banach",L3,Topologie,1
+426,Théorème du point fixe,L3,Topologie,1
+427,"Espace de Hilbert, théorème de projection",L3,Topologie,1
+428,Théorème de Baire,L3,Topologie,1
+429,"Dualité, topologie faible",L3,Topologie,1
+430,Connexité,L3,Topologie,1
+431,Autre,L3,Topologie,1
+432,"Théorème de Stone-Weirstrass, théorème d'Ascoli",L3,Topologie,1
