@@ -1,69 +1,11 @@
 {
   "summary": {
     "processed": 510,
-    "inserted": 438,
+    "inserted": 493,
     "skipped": 0,
-    "errors": 72,
+    "errors": 17,
     "missingChapitreUuids": [
-      "12vb",
-      "1vFG",
-      "2pit",
-      "7A9D",
-      "7H9k",
-      "7otE",
-      "7rMC",
-      "BA22",
-      "CnBv",
-      "GFDv",
-      "H30c2",
-      "IwCg",
-      "JABn",
-      "MWWz",
-      "PtXD",
-      "PwkL",
-      "S8kg",
-      "T3aW",
-      "T4fh",
-      "Y5Cw",
-      "YUII2",
-      "YouX",
-      "a1ba",
-      "avca",
-      "bz11",
-      "bzou",
-      "dsIx",
-      "f4qb",
-      "fo0Z",
-      "gKy2",
-      "gk1A",
-      "hSGF",
-      "hUMk",
-      "i64t",
-      "iQqS",
-      "ioa5",
-      "j0zZ",
-      "jyFv",
-      "kw9E",
-      "lJaW",
-      "lz2A",
-      "nQHm",
-      "ofSt",
-      "ovua",
-      "oyub",
-      "qM6e",
-      "tbue",
-      "td20",
-      "td21",
-      "td22",
-      "td23",
-      "td24",
-      "td25",
-      "td26",
-      "td27",
-      "uaba",
-      "v1bv",
-      "w7zw",
-      "zobz"
+      "7Hk9"
     ]
   },
   "files": {
@@ -73,10 +15,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "0C55"
+      "uuid": "0C55",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/0U2g.tex": {
       "status": "inserted",
@@ -84,10 +24,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "0U2g"
+      "uuid": "0U2g",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/0e0x.tex": {
       "status": "inserted",
@@ -95,10 +33,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "0e0x"
+      "uuid": "0e0x",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/0fdQ.tex": {
       "status": "inserted",
@@ -106,10 +42,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "0fdQ"
+      "uuid": "0fdQ",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/0oHk.tex": {
       "status": "inserted",
@@ -117,10 +51,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "0oHk"
+      "uuid": "0oHk",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/0uqI.tex": {
       "status": "inserted",
@@ -128,15 +60,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "0uqI"
+      "uuid": "0uqI",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/12vb.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "12vb"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "12vb",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/1Bdm.tex": {
       "status": "inserted",
@@ -144,10 +78,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "1Bdm"
+      "uuid": "1Bdm",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/1Lj3.tex": {
       "status": "inserted",
@@ -155,10 +87,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "1Lj3"
+      "uuid": "1Lj3",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/1asx.tex": {
       "status": "inserted",
@@ -166,10 +96,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "1asx"
+      "uuid": "1asx",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/1fDE.tex": {
       "status": "inserted",
@@ -177,10 +105,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "1fDE"
+      "uuid": "1fDE",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/1lAn.tex": {
       "status": "inserted",
@@ -188,15 +114,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "1lAn"
+      "uuid": "1lAn",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/1vFG.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "1vFG"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "1vFG",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/2Aui.tex": {
       "status": "inserted",
@@ -204,10 +132,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "2Aui"
+      "uuid": "2Aui",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/2Aw2.tex": {
       "status": "inserted",
@@ -215,10 +141,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "2Aw2"
+      "uuid": "2Aw2",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/2pOR.tex": {
       "status": "inserted",
@@ -226,15 +150,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "2pOR"
+      "uuid": "2pOR",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/2pit.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "2pit"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "2pit",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/2sPY.tex": {
       "status": "inserted",
@@ -242,10 +168,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "2sPY"
+      "uuid": "2sPY",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/2yzb.tex": {
       "status": "inserted",
@@ -253,10 +177,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dénombrement",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "2yzb"
+      "uuid": "2yzb",
+      "chapitre": "Dénombrement"
     },
     "/home/maxime/Documents/Exercices/src/32ec.tex": {
       "status": "inserted",
@@ -264,10 +186,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "32ec"
+      "uuid": "32ec",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/3GmQ.tex": {
       "status": "inserted",
@@ -275,10 +195,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "3GmQ"
+      "uuid": "3GmQ",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/3WGA.tex": {
       "status": "inserted",
@@ -286,10 +204,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "3WGA"
+      "uuid": "3WGA",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/3kdw.tex": {
       "status": "inserted",
@@ -297,10 +213,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "3kdw"
+      "uuid": "3kdw",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/3zDK.tex": {
       "status": "inserted",
@@ -308,10 +222,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "3zDK"
+      "uuid": "3zDK",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/4CI9.tex": {
       "status": "inserted",
@@ -319,10 +231,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "4CI9"
+      "uuid": "4CI9",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/4Idt.tex": {
       "status": "inserted",
@@ -330,10 +240,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "4Idt"
+      "uuid": "4Idt",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/4R9m.tex": {
       "status": "inserted",
@@ -341,10 +249,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "4R9m"
+      "uuid": "4R9m",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/4Z0U.tex": {
       "status": "inserted",
@@ -352,10 +258,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "4Z0U"
+      "uuid": "4Z0U",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/4iSJ.tex": {
       "status": "inserted",
@@ -363,10 +267,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "4iSJ"
+      "uuid": "4iSJ",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/4v91.tex": {
       "status": "inserted",
@@ -374,10 +276,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "4v91"
+      "uuid": "4v91",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/51mL.tex": {
       "status": "inserted",
@@ -385,10 +285,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "51mL"
+      "uuid": "51mL",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/56tw.tex": {
       "status": "inserted",
@@ -396,10 +294,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "56tw"
+      "uuid": "56tw",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/5AIf.tex": {
       "status": "error",
@@ -413,10 +309,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "5Df5"
+      "uuid": "5Df5",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/5FLs.tex": {
       "status": "inserted",
@@ -424,10 +318,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "5FLs"
+      "uuid": "5FLs",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/5NS7.tex": {
       "status": "inserted",
@@ -435,10 +327,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "5NS7"
+      "uuid": "5NS7",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/5Tc1.tex": {
       "status": "inserted",
@@ -446,10 +336,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "5Tc1"
+      "uuid": "5Tc1",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/5cbY.tex": {
       "status": "inserted",
@@ -457,10 +345,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "5cbY"
+      "uuid": "5cbY",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/5gPB.tex": {
       "status": "inserted",
@@ -468,10 +354,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Equation différentielle",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "5gPB"
+      "uuid": "5gPB",
+      "chapitre": "Equation différentielle"
     },
     "/home/maxime/Documents/Exercices/src/5hoU.tex": {
       "status": "inserted",
@@ -479,10 +363,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Topologie",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "5hoU"
+      "uuid": "5hoU",
+      "chapitre": "Topologie"
     },
     "/home/maxime/Documents/Exercices/src/5sHJ.tex": {
       "status": "inserted",
@@ -490,10 +372,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "5sHJ"
+      "uuid": "5sHJ",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/5sS2.tex": {
       "status": "inserted",
@@ -501,10 +381,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "5sS2"
+      "uuid": "5sS2",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/64Uj.tex": {
       "status": "inserted",
@@ -512,10 +390,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Equation différentielle",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "64Uj"
+      "uuid": "64Uj",
+      "chapitre": "Equation différentielle"
     },
     "/home/maxime/Documents/Exercices/src/64pg.tex": {
       "status": "inserted",
@@ -523,10 +399,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "64pg"
+      "uuid": "64pg",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/653s.tex": {
       "status": "inserted",
@@ -534,10 +408,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "653s"
+      "uuid": "653s",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/6Aqe.tex": {
       "status": "inserted",
@@ -545,10 +417,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "6Aqe"
+      "uuid": "6Aqe",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/6NIK.tex": {
       "status": "inserted",
@@ -556,10 +426,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "6NIK"
+      "uuid": "6NIK",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/6TSn.tex": {
       "status": "inserted",
@@ -567,10 +435,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dénombrement",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "6TSn"
+      "uuid": "6TSn",
+      "chapitre": "Dénombrement"
     },
     "/home/maxime/Documents/Exercices/src/6Wjb.tex": {
       "status": "inserted",
@@ -578,10 +444,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "6Wjb"
+      "uuid": "6Wjb",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/6YTv.tex": {
       "status": "inserted",
@@ -589,10 +453,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "6YTv"
+      "uuid": "6YTv",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/6YqE.tex": {
       "status": "inserted",
@@ -600,10 +462,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "6YqE"
+      "uuid": "6YqE",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/6er6.tex": {
       "status": "inserted",
@@ -611,10 +471,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "6er6"
+      "uuid": "6er6",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/6n4q.tex": {
       "status": "inserted",
@@ -622,10 +480,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "6n4q"
+      "uuid": "6n4q",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/6xzp.tex": {
       "status": "inserted",
@@ -633,20 +489,31 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction convexe",
-      "niveau": "L3",
-      "module": "Optimisation",
-      "uuid": "6xzp"
+      "uuid": "6xzp",
+      "chapitre": "Fonction convexe"
     },
     "/home/maxime/Documents/Exercices/src/7A9D.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "7A9D"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "7A9D",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/7H9k.tex": {
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "7H9k",
+      "chapitre": "Statistique"
+    },
+    "/home/maxime/Documents/Exercices/src/7Hk9.tex": {
       "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "7H9k"
+      "error": "\\chapitre{} introuvable",
+      "uuid": "7Hk9"
     },
     "/home/maxime/Documents/Exercices/src/7J6y.tex": {
       "status": "inserted",
@@ -654,10 +521,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "7J6y"
+      "uuid": "7J6y",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/7JTd.tex": {
       "status": "inserted",
@@ -665,10 +530,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "7JTd"
+      "uuid": "7JTd",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/7aqI.tex": {
       "status": "inserted",
@@ -676,10 +539,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "7aqI"
+      "uuid": "7aqI",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/7mIi.tex": {
       "status": "inserted",
@@ -687,20 +548,26 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "7mIi"
+      "uuid": "7mIi",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/7otE.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "7otE"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "7otE",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/7rMC.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "7rMC"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "7rMC",
+      "chapitre": "Série de Fourier"
     },
     "/home/maxime/Documents/Exercices/src/800X.tex": {
       "status": "inserted",
@@ -708,10 +575,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "800X"
+      "uuid": "800X",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/88TT.tex": {
       "status": "inserted",
@@ -719,10 +584,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "88TT"
+      "uuid": "88TT",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/8SbE.tex": {
       "status": "inserted",
@@ -730,10 +593,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série de Fourier",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "8SbE"
+      "uuid": "8SbE",
+      "chapitre": "Série de Fourier"
     },
     "/home/maxime/Documents/Exercices/src/8mM7.tex": {
       "status": "inserted",
@@ -741,10 +602,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "8mM7"
+      "uuid": "8mM7",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/8qZv.tex": {
       "status": "inserted",
@@ -752,10 +611,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "8qZv"
+      "uuid": "8qZv",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/99Xf.tex": {
       "status": "inserted",
@@ -763,10 +620,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "99Xf"
+      "uuid": "99Xf",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/9Acu.tex": {
       "status": "inserted",
@@ -774,10 +629,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Continuité, limite et étude de fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "9Acu"
+      "uuid": "9Acu",
+      "chapitre": "Continuité, limite et étude de fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/9MyW.tex": {
       "status": "inserted",
@@ -785,10 +638,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "9MyW"
+      "uuid": "9MyW",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/9UsO.tex": {
       "status": "inserted",
@@ -796,10 +647,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "9UsO"
+      "uuid": "9UsO",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/9hTr.tex": {
       "status": "inserted",
@@ -807,10 +656,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "9hTr"
+      "uuid": "9hTr",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/9iIv.tex": {
       "status": "inserted",
@@ -818,10 +665,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "9iIv"
+      "uuid": "9iIv",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/9oDf.tex": {
       "status": "inserted",
@@ -829,10 +674,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "9oDf"
+      "uuid": "9oDf",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/9ty1.tex": {
       "status": "inserted",
@@ -840,10 +683,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "9ty1"
+      "uuid": "9ty1",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/A2Gl.tex": {
       "status": "inserted",
@@ -851,10 +692,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "A2Gl"
+      "uuid": "A2Gl",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/AGDn.tex": {
       "status": "inserted",
@@ -862,10 +701,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "AGDn"
+      "uuid": "AGDn",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/AKnT.tex": {
       "status": "inserted",
@@ -873,10 +710,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "AKnT"
+      "uuid": "AKnT",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/AS6p.tex": {
       "status": "inserted",
@@ -884,10 +719,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "AS6p"
+      "uuid": "AS6p",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/Ab62.tex": {
       "status": "inserted",
@@ -895,10 +728,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série de Fourier",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Ab62"
+      "uuid": "Ab62",
+      "chapitre": "Série de Fourier"
     },
     "/home/maxime/Documents/Exercices/src/Ac8Y.tex": {
       "status": "inserted",
@@ -906,10 +737,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Ac8Y"
+      "uuid": "Ac8Y",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/AcJl.tex": {
       "status": "inserted",
@@ -917,10 +746,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "AcJl"
+      "uuid": "AcJl",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/Ajfy.tex": {
       "status": "inserted",
@@ -928,10 +755,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Ajfy"
+      "uuid": "Ajfy",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/AxDZ.tex": {
       "status": "inserted",
@@ -939,10 +764,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "AxDZ"
+      "uuid": "AxDZ",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/B3ac.tex": {
       "status": "inserted",
@@ -950,15 +773,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "B3ac"
+      "uuid": "B3ac",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/BA22.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "BA22"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "BA22",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/BAmc.tex": {
       "status": "inserted",
@@ -966,10 +791,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "BAmc"
+      "uuid": "BAmc",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/BGJz.tex": {
       "status": "inserted",
@@ -977,10 +800,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "BGJz"
+      "uuid": "BGJz",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/BVLI.tex": {
       "status": "inserted",
@@ -988,10 +809,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "BVLI"
+      "uuid": "BVLI",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/BZWM.tex": {
       "status": "inserted",
@@ -999,10 +818,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "BZWM"
+      "uuid": "BZWM",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/Bekb.tex": {
       "status": "inserted",
@@ -1010,10 +827,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "Bekb"
+      "uuid": "Bekb",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/Bf5M.tex": {
       "status": "inserted",
@@ -1021,10 +836,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Bf5M"
+      "uuid": "Bf5M",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/Bs5w.tex": {
       "status": "inserted",
@@ -1032,10 +845,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Bs5w"
+      "uuid": "Bs5w",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/C5Fq.tex": {
       "status": "inserted",
@@ -1043,10 +854,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "C5Fq"
+      "uuid": "C5Fq",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/CLjr.tex": {
       "status": "inserted",
@@ -1054,10 +863,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "CLjr"
+      "uuid": "CLjr",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/CPgC.tex": {
       "status": "inserted",
@@ -1065,10 +872,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Courbes planes",
-      "niveau": "L2",
-      "module": "Géométrie",
-      "uuid": "CPgC"
+      "uuid": "CPgC",
+      "chapitre": "Courbes planes"
     },
     "/home/maxime/Documents/Exercices/src/CRuo.tex": {
       "status": "inserted",
@@ -1076,10 +881,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "CRuo"
+      "uuid": "CRuo",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/CXE4.tex": {
       "status": "inserted",
@@ -1087,10 +890,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "CXE4"
+      "uuid": "CXE4",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/CXUp.tex": {
       "status": "inserted",
@@ -1098,10 +899,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "CXUp"
+      "uuid": "CXUp",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/Cefu.tex": {
       "status": "inserted",
@@ -1109,15 +908,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "Cefu"
+      "uuid": "Cefu",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/CnBv.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "CnBv"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "CnBv",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/CuTJ.tex": {
       "status": "inserted",
@@ -1125,10 +926,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "CuTJ"
+      "uuid": "CuTJ",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/D70J.tex": {
       "status": "inserted",
@@ -1136,10 +935,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "D70J"
+      "uuid": "D70J",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/DEZs.tex": {
       "status": "inserted",
@@ -1147,10 +944,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "DEZs"
+      "uuid": "DEZs",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/DITh.tex": {
       "status": "inserted",
@@ -1158,10 +953,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "DITh"
+      "uuid": "DITh",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/DMpD.tex": {
       "status": "inserted",
@@ -1169,10 +962,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "DMpD"
+      "uuid": "DMpD",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/DkOf.tex": {
       "status": "inserted",
@@ -1180,10 +971,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "DkOf"
+      "uuid": "DkOf",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/DkWo.tex": {
       "status": "inserted",
@@ -1191,10 +980,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "DkWo"
+      "uuid": "DkWo",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/DnxY.tex": {
       "status": "inserted",
@@ -1202,10 +989,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "DnxY"
+      "uuid": "DnxY",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/DzLc.tex": {
       "status": "inserted",
@@ -1213,10 +998,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "DzLc"
+      "uuid": "DzLc",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/E7RW.tex": {
       "status": "inserted",
@@ -1224,10 +1007,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "E7RW"
+      "uuid": "E7RW",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/EOnD.tex": {
       "status": "inserted",
@@ -1235,10 +1016,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "EOnD"
+      "uuid": "EOnD",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/EXyV.tex": {
       "status": "inserted",
@@ -1246,10 +1025,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série de Fourier",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "EXyV"
+      "uuid": "EXyV",
+      "chapitre": "Série de Fourier"
     },
     "/home/maxime/Documents/Exercices/src/EZfx.tex": {
       "status": "inserted",
@@ -1257,10 +1034,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "EZfx"
+      "uuid": "EZfx",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/ElA1.tex": {
       "status": "inserted",
@@ -1268,10 +1043,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Topologie",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "ElA1"
+      "uuid": "ElA1",
+      "chapitre": "Topologie"
     },
     "/home/maxime/Documents/Exercices/src/FH8I.tex": {
       "status": "inserted",
@@ -1279,10 +1052,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Résolution de systèmes linéaires : méthode itérative",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "FH8I"
+      "uuid": "FH8I",
+      "chapitre": "Résolution de systèmes linéaires : méthode itérative"
     },
     "/home/maxime/Documents/Exercices/src/FIgO.tex": {
       "status": "inserted",
@@ -1290,10 +1061,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "FIgO"
+      "uuid": "FIgO",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/FKpl.tex": {
       "status": "inserted",
@@ -1301,10 +1070,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "FKpl"
+      "uuid": "FKpl",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/FaOL.tex": {
       "status": "inserted",
@@ -1312,10 +1079,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "FaOL"
+      "uuid": "FaOL",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/Fe1h.tex": {
       "status": "inserted",
@@ -1323,10 +1088,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "Fe1h"
+      "uuid": "Fe1h",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/Fg10.tex": {
       "status": "inserted",
@@ -1334,10 +1097,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Fg10"
+      "uuid": "Fg10",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/G5Jt.tex": {
       "status": "inserted",
@@ -1345,10 +1106,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "G5Jt"
+      "uuid": "G5Jt",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/GDyM.tex": {
       "status": "inserted",
@@ -1356,15 +1115,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "GDyM"
+      "uuid": "GDyM",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/GFDv.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "GFDv"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "GFDv",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/GGzj.tex": {
       "status": "inserted",
@@ -1372,10 +1133,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "GGzj"
+      "uuid": "GGzj",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/GHil.tex": {
       "status": "inserted",
@@ -1383,10 +1142,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "GHil"
+      "uuid": "GHil",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/GmNP.tex": {
       "status": "inserted",
@@ -1394,10 +1151,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "GmNP"
+      "uuid": "GmNP",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/H0fC.tex": {
       "status": "inserted",
@@ -1405,10 +1160,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "H0fC"
+      "uuid": "H0fC",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/H30c.tex": {
       "status": "inserted",
@@ -1416,15 +1169,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "H30c"
-    },
-    "/home/maxime/Documents/Exercices/src/H30c2.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "H30c2"
+      "uuid": "H30c",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/HJky.tex": {
       "status": "inserted",
@@ -1432,10 +1178,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "HJky"
+      "uuid": "HJky",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/HThN.tex": {
       "status": "inserted",
@@ -1443,10 +1187,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "HThN"
+      "uuid": "HThN",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/HXRf.tex": {
       "status": "inserted",
@@ -1454,10 +1196,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "HXRf"
+      "uuid": "HXRf",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/Hhtu.tex": {
       "status": "inserted",
@@ -1465,10 +1205,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Hhtu"
+      "uuid": "Hhtu",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/HojS.tex": {
       "status": "inserted",
@@ -1476,10 +1214,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "HojS"
+      "uuid": "HojS",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/HqCj.tex": {
       "status": "inserted",
@@ -1487,10 +1223,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "HqCj"
+      "uuid": "HqCj",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/Hubl.tex": {
       "status": "inserted",
@@ -1498,10 +1232,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "Hubl"
+      "uuid": "Hubl",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/HvSs.tex": {
       "status": "inserted",
@@ -1509,10 +1241,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "HvSs"
+      "uuid": "HvSs",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/I38C.tex": {
       "status": "inserted",
@@ -1520,10 +1250,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "I38C"
+      "uuid": "I38C",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/I4Tf.tex": {
       "status": "inserted",
@@ -1531,10 +1259,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Topologie",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "I4Tf"
+      "uuid": "I4Tf",
+      "chapitre": "Topologie"
     },
     "/home/maxime/Documents/Exercices/src/IC6C.tex": {
       "status": "inserted",
@@ -1542,10 +1268,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "IC6C"
+      "uuid": "IC6C",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/ItUH.tex": {
       "status": "inserted",
@@ -1553,15 +1277,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ItUH"
+      "uuid": "ItUH",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/IwCg.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "IwCg"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "IwCg",
+      "chapitre": "Série de Fourier"
     },
     "/home/maxime/Documents/Exercices/src/J4Ag.tex": {
       "status": "inserted",
@@ -1569,10 +1295,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "J4Ag"
+      "uuid": "J4Ag",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/J50Z.tex": {
       "status": "error",
@@ -1586,15 +1310,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "J7Sl"
+      "uuid": "J7Sl",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/JABn.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "JABn"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "JABn",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/JDv8.tex": {
       "status": "inserted",
@@ -1602,10 +1328,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "JDv8"
+      "uuid": "JDv8",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/JHnB.tex": {
       "status": "inserted",
@@ -1613,10 +1337,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "JHnB"
+      "uuid": "JHnB",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/JPjn.tex": {
       "status": "inserted",
@@ -1624,10 +1346,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "JPjn"
+      "uuid": "JPjn",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/JUo8.tex": {
       "status": "inserted",
@@ -1635,10 +1355,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "JUo8"
+      "uuid": "JUo8",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/Jfwq.tex": {
       "status": "inserted",
@@ -1646,10 +1364,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "Jfwq"
+      "uuid": "Jfwq",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/Jiv8.tex": {
       "status": "inserted",
@@ -1657,10 +1373,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Jiv8"
+      "uuid": "Jiv8",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/JpRc.tex": {
       "status": "inserted",
@@ -1668,10 +1382,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "JpRc"
+      "uuid": "JpRc",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/JuCo.tex": {
       "status": "inserted",
@@ -1679,10 +1391,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "JuCo"
+      "uuid": "JuCo",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/K9R8.tex": {
       "status": "inserted",
@@ -1690,10 +1400,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "K9R8"
+      "uuid": "K9R8",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/KBi8.tex": {
       "status": "inserted",
@@ -1701,10 +1409,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "KBi8"
+      "uuid": "KBi8",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/KSes.tex": {
       "status": "inserted",
@@ -1712,10 +1418,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "KSes"
+      "uuid": "KSes",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/KZCb.tex": {
       "status": "inserted",
@@ -1723,10 +1427,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "KZCb"
+      "uuid": "KZCb",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/Kdi9.tex": {
       "status": "inserted",
@@ -1734,10 +1436,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Kdi9"
+      "uuid": "Kdi9",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/KfgI.tex": {
       "status": "inserted",
@@ -1745,10 +1445,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Suite",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "KfgI"
+      "uuid": "KfgI",
+      "chapitre": "Suite"
     },
     "/home/maxime/Documents/Exercices/src/KowJ.tex": {
       "status": "inserted",
@@ -1756,10 +1454,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "KowJ"
+      "uuid": "KowJ",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/Kush.tex": {
       "status": "inserted",
@@ -1767,10 +1463,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série de Fourier",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Kush"
+      "uuid": "Kush",
+      "chapitre": "Série de Fourier"
     },
     "/home/maxime/Documents/Exercices/src/LBLK.tex": {
       "status": "inserted",
@@ -1778,10 +1472,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "LBLK"
+      "uuid": "LBLK",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/LHbK.tex": {
       "status": "inserted",
@@ -1789,10 +1481,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "LHbK"
+      "uuid": "LHbK",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/LXkF.tex": {
       "status": "inserted",
@@ -1800,10 +1490,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "LXkF"
+      "uuid": "LXkF",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/LeO2.tex": {
       "status": "inserted",
@@ -1811,10 +1499,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "LeO2"
+      "uuid": "LeO2",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/LfqB.tex": {
       "status": "inserted",
@@ -1822,10 +1508,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "LfqB"
+      "uuid": "LfqB",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/Lmme.tex": {
       "status": "inserted",
@@ -1833,10 +1517,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Lmme"
+      "uuid": "Lmme",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/LnaN.tex": {
       "status": "inserted",
@@ -1844,10 +1526,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "LnaN"
+      "uuid": "LnaN",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/Louq.tex": {
       "status": "inserted",
@@ -1855,10 +1535,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Louq"
+      "uuid": "Louq",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/M00y.tex": {
       "status": "inserted",
@@ -1866,10 +1544,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "M00y"
+      "uuid": "M00y",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/M7Z5.tex": {
       "status": "inserted",
@@ -1877,10 +1553,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "M7Z5"
+      "uuid": "M7Z5",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/M9lT.tex": {
       "status": "inserted",
@@ -1888,10 +1562,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "M9lT"
+      "uuid": "M9lT",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/MD0E.tex": {
       "status": "inserted",
@@ -1899,10 +1571,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "MD0E"
+      "uuid": "MD0E",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/MPPL.tex": {
       "status": "inserted",
@@ -1910,10 +1580,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "MPPL"
+      "uuid": "MPPL",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/MWOk.tex": {
       "status": "inserted",
@@ -1921,15 +1589,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "MWOk"
+      "uuid": "MWOk",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/MWWz.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "MWWz"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "MWWz",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/MZkM.tex": {
       "status": "inserted",
@@ -1937,10 +1607,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "MZkM"
+      "uuid": "MZkM",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/MzAb.tex": {
       "status": "inserted",
@@ -1948,10 +1616,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "MzAb"
+      "uuid": "MzAb",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/NCVL.tex": {
       "status": "inserted",
@@ -1959,10 +1625,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "NCVL"
+      "uuid": "NCVL",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/NIYa.tex": {
       "status": "inserted",
@@ -1970,10 +1634,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "NIYa"
+      "uuid": "NIYa",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/O5Wz.tex": {
       "status": "inserted",
@@ -1981,10 +1643,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "O5Wz"
+      "uuid": "O5Wz",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/Ocbl.tex": {
       "status": "inserted",
@@ -1992,10 +1652,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Ocbl"
+      "uuid": "Ocbl",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/P9tc.tex": {
       "status": "inserted",
@@ -2003,10 +1661,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "P9tc"
+      "uuid": "P9tc",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/PAzn.tex": {
       "status": "inserted",
@@ -2014,10 +1670,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "PAzn"
+      "uuid": "PAzn",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/PI1u.tex": {
       "status": "inserted",
@@ -2025,10 +1679,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction convexe",
-      "niveau": "L3",
-      "module": "Optimisation",
-      "uuid": "PI1u"
+      "uuid": "PI1u",
+      "chapitre": "Fonction convexe"
     },
     "/home/maxime/Documents/Exercices/src/PPFk.tex": {
       "status": "inserted",
@@ -2036,10 +1688,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "PPFk"
+      "uuid": "PPFk",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/PPhD.tex": {
       "status": "inserted",
@@ -2047,10 +1697,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "PPhD"
+      "uuid": "PPhD",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/PPoO.tex": {
       "status": "inserted",
@@ -2058,10 +1706,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "PPoO"
+      "uuid": "PPoO",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/PUWY.tex": {
       "status": "inserted",
@@ -2069,10 +1715,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "PUWY"
+      "uuid": "PUWY",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/Po88.tex": {
       "status": "inserted",
@@ -2080,20 +1724,26 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Po88"
+      "uuid": "Po88",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/PtXD.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "PtXD"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "PtXD",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/PwkL.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "PwkL"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "PwkL",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/PxjQ.tex": {
       "status": "inserted",
@@ -2101,10 +1751,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "PxjQ"
+      "uuid": "PxjQ",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/Qds7.tex": {
       "status": "inserted",
@@ -2112,10 +1760,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "Qds7"
+      "uuid": "Qds7",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/QqHC.tex": {
       "status": "inserted",
@@ -2123,10 +1769,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "QqHC"
+      "uuid": "QqHC",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/Qyru.tex": {
       "status": "inserted",
@@ -2134,10 +1778,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Qyru"
+      "uuid": "Qyru",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/R0SQ.tex": {
       "status": "inserted",
@@ -2145,10 +1787,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "R0SQ"
+      "uuid": "R0SQ",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/R3ps.tex": {
       "status": "inserted",
@@ -2156,10 +1796,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "R3ps"
+      "uuid": "R3ps",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/R6XJ.tex": {
       "status": "inserted",
@@ -2167,10 +1805,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "R6XJ"
+      "uuid": "R6XJ",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/RHhQ.tex": {
       "status": "inserted",
@@ -2178,10 +1814,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "RHhQ"
+      "uuid": "RHhQ",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/ReNe.tex": {
       "status": "inserted",
@@ -2189,10 +1823,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "ReNe"
+      "uuid": "ReNe",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/RrKo.tex": {
       "status": "inserted",
@@ -2200,10 +1832,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Equation différentielle",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "RrKo"
+      "uuid": "RrKo",
+      "chapitre": "Equation différentielle"
     },
     "/home/maxime/Documents/Exercices/src/RsEy.tex": {
       "status": "inserted",
@@ -2211,10 +1841,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "RsEy"
+      "uuid": "RsEy",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/S3Kp.tex": {
       "status": "inserted",
@@ -2222,15 +1850,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "S3Kp"
+      "uuid": "S3Kp",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/S8kg.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "S8kg"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "S8kg",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/SPjU.tex": {
       "status": "inserted",
@@ -2238,10 +1868,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "SPjU"
+      "uuid": "SPjU",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/SX3y.tex": {
       "status": "inserted",
@@ -2249,10 +1877,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "SX3y"
+      "uuid": "SX3y",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/Sclr.tex": {
       "status": "inserted",
@@ -2260,10 +1886,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "Sclr"
+      "uuid": "Sclr",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/SfKE.tex": {
       "status": "inserted",
@@ -2271,10 +1895,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "SfKE"
+      "uuid": "SfKE",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/Sqjo.tex": {
       "status": "inserted",
@@ -2282,10 +1904,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Sqjo"
+      "uuid": "Sqjo",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/Stxj.tex": {
       "status": "inserted",
@@ -2293,10 +1913,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Stxj"
+      "uuid": "Stxj",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/Su3X.tex": {
       "status": "inserted",
@@ -2304,10 +1922,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Su3X"
+      "uuid": "Su3X",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/SxMf.tex": {
       "status": "inserted",
@@ -2315,10 +1931,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "SxMf"
+      "uuid": "SxMf",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/SxZb.tex": {
       "status": "inserted",
@@ -2326,10 +1940,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "SxZb"
+      "uuid": "SxZb",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/Syo2.tex": {
       "status": "inserted",
@@ -2337,20 +1949,26 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "Syo2"
+      "uuid": "Syo2",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/T3aW.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "T3aW"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "T3aW",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/T4fh.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "T4fh"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "T4fh",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/T8Ws.tex": {
       "status": "inserted",
@@ -2358,10 +1976,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "T8Ws"
+      "uuid": "T8Ws",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/TMrr.tex": {
       "status": "inserted",
@@ -2369,10 +1985,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "TMrr"
+      "uuid": "TMrr",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/TORD.tex": {
       "status": "inserted",
@@ -2380,10 +1994,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "TORD"
+      "uuid": "TORD",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/TgsV.tex": {
       "status": "inserted",
@@ -2391,10 +2003,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "TgsV"
+      "uuid": "TgsV",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/TpFC.tex": {
       "status": "inserted",
@@ -2402,10 +2012,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "TpFC"
+      "uuid": "TpFC",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/TwOd.tex": {
       "status": "inserted",
@@ -2413,10 +2021,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "TwOd"
+      "uuid": "TwOd",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/U9xy.tex": {
       "status": "inserted",
@@ -2424,10 +2030,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Topologie",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "U9xy"
+      "uuid": "U9xy",
+      "chapitre": "Topologie"
     },
     "/home/maxime/Documents/Exercices/src/UDat.tex": {
       "status": "inserted",
@@ -2435,10 +2039,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "UDat"
+      "uuid": "UDat",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/UHns.tex": {
       "status": "inserted",
@@ -2446,10 +2048,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "UHns"
+      "uuid": "UHns",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/UbhS.tex": {
       "status": "inserted",
@@ -2457,10 +2057,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "UbhS"
+      "uuid": "UbhS",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/Ueb3.tex": {
       "status": "inserted",
@@ -2468,10 +2066,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Ueb3"
+      "uuid": "Ueb3",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/Uijb.tex": {
       "status": "inserted",
@@ -2479,10 +2075,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Interpolation polynomiale",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "Uijb"
+      "uuid": "Uijb",
+      "chapitre": "Interpolation polynomiale"
     },
     "/home/maxime/Documents/Exercices/src/V97L.tex": {
       "status": "inserted",
@@ -2490,10 +2084,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "V97L"
+      "uuid": "V97L",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/Vss4.tex": {
       "status": "inserted",
@@ -2501,10 +2093,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Vss4"
+      "uuid": "Vss4",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/VuTl.tex": {
       "status": "inserted",
@@ -2512,10 +2102,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "VuTl"
+      "uuid": "VuTl",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/WCGV.tex": {
       "status": "inserted",
@@ -2523,10 +2111,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "WCGV"
+      "uuid": "WCGV",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/WSXH.tex": {
       "status": "inserted",
@@ -2534,10 +2120,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "WSXH"
+      "uuid": "WSXH",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/WmCw.tex": {
       "status": "inserted",
@@ -2545,10 +2129,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "WmCw"
+      "uuid": "WmCw",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/X3XR.tex": {
       "status": "inserted",
@@ -2556,10 +2138,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "X3XR"
+      "uuid": "X3XR",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/X7o5.tex": {
       "status": "inserted",
@@ -2567,10 +2147,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "X7o5"
+      "uuid": "X7o5",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/XGrp.tex": {
       "status": "inserted",
@@ -2578,10 +2156,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "XGrp"
+      "uuid": "XGrp",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/XKwm.tex": {
       "status": "inserted",
@@ -2589,10 +2165,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "XKwm"
+      "uuid": "XKwm",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/XQqR.tex": {
       "status": "inserted",
@@ -2600,10 +2174,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Résolution d'équation différentielle",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "XQqR"
+      "uuid": "XQqR",
+      "chapitre": "Résolution d'équation différentielle"
     },
     "/home/maxime/Documents/Exercices/src/XZIP.tex": {
       "status": "inserted",
@@ -2611,10 +2183,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "XZIP"
+      "uuid": "XZIP",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/XlVt.tex": {
       "status": "inserted",
@@ -2622,10 +2192,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "XlVt"
+      "uuid": "XlVt",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/XoM4.tex": {
       "status": "inserted",
@@ -2633,10 +2201,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "XoM4"
+      "uuid": "XoM4",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/XtkF.tex": {
       "status": "inserted",
@@ -2644,10 +2210,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "XtkF"
+      "uuid": "XtkF",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/Xvzc.tex": {
       "status": "inserted",
@@ -2655,10 +2219,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Xvzc"
+      "uuid": "Xvzc",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/XwA0.tex": {
       "status": "inserted",
@@ -2666,15 +2228,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "XwA0"
+      "uuid": "XwA0",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/Y5Cw.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "Y5Cw"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "Y5Cw",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/Y6X6.tex": {
       "status": "inserted",
@@ -2682,10 +2246,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "Y6X6"
+      "uuid": "Y6X6",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/Y8mj.tex": {
       "status": "inserted",
@@ -2693,10 +2255,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Résolution de systèmes linéaires : méthode itérative",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "Y8mj"
+      "uuid": "Y8mj",
+      "chapitre": "Résolution de systèmes linéaires : méthode itérative"
     },
     "/home/maxime/Documents/Exercices/src/Y8t7.tex": {
       "status": "inserted",
@@ -2704,10 +2264,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "Y8t7"
+      "uuid": "Y8t7",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/YBwt.tex": {
       "status": "inserted",
@@ -2715,10 +2273,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "YBwt"
+      "uuid": "YBwt",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/YIXX.tex": {
       "status": "inserted",
@@ -2726,15 +2282,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "YIXX"
+      "uuid": "YIXX",
+      "chapitre": "Probabilité continue"
     },
-    "/home/maxime/Documents/Exercices/src/YUII2.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "YUII2"
+    "/home/maxime/Documents/Exercices/src/YUII.tex": {
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "YUII",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/YUNF.tex": {
       "status": "error",
@@ -2748,15 +2306,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "YYAZ"
+      "uuid": "YYAZ",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/YouX.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "YouX"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "YouX",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/YuII.tex": {
       "status": "inserted",
@@ -2764,10 +2324,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "YuII"
+      "uuid": "YuII",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/Z6wd.tex": {
       "status": "inserted",
@@ -2775,10 +2333,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "Z6wd"
+      "uuid": "Z6wd",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/Z8Dq.tex": {
       "status": "inserted",
@@ -2786,10 +2342,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "Z8Dq"
+      "uuid": "Z8Dq",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/ZBXI.tex": {
       "status": "inserted",
@@ -2797,10 +2351,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "ZBXI"
+      "uuid": "ZBXI",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/ZIua.tex": {
       "status": "inserted",
@@ -2808,10 +2360,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ZIua"
+      "uuid": "ZIua",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/ZMBI.tex": {
       "status": "inserted",
@@ -2819,10 +2369,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ZMBI"
+      "uuid": "ZMBI",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/ZT9T.tex": {
       "status": "inserted",
@@ -2830,10 +2378,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ZT9T"
+      "uuid": "ZT9T",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/ZTjz.tex": {
       "status": "inserted",
@@ -2841,10 +2387,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Développement limité",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "ZTjz"
+      "uuid": "ZTjz",
+      "chapitre": "Développement limité"
     },
     "/home/maxime/Documents/Exercices/src/ZU3E.tex": {
       "status": "inserted",
@@ -2852,10 +2396,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ZU3E"
+      "uuid": "ZU3E",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/ZVIr.tex": {
       "status": "inserted",
@@ -2863,10 +2405,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ZVIr"
+      "uuid": "ZVIr",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/ZyzY.tex": {
       "status": "inserted",
@@ -2874,15 +2414,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "ZyzY"
+      "uuid": "ZyzY",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/a1ba.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "a1ba"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "a1ba",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/a40A.tex": {
       "status": "inserted",
@@ -2890,10 +2432,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "a40A"
+      "uuid": "a40A",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/aK0v.tex": {
       "status": "inserted",
@@ -2901,10 +2441,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "aK0v"
+      "uuid": "aK0v",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/aOYg.tex": {
       "status": "inserted",
@@ -2912,10 +2450,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Résolution de systèmes linéaires : méthode itérative",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "aOYg"
+      "uuid": "aOYg",
+      "chapitre": "Résolution de systèmes linéaires : méthode itérative"
     },
     "/home/maxime/Documents/Exercices/src/aRzj.tex": {
       "status": "inserted",
@@ -2923,10 +2459,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "aRzj"
+      "uuid": "aRzj",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/aUn2.tex": {
       "status": "inserted",
@@ -2934,10 +2468,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "aUn2"
+      "uuid": "aUn2",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/aUnN.tex": {
       "status": "inserted",
@@ -2945,10 +2477,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Continuité, limite et étude de fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "aUnN"
+      "uuid": "aUnN",
+      "chapitre": "Continuité, limite et étude de fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/aW1E.tex": {
       "status": "inserted",
@@ -2956,10 +2486,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "aW1E"
+      "uuid": "aW1E",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/aWAS.tex": {
       "status": "inserted",
@@ -2967,10 +2495,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Développement limité",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "aWAS"
+      "uuid": "aWAS",
+      "chapitre": "Développement limité"
     },
     "/home/maxime/Documents/Exercices/src/aYzL.tex": {
       "status": "inserted",
@@ -2978,10 +2504,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "aYzL"
+      "uuid": "aYzL",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/aaap.tex": {
       "status": "inserted",
@@ -2989,10 +2513,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "aaap"
+      "uuid": "aaap",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/acya.tex": {
       "status": "inserted",
@@ -3000,10 +2522,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "acya"
+      "uuid": "acya",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/ad69.tex": {
       "status": "inserted",
@@ -3011,10 +2531,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ad69"
+      "uuid": "ad69",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/aiup.tex": {
       "status": "inserted",
@@ -3022,10 +2540,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "aiup"
+      "uuid": "aiup",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/alNi.tex": {
       "status": "inserted",
@@ -3033,10 +2549,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "alNi"
+      "uuid": "alNi",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/aoB6.tex": {
       "status": "inserted",
@@ -3044,10 +2558,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "aoB6"
+      "uuid": "aoB6",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/attt.tex": {
       "status": "inserted",
@@ -3055,15 +2567,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "attt"
+      "uuid": "attt",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/avca.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "avca"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "avca",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/avcm.tex": {
       "status": "inserted",
@@ -3071,10 +2585,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "avcm"
+      "uuid": "avcm",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/b1T2.tex": {
       "status": "inserted",
@@ -3082,10 +2594,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Résolution de systèmes linéaires : méthode itérative",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "b1T2"
+      "uuid": "b1T2",
+      "chapitre": "Résolution de systèmes linéaires : méthode itérative"
     },
     "/home/maxime/Documents/Exercices/src/b6cm.tex": {
       "status": "inserted",
@@ -3093,10 +2603,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "b6cm"
+      "uuid": "b6cm",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/bE85.tex": {
       "status": "inserted",
@@ -3104,10 +2612,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Nombres complexes",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "bE85"
+      "uuid": "bE85",
+      "chapitre": "Nombres complexes"
     },
     "/home/maxime/Documents/Exercices/src/bOga.tex": {
       "status": "inserted",
@@ -3115,10 +2621,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "bOga"
+      "uuid": "bOga",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/bPo3.tex": {
       "status": "inserted",
@@ -3126,10 +2630,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "bPo3"
+      "uuid": "bPo3",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/bXCC.tex": {
       "status": "error",
@@ -3143,10 +2645,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "bl4k"
+      "uuid": "bl4k",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/btWx.tex": {
       "status": "error",
@@ -3160,10 +2660,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "btoa"
+      "uuid": "btoa",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/buE8.tex": {
       "status": "inserted",
@@ -3171,20 +2669,26 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "buE8"
+      "uuid": "buE8",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/bz11.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "bz11"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "bz11",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/bzou.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "bzou"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "bzou",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/c5jf.tex": {
       "status": "inserted",
@@ -3192,10 +2696,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "c5jf"
+      "uuid": "c5jf",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/cEVS.tex": {
       "status": "inserted",
@@ -3203,10 +2705,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "cEVS"
+      "uuid": "cEVS",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/cHUe.tex": {
       "status": "inserted",
@@ -3214,10 +2714,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "cHUe"
+      "uuid": "cHUe",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/cLt6.tex": {
       "status": "inserted",
@@ -3225,10 +2723,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "cLt6"
+      "uuid": "cLt6",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/cRYI.tex": {
       "status": "inserted",
@@ -3236,10 +2732,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "cRYI"
+      "uuid": "cRYI",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/cpBJ.tex": {
       "status": "inserted",
@@ -3247,10 +2741,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "cpBJ"
+      "uuid": "cpBJ",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/d4sm.tex": {
       "status": "inserted",
@@ -3258,10 +2750,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "d4sm"
+      "uuid": "d4sm",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/dC7P.tex": {
       "status": "inserted",
@@ -3269,10 +2759,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "dC7P"
+      "uuid": "dC7P",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/dCHn.tex": {
       "status": "inserted",
@@ -3280,10 +2768,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "dCHn"
+      "uuid": "dCHn",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/dHzJ.tex": {
       "status": "inserted",
@@ -3291,10 +2777,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "dHzJ"
+      "uuid": "dHzJ",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/dRbq.tex": {
       "status": "inserted",
@@ -3302,10 +2786,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "dRbq"
+      "uuid": "dRbq",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/dXNn.tex": {
       "status": "inserted",
@@ -3313,10 +2795,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "dXNn"
+      "uuid": "dXNn",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/djCi.tex": {
       "status": "inserted",
@@ -3324,10 +2804,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "djCi"
+      "uuid": "djCi",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/dmDL.tex": {
       "status": "inserted",
@@ -3335,10 +2813,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Continuité, limite et étude de fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "dmDL"
+      "uuid": "dmDL",
+      "chapitre": "Continuité, limite et étude de fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/drby.tex": {
       "status": "inserted",
@@ -3346,15 +2822,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "drby"
+      "uuid": "drby",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/dsIx.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "dsIx"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "dsIx",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/e3Me.tex": {
       "status": "inserted",
@@ -3362,10 +2840,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "e3Me"
+      "uuid": "e3Me",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/e7W3.tex": {
       "status": "inserted",
@@ -3373,10 +2849,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "e7W3"
+      "uuid": "e7W3",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/eAky.tex": {
       "status": "inserted",
@@ -3384,10 +2858,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction convexe",
-      "niveau": "L3",
-      "module": "Optimisation",
-      "uuid": "eAky"
+      "uuid": "eAky",
+      "chapitre": "Fonction convexe"
     },
     "/home/maxime/Documents/Exercices/src/eDzQ.tex": {
       "status": "inserted",
@@ -3395,10 +2867,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Continuité, limite et étude de fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "eDzQ"
+      "uuid": "eDzQ",
+      "chapitre": "Continuité, limite et étude de fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/eFy7.tex": {
       "status": "inserted",
@@ -3406,10 +2876,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "eFy7"
+      "uuid": "eFy7",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/eTDu.tex": {
       "status": "inserted",
@@ -3417,10 +2885,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "eTDu"
+      "uuid": "eTDu",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/ebva.tex": {
       "status": "inserted",
@@ -3428,10 +2894,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "ebva"
+      "uuid": "ebva",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/erHi.tex": {
       "status": "inserted",
@@ -3439,15 +2903,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "erHi"
+      "uuid": "erHi",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/f4qb.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "f4qb"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "f4qb",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/f4ze.tex": {
       "status": "inserted",
@@ -3455,10 +2921,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "f4ze"
+      "uuid": "f4ze",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/f63Q.tex": {
       "status": "inserted",
@@ -3466,10 +2930,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "f63Q"
+      "uuid": "f63Q",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/fGoC.tex": {
       "status": "inserted",
@@ -3477,10 +2939,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "fGoC"
+      "uuid": "fGoC",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/fU9E.tex": {
       "status": "inserted",
@@ -3488,10 +2948,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "fU9E"
+      "uuid": "fU9E",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/femq.tex": {
       "status": "inserted",
@@ -3499,14 +2957,13 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "femq"
+      "uuid": "femq",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/fo0Z.tex": {
       "status": "error",
-      "error": "\\chapitre{...} introuvable",
+      "error": "chapitre non trouvé dans le CSV",
+      "chapitre": "Fonctions de plusieurs variables",
       "uuid": "fo0Z"
     },
     "/home/maxime/Documents/Exercices/src/g19x.tex": {
@@ -3515,10 +2972,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "g19x"
+      "uuid": "g19x",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/g6Rl.tex": {
       "status": "inserted",
@@ -3526,10 +2981,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "g6Rl"
+      "uuid": "g6Rl",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/g9JP.tex": {
       "status": "error",
@@ -3543,15 +2996,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "gAMY"
+      "uuid": "gAMY",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/gKy2.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "gKy2"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "gKy2",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/gLXG.tex": {
       "status": "inserted",
@@ -3559,10 +3014,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "gLXG"
+      "uuid": "gLXG",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/gfHC.tex": {
       "status": "inserted",
@@ -3570,15 +3023,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "gfHC"
+      "uuid": "gfHC",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/gk1A.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "gk1A"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "gk1A",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/gl15.tex": {
       "status": "inserted",
@@ -3586,10 +3041,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "gl15"
+      "uuid": "gl15",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/gsn9.tex": {
       "status": "inserted",
@@ -3597,10 +3050,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "gsn9"
+      "uuid": "gsn9",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/hCfF.tex": {
       "status": "inserted",
@@ -3608,10 +3059,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "hCfF"
+      "uuid": "hCfF",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/hGun.tex": {
       "status": "inserted",
@@ -3619,10 +3068,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "hGun"
+      "uuid": "hGun",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/hLkm.tex": {
       "status": "error",
@@ -3632,13 +3079,18 @@
     },
     "/home/maxime/Documents/Exercices/src/hSGF.tex": {
       "status": "error",
-      "error": "\\chapitre{...} introuvable",
+      "error": "chapitre non trouvé dans le CSV",
+      "chapitre": "Fonctions de plusieurs variables",
       "uuid": "hSGF"
     },
     "/home/maxime/Documents/Exercices/src/hUMk.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "hUMk"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "hUMk",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/hWFx.tex": {
       "status": "inserted",
@@ -3646,10 +3098,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "hWFx"
+      "uuid": "hWFx",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/hpqO.tex": {
       "status": "inserted",
@@ -3657,10 +3107,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Topologie",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "hpqO"
+      "uuid": "hpqO",
+      "chapitre": "Topologie"
     },
     "/home/maxime/Documents/Exercices/src/hqXo.tex": {
       "status": "inserted",
@@ -3668,15 +3116,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "hqXo"
+      "uuid": "hqXo",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/i64t.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "i64t"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "i64t",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/iQFz.tex": {
       "status": "inserted",
@@ -3684,15 +3134,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "iQFz"
+      "uuid": "iQFz",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/iQqS.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "iQqS"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "iQqS",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/iboj.tex": {
       "status": "inserted",
@@ -3700,10 +3152,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "iboj"
+      "uuid": "iboj",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/ieFw.tex": {
       "status": "inserted",
@@ -3711,10 +3161,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "ieFw"
+      "uuid": "ieFw",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/ingl.tex": {
       "status": "inserted",
@@ -3722,15 +3170,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ingl"
+      "uuid": "ingl",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/ioa5.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "ioa5"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "ioa5",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/iwFE.tex": {
       "status": "inserted",
@@ -3738,10 +3188,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Interpolation polynomiale",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "iwFE"
+      "uuid": "iwFE",
+      "chapitre": "Interpolation polynomiale"
     },
     "/home/maxime/Documents/Exercices/src/j0O1.tex": {
       "status": "inserted",
@@ -3749,15 +3197,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "j0O1"
+      "uuid": "j0O1",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/j0zZ.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "j0zZ"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "j0zZ",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/j4xc.tex": {
       "status": "inserted",
@@ -3765,10 +3215,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "j4xc"
+      "uuid": "j4xc",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/j7Pn.tex": {
       "status": "inserted",
@@ -3776,10 +3224,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "j7Pn"
+      "uuid": "j7Pn",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/jI8R.tex": {
       "status": "inserted",
@@ -3787,10 +3233,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "jI8R"
+      "uuid": "jI8R",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/jK62.tex": {
       "status": "inserted",
@@ -3798,10 +3242,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "jK62"
+      "uuid": "jK62",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/jbnE.tex": {
       "status": "inserted",
@@ -3809,10 +3251,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "jbnE"
+      "uuid": "jbnE",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/jemd.tex": {
       "status": "inserted",
@@ -3820,10 +3260,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "jemd"
+      "uuid": "jemd",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/jj3V.tex": {
       "status": "error",
@@ -3837,15 +3275,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "jmDd"
+      "uuid": "jmDd",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/jyFv.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "jyFv"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "jyFv",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/kJz6.tex": {
       "status": "inserted",
@@ -3853,10 +3293,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "kJz6"
+      "uuid": "kJz6",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/kMXh.tex": {
       "status": "inserted",
@@ -3864,10 +3302,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "kMXh"
+      "uuid": "kMXh",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/kOVx.tex": {
       "status": "inserted",
@@ -3875,10 +3311,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "kOVx"
+      "uuid": "kOVx",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/kWDX.tex": {
       "status": "inserted",
@@ -3886,10 +3320,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "kWDX"
+      "uuid": "kWDX",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/kbR8.tex": {
       "status": "inserted",
@@ -3897,10 +3329,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "kbR8"
+      "uuid": "kbR8",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/kkMH.tex": {
       "status": "inserted",
@@ -3908,10 +3338,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "kkMH"
+      "uuid": "kkMH",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/krLE.tex": {
       "status": "inserted",
@@ -3919,15 +3347,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "krLE"
+      "uuid": "krLE",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/kw9E.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "kw9E"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "kw9E",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/kzF4.tex": {
       "status": "inserted",
@@ -3935,10 +3365,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction convexe",
-      "niveau": "L3",
-      "module": "Optimisation",
-      "uuid": "kzF4"
+      "uuid": "kzF4",
+      "chapitre": "Fonction convexe"
     },
     "/home/maxime/Documents/Exercices/src/kzan.tex": {
       "status": "inserted",
@@ -3946,10 +3374,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "kzan"
+      "uuid": "kzan",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/lCVu.tex": {
       "status": "inserted",
@@ -3957,10 +3383,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "lCVu"
+      "uuid": "lCVu",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/lH75.tex": {
       "status": "inserted",
@@ -3968,14 +3392,13 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "lH75"
+      "uuid": "lH75",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/lJaW.tex": {
       "status": "error",
-      "error": "\\chapitre{...} introuvable",
+      "error": "chapitre non trouvé dans le CSV",
+      "chapitre": "Fonctions de plusieurs variables",
       "uuid": "lJaW"
     },
     "/home/maxime/Documents/Exercices/src/lX53.tex": {
@@ -3984,10 +3407,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "lX53"
+      "uuid": "lX53",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/lZfc.tex": {
       "status": "inserted",
@@ -3995,10 +3416,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "lZfc"
+      "uuid": "lZfc",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/lqVs.tex": {
       "status": "inserted",
@@ -4006,10 +3425,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Résolution de systèmes linéaires : méthode directe",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "lqVs"
+      "uuid": "lqVs",
+      "chapitre": "Résolution de systèmes linéaires : méthode directe"
     },
     "/home/maxime/Documents/Exercices/src/lz1J.tex": {
       "status": "inserted",
@@ -4017,15 +3434,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "lz1J"
+      "uuid": "lz1J",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/lz2A.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "lz2A"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "lz2A",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/m5P9.tex": {
       "status": "inserted",
@@ -4033,10 +3452,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "m5P9"
+      "uuid": "m5P9",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/mDzt.tex": {
       "status": "inserted",
@@ -4044,10 +3461,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "mDzt"
+      "uuid": "mDzt",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/mH1D.tex": {
       "status": "inserted",
@@ -4055,10 +3470,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "mH1D"
+      "uuid": "mH1D",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/mNpv.tex": {
       "status": "inserted",
@@ -4066,10 +3479,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "mNpv"
+      "uuid": "mNpv",
+      "chapitre": "Dérivabilité des fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/mVsg.tex": {
       "status": "inserted",
@@ -4077,10 +3488,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "mVsg"
+      "uuid": "mVsg",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/mjqR.tex": {
       "status": "inserted",
@@ -4088,15 +3497,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "mjqR"
+      "uuid": "mjqR",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/nQHm.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "nQHm"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "nQHm",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/nSDY.tex": {
       "status": "inserted",
@@ -4104,10 +3515,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "nSDY"
+      "uuid": "nSDY",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/nSSt.tex": {
       "status": "inserted",
@@ -4115,10 +3524,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "nSSt"
+      "uuid": "nSSt",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/na3z.tex": {
       "status": "inserted",
@@ -4126,10 +3533,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "na3z"
+      "uuid": "na3z",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/nhpq.tex": {
       "status": "inserted",
@@ -4137,10 +3542,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "nhpq"
+      "uuid": "nhpq",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/nsgN.tex": {
       "status": "inserted",
@@ -4148,10 +3551,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "nsgN"
+      "uuid": "nsgN",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/nxfH.tex": {
       "status": "inserted",
@@ -4159,10 +3560,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "nxfH"
+      "uuid": "nxfH",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/o5At.tex": {
       "status": "inserted",
@@ -4170,10 +3569,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "o5At"
+      "uuid": "o5At",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/oNkJ.tex": {
       "status": "inserted",
@@ -4181,10 +3578,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "oNkJ"
+      "uuid": "oNkJ",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/oXIK.tex": {
       "status": "inserted",
@@ -4192,15 +3587,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "oXIK"
+      "uuid": "oXIK",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/ofSt.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "ofSt"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "ofSt",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/ouYw.tex": {
       "status": "inserted",
@@ -4208,20 +3605,26 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Calcul d'intégrales",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "ouYw"
+      "uuid": "ouYw",
+      "chapitre": "Calcul d'intégrales"
     },
     "/home/maxime/Documents/Exercices/src/ovua.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "ovua"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "ovua",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/oyub.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "oyub"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "oyub",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/pGze.tex": {
       "status": "inserted",
@@ -4229,10 +3632,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "pGze"
+      "uuid": "pGze",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/pWdA.tex": {
       "status": "inserted",
@@ -4240,10 +3641,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "pWdA"
+      "uuid": "pWdA",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/pZq6.tex": {
       "status": "inserted",
@@ -4251,10 +3650,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "pZq6"
+      "uuid": "pZq6",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/pfS1.tex": {
       "status": "inserted",
@@ -4262,10 +3659,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "pfS1"
+      "uuid": "pfS1",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/phsf.tex": {
       "status": "inserted",
@@ -4273,10 +3668,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "phsf"
+      "uuid": "phsf",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/ptxH.tex": {
       "status": "inserted",
@@ -4284,10 +3677,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "ptxH"
+      "uuid": "ptxH",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/qAIw.tex": {
       "status": "inserted",
@@ -4295,10 +3686,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Autre",
-      "niveau": "L3",
-      "module": "Topologie",
-      "uuid": "qAIw"
+      "uuid": "qAIw",
+      "chapitre": "Autre"
     },
     "/home/maxime/Documents/Exercices/src/qAuO.tex": {
       "status": "inserted",
@@ -4306,10 +3695,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "qAuO"
+      "uuid": "qAuO",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/qGRj.tex": {
       "status": "inserted",
@@ -4317,10 +3704,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "qGRj"
+      "uuid": "qGRj",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/qGet.tex": {
       "status": "error",
@@ -4329,9 +3714,13 @@
       "uuid": "qGet"
     },
     "/home/maxime/Documents/Exercices/src/qM6e.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "qM6e"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "qM6e",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/qNxE.tex": {
       "status": "inserted",
@@ -4339,10 +3728,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "qNxE"
+      "uuid": "qNxE",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/qOFO.tex": {
       "status": "inserted",
@@ -4350,10 +3737,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "qOFO"
+      "uuid": "qOFO",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/qZkI.tex": {
       "status": "inserted",
@@ -4361,10 +3746,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "qZkI"
+      "uuid": "qZkI",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/qjd1.tex": {
       "status": "inserted",
@@ -4372,10 +3755,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "qjd1"
+      "uuid": "qjd1",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/qoul.tex": {
       "status": "inserted",
@@ -4383,10 +3764,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "qoul"
+      "uuid": "qoul",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/qyPc.tex": {
       "status": "inserted",
@@ -4394,10 +3773,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "qyPc"
+      "uuid": "qyPc",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/r0au.tex": {
       "status": "inserted",
@@ -4405,10 +3782,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "r0au"
+      "uuid": "r0au",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/r1il.tex": {
       "status": "inserted",
@@ -4416,10 +3791,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "r1il"
+      "uuid": "r1il",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/r3ax.tex": {
       "status": "inserted",
@@ -4427,10 +3800,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "r3ax"
+      "uuid": "r3ax",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/r5Yy.tex": {
       "status": "inserted",
@@ -4438,10 +3809,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "r5Yy"
+      "uuid": "r5Yy",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/rB1j.tex": {
       "status": "inserted",
@@ -4449,10 +3818,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "rB1j"
+      "uuid": "rB1j",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/rVaz.tex": {
       "status": "inserted",
@@ -4460,10 +3827,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "rVaz"
+      "uuid": "rVaz",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/rf0B.tex": {
       "status": "inserted",
@@ -4471,10 +3836,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "rf0B"
+      "uuid": "rf0B",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/rhUy.tex": {
       "status": "inserted",
@@ -4482,10 +3845,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "rhUy"
+      "uuid": "rhUy",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/rsjs.tex": {
       "status": "error",
@@ -4505,10 +3866,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "s04A"
+      "uuid": "s04A",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/s2lI.tex": {
       "status": "inserted",
@@ -4516,10 +3875,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "s2lI"
+      "uuid": "s2lI",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/s7LB.tex": {
       "status": "inserted",
@@ -4527,10 +3884,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "s7LB"
+      "uuid": "s7LB",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/sPl1.tex": {
       "status": "inserted",
@@ -4538,10 +3893,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "sPl1"
+      "uuid": "sPl1",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/svRW.tex": {
       "status": "inserted",
@@ -4549,10 +3902,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "svRW"
+      "uuid": "svRW",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/t0mY.tex": {
       "status": "inserted",
@@ -4560,10 +3911,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "t0mY"
+      "uuid": "t0mY",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/t2sS.tex": {
       "status": "inserted",
@@ -4571,10 +3920,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "t2sS"
+      "uuid": "t2sS",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/tCEz.tex": {
       "status": "inserted",
@@ -4582,10 +3929,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "tCEz"
+      "uuid": "tCEz",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/tLxt.tex": {
       "status": "inserted",
@@ -4593,10 +3938,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "tLxt"
+      "uuid": "tLxt",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/tNNT.tex": {
       "status": "inserted",
@@ -4604,10 +3947,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "tNNT"
+      "uuid": "tNNT",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/tPCs.tex": {
       "status": "inserted",
@@ -4615,10 +3956,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Résolution de systèmes linéaires : méthode itérative",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "tPCs"
+      "uuid": "tPCs",
+      "chapitre": "Résolution de systèmes linéaires : méthode itérative"
     },
     "/home/maxime/Documents/Exercices/src/tPHB.tex": {
       "status": "inserted",
@@ -4626,10 +3965,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "tPHB"
+      "uuid": "tPHB",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/tPb8.tex": {
       "status": "inserted",
@@ -4637,10 +3974,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Application linéaire",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "tPb8"
+      "uuid": "tPb8",
+      "chapitre": "Application linéaire"
     },
     "/home/maxime/Documents/Exercices/src/tPpR.tex": {
       "status": "inserted",
@@ -4648,10 +3983,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "tPpR"
+      "uuid": "tPpR",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/tQCJ.tex": {
       "status": "inserted",
@@ -4659,10 +3992,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "tQCJ"
+      "uuid": "tQCJ",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/tRMg.tex": {
       "status": "inserted",
@@ -4670,10 +4001,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "tRMg"
+      "uuid": "tRMg",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/tSVB.tex": {
       "status": "inserted",
@@ -4681,10 +4010,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "tSVB"
+      "uuid": "tSVB",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/tSoF.tex": {
       "status": "inserted",
@@ -4692,10 +4019,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Continuité, limite et étude de fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "tSoF"
+      "uuid": "tSoF",
+      "chapitre": "Continuité, limite et étude de fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/taba.tex": {
       "status": "inserted",
@@ -4703,55 +4028,89 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "taba"
+      "uuid": "taba",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/tbue.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "tbue"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "tbue",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/td20.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "td20"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "td20",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/td21.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "td21"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "td21",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/td22.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "td22"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "td22",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/td23.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "td23"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "td23",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/td24.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "td24"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "td24",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/td25.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "td25"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "td25",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/td26.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "td26"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "td26",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/td27.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "td27"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "td27",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/tjMm.tex": {
       "status": "inserted",
@@ -4759,10 +4118,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Calcul d'intégrales",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "tjMm"
+      "uuid": "tjMm",
+      "chapitre": "Calcul d'intégrales"
     },
     "/home/maxime/Documents/Exercices/src/tn85.tex": {
       "status": "inserted",
@@ -4770,10 +4127,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "tn85"
+      "uuid": "tn85",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/trhY.tex": {
       "status": "inserted",
@@ -4781,10 +4136,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "trhY"
+      "uuid": "trhY",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/uGsH.tex": {
       "status": "inserted",
@@ -4792,10 +4145,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "uGsH"
+      "uuid": "uGsH",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/uPmr.tex": {
       "status": "inserted",
@@ -4803,10 +4154,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "uPmr"
+      "uuid": "uPmr",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/uR6d.tex": {
       "status": "inserted",
@@ -4814,10 +4163,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "uR6d"
+      "uuid": "uR6d",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/uSXE.tex": {
       "status": "inserted",
@@ -4825,10 +4172,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "uSXE"
+      "uuid": "uSXE",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/uVBn.tex": {
       "status": "inserted",
@@ -4836,10 +4181,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "uVBn"
+      "uuid": "uVBn",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/uaCN.tex": {
       "status": "inserted",
@@ -4847,15 +4190,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "uaCN"
+      "uuid": "uaCN",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/uaba.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "uaba"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "uaba",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/urL7.tex": {
       "status": "inserted",
@@ -4863,10 +4208,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "urL7"
+      "uuid": "urL7",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/urin.tex": {
       "status": "inserted",
@@ -4874,15 +4217,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "urin"
+      "uuid": "urin",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/v1bv.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "v1bv"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "v1bv",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/vRme.tex": {
       "status": "inserted",
@@ -4890,10 +4235,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "vRme"
+      "uuid": "vRme",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/vUFN.tex": {
       "status": "inserted",
@@ -4901,10 +4244,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "vUFN"
+      "uuid": "vUFN",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/vbYr.tex": {
       "status": "inserted",
@@ -4912,10 +4253,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "vbYr"
+      "uuid": "vbYr",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/vnJs.tex": {
       "status": "inserted",
@@ -4923,10 +4262,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "vnJs"
+      "uuid": "vnJs",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/vnXU.tex": {
       "status": "inserted",
@@ -4934,10 +4271,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "vnXU"
+      "uuid": "vnXU",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/vt62.tex": {
       "status": "inserted",
@@ -4945,10 +4280,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "vt62"
+      "uuid": "vt62",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/w4TW.tex": {
       "status": "inserted",
@@ -4956,15 +4289,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "w4TW"
+      "uuid": "w4TW",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/w7zw.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "w7zw"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "w7zw",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/wBKf.tex": {
       "status": "inserted",
@@ -4972,10 +4307,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Nombres complexes",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "wBKf"
+      "uuid": "wBKf",
+      "chapitre": "Nombres complexes"
     },
     "/home/maxime/Documents/Exercices/src/wO4e.tex": {
       "status": "inserted",
@@ -4983,10 +4316,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Déterminant, système linéaire",
-      "niveau": "L2",
-      "module": "Algèbre",
-      "uuid": "wO4e"
+      "uuid": "wO4e",
+      "chapitre": "Déterminant, système linéaire"
     },
     "/home/maxime/Documents/Exercices/src/wVDA.tex": {
       "status": "error",
@@ -5000,10 +4331,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "wjwa"
+      "uuid": "wjwa",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/wlXF.tex": {
       "status": "inserted",
@@ -5011,10 +4340,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "wlXF"
+      "uuid": "wlXF",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/wlig.tex": {
       "status": "inserted",
@@ -5022,10 +4349,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction convexe",
-      "niveau": "L3",
-      "module": "Optimisation",
-      "uuid": "wlig"
+      "uuid": "wlig",
+      "chapitre": "Fonction convexe"
     },
     "/home/maxime/Documents/Exercices/src/xCO3.tex": {
       "status": "inserted",
@@ -5033,10 +4358,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "xCO3"
+      "uuid": "xCO3",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/xQe9.tex": {
       "status": "inserted",
@@ -5044,10 +4367,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "xQe9"
+      "uuid": "xQe9",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/xTI2.tex": {
       "status": "inserted",
@@ -5055,10 +4376,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "xTI2"
+      "uuid": "xTI2",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/xTQK.tex": {
       "status": "inserted",
@@ -5066,10 +4385,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Interpolation polynomiale",
-      "niveau": "L3",
-      "module": "Analyse numérique",
-      "uuid": "xTQK"
+      "uuid": "xTQK",
+      "chapitre": "Interpolation polynomiale"
     },
     "/home/maxime/Documents/Exercices/src/xV0R.tex": {
       "status": "inserted",
@@ -5077,10 +4394,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série entière",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "xV0R"
+      "uuid": "xV0R",
+      "chapitre": "Série entière"
     },
     "/home/maxime/Documents/Exercices/src/xheQ.tex": {
       "status": "inserted",
@@ -5088,10 +4403,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "xheQ"
+      "uuid": "xheQ",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/xkLh.tex": {
       "status": "inserted",
@@ -5099,10 +4412,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Application linéaire",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "xkLh"
+      "uuid": "xkLh",
+      "chapitre": "Application linéaire"
     },
     "/home/maxime/Documents/Exercices/src/xs4r.tex": {
       "status": "inserted",
@@ -5110,10 +4421,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité discrète",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "xs4r"
+      "uuid": "xs4r",
+      "chapitre": "Probabilité discrète"
     },
     "/home/maxime/Documents/Exercices/src/y9mx.tex": {
       "status": "inserted",
@@ -5121,10 +4430,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Statistique",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "y9mx"
+      "uuid": "y9mx",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/yNs9.tex": {
       "status": "inserted",
@@ -5132,10 +4439,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "yNs9"
+      "uuid": "yNs9",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/yTDM.tex": {
       "status": "inserted",
@@ -5143,10 +4448,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "yTDM"
+      "uuid": "yTDM",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/ycEr.tex": {
       "status": "error",
@@ -5160,10 +4463,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Série numérique",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "yp7e"
+      "uuid": "yp7e",
+      "chapitre": "Série numérique"
     },
     "/home/maxime/Documents/Exercices/src/z0hC.tex": {
       "status": "inserted",
@@ -5171,10 +4472,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Matrice",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "z0hC"
+      "uuid": "z0hC",
+      "chapitre": "Matrice"
     },
     "/home/maxime/Documents/Exercices/src/z2ZN.tex": {
       "status": "inserted",
@@ -5182,10 +4481,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "z2ZN"
+      "uuid": "z2ZN",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/z5Rl.tex": {
       "status": "inserted",
@@ -5193,10 +4490,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "z5Rl"
+      "uuid": "z5Rl",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/zAlF.tex": {
       "status": "inserted",
@@ -5204,10 +4499,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Polynôme, fraction rationnelle",
-      "niveau": "L1",
-      "module": "Algèbre",
-      "uuid": "zAlF"
+      "uuid": "zAlF",
+      "chapitre": "Polynôme, fraction rationnelle"
     },
     "/home/maxime/Documents/Exercices/src/zhq8.tex": {
       "status": "inserted",
@@ -5215,10 +4508,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Probabilité continue",
-      "niveau": "L2",
-      "module": "Probabilité et statistique",
-      "uuid": "zhq8"
+      "uuid": "zhq8",
+      "chapitre": "Probabilité continue"
     },
     "/home/maxime/Documents/Exercices/src/zhwJ.tex": {
       "status": "inserted",
@@ -5226,10 +4517,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Fonction de plusieurs variables",
-      "niveau": "L2",
-      "module": "Analyse",
-      "uuid": "zhwJ"
+      "uuid": "zhwJ",
+      "chapitre": "Fonction de plusieurs variables"
     },
     "/home/maxime/Documents/Exercices/src/zmLP.tex": {
       "status": "inserted",
@@ -5237,15 +4526,17 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Continuité, limite et étude de fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "zmLP"
+      "uuid": "zmLP",
+      "chapitre": "Continuité, limite et étude de fonctions réelles"
     },
     "/home/maxime/Documents/Exercices/src/zobz.tex": {
-      "status": "error",
-      "error": "\\chapitre{...} introuvable",
-      "uuid": "zobz"
+      "status": "inserted",
+      "inserted": [
+        "niveau",
+        "module"
+      ],
+      "uuid": "zobz",
+      "chapitre": "Statistique"
     },
     "/home/maxime/Documents/Exercices/src/zxCh.tex": {
       "status": "inserted",
@@ -5253,10 +4544,8 @@
         "niveau",
         "module"
       ],
-      "chapitre": "Dérivabilité des fonctions réelles",
-      "niveau": "L1",
-      "module": "Analyse",
-      "uuid": "zxCh"
+      "uuid": "zxCh",
+      "chapitre": "Dérivabilité des fonctions réelles"
     }
   }
 }
