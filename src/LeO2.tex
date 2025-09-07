@@ -9,13 +9,14 @@
 \datecreate{2023-07-05}
 \organisation{AMSCC}
 
-\difficulte{}
+\difficulte{3}
 \contenu{
 \texte{On considère un dé truqué cubique dont les faces sont numérotées de $1$ à $6$. On suppose que le dé est truqué de sorte que la probabilité d'obtenir une face est proportionnelle au numéro inscrit sur cette face.
 
 Soit $X$ la variable aléatoire donnant le numéro obtenu à l'issue d'un lancer.}
 \begin{enumerate}
  \item \question{Déterminer la loi de $X$.}
+ \indication{Exprimer $\prob(X=k)$ en fonction de $\prob(X=1)$ pour tout $k \in \{1,2,3,4,5,6\}$.}
  \reponse{ D'après les informations, pour tout $k \in \{1,2,3,4,5,6\}$, on a $\prob(X=k)=k\prob(X=1)$. Or, par définition d'une loi de probabilité, on a $\sum_{k=1}^6 \prob(X=k)=1$. Ainsi, on a :
 \begin{align*}
     1 &= \sum_{k=1}^6 \prob(X=k) \\
@@ -38,6 +39,7 @@ On en déduit que $\prob(X=1)=\frac{1}{21}$ et donc que pour tout $k \in \{1,2,3
     \end{align*}
  }
  \item \question{On pose $Y=\frac{1}{X}$. Déterminer la loi de $Y$ et calculer son espérance.}
+ \indication{Déterminer les valeurs prises par la variable aléatoire $Y$. }
  \reponse{
     Les valeurs prises par $Y$ sont les inverses des valeurs prises par $X$. Ainsi, on a pour tout $k \in \{1,2,3,4,5,6\}$, $\prob\left( Y=\frac{1}{k} \right) = \prob(X=k)$.
 

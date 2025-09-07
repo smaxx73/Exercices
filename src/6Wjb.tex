@@ -10,7 +10,7 @@
 \organisation{AMSCC}
 %Proba192
 
-\difficulte{}
+\difficulte{2}
 \contenu{
 	\texte{ Deux urnes $U_1$ et $U_2$ contiennent des boules permettant des gains ou des pertes décrits comme suit : 
 		\begin{itemize}
@@ -24,6 +24,7 @@
 	
 	\begin{enumerate}
 		\item \question{ Donner la loi du couple $(X,Y)$. }
+		\indication{Utiliser la formule de Bayes pour calculer toutes les valeurs $\prob(X=k,Y=k')$. }
 		\reponse{ Pour calculer par exemple $\prob(X=1,Y=-1)$, on utilise la formule de Bayes : 
 	$$\prob(X=1,Y=-1) = \prob(\{X=1\} \cap \{Y=-1\}) = \prob(X=1)\prob(Y=-1 \mid X=1)$$
 	Or d'après l'énoncé, $\prob(X=1) = \frac{1}{6}$ et $\prob(Y=-1 \mid X=1) = \frac{1}{6}$ d'où $\prob(X=1,Y=-1) = \frac{1}{36}$. 
@@ -40,7 +41,8 @@
 	\end{tabular}
 \end{center}	
 	 }
-		\item \question{ Calculer les lois marginales du couple $(X,Y)$. Les variables $X$ et $Y$ sont-elles indépendantes ? }
+		\item \question{ Déterminer les lois marginales du couple $(X,Y)$.}
+		\indication{On reconnaît une loi usuelle pour $X$.}
 		\reponse{ On obtient directement que $X$ suit une loi de Bernoulli de paramètre $\frac{1}{6}$. De plus, par somme, on obtient la loi suivante pour $Y$ :
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|}
@@ -50,9 +52,27 @@
 			$\prob(Y=k$	& $\frac{4}{9}$ & $\frac{3}{9}$ & $\frac{2}{9}$  \\
 			\hline
 		\end{tabular}
-	\end{center}		
-	
+	\end{center}			
  }
+		\question{Les variables $X$ et $Y$ sont-elles indépendantes ?}
+		\indication{
+	Pour déterminer si les variables $X$ et $Y$ sont indépendantes, il faut vérifier si l'égalité 
+	$$P(X=k, Y=k') = P(X=k) \times P(Y=k')$$
+	est vraie pour tous les couples de valeurs possibles $(k,k')$.
+	
+	Testons cette égalité avec le couple $(1, -1)$. 	
+	}
+		\reponse{
+	D'après la loi conjointe, nous avons :
+	$$P(X=1, Y=-1) = \frac{1}{36}$$
+	
+	Calculons maintenant le produit des probabilités marginales :
+	$$P(X=1) \times P(Y=-1) = \frac{1}{6} \times \frac{4}{9} = \frac{4}{54} = \frac{2}{27}$$
+	
+	On constate que $\frac{1}{36} \neq \frac{2}{27}$.
+	
+	Puisque l'égalité $P(X=k, Y=k') = P(X=k)P(Y=k')$ n'est pas vérifiée pour au moins un couple de valeurs, on peut conclure que les variables aléatoires $X$ et $Y$ ne sont pas indépendantes.	
+	}
 	\end{enumerate}
 	
 }
