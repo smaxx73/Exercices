@@ -19,24 +19,56 @@
 		Calculer, si possible, les probabilités suivantes : }
 
 \colonnes{\solution}{2}{1}
-		\begin{enumerate}
-			\item \question{ $\prob(A \cup B)$ ; }
-			\reponse{  $\prob(A \cup B) = 0.5 $ }
-			\item \question{ $\prob(A \mid B)$ ; }
-			\reponse{  $\prob(A \mid B) = 0.5$ }
-			\item \question{ $\prob(\overline{A} \mid B)$ ; }
-			\reponse{ $\prob(\overline{A} \mid B) = 0.5$ }
-			\item \question{ $\prob({A} \mid \overline{B})$ ; }
-			\reponse{ $\prob({A} \mid \overline{B} = \frac{1}{6} $ }
-			\item \question{ $\prob(B \mid A)$ ; }
-			\reponse{ $\prob(B \mid A) = \frac{2}{3}$ }
-			\item \question{ $\prob(A \cap B \cap C)$ ; }
-			\reponse{ $\prob(A \cap B \cap C) = 0.1$ }
-			\item \question{ $\prob(\overline{A} \cap \overline{B})$ ;}
-			\reponse{ $\prob(\overline{A} \cap \overline{B}) = 0.5$ }
-			\item \question{ $\prob(\overline{A} \cup \overline{B})$.}
-			\reponse{ $\prob(\overline{A} \cup \overline{B}) = 0.8$ }
-		\end{enumerate}
+\begin{enumerate}
+	\item \question{ $\prob(A \cup B)$ ; }
+	\reponse{
+		Par la formule des probabilités pour l'union :
+		$$ \prob(A \cup B) = \prob(A) + \prob(B) - \prob(A \cap B) $$
+		$$ \prob(A \cup B) = 0.3 + 0.4 - 0.2 = 0.5 $$
+	}
+	\item \question{ $\prob(A \mid B)$ ; }
+	\reponse{
+		Par la définition d'une probabilité conditionnelle :
+		$$ \prob(A \mid B) = \frac{\prob(A \cap B)}{\prob(B)} $$
+		$$ \prob(A \mid B) = \frac{0.2}{0.4} = 0.5 $$
+	}
+	\item \question{ $\prob(\overline{A} \mid B)$ ; }
+	\reponse{
+		La probabilité de l'événement complémentaire sous une condition :
+		$$ \prob(\overline{A} \mid B) = 1 - \prob(A \mid B) $$
+		$$ \prob(\overline{A} \mid B) = 1 - 0.5 = 0.5 $$
+	}
+	\item \question{ $\prob({A} \mid \overline{B})$ ; }
+	\reponse{
+		On calcule d'abord $\prob(\overline{B}) = 1 - \prob(B) = 1 - 0.4 = 0.6$. \\
+		Puis, $\prob(A \cap \overline{B}) = \prob(A) - \prob(A \cap B) = 0.3 - 0.2 = 0.1$.
+		$$ \prob(A \mid \overline{B}) = \frac{\prob(A \cap \overline{B})}{\prob(\overline{B})} $$
+		$$ \prob(A \mid \overline{B}) = \frac{0.1}{0.6} = \frac{1}{6} $$
+	}
+	\item \question{ $\prob(B \mid A)$ ; }
+	\reponse{
+		Par la définition d'une probabilité conditionnelle :
+		$$ \prob(B \mid A) = \frac{\prob(B \cap A)}{\prob(A)} $$
+		$$ \prob(B \mid A) = \frac{0.2}{0.3} = \frac{2}{3} $$
+	}
+	\item \question{ $\prob(A \cap B \cap C)$ ; }
+	\reponse{
+		On utilise la formule des probabilités composées :
+		$$ \prob(A \cap B \cap C) = \prob(C \mid A \cap B) \times \prob(A \cap B) $$
+		$$ \prob(A \cap B \cap C) = 0.5 \times 0.2 = 0.1 $$
+	}
+	\item \question{ $\prob(\overline{A} \cap \overline{B})$ ;}
+	\reponse{
+		D'après les lois de De Morgan :
+		$$ \prob(\overline{A} \cap \overline{B}) = \prob(\overline{A \cup B}) = 1 - \prob(A \cup B) $$
+		$$ \prob(\overline{A} \cap \overline{B}) = 1 - 0.5 = 0.5 $$
+	}
+	\item \question{ $\prob(\overline{A} \cup \overline{B})$.}
+	\reponse{
+		D'après les lois de De Morgan :
+		$$ \prob(\overline{A} \cup \overline{B}) = \prob(\overline{A \cap B}) = 1 - \prob(A \cap B) $$
+		$$ \prob(\overline{A} \cup \overline{B}) = 1 - 0.2 = 0.8 $$
+	}
+\end{enumerate}
 \fincolonnes{\solution}{2}{1}
-
 }
