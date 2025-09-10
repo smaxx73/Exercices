@@ -49,17 +49,34 @@ Pour afficher une liste de QR code qui envoie sur les solutions, on a la command
 Chaque exercice a la structure suivante : 
 
 ```
-\uuid{}
-\titre{}
-\theme{}
+\uuid{{ID}}
+\titre{ {TITRE} }
+
+\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{ {MODULE} } 	%Analyse, Algèbre...
+\chapitre{}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{}				%Fonction de répartition, Division euclidienne de polynômes, ...
 \auteur{}
-\datecreate{}
-\organisation{}
+\datecreate{ {YYYY-MM-DD}}
+\organisation{}			%AMSCC, Exo7, ...
+\difficulte{}			%1, 2, 3, 4 ou 5
 
 \contenu{
-  \texte{}
-  \question{}
-  \reponse{}
+
+\texte{ 
+}
+
+\begin{enumerate}
+\item   \question{}
+\indication{}
+\reponse{}
+\item   \question{}
+\indication{}
+
+\end{enumerate}
+
 }
 ```
 
