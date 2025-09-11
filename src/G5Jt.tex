@@ -3,12 +3,12 @@
 \niveau{L2}
 \module{Probabilité et statistique}
 \sousChapitre{Variable aléatoire discrète}
-\titre{Probabilités et divisibilité}
+\titre{Tirage complet d'une urne}
 \theme{variables aléatoires discrètes}
 \auteur{}
 \datecreate{2023-09-04}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{4}
 \contenu{
 
 %proba268
@@ -17,10 +17,11 @@
 
 \begin{enumerate}
 	\item \question{ Déterminer la loi de $X$. }
+	\indication{Voir les probabilités $\prob(X=3)$ et $\prob(X=2)$ comme des probabilités conditionnelles. }
 	\reponse{ L'ensemble des valeurs prises par $X$ est $X(\Omega) = \{1,2,3\}$. 
 Les boules sont a priori indiscernables au toucher donc le tirage d'un boule parmi les $n+2$ suit une loi uniforme, autrement dit la probabilité de tirer une boule en particulier est $\frac{1}{n+2}$. On en déduit que la probabilité que la première boule tirée soit blanche est $$\prob(X=1) = \frac{n}{n+2}$$.
 
-Par indépendance des tirages et formule de Baye, on a $$\prob(X=2) = \prob(\overline{N_1})\prob(N_2 \mid \overline{N_1}) = \frac{2}{n+2}\frac{n}{n+1} = \frac{2n}{(n+2)(n+1)}$$
+D'après la formule de Bayes, on a $$\prob(X=2) = \prob(\overline{N_1})\prob(N_2 \mid \overline{N_1}) = \frac{2}{n+2}\frac{n}{n+1} = \frac{2n}{(n+2)(n+1)}$$
 
 De même, on a $$\prob(X=3) = \frac{2}{n+2}\frac{1}{n+1}\frac{n}{n} = \frac{2}{(n+2)(n+1)}$$
  }
@@ -36,21 +37,22 @@ Les événements  $\{X=1\}$ et $\{Y=1\}$ sont indépendants si et seulement si :
 &\iff n = 2
 \end{align*}
   }
-	\item \question{ Montrer que les variables aléatoires $X$ et $Y$ ne sont pas indépenantes. }
+	\item \question{ Montrer que les variables aléatoires $X$ et $Y$ ne sont pas indépendantes. }
 	\reponse{ On compare par exemple $\prob(X=3,Y=3)$ et $\prob(X=3)\times \prob(Y=3)$. Or $\prob(X=3,Y=3)=0$ car pour que la première boule blanche apparaisse au rang $3$, il faut que les deux premières tirées soient noires, dont l'une d'elle porte le numéro $1$. 
 	
-Or il est clair que $\prob(X=3) \neq 0$ et $\prob(Y=3)\neq 0$. On en déduit que  $\prob(X=3,Y=3) \neq \prob(X=3)\times \prob(Y=3)$ ce qui permet de conclure que  les variables aléatoires $X$ et $Y$ ne sont pas indépenantes. }
+Or il est clair que $\prob(X=3) \neq 0$ et $\prob(Y=3)\neq 0$. On en déduit que  $\prob(X=3,Y=3) \neq \prob(X=3)\times \prob(Y=3)$ ce qui permet de conclure que  les variables aléatoires $X$ et $Y$ ne sont pas indépendantes. }
 	\item \texte{ On suppose maintenant que $n=2$. }
 	\begin{enumerate}
 		\item \question{ Montrer que $X$ et $Y$ ont la même loi de probabilité. }
 		\reponse{ Sous cette hypothèse, on a $Y(\Omega) = \{1,2,3\}$. De plus, d'après la question 1, on a 
 	$$\prob(X=1) = \frac{1}{2} \quad \prob(X=2) = \frac{1}{3} \quad \prob(X=3) = \frac{1}{6}$$
 	Par ailleurs : 
-	\begin{itemize}
-		\item $\prob(Y=1) = \frac{2}{4} = \frac{1}{2}$, c'est la probabilité que la première boule tirée porte le numéro $1$.
-		\item $\prob(Y=2) = \prob(B_1)\prob(\overline{B_2} \mid \B_1) = \frac{2}{4}\frac{1}{3} = \frac{1}{3}$.
-		\item de même, $\prob(Y=3) = \frac{2}{4}\frac{1}{3}\frac{2}{2} = \frac{1}{6$.}
-	\end{itemize}
+% Bloc corrigé
+\begin{itemize}
+	\item $\prob(Y=1) = \frac{2}{4} = \frac{1}{2}$, c'est la probabilité que la première boule tirée porte le numéro $1$.
+	\item $\prob(Y=2) = \prob(B_1)\prob(\overline{B_2} \mid B_1) = \frac{2}{4}\frac{1}{3} = \frac{1}{3}$.  
+	\item de même, $\prob(Y=3) = \frac{2}{4}\frac{1}{3}\frac{2}{2} = \frac{1}{6}.$   
+\end{itemize}
 		Les deux variables $X$ et $Y$ ont donc la même loi de probabilité.
 	 }
  		\item \question{ Déterminer la loi du couple $(X,Y)$.  }
