@@ -1,0 +1,41 @@
+\uuid{JvYX}
+\chapitre{Probabilité continue}
+\niveau{L2}
+\module{Probabilité et statistique}
+\sousChapitre{Densité de probabilité}
+\titre{Changement de variable aléatoire}
+\theme{variables aléatoires à densité}
+\auteur{Maxime Nguyen}
+\datecreate{2025-09-15}
+\organisation{AMSCC}
+%
+\difficulte{2}
+\contenu{
+	
+	\texte{ Soit $X$ une variable aléatoire réelle suivant une loi uniforme sur $[0;1]$. Soit la variable aléatoire $Y=-2\ln(1-X)$. On note $F_X$, respectivement $F_Y$, la fonction de répartition de la variable $X$, respectivement $Y$. }
+	
+	\begin{enumerate}
+		\item \question{ Pour tout $t \in \mathbb{R}$, exprimer $F_Y(t)$ en fonction de $F_X$. }
+		\reponse{ Soit $t\in\mathbb{R}$. On a
+			\begin{align*}
+				F_Y(t) &= \prob(Y\leq t) \\
+				&= \prob(-2\ln(1-X)\leq t) \\
+				&= \prob(\ln(1-X)\geq -t/2) \\
+				&= \prob(1-X\geq e^{-t/2}) \\
+				&= \prob(X\leq 1-e^{-t/2}) \\
+				&= F_X(1-e^{-t/2}).
+		\end{align*} }
+		\item \question{ En déduire la loi suivie par $Y=-2\ln(1-X)$ ? }
+		\reponse{ 
+			Or $X\sim \mathcal{U}([0;1])$ donc $F_X(x)=\begin{cases} 0 & \text{ si } x<0 \\ x & \text{ si } x\in[0;1[ \\ 1 & \text{ si } x\geq 1 \end{cases}$.
+			
+			De plus, si $t\geq 0$, $1-e^{-t/2} \in [0;1[$ et si $t\leq 0$, $1-e^{-t/2}<0$.
+			
+			Par conséquent,
+			\[ F_Y(t)=\begin{cases}
+				0 & \text{ si } t<0 \\
+				1-e^{-t/2} & \text{ si } t\geq 0
+			\end{cases}
+			\]
+			ce qui nous permet de reconnaître la fonction de répartition de la loi exponentielle de paramètre $1/2$ donc $Y\sim \mathcal{E}(1/2)$. }
+\end{enumerate}}
