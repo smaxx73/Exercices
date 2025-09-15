@@ -44,17 +44,30 @@ Or il est clair que $\prob(X=3) \neq 0$ et $\prob(Y=3)\neq 0$. On en déduit que
 	\item \texte{ On suppose maintenant que $n=2$. }
 	\begin{enumerate}
 		\item \question{ Montrer que $X$ et $Y$ ont la même loi de probabilité. }
-		\reponse{ Sous cette hypothèse, on a $Y(\Omega) = \{1,2,3\}$. De plus, d'après la question 1, on a 
-	$$\prob(X=1) = \frac{1}{2} \quad \prob(X=2) = \frac{1}{3} \quad \prob(X=3) = \frac{1}{6}$$
-	Par ailleurs : 
-% Bloc corrigé
-\begin{itemize}
-	\item $\prob(Y=1) = \frac{2}{4} = \frac{1}{2}$, c'est la probabilité que la première boule tirée porte le numéro $1$.
-	\item $\prob(Y=2) = \prob(B_1)\prob(\overline{B_2} \mid B_1) = \frac{2}{4}\frac{1}{3} = \frac{1}{3}$.  
-	\item de même, $\prob(Y=3) = \frac{2}{4}\frac{1}{3}\frac{2}{2} = \frac{1}{6}.$   
-\end{itemize}
-		Les deux variables $X$ et $Y$ ont donc la même loi de probabilité.
-	 }
+\reponse{
+	Pour $n=2$, l'urne contient 4 boules au total : deux blanches numérotées $\{1, 2\}$ et deux noires numérotées $\{1, 2\}$. Les ensembles des valeurs pour $X$ et $Y$ sont $X(\Omega) = Y(\Omega) = \{1, 2, 3\}$.
+	
+	La loi de probabilité de $X$ a été établie à la question 1. Pour $n=2$, nous avons :
+	$$\prob(X=1) = \frac{1}{2}, \quad \prob(X=2) = \frac{1}{3}, \quad \prob(X=3) = \frac{1}{6}$$
+	
+	Pour déterminer la loi de $Y$, notons $N_i$ l'événement "la $i$-ème boule tirée porte le numéro 1" et $\overline{N_i}$ son événement contraire.
+	
+	\begin{itemize}
+		\item L'événement $\{Y=1\}$ est réalisé si la première boule tirée porte le numéro 1. Cet événement est $N_1$. Sur les 4 boules initiales, 2 portent le numéro 1.
+		$$\prob(Y=1) = \prob(N_1) = \frac{2}{4} = \frac{1}{2}$$
+		
+		\item L'événement $\{Y=2\}$ est réalisé si la première boule tirée ne porte pas le numéro 1, et la seconde si. Cet événement correspond à l'intersection $\overline{N_1} \cap N_2$. En utilisant la formule des probabilités composées :
+		$$\prob(Y=2) = \prob(\overline{N_1} \cap N_2) = \prob(\overline{N_1}) \times \prob(N_2 \mid \overline{N_1})$$
+		La probabilité $\prob(\overline{N_1})$ est la probabilité de tirer une boule numérotée 2, soit $\frac{2}{4}$. Sachant $\overline{N_1}$, il reste 3 boules dans l'urne, dont les 2 boules portant le numéro 1.
+		$$\prob(Y=2) = \frac{2}{4} \times \frac{2}{3} = \frac{4}{12} = \frac{1}{3}$$
+		
+		\item L'événement $\{Y=3\}$ correspond à l'intersection $\overline{N_1} \cap \overline{N_2} \cap N_3$. On applique à nouveau la formule des probabilités composées :
+		$$\prob(Y=3) = \prob(\overline{N_1}) \times \prob(\overline{N_2} \mid \overline{N_1}) \times \prob(N_3 \mid \overline{N_1} \cap \overline{N_2})$$
+		Nous avons $\prob(\overline{N_1}) = \frac{2}{4}$. Sachant $\overline{N_1}$, il reste 3 boules dont une seule porte le numéro 2, donc $\prob(\overline{N_2} \mid \overline{N_1}) = \frac{1}{3}$. Sachant $\overline{N_1} \cap \overline{N_2}$, il ne reste que les 2 boules portant le numéro 1, donc $\prob(N_3 \mid \overline{N_1} \cap \overline{N_2}) = \frac{2}{2} = 1$.
+		$$\prob(Y=3) = \frac{2}{4} \times \frac{1}{3} \times 1 = \frac{2}{12} = \frac{1}{6}$$
+	\end{itemize}
+	En comparant les résultats, on observe bien que pour tout $k \in \{1, 2, 3\}$, $\prob(X=k) = \prob(Y=k)$. Les variables aléatoires $X$ et $Y$ suivent donc la même loi de probabilité.
+}
  		\item \question{ Déterminer la loi du couple $(X,Y)$.  }
  		\reponse{ En utilisant les questions précédentes et en calculant de manière similaire $\prob(X=1,Y=2)$, $\prob(X=1,Y=3)$, $\prob(X=3,Y=1)$
 \begin{center}

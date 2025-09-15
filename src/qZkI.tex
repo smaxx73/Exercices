@@ -12,15 +12,17 @@
 
 \difficulte{3}
 \contenu{
-	\texte{ On considère deux avions $A$ et $B$ ayant respectivement 4 et 2 moteurs. Les moteurs fonctionnent de manière indépendante et chacun a une probabilité $p \in ]0;1[$ de tomber en panne. On admet qu'un vol se termine bien si au plus la moitié des moteurs tombe en panne.
+	\texte{ On considère deux avions $A$ et $B$ ayant respectivement 4 et 2 moteurs. Les moteurs fonctionnent de manière indépendante et chacun a une probabilité $p \in ]0;1[$ de tomber en panne. On admet qu'un vol se termine bien si au moins la moitié des moteurs ne tombe pas en panne.
 	}
 
 	\question{ Quel avion est-il préférable de choisir ?  }
 	\indication{Pour chaque avion, modéliser le nombre de moteur qui tombe en panne par une variable aléatoire, déterminer sa loi puis décrire l'événement \og un vol se termine bien \fg{} à l'aide de cette modélisation. }
 
 \reponse{ Soit $X$ le nombre de moteurs tombant en panne sur l'avion $A$ et $Y$  le nombre de moteurs tombant en panne sur l'avion $B$. Alors $X$ suit une loi binomiale $\mathcal{B}(4,p)$ et $Y$ suit une loi binomiale $\mathcal{B}(2,p)$. 
+	
+	Le vol $A$ se termine bien se traduit par l'événement $\{X \leq 1\}$ et le vol $B$ se termine bien se traduit par l'événement $\{Y=0\}$.  
 
-On en déduit que $\prob(X=0)+\prob(X=1) = (1-p)^4 + 4p(1-p)^3$ et $\prob(Y=0) = (1-p)^2$.
+On calcule donc $\prob(X=0)+\prob(X=1) = (1-p)^4 + 4p(1-p)^3$ et $\prob(Y=0) = (1-p)^2$.
 
 Il est préférable de prendre l'avion $A$ si et seulement si $\prob(X=0)+\prob(X=1) \geq \prob(Y=0)$, c'est-à-dire :
 $$p(1-p)^2(2-3p) \geq 0 \iff 2-3p \geq 0$$
