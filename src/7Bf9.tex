@@ -15,15 +15,54 @@
 	}
 	\begin{enumerate}
 		\item   \question{Que valent les probabilités $\PP(M)$, $\PP(D | M)$ et $\PP(D | \overline{M})$ ?}
-		\reponse{$\PP(M) = 0{,}01$, $\PP(D | M) = 0{,}95$, $\PP(D | \overline{M}) = 0{,}05$}
+		\reponse{D'après l'énoncé, on a : $\PP(M) = 0{,}01$, $\PP(D | M) = 0{,}95$ et $\PP(D | \overline{M}) = 0{,}05$.}
 		
 		\item   \question{Calculer la probabilité de détection $\PP(D)$.}
 		\indication{Utiliser la formule des probabilités totales : $\PP(D) = \PP(D | M)\PP(M) + \PP(D | \overline{M})\PP(\overline{M})$.}
+		\reponse{
+			On utilise la formule des probabilités totales. On a d'abord besoin de la probabilité qu'il n'y ait pas de missile :
+			$\PP(\overline{M}) = 1 - \PP(M) = 1 - 0{,}01 = 0{,}99$.
+			\begin{align*}
+				\PP(D) &= \PP(D | M)\PP(M) + \PP(D | \overline{M})\PP(\overline{M}) \\
+				&= (0{,}95 \times 0{,}01) + (0{,}05 \times 0{,}99) \\
+				&= 0{,}0095 + 0{,}0495 \\
+				&= 0{,}059
+			\end{align*}
+			La probabilité totale de détection par le radar est de 5,9\%.
+		}
 		
 		\item   \question{Calculer la probabilité qu'un missile soit effectivement présent si le radar a détecté une menace.}
 		\indication{Appliquer le théorème de Bayes : $\PP(M | D) = \frac{\PP(D | M)\PP(M)}{\PP(D)}$.}
+		\reponse{
+			On applique le théorème de Bayes pour trouver la probabilité $\PP(M | D)$ :
+			\begin{align*}
+				\PP(M | D) &= \frac{\PP(D | M)\PP(M)}{\PP(D)} \\
+				&= \frac{0{,}95 \times 0{,}01}{0{,}059} \\
+				&= \frac{0{,}0095}{0{,}059} \\
+				&\approx 0{,}161
+			\end{align*}
+			La probabilité qu'un missile soit réellement présent sachant que le radar a émis une alerte est d'environ 16,1\%.
+		}
 		
 		\item   \question{Que se passe-t-il si la probabilité a priori d'un missile passe à 10\% ?}
-		\indication{Recalculer $\PP(M) = 0{,}1$ et réévaluer $\PP(D)$ et $\PP(M | D)$ avec cette nouvelle valeur.}
+		\indication{Recalculer avec $\PP(M) = 0{,}1$ et réévaluer $\PP(D)$ et $\PP(M | D)$ avec cette nouvelle valeur.}
+		\reponse{
+			On refait les calculs avec la nouvelle probabilité a priori $\PP(M) = 0{,}1$.
+			D'abord, la nouvelle probabilité qu'il n'y ait pas de missile : $\PP(\overline{M}) = 1 - 0{,}1 = 0{,}9$.
+			On recalcule la probabilité totale de détection $\PP(D)$ :
+			\begin{align*}
+				\PP(D) &= (0{,}95 \times 0{,}1) + (0{,}05 \times 0{,}9) \\
+				&= 0{,}095 + 0{,}045 \\
+				&= 0{,}14
+			\end{align*}
+			Ensuite, on recalcule la probabilité qu'un missile soit présent sachant la détection :
+			\begin{align*}
+				\PP(M | D) &= \frac{\PP(D | M)\PP(M)}{\PP(D)} \\
+				&= \frac{0{,}95 \times 0{,}1}{0{,}14} \\
+				&= \frac{0{,}095}{0{,}14} \\
+				&\approx 0{,}679
+			\end{align*}
+			Si la probabilité a priori de la présence d'un missile augmente à 10\%, la probabilité qu'une alerte soit correcte monte significativement à environ 67,9\%.
+		}
 	\end{enumerate}
 }

@@ -13,31 +13,94 @@
 	\texte{
 		Un bataillon militaire dispose de deux types de véhicules : des véhicules blindés (notés \( X \)) et des drones de reconnaissance (notés \( Y \)). Lorsque l'on considère un véhicule au hasard, les probabilités conjointes sont données par le tableau suivant :
 		
-\begin{center}
-	\begin{tabular}{c c c c c}
-	\hline
-	\(X \setminus Y\) & 0 & 1 & 2 & \(\prob(X=x)\) \\
-	\hline
-	0 & 0.1 & 0.1 & 0.1 &  \\
-	1 & 0.1 & 0.2 & 0.1 &  \\
-	2 & 0.0 & 0.1 & 0.2 &  \\
-	\hline
-	\(\prob(Y=y)\) &  &  &  &  \\
-	\hline
-\end{tabular}
-\end{center}
-
+		\begin{center}
+			\begin{tabular}{c c c c c}
+				\hline
+				\(X \setminus Y\) & 0 & 1 & 2 & \(\prob(X=x)\) \\
+				\hline
+				0 & 0.1 & 0.1 & 0.1 &  \\
+				1 & 0.1 & 0.2 & 0.1 &  \\
+				2 & 0.0 & 0.1 & 0.2 &  \\
+				\hline
+				\(\prob(Y=y)\) &  &  &  &  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
 	}
 	\begin{enumerate}
 		\item   \question{Déterminer les lois marginales du couple $(X,Y)$.}
+		\reponse{
+			Pour obtenir les lois marginales, on somme les probabilités par ligne pour \( X \) et par colonne pour \( Y \).
+			\begin{itemize}
+				\item \textbf{Loi marginale de X :}
+				\begin{itemize}
+					\item \( \prob(X=0) = 0.1 + 0.1 + 0.1 = 0.3 \)
+					\item \( \prob(X=1) = 0.1 + 0.2 + 0.1 = 0.4 \)
+					\item \( \prob(X=2) = 0.0 + 0.1 + 0.2 = 0.3 \)
+				\end{itemize}
+				\item \textbf{Loi marginale de Y :}
+				\begin{itemize}
+					\item \( \prob(Y=0) = 0.1 + 0.1 + 0.0 = 0.2 \)
+					\item \( \prob(Y=1) = 0.1 + 0.2 + 0.1 = 0.4 \)
+					\item \( \prob(Y=2) = 0.1 + 0.1 + 0.2 = 0.4 \)
+				\end{itemize}
+			\end{itemize}
+			Le tableau complété est donc :
+			\begin{center}
+				\begin{tabular}{c c c c c}
+					\hline
+					\(X \setminus Y\) & 0 & 1 & 2 & \(\prob(X=x)\) \\
+					\hline
+					0 & 0.1 & 0.1 & 0.1 & \textbf{0.3} \\
+					1 & 0.1 & 0.2 & 0.1 & \textbf{0.4} \\
+					2 & 0.0 & 0.1 & 0.2 & \textbf{0.3} \\
+					\hline
+					\(\prob(Y=y)\) & \textbf{0.2} & \textbf{0.4} & \textbf{0.4} & \textbf{1.0} \\
+					\hline
+				\end{tabular}
+			\end{center}
+		}
 		
 		\item   \question{Les variables \( X \) et \( Y \) sont-elles indépendantes ?}
 		\indication{Vérifier si \(\PP(X=x, Y=y) = \PP(X=x)\PP(Y=y)\) pour toutes les valeurs de \(x\) et \(y\).}
+		\reponse{
+			Pour que les variables soient indépendantes, il faut que \( \PP(X=x, Y=y) = \PP(X=x)\PP(Y=y) \) pour tous les couples \( (x, y) \).
+			Prenons le cas \( (x=0, y=0) \).
+			D'après le tableau, la probabilité conjointe est \( \PP(X=0, Y=0) = 0.1 \).
+			Le produit des probabilités marginales est \( \PP(X=0) \times \PP(Y=0) = 0.3 \times 0.2 = 0.06 \).
+			Puisque \( 0.1 \neq 0.06 \), la condition d'indépendance n'est pas satisfaite. Les variables \( X \) et \( Y \) ne sont donc pas indépendantes.
+		}
 		
 		\item   \question{Calculer l'espérance \( \E[X] \), \( \E[Y] \) et l'espérance du nombre total de véhicules (blindés + drones) : \( \E[X + Y] \).}
 		\indication{Utiliser la linéarité de l'espérance : \(\E[X + Y] = \E[X] + \E[Y]\).}
+		\reponse{
+			On calcule les espérances à partir des lois marginales :
+			\begin{align*}
+				\E[X] &= \sum_{x} x \cdot \PP(X=x) \\
+				&= (0 \times 0.3) + (1 \times 0.4) + (2 \times 0.3) \\
+				&= 0 + 0.4 + 0.6 = 1.0
+			\end{align*}
+			\begin{align*}
+				\E[Y] &= \sum_{y} y \cdot \PP(Y=y) \\
+				&= (0 \times 0.2) + (1 \times 0.4) + (2 \times 0.4) \\
+				&= 0 + 0.4 + 0.8 = 1.2
+			\end{align*}
+			Grâce à la linéarité de l'espérance, on a :
+			\[ \E[X + Y] = \E[X] + \E[Y] = 1.0 + 1.2 = 2.2 \]
+			L'espérance du nombre total de véhicules est de 2,2.
+		}
 		
-		%\item   \question{Calculer la covariance \( \text{Cov}(X, Y) =  \E[XY] - \E[X]E[Y] \). Quel est le signe du résultat ? Interpréter. }
-		\item Calculer la probabilité que le nombre de drones soit strictement supérieur à celui des blindés. 
+		\item \question{Calculer la probabilité que le nombre de drones soit strictement supérieur à celui des blindés.}
+		\reponse{
+			On cherche la probabilité \( \PP(Y > X) \). Cela correspond à la somme des probabilités conjointes pour tous les couples \( (x, y) \) tels que \( y > x \).
+			Les cas concernés sont : \( (x=0, y=1) \), \( (x=0, y=2) \) et \( (x=1, y=2) \).
+			\begin{align*}
+				\PP(Y > X) &= \PP(X=0, Y=1) + \PP(X=0, Y=2) + \PP(X=1, Y=2) \\
+				&= 0.1 + 0.1 + 0.1 \\
+				&= 0.3
+			\end{align*}
+			La probabilité que le nombre de drones soit strictement supérieur à celui des blindés est de 30\%.
+		}
 	\end{enumerate}
 }
