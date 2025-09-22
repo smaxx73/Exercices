@@ -1,0 +1,29 @@
+\uuid{7Bf9}
+\titre{ Détection de menaces par radar}
+\niveau{L1}
+\module{Probabilités}
+\chapitre{Probabilités conditionnelles}
+\sousChapitre{Théorème de Bayes}
+\theme{Détection, probabilité conditionnelle, fausse alarme, sensibilité}
+\auteur{}
+\datecreate{2025-09-16}
+\organisation{}
+\difficulte{3}
+\contenu{
+	\texte{
+		Un système de radar militaire est utilisé pour détecter des missiles ennemis. Le radar détecte un missile avec une probabilité de 95\%. Le radar déclenche une fausse alarme (détection alors qu'il n'y a pas de missile) avec une probabilité de 5\%. Selon les renseignements, la probabilité qu'un missile soit effectivement présent dans la zone surveillée est de 1\%. On note les événements $M$ : "un missile est présent" et $D$ : "le radar signale une détection".
+	}
+	\begin{enumerate}
+		\item   \question{Que valent les probabilités $\PP(M)$, $\PP(D | M)$ et $\PP(D | \overline{M})$ ?}
+		\reponse{$\PP(M) = 0{,}01$, $\PP(D | M) = 0{,}95$, $\PP(D | \overline{M}) = 0{,}05$}
+		
+		\item   \question{Calculer la probabilité de détection $\PP(D)$.}
+		\indication{Utiliser la formule des probabilités totales : $\PP(D) = \PP(D | M)\PP(M) + \PP(D | \overline{M})\PP(\overline{M})$.}
+		
+		\item   \question{Calculer la probabilité qu'un missile soit effectivement présent si le radar a détecté une menace.}
+		\indication{Appliquer le théorème de Bayes : $\PP(M | D) = \frac{\PP(D | M)\PP(M)}{\PP(D)}$.}
+		
+		\item   \question{Que se passe-t-il si la probabilité a priori d'un missile passe à 10\% ?}
+		\indication{Recalculer $\PP(M) = 0{,}1$ et réévaluer $\PP(D)$ et $\PP(M | D)$ avec cette nouvelle valeur.}
+	\end{enumerate}
+}

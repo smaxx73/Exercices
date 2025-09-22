@@ -1,0 +1,43 @@
+\uuid{A3kP}
+\titre{ Répartition des ressources militaires}
+\niveau{L2}
+\module{Probabilités}
+\chapitre{Couples de variables aléatoires discrètes}
+\sousChapitre{Loi conjointe, marginales, covariance}
+\theme{Loi marginale, indépendance, espérance, covariance, dépendance}
+\auteur{}
+\datecreate{2025-09-16}
+\organisation{}
+\difficulte{3}
+\contenu{
+	\texte{
+		Un bataillon militaire dispose de deux types de véhicules : des véhicules blindés (notés \( X \)) et des drones de reconnaissance (notés \( Y \)). Lorsque l'on considère un véhicule au hasard, les probabilités conjointes sont données par le tableau suivant :
+		
+\begin{center}
+	\begin{tabular}{c c c c c}
+	\hline
+	\(X \setminus Y\) & 0 & 1 & 2 & \(\prob(X=x)\) \\
+	\hline
+	0 & 0.1 & 0.1 & 0.1 &  \\
+	1 & 0.1 & 0.2 & 0.1 &  \\
+	2 & 0.0 & 0.1 & 0.2 &  \\
+	\hline
+	\(\prob(Y=y)\) &  &  &  &  \\
+	\hline
+\end{tabular}
+\end{center}
+
+	}
+	\begin{enumerate}
+		\item   \question{Déterminer les lois marginales du couple $(X,Y)$.}
+		
+		\item   \question{Les variables \( X \) et \( Y \) sont-elles indépendantes ?}
+		\indication{Vérifier si \(\PP(X=x, Y=y) = \PP(X=x)\PP(Y=y)\) pour toutes les valeurs de \(x\) et \(y\).}
+		
+		\item   \question{Calculer l'espérance \( \E[X] \), \( \E[Y] \) et l'espérance du nombre total de véhicules (blindés + drones) : \( \E[X + Y] \).}
+		\indication{Utiliser la linéarité de l'espérance : \(\E[X + Y] = \E[X] + \E[Y]\).}
+		
+		%\item   \question{Calculer la covariance \( \text{Cov}(X, Y) =  \E[XY] - \E[X]E[Y] \). Quel est le signe du résultat ? Interpréter. }
+		\item Calculer la probabilité que le nombre de drones soit strictement supérieur à celui des blindés. 
+	\end{enumerate}
+}

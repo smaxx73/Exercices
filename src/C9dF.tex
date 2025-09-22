@@ -1,0 +1,58 @@
+\uuid{C9dF}
+\titre{Identification des lois de probabilité pour des variables aléatoires}
+\niveau{L1}
+\module{Probabilités}
+\chapitre{Lois de probabilité discrètes}
+\sousChapitre{Reconnaissance de lois}
+\theme{Loi binomiale, loi de Bernoulli, loi géométrique, loi uniforme, tirage sans remise}
+\auteur{}
+\datecreate{2025-09-16}
+\organisation{}
+\difficulte{2}
+\contenu{
+	\texte{
+	 Pour chaque énoncé, identifier la loi de probabilité qui modélise le mieux la variable aléatoire décrite. Préciser s'il s'agit d'une loi binomiale, de Bernoulli, uniforme, géométrique, ou si aucune de ces lois ne convient. On précisera le cas échéant les paramètres de la loi. 
+	}
+	
+	\begin{enumerate}
+		\item
+		\question{
+			Une entreprise fabrique des composants électroniques. Le taux de défaut est de $3\%$. On prélève avec remise $50$ composants. Soit \(X\) le nombre de composants défectueux parmi les 50 sélectionnés. Quelle loi de probabilité suit \(X\) ?
+		}
+		\reponse{
+			\(X\) suit une loi binomiale de paramètres \(n = 50\) et \(p = 0{,}03\).
+		}
+		
+		\item
+		\question{
+			Une entreprise teste un nouveau produit auprès d'un client sélectionné au hasard. On observe si ce client est satisfait ou non. D'après des études antérieures, 70\% des clients sont satisfaits. Soit \(Y\) la variable qui vaut 1 si le client testé est satisfait, et 0 sinon. Quelle loi de probabilité suit \(Y\) ?
+		}
+		\reponse{
+			\(Y\) suit une loi de Bernoulli de paramètre \(p = 0{,}7\).
+		}
+		
+		\item
+		\question{
+			Sarah cherche une place de parking dans un quartier où seulement 15\% des places sont libres. Elle examine les places une par une jusqu'à trouver la première place libre. Soit \(Z\) le nombre de places examinées (y compris celle qu'elle trouve libre). Quelle loi de probabilité suit \(Z\) ?
+		}
+		\reponse{
+			\(Z\) suit une loi géométrique de paramètre \(p = 0{,}15\).
+		}
+		
+		\item
+		\question{
+			Un programme informatique génère un nombre réel de manière aléatoire, arrondi à l'entier le plus proche entre 1 et 8 inclus, chaque valeur ayant la même probabilité. Soit \(W\) la valeur entière obtenue. Quelle loi de probabilité suit \(W\) ?
+		}
+		\reponse{
+			\(W\) suit une loi uniforme discrète sur \(\{1, 2, \ldots, 8\}\).
+		}
+		
+		\item
+		\question{
+			Une urne contient 15 boules : 6 rouges et 9 noires. On tire successivement et sans remise 4 boules. Soit \(V\) le nombre de boules rouges obtenues parmi les 4 tirées. Quelle loi de probabilité suit \(V\) ?
+		}
+		\reponse{
+			Aucune des lois proposées ne convient. \(V\) suit une loi hypergéométrique de paramètres \(N = 15\), \(K = 6\), et \(n = 4\).
+		}
+	\end{enumerate}
+}
