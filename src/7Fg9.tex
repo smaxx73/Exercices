@@ -1,0 +1,86 @@
+\uuid{7Fg9}
+\titre{Gain aléatoire sur une cible}
+\niveau{L2}
+\module{Probabilité et statistique}
+\chapitre{Probabilité discrète}
+\sousChapitre{Variable aléatoire discrète}
+
+\theme{espérance, inégalité de Bienaymé-Tchebytchev, approximation normale}
+\auteur{}
+\datecreate{2019-10-08}
+\organisation{AMSCC}
+\difficulte{3}
+\contenu{
+	\texte{
+		Un joueur tire "parfaitement au hasard" sur une cible de 10 cm de rayon, constituée de deux parties : un disque central de rayon 5 cm, numéroté 1, et une couronne extérieure, numérotée 2, délimitée par les cercles de rayon 5 cm et 10 cm. La probabilité d'atteindre la partie $k$ est proportionnelle à l'aire de cette partie. On suppose que le joueur atteint la cible à chaque lancer.
+	}
+	\begin{enumerate}
+		\item \question{On note $X$ le numéro de la partie de la cible dans laquelle le joueur a tiré. Déterminer la loi de probabilité de $X$.}
+		
+		\reponse{
+			La probabilité d'atteindre chaque partie est proportionnelle à son aire. L'aire du disque central (partie 1) est $\pi \times 5^2 = 25\pi$ et l'aire de la couronne (partie 2) est $\pi \times 10^2 - \pi \times 5^2 = 75\pi$. La probabilité d'atteindre la partie 1 est donc $\frac{25\pi}{100\pi} = \frac{1}{4}$ et celle d'atteindre la partie 2 est $\frac{75\pi}{100\pi} = \frac{3}{4}$. Ainsi, la loi de probabilité de $X$ est donnée par :
+			$$
+			\begin{cases}
+				\mathbb{P}(X=1) = \frac{1}{4} \\
+				\mathbb{P}(X=2) = \frac{3}{4}
+			\end{cases}
+		$$
+		}
+		
+		\item Le joueur gagne 1 euro s'il tire dans la partie 1, tandis qu'il perd 1 euro s'il atteint la partie 2. On note $G$ le gain du joueur pour un lancer.
+		\begin{enumerate}
+			\item \question{Calculer l'espérance de $G$.}
+			
+			\reponse{
+				Le gain $G$ prend la valeur $1$ avec une probabilité $\frac{1}{4}$ et $-1$ avec une probabilité $\frac{3}{4}$. L'espérance de $G$ est donc :
+				\[
+				\mathbb{E}(G) = 1 \times \frac{1}{4} + (-1) \times \frac{3}{4} = \frac{1}{4} - \frac{3}{4} = -\frac{1}{2}.
+				\]
+			}
+			
+			\item \question{Le jeu est-il favorable au joueur ?}
+			
+			\reponse{
+				L'espérance de $G$ est négative ($\mathbb{E}(G) = -0.5$), donc le jeu n'est pas favorable au joueur.
+			}
+		\end{enumerate}
+		
+		\item On admettra à partir de maintenant que la probabilité de gagner (c'est-à-dire d'avoir un gain positif) pour un lancer est d'un quart. On suppose que le joueur joue $n$ fois et on aimerait estimer le nombre de victoires $Y_{n}$ du joueur sur ces $n$ lancers.
+		\begin{enumerate}
+			\item \question{Déterminer la loi de $Y_{n}$, son espérance et sa variance.}
+			
+			\reponse{
+				$Y_n$ suit une loi binomiale de paramètres $n$ et $p = \frac{1}{4}$. Son espérance est $\mathbb{E}(Y_n) = n \times \frac{1}{4}$ et sa variance est $\text{Var}(Y_n) = n \times \frac{1}{4} \times \frac{3}{4} = \frac{3n}{16}$.
+			}
+			
+			\item \question{En utilisant l'inégalité de Bienaymé-Tchebytchev, que peut-on dire de la probabilité suivante :
+				\[
+				p=\mathbb{P}\left(2425 \leq Y_{10000} \leq 2575\right) ?
+				\]}
+			
+			\reponse{
+				L'inégalité de Bienaymé-Tchebytchev donne :
+				\[
+				\mathbb{P}\left(|Y_{10000} - \mathbb{E}(Y_{10000})| \geq 75\right) \leq \frac{\text{Var}(Y_{10000})}{75^2} = \frac{3 \times 10000 / 16}{5625} \approx \frac{1875}{5625} = \frac{1}{3}.
+				\]
+				Donc, $\mathbb{P}\left(2425 \leq Y_{10000} \leq 2575\right) \geq 1 - \frac{1}{3} = \frac{2}{3}$.
+			}
+			
+			\item \question{En utilisant une approximation de la loi de $Y_{10000}$, estimer $p$.}
+			
+			\reponse{
+				On utilise l'approximation normale : $Y_{10000} \sim \mathcal{N}(2500, \sqrt{10000 \times \frac{1}{4} \times \frac{3}{4}}) = \mathcal{N}(2500, 25\sqrt{3})$.
+				On calcule :
+				\[
+				\mathbb{P}(2425 \leq Y_{10000} \leq 2575) \approx \mathbb{P}\left(\frac{2425 - 2500}{25\sqrt{3}} \leq Z \leq \frac{2575 - 2500}{25\sqrt{3}}\right) = \mathbb{P}(-1.73 \leq Z \leq 1.73) \approx 0.9164.
+				\]
+			}
+			
+			\item \question{Que peut-on dire des résultats trouvés aux questions (b) et (c) ?}
+			
+			\reponse{
+				L'inégalité de Bienaymé-Tchebytchev donne une borne inférieure de $\frac{2}{3}$, tandis que l'approximation normale donne une estimation plus précise de $0.9164$. L'approximation normale est plus fine mais ne permet pas de majorer ou minorer strictement la probabilité.
+			}
+		\end{enumerate}
+	\end{enumerate}
+}
