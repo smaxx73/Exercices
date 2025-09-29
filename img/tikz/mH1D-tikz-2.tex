@@ -1,0 +1,22 @@
+	\begin{tikzpicture}[scale=1]
+	\begin{axis}[
+		title={Surface $B$},
+		view={30}{20},
+		colormap/viridis,
+		xmin=-2, xmax=2,
+		ymin=-2, ymax=2,
+		zmin=0, zmax=1,
+		xlabel=$x$,
+		ylabel=$y$,
+		zlabel={$f(x,y)$},
+		grid=major
+		]
+		\addplot3[
+		domain=-2:2,
+		domain y=-2:2,
+		samples=40,
+		samples y=40,
+		surf,
+		] {1/(1+x^2+y^2)};
+	\end{axis}
+\end{tikzpicture}

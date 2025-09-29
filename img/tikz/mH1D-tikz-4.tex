@@ -1,0 +1,23 @@
+\begin{tikzpicture}[scale=1]
+	\begin{axis}[
+		title={Surface $D$},
+		view={10}{20},
+		colormap/viridis,
+		xmin=-0.5, xmax=0.5,
+		ymin=-0.5, ymax=0.5,
+		zmin=0, zmax=1,
+		xlabel=$x$,
+		ylabel=$y$,
+		zlabel={$f(x,y)$},
+		axis equal,
+		grid=major
+		]
+		\addplot3[
+		domain=-0.5:0.5,
+		domain y=-0.5:0.5,
+		samples=40,
+		samples y=40,
+		surf
+		] {(x-y)^2};
+	\end{axis}
+\end{tikzpicture}
