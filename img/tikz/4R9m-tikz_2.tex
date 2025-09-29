@@ -1,4 +1,7 @@
-	\begin{tikzpicture}
+\pgfplotsset{compat=1.18}
+\pgfplotsset{colormap={red}{rgb255=(40,175,122) rgb255=(200,0,50) color=(white)}}
+
+\begin{tikzpicture}
 	\begin{axis}[
 		%title={$f(x,y)=e^{y-x^2}$},
 		enlarge x limits,
@@ -13,7 +16,7 @@
 		\addplot3[
 		domain=-3:3,
 		domain y=-3:3,
-		contour gnuplot={levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+		contour lua={levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
 		samples=40,
 		thick,
 		]
