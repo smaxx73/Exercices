@@ -1,0 +1,22 @@
+	\begin{tikzpicture}
+	\begin{axis}[
+		title={E},
+		enlarge x limits,
+		view={0}{90},
+		xlabel=$x$, ylabel=$y$,
+		small,
+		axis equal,
+		axis x line=center,
+		axis y line=center,
+		%grid=major,
+		]
+		\addplot3[
+		domain=-3:3,
+		domain y=-3:3,
+		contour lua={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
+	samples=40,
+	thick,
+	]
+	{(x-y)/(1+x^2+y^2)};
+\end{axis}
+\end{tikzpicture}

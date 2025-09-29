@@ -1,9 +1,6 @@
-
-\pgfplotsset{colormap={red}{rgb255=(40,175,122); rgb255=(200,0,50); color=(white)}}
-
 \begin{tikzpicture}
 	\begin{axis}[
-		%title={$f(x,y)=e^{y-x^2}$},
+		title={A},
 		enlarge x limits,
 		view={0}{90},
 		xlabel=$x$, ylabel=$y$,
@@ -11,15 +8,14 @@
 		axis equal,
 		axis x line=center,
 		axis y line=center,
-		%grid=major,
 		]
 		\addplot3[
 		domain=-3:3,
 		domain y=-3:3,
-		contour lua={levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12},labels=false},%
+		contour lua={number=14,labels=false},
 		samples=40,
 		thick,
 		]
-		{exp(y-x^2)};
+		{sin(deg(x-y))};  % deg() convertit en degrés pour sin()
 	\end{axis}
 \end{tikzpicture}

@@ -1,0 +1,22 @@
+	\begin{tikzpicture}
+	\begin{axis}[
+		title={C},
+		enlarge x limits,
+		view={0}{90},
+		xlabel=$x$, ylabel=$y$,
+		small,
+		axis equal,
+		axis x line=center,
+		axis y line=center,
+		%grid=major,
+		]
+		\addplot3[
+		domain=-3:3,
+		domain y=-3:3,
+	contour lua={number=14, labels=false},
+	samples=40,
+	thick,
+	]
+	{sin((x) r) - sin((y) r)};
+\end{axis}
+\end{tikzpicture}

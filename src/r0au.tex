@@ -29,153 +29,27 @@
 \end{enumerate}
 
 \begin{minipage}{0.5\textwidth}
-	\begin{tikzpicture}
-\begin{axis}[
-title={A},
-enlarge x limits,
-view={0}{90},
-xlabel=$x$, ylabel=$y$,
-small,
-axis equal,
-axis x line=center,
-axis y line=center,
-%grid=major,
-]
-\addplot3[
-domain=-3:3,
-domain y=-3:3,
-contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
-samples=40,
-thick,
-]
-{sin((x-y) r)};
-\end{axis}
-\end{tikzpicture}
+\includegraphics[]{pdf/r0au-tikz-1}
 \end{minipage}
 \hfill
 \begin{minipage}{0.5\textwidth}
-	\begin{tikzpicture}
-\begin{axis}[
-title={B},
-enlarge x limits,
-view={0}{90},
-xlabel=$x$, ylabel=$y$,
-small,
-axis equal,
-axis x line=center,
-axis y line=center,
-%grid=major,
-]
-\addplot3[
-domain=-3:3,
-domain y=-3:3,
-contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
-samples=40,
-thick,
-]
-{sin((x*y) r)};
-\end{axis}
-\end{tikzpicture}
+\includegraphics[]{pdf/r0au-tikz-2}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
-	\begin{tikzpicture}
-\begin{axis}[
-title={C},
-enlarge x limits,
-view={0}{90},
-xlabel=$x$, ylabel=$y$,
-small,
-axis equal,
-axis x line=center,
-axis y line=center,
-%grid=major,
-]
-\addplot3[
-domain=-3:3,
-domain y=-3:3,
-contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
-samples=40,
-thick,
-]
-{sin((x) r) - sin((y) r)};
-\end{axis}
-\end{tikzpicture}
+\includegraphics[]{pdf/r0au-tikz-3}
 \end{minipage}
 \hfill
 \begin{minipage}{0.5\textwidth}
-	\begin{tikzpicture}
-\begin{axis}[
-title={D},
-enlarge x limits,
-view={0}{90},
-xlabel=$x$, ylabel=$y$,
-small,
-axis equal,
-axis x line=center,
-axis y line=center,
-%grid=major,
-]
-\addplot3[
-domain=-3:3,
-domain y=-3:3,
-contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
-samples=40,
-thick,
-]
-{exp(x)*cos((y) r)};
-\end{axis}
-\end{tikzpicture}
+\includegraphics[]{pdf/r0au-tikz-4}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
-	\begin{tikzpicture}
-\begin{axis}[
-title={E},
-enlarge x limits,
-view={0}{90},
-xlabel=$x$, ylabel=$y$,
-small,
-axis equal,
-axis x line=center,
-axis y line=center,
-%grid=major,
-]
-\addplot3[
-domain=-3:3,
-domain y=-3:3,
-contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
-samples=40,
-thick,
-]
-{(x-y)/(1+x^2+y^2)};
-\end{axis}
-\end{tikzpicture}
+\includegraphics[]{pdf/r0au-tikz-5}
 \end{minipage}
 \hfill
 \begin{minipage}{0.5\textwidth}
-	\begin{tikzpicture}
-\begin{axis}[
-title={F},
-enlarge x limits,
-view={0}{90},
-xlabel=$x$, ylabel=$y$,
-small,
-axis equal,
-axis x line=center,
-axis y line=center,
-%grid=major,
-]
-\addplot3[
-domain=-3:3,
-domain y=-3:3,
-contour gnuplot={number=14,labels=false},%levels={0.2,0.4,0.6, 0.8,1,2,3,4,5,6,7,8,9,10,11,12}},
-samples=40,
-thick,
-]
-{(1-x^2)*(1-y^2)};
-\end{axis}
-\end{tikzpicture}
+\includegraphics[]{pdf/r0au-tikz-6}
 \end{minipage}
 
 }
