@@ -1,7 +1,5 @@
-\pgfplotsset{compat=1.18}
-\pgfplotsset{colormap={red}{rgb255=(40,175,122) rgb255=(200,0,50) color=(white)}}
-
-	\begin{tikzpicture}
+\pgfplotsset{colormap={red}{rgb255=(40,175,122); rgb255=(200,0,50); color=(white)}}
+\begin{tikzpicture}
 	\begin{axis}[
 		%title={$f(x,y)=\ln(x+2y)$},
 		enlarge x limits,
@@ -14,10 +12,10 @@
 		%grid=major,
 		]
 		\addplot3[
-		domain=-5:5,
-		domain y=-5:5,
+		domain=0.1:5,      % x > 0
+		domain y=0.1:5,    % y > 0, donc x+2*y toujours > 0
 		contour lua={levels={-1,0,1,1.5,2}},
-		samples=20,
+		samples=50,
 		thick,
 		]
 		{ln(x+2*y)};
