@@ -1,0 +1,65 @@
+\uuid{1PPl}
+\titre{Dérivées partielles et règle des chaînes}
+\chapitre{Fonction de plusieurs variables}
+\niveau{L2}
+\module{Analyse}
+\sousChapitre{Dérivées partielles}
+\auteur{Jean-François Culus}
+\organisation{AMSCC}
+\contenu{
+
+\texte{On considère la fonction $f$ définie sur $\mathbb{R}^2$ par 
+$$f(s,t)= s^2t+e^{st}$$
+On considère  les fonctions $u$ et $v$, définies sur $\mathbb{R}^2$ par:
+$$ u(x,y)=x^2+y~~\text{et }~~v(x,y)=x-y^2$$
+Enfin, on pose $z(x,y)=f(u(x,y);v(x,y))$. 
+
+\begin{enumerate}
+\item 
+\question{ Calculer $\frac{\partial f}{\partial s}(s,t)$ et $\frac{\partial f}{\partial t}(s,t)$}
+\reponse{
+$$\frac{\partial f}{\partial s}(s,t)=2st+t\,e^{st},
+\qquad
+\frac{\partial f}{\partial t}(s,t)=s^{2}+s\,e^{st}.
+$$
+}
+
+\item \question{Calculer les dérivées partielles $\frac{\partial u}{\partial x}(x,y)$, $\frac{\partial u}{\partial y}(x,y)$,
+$\frac{\partial v}{\partial x}(x,y)$ et $\frac{\partial v}{\partial y}(x,y)$}
+
+\reponse{$$\frac{\partial u}{\partial x}=2x,\quad \frac{\partial u}{\partial y}=1,\quad
+\frac{\partial v}{\partial x}=1,\quad \frac{\partial v}{\partial y}=-2y$$}
+
+\item \question{En appliquant la règle des chaînes, calculer $\frac{\partial z}{\partial x}(x,y)$, $\frac{\partial z}{\partial y}(x,y)$.}
+
+\reponse{Rappelons la règle des chaînes:
+$$\frac{\partial z}{\partial x}
+=\frac{\partial f}{\partial s}(u,v)\,\frac{\partial u}{\partial x}
++\frac{\partial f}{\partial t}(u,v)\,\frac{\partial v}{\partial x},
+\qquad
+\frac{\partial z}{\partial y}
+=\frac{\partial f}{\partial s}(u,v)\,\frac{\partial u}{\partial y}
++\frac{\partial f}{\partial t}(u,v)\,\frac{\partial v}{\partial y}$$
+Nous avions:
+$$\frac{\partial f}{\partial s}(s,t)=2st+t\,e^{st},
+\qquad
+\frac{\partial f}{\partial t}(s,t)=s^{2}+s\,e^{st}.$$
+En appliquant en $(u,v)=(x^{2}+y,\;x-y^{2})$ nous obtenons:
+$$\frac{\partial f}{\partial s}(u,v)=2u v+v\,e^{uv},\qquad
+\frac{\partial f}{\partial t}(u,v)=u^{2}+u\,e^{uv}.$$
+Donc, par la règle des chaînes nous avons: 
+$$
+\boxed{\;
+\frac{\partial z}{\partial x}
+= (2(x^2+y)(x-y^2)+(x-y^2)\,e^{(x^2+y)(x-y^2)})\,(2x)\;+\;((x^2+y)^{2}+(x^2+y)\,e^{(x^2+y)(x-y^2)})\,(1)
+\;}$$
+
+$$
+\boxed{\;
+\frac{\partial z}{\partial y}
+= (2(x^2+y)(x-y^2)+(x-y^2)\,e^{(x^2+y)(x-y^2)})\,(1)\;+\;((x^2+y)^{2}+(x^2+y)\,e^{(x^2+y)(x-y^2)})\,(-2y)
+\;}
+$$
+}
+\end{enumerate} }
+}
