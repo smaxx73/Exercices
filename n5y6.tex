@@ -1,0 +1,48 @@
+\uuid{n5y6}
+\chapitre{Probabilité continue}
+\sousChapitre{Loi normale}
+
+\titre{Distribution normale}
+\theme{loi normale}
+\auteur{L'Haridon E.}
+\datecreate{2025-10-07}
+\organisation{AMSCC}
+\difficulte{3}
+\contenu{
+
+\texte{
+Une base militaire doit planifier la distribution de rations alimentaires pour ses soldats. Le
+nombre de rations nécessaires chaque jour est une variable aléatoire qui suit une loi normale de
+moyenne $m$ et d'écart-type $\sigma$. Les données historiques montrent que :
+\begin{itemize}
+\item La probabilité que le nombre de rations nécessaires soit supérieur ou égal à $1522$ est de $0,33$.
+\item La probabilité que le nombre de rations nécessaires soit inférieur ou égalà $1598$ est de $0,975$.
+\end{itemize}
+}
+\question{Quel est le nombre minimal de rations qui doivent être préparées chaque jour pour avoir $99$ chances sur $100$ de satisfaire la demande?}
+\reponse{Commençons par déterminer $m$ et $\sigma$ grâce aux données de l'énoncé:
+	\begin{align*}
+		&\p(X\geq 1522)=0.33 \ \Leftrightarrow \ \p\left(\frac{X-m}{\sigma}\leq \frac{1522-m}{\sigma}\right)=0.67
+		\ \Leftrightarrow \ \frac{1522-m}{\sigma}=0.44 \\
+		&\p(X\leq 1598)=0.975 \ \Leftrightarrow \ \p\left(\frac{X-m}{\sigma}\leq \frac{1598-m}{\sigma}\right)=0.975
+		\ \Leftrightarrow \ \frac{1598-m}{\sigma}=1.96
+	\end{align*}
+	Il vient ainsi
+	\begin{align*}
+		\begin{cases}
+			1522-m=0.44\sigma \\
+			1598-m=1.96\sigma
+		\end{cases}
+	\end{align*}
+	soit $\sigma=50$ et $m=1500$. Donc $X\sim \mathcal{N}(1500,\sigma=50)$.
+	\vspace{1em}
+	
+	On note $n$ le nombre de rations à prévoir pour satisfaire $99$\% des demandes. Par définition: $\p(X\leq n)=0.99$, ce qui donne
+	\[ \p\left(\frac{X-1500}{50}\leq \frac{n-1500}{50}\right)= 0.99\]
+	soit $\frac{n-1500}{50}=2.33$ et finalement $n=1617$.
+	Il faut donc prévoir $1617$ rations au minimum pour satisfaire la demande dans $99$\% des cas.
+	
+}
+
+}
+
