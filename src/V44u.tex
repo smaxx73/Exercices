@@ -1,0 +1,78 @@
+\uuid{V44u}
+\chapitre{Probabilité continue}
+\niveau{L2}
+\module{Probabilité et statistique}
+\sousChapitre{Loi normale}
+\titre{Calcul par approximation - Fréquence d’arrivées logistiques}
+\theme{loi de Poisson, loi normale, approximation de loi}
+\auteur{Maxime Nguyen}
+\datecreate{2025-10-07}
+\organisation{AMSCC}
+
+\difficulte{3}
+
+\contenu{
+	
+	\texte{ 
+		L’observation a permis d’affirmer que le nombre de camions de ravitaillement arrivant à un poste logistique entre 9h00 et 10h30 suit une loi de Poisson de paramètre $\lambda = 16$.  
+		On donne ci-dessous un extrait de la table de répartition :
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$k$ & 14 & 15 & 16 & 17 & 18 \\
+				\hline
+				$\prob(X\leq k)$ & $0.3675$ & $0.4667$ & $0.5660$ & $0.6593$ & $0.7423$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+	
+	\begin{enumerate}
+		\item 
+		\begin{enumerate}
+			\item \question{ En utilisant le tableau ci-dessus, déterminer $\prob(X=15)$. }
+			\reponse{ 
+				\[
+				\prob(X=15) = \prob(X\leq 15) - \prob(X\leq 14)
+				= 0.4667 - 0.3675 \simeq 0.0992.
+				\]
+				Il y a donc environ $9.9\%$ de chance que le poste reçoive exactement $15$ camions durant cette période.
+			}
+			
+			\item \question{ Déterminer les paramètres de la loi normale que suit la variable aléatoire $Y$ qui approche $X$. }
+			\reponse{ 
+				La variable $X$ peut être approchée par $Y$ qui suit la loi normale :
+				\[
+				Y \sim \mathcal{N}(\mu=16, \sigma^2=16).
+				\]
+			}
+			
+			\item \question{ Calculer $\alpha = \prob(14.5 \leq Y \leq 15.5)$. Quel est le lien entre $\alpha$ et $\prob(X=15)$ ? }
+			\reponse{ 
+				\begin{align*}
+					\alpha &= \prob(14.5 \leq Y \leq 15.5)
+					= \prob\left( \frac{-1.5}{4} \leq \frac{Y-16}{4} \leq \frac{-0.5}{4} \right) \\
+					&= \prob(-0.375 \leq Z \leq -0.125) \quad \text{où } Z \sim \mathcal{N}(0,1) \\
+					&= \prob(0.125 \leq Z \leq 0.375) \\
+					&= \prob(Z\leq 0.375) - \prob(Z\leq 0.125) \\
+					&= 0.64615 - 0.54975 = 0.0964.
+				\end{align*}
+				$\alpha$ est une approximation (avec correction de continuité) de $\prob(X=15)$, soit environ $9.6\%$.
+			}
+		\end{enumerate}
+		
+		\item \question{ Déterminer une approximation de $\prob(15 \leq X \leq 20)$. Interpréter le résultat dans le contexte. }
+		\reponse{ 
+			\begin{align*}
+				\prob(15\leq X\leq 20)
+				&\simeq \prob(14.5\leq Y\leq 20.5) \\
+				&= \prob\left(-0.375 \leq \frac{Y-16}{4} \leq 1.125\right) \\
+				&= \prob(Z\leq 1.125) - \prob(Z\leq -0.375) \\
+				&= 0.8697 - (1 - 0.64615) \\
+				&= 0.8697 - 0.35385 = 0.51585.
+			\end{align*}
+			Il y a donc environ $51.6\%$ de chance que le nombre de camions arrivant entre 9h00 et 10h30 soit compris entre $15$ et $20$.  
+			Cela permet au responsable logistique de dimensionner la zone de déchargement pour un trafic médian.
+		}
+	\end{enumerate}
+}

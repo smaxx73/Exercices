@@ -1,0 +1,42 @@
+\uuid{3DyT}
+\chapitre{Probabilité discrète}
+\niveau{L2}
+\module{Probabilité et statistique}
+\sousChapitre{Variable aléatoire discrète}
+\titre{Majoration de probabilité - Logistique d’un dépôt}
+\theme{variables aléatoires, inégalité de probabilité}
+\auteur{Maxime Nguyen}
+\datecreate{2025-10-07}
+\organisation{AMSCC}
+
+\difficulte{2}
+
+\contenu{
+	
+	\texte{ 
+		Un dépôt de ravitaillement reçoit chaque jour un certain nombre de camions de livraison. 
+		Ce nombre est modélisé par une variable aléatoire d'espérance $100$ et d'écart-type $8$. 
+		On souhaite estimer le risque qu’un jour le dépôt reçoive trop peu de camions pour maintenir ses stocks. 
+	}
+	
+	\question{ 
+		Donner un majorant de la probabilité qu’un jour, il arrive au plus $60$ camions. 
+	}
+	
+	\reponse{ 
+		Soit $X$ le nombre de camions arrivant au dépôt dans une journée. 
+		On sait que $\E(X)=100$ et $\sigma(X)=8$. \\[0.5em]
+		Par l’inégalité de Bienaymé–Tchebychev, on a :
+		\begin{align*}
+			\prob(X\leq 60)
+			&= \prob(X-100\leq -40) \\
+			&\leq \prob(|X-100|\geq 40) \\
+			&\leq \frac{\sigma^2(X)}{40^2}
+			= \frac{8^2}{40^2}
+			= \frac{1}{25}
+			= 0.04.
+		\end{align*}
+		Il y a donc au plus $4\%$ de chances qu’un jour le dépôt reçoive moins de $60$ camions, 
+		ce qui permet de quantifier un risque logistique faible mais non négligeable. 
+	}
+}

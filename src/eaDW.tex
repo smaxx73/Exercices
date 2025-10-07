@@ -1,0 +1,59 @@
+\uuid{eaDW}
+\chapitre{Probabilité discrète}
+\niveau{L2}
+\module{Probabilité et statistique}
+\sousChapitre{Lois de distributions}
+\titre{Calcul par approximation - Réseau de transmissions}
+\theme{variables aléatoires discrètes, loi binomiale, loi normale}
+\auteur{Maxime Nguyen}
+\datecreate{2025-10-07}
+\organisation{AMSCC}
+
+\difficulte{3}
+
+\contenu{
+	
+	\texte{ 
+		Un poste de commandement dessert $\nombre{5000}$ terminaux de communication (véhicules, unités mobiles, postes radio). 
+		À un instant donné, chaque terminal a une probabilité égale à $0.20$ d’être en communication active. 
+		Les comportements des terminaux sont supposés indépendants les uns des autres. 
+	}
+	
+	\begin{enumerate}
+		\item \question{ 
+			On note $X$ la variable aléatoire égale au nombre de terminaux simultanément en communication à un instant $t$. 
+			Quelle est la loi de $X$ ? Quelle est son espérance ? Son écart-type ? 
+		}
+		\reponse{ 
+			$X\sim \mathcal{B}(\nombre{5000},0.2)$, donc $\E(X)=\nombre{1000}$ et $\sigma^2(X)=800$.
+		}
+		
+		\item \question{ 
+			On pose $Y=\frac{X-\nombre{1000}}{\sqrt{800}}$. 
+			Justifier précisément que l’on peut approcher la loi de $Y$ par la loi normale centrée réduite. 
+		}
+		\reponse{ 
+			Puisque $n$ est grand ($n=5000$) et $p=0.2$ n’est ni trop proche de 0 ni de 1, 
+			la loi binomiale peut être approchée par une loi normale : 
+			\[ X \approx \mathcal{N}(\nombre{1000},\sigma=\sqrt{800}). \]
+			En centrant et réduisant, on obtient que $Y\sim \mathcal{N}(0,1)$. 
+		}
+		
+		\item \question{ 
+			Le poste de commandement souhaite dimensionner son réseau pour que la probabilité de saturation (trop de communications simultanées) soit inférieure à $2.5$\%.  
+			En utilisant l’approximation précédente, proposer une valeur approchée du nombre maximal de connexions que le système doit pouvoir gérer. 
+		}
+		\reponse{ 
+			Soit $n$ le nombre maximal de connexions simultanées supportées.  
+			On cherche $n$ tel que $\prob(X\geq n)\leq 0.025$, soit :
+			\[ \prob\left(Y\geq \frac{n-\nombre{1000}}{\sqrt{800}}\right) \leq 0.025, \]
+			c’est-à-dire encore :
+			\[  \prob\left(Y\leq \frac{n-\nombre{1000}}{\sqrt{800}}\right) \geq 0.975. \]
+			D’après la table de la loi normale centrée réduite, on a $z_{0.975}\simeq 1.96$, 
+			d’où :
+			\[ \frac{n-\nombre{1000}}{\sqrt{800}}\simeq 1.96, \quad \text{soit} \quad n\simeq 1055.44. \]
+			Le réseau doit donc pouvoir gérer au minimum $1056$ connexions simultanées 
+			pour que la probabilité de saturation soit inférieure à $2.5$\%. 
+		}
+	\end{enumerate}
+}
