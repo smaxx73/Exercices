@@ -21,6 +21,7 @@ $$
 }
 \begin{enumerate}
  \item \question{ Calculer $\lambda$ pour que $f$ soit la densité d'une variable aléatoire absolument continue $X$. }
+ \indication{Pour que $f$ soit une densité, il faut que $f$ soit positive sur $\R$ et que $\int_\R f(x) \dx =1$}
  \reponse{ Pour que $f$ soit une densité, il faut que $f$ soit positive sur $\R$ (ce qui est le cas ici) et que $\int_\R f(x) \dx =1$. Or
  \[ \int_\R f(x) \dx=\int_0^1 \lambda x \dx  =\left[ \frac{\lambda}{2}x^2\right]_0^1 =\frac{\lambda}{2}\]
  donc $\lambda=2$.
@@ -39,6 +40,7 @@ $$
  }
  
  \item \question{ Calculer $\E(X)$ et $\var(X)$. }
+ \indication{On applique la définition pour calculer $\E(X)$. Pour le calcul de $\var(X)$, on calcule dans un premier temps $\E(X^2)$ à l'aide du théorème de transfert. }
  \reponse{
  $$\E(X)=\int_\R xf(x)\dx =\int_0^1 2x^2 \dx =\left[ \frac{2}{3}x^3\right]_0^1=\frac{2}{3}$$
  \begin{align*}
