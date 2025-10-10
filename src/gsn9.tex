@@ -15,6 +15,7 @@
 
 \begin{enumerate}
     \item \question{ Vérifier que $f$ définit bien une fonction densité, puis déterminer la fonction de répartition $F_X$ de $X$. }
+    \indication{On revient à la définition : on pose $t \in \R$ quelconque et on calcule $F_X(t) = \prob(X \leq t) = \int_{-\infty}^{t} f(x) \, \mathrm{d}x$. }
     \reponse{Il suffit de vérifier que $f(x) \geq 0$ pour tout $x \in \R$ puis de calculer :
         \begin{align*}
         \int_{-\infty}^{+\infty} f(x)dx &= \int_0^{+\infty} \lambda e^{-\lambda x} dx \\
@@ -29,6 +30,7 @@
    }
 
     \item \question{ Exprimer $\prob(-1 \leq X \leq 1)$ en fonction de $F_X$ et en déduire une valeur numérique. }
+    \indication{Le résultat dépend de $\lambda$ qui est le paramètre de cette loi. }
     \reponse{
         \begin{align*}
             \prob(-1 \leq X \leq 1) &= F_X(1) - F_X(-1) \\
