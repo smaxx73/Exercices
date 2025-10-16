@@ -1,28 +1,61 @@
-\uuid{aaap}
-\chapitre{Probabilité continue}
-\niveau{L2}
-\module{Probabilité et statistique}
-\sousChapitre{Loi normale}
 \titre{Fonction caractéristique et loi normale}
-\theme{loi normale, fonction caractéristique}
+\theme{Probabilités}
 \auteur{}
-\datecreate{2024-11-02}
 \organisation{AMSCC}
-\difficulte{}
 \contenu{
 
 \texte{
-Soit $Z$ une variable aléatoire suivant une loi normale centrée réduite. On rappelle que la fonction caractéristique de $Z$ est définie pour tout réel $t$ par :
-$$\phi_Z(t)=\E(e^{itZ})=e^{-\frac{t^2}{2}}.$$
+
+
+Soit $Z$ une variable aléatoire suivant une loi normale centrée réduite. On rappelle que la fonction caractéristique de $ Z $ est définie pour tout réel $t$ par :
+$$\phi_Z(t)=E(e^{itZ})=e^{-\frac{t^2}{2}}.$$
 
 }
 
 \begin{enumerate}
-    \item \question{ Soit $\mu$ un réel et $\sigma$ un réel strictement positif. Sans justifier, donner la loi de $X=\sigma Z+\mu$, puis calculer la fonction caractéristique de $X$. }
-    
-    \item \texte{ Soit $(X_1,\dots{},X_5)$ une suite de 5 variables aléatoires indépendantes et équidistribuées selon une loi normale de moyenne $\mu=70$ et d’écart type $\sigma=15$. Soit $S=\displaystyle\sum_{i=1}^{5}X_i$. }
+    \item \question{Soit $\mu$ un réel et $\sigma$ un réel strictement positif. Sans justifier, donner la loi de $X=\sigma Z+\mu$, puis calculer la fonction caractéristique de $ X$.}
+     \reponse{
+    La variable $X = \sigma Z + \mu$ suit une loi normale de moyenne $\mu$ et d'écart-type $\sigma$, soit $X \sim \mathcal{N}(\mu, \sigma^2)$.\\
+    La fonction caractéristique de $X$ est :
+    \[
+    \phi_X(t) = \mathbb{E}\big(e^{itX}\big) = \mathbb{E}\big(e^{it(\sigma Z + \mu)}\big) = e^{it\mu} \, \mathbb{E}\big(e^{i t \sigma Z}\big) = e^{it\mu} e^{-\frac{(\sigma t)^2}{2}} = e^{it\mu - \frac{\sigma^2 t^2}{2}}.
+    \]
+    }
+    \item Soit $(X_1,\dots{},X_5)$ une suite de 5 variables aléatoires indépendantes et équidistribuées selon une loi normale de moyenne $\mu=70$ et d'écart type $\sigma=15$. Soit $S=\displaystyle\sum_{i=1}^{5}X_i$.
+     
     \begin{enumerate}
-        \item \question{ Calculer la fonction caractéristique de $S$ et en déduire la loi de $S$. }
-        \item \question{ Calculer la valeur de $\prob(S>450)$ à $10^{-2}$ près. }
+        \item \question{Calculer la fonction caractéristique de $S$ et en déduire la loi de $S$.}
+        \reponse{Les $X_i$ sont indépendantes, donc la fonction caractéristique de $S$ est le produit des fonctions caractéristiques :
+        \[
+        \phi_S(t) = \prod_{i=1}^{5} \phi_{X_i}(t) = \big(\phi_{X_1}(t)\big)^5 = \left(e^{i 70 t - \frac{15^2 t^2}{2}}\right)^5 = e^{i 350 t - \frac{1125 t^2}{2}}.
+        \]
+        Ainsi, $S \sim \mathcal{N}(5\mu, 5\sigma^2) = \mathcal{N}(350, 225 \cdot 5) = \mathcal{N}(350, 1125)$.
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        \item \question{Calculer la valeur de $P(S>450)$ à $10^{-2}$ près.}
+        \reponse{ \[
+        P(S>450) = P\left(\frac{S-350}{\sqrt{1125}} > \frac{450-350}{\sqrt{1125}}\right) = P\left(Z > \frac{100}{\sqrt{1125}}\right).
+        \]
+        Calculons $\sqrt{1125} \approx 33.541$ :
+        \[
+        \frac{100}{33.541} \approx 2.98.
+        \]
+        Ainsi :
+        \[
+        P(S>450) = P(Z > 2.98) \approx 0.0014 \approx 1.4 \cdot 10^{-3}.
+        \]
+        Donc à $10^{-2}$ près :
+        \[
+        P(S>450) \approx 0.00.
+        \]
+        }
     \end{enumerate}
-\end{enumerate}}
+\end{enumerate}
+}
