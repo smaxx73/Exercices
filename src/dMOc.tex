@@ -1,0 +1,114 @@
+\uuid{dMOc}
+\chapitre{Probabilité continue}
+\sousChapitre{Loi normale}
+
+\titre{Distribution normale}
+\theme{loi normale}
+\auteur{L'Haridon E.}
+\datecreate{2025-10-07}
+\organisation{AMSCC}
+\difficulte{3}
+\contenu{
+
+\texte{Une unité militaire prévoit le rassemblement de 1 400 soldats pour une cérémonie officielle. Les portes de l'enceinte ouvrent une demi-heure avant le début de la cérémonie. Les observations montrent qu'en moyenne, sur 1 400 soldats, 50 arrivent avant l'ouverture des
+portes et 70 arrivent trop tard. On considère la variable aléatoire X égale à l'heure d'arrivée d'un soldat calculée par rapport à l'heure de début de la cérémonie prévue. On suppose que $X$ suit une loi normale de paramètre $\mu$ et d'écart-type $\sigma$.}
+
+\begin{enumerate}
+\item \question{Démontrer que $\mu=14,3$ et $\sigma=8,7$.}\reponse{Les deux données de l'énoncé nous permettent d'écrire un système de deux équations
+en les inconnues $\mu$ et $\sigma$, via des lectures inverses dans la table de la loi $\mathcal{N}(0,1)$.  
+On note $\Phi$ la fonction de répartition de la loi $\mathcal{N}(0,1)$.
+
+\medskip
+
+\noindent
+\textbf{D'une part :}
+\[
+P(X < -30) = P\left( \frac{X - \mu}{\sigma} < \frac{-30 - \mu}{\sigma} \right) = \Phi\left( \frac{-30 - \mu}{\sigma} \right) \approx 0{,}0357,
+\]
+c'est-à-dire
+\[
+\Phi\left( \frac{-30 - \mu}{\sigma} \right) \approx 0{,}0357.
+\]
+On en déduit que
+\[
+\Phi\left( \frac{30 + \mu}{\sigma} \right) \approx 1 - 0{,}0357 = 0{,}9643.
+\]
+Par une lecture inverse dans la table de la loi normale centrée réduite :
+\[
+\frac{30 + \mu}{\sigma} \approx 1{,}80.
+\]
+
+\medskip
+
+\noindent
+\textbf{D'autre part :}
+\[
+P(X > 0) = P\left( \frac{X - \mu}{\sigma} > \frac{ - \mu}{\sigma} \right) = \frac{70}{1400} \approx 0{,}05.
+\]
+Ainsi,
+\[
+\Phi\left( \frac{- \mu}{\sigma} \right) \approx 0{,}95.
+\]
+Par une lecture inverse dans la table :$\frac{ - \mu}{\sigma} \approx 1{,}64.$
+
+
+\medskip
+
+\noindent
+On obtient donc le système suivant :
+\[
+\begin{cases}
+30 + \mu = 1{,}8 \sigma, \\
+ - \mu = 1{,}64 \sigma.
+\end{cases}
+\]
+
+La résolution de ce système est immédiate et donne les valeurs de l'énoncé.}
+\item \question{Déterminer l'heure à laquelle les portes de l'enceinte doivent être ouvertes pour qu'il n'y ait pas plus de $20$ soldats qui attendent à l'extérieur.}
+\reponse{On cherche un instant \( t \) tel que :
+\[
+P(X < t) = \frac{20}{1400}.
+\]
+
+On écrit :
+\[
+P\left( \frac{X + 14{,}3}{8{,}7} < \frac{t + 14{,}3}{8{,}7} \right) = \frac{20}{1400},
+\]
+ce qui donne :
+\[
+\Phi\left(-\frac{t + 14{,}3}{8{,}7} \right) = \frac{1380}{1400} = 0{,}9857.
+\]
+
+Une lecture inverse dans la table de la loi normale centrée réduite donne :
+\[
+-\frac{t + 14{,}3}{8{,}7} \approx 2{,}19.
+\]
+
+Ainsi :
+\[
+t \approx -33{,}35.
+\]
+
+Les portes de l'enceinte doivent donc ouvrir au moins 34 minutes avant le début de la cérémonie pour qu’il n’y ait pas plus de 20 soldats qui attendent à l'extérieur.}
+\item \question{Calculer le nombre de soldats ayant manqué le début de la cérémonie si celle-ci accuse un retard de $5$ minutes. }
+\reponse{Ce nombre vaut :$1400 \times P(X > 5).
+$
+
+Or :
+\[
+P(X > 5) = P\left( \frac{X + 14{,}3}{8{,}7} > \frac{5 + 14{,}3}{8{,}7} \right)
+= 1 - \Phi\left( \frac{5 + 14{,}3}{8{,}7} \right)
+= 1 - \Phi(2{,}22)
+\approx 1 - 0{,}9868
+= 0{,}0132,
+\]
+
+d'où le nombre de soldats recherché est :
+\[
+1400 \times 0{,}0132 = 18{,}48 \approx 19.
+\]}
+\end{enumerate}
+
+
+
+}

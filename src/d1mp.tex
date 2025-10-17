@@ -1,0 +1,117 @@
+\uuid{d1mp}
+\chapitre{Probabilité}
+\sousChapitre{Loi de Poisson et fonction caractéristique}
+
+\titre{Loi de Poisson et TCL}
+\theme{TCL}
+\auteur{L'Haridon E.}
+\datecreate{2025-10-07}
+\organisation{AMSCC}
+\difficulte{4}
+\contenu{
+
+\texte{On modélise le nombre d'unités militaires par heure circulant sur une route stratégique par une
+variable $B$ suivant une loi de Poisson $\mathcal{P}(600)$. De plus, on note $A$ le nombre d'unités militaires
+par heure circulant sur une route stratégique en amont, de sorte que $A+B$ est le nombre d'unités militaires circulant sur la route principale en aval.
+On suppose que $A$ suit une loi de Poisson $\mathcal{P}(3000)$ et que A et B sont indépendantes.
+
+}
+
+\begin{enumerate}
+\item \question{Supposons que $X_1$ et $X_2$ sont deux variables aléatoires indépendantes suivant respectivement la loi de Poisson $\mathcal{P}(\lambda_1)$ et une loi de Poisson  $\mathcal{P}(\lambda_2)$. Démontrer que $X_1+X_2$ suit une loi de Poisson  $\mathcal{P}(\lambda_1+\lambda_2).$}
+\reponse{Soit \(X\) une variable aléatoire suivant la loi de Poisson de paramètre \(\lambda>0\), notée \(X\sim\mathcal{P}(\lambda)\).
+La fonction caractéristique de \(X\) est définie pour \(t\in\mathbb{R}\) par
+\[
+\varphi_X(t)=\mathbb{E}\big[e^{i t X}\big]
+=\sum_{k=0}^{\infty} e^{i t k}\; \mathbb{P}(X=k).
+\]
+Or \(\mathbb{P}(X=k)=e^{-\lambda}\dfrac{\lambda^k}{k!}\). On obtient donc
+\begin{align*}
+\varphi_X(t)
+&= \sum_{k=0}^{\infty} e^{i t k}\; e^{-\lambda}\frac{\lambda^k}{k!}
+= e^{-\lambda}\sum_{k=0}^{\infty} \frac{(\lambda e^{i t})^k}{k!}\\[6pt]
+&= e^{-\lambda}\; e^{\lambda e^{i t}}
+= \exp\big(\lambda (e^{i t}-1)\big).
+\end{align*}
+
+Ainsi la fonction caractéristique de \(\mathcal{P}(\lambda)\) est
+$$
+\boxed{\ \varphi_X(t)=\exp\big(\lambda (e^{i t}-1)\big)\ }. 
+$$
+
+Soient \(X_1\) et \(X_2\) deux variables aléatoires indépendantes telles que
+\(X_1\sim\mathcal{P}(\lambda_1)\) et \(X_2\sim\mathcal{P}(\lambda_2)\).
+La fonction caractéristique de la somme \(S=X_1+X_2\) est, par indépendance,
+le produit des fonctions caractéristiques :
+\[
+\varphi_S(t)=\varphi_{X_1}(t)\,\varphi_{X_2}(t)
+=\exp\big(\lambda_1 (e^{i t}-1)\big)\,\exp\big(\lambda_2 (e^{i t}-1)\big).
+\]
+D'où
+$$
+\varphi_S(t)=\exp\big((\lambda_1+\lambda_2)(e^{i t}-1)\big).
+$$
+
+Cette expression est exactement la fonction caractéristique d'une loi de Poisson de paramètre \(\lambda_1+\lambda_2\).
+Par unicité de la transformation caractéristique, on en déduit que
+$$
+\boxed{\ X_1+X_2 \sim \mathcal{P}(\lambda_1+\lambda_2)\ }.
+$$
+
+\bigskip
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+\item \question{En déduire que si $Y_n$ suit une loi de Poisson $\mathcal{P}(n)$ alors 
+$$\frac{Y_n-n}{\sqrt{n}}\xrightarrow[]{\text{en loi}}Z,$$
+où $Z$ est une variable aléatoire suivant une loi $\mathcal{N}(0,1)$.
+}
+\reponse{Par récurrence, \( Y_n \) suit donc la même loi que
+
+$Y_n = \sum_{i=1}^{n} X_i,
+$
+où les variables aléatoires \( X_i \) sont indépendantes et identiquement distribuées selon la loi de Poisson \(\mathcal{P}(1)\).
+
+\medskip
+
+Or :
+$
+\mathbb{E}(Y_n) = n \quad \text{et} \quad \mathrm{Var}(Y_n) = n,
+$
+d’après les propriétés de la loi de Poisson.
+
+\medskip
+
+Ainsi, le \textbf{théorème central limite} s’applique à
+$
+\frac{Y_n - \mathbb{E}(Y_n)}{\sqrt{\mathrm{Var}(Y_n)}} 
+= \frac{Y_n - n}{\sqrt{n}},
+$
+et on obtient directement le résultat voulu :
+$$
+\frac{Y_n - n}{\sqrt{n}} \xrightarrow[n \to \infty]{\mathcal{L}} \mathcal{N}(0,1).
+$$}
+\item \question{Quel est le nombre moyen horaire d'unités militaires observées sur la route principale en aval ?}
+\reponse{Si \(A\sim\mathcal{P}(3000)\) et  \(B\sim\mathcal{P}(600)\), on a : $E(A)=3000,\,E(B)=600$ et $E(A+B)=E(A)+E(B)=3600.$}
+\item \question{Déterminer la loi exacte de $A+B$ donner une approximation de cette loi par une loi normale dont on précisera les paramètres.}
+\reponse{D'après la question 1., \(A+B \sim\mathcal{P}(3600)\). D'après le Théorème Central Limite, on en déduit (comme à la question 2.) que $\frac{A+B-3600}{\sqrt{3600}}$ suit approximativement une loi normale $\mathcal{N}(0,1)$, ce qui revient à dire que $A+B$ suit approximativement une loi normale $\mathcal{N}(3600,60)$}
+\item \question{Donner une approximation de la probabilité que le nombre d'unités militaires par heure circulant sur la route principale en aval dépasse les $3700$.}
+\reponse{
+$$P(A+B\geq 3700)=P(\frac{A+B-3600}{60}\geq \frac{3700-3600}{60})\approx 1-P(Z\leq 1,67)\approx 0,048.$$
+où $Z$ est une loi normale centrée réduite.
+
+}
+\end{enumerate}
+}
