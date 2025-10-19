@@ -15,10 +15,8 @@
 \texte{
 Une unité de communication militaire est composée de trois émetteurs-récepteurs indépendants.
 La durée de vie $T_i$ de chaque émetteur-récepteur $i$ suit une loi exponentielle de paramètre $\lambda$. Le système de communication fonctionne si et seulement si au moins deux des émetteurs-récepteurs sont opérationnels. On appelle X la variable aléatoire mesurant le temps de fonctionnement de la machine.
-
-
-
 }
+
 \begin{enumerate}
 \item   \question{Montrer l'égalité entre événements:
 $$\big[X\geq t\big]=\big[T_1\geq t,T_2\geq t,T_3\geq t\big] \cup \big[T_1\leq t,T_2\geq t,T_3\geq t\big] \cup $$ $$\big[T_1\geq t,T_2\leq t,T_3\geq t\big] \cup \big[T_1\geq t,T_2\geq t,T_3\leq t\big] $$
@@ -27,7 +25,9 @@ $$\big[X\geq t\big]=\big[T_1\geq t,T_2\geq t,T_3\geq t\big] \cup \big[T_1\leq t,
 au temps t. Le premier événement de l'union traduit le fait que les trois émetteurs-récepteurs
 sont encore opérationnels, les trois autres événements signifient que les émetteurs-récepteurs 2
 et 3, resp. 1 et 3, resp. 1 et 2 sont encore opérationnels.}
-\item   \question{En déduire une expression de la fonction de répartition $F_X$ faisant intervenir les fonctions de répartition $F_{T_i}}$. \reponse{On remarque que les quatre événements de l’union décrite à la question précédente sont deux à deux disjoints, donc :
+
+\item   \question{En déduire une expression de la fonction de répartition $F_X$ faisant intervenir les fonctions de répartition $F_{T_i}}$.
+ \reponse{On remarque que les quatre événements de l’union décrite à la question précédente sont deux à deux disjoints, donc :
 
 $$
 P[X \geq t] = P[T_1 \geq t,\, T_2 \geq t,\, T_3 \geq t] 
@@ -85,8 +85,6 @@ F_X(t) = 1 - 3 e^{-2\lambda t} + 2 e^{-3\lambda t}.
 
 Si \( t < 0 \), on a \( F_T(t) = 0 \), et on en déduit immédiatement que \( F_X(t) = 0 \).
 
-\medskip
-
 La fonction de répartition \( F_X \) est partout dérivable sauf en \( t = 0 \).  
 On en déduit que \( X \) admet une densité \( f_X \) donnée par :
 \[
@@ -107,8 +105,6 @@ f_X(t) =
 = \int_{0}^{+\infty} t \left( 6\lambda e^{-2\lambda t} - 6\lambda e^{-3\lambda t} \right) dt
 = 6\lambda \int_{0}^{+\infty} t e^{-2\lambda t}\, dt - 6\lambda \int_{0}^{+\infty} t e^{-3\lambda t}\, dt.
 \]
-
-\medskip
 
 On calcule la première intégrale par intégration par parties :
 
