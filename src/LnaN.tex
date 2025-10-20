@@ -37,19 +37,19 @@ La note obtenue par des étudiants à un examen suit une variable aléatoire $X$
 		Donc $10$\% des étudiants ont en-dessous de $3.1$.
 	}
 	
-	\item \question{ Compte tenu de ces résultats, on décide de revaloriser l'ensemble des notes par une transformation linéaire $Z=aX+b$. Quelles valeurs doit-on donner à $a$ et $b$ pour que les valeurs précédentes passent respectivement à $50$\% et $7$. }
-	\indication{Calculer $\E(Z)$ et $\var(Z)$ en fonction de $\E(X)$ et de $\var(X)$.}
+	\item \question{ Compte tenu de ces résultats, on décide de revaloriser l'ensemble des notes par une transformation linéaire $Y=aX+b$. Quelles valeurs doit-on donner à $a$ et $b$ pour que les valeurs précédentes passent respectivement à $50$\% et $7$. }
+	\indication{Calculer $\E(Y)$ et $\var(Y)$ en fonction de $\E(X)$ et de $\var(X)$, ce qui permet ensuite de centrer et réduire la variable aléatoire $Y$. }
 	\reponse{ 
-		On a $Z=aX+b$ donc 
+		On a $Y = a X + b$ donc 
 		\begin{eqnarray*}
-			\E(Z) &=& a\E(X)+b \, =\, 7a+b \\
-			\var(Z) &=& \var(aX) \,=\, a^2\var(X) \,=\, 9a^2 \text{.}
+			\E(Y) &=& a\E(X)+b \, =\, 7a+b \\
+			\var(Y) &=& \var(aX) \,=\, a^2\var(X) \,=\, 9a^2 \text{.}
 		\end{eqnarray*}
-		On souhaite avoir $50$\% des étudiants ayant plus de $10$. Comme la loi normale est symétrique par rapport à sa moyenne, cela revient à prendre $\E(Z)=10$ donc $10=7a+b$.
+		On souhaite avoir $50$\% des étudiants ayant plus de $10$. Comme la loi normale est symétrique par rapport à sa moyenne, cela revient à prendre $\E(Y)=10$ donc $10=7a+b$.
 		\\[1mm]
-		Ensuite, on souhaite avoir $\prob(Z\leq 7)=0.1$. On a
-		\[ \prob\left( \frac{Z-10}{3a}\leq \frac{7-10}{3a}\right)=0.1 
-		\quad \Leftrightarrow \quad \prob\left( \frac{Z-10}{3a}\leq \frac{1}{a}\right)=0.9
+		Ensuite, on souhaite avoir $\prob(Y\leq 7)=0.1$. On a
+		\[ \prob\left( \frac{Y-10}{3a}\leq \frac{7-10}{3a}\right)=0.1 
+		\quad \Leftrightarrow \quad \prob\left( \frac{Y-10}{3a}\leq \frac{1}{a}\right)=0.9
 		\quad \Leftrightarrow \quad \frac{1}{a}\simeq 1.29
 		\quad \Leftrightarrow \quad a\simeq 0.775\text{.}
 		\]
