@@ -1,0 +1,57 @@
+\uuid{Bf3T}
+\titre{Charges doctrinales et distribution des masses}
+\niveau{L2}
+\module{Probabilités et Statistiques}
+\chapitre{Probabilités continues}
+\sousChapitre{Loi normale}
+\theme{Loi normale, standardisation, quantiles, probabilité}
+\auteur{Jean-François Culus}
+\datecreate{2025-10-21}
+\organisation{AMSCC}
+\difficulte{4}
+
+\contenu{
+	\texte{
+		\textbf{Données :}
+		\begin{itemize}
+			\item D'après une étude de 2012 menée sur les soldats américains hommes (ANSUR II 2012), leur masse $W$ (en lb) $\sim \mathcal{N}(\mu, \sigma^2)$ avec $\mu = 188,55$ et $\sigma = 31,35$.
+			\item Dans le document de doctrine (ATP 3-21.18), on peut lire : \textit{fighting load} $\approx 30\%$ du poids, cible $[60, 80]$ lb ; \textit{approach load} $\approx 45\%$ du poids, cible $[80, 100]$ lb ; \textit{emergency approach} $[100, 125]$ lb (46-70\% du poids).
+		\end{itemize}
+	}
+	
+	\begin{enumerate}
+		\item \question{(Calage et cohérence) Sous l'hypothèse $L_f = 0,30W$ (fighting load), exprimer la condition « $L_f \in [60, 80]$ lb » en termes de $W$ puis calculer $P(60 \leq L_f \leq 80)$ pour les hommes ANSUR II.}
+		\reponse{
+			$60 \leq 0,30W \leq 80 \iff 200 \leq W \leq 266,67$. Standardisation : $Z = \frac{W-\mu}{\sigma}$. \\
+			$z_1 = \frac{200 - 188,55}{31,35} \approx 0,37$, $z_2 = \frac{266,67 - 188,55}{31,35} \approx 2,49$. \\
+			$P(60 \leq L_f \leq 80) = \Phi(2,49) - \Phi(0,37) \approx 0,994 - 0,643 \approx 0,35$. \\
+			\textbf{Lecture :} environ 35\% des soldats (hommes) auront un fighting load (30\%) dans la cible 60–80 lb. Par ailleurs, $P(L_f > 80) = P(W > 266,67) \approx 0,006$ (rare), et $P(L_f < 60) \approx 64\%$.
+		}
+		
+		\item \question{Même question pour l'approach load : $L_a = 0,45W$ et cible $[80, 100]$ lb.}
+		\reponse{
+			$80 \leq 0,45W \leq 100 \iff 177,78 \leq W \leq 222,22$. \\
+			$z_1 = \frac{177,78 - 188,55}{31,35} \approx -0,34$, $z_2 = \frac{222,22 - 188,55}{31,35} \approx 1,07$. \\
+			$P(80 \leq L_a \leq 100) = \Phi(1,07) - \Phi(-0,34) \approx 0,858 - 0,367 \approx 0,49$. \\
+			\textbf{Lecture :} près de 49\% tomberont naturellement dans la cible 80–100 lb avec la règle des 45\%.
+		}
+		
+		\item \question{Pour l'emergency (on prendra la valeur nominale $L_e = 0,60W$), calculer $P(100 \leq L_e \leq 125)$.}
+		\reponse{
+			$100 \leq 0,60W \leq 125 \iff 166,67 \leq W \leq 208,33$. \\
+			$z_1 \approx \frac{166,67 - 188,55}{31,35} \approx -0,70$, $z_2 \approx \frac{208,33 - 188,55}{31,35} \approx 0,63$. \\
+			$P(100 \leq L_e \leq 125) = \Phi(0,63) - \Phi(-0,70) \approx 0,736 - 0,243 \approx 0,49$.
+		}
+		
+		\item \question{Interpréter : parmi les soldats (hommes) ANSUR II, quelle part est naturellement en-dessous/au-dessus des fourchettes doctrinales si l'on respecte strictement les pourcentages 30/45/60\% ?}
+		\reponse{
+			\textbf{Synthèse.} - Avec une application stricte des \% doctrinaux (30/45/60\%), les intervalles cibles en lb ne sont « centrés » que pour une fraction de la population : $\approx 35\%$ (fighting), $\approx 49\%$ (approach), $\approx 49\%$ (emergency nominal). Il en résulte qu'un commandement qui imposerait simultanément la règle \% et la fourchette en lb constaterait : beaucoup de soldats avec $L_f < 60$ lb (trop léger vs fourchette) et très peu au-dessus de 80 lb si on respecte 30\%.
+		}
+		
+		\item \question{(Quantile) Quel est le $95${e} percentile du fighting load $L_f$ ?}
+		\reponse{
+			$L_f \sim \mathcal{N}(0,30\mu, (0,30\sigma)^2) = \mathcal{N}(56,57, 9,41^2)$ (lb). Donc $q_{0,95}(L_f) = 56,57 + 1,645 \times 9,41 \approx 71,1$ lb. \\
+			\textbf{Lecture :} 95\% des soldats auraient un fighting load (30\%) $\leq 71$ lb, bien à l'intérieur de la cible 60-80 lb.
+		}
+	\end{enumerate}
+}

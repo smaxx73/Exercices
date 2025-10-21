@@ -1,0 +1,64 @@
+\uuid{C7xP}
+\titre{Vitesse de marche en cross-country et charge}
+\niveau{L2}
+\module{Probabilités et Statistiques}
+\chapitre{Probabilités continues}
+\sousChapitre{Loi normale}
+\theme{Loi normale, espérance conditionnelle, probabilité, quantiles}
+\auteur{Jean-François Culus}
+\datecreate{2025-10-21}
+\organisation{AMSCC}
+\difficulte{4}
+
+\contenu{
+	\texte{\textbf{[Extraits]} La vitesse moyenne de marche soutenable d'un soldat à pied, de jour, sur route ou sur terrain amélioré, est de 4 kilomètres par heure (km/h). En terrain varié (cross-country), cette vitesse est de 2,4 km/h avec une charge de 40 livres (soit 18 kg) ou moins. [...] Pour chaque tranche de 10 livres (soit environ 4,5 kg) transportée au-delà de 40 livres, la distance moyenne parcourue par les soldats diminue d'environ 2 kilomètres toutes les 6 heures.}
+	
+	\texte{On modélise la vitesse de marche journalière en terrain cross-country, de jour, notée $V$ (en km/h), par une loi normale dont la moyenne $\mu_W$ dépend de la charge $W$ du soldat. On suppose que l'écart-type de cette variable aléatoire $V$ est constante, égale à $\sigma = 0,40$ km/h. Ainsi, $V \sim \mathcal{N}(\mu_W, \sigma^2)$. Le manuel donne une moyenne « idéale » de $\mu_{40} = 2,4$ km/h lorsque le soldat a une charge de 40 livres (ou moins).}
+	
+	\begin{enumerate}
+		\item \question{Afin de déduire la perte de vitesse par tranche de 10 lb de poids porté, exprimer la vitesse associée au parcours d'une distance de 2 km en 6 h. En déduire que l'expression de la valeur moyenne $\mu_W$ (en km/h) d'un soldat portant une charge de $W$ lb d'au moins 40 lb, en référence à l'extrait de doctrine précédent, est : 
+			\[ \mu_W = 2,4 - 0,333\frac{W-40}{10} \]}
+		\reponse{
+			Une perte de 2 km en 6 h correspond à une perte de vitesse de $\Delta v = \frac{2}{6} \approx 0,333$ km/h. Cette perte s'applique pour chaque tranche de 10 lb au-delà de 40 lb. L'expression de la moyenne est donc :
+			\[ \mu_W = 2,4 - 0,333 \times \frac{W-40}{10} = 2,4 - 0,0333(W-40), \quad \text{pour } W \geq 40. \]
+		}
+		
+		\item \question{(Calage de la moyenne) Calculer $\mu_W$ pour des charges de 40, 60 et 80 livres.}
+		\reponse{
+			$\mu_{40} = 2,4$ km/h. \\
+			$\mu_{60} = 2,4 - 0,333 \times 2 \approx 1,734$ km/h. \\
+			$\mu_{80} = 2,4 - 0,333 \times 4 \approx 1,068$ km/h.
+		}
+		
+		\item \question{(Probabilité d'atteindre l'objectif) Pour une charge de 60 livres, déterminer la probabilité $P(D \geq 12)$ que les soldats parcourent au moins D = 12 km en T = 8 h. Avec les mêmes données, calculer ensuite $P(D \geq 16)$.}
+		\reponse{
+			La distance $D = T \times V = 8V$. Donc $D \sim \mathcal{N}(8\mu_{60}, (8\sigma)^2) = \mathcal{N}(13,87, 3.2^2)$.
+			\[ P(D \geq 12) = P\left(Z \geq \frac{12 - 13,87}{3,2}\right) = P(Z \geq -0,585) \approx 0,72. \]
+			\[ P(D \geq 16) = P\left(Z \geq \frac{16 - 13,87}{3,2}\right) = P(Z \geq 0,665) \approx 0,25. \]
+			Ainsi, la probabilité de parcourir 12 km est d'environ 72\%, mais elle tombe à 25\% pour 16 km.
+		}
+		
+		\item \question{(Distance « assurée » à 95\%) Pour les charges de $W = 40, 60$ et $80$ lb, calculer les distances $d_{0,95}(W)$ telles que les soldats aient 95\% de chance de les parcourir en 8 h.}
+		\reponse{
+			On cherche $d$ tel que $P(D \geq d) = 0,95$. Cela revient à $P(V \geq d/8) = 0,95$. Il faut donc $d/8 = \mu_W + z_{0,05}\sigma = \mu_W - z_{0,95}\sigma$. Avec $z_{0,95} \approx 1,645$ :
+			$d_{0,95}(W) = 8(\mu_W - 1,645 \times 0,40) = 8(\mu_W - 0,658)$.
+			\begin{itemize}
+				\item $W=40$: $d_{0,95}(40) = 8(2,4 - 0,658) = 13,9$ km.
+				\item $W=60$: $d_{0,95}(60) = 8(1,734 - 0,658) = 8,6$ km.
+				\item $W=80$: $d_{0,95}(80) = 8(1,068 - 0,658) = 3,3$ km.
+			\end{itemize}
+		}
+		
+		\item \question{(Faisabilité d'un objectif) Existe-t-il une charge $W$ permettant d'assurer une probabilité de 90\% de réussir à couvrir 20 km en 8 h ? Justifier.}
+		\reponse{
+			On cherche $W$ tel que $P(D \geq 20) \geq 0,90$. Cela revient à $P(V \geq 20/8=2,5) \geq 0,90$. Il faut donc $\mu_W \geq 2,5 + z_{0,90}\sigma = 2,5 + 1,282 \times 0,40 \approx 3,013$ km/h. Or $\mu_W \leq 2,4$, donc cet objectif est irréalisable.
+		}
+		
+		\item \question{(Faisabilité d'un objectif 2) Même question mais pour parcourir 10 km en 8 h.}
+		\reponse{
+			On cherche $W$ tel que $P(D \geq 10) \geq 0,90$. Cela revient à $P(V \geq 10/8=1,25) \geq 0,90$. Il faut donc $\mu_W \geq 1,25 + 1,282 \times 0,40 \approx 1,763$ km/h.
+			\[ 2,4 - 0,0333(W - 40) \geq 1,763 \implies W - 40 \leq 19,1 \implies W \leq 59,1. \]
+			Pour assurer 90\% de chance de marcher 10 km en 8 h, la charge doit rester inférieure à environ 59 lb.
+		}
+	\end{enumerate}
+}

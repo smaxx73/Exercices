@@ -1,0 +1,48 @@
+\uuid{Ae9K}
+\titre{Modélisation d'une journée de marche (ATP 3-21.18, Forced Marches)}
+\niveau{L2}
+\module{Probabilités et Statistiques}
+\chapitre{Probabilités continues}
+\sousChapitre{Loi normale}
+\theme{Loi normale, transformation affine, quantiles, probabilité}
+\auteur{Jean-François Culus}
+\datecreate{2025-10-21}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	\texte{\textit{Donnée (extrait) : « A normal foot march day, under ideal conditions, is 8 hours, for 32 kilometers at a rate of 4 kilometers per hour (kph). Under ideal conditions, maximum distances recommended for forced marches are— 56 kilometers in 24 hours (14 hours of marching in 24 hours). » (ATP 3-21.18, chap. 2 « Forced Marches »)}}
+	
+	\texte{On modélise la durée journalière de marche effective H (en heures, sur 24 h) par une loi normale $H \sim \mathcal{N}(\mu, \sigma^2)$. On suppose que la « journée normale » fixe la moyenne $\mu = 8$ h et que la valeur « 14 h » donnée pour 56 km en marche forcée correspond au 95\textsuperscript{e} percentile de $H$.}
+	
+	\begin{enumerate}
+		\item \question{Estimer $\sigma$ (on prendra $z_{0,95} \approx 1,645$).}
+		\reponse{
+			L'interprétation est que 14 h est le 95\textsuperscript{e} percentile de H :
+			\[ P(H \leq 14) = 0,95 \iff \frac{14 - \mu}{\sigma} = z_{0,95} \approx 1,645. \]
+			Avec $\mu = 8$, on obtient $\sigma = \frac{14 - 8}{1,645} = \frac{6}{1,645} \approx 3,65$ h.
+		}
+		
+		\item \question{La distance journalière $D$ (en km) est liée à $H$ par $D = 4H$ (vitesse 4 km/h). Donner la loi de $D$ et calculer $P(D \geq 40)$.}
+		\indication{Utiliser la transformation affine d'une normale.}
+		\reponse{
+			La variable D suit une loi normale $D \sim \mathcal{N}(4\mu, (4\sigma)^2) = \mathcal{N}(32, (4\sigma)^2)$. \\
+			Numériquement, $4\sigma \approx 4 \times 3,65 \approx 14,6$ km. Pour la probabilité, on standardise :
+			\[ P(D \geq 40) = P\left(Z \geq \frac{40 - 32}{4\sigma}\right) = P\left(Z \geq \frac{8}{14,6}\right) \approx P(Z \geq 0,55) \approx 0,292. \]
+		}
+		
+		\item \question{Déterminer le quantile d'ordre 0,90 de $D$ (distance dépassée dans 10\% des journées).}
+		\reponse{
+			On cherche $q_{0,90}(D) = 32 + z_{0,90} \cdot 4\sigma$ avec $z_{0,90} \approx 1,282$ :
+			\[ q_{0,90}(D) \approx 32 + 1,282 \times 14,6 \approx 50,7 \text{ km.} \]
+		}
+		
+		\item \question{(Contrôle de cohérence) Avec votre modèle, à quel percentile correspond $H = 12$ h ? Confronter au tableau « 96 km en 48 h (12 h de marche chaque période de 24 h) ».}
+		\reponse{
+			Pour $H = 12$ h, le score réduit vaut
+			\[ z = \frac{12 - 8}{\sigma} \approx \frac{4}{3,65} \approx 1,10. \]
+			On a alors $\Phi(z) \approx 0,863$.
+			Donc 12 h correspond à un percentile d'environ 86 \%, cohérent avec l'extrait. C'est exigeant mais moins extrême que 14 h.
+		}
+	\end{enumerate}
+}

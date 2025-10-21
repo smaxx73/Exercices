@@ -1,0 +1,46 @@
+\uuid{3Df7}
+\titre{Dimensionnement des chargements militaires : estimation et correction de continuité}
+\niveau{L2}
+\module{Probabilités et Statistiques}
+\chapitre{Probabilités continues}
+\sousChapitre{Loi normale}
+\theme{Loi normale, estimation de paramètres, correction de continuité, quantiles}
+\auteur{Jean-François Culus}
+\datecreate{2025-10-21}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	\texte{Dans l'ATP 3-21.18 (Foot Marches), la Unit Basic Load (UBL) correspond à la quantité standard de munitions qu'un fantassin doit porter avant réapprovisionnement. Les analyses probabilistes peuvent aider à ajuster cette charge en fonction des profils de mission et du taux réel de consommation observé. La Unit Basic Load (UBL) d'un fantassin est fixée à 7 chargeurs de 30 cartouches pour le fusil M4, soit un total de 210 cartouches.}
+	
+	\texte{On modélise par une variable aléatoire \( X \) le nombre de chargeurs consommés par mission par un fantassin. On suppose que \( X \) suit une loi normale \( X \sim \mathcal{N}(\mu, \sigma) \). Des journaux d'entraînement indiquent qu'environ 20\% des missions consomment au plus 2 chargeurs, et qu'environ 30\% des missions en consomment (strictement) plus de 4.}
+	
+	\begin{enumerate}
+		\item \question{Estimer \( \mu \) et \( \sigma \) à partir de ces informations.}
+		\indication{Utiliser les quantiles de la loi normale centrée réduite \( \mathcal{N}(0,1) \).}
+		\reponse{
+			Soit \( Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0,1) \). Les quantiles utiles sont \( \Phi^{-1}(0,20) \approx -0,84 \) et \( \Phi^{-1}(0,70) \approx 0,52 \). \\
+			Les hypothèses \( P(X \leq 2) = 0,20 \) et \( P(X \leq 4) = 0,70 \) (car 30\% consomment plus de 4) donnent :
+			\[
+			\frac{2 - \mu}{\sigma} \approx -0,84, \quad \frac{4 - \mu}{\sigma} \approx 0,52.
+			\]
+			En soustrayant les deux équations, on obtient \( \frac{4-2}{\sigma} = 0,52 - (-0,84) = 1,36 \), donc \( \sigma = \frac{2}{1,36} \approx 1,46 \).
+			On en déduit \( \mu = 2 + 0,84\sigma \approx 2 + 0,84 \times 1,46 \approx 3,23 \).
+		}
+		
+		\item \question{Déterminer le nombre minimal \( m \) de chargeurs à emporter pour que \( P(X \leq m) \geq 0,95 \).}
+		\indication{Utiliser la correction de continuité.}
+		\reponse{
+			Pour couvrir 95\% des situations, on cherche \( m \) entier tel que \( P(X \leq m) \geq 0,95 \). Avec la correction de continuité,
+			\[
+			P(X \leq m) \approx \Phi\left(\frac{m + 0,5 - \mu}{\sigma}\right) \geq 0,95 \iff \frac{m + 0,5 - \mu}{\sigma} \geq z_{0,95} \approx 1,645.
+			\]
+			Ainsi, \( m + 0,5 \geq \mu + 1,645 \sigma \approx 3,23 + 1,645 \times 1,46 \approx 5,64 \), ce qui implique \( m \geq 5,14 \). Le plus petit entier est donc \( m = 6 \).
+		}
+		
+		\item \question{Discuter brièvement l'écart éventuel avec une charge « doctrinale » de 7 chargeurs.}
+		\reponse{
+			La charge « usuelle » souvent citée (7 chargeurs) excède légèrement la valeur calculée (6) et introduit une marge supplémentaire liée aux incertitudes de mission, à l'hétérogénéité des unités et au fait que la consommation réelle n'est pas exactement normale.
+		}
+	\end{enumerate}
+}
