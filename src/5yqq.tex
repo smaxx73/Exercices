@@ -18,163 +18,95 @@ La durée de vie $T_i$ de chaque émetteur-récepteur $i$ suit une loi exponenti
 }
 
 \begin{enumerate}
-\item   \question{Montrer l'égalité entre événements:
-$$\big[X\geq t\big]=\big[T_1\geq t,T_2\geq t,T_3\geq t\big] \cup \big[T_1\leq t,T_2\geq t,T_3\geq t\big] \cup $$ $$\big[T_1\geq t,T_2\leq t,T_3\geq t\big] \cup \big[T_1\geq t,T_2\geq t,T_3\leq t\big] $$
-}
-\reponse{L’événement $X\geq t$ signifie que le système de communication fonctionne encore au temps t, donc d'après le modèle que deux ou trois des émetteurs-récepteurs sont encore opérationnels
-au temps t. Le premier événement de l'union traduit le fait que les trois émetteurs-récepteurs
-sont encore opérationnels, les trois autres événements signifient que les émetteurs-récepteurs 2
-et 3, resp. 1 et 3, resp. 1 et 2 sont encore opérationnels.}
-
-\item   \question{En déduire une expression de la fonction de répartition $F_X$ faisant intervenir les fonctions de répartition $F_{T_i}}$.
- \reponse{On remarque que les quatre événements de l’union décrite à la question précédente sont deux à deux disjoints, donc :
-
-$$
-P[X \geq t] = P[T_1 \geq t,\, T_2 \geq t,\, T_3 \geq t] 
-+ P[T_1 \leq t,\, T_2 \geq t,\, T_3 \geq t] $$
-
-$$
-+ P[T_1 \geq t,\, T_2 \leq t,\, T_3 \geq t]
-+ P[T_1 \leq t,\, T_2 \geq t,\, T_3 \leq t].
-$$
-
-De plus, les variables \( T_i \) sont indépendantes, donc :
-
-\[
-P[T_1 \geq t,\, T_2 \geq t,\, T_3 \geq t] 
-= P(T_1 \geq t)\, P(T_2 \geq t)\, P(T_3 \geq t)
-= (1 - F_T(t))^3.
-\]
-
-De même :
-
-\[
-P[T_1 \leq t,\, T_2 \geq t,\, T_3 \geq t] 
-= P(T_1 \leq t)\, P(T_2 \geq t)\, P(T_3 \geq t)
-= F_T(t)\,(1 - F_T(t))^2.
-\]
-
-Les probabilités des deux autres événements sont identiques.
-
-On en déduit donc :
-
-\[
-P[X \geq t] = (1 - F_T(t))^3 + 3\,F_T(t)\,(1 - F_T(t))^2.
-\]
-
-et ainsi (comme \( X \) suit une loi à densité) :
-
-\[
-F_X(t) = 1 - P(X \geq t)= 1 - \big[(1 - F_T(t))^3 + 3F_T(t)(1 - F_T(t))^2 \big].
-\]
-}
-\item   \question{Montrer que $X$ suit la loi de densité $f_X$ définie pour tout réel strictement positif par:
-$$f_X(t)=6\lambda e^{-2\lambda t}-6\lambda e^{-3\lambda t}$$}
-\reponse{Soit \( t \geq 0 \). On rappelle que :
-\[
-F_T(t) = \int_{0}^{t} \lambda e^{-\lambda u}\, du =1-e^{-\lambda t}.
-\]
-
-D’après la question précédente, on a alors :
-$$
-F_X(t) = 1 - \big[\big(e^{-\lambda t}\big)^3 - 3(1-e^{-\lambda t})\big(e^{-\lambda t}\big)^2 \big]$$
-En simplifiant :
-\[
-F_X(t) = 1 - 3 e^{-2\lambda t} + 2 e^{-3\lambda t}.
-\]
-
-Si \( t < 0 \), on a \( F_T(t) = 0 \), et on en déduit immédiatement que \( F_X(t) = 0 \).
-
-La fonction de répartition \( F_X \) est partout dérivable sauf en \( t = 0 \).  
-On en déduit que \( X \) admet une densité \( f_X \) donnée par :
-\[
-f_X(t) = F_X'(t).
-\]
-Ainsi :
-\[
-f_X(t) =
-\begin{cases}
-0, & \text{si } t < 0, \\
-6\lambda e^{-2\lambda t} - 6\lambda e^{-3\lambda t}, & \text{si } t > 0.
-\end{cases}
-\]}
-\item   \question{Calculer l'espérance de $X$.}
-\reponse{L’espérance \( \mathbb{E}(X) \) se calcule par le théorème de transfert :
-\[
-\mathbb{E}(X) = \int_{-\infty}^{+\infty} t f_X(t)\, dt 
-= \int_{0}^{+\infty} t \left( 6\lambda e^{-2\lambda t} - 6\lambda e^{-3\lambda t} \right) dt
-= 6\lambda \int_{0}^{+\infty} t e^{-2\lambda t}\, dt - 6\lambda \int_{0}^{+\infty} t e^{-3\lambda t}\, dt.
-\]
-
-On calcule la première intégrale par intégration par parties :
-
-\[
-\int_{0}^{+\infty} t e^{-2\lambda t}\, dt 
-= \left[ -\frac{t e^{-2\lambda t}}{2\lambda} \right]_0^{+\infty} + \int_{0}^{+\infty} \frac{e^{-2\lambda t}}{2\lambda}\, dt
-= 0 + \frac{1}{(2\lambda)^2}
-= \frac{1}{4\lambda^2}.
-\]
-
-De même :
-\[
-\int_{0}^{+\infty} t e^{-3\lambda t}\, dt = \frac{1}{(3\lambda)^2} = \frac{1}{9\lambda^2}.
-\]
-
-Ainsi :
-\[
-\mathbb{E}(X) = 6\lambda \left( \frac{1}{4\lambda^2} - \frac{1}{9\lambda^2} \right)
-= 6\lambda \cdot \frac{5}{36\lambda^2}
-= \frac{5}{6\lambda}.
-\]
-}
-\item   \question{Soient les réels $t>0,h>0$. Calculer la probabilité conditionnelle $P(\big[X\geq t+h \vert X\geq t \big]$ puis calculer la limite de la probabilité, à $h$ fixé, lorsque $t \to +\infty$.}
-\reponse{
-Par définition d’une probabilité conditionnelle, on a :
-\[
-P(X \geq t + h \mid X \geq t)
-= \frac{P([X \geq t + h] \cap [X \geq t])}{P(X \geq t)}.
-\]
-
-Or, on a l’inclusion \( \{ X \geq t + h \} \subset \{ X \geq t \} \),
-donc l’intersection de ces deux événements est \( \{ X \geq t + h \} \).
-Ainsi :
-\[
-P(X \geq t + h \mid X \geq t)
-= \frac{P(X \geq t + h)}{P(X \geq t)}.
-\]
-
-D’après les résultats précédents :
-\[
-P(X \geq t) = (1 - F_T(t))^3 + 3F_T(t)(1 - F_T(t))^2
-= 3 e^{-2\lambda t} - 2 e^{-3\lambda t},
-\]
-et de même :
-\[
-P(X \geq t + h) = 3 e^{-2\lambda (t + h)} - 2 e^{-3\lambda (t + h)}.
-\]
-
-Ainsi :
-\[
-P(X \geq t + h \mid X \geq t)
-= \frac{3 e^{-2\lambda (t + h)} - 2 e^{-3\lambda (t + h)}}{3 e^{-2\lambda t} - 2 e^{-3\lambda t}}.
-\]
-
-En multipliant le numérateur et le dénominateur par \( e^{2\lambda t} \), on obtient :
-\[
-P(X \geq t + h \mid X \geq t)
-= \frac{3 e^{-2\lambda h} - 2 e^{-\lambda (t + 3h)}}{3 - 2 e^{-\lambda t}}.
-\]
-
-Comme \( \lambda > 0 \), on a :
-\[
-\lim_{t \to +\infty} e^{-\lambda t} = 0,
-\]
-donc :
-\[
-\lim_{t \to +\infty} P(X \geq t + h \mid X \geq t)
-= e^{-2\lambda h}.
-\]}
-
+	\item   \question{Montrer l'égalité entre événements:
+		\[
+		\left[X\geq t\right] = \left[T_1\geq t,T_2\geq t,T_3\geq t\right] \cup \left[T_1\leq t,T_2\geq t,T_3\geq t\right] \cup 
+		\]
+		\[
+		\left[T_1\geq t,T_2\leq t,T_3\geq t\right] \cup \left[T_1\geq t,T_2\geq t,T_3\leq t\right]
+		\]
+	}
+	\reponse{L’événement $\left[X\geq t\right]$ signifie que le système de communication fonctionne encore au temps t, donc d'après le modèle que deux ou trois des émetteurs-récepteurs sont encore opérationnels au temps t. Le premier événement de l'union traduit le fait que les trois émetteurs-récepteurs sont encore opérationnels, les trois autres événements signifient que les émetteurs-récepteurs 2 et 3, resp. 1 et 3, resp. 1 et 2 sont encore opérationnels.}
+	
+	\item   \question{En déduire une expression de la fonction de répartition $F_X$ faisant intervenir les fonctions de répartition $F_{T_i}$.}
+	\reponse{On remarque que les quatre événements de l’union décrite à la question précédente sont deux à deux disjoints. En utilisant l'indépendance des variables \( T_i \), on obtient :
+		
+		\begin{align*}
+			P[X \geq t] &= P[T_1 \geq t, T_2 \geq t, T_3 \geq t] + P[T_1 \leq t, T_2 \geq t, T_3 \geq t] \\
+			&\quad + P[T_1 \geq t, T_2 \leq t, T_3 \geq t] + P[T_1 \geq t, T_2 \geq t, T_3 \leq t] \\
+			&= P(T_1 \geq t)P(T_2 \geq t)P(T_3 \geq t) + P(T_1 \leq t)P(T_2 \geq t)P(T_3 \geq t) + \dots \\
+			&= (1 - F_T(t))^3 + 3 F_T(t) (1 - F_T(t))^2.
+		\end{align*}
+		
+		Comme \( X \) suit une loi à densité, sa fonction de répartition est :
+		\[
+		F_X(t) = 1 - P(X \geq t) = 1 - \left[ (1 - F_T(t))^3 + 3F_T(t)(1 - F_T(t))^2 \right].
+		\]
+	}
+	
+	\item   \question{Montrer que $X$ suit la loi de densité $f_X$ définie pour tout réel strictement positif par:
+		\[
+		f_X(t)=6\lambda e^{-2\lambda t}-6\lambda e^{-3\lambda t}
+		\]}
+	\reponse{Soit \( t \geq 0 \). La fonction de répartition d'une loi exponentielle est $F_T(t) = 1-e^{-\lambda t}$. En substituant dans l'expression de $F_X(t)$ :
+		\begin{align*}
+			F_X(t) &= 1 - \left[ (e^{-\lambda t})^3 + 3(1-e^{-\lambda t})(e^{-\lambda t})^2 \right] \\
+			&= 1 - \left[ e^{-3\lambda t} + 3(e^{-2\lambda t} - e^{-3\lambda t}) \right] \\
+			&= 1 - \left( 3e^{-2\lambda t} - 2e^{-3\lambda t} \right) \\
+			&= 1 - 3e^{-2\lambda t} + 2e^{-3\lambda t}.
+		\end{align*}
+		Si \( t < 0 \), alors \( F_X(t) = 0 \). La fonction de répartition \( F_X \) est continue et dérivable sauf potentiellement en 0. La densité \( f_X \) est la dérivée de \( F_X \) :
+		\[
+		f_X(t) = F_X'(t) = 
+		\begin{cases}
+			6\lambda e^{-2\lambda t} - 6\lambda e^{-3\lambda t} & \text{si } t > 0, \\
+			0 & \text{si } t < 0.
+		\end{cases}
+		\]}
+	
+	\item   \question{Calculer l'espérance de $X$.}
+	\reponse{L’espérance \( \mathbb{E}(X) \) se calcule par le théorème de transfert :
+		\[
+		\mathbb{E}(X) = \int_{0}^{+\infty} t f_X(t)\, dt 
+		= \int_{0}^{+\infty} t \left( 6\lambda e^{-2\lambda t} - 6\lambda e^{-3\lambda t} \right) dt.
+		\]
+		On sépare l'intégrale en deux parties :
+		\[
+		\mathbb{E}(X) = 6\lambda \int_{0}^{+\infty} t e^{-2\lambda t}\, dt - 6\lambda \int_{0}^{+\infty} t e^{-3\lambda t}\, dt.
+		\]
+		En reconnaissant l'espérance d'une loi exponentielle (ou par intégration par parties), on sait que $\int_0^\infty t \alpha e^{-\alpha t} dt = 1/\alpha$.
+		\[
+		\int_{0}^{+\infty} t e^{-2\lambda t}\, dt = \frac{1}{(2\lambda)^2} = \frac{1}{4\lambda^2} \quad \text{et} \quad
+		\int_{0}^{+\infty} t e^{-3\lambda t}\, dt = \frac{1}{(3\lambda)^2} = \frac{1}{9\lambda^2}.
+		\]
+		Ainsi :
+		\[
+		\mathbb{E}(X) = 6\lambda \left( \frac{1}{4\lambda^2} - \frac{1}{9\lambda^2} \right)
+		= 6\lambda \left( \frac{9 - 4}{36\lambda^2} \right)
+		= 6\lambda \cdot \frac{5}{36\lambda^2}
+		= \frac{5}{6\lambda}.
+		\]
+	}
+	
+	\item   \question{Soient les réels $t>0,h>0$. Calculer la probabilité conditionnelle $P\left(\left[X\geq t+h \mid X\geq t \right]\right)$ puis calculer la limite de la probabilité, à $h$ fixé, lorsque $t \to +\infty$.}
+	\reponse{
+		Par définition, sachant que l'événement $\{X \geq t+h\}$ est inclus dans $\{X \geq t\}$ :
+		\[
+		P(X \geq t + h \mid X \geq t)
+		= \frac{P\left( [X \geq t + h] \cap [X \geq t] \right)}{P(X \geq t)}
+		= \frac{P(X \geq t + h)}{P(X \geq t)}.
+		\]
+		En utilisant $P(X \geq t) = 1 - F_X(t) = 3 e^{-2\lambda t} - 2 e^{-3\lambda t}$, on obtient :
+		\[
+		P(X \geq t + h \mid X \geq t)
+		= \frac{3 e^{-2\lambda (t + h)} - 2 e^{-3\lambda (t + h)}}{3 e^{-2\lambda t} - 2 e^{-3\lambda t}}
+		= \frac{e^{-2\lambda t} \left( 3 e^{-2\lambda h} - 2 e^{-\lambda t} e^{-3\lambda h} \right)}{e^{-2\lambda t} \left( 3 - 2 e^{-\lambda t} \right)}
+		= \frac{3 e^{-2\lambda h} - 2 e^{-\lambda(t + 3h)}}{3 - 2 e^{-\lambda t}}.
+		\]
+		Lorsque $t \to +\infty$, le terme $e^{-\lambda t}$ tend vers 0. Par conséquent :
+		\[
+		\lim_{t \to +\infty} P(X \geq t + h \mid X \geq t) = \frac{3e^{-2\lambda h} - 0}{3 - 0} = e^{-2\lambda h}.
+		\]}
 \end{enumerate}
 
 }
