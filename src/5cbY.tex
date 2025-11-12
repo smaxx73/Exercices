@@ -3,34 +3,63 @@
 \niveau{L2}
 \module{Probabilité et statistique}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Intervalles de confiance}
+\titre{Intervalles de confiance (Corrigé)}
 \theme{statistiques, intervalle de confiance}
 \auteur{Maxime NGUYEN}
 \datecreate{2022-09-07}
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{Pour étudier le degré de pollution des eaux d'une rivière par les déchets d'une usine, on mesure la teneur en milligrammes d'un certain polluant par litre d'eau.}
- 
- \begin{enumerate}
-  \item \question{On effectue 17 mesures pour lesquelles les valeurs observées des teneurs en polluant ont une moyenne de 5.2~mg/L et un écart-type de 1.2~mg/L. 
-  	\begin{enumerate}
-  		\item Donner une estimation sans biais de la moyenne et de l'écart type de la teneur en polluant dans cette rivière.
-
-  		\item Donner un intervalle de confiance au seuil de 5\% pour la teneur moyenne en polluant de cette rivière.
-  		\item A partir de ces résultats, peut-on considérer que l'usine respecte la législation en vigueur selon laquelle cette teneur moyenne en polluant ne doit pas dépasser 7~mg/ ?
-  	\end{enumerate}
-  	 }
-   \reponse{La moyenne observée dans l'échantillon est une estimation sans biais de la moyenne de la teneur dans la rivière, on obtient $\overline{x}=5.2$. L'écart type observé donne une estimation biaisée de l'écart type de la teneur en polluant dans la rivière, on calcule donc la variance observée $\tilde{S}^2 = 1.2^2 = 1.44$ puis la variance corrigée $S^2 = \frac{17}{16} \tilde{S}^2 \approx 1.53$ d'où une estimation non biaisée $s \approx 1.24$ de l'écart type. 
-   	
-   	L'échantillon étant petit ($n=17$), on doit supposer de surcroit que la distribution des mesures est normale. De là, on tire un intervalle de confiance à l'aide de la loi de Student $St(16)$  : $[4.58;5.82]$.}
-  \item \question{Combien de mesures devrait-on faire pour estimer la teneur moyenne en polluant avec une précision de 0.1~mg/L au niveau de confiance 95\% ?}
-  \reponse{En supposant que l'écart type de l'échantillon reste le même, la précision de l'intervalle de confiance est donné par sa longueur qui est $2\times t_{\alpha/2}\sqrt{\frac{s^2}{n}}$. Dans la question précédente, cette longueur vaut environ $1.23$. 
-
-On cherche $n$ tel que   $2\times t_{\alpha/2}\sqrt{\frac{s^2}{n}} = \leq 0.1$. On peut supposer que $n$ sera plus grand que $30$, donc on remplace $t_{\alpha/2}$ (quantile d'une loi de Student) par $u_{\alpha/2}$ en lecture de table de la loi normale centrée réduite.   En supposant que l'estimation de variance reste la même, on obtient $2\times 1.96 \times\frac{1.24}{\sqrt{n}} \leq 0.1$ soit $\sqrt{n} \geq 48.608$ soit \fbox{$n \geq 2363$}. 
-
-\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/Ec9ve_iQd-pNn_Tf86GSa8EBJUrDEkRpISpMW4xkp23PeQ?e=oOly0h}{Détail des calculs sur tableur}
-
+	
+	\texte{Pour étudier le degré de pollution des eaux d'une rivière par les déchets d'une usine, on mesure la teneur en milligrammes d'un certain polluant par litre d'eau.}
+	
+	\begin{enumerate}
+		\item \question{On effectue 17 mesures pour lesquelles les valeurs observées des teneurs en polluant ont une moyenne de 5.2~mg/L et un écart-type de 1.2~mg/L. 
+			\begin{enumerate}
+				\item Donner une estimation sans biais de la moyenne et de l'écart type de la teneur en polluant dans cette rivière.
+				\item Donner un intervalle de confiance au seuil de 5\% pour la teneur moyenne en polluant de cette rivière.
+				\item A partir de ces résultats, peut-on considérer que l'usine respecte la législation en vigueur selon laquelle cette teneur moyenne en polluant ne doit pas dépasser 7~mg/L ?
+			\end{enumerate}
+		}
+		\reponse{
+			\begin{enumerate}
+				\item La moyenne observée sur l'échantillon, $\overline{x}=5.2$~mg/L, est une estimation ponctuelle et sans biais de la moyenne de la teneur en polluant.
+				L'écart-type observé de 1.2~mg/L est une estimation biaisée. Pour obtenir une estimation non biaisée, on calcule d'abord la variance non biaisée (ou corrigée) $s^2$ :
+				$s^2 = \frac{n}{n-1} \times (\text{écart-type obs.})^2 = \frac{17}{16} \times (1.2)^2 = 1.53$.
+				L'estimation non biaisée de l'écart-type est donc $s = \sqrt{1.53} \approx 1.237$~mg/L.
+				
+				\item L'écart-type de la population est inconnu et la taille de l'échantillon est faible ($n=17<30$), on utilise donc une loi de Student à $n-1=16$ degrés de liberté. On suppose que la distribution de la teneur en polluant est normale.
+				Le quantile $t_{16; 0.025}$ est d'environ $2.12$.
+				L'intervalle de confiance est donné par $\overline{x} \pm t_{n-1; \alpha/2} \frac{s}{\sqrt{n}}$.
+				$I.C._{95\%} = \left[ 5.2 - 2.12 \times \frac{1.237}{\sqrt{17}} \,;\, 5.2 + 2.12 \times \frac{1.237}{\sqrt{17}} \right] \approx [5.2 - 0.636 \,;\, 5.2 + 0.636]$.
+				L'intervalle de confiance est donc environ \textbf{[4.56~;~5.84]~mg/L}.
+				
+				\item La borne supérieure de l'intervalle de confiance, 5.84~mg/L, est inférieure à la limite légale de 7~mg/L. Au niveau de confiance de 95\%, on peut donc considérer que l'usine respecte la législation.
+			\end{enumerate}
+		}
+		\item \question{On suppose ici l'écart type de la population connu et égal à 1.2~mg/L. Combien de mesures devrait-on faire pour estimer la teneur moyenne en polluant avec une précision de 0.1~mg/L au niveau de confiance 95\% ?}
+		\indication{Attention, l'écart-type de la population $\sigma$ est ici supposé connu. Quelle loi statistique doit-on utiliser dans ce cas, quelle que soit la taille de l'échantillon ? De plus, la "précision" correspond à la marge d'erreur, c'est-à-dire au demi-intervalle.}
+		\reponse{
+			L'écart-type de la population $\sigma$ étant connu ($\sigma=1.2$), on utilise la loi normale centrée réduite. 
+			La précision souhaitée $d=0.1$~mg/L correspond à la marge d'erreur (ou demi-longueur de l'intervalle).
+			La formule de la marge d'erreur est $d = z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$.
+			
+			On cherche $n$ tel que $d \leq 0.1$. Pour un niveau de confiance de 95\%, $z_{\alpha/2} = z_{0.025} \approx 1.96$.
+			
+			On doit donc résoudre l'inéquation :
+			$1.96 \times \frac{1.2}{\sqrt{n}} \leq 0.1$
+			
+			Soit $\sqrt{n} \geq \frac{1.96 \times 1.2}{0.1}$
+			
+			$\sqrt{n} \geq 23.52$
+			
+			$n \geq (23.52)^2$
+			
+			$n \geq 553.19$
+			
+			Comme $n$ doit être un entier, on doit effectuer au minimum \fbox{$n=554$} mesures.
+			
+			\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/Ec9ve_iQd-pNn_Tf86GSa8EBJUrDEkRpISpMW4xkp23PeQ?e=oOly0h}{Détail des calculs sur tableur}
+		}
+	\end{enumerate}
 }
- \end{enumerate}}
