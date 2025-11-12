@@ -1,0 +1,116 @@
+\uuid{MXao}
+\titre{Densité de probabilité et variable aléatoire continue}
+\niveau{L2}
+\module{Probabilité et statistique}
+\chapitre{Probabilité continue}
+\sousChapitre{Densité de probabilité}
+\theme{Fonction de densité, fonction de répartition, espérance, variance, probabilité conditionnelle}
+\auteur{}
+\datecreate{2025-11-12}
+\organisation{}
+\difficulte{3}
+
+\contenu{
+	\texte{On considère la fonction
+	$$f: x \mapsto \begin{cases}
+		k x^2 & \textrm{si } x \in [-1,1], \\
+		0 & \textrm{sinon.}
+	\end{cases}$$
+}
+
+\begin{enumerate}
+	\item \question{Déterminer la valeur de \( k \) pour laquelle \( f \) est une fonction de densité de probabilité.}
+	
+	\reponse{
+		Pour que \( f \) soit une fonction de densité de probabilité, elle doit satisfaire deux conditions :
+		\begin{enumerate}
+			\item \( f(x) \ge 0 \) pour tout \( x \in \mathbb{R} \).
+			\item \( \int_{-\infty}^{+\infty} f(x) \,dx = 1 \).
+		\end{enumerate}
+		La première condition \( k x^2 \ge 0 \) pour \( x \in [-1,1] \) implique que \( k \ge 0 \). \\
+		Pour la deuxième condition, on calcule l'intégrale :
+		\[ \int_{-\infty}^{+\infty} f(x) \,dx = \int_{-1}^{1} k x^2 \,dx = k \left[ \frac{x^3}{3} \right]_{-1}^{1} = k \left( \frac{1^3}{3} - \frac{(-1)^3}{3} \right) = k \left( \frac{1}{3} + \frac{1}{3} \right) = \frac{2k}{3} \]
+		On doit avoir \( \frac{2k}{3} = 1 \), ce qui donne \( k = \frac{3}{2} \). Cette valeur est bien positive.
+	}
+	
+	\item \question{Soit \( X \) une variable aléatoire absolument continue admettant \( f \) pour densité. Donner la fonction de répartition \( F_X \) de la variable aléatoire \( X \).}
+	
+	\reponse{
+		La fonction de répartition \( F_X(x) = \int_{-\infty}^{x} f(t) \,dt \).
+		\begin{itemize}
+			\item Si \( x < -1 \), \( F_X(x) = \int_{-\infty}^{x} 0 \,dt = 0 \).
+			\item Si \( -1 \le x \le 1 \), 
+			\[ F_X(x) = \int_{-\infty}^{-1} 0 \,dt + \int_{-1}^{x} \frac{3}{2} t^2 \,dt = \frac{3}{2} \left[ \frac{t^3}{3} \right]_{-1}^{x} = \frac{1}{2} [x^3 - (-1)^3] = \frac{x^3+1}{2} \]
+			\item Si \( x > 1 \), \( F_X(x) = \int_{-1}^{1} \frac{3}{2} t^2 \,dt = 1 \).
+		\end{itemize}
+		Donc, la fonction de répartition est :
+		\[ F_X(x) = \begin{cases}
+			0 & \textrm{si } x < -1, \\
+			\frac{x^3+1}{2} & \textrm{si } -1 \le x \le 1, \\
+			1 & \textrm{si } x > 1.
+		\end{cases} \]
+	}
+	
+	\item \question{Calculer l'espérance et la variance de \( X \).}
+	
+	\reponse{
+		\textbf{Espérance :}
+		\[ \mathbb{E}(X) = \int_{-\infty}^{+\infty} x f(x) \,dx = \int_{-1}^{1} x \left(\frac{3}{2} x^2\right) \,dx = \frac{3}{2} \int_{-1}^{1} x^3 \,dx \]
+		La fonction \( x \mapsto x^3 \) est impaire et l'intervalle d'intégration est symétrique par rapport à 0, donc l'intégrale est nulle. \( \mathbb{E}(X) = 0 \).
+		
+		\textbf{Variance :}
+		On utilise la formule \( \mathbb{V}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 \).
+		\[ \mathbb{E}(X^2) = \int_{-1}^{1} x^2 \left(\frac{3}{2} x^2\right) \,dx = \frac{3}{2} \int_{-1}^{1} x^4 \,dx = \frac{3}{2} \left[ \frac{x^5}{5} \right]_{-1}^{1} = \frac{3}{2} \left(\frac{1}{5} - \frac{-1}{5}\right) = \frac{3}{2} \cdot \frac{2}{5} = \frac{3}{5} \]
+		Ainsi, \( \mathbb{V}(X) = \frac{3}{5} - 0^2 = \frac{3}{5} \).
+	}
+	
+	\item \question{Calculer la probabilité conditionnelle \( \mathbb{P}(X \le 0.5 | X>0) \).}
+	
+	\reponse{
+		Par définition, \( \mathbb{P}(X \le 0.5 | X>0) = \frac{\mathbb{P}(\{X \le 0.5\} \cap \{X>0\})}{\mathbb{P}(X>0)} = \frac{\mathbb{P}(0 < X \le 0.5)}{\mathbb{P}(X>0)} \).
+		\begin{itemize}
+			\item Numérateur : \( \mathbb{P}(0 < X \le 0.5) = F_X(0.5) - F_X(0) = \frac{0.5^3+1}{2} - \frac{0^3+1}{2} = \frac{(1/8)+1}{2} - \frac{1}{2} = \frac{9/16 - 8/16}{1} = \frac{1}{16} \).
+			\item Dénominateur : \( \mathbb{P}(X>0) = 1 - \mathbb{P}(X \le 0) = 1 - F_X(0) = 1 - \frac{1}{2} = \frac{1}{2} \).
+		\end{itemize}
+		Donc, \( \mathbb{P}(X \le 0.5 | X>0) = \frac{1/16}{1/2} = \frac{1}{8} \).
+	}
+	
+	\item \question{On considère la variable aléatoire \( Y = X^2 \).
+		\begin{enumerate}
+			\item Montrer que \( F_Y(x) = 0 \) si \( x < 0 \) et \( F_Y(x) = 1 \) si \( x > 1 \).
+			\item Calculer \( F_Y(x) \) pour \( 0 \le x \le 1 \).
+			\item En déduire la densité de la loi de \( Y \).
+		\end{enumerate}
+	}
+	
+	\reponse{
+		\begin{enumerate}
+			\item La variable aléatoire \(X\) prend ses valeurs dans \( [-1, 1] \), donc \( Y = X^2 \) prend ses valeurs dans \( [0, 1] \).
+			\begin{itemize}
+				\item Si \( x < 0 \), l'événement \( \{Y \le x\} \) est impossible, donc \( F_Y(x) = \mathbb{P}(Y \le x) = 0 \).
+				\item Si \( x > 1 \), l'événement \( \{Y \le x\} \) est certain, car \( Y \) est toujours inférieure ou égale à 1. Donc \( F_Y(x) = \mathbb{P}(Y \le x) = 1 \).
+			\end{itemize}
+			
+			\item Pour \( 0 \le x \le 1 \), on a :
+			\[ F_Y(x) = \mathbb{P}(Y \le x) = \mathbb{P}(X^2 \le x) = \mathbb{P}(-\sqrt{x} \le X \le \sqrt{x}) \]
+			On utilise la fonction de répartition de \( X \) :
+			\[ F_Y(x) = F_X(\sqrt{x}) - F_X(-\sqrt{x}) = \frac{(\sqrt{x})^3+1}{2} - \frac{(-\sqrt{x})^3+1}{2} \]
+			\[ F_Y(x) = \frac{x^{3/2}+1 - (-x^{3/2}+1)}{2} = \frac{2x^{3/2}}{2} = x^{3/2} \]
+			
+			\item La densité de \( Y \), notée \( f_Y \), est la dérivée de sa fonction de répartition \( F_Y \).
+			\[ F_Y(x) = \begin{cases}
+				0 & \textrm{si } x < 0, \\
+				x^{3/2} & \textrm{si } 0 \le x \le 1, \\
+				1 & \textrm{si } x > 1.
+			\end{cases} \]
+			Pour \( x \in ]0, 1[ \), on a \( f_Y(x) = F_Y'(x) = \frac{d}{dx}(x^{3/2}) = \frac{3}{2}x^{1/2} = \frac{3\sqrt{x}}{2} \).
+			La densité est nulle ailleurs.
+			\[ f_Y(x) = \begin{cases}
+				\frac{3\sqrt{x}}{2} & \textrm{si } x \in [0, 1], \\
+				0 & \textrm{sinon.}
+			\end{cases} \]
+		\end{enumerate}
+	}
+	
+\end{enumerate}
+}

@@ -1,0 +1,78 @@
+\uuid{1j3q}
+\titre{Fiabilité des systèmes en parallèle et loi exponentielle}
+\niveau{L2}
+\module{Probabilité et statistique}
+\chapitre{Probabilité continue}
+\sousChapitre{Loi exponentielle}
+\theme{Loi exponentielle, durée de vie, probabilité conditionnelle, minimum de variables aléatoires}
+\auteur{Erwan Hillion}
+\datecreate{2025-11-12}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	\texte{Un poste de commandement utilise deux systèmes de communication indépendants et identiques, chacun ayant une durée de vie modélisée par une variable aléatoire exponentielle de paramètre \(\lambda = 0.05\). Cela signifie que pour \(i=1\) ou \(2\), la durée de vie \(X_i\) (en heures) du système \(i\) suit une loi exponentielle \(\mathcal{E}(0.05)\).}
+	
+	\texte{On rappelle que la loi exponentielle \(\mathcal{E}(\lambda)\) a pour densité :
+		$$f: x \mapsto \begin{cases}
+			\lambda e^{-\lambda x} & \textrm{si } x > 0, \\
+			0 & \textrm{sinon.}
+		\end{cases}$$
+		
+		Pour améliorer la fiabilité, le poste de commandement utilise les deux systèmes en parallèle : dès qu'un système tombe en panne, une alerte est déclenchée et une équipe technique intervient. On s'intéresse au temps \(T\) avant la première défaillance, défini par :
+		\[ T = \min(X_1, X_2). \]}
+	
+	\begin{enumerate}
+		\item \question{Montrer que, pour \(i = 1\) ou \(2\) et \(x > 0\), on a \(\mathbb{P}(X_i > x) = \exp(-\lambda x)\).}
+		
+		\reponse{
+			La probabilité \(\mathbb{P}(X_i > x)\) est le complément de la fonction de répartition \(F_{X_i}(x) = \mathbb{P}(X_i \le x)\).
+			Commençons par calculer la fonction de répartition pour \(x > 0\) :
+			\[ F_{X_i}(x) = \int_{-\infty}^{x} f(t) \,dt = \int_{0}^{x} \lambda e^{-\lambda t} \,dt \]
+			Car la densité est nulle pour \(t \le 0\).
+			\[ F_{X_i}(x) = \left[ -e^{-\lambda t} \right]_{0}^{x} = \left( -e^{-\lambda x} \right) - \left( -e^{-\lambda \cdot 0} \right) = -e^{-\lambda x} - (-1) = 1 - e^{-\lambda x} \]
+			La probabilité recherchée, aussi appelée fonction de survie, est donc :
+			\[ \mathbb{P}(X_i > x) = 1 - F_{X_i}(x) = 1 - (1 - e^{-\lambda x}) = e^{-\lambda x} \]
+			Ce qui correspond à la formule \(\exp(-\lambda x)\).
+		}
+		
+		\item \question{Montrer que, pour \(x > 0\), on a : \(\mathbb{P}(T > x) = \mathbb{P}(X_1 > x \cap X_2 > x)\) et en déduire que \(\mathbb{P}(T > x) = \exp(-2 \lambda x)\).}
+		
+		\reponse{
+			La variable aléatoire \(T\) est définie comme le minimum de \(X_1\) et \(X_2\), c'est-à-dire \(T = \min(X_1, X_2)\).
+			
+			\begin{itemize}
+				\item \textbf{Démonstration de l'égalité :}
+				L'événement \(\{T > x\}\) signifie que le minimum des deux durées de vie est strictement supérieur à \(x\).
+				Pour que le minimum de deux nombres soit supérieur à \(x\), il est nécessaire et suffisant que \textit{chacun} de ces nombres soit supérieur à \(x\).
+				Ainsi, l'événement \(\{T > x\}\) est équivalent à l'événement \(\{X_1 > x \text{ et } X_2 > x\}\).
+				En termes de probabilités, cela se traduit par l'égalité :
+				\[ \mathbb{P}(T > x) = \mathbb{P}(X_1 > x \cap X_2 > x) \]
+				
+				\item \textbf{Déduction de la probabilité :}
+				L'énoncé précise que les deux systèmes de communication sont \textbf{indépendants}. Par conséquent, les variables aléatoires \(X_1\) et \(X_2\) sont indépendantes.
+				La probabilité de l'intersection de deux événements indépendants est le produit de leurs probabilités :
+				\[ \mathbb{P}(X_1 > x \cap X_2 > x) = \mathbb{P}(X_1 > x) \times \mathbb{P}(X_2 > x) \]
+				En utilisant le résultat de la question 1, on a :
+				\[ \mathbb{P}(T > x) = e^{-\lambda x} \times e^{-\lambda x} = e^{-\lambda x - \lambda x} = e^{-2 \lambda x} \]
+				Donc, \(\mathbb{P}(T > x) = \exp(-2 \lambda x)\).
+			\end{itemize}
+		}
+		
+		\item \question{En déduire que la variable aléatoire \(T\) suit une loi exponentielle dont on précisera le paramètre.}
+		
+		\reponse{
+			Une variable aléatoire \(Y\) suit une loi exponentielle de paramètre \(\mu\) si sa fonction de survie est de la forme \(\mathbb{P}(Y > x) = e^{-\mu x}\) pour \(x > 0\).
+			
+			D'après la question précédente, nous avons montré que la fonction de survie de la variable aléatoire \(T\) est :
+			\[ \mathbb{P}(T > x) = e^{-2 \lambda x} \]
+			Cette expression correspond exactement à la forme de la fonction de survie d'une loi exponentielle, en posant le paramètre \(\mu = 2\lambda\).
+			
+			Par conséquent, la variable aléatoire \(T\) suit une loi exponentielle de paramètre \(2\lambda\).
+			
+			L'énoncé donne \(\lambda = 0.05\), le paramètre de la loi de \(T\) est donc :
+			\[ 2 \lambda = 2 \times 0.05 = 0.1 \]
+			Conclusion : \(T\) suit la loi exponentielle \(\mathcal{E}(0.1)\).
+		}
+	\end{enumerate}
+}

@@ -1,0 +1,73 @@
+\uuid{b9oC}
+\titre{Contrôle qualité et loi normale}
+\niveau{L2}
+\module{Probabilité et statistique}
+\chapitre{Probabilité continue}
+\sousChapitre{Loi normale}
+\theme{Loi normale, probabilité, indépendance}
+\auteur{Erwan Hillion}
+\datecreate{2025-11-12}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	\texte{Une pièce usinée est dite conforme lorsque sa cote \( x \), exprimée en millimètres, appartient à l'intervalle \([9.5, 10.5]\) et lorsque sa cote \( y \) appartient à l'intervalle \([10.5, 11.5]\).}
+	
+	\begin{enumerate}
+		\item \question{On note \( X \) la variable aléatoire qui, à chaque pièce prélevée au hasard dans la production d'une journée, associe sa cote \( x \). On suppose que la variable aléatoire \( X \) suit la loi normale de moyenne \( 10 \) et d'écart-type \( 0.2 \). Calculer \( \mathbb{P}(X \in [9.5, 10.5]) \).}
+		
+		\reponse{
+			On a \( X \sim \mathcal{N}(10, 0.2^2) \). On cherche \( \mathbb{P}(9.5 \le X \le 10.5) \). Pour cela, on centre et on réduit la variable \( X \) pour se ramener à la loi normale centrée-réduite \( Z \sim \mathcal{N}(0, 1) \).
+			La variable centrée-réduite est \( Z = \frac{X - \mu}{\sigma} = \frac{X - 10}{0.2} \).
+			\begin{align*}
+				\mathbb{P}(9.5 \le X \le 10.5) &= \mathbb{P}\left(\frac{9.5 - 10}{0.2} \le \frac{X - 10}{0.2} \le \frac{10.5 - 10}{0.2}\right) \\
+				&= \mathbb{P}\left(\frac{-0.5}{0.2} \le Z \le \frac{0.5}{0.2}\right) \\
+				&= \mathbb{P}(-2.5 \le Z \le 2.5)
+			\end{align*}
+			En notant \( \Phi \) la fonction de répartition de la loi normale centrée-réduite, on a :
+			\[ \mathbb{P}(-2.5 \le Z \le 2.5) = \Phi(2.5) - \Phi(-2.5) \]
+			Par symétrie de la loi normale, \( \Phi(-z) = 1 - \Phi(z) \), donc :
+			\[ \Phi(2.5) - (1 - \Phi(2.5)) = 2\Phi(2.5) - 1 \]
+			D'après la table de la loi normale, \( \Phi(2.5) \approx 0.9938 \).
+			\[ \mathbb{P}(X \in [9.5, 10.5]) \approx 2 \times 0.9938 - 1 = 1.9876 - 1 = 0.9876 \]
+			La probabilité que la cote \( x \) soit dans l'intervalle de conformité est d'environ \( 98.76 \% \).
+		}
+		
+		\item \question{On note \( Y \) la variable aléatoire qui, à chaque pièce de ce type prélevée au hasard dans la production d'une journée, associe sa cote \( y \). On suppose que la variable aléatoire \( Y \) suit la loi normale de moyenne \( 11 \) et on note \( \sigma \) son écart-type. On admet que \( \mathbb{P}(Y \in [10.5, 11.5]) = 0.985 \). Trouver la valeur de \( \sigma \).}
+		
+		\reponse{
+			On a \( Y \sim \mathcal{N}(11, \sigma^2) \) et \( \mathbb{P}(10.5 \le Y \le 11.5) = 0.985 \).
+			On centre et on réduit la variable \( Y \) : \( Z = \frac{Y - 11}{\sigma} \).
+			\begin{align*}
+				\mathbb{P}(10.5 \le Y \le 11.5) &= \mathbb{P}\left(\frac{10.5 - 11}{\sigma} \le Z \le \frac{11.5 - 11}{\sigma}\right) \\
+				&= \mathbb{P}\left(\frac{-0.5}{\sigma} \le Z \le \frac{0.5}{\sigma}\right) = 0.985
+			\end{align*}
+			En utilisant la fonction de répartition \( \Phi \) et la symétrie de la loi normale :
+			\[ 2\Phi\left(\frac{0.5}{\sigma}\right) - 1 = 0.985 \]
+			\[ 2\Phi\left(\frac{0.5}{\sigma}\right) = 1.985 \]
+			\[ \Phi\left(\frac{0.5}{\sigma}\right) = 0.9925 \]
+			On cherche dans la table de la loi normale centrée-réduite la valeur de \( z \) telle que \( \Phi(z) = 0.9925 \). On trouve \( z \approx 2.43 \).
+			On a donc :
+			\[ \frac{0.5}{\sigma} \approx 2.43 \implies \sigma \approx \frac{0.5}{2.43} \approx 0.2057 \]
+			La valeur de l'écart-type \( \sigma \) est d'environ \( 0.206 \) mm.
+		}
+		
+		\item \question{On suppose que les variables aléatoires \( X \) et \( Y \) sont indépendantes. On prélève une pièce au hasard dans la production d'une journée. Déterminer la probabilité qu'elle soit conforme.}
+		
+		\reponse{
+			Une pièce est conforme si sa cote \( x \) est dans \( [9.5, 10.5] \) ET sa cote \( y \) est dans \( [10.5, 11.5] \).
+			On cherche donc la probabilité de l'événement conjoint : \( \mathbb{P}(\{X \in [9.5, 10.5]\} \cap \{Y \in [10.5, 11.5]\}) \).
+			
+			Comme les variables aléatoires \( X \) et \( Y \) sont supposées indépendantes, la probabilité de l'intersection des événements est le produit de leurs probabilités :
+			\[ \mathbb{P}(\text{pièce conforme}) = \mathbb{P}(X \in [9.5, 10.5]) \times \mathbb{P}(Y \in [10.5, 11.5]) \]
+			D'après les questions précédentes, on a :
+			\begin{itemize}
+				\item \( \mathbb{P}(X \in [9.5, 10.5]) \approx 0.9876 \)
+				\item \( \mathbb{P}(Y \in [10.5, 11.5]) = 0.985 \)
+			\end{itemize}
+			Le calcul donne :
+			\[ \mathbb{P}(\text{pièce conforme}) \approx 0.9876 \times 0.985 \approx 0.972786 \]
+			La probabilité qu'une pièce soit conforme est d'environ \( 97.28 \% \).
+		}
+	\end{enumerate}
+}
