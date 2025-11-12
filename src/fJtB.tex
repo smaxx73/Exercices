@@ -1,0 +1,124 @@
+\uuid{fJtB}
+\titre{Propriétés fondamentales des estimateurs}
+
+\niveau{L2} 
+\module{Statistiques} 
+\chapitre{Échantillonnage et estimation}   
+\sousChapitre{Biais, convergence et efficacité des estimateurs}
+
+\theme{Estimateurs sans biais, variance, erreur quadratique moyenne}
+\auteur{}
+\datecreate{2025-11-12}
+\organisation{AMSCC}
+\difficulte{1}
+
+\contenu{
+	
+	\texte{ 
+		Soit $(X_1, X_2, \ldots, X_n)$ un $n$-échantillon d'une variable aléatoire $X$ d'espérance $\mu = \E(X)$ et de variance $\sigma^2 = \text{Var}(X)$ finies. On définit les estimateurs suivants :
+		$$T_1 = \frac{1}{n}\sum_{i=1}^{n} X_i \qquad T_2 = \frac{1}{n-1}\sum_{i=1}^{n} X_i \qquad T_3 = X_1$$
+	}
+	
+	\begin{enumerate}
+		\item   \question{Rappeler les définitions d'un estimateur sans biais et d'un estimateur convergent.}
+		\indication{}
+		\reponse{
+			\textbf{Estimateur sans biais :} Un estimateur $\widehat{\theta}_n$ du paramètre $\theta$ est dit sans biais si $\E(\widehat{\theta}_n) = \theta$ pour tout $n$.
+			
+			\textbf{Estimateur convergent :} Un estimateur $\widehat{\theta}_n$ est dit convergent si $\widehat{\theta}_n \xrightarrow[n \to \infty]{\mathbb{P}} \theta$ (convergence en probabilité vers $\theta$).
+		}
+		
+		\item   \question{Les trois estimateurs $T_1$, $T_2$ et $T_3$ sont-ils des estimateurs sans biais de $\mu$ ? Justifier.}
+		\indication{Calculer l'espérance de chaque estimateur en utilisant la linéarité de l'espérance.}
+		\reponse{
+			\textbf{Pour $T_1$ :} $\E(T_1) = \E\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right) = \frac{1}{n}\sum_{i=1}^{n} \E(X_i) = \frac{1}{n} \times n\mu = \mu$
+			
+			Donc $T_1$ est sans biais.
+			
+			\textbf{Pour $T_2$ :} $\E(T_2) = \frac{1}{n-1}\sum_{i=1}^{n} \E(X_i) = \frac{n\mu}{n-1} = \mu \times \frac{n}{n-1} \neq \mu$
+			
+			Donc $T_2$ est biaisé. Le biais est $b(T_2) = \frac{\mu}{n-1}$.
+			
+			\textbf{Pour $T_3$ :} $\E(T_3) = \E(X_1) = \mu$
+			
+			Donc $T_3$ est sans biais.
+		}
+		
+		\item   \question{Calculer la variance de chacun des trois estimateurs.}
+		\indication{Utiliser le fait que les variables $X_i$ sont indépendantes et identiquement distribuées.}
+		\reponse{
+			\textbf{Pour $T_1$ :} 
+			$$\text{Var}(T_1) = \text{Var}\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right) = \frac{1}{n^2}\sum_{i=1}^{n} \text{Var}(X_i) = \frac{1}{n^2} \times n\sigma^2 = \frac{\sigma^2}{n}$$
+			
+			\textbf{Pour $T_2$ :} 
+			$$\text{Var}(T_2) = \frac{1}{(n-1)^2}\sum_{i=1}^{n} \text{Var}(X_i) = \frac{n\sigma^2}{(n-1)^2}$$
+			
+			\textbf{Pour $T_3$ :} 
+			$$\text{Var}(T_3) = \text{Var}(X_1) = \sigma^2$$
+		}
+		
+		\item   \question{Parmi les estimateurs sans biais de $\mu$, lequel est le plus efficace ? Justifier.}
+		\indication{L'estimateur le plus efficace est celui qui a la plus petite variance.}
+		\reponse{Les estimateurs sans biais sont $T_1$ et $T_3$.
+			
+			On a $\text{Var}(T_1) = \frac{\sigma^2}{n}$ et $\text{Var}(T_3) = \sigma^2$.
+			
+			Pour tout $n \geq 2$, on a $\frac{\sigma^2}{n} < \sigma^2$, donc $\text{Var}(T_1) < \text{Var}(T_3)$.
+			
+			Par conséquent, $T_1$ (la moyenne empirique) est l'estimateur le plus efficace parmi les estimateurs sans biais proposés.
+		}
+		
+		\item   \question{On définit l'erreur quadratique moyenne (EQM) d'un estimateur $\widehat{\theta}$ de $\theta$ par :
+			$$\text{EQM}(\widehat{\theta}) = \E\left[(\widehat{\theta} - \theta)^2\right]$$
+			Montrer que $\text{EQM}(\widehat{\theta}) = \text{Var}(\widehat{\theta}) + b^2(\widehat{\theta})$ où $b(\widehat{\theta}) = \E(\widehat{\theta}) - \theta$ est le biais.}
+		\indication{Développer $(\widehat{\theta} - \theta)^2 = (\widehat{\theta} - \E(\widehat{\theta}) + \E(\widehat{\theta}) - \theta)^2$.}
+		\reponse{On pose $b = \E(\widehat{\theta}) - \theta$. Alors :
+			\begin{align*}
+				\text{EQM}(\widehat{\theta}) &= \E\left[(\widehat{\theta} - \theta)^2\right] \\
+				&= \E\left[(\widehat{\theta} - \E(\widehat{\theta}) + \E(\widehat{\theta}) - \theta)^2\right] \\
+				&= \E\left[(\widehat{\theta} - \E(\widehat{\theta}))^2\right] + 2\E\left[(\widehat{\theta} - \E(\widehat{\theta}))(\E(\widehat{\theta}) - \theta)\right] + (\E(\widehat{\theta}) - \theta)^2
+			\end{align*}
+			
+			Le terme du milieu vaut :
+			$$2(\E(\widehat{\theta}) - \theta) \times \E[\widehat{\theta} - \E(\widehat{\theta})] = 2(\E(\widehat{\theta}) - \theta) \times 0 = 0$$
+			
+			D'où : $\text{EQM}(\widehat{\theta}) = \text{Var}(\widehat{\theta}) + b^2(\widehat{\theta})$
+		}
+		
+		\item   \question{Calculer l'erreur quadratique moyenne de chacun des trois estimateurs. Quel est le meilleur estimateur de $\mu$ au sens de l'EQM ?}
+		\indication{Utiliser la formule établie à la question précédente.}
+		\reponse{
+			\textbf{Pour $T_1$ :} $\text{EQM}(T_1) = \frac{\sigma^2}{n} + 0^2 = \frac{\sigma^2}{n}$
+			
+			\textbf{Pour $T_2$ :} $\text{EQM}(T_2) = \frac{n\sigma^2}{(n-1)^2} + \left(\frac{\mu}{n-1}\right)^2 = \frac{n\sigma^2 + \mu^2}{(n-1)^2}$
+			
+			\textbf{Pour $T_3$ :} $\text{EQM}(T_3) = \sigma^2 + 0^2 = \sigma^2$
+			
+			Pour comparer les estimateurs, on analyse leur EQM pour $n \geq 2$ (en supposant $\sigma^2 > 0$).
+			
+			\textbf{Comparaison de $T_1$ et $T_3$ :}
+			On a clairement $\text{EQM}(T_1) = \frac{\sigma^2}{n} < \sigma^2 = \text{EQM}(T_3)$. Donc $T_1$ est meilleur que $T_3$.
+			
+			\textbf{Comparaison de $T_1$ et $T_2$ :}
+			Pour $n \ge 2$, on a $n^2 > (n-1)^2$, ce qui implique $\frac{n}{(n-1)^2} > \frac{1}{n}$.
+			Par conséquent, $\text{Var}(T_2) = \frac{n\sigma^2}{(n-1)^2} > \frac{\sigma^2}{n} = \text{EQM}(T_1)$.
+			Comme $\text{EQM}(T_2) = \text{Var}(T_2) + b(T_2)^2$ et que le terme de biais au carré est positif ou nul, il s'ensuit que $\text{EQM}(T_2) > \text{EQM}(T_1)$.
+			
+			\textbf{Conclusion :} En comparant les trois, $T_1$ est l'estimateur qui possède la plus faible erreur quadratique moyenne pour tout $n \geq 2$.
+		}
+		
+		\item   \question{Les trois estimateurs sont-ils convergents ? Justifier en utilisant l'inégalité de Bienaymé-Tchebychev si nécessaire.}
+		\indication{Un estimateur $\widehat{\theta}_n$ converge en probabilité vers $\theta$ si $\text{EQM}(\widehat{\theta}_n) \to 0$ quand $n \to \infty$.}
+		\reponse{
+			\textbf{Pour $T_1$ :} $\text{EQM}(T_1) = \frac{\sigma^2}{n} \xrightarrow[n \to \infty]{} 0$, donc $T_1$ est convergent (loi forte des grands nombres).
+			
+			\textbf{Pour $T_2$ :} $\text{EQM}(T_2) = \frac{n\sigma^2 + \mu^2}{(n-1)^2} \sim \frac{\sigma^2}{n} \xrightarrow[n \to \infty]{} 0$, donc $T_2$ est convergent (asymptotiquement sans biais).
+			
+			\textbf{Pour $T_3$ :} $\text{EQM}(T_3) = \sigma^2$ ne tend pas vers 0, donc $T_3$ n'est pas convergent.
+			
+			Remarque : $T_3$ reste égal à $X_1$ quelle que soit la taille de l'échantillon, il ne bénéficie donc pas de l'information apportée par les autres observations.
+		}
+		
+	\end{enumerate}
+	
+}

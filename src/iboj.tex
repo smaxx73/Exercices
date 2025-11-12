@@ -8,12 +8,59 @@
 \auteur{Maxime NGUYEN}
 \datecreate{2022-10-04}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{3}
 \contenu{
-
-\texte{  On effectue un contrôle de fabrication sur des pièces dont la proportion $p$ est défectueuse. }
-
-\begin{enumerate}
-	\item \question{ On contrôle un lot de 200 pièces et on trouve $n=24$ pièces défectueuses. Donner les intervalles de confiance pour l'estimation de $p$, au risque $\alpha=0.05$. }
-	\item \question{ Combien faudrait-il contrôler de pièces pour que, au risque  $\alpha=0.05$, l'intervalle de confiance centré soit d'amplitude $0.04$ ? }
+	
+	\texte{  On effectue un contrôle de fabrication sur des pièces dont la proportion $p$ est défectueuse. }
+	
+	\begin{enumerate}
+		\item \question{ On contrôle un lot de 200 pièces et on trouve $n=24$ pièces défectueuses. Donner les intervalles de confiance pour l'estimation de $p$, au risque $\alpha=0.05$. }
+		
+		\indication{
+			La première étape consiste à calculer la fréquence observée $f$ de pièces défectueuses dans l'échantillon. Ensuite, il faut déterminer la valeur critique $z_{\alpha/2}$ correspondant à un risque $\alpha=0.05$ pour une loi normale centrée réduite. L'intervalle de confiance pour une proportion $p$ est donné par la formule : $I_C = \left[ f - z_{\alpha/2} \sqrt{\frac{f(1-f)}{N}}; f + z_{\alpha/2} \sqrt{\frac{f(1-f)}{N}} \right]$, où $N$ est la taille du lot.
+		}
+		
+		\solution{
+			On commence par calculer la fréquence observée de pièces défectueuses :
+			$f = \frac{n}{N} = \frac{24}{200} = 0.12$.
+			
+			Le risque étant $\alpha = 0.05$, le niveau de confiance est de $1 - \alpha = 0.95$. Pour un intervalle de confiance bilatéral, on cherche la valeur de $z_{\alpha/2}$ telle que $P(-z_{\alpha/2} \le Z \le z_{\alpha/2}) = 1 - \alpha$, où $Z$ suit une loi normale centrée réduite.
+			Pour un niveau de confiance de 95%, la valeur critique est $z_{0.025} \approx 1.96$.
+			
+			On peut maintenant calculer les bornes de l'intervalle de confiance :
+			La marge d'erreur est $E = z_{\alpha/2} \sqrt{\frac{f(1-f)}{N}} = 1.96 \sqrt{\frac{0.12(1-0.12)}{200}} \approx 1.96 \sqrt{\frac{0.1056}{200}} \approx 1.96 \times 0.02298 \approx 0.045$.
+			
+			L'intervalle de confiance est donc :
+			$I_C = [0.12 - 0.045; 0.12 + 0.045] = [0.075; 0.165]$.
+			
+			On peut donc estimer, avec un risque d'erreur de 5%, que la proportion de pièces défectueuses dans la production se situe entre 7.5\% et 16.5\%.
+		}
+		
+		\item \question{ Combien faudrait-il contrôler de pièces pour que, au risque  $\alpha=0.05$, l'intervalle de confiance centré soit d'amplitude $0.04$ ? }
+		
+		\indication{
+			L'amplitude $A$ de l'intervalle de confiance est la différence entre la borne supérieure et la borne inférieure. Elle est égale à $A = 2 \times z_{\alpha/2} \sqrt{\frac{f(1-f)}{n}}$. Il faut isoler $n$ dans cette équation. Comme la proportion $p$ (et donc la fréquence $f$) de la future population est inconnue, on peut utiliser l'estimation $f=0.12$ de la question précédente, ou prendre le cas le plus défavorable qui maximise le produit $f(1-f)$, c'est-à-dire $f=0.5$.
+		}
+		
+		\solution{
+			L'amplitude $A$ de l'intervalle de confiance est donnée par $A = 2 \times E = 2 \times z_{\alpha/2} \sqrt{\frac{f(1-f)}{n}}$.
+			On souhaite une amplitude $A = 0.04$, avec un risque $\alpha=0.05$, ce qui donne $z_{\alpha/2} \approx 1.96$.
+			
+			On a donc l'équation :
+			$0.04 = 2 \times 1.96 \sqrt{\frac{f(1-f)}{n}}$.
+			
+			Pour la fréquence $f$, nous pouvons utiliser l'estimation de la question 1, soit $f=0.12$.
+			$0.04 = 3.92 \sqrt{\frac{0.12(1-0.12)}{n}}$
+			$\frac{0.04}{3.92} = \sqrt{\frac{0.1056}{n}}$
+			$(\frac{0.04}{3.92})^2 = \frac{0.1056}{n}$
+			$n = 0.1056 \times (\frac{3.92}{0.04})^2 = 0.1056 \times (98)^2 = 0.1056 \times 9604 \approx 1014.18$.
+			
+			Comme le nombre de pièces doit être un entier, on arrondit à l'entier supérieur.
+			Il faudrait donc contrôler $n=1015$ pièces pour obtenir une amplitude d'intervalle de confiance de 0.04 en utilisant l'estimation de la proportion de 12%.
+			
+			\textit{Alternative :} Si on ne dispose d'aucune estimation pour la proportion $p$, on se place dans le cas le plus défavorable qui maximise l'incertitude. La variance $f(1-f)$ est maximale lorsque $f=0.5$.
+			$n = f(1-f) \times (\frac{2 \times z_{\alpha/2}}{A})^2$
+			$n = 0.5(1-0.5) \times (\frac{2 \times 1.96}{0.04})^2 = 0.25 \times (98)^2 = 0.25 \times 9604 = 2401$.
+			Sans estimation préalable de la proportion, il faudrait contrôler 2401 pièces.
+		}
 \end{enumerate}}
