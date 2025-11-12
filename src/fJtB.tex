@@ -107,17 +107,6 @@
 			\textbf{Conclusion :} En comparant les trois, $T_1$ est l'estimateur qui possède la plus faible erreur quadratique moyenne pour tout $n \geq 2$.
 		}
 		
-		\item   \question{Les trois estimateurs sont-ils convergents ? Justifier en utilisant l'inégalité de Bienaymé-Tchebychev si nécessaire.}
-		\indication{Un estimateur $\widehat{\theta}_n$ converge en probabilité vers $\theta$ si $\text{EQM}(\widehat{\theta}_n) \to 0$ quand $n \to \infty$.}
-		\reponse{
-			\textbf{Pour $T_1$ :} $\text{EQM}(T_1) = \frac{\sigma^2}{n} \xrightarrow[n \to \infty]{} 0$, donc $T_1$ est convergent (loi forte des grands nombres).
-			
-			\textbf{Pour $T_2$ :} $\text{EQM}(T_2) = \frac{n\sigma^2 + \mu^2}{(n-1)^2} \sim \frac{\sigma^2}{n} \xrightarrow[n \to \infty]{} 0$, donc $T_2$ est convergent (asymptotiquement sans biais).
-			
-			\textbf{Pour $T_3$ :} $\text{EQM}(T_3) = \sigma^2$ ne tend pas vers 0, donc $T_3$ n'est pas convergent.
-			
-			Remarque : $T_3$ reste égal à $X_1$ quelle que soit la taille de l'échantillon, il ne bénéficie donc pas de l'information apportée par les autres observations.
-		}
 		
 	\end{enumerate}
 	
