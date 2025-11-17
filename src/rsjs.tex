@@ -35,11 +35,29 @@
   \]}
   
   \item \question{Discuter de l’existence des solutions d’un tel problème.}
-  
+      \indication{On peut voir le problème géométriquement comme la recherche du point dans l'image de $M$ le plus proche du vecteur $k$. Alternativement, on peut montrer que la fonctionnelle $J$ est continue et coercive sur $\mathbb{R}^3$.}
   \reponse{Ce problème est équivalent à celui de minimiser la distance euclidienne de $k$ au sous-espace vectoriel $\text{Im}(M)$, qui est de dimension finie. Il s’agit donc d’un problème de projection orthogonale, qui admet toujours une solution.}
   
   \item \question{On suppose que la matrice $A$ est définie positive. Démontrer que ce problème possède une unique solution.}
   
   \reponse{Si $A$ est définie positive, alors la fonction $J(X)$ est strictement convexe. Par conséquent, $J(X)$ possède un unique minimum sur $\mathbb{R}^n$, donc le problème admet une unique solution.}
+  
+  \item    \question{À quelle condition sur les points $\{t_i\}_{1 \leq i \leq N}$ la matrice $A$ est-elle définie positive ? En déduire une condition nécessaire et suffisante sur le nuage de points pour que le problème admette une unique solution.}
+  
+\reponse{
+	La matrice $A = M^T M$ est symétrique. Elle est définie positive si et seulement si pour tout $X \in \mathbb{R}^3 \setminus \{0\}$, $\langle AX, X \rangle > 0$. Or,
+	\[ \langle AX, X \rangle = \langle M^T M X, X \rangle = \langle MX, MX \rangle = \|MX\|_2^2. \]
+	Ainsi, $A$ est définie positive si et seulement si $\ker(M) = \{0\}$.
+	
+	Le noyau de $M$ est l'ensemble des vecteurs $X = (a, b, c)^T$ tels que $MX=0$, ce qui équivaut au système $at_i^2 + bt_i + c = 0$ pour tout $i \in \{1, \dots, N\}$.
+	Cette condition signifie que le polynôme du second degré $P(t) = at^2 + bt + c$ admet pour racines toutes les valeurs distinctes présentes dans l'ensemble $\{t_1, \dots, t_N\}$.
+	
+	Un polynôme de degré au plus 2 et non nul ne peut avoir plus de deux racines distinctes. Par conséquent, si l'ensemble $\{t_i\}$ contient au moins trois valeurs distinctes, le polynôme $P(t)$ doit être le polynôme nul, ce qui implique $a=b=c=0$, soit $X=0$. Dans ce cas, $\ker(M)=\{0\}$.
+	
+	Inversement, si l'ensemble $\{t_i\}$ contient seulement une ou deux valeurs distinctes, il est possible de construire un polynôme $P(t)$ non nul de degré au plus 2 qui s'annule en ces valeurs, fournissant un vecteur $X \neq 0$ dans le noyau de $M$.
+	
+	\textbf{Conclusion :} La matrice $A$ est définie positive si et seulement si l'ensemble des abscisses $\{t_1, \dots, t_N\}$ contient au moins trois valeurs distinctes.
+	Comme l'unicité du minimum de la fonctionnelle $J(X)$ est assurée par sa stricte convexité (qui équivaut au fait que $A$ soit définie positive), c'est aussi la condition nécessaire et suffisante pour que le problème admette une solution unique.
+}
 \end{enumerate}
 }
