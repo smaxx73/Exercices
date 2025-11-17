@@ -20,7 +20,7 @@
   \inf_{X \in \mathbb{R}^n} J(X) \quad \text{avec} \quad J(X) = \frac{1}{2} \langle AX, X \rangle - \langle b, X \rangle,
   \]
   avec $A \in \mathcal{S}_n(\mathbb{R})$, $b \in \mathbb{R}^n$. On devra donc expliciter $n$, $A$, et $b$. On utilisera la notation $S_k = \sum_{i=1}^{N} t_i^k$.}
-  
+    \indication{Exprimer la somme des carrés comme le carré de la norme euclidienne d'un vecteur résidu $R = k - MX$. Développer $\|R\|^2$ en utilisant les propriétés du produit scalaire et de la transposée matricielle pour faire apparaître une forme quadratique en $X$.}
   \reponse{Le problème est celui de la régression parabolique pour un nuage de points $\{(t_i, x_i)\}_{1 \leq i \leq N}$, où l'on cherche la parabole $P$ d'équation $y = at^2 + bt + c$ qui minimise la somme des carrés des distances des points $(t_i, x_i)$ à cette parabole. Le problème peut s'écrire :
   \[
   \inf_{X \in \mathbb{R}^3} J(X) \quad \text{avec} \quad X = \begin{pmatrix} a \\ b \\ c \end{pmatrix} \quad \text{et} \quad J(X) = \sum_{i=1}^{N} (x_i - at_i^2 - bt_i - c)^2.
