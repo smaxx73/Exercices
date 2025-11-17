@@ -8,12 +8,13 @@
 \auteur{}
 \datecreate{2022-09-21}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{4}
 \contenu{
 
 \texte{Soit $X$ une variable aléatoire réelle suivant une loi exponentielle de paramètre $\lambda >0$. On définit $Y= \lfloor X \rfloor$ la partie entière de $X$. On pose $Z=X-\lfloor X \rfloor$. }
 \begin{enumerate}
 	\item \question{Déterminer la loi de probabilité de $Y$.}
+	\indication{Déterminer l'ensemble des valeurs prises par $Y$ pour constater que $Y$ est une variable aléatoire discrète. }
 	\reponse{On peut remarquer que $Y(\Omega)=\N$. Pour tout $n\in \N$, comme $X\sim \mathcal{E}(\lambda)$, 
 		\[\p(Y=n)=\p(n\leq X<n+1)=\int_n^{n+1} \lambda e^{-\lambda x} \dx
 		=\left[ -e^{-\lambda x} \right]_n^{n+1}
@@ -39,6 +40,7 @@
 		\end{cases}
 		$.}
 	\item \question{Calculer l'espérance de $Y$ et de $Z$.}
+	\indication{On peut remarquer que $Y+1$ suit une loi géométrique. }
 	\reponse{Pour la \va $Y$, on a
 		\[ \E(Y)=\sum_{n=0}^{+\infty} n \p(Y=n)
 		=\sum_{n=0}^{+\infty} n(e^{-\lambda n}-e^{-\lambda (n+1)})
