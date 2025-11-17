@@ -19,7 +19,7 @@ $$w_k=Au_k-b,\quad \varrho_k=\frac{\|w_k\|_2^2}{\langle Aw_k,w_k \rangle},\quad 
 où $\|\cdot\|_2$ désigne la norme euclidienne sur $\R^{p}$.
 \begin{enumerate}
 \item \question{Montrer que la fonction $v\in \R^{p} \mapsto J(v)$ est de classe $\mathcal{C}^1$, et calculer $\nabla J(v)$ pour tout $v \in \R^{p}$.}
-\indication{}
+    \indication{Utiliser la définition de la différentielle en calculant $J(v+h)$ et en isolant les termes linéaires en $h$. Noter que la symétrie de $A$ implique $\langle Ah,v \rangle = \langle h,Av \rangle = \langle Av,h \rangle$.}
 \reponse{
 La fonction $J$ est une combinaison linéaire de fonctions de classe $\mathcal{C}^{\infty}$ sur $\R^p$ :
 \begin{itemize}
@@ -38,7 +38,7 @@ $$\boxed{\nabla J(v) = Av - b}$$
 }
 
 \item \question{Montrer que $J$ est strictement convexe et coercive sur $\R^{p}$. En déduire que $J$ admet un unique minimum $u$ vérifiant $Au=b$.}
-\indication{}
+    \indication{Pour la coercivité, minorer $\langle Av,v \rangle$ à l'aide de la plus petite valeur propre de $A$ (via le quotient de Rayleigh) et majorer $|\langle b,v \rangle|$ par l'inégalité de Cauchy-Schwarz.}
 \reponse{
 \textbf{Stricte convexité :} La matrice hessienne de $J$ est $\nabla^2 J(v) = A$ pour tout $v \in \R^p$. Comme $A$ est symétrique définie positive, toutes ses valeurs propres sont strictement positives. Donc pour tout $h \neq 0$ :
 $$\langle Ah,h \rangle > 0$$
@@ -78,7 +78,7 @@ $$0<a\leq \varrho_k\leq b<\frac{2\lambda_1}{\lambda_{p}^2},\,\forall k \in \N,$$
 la méthode du gradient converge et la convergence est géométrique:\\ il existe $\beta=\beta(\lambda_1,\lambda_p,a,b),\,\,\beta<1$ telle que:
 $$\|u_k-u\|\leq \beta^k\|u_0-u\|.$$
 }
-\indication{}
+    \indication{Exprimer l'erreur $e_{k+1}=u_{k+1}-u$ en fonction de $e_k=u_k-u$. Calculer $\|e_{k+1}\|_2^2$ et le majorer en utilisant les inégalités de la question 3 pour trouver une relation de la forme $\|e_{k+1}\|_2 \leq \beta \|e_k\|_2$ avec $\beta < 1$.}
 \reponse{
 Posons $e_k = u_k - u$ l'erreur à l'itération $k$. On a $w_k = Au_k - b = A(u_k - u) = Ae_k$ car $Au = b$.
 
