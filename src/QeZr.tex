@@ -45,50 +45,87 @@
 			\end{itemize}
 		}
 		
-		\reponse{
-			\textbf{Calculs des quartiles et statistiques descriptives :}
+\reponse{
+	\textbf{Calculs des quartiles et statistiques descriptives :}
+	
+	En ordonnant les données :
+	4.1, 4.9, 5.2, 5.7, 6.3, 6.5, 6.9, 7.2, 7.4, 7.8, 8.3, 8.7, 8.9, 
+	9.2, 9.8, 10.1, 10.5, 11.2, 11.8, 12.3, 12.5, 13.5, 13.6, 14.2, 15.1
+	
+	\begin{itemize}
+		\item Effectif : $n = 25$
+		\item Minimum : 4.1 cm
+		\item Q1 (25\%) : 6.7 cm (entre les valeurs 6.5 et 6.9)
+		\item Médiane (50\%) : 8.9 cm (13\textsuperscript{e} valeur)
+		\item Q3 (75\%) : 12.4 cm (entre les valeurs 12.3 et 12.5)
+		\item Maximum : 15.1 cm
+		\item Écart interquartile : IQR = Q3 - Q1 = 12.4 - 6.7 = 5.7 cm
+	\end{itemize}
+	
+	\textbf{Recherche de valeurs aberrantes :}
+	
+	Critère de Tukey : une valeur est aberrante si elle est en dehors de 
+	$[Q1 - 1.5 \times IQR; Q3 + 1.5 \times IQR]$
+	
+	$$[6.7 - 1.5 \times 5.7; 12.4 + 1.5 \times 5.7] = [-1.85; 20.95]$$
+	
+	Toutes les valeurs sont dans cet intervalle : \textbf{pas de valeur aberrante}.
+	
+	\textbf{Cohérence avec la normalité :}
+	\begin{itemize}
+		\item La distribution semble relativement symétrique autour de la médiane (8.9 cm)
+		\item La médiane (8.9 cm) est très proche de la moyenne (9.23 cm), 
+		ce qui suggère une distribution symétrique
+		\item L'écart-type $s = 3.42$ cm représente environ 37\% de la moyenne, 
+		ce qui est raisonnable
+		\item Pas de valeurs extrêmes selon le critère de Tukey
+		\item Distribution unimodale concentrée autour de 9 cm
+		\item L'écart-type est nettement inférieur au standard requis (3.42 < 8 cm)
+	\end{itemize}
+	
+	L'hypothèse de normalité semble acceptable pour ces données.
+	
+	\textbf{Diagramme en boîte (boîte à moustaches) :}
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[->] (0,0) -- (16,0) node[right] {Distance (cm)};
+			\foreach \x in {0,2,4,6,8,10,12,14,16}
+			\draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
 			
-			En ordonnant les données :
-			4.1, 4.9, 5.2, 5.7, 6.5, 6.9, 7.4, 7.8, 8.3, 8.7, 9.2, 9.8, 10.5, 
-			11.2, 11.8, 12.3, 13.5, 13.6, 14.2, 15.1
+			% Moustaches
+			\draw[thick] (4.1,1) -- (6.7,1);
+			\draw[thick] (12.4,1) -- (15.1,1);
 			
-			\begin{itemize}
-				\item Minimum : 4.1 cm
-				\item Q1 (25\%) : 6.7 cm
-				\item Médiane (50\%) : 9.0 cm
-				\item Q3 (75\%) : 12.0 cm
-				\item Maximum : 15.1 cm
-				\item Écart interquartile : IQR = 5.3 cm
-			\end{itemize}
+			% Boîte
+			\draw[thick,fill=blue!20] (6.7,0.5) rectangle (12.4,1.5);
 			
-			\textbf{Recherche de valeurs aberrantes :}
+			% Médiane
+			\draw[very thick,red] (8.9,0.5) -- (8.9,1.5);
 			
-			Critère de Tukey : une valeur est aberrante si elle est en dehors de 
-			$[Q1 - 1.5 \times IQR; Q3 + 1.5 \times IQR]$
-			
-			$$[6.7 - 1.5 \times 5.3; 12.0 + 1.5 \times 5.3] = [-1.25; 19.95]$$
-			
-			Toutes les valeurs sont dans cet intervalle : \textbf{pas de valeur aberrante}.
-			
-			\textbf{Cohérence avec la normalité :}
-			\begin{itemize}
-				\item La distribution semble relativement symétrique autour de la médiane
-				\item L'écart-type $s \approx 3.42$ cm est raisonnable
-				\item Pas de valeurs extrêmes
-				\item Distribution unimodale concentrée autour de 9 cm
-			\end{itemize}
-			
-			L'hypothèse de normalité semble acceptable pour ces données.
-		}
-		
-		\indication{
-			Avec un tableur :
-			\begin{itemize}
-				\item Histogramme : sélectionner les données, Insertion $\to$ Graphique $\to$ Histogramme
-				\item Boîte à moustaches : Insertion $\to$ Graphique $\to$ Boîte à moustaches
-				\item Quartiles : \texttt{=QUARTILE.INCLURE(plage; k)} avec k=0,1,2,3,4
-			\end{itemize}
-		}
+			% Marques
+			\draw[thick] (4.1,0.8) -- (4.1,1.2) node[above] {Min};
+			\draw[thick] (15.1,0.8) -- (15.1,1.2) node[above] {Max};
+			\node[above] at (8.9,1.5) {Médiane};
+			\node[below] at (6.7,0.5) {Q1};
+			\node[below] at (12.4,0.5) {Q3};
+		\end{tikzpicture}
+	\end{center}
+}
+
+\indication{
+	Avec un tableur :
+	\begin{itemize}
+		\item Trier les données : Sélectionner $\to$ Données $\to$ Trier
+		\item Minimum : \texttt{=MIN(plage)} donne 4.1
+		\item Q1 : \texttt{=QUARTILE.INCLURE(plage; 1)} donne 6.7
+		\item Médiane : \texttt{=MEDIANE(plage)} ou \texttt{=QUARTILE.INCLURE(plage; 2)} donne 8.9
+		\item Q3 : \texttt{=QUARTILE.INCLURE(plage; 3)} donne 12.4
+		\item Maximum : \texttt{=MAX(plage)} donne 15.1
+		\item IQR : \texttt{=Q3-Q1} donne 5.7
+		\item Boîte à moustaches : Insertion $\to$ Graphique $\to$ Boîte à moustaches
+	\end{itemize}
+}
 		
 		\item \question{ 
 			Le chef de section souhaite tester si sa section respecte le standard de l'armée.
