@@ -10,42 +10,30 @@
 \organisation{AMSCC}
 \difficulte{4}
 \contenu{
-	\texte{
-		Dans le cadre de la qualification d'une section d'infanterie, on évalue la précision 
-		du tir au FAMAS sur cible à 200 mètres. Le référentiel de l'armée de terre fixe 
-		un écart-type maximal de $\sigma_0 = 8$ cm pour les impacts par rapport au centre 
-		de la cible (tous tireurs confondus) pour qu'une section soit considérée comme opérationnelle.
-		
-		Un chef de section souhaite vérifier si sa section respecte ce standard. 
-		Lors d'une séance de tir, 25 soldats effectuent chacun un tir, 
-		et on mesure la distance de l'impact au centre de la cible (en cm). 
-		Les résultats sont les suivants :
-		
-		\begin{center}
-			\begin{tabular}{|c|c|c|c|c|}
-				\hline
-				Tireur & Distance (cm) & Tireur & Distance (cm) & Tireur \\
-				\hline
-				1 & 5.2 & 11 & 9.8 & 21 \\
-				2 & 12.3 & 12 & 4.1 & 22 \\
-				3 & 8.7 & 13 & 11.2 & 23 \\
-				4 & 6.5 & 14 & 7.8 & 24 \\
-				5 & 15.1 & 15 & 13.5 & 25 \\
-				6 & 9.2 & 16 & 6.9 & - \\
-				7 & 7.4 & 17 & 10.5 & - \\
-				8 & 11.8 & 18 & 8.3 & - \\
-				9 & 4.9 & 19 & 14.2 & - \\
-				10 & 13.6 & 20 & 5.7 & - \\
-				\hline
-			\end{tabular}
-		\end{center}
-		
-		\textbf{Données complémentaires :} Après calculs préliminaires sur tableur, 
-		on obtient : $\bar{x} = 9.23$ cm et $s^2 = 11.67$ cm$^2$.
-		
-		On suppose que la distance des impacts suit une loi normale.
-	}
+\texte{
+	Dans le cadre de la qualification d'une section d'infanterie, on évalue la précision 
+	du tir au FAMAS sur cible à 200 mètres. Le référentiel de l'armée de terre fixe 
+	un écart-type maximal de $\sigma_0 = 8$ cm pour les impacts par rapport au centre 
+	de la cible (tous tireurs confondus) pour qu'une section soit considérée comme opérationnelle.
 	
+	Un chef de section souhaite vérifier si sa section respecte ce standard. 
+	Lors d'une séance de tir, 25 soldats effectuent chacun un tir, 
+	et on mesure la distance de l'impact au centre de la cible (en cm). 
+	
+	\textbf{Distances observées (en cm) :}
+	\begin{center}
+		\begin{tabular}{ccccccccccc}
+			5.2 & 12.3 & 8.7 & 6.5 & 15.1 & 9.2 & 7.4 & 11.8 & 4.9 & 13.6 & 9.8 \\
+			4.1 & 11.2 & 7.8 & 13.5 & 6.9 & 10.5 & 8.3 & 14.2 & 5.7 & 7.2 & 10.1 \\
+			8.9 & 12.5 & 6.3 & & & & & & & &
+		\end{tabular}
+	\end{center}
+	
+	\textbf{Statistiques calculées} (pour vérification) : 
+	$\bar{x} = 9.23$ cm, $s^2 = 11.67$ cm$^2$, $s = 3.42$ cm
+	
+	On suppose que la distance des impacts suit une loi normale.
+}
 	\begin{enumerate}
 		\item \question{ 
 			Avant de réaliser les tests statistiques, visualiser les données :
@@ -233,9 +221,7 @@
 			\end{itemize}
 		}
 		
-		\item \question{ 
-			\textbf{[Question de synthèse]}
-			
+		\item \question{ 			
 			Le commandant de compagnie examine les résultats et fait la remarque suivante :
 			
 			\textit{« Votre section montre d'excellents résultats avec un écart-type de 3.4 cm, 
