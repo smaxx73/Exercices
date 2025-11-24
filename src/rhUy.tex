@@ -3,20 +3,473 @@
 \niveau{L2}
 \module{Probabilité et statistique}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Comparaison de moyennes}
-\theme{tests d'hypothèses}
-\auteur{}
+\titre{Comparaison de consommations énergétiques}
+\theme{tests d'hypothèses, comparaison de moyennes, test de Student}
+\auteur{Maxime Nguyen}
 \datecreate{2022-10-19}
+
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{3}
 \contenu{
-
-
-  On étudie la consommation du chauffage pendant les mois d'hiver, dans deux régions $A$ et $B$. On suppose que la consommation dans ces régions est distribuée selon une loi normale. On prélève un échantillon aléatoire de ménages dans les deux régions. Après calcul, on observe sur ces deux échantillons les valeurs :
-
-\begin{description}
-	\item[région A :] échantillon de taille $n_1 = 200$, moyenne  $\overline{x}_1 = 600$, variance  $S^2_{(1)} = \numprint{20000}$
-	\item[région B :] échantillon de taille $n_2 = 100$, moyenne  $\overline{x}_2 = 500$, variance  $S^2_{(2)} = \numprint{160000}$
-\end{description}
-
-L'écart de consommation entre les deux régions est-il significatif à $5\%$ près ?}
+	\texte{
+		Un fournisseur d'énergie souhaite comparer la consommation de chauffage 
+		durant les mois d'hiver (décembre à février) entre deux régions géographiques $A$ et $B$ 
+		afin d'optimiser ses approvisionnements et son réseau de distribution.
+		
+		On suppose que la consommation mensuelle de chauffage (en kWh) dans chaque région 
+		suit une loi normale. Pour effectuer cette comparaison, on prélève un échantillon 
+		aléatoire de ménages dans chaque région et on mesure leur consommation moyenne sur la période.
+		
+		\textbf{Résultats observés :}
+		\begin{description}
+			\item[Région A :] $n_1 = 200$ ménages, moyenne $\bar{x}_1 = 600$ kWh, 
+			variance empirique $s_1^2 = \numprint{20000}$ kWh$^2$ (donc $s_1 \approx 141.4$ kWh)
+			\item[Région B :] $n_2 = 100$ ménages, moyenne $\bar{x}_2 = 500$ kWh, 
+			variance empirique $s_2^2 = \numprint{160000}$ kWh$^2$ (donc $s_2 = 400$ kWh)
+		\end{description}
+		
+		\textbf{Question générale :} L'écart de consommation entre les deux régions est-il 
+		statistiquement significatif au seuil de 5\% ?
+	}
+	
+	\begin{enumerate}
+		\item \question{ 
+			Avant tout test, analyser les données de manière descriptive :
+			\begin{itemize}
+				\item Calculer la différence observée entre les moyennes
+				\item Calculer les coefficients de variation pour chaque région
+				\item Que peut-on dire intuitivement sur la dispersion dans chaque région ?
+			\end{itemize}
+		}
+		
+		\reponse{
+			\textbf{Différence des moyennes :}
+			$$\bar{x}_1 - \bar{x}_2 = 600 - 500 = 100 \text{ kWh}$$
+			
+			La région A consomme en moyenne 100 kWh de plus que la région B, 
+			soit 20\% de plus (100/500 = 0.20).
+			
+			\textbf{Écarts-types :}
+			\begin{itemize}
+				\item Région A : $s_1 = \sqrt{20000} \approx 141.4$ kWh
+				\item Région B : $s_2 = \sqrt{160000} = 400$ kWh
+			\end{itemize}
+			
+			\textbf{Coefficients de variation :}
+			$$CV_A = \frac{s_1}{\bar{x}_1} \times 100 = \frac{141.4}{600} \times 100 \approx 23.6\%$$
+			$$CV_B = \frac{s_2}{\bar{x}_2} \times 100 = \frac{400}{500} \times 100 = 80\%$$
+			
+			\textbf{Analyse descriptive :}
+			\begin{itemize}
+				\item La région A présente une consommation plus élevée mais plus homogène 
+				(CV = 23.6\%)
+				\item La région B a une consommation plus faible en moyenne mais avec 
+				une très forte hétérogénéité (CV = 80\%)
+				\item Cette forte dispersion en région B pourrait s'expliquer par :
+				\begin{itemize}
+					\item une diversité importante des types d'habitation (surface, isolation)
+					\item des conditions climatiques locales variables (altitude, exposition)
+					\item des comportements de chauffage très différents entre ménages
+				\end{itemize}
+				\item Les variances semblent très différentes : $s_2^2$ est 8 fois plus grande que $s_1^2$
+			\end{itemize}
+		}
+		
+		\indication{
+			Avec un tableur :
+			\begin{itemize}
+				\item Écart-types : \texttt{=RACINE(20000)} et \texttt{=RACINE(160000)}
+				\item CV : \texttt{=141.4/600*100} et \texttt{=400/500*100}
+			\end{itemize}
+		}
+		
+		\item \question{ 
+			Avant de comparer les moyennes, doit-on vérifier l'égalité des variances ? 
+			Réaliser un test de Fisher au seuil de 5\% pour comparer $\sigma_1^2$ et $\sigma_2^2$.
+		}
+		
+		\reponse{
+			\textbf{Importance de cette étape :}
+			
+			Pour comparer deux moyennes de lois normales, on utilise :
+			\begin{itemize}
+				\item Un test de Student avec variances égales (pooled variance) si $\sigma_1^2 = \sigma_2^2$
+				\item Un test de Welch avec variances inégales si $\sigma_1^2 \neq \sigma_2^2$
+			\end{itemize}
+			
+			Il est donc important de tester d'abord l'égalité des variances.
+			
+			\textbf{Test de Fisher :}
+			
+			Hypothèses :
+			$$H_0 : \sigma_1^2 = \sigma_2^2$$
+			$$H_1 : \sigma_1^2 \neq \sigma_2^2$$
+			
+			Statistique de test (plus grande variance au numérateur) :
+			$$F = \frac{s_2^2}{s_1^2} = \frac{160000}{20000} = 8$$
+			
+			Sous $H_0$ : $F \sim \mathcal{F}(n_2-1, n_1-1) = \mathcal{F}(99, 199)$
+			
+			\textbf{Valeur critique :}
+			
+			Pour un test bilatéral à $\alpha = 5\%$ :
+			$$F_{0.975; 99, 199} \approx 1.39$$
+			
+			\textbf{Décision :}
+			
+			$F_{\text{obs}} = 8 > 1.39$ : \textbf{on rejette $H_0$}.
+			
+			La $p$-valeur est extrêmement faible (quasi nulle).
+			
+			\textbf{Conclusion :}
+			
+			Les variances des deux régions sont significativement différentes au seuil de 5\%. 
+			Il faudra donc utiliser le test de Welch (et non le test de Student classique) 
+			pour comparer les moyennes.
+		}
+		
+		\indication{
+			Avec un tableur :
+			\begin{itemize}
+				\item Statistique $F$ : \texttt{=160000/20000} donne $8$
+				\item Valeur critique : \texttt{=LOI.F.INVERSE(0.025; 99; 199)} donne $\approx 1.39$
+				\item $p$-valeur : \texttt{=LOI.F.BILATERALE(8; 99; 199)} donne $< 0.0001$
+			\end{itemize}
+		}
+		
+		\item \question{ 
+			Formuler les hypothèses pour tester si la consommation moyenne est différente 
+			entre les deux régions. S'agit-il d'un test bilatéral ou unilatéral ? Justifier.
+		}
+		
+		\reponse{
+			\textbf{Hypothèses :}
+			
+			On souhaite tester s'il existe une différence de consommation moyenne :
+			$$H_0 : \mu_1 = \mu_2 \quad \text{ou de manière équivalente} \quad H_0 : \mu_1 - \mu_2 = 0$$
+			$$H_1 : \mu_1 \neq \mu_2 \quad \text{ou} \quad H_1 : \mu_1 - \mu_2 \neq 0$$
+			
+			\textbf{Type de test : bilatéral}
+			
+			\textbf{Justification :}
+			\begin{itemize}
+				\item La question demande si l'écart est significatif, sans préciser de direction
+				\item On ne cherche pas à montrer qu'une région consomme plus que l'autre, 
+				mais simplement à détecter une différence
+				\item L'objectif du fournisseur est de détecter toute différence 
+				(dans un sens ou dans l'autre) pour optimiser sa logistique
+				\item Un test bilatéral est plus conservateur et plus approprié 
+				dans un contexte exploratoire
+			\end{itemize}
+			
+			\textbf{Remarque :} Si l'objectif était de montrer que la région A consomme 
+			\textit{plus} que la région B (par exemple pour justifier des investissements 
+			supplémentaires en région A), on utiliserait un test unilatéral avec $H_1 : \mu_1 > \mu_2$.
+		}
+		
+		\item \question{ 
+			Les variances étant inégales, on utilise le test de Welch. 
+			La statistique de test est :
+			$$t = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$$
+			
+			qui suit approximativement une loi de Student à $\nu$ degrés de liberté, où :
+			$$\nu = \frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}
+			{\frac{(s_1^2/n_1)^2}{n_1-1} + \frac{(s_2^2/n_2)^2}{n_2-1}}$$
+			
+			Calculer la statistique de test observée et le nombre de degrés de liberté.
+		}
+		
+		\reponse{
+			\textbf{Calcul des variances estimées des moyennes :}
+			
+			$$\frac{s_1^2}{n_1} = \frac{20000}{200} = 100$$
+			$$\frac{s_2^2}{n_2} = \frac{160000}{100} = 1600$$
+			$$\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} = 100 + 1600 = 1700$$
+			
+			\textbf{Statistique de test :}
+			
+			$$t_{\text{obs}} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} 
+			= \frac{600 - 500}{\sqrt{1700}} = \frac{100}{\sqrt{1700}} = \frac{100}{41.23} \approx 2.426$$
+			
+			\textbf{Calcul des degrés de liberté (formule de Welch-Satterthwaite) :}
+			
+			Numérateur :
+			$$\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2 = (1700)^2 = 2\,890\,000$$
+			
+			Dénominateur :
+			$$\frac{(s_1^2/n_1)^2}{n_1-1} + \frac{(s_2^2/n_2)^2}{n_2-1} 
+			= \frac{100^2}{199} + \frac{1600^2}{99}$$
+			$$= \frac{10000}{199} + \frac{2560000}{99} = 50.25 + 25858.59 = 25908.84$$
+			
+			Donc :
+			$$\nu = \frac{2890000}{25908.84} \approx 111.57$$
+			
+			On arrondit à $\nu = 111$ ou $\nu = 112$ degrés de liberté.
+			
+			\textbf{Remarque :} Les degrés de liberté sont plus proches de $n_2 - 1 = 99$ 
+			que de $n_1 + n_2 - 2 = 298$, car la variance de la région B domine le calcul.
+		}
+		
+		\indication{
+			Avec un tableur :
+			\begin{itemize}
+				\item Variance totale : \texttt{=20000/200+160000/100} donne $1700$
+				\item Statistique $t$ : \texttt{=(600-500)/RACINE(1700)} donne $\approx 2.426$
+				\item Ddl (numérateur) : \texttt{=(1700)\^{}2} donne $2890000$
+				\item Ddl (dénominateur) : \texttt{=(100\^{}2)/199+(1600\^{}2)/99} donne $\approx 25908.84$
+				\item Ddl final : \texttt{=2890000/25908.84} donne $\approx 111.57$
+			\end{itemize}
+		}
+		
+		\item \question{ 
+			Au seuil de signification $\alpha = 5\%$, l'écart de consommation entre 
+			les deux régions est-il significatif ? Calculer également la $p$-valeur 
+			et interpréter le résultat dans le contexte.
+		}
+		
+		\reponse{
+			\textbf{Région critique :}
+			
+			Pour un test bilatéral au seuil $\alpha = 5\%$ avec $\nu \approx 111$ ddl, 
+			on rejette $H_0$ si $|t_{\text{obs}}| > t_{0.975; 111}$.
+			
+			D'après les tables de Student (ou un tableur) :
+			$$t_{0.975; 111} \approx 1.982$$
+			
+			\textbf{Décision :}
+			
+			$|t_{\text{obs}}| = 2.426 > 1.982$ : \textbf{on rejette $H_0$ au seuil $\alpha = 5\%$}.
+			
+			\textbf{Calcul de la $p$-valeur :}
+			
+			Pour un test bilatéral :
+			$$p\text{-valeur} = 2 \times \mathbb{P}(T_{111} > 2.426) 
+			= 2 \times (1 - \mathbb{P}(T_{111} \leq 2.426))$$
+			
+			Avec un tableur : $p$-valeur $\approx 0.0167$ soit environ 1.67\%.
+			
+			\textbf{Conclusion statistique :}
+			
+			Au niveau de confiance de 95\%, on peut conclure que la consommation moyenne 
+			de chauffage est significativement différente entre les deux régions.
+			
+			\textbf{Interprétation dans le contexte :}
+			
+			\begin{itemize}
+				\item La région A consomme en moyenne 100 kWh de plus par ménage et par mois 
+				que la région B, soit une surconsommation de 20\%
+				\item Cette différence est statistiquement significative et ne peut pas être 
+				attribuée au hasard de l'échantillonnage
+				\item La $p$-valeur de 1.67\% indique un résultat assez robuste 
+				(bien inférieur au seuil de 5\%)
+				\item Cette différence peut s'expliquer par :
+				\begin{itemize}
+					\item Des conditions climatiques plus rigoureuses en région A 
+					(températures plus basses, exposition au vent)
+					\item Des caractéristiques d'habitation différentes (surface moyenne, 
+					qualité d'isolation, type de chauffage)
+					\item Des profils socio-économiques différents (présence au domicile, 
+					température de confort recherchée)
+				\end{itemize}
+				\item \textbf{Implications opérationnelles pour le fournisseur :}
+				\begin{itemize}
+					\item Adapter les stocks et approvisionnements selon les régions
+					\item Prévoir des capacités de distribution plus importantes en région A
+					\item Cibler différemment les campagnes de maîtrise de l'énergie
+					\item Ajuster les prévisions de demande régionales
+				\end{itemize}
+			\end{itemize}
+		}
+		
+		\indication{
+			Avec un tableur :
+			\begin{itemize}
+				\item Valeur critique : \texttt{=LOI.STUDENT.INVERSE.BILATERALE(0.05; 111)} 
+				donne $\approx 1.982$
+				\item $p$-valeur : \texttt{=LOI.STUDENT.BILATERALE(2.426; 111)} 
+				donne $\approx 0.0167$
+				\item Ou directement avec Excel moderne : \texttt{=T.TEST(plage1; plage2; 2; 3)} 
+				où 2 = bilatéral et 3 = variances inégales
+			\end{itemize}
+		}
+		
+		\item \question{ 
+			Construire un intervalle de confiance à 95\% pour la différence des moyennes 
+			$\mu_1 - \mu_2$. Que peut-on en déduire ?
+		}
+		
+		\reponse{
+			\textbf{Construction de l'intervalle de confiance :}
+			
+			L'intervalle de confiance à $1-\alpha = 95\%$ pour $\mu_1 - \mu_2$ est :
+			$$IC_{95\%}(\mu_1 - \mu_2) = (\bar{x}_1 - \bar{x}_2) \pm t_{1-\alpha/2; \nu} 
+			\times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$$
+			
+			Avec les valeurs numériques :
+			\begin{itemize}
+				\item $\bar{x}_1 - \bar{x}_2 = 100$ kWh
+				\item $t_{0.975; 111} \approx 1.982$
+				\item $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}} = \sqrt{1700} \approx 41.23$ kWh
+			\end{itemize}
+			
+			Marge d'erreur :
+			$$ME = 1.982 \times 41.23 \approx 81.72 \text{ kWh}$$
+			
+			Donc :
+			$$IC_{95\%}(\mu_1 - \mu_2) = [100 - 81.72 \,;\, 100 + 81.72] = [18.28 \,;\, 181.72] \text{ kWh}$$
+			
+			\textbf{Interprétation :}
+			
+			Avec 95\% de confiance, la surconsommation moyenne de la région A par rapport 
+			à la région B se situe entre 18.3 et 181.7 kWh par ménage et par mois.
+			
+			\textbf{Conséquences :}
+			\begin{itemize}
+				\item L'intervalle ne contient pas 0, ce qui confirme le rejet de $H_0$ 
+				(cohérence test/IC)
+				\item La borne inférieure (18.3 kWh) représente environ 3.7\% de la consommation 
+				moyenne de la région B
+				\item La borne supérieure (181.7 kWh) représente environ 36\% de la consommation 
+				de la région B
+				\item L'intervalle est assez large, reflétant l'importante variabilité 
+				en région B ($s_2 = 400$ kWh)
+				\item Dans le pire cas (borne supérieure), la région A consomme presque 
+				200 kWh de plus, ce qui justifie des investissements différenciés
+			\end{itemize}
+			
+			\textbf{Quantification de l'incertitude :}
+			
+			La largeur de l'intervalle (163.4 kWh) est importante, principalement à cause de :
+			\begin{itemize}
+				\item La forte variance en région B ($s_2^2 = 160000$)
+				\item La taille d'échantillon relativement modeste en région B ($n_2 = 100$)
+			\end{itemize}
+			
+			Pour réduire cette incertitude, il faudrait augmenter la taille de l'échantillon 
+			en région B.
+		}
+		
+		\indication{
+			Avec un tableur :
+			\begin{itemize}
+				\item Marge d'erreur : \texttt{=1.982*RACINE(1700)} donne $\approx 81.72$
+				\item Borne inf : \texttt{=100-81.72} donne $18.28$
+				\item Borne sup : \texttt{=100+81.72} donne $181.72$
+			\end{itemize}
+		}
+		
+		\item \question{ 
+			\textbf{[Question de synthèse]}
+			
+			Un analyste propose d'utiliser le test de Student classique (avec hypothèse 
+			de variances égales) au lieu du test de Welch. 
+			
+			\begin{itemize}
+				\item Expliquer pourquoi ce serait inapproprié dans ce cas
+				\item Calculer néanmoins la statistique de test qu'on obtiendrait avec 
+				le test de Student classique (variance poolée)
+				\item Comparer les deux approches : quelle différence observe-t-on 
+				dans la conclusion ?
+				\item Quel enseignement peut-on tirer sur l'importance de vérifier 
+				les hypothèses d'un test ?
+			\end{itemize}
+		}
+		
+		\reponse{
+			\textbf{1. Pourquoi le test de Student classique serait inapproprié :}
+			
+			Le test de Student avec variances égales suppose $\sigma_1^2 = \sigma_2^2$. 
+			Or, nous avons montré (question 2) que cette hypothèse est fortement rejetée :
+			\begin{itemize}
+				\item $F = 8$ avec $p$-valeur $< 0.0001$
+				\item La variance de B est 8 fois celle de A
+				\item Le CV de B (80\%) est 3.4 fois celui de A (23.6\%)
+			\end{itemize}
+			
+			Utiliser le test classique violerait une hypothèse fondamentale et pourrait 
+			conduire à des conclusions erronées.
+			
+			\textbf{2. Calcul avec le test de Student classique (à titre de comparaison) :}
+			
+			Variance poolée (estimateur de la variance commune supposée) :
+			$$s_p^2 = \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2} 
+			= \frac{199 \times 20000 + 99 \times 160000}{298}$$
+			$$= \frac{3980000 + 15840000}{298} = \frac{19820000}{298} \approx 66510.07$$
+			
+			Donc $s_p \approx 257.9$ kWh
+			
+			Statistique de test :
+			$$t = \frac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} 
+			= \frac{100}{257.9 \times \sqrt{\frac{1}{200} + \frac{1}{100}}}$$
+			$$= \frac{100}{257.9 \times \sqrt{0.005 + 0.01}} 
+			= \frac{100}{257.9 \times 0.1225} = \frac{100}{31.59} \approx 3.166$$
+			
+			Degrés de liberté : $\nu = n_1 + n_2 - 2 = 298$
+			
+			Valeur critique : $t_{0.975; 298} \approx 1.968$
+			
+			\textbf{3. Comparaison des deux approches :}
+			
+			\begin{center}
+				\begin{tabular}{|l|c|c|}
+					\hline
+					\textbf{Méthode} & \textbf{Test de Welch} & \textbf{Student classique} \\
+					\hline
+					Hypothèse sur variances & Inégales & Égales (fausse ici) \\
+					Statistique $t$ & 2.426 & 3.166 \\
+					Degrés de liberté & 111 & 298 \\
+					Valeur critique (5\%) & 1.982 & 1.968 \\
+					$p$-valeur & 0.0167 & 0.0017 \\
+					Conclusion & Rejet de $H_0$ & Rejet de $H_0$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			
+			\textbf{Observations :}
+			\begin{itemize}
+				\item Les deux tests rejettent $H_0$, mais avec des niveaux de significativité différents
+				\item Le test de Student classique donne une statistique plus élevée (3.166 vs 2.426) 
+				et une $p$-valeur plus faible (0.17\% vs 1.67\%)
+				\item Le test classique est ici \textbf{anti-conservateur} : il surestime 
+				la significativité (risque d'erreur de type I plus élevé que prévu)
+				\item La variance poolée ($s_p^2 \approx 66510$) est intermédiaire entre 
+				$s_1^2 = 20000$ et $s_2^2 = 160000$, mais ne représente bien ni l'une ni l'autre
+			\end{itemize}
+			
+			\textbf{4. Enseignements sur l'importance de vérifier les hypothèses :}
+			
+			\begin{itemize}
+				\item \textbf{Les hypothèses ne sont pas des formalités} : elles conditionnent 
+				la validité des conclusions
+				\item Dans ce cas, bien que les deux tests rejettent $H_0$, 
+				le test classique donne une fausse impression de forte significativité
+				\item Dans des cas limites (résultat proche du seuil), 
+				l'utilisation d'un test inapproprié pourrait inverser la conclusion
+				\item \textbf{Principe de précaution} : en cas de doute sur l'égalité des variances, 
+				préférer le test de Welch (plus robuste)
+				\item La vérification préalable (test de Fisher) n'était pas une perte de temps, 
+				elle était essentielle pour choisir le bon test
+				\item \textbf{En pratique} : les logiciels modernes utilisent souvent le test 
+				de Welch par défaut, car il est plus robuste et ne pénalise que peu 
+				quand les variances sont effectivement égales
+			\end{itemize}
+			
+			\textbf{Citation pertinente :}
+			
+			\textit{« All models are wrong, but some are useful »} (George Box). 
+			Les hypothèses de normalité et d'égalité de variance sont des modèles simplificateurs. 
+			Quand ils sont clairement violés (comme l'égalité des variances ici), 
+			il faut utiliser des méthodes plus robustes.
+		}
+		
+		\indication{
+			Avec un tableur pour le test classique :
+			\begin{itemize}
+				\item Variance poolée : \texttt{=(199*20000+99*160000)/298} donne $\approx 66510$
+				\item Écart-type poolé : \texttt{=RACINE(66510)} donne $\approx 257.9$
+				\item Statistique : \texttt{=100/(257.9*RACINE(1/200+1/100))} donne $\approx 3.166$
+				\item $p$-valeur : \texttt{=LOI.STUDENT.BILATERALE(3.166; 298)} donne $\approx 0.0017$
+			\end{itemize}
+		}
+	\end{enumerate}
+}
