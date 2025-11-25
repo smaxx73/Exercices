@@ -48,6 +48,8 @@ avec $\mu \in \R$ et $\sigma >0$ fixés.
 
 \item \question{ Soit $Z = \frac{X-\mu}{\sigma}$. Déterminer la loi de $Z$. }
 
+\indication{ On peut exprimer la fonction de répartition de $Z$ et retrouver la densité d'une loi normale centrée réduite après dérivation. }
+
 \reponse{ En effectuant toujours le même changement de variables $u=\frac{x-\mu}{\sigma}$, on a pour tout réel $t$ :
 	$$
 	\PP(Z \leqslant t)=\PP(X \leq \sigma t + \mu )\int_{-\infty}^{\sigma t + \mu} \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right] \mathrm{d} x=\int_{-\infty}^t \frac{1}{\sqrt{2 \pi}} \exp \left[-\frac{u^2}{2}\right] \mathrm{d} u .
