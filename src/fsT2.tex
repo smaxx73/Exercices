@@ -1,0 +1,182 @@
+\uuid{fsT2}
+\titre{Contrôle qualité : lois dérivées et approximations}
+\niveau{L2} 
+\module{Probabilités et Statistiques} 
+\chapitre{Variables aléatoires}
+\sousChapitre{Loi normale, loi du chi-deux, approximations}
+\theme{Théorème central limite, loi du $\chi^2$, approximation d'une loi binomiale}
+\auteur{AMSCC}
+\datecreate{2025-12-02}
+\organisation{AMSCC}
+\difficulte{3}
+\contenu{
+    \texte{ 
+    Dans un atelier, on produit des boulons dont le diamètre $D$ (en mm) suit une loi normale $\mathcal{N}(10, 0.2)$.
+    }
+    
+    \subsection*{Partie A - Échantillonnage}
+    
+    \texte{
+    On prélève un échantillon aléatoire de $n = 20$ boulons. On note $D_i$ le diamètre du boulon $i$ ($1 \leq i \leq 20$).
+    }
+    
+    \begin{enumerate}
+        \item   \question{Déterminer la loi suivie par la moyenne empirique :
+                $$\bar{D} = \frac{1}{20}\sum_{i=1}^{20} D_i$$
+                Préciser son espérance et sa variance. Justifier.}
+                \indication{Utiliser les propriétés de la loi normale et la linéarité de l'espérance.}
+                \reponse{
+                Comme les $D_i$ sont indépendantes et suivent toutes une loi $\mathcal{N}(10, 0.04)$, on a :
+                
+                \textbf{Espérance :}
+                $$\mathbb{E}(\bar{D}) = \mathbb{E}\left(\frac{1}{20}\sum_{i=1}^{20} D_i\right) = \frac{1}{20}\sum_{i=1}^{20} \mathbb{E}(D_i) = \frac{1}{20} \times 20 \times 10 = 10 \text{ mm}$$
+                
+                \textbf{Variance :}
+                Par indépendance des $D_i$ :
+                $$\text{Var}(\bar{D}) = \text{Var}\left(\frac{1}{20}\sum_{i=1}^{20} D_i\right) = \frac{1}{400}\sum_{i=1}^{20} \text{Var}(D_i) = \frac{1}{400} \times 20 \times 0.04 = \frac{0.8}{400} = 0.002$$
+                
+                \textbf{Loi de $\bar{D}$ :}
+                
+                La somme de variables aléatoires indépendantes suivant des lois normales suit une loi normale. Donc :
+                $$\boxed{\bar{D} \sim \mathcal{N}(10, 0.002) = \mathcal{N}\left(10, \frac{0.04}{20}\right)}$$
+                
+                Équivalent : $\bar{D} \sim \mathcal{N}(10, \sigma^2/20)$ où $\sigma = 0.2$ mm.
+                }
+                
+        \item   \question{On définit :
+                $$Q = \frac{1}{0.04}\sum_{i=1}^{20} (D_i - 10)^2$$
+                Quelle loi suit $Q$ ? Déterminer la valeur $q$ telle que $P(Q > q) = 0.05$.}
+                
+                \indication{Utiliser le fait que $\frac{D_i - 10}{0.2} \sim \mathcal{N}(0,1)$ et la définition de la loi du $\chi^2$.}
+                \reponse{
+                Posons $Z_i = \dfrac{D_i - 10}{0.2}$. Alors $Z_i \sim \mathcal{N}(0,1)$ et :
+                $$(D_i - 10)^2 = 0.04 \times Z_i^2$$
+                
+                Donc :
+                $$Q = \frac{1}{0.04}\sum_{i=1}^{20} (D_i - 10)^2 = \sum_{i=1}^{20} Z_i^2$$
+                
+                Par définition de la loi du chi-deux, la somme de $n$ carrés de variables normales centrées réduites indépendantes suit une loi $\chi^2(n)$. Donc :
+                $$\boxed{Q \sim \chi^2(20)}$$
+                
+                \textbf{Calcul de $q$ :}
+                
+                On cherche $q$ tel que $P(Q > q) = 0.05$, c'est-à-dire le quantile d'ordre 0.95 de la loi $\chi^2(20)$.
+                
+                \textbf{Avec Excel :}
+                
+                \texttt{=LOI.KHIDEUX.INVERSE(0.05; 20)} donne $q \approx 31.41$
+                
+                \textbf{Avec les tables :} En consultant la table du $\chi^2$ à la ligne $\nu = 20$ et colonne $p = 0.95$, on trouve :
+                $$\boxed{q \approx 31.41}$$
+                
+                \textbf{Interprétation :} Il y a 5\% de chances que la somme pondérée des écarts au carré dépasse 31.41.
+                }
+    \end{enumerate}
+    
+    \subsection*{Partie B - Contrôle qualité}
+    
+    \texte{
+    Un boulon est dit \textbf{conforme} si son diamètre est compris entre 9.6 mm et 10.4 mm.
+    }
+    
+    \begin{enumerate}
+        \item   \question{Calculer $P(9.6 \leq D \leq 10.4)$ pour un boulon pris au hasard.
+                
+                Méthode : Standardiser avec $Z = \dfrac{D - 10}{0.2} \sim \mathcal{N}(0,1)$, puis utiliser les tables.}
+                \indication{Transformer l'inégalité en termes de $Z$ et utiliser la fonction de répartition $\Phi$ de la loi normale centrée réduite.}
+                \reponse{
+                On pose $Z = \dfrac{D - 10}{0.2} \sim \mathcal{N}(0,1)$. Alors :
+                $$P(9.6 \leq D \leq 10.4) = P\left(\frac{9.6-10}{0.2} \leq Z \leq \frac{10.4-10}{0.2}\right) = P(-2 \leq Z \leq 2)$$
+                
+                En utilisant la symétrie de la loi normale centrée réduite :
+                $$P(-2 \leq Z \leq 2) = \Phi(2) - \Phi(-2) = \Phi(2) - (1-\Phi(2)) = 2\Phi(2) - 1$$
+                
+                \textbf{Avec les tables :} $\Phi(2) \approx 0.9772$
+                
+                Donc :
+                $$P(9.6 \leq D \leq 10.4) = 2 \times 0.9772 - 1 = 1.9544 - 1 = \boxed{0.9544}$$
+                
+                \textbf{Résultat :} Environ 95.44\% des boulons ont un diamètre conforme.
+                
+                \textbf{Avec Excel :} \texttt{=LOI.NORMALE(10.4; 10; 0.2; VRAI) - LOI.NORMALE(9.6; 10; 0.2; VRAI)}
+                }
+                
+        \item   \question{Le critère de conformité impose qu'au moins 95\% des boulons soient conformes. Ce critère est-il respecté ?}
+                \indication{Comparer le résultat de la question précédente avec 95\%.}
+                \reponse{
+                D'après la question précédente, $P(9.6 \leq D \leq 10.4) = 95.44\% > 95\%$.
+                
+                \textbf{Conclusion :} Le critère de conformité est \textbf{respecté}. Plus de 95\% des boulons produits ont un diamètre dans les tolérances acceptables.
+                }
+                
+        \item   \question{On s'intéresse maintenant à la moyenne empirique $\bar{D}$ et à la variance empirique $S^2$ d'un échantillon de $n = 20$ boulons. On rappelle que :
+                $$S^2 = \frac{1}{19}\sum_{i=1}^{20}(D_i - \bar{D})^2$$
+                
+                On définit la variable :
+                $$T = \frac{\bar{D} - 10}{\sqrt{\frac{S^2}{20}}}$$
+                
+                Quelle loi suit $T$ ? Justifier en utilisant les résultats des questions précédentes.}
+                \indication{Rappeler la définition de la loi de Student et utiliser le théorème de Fisher.}
+                \reponse{
+                \textbf{Méthode :}
+                
+                D'après la question 1, on sait que $\bar{D} \sim \mathcal{N}(10, 0.002)$, donc :
+                $$Z = \frac{\bar{D} - 10}{\sqrt{0.002}} = \frac{\bar{D} - 10}{0.2/\sqrt{20}} \sim \mathcal{N}(0, 1)$$
+                
+                D'autre part, d'après le théorème de Fisher, la variable :
+                $$V = \frac{19 S^2}{\sigma^2} = \frac{19 S^2}{0.04} = \frac{\sum_{i=1}^{20}(D_i - \bar{D})^2}{0.04} \sim \chi^2(19)$$
+                
+                et $V$ est indépendante de $\bar{D}$.
+                
+                \textbf{Construction de $T$ :}
+                
+                Or, par définition de la loi de Student, si $Z \sim \mathcal{N}(0,1)$ et $V \sim \chi^2(\nu)$ sont indépendants, alors :
+                $$\frac{Z}{\sqrt{V/\nu}} \sim \mathcal{S}t(\nu)$$
+                
+                Calculons :
+                $$T = \frac{\bar{D} - 10}{\sqrt{S^2/20}} = \frac{\bar{D} - 10}{\sqrt{S^2/20}}$$
+                
+                Multiplions numérateur et dénominateur par des termes appropriés :
+                $$T = \frac{\frac{\bar{D} - 10}{0.2/\sqrt{20}}}{\sqrt{\frac{S^2/20}{0.04/20}}} = \frac{\frac{\bar{D} - 10}{0.2/\sqrt{20}}}{\sqrt{\frac{19S^2/0.04}{19}}} = \frac{Z}{\sqrt{V/19}}$$
+                
+                où $Z \sim \mathcal{N}(0,1)$ et $V \sim \chi^2(19)$ sont indépendants.
+                
+                \textbf{Conclusion :}
+                $$\boxed{T \sim \mathcal{S}t(19)}$$
+                
+                \textbf{Remarque :} Cette variable $T$ est exactement celle utilisée pour construire l'intervalle de confiance de la moyenne quand l'écart-type est inconnu (cas de l'exercice 2).
+                }
+                
+        \item   \question{En utilisant la loi de $T$, déterminer un intervalle de confiance à 95\% pour le diamètre moyen $\mu = 10$ mm si on observe $\bar{d} = 10.05$ mm et $s^2 = 0.038$ sur un échantillon de 20 boulons.}
+                \indication{Utiliser $P(|T| \leq t_{0.025}^{(19)}) = 0.95$ où $t_{0.025}^{(19)}$ est le quantile de la loi de Student.}
+                \reponse{
+                On sait que $T = \dfrac{\bar{D} - 10}{\sqrt{S^2/20}} \sim \mathcal{S}t(19)$.
+                
+                Pour un intervalle de confiance à 95\%, on cherche $t_{0.025}^{(19)}$ tel que :
+                $$P\left(-t_{0.025}^{(19)} \leq T \leq t_{0.025}^{(19)}\right) = 0.95$$
+                
+                \textbf{Avec les tables ou Excel :} 
+                
+                \texttt{=LOI.STUDENT.INVERSE.N(0.975; 19)} donne $t_{0.025}^{(19)} \approx 2.093$
+                
+                On a donc :
+                $$P\left(-2.093 \leq \frac{\bar{D} - 10}{\sqrt{S^2/20}} \leq 2.093\right) = 0.95$$
+                
+                En isolant $\mu = 10$ (qu'on cherche à estimer) :
+                $$P\left(\bar{D} - 2.093\sqrt{\frac{S^2}{20}} \leq 10 \leq \bar{D} + 2.093\sqrt{\frac{S^2}{20}}\right) = 0.95$$
+                
+                \textbf{Application numérique :}
+                
+                Avec $\bar{d} = 10.05$ et $s^2 = 0.038$ :
+                $$\sqrt{\frac{s^2}{20}} = \sqrt{\frac{0.038}{20}} = \sqrt{0.0019} \approx 0.0436$$
+                
+                Marge d'erreur :
+                $$ME = 2.093 \times 0.0436 \approx 0.0912$$
+                
+                \textbf{Intervalle de confiance :}
+                $$IC_{95\%} = [10.05 - 0.0912 \; ; \; 10.05 + 0.0912] = \boxed{[9.96 \; ; \; 10.14] \text{ mm}}$$
+                
+                \textbf{Interprétation :} Avec 95\% de confiance, le diamètre moyen des boulons produits par la machine est compris entre 9.96 et 10.14 mm. L'intervalle contient bien la valeur nominale de 10 mm, ce qui est cohérent avec le réglage de la machine.
+                }
+    \end{enumerate}
+}
