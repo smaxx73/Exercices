@@ -1,0 +1,83 @@
+\uuid{CV3e}
+\titre{Gradients matriciels et règle de la chaîne}
+
+\niveau{L3} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{Optimisation} 	%Analyse, Algèbre...
+\chapitre{Calcul différentiel}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{Différentiabilité}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{Calcul matriciel}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Maxime NGUYEN}
+\datecreate{2025-12-17}
+\organisation{ESM3}			%AMSCC, Exo7, ...
+\difficulte{3}			%1, 2, 3, 4 ou 5
+
+\contenu{
+	
+	\texte{ 
+		On se place dans l'espace des matrices réelles $\mathcal{M}_{p,n}(\mathbb{R})$. On munit cet espace du produit scalaire canonique de Frobenius défini par :
+		$$ \langle A, B \rangle = \text{Tr}(A^\top B) = \sum_{i,j} A_{ij} B_{ij} $$
+		On rappelle la caractérisation du gradient $\nabla_W f$ d'une fonction scalaire $f(W)$ par sa différentielle : pour tout accroissement $H$,
+		$$ f(W+H) = f(W) + \langle \nabla_W f(W), H \rangle + o(\|H\|) $$
+		
+		L'objectif est de calculer des gradients par rapport à une matrice $W \in \mathcal{M}_{p,n}(\mathbb{R})$. Soient $X \in \mathbb{R}^n$ (vecteur colonne d'entrée) et $Y \in \mathbb{R}^p$ (vecteur colonne de sortie).
+	}
+	
+	\begin{enumerate}
+		\item   \question{Soit $V \in \mathbb{R}^p$ un vecteur constant. On considère la fonction linéaire $L : \mathcal{M}_{p,n}(\mathbb{R}) \to \mathbb{R}$ définie par $L(W) = \langle V, WX \rangle_{\mathbb{R}^p}$.
+			Montrer que le gradient de $L$ par rapport à $W$ est la matrice de rang 1 définie par le produit extérieur :
+			$$ \nabla_W L = V X^\top $$}
+		\indication{Écrire la différentielle $L(W+H) - L(W)$, puis utiliser la propriété de la trace $\text{Tr}(AB) = \text{Tr}(BA)$ pour se ramener à la forme $\langle ?, H \rangle$.}
+		\reponse{
+			La fonction est linéaire, sa différentielle est donc l'application linéaire elle-même appliquée à l'accroissement $H$.
+			$$ dL_W(H) = L(H) = \langle V, HX \rangle_{\mathbb{R}^p} = V^\top (HX) $$
+			En utilisant la trace (un scalaire est égal à sa trace) et la cyclicité :
+			$$ dL_W(H) = \text{Tr}(V^\top H X) = \text{Tr}(X V^\top H) = \text{Tr}((V X^\top)^\top H) $$
+			On reconnaît le produit scalaire matriciel $\langle V X^\top, H \rangle$. Par identification, le gradient est :
+			$$ \nabla_W L = V X^\top $$
+		}
+		
+		\item   \question{Application à la régression (Moindres Carrés).
+			On cherche la matrice $W$ qui permet d'approcher au mieux la cible $Y$ à partir de l'entrée $X$. On définit l'erreur quadratique :
+			$$ E(W) = \frac{1}{2} \| WX - Y \|^2 $$
+			Montrer que le gradient est donné par :
+			$$ \nabla_W E = (WX - Y) X^\top $$}
+		\indication{Développer $E(W+H)$ ou utiliser la règle de composition avec le résultat de la question précédente.}
+		\reponse{
+			Calculons la différentielle. Posons le résidu $R = WX - Y$.
+			$$ E(W+H) = \frac{1}{2} \| (W+H)X - Y \|^2 = \frac{1}{2} \| R + HX \|^2 $$
+			$$ E(W+H) = \frac{1}{2} \langle R + HX, R + HX \rangle = \frac{1}{2} \left( \|R\|^2 + 2\langle R, HX \rangle + \|HX\|^2 \right) $$
+			La partie linéaire en $H$ est le terme $\langle R, HX \rangle$. C'est exactement la forme de la question 1 avec $V = R = (WX - Y)$.
+			On en déduit directement :
+			$$ \nabla_W E = R X^\top = (WX - Y) X^\top $$
+		}
+		
+		\item   \question{Généralisation : Rétropropagation du gradient.
+			On considère un réseau simple où la sortie $Z$ est calculée par $Z = WX$. Soit $\mathcal{L}$ une fonction de coût finale qui dépend de $Z$.
+			On suppose connu le gradient de l'erreur par rapport à la sortie $Z$, c'est-à-dire le vecteur colonne $\delta = \nabla_Z \mathcal{L} \in \mathbb{R}^p$.
+			
+			En utilisant la règle de la chaîne $d\mathcal{L} = \langle \nabla_Z \mathcal{L}, dZ \rangle$, déterminer :
+			\begin{enumerate}
+				\item Le gradient par rapport à l'entrée : $\nabla_X \mathcal{L}$ (utile pour propager l'erreur à la couche précédente).
+				\item Le gradient par rapport aux poids : $\nabla_W \mathcal{L}$ (utile pour mettre à jour les poids).
+			\end{enumerate}
+		}
+		\indication{Écrire la différentielle $dZ$ lorsque l'on fait varier $X$ (pour le a) puis lorsque l'on fait varier $W$ (pour le b).}
+		\reponse{
+			On sait que $d\mathcal{L} = \langle \delta, dZ \rangle$.
+			\begin{enumerate}
+				\item \textbf{Gradient par rapport à $X$ :} Ici $W$ est constant. Si $X$ varie de $dX$, alors $dZ = W dX$.
+				$$ d\mathcal{L} = \langle \delta, W dX \rangle $$
+				Pour isoler $dX$, on utilise la transposée (adjoint) :
+				$$ d\mathcal{L} = \langle W^\top \delta, dX \rangle \implies \nabla_X \mathcal{L} = W^\top \delta $$
+				
+				\item \textbf{Gradient par rapport à $W$ :} Ici $X$ est constant. Si $W$ varie de $dW$, alors $dZ = dW \cdot X$.
+				$$ d\mathcal{L} = \langle \delta, dW \cdot X \rangle $$
+				Comme vu aux questions 1 et 2, pour isoler $dW$ dans le produit scalaire matriciel, on multiplie par la transposée de $X$ à droite :
+				$$ d\mathcal{L} = \langle \delta X^\top, dW \rangle \implies \nabla_W \mathcal{L} = \delta X^\top $$
+			\end{enumerate}
+			\textit{Interprétation : Cette dernière formule montre que le gradient du poids reliant l'entrée $j$ à la sortie $i$ est simplement le produit de l'erreur locale $\delta_i$ par l'activation d'entrée $x_j$.}
+		}
+		
+	\end{enumerate}
+}
