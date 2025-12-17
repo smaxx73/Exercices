@@ -1,0 +1,94 @@
+\uuid{UUNO}
+\titre{Modélisation : de la somme scalaire au produit matriciel}
+
+\niveau{L3} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{Réseaux de Neurones} 	%Analyse, Algèbre...
+\chapitre{Architecture}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{Formalisation}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{Modélisation}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Maxime NGUYEN}
+\datecreate{2025-12-17}
+\organisation{ESM3}			%AMSCC, Exo7, ...
+\difficulte{2}			%1, 2, 3, 4 ou 5
+
+\contenu{
+	
+	\texte{ 
+		On considère une couche dense (fully connected) d'un réseau de neurones.
+		\begin{itemize}
+			\item La couche reçoit $n$ entrées notées $x_1, x_2, \dots, x_n$.
+			\item La couche possède $p$ neurones.
+			\item Chaque neurone $i$ (pour $1 \le i \le p$) calcule une sortie pré-activée $z_i$ définie par :
+			$$ z_i = \sum_{j=1}^{n} w_{i,j} x_j + b_i $$
+			où $w_{i,j}$ est le poids connectant l'entrée $j$ au neurone $i$, et $b_i$ est le biais du neurone $i$.
+		\end{itemize}
+		L'objectif est de reformuler ce calcul à l'aide du calcul matriciel pour traiter efficacement de grandes quantités de données.
+	}
+	
+	\begin{enumerate}
+		\item   \question{Écriture vectorielle pour un exemple.\\
+			On note $X$ le vecteur colonne des entrées de taille $(n, 1)$ et $Z$ le vecteur colonne des sorties de taille $(p, 1)$.
+			Définir la matrice des poids $W$ et le vecteur des biais $B$ avec leurs dimensions respectives, pour que l'égalité suivante soit vérifiée :
+			$$ Z = WX + B $$}
+		\indication{Regardez les indices : $z_i$ est le produit scalaire de la $i$-ème ligne de poids par le vecteur $X$.}
+		\reponse{
+			La matrice $W$ doit être de taille $(p, n)$ (p lignes, n colonnes).
+			L'élément $w_{i,j}$ est situé à la ligne $i$ et la colonne $j$.
+			Le vecteur biais $B$ est de taille $(p, 1)$.
+			$$ 
+			\underbrace{\begin{pmatrix} z_1 \\ \vdots \\ z_p \end{pmatrix}}_{Z (p,1)} 
+			= 
+			\underbrace{\begin{pmatrix} 
+					w_{1,1} & \dots & w_{1,n} \\
+					\vdots & \ddots & \vdots \\
+					w_{p,1} & \dots & w_{p,n}
+			\end{pmatrix}}_{W (p,n)} 
+			\cdot 
+			\underbrace{\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}}_{X (n,1)} 
+			+ 
+			\underbrace{\begin{pmatrix} b_1 \\ \vdots \\ b_p \end{pmatrix}}_{B (p,1)} 
+			$$
+		}
+		
+		\item   \question{Traitement par lot (Batch processing).\\
+			En apprentissage, on ne traite pas les exemples un par un, mais par paquets de $m$ exemples (un batch).
+			Soit $X^{(k)}$ le vecteur d'entrée du $k$-ième exemple du lot ($1 \le k \le m$).
+			On construit une matrice d'entrée $\mathbf{X}$ de taille $(n, m)$ en juxtaposant ces vecteurs colonnes :
+			$$ \mathbf{X} = \left[ X^{(1)} | X^{(2)} | \dots | X^{(m)} \right] $$
+			
+			Exprimer la matrice de sortie $\mathbf{Z}$ (de taille $(p, m)$) en fonction de $W$, $\mathbf{X}$ et $B$. Que représente la $k$-ième colonne de $\mathbf{Z}$ ?}
+		\indication{Attention au vecteur biais $B$ : mathématiquement, on l'additionne à chaque colonne. En informatique (Python/Numpy), cela s'appelle le "Broadcasting".}
+		\reponse{
+			L'équation matricielle reste :
+			$$ \mathbf{Z} = W \mathbf{X} + \mathbf{B}_{broadcast} $$
+			Ici, le produit $W \mathbf{X}$ est une matrice $(p, m)$.
+			La $k$-ième colonne de $\mathbf{Z}$ correspond exactement au vecteur de sortie $Z^{(k)}$ pour l'exemple $k$.
+			
+			Cette formulation permet de calculer les sorties de $m$ exemples simultanément en une seule opération processeur (très efficace sur GPU).
+		}
+		
+		\item   \question{Dimensionnement pour un réseau multicouche.\\
+			On considère un réseau à 3 couches définies par les tailles successives :
+			\begin{itemize}
+				\item Entrée : $n_0 = 784$ (pixels d'une image $28 \times 28$)
+				\item Couche cachée 1 : $n_1 = 128$ neurones
+				\item Couche cachée 2 : $n_2 = 64$ neurones
+				\item Sortie : $n_3 = 10$ neurones (classification 10 chiffres)
+			\end{itemize}
+			On traite un lot de $m=32$ images. Donner les dimensions des matrices $W_1, W_2, W_3$ et des matrices d'activation intermédiaires $A_0, A_1, A_2, A_3$.}
+		\indication{Rappel : Une matrice de poids reliant la couche $k-1$ à $k$ a pour taille $(n_{k}, n_{k-1})$. La matrice d'activation a pour taille $(n_k, m)$.}
+		\reponse{
+			Les dimensions sont :
+			\begin{itemize}
+				\item Entrée (Batch) $A_0$ : $(784, 32)$
+				\item Poids $W_1$ : $(128, 784)$ $\to$ Sortie $A_1$ : $(128, 32)$
+				\item Poids $W_2$ : $(64, 128)$ $\to$ Sortie $A_2$ : $(64, 32)$
+				\item Poids $W_3$ : $(10, 64)$ $\to$ Sortie $A_3$ : $(10, 32)$
+			\end{itemize}
+			Le produit matriciel $W_k A_{k-1}$ est toujours valide car le nombre de colonnes de $W_k$ égale le nombre de lignes de $A_{k-1}$.
+		}
+		
+	\end{enumerate}
+	
+}
