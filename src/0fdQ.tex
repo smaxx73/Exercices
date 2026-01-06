@@ -11,101 +11,147 @@
 
 \difficulte{}
 \contenu{
-
-\texte{ On considère le réseau de neurones à deux couches suivant où la fonction d'activation de la première couche est $\sigma \colon x \mapsto \frac{1}{1+e^{-x}}$ et la fonction d'activation de la seconde couche est $id \colon x \mapsto x$. 
 	
+	\texte{ On considère le réseau de neurones à deux couches suivant où la fonction d'activation de la première couche est $\sigma \colon x \mapsto \frac{1}{1+e^{-x}}$ et la fonction d'activation de la seconde couche est $id \colon x \mapsto x$. 
+		
+		
+		\begin{center}
+			\begin{tikzpicture}[scale=1.5]
+				\def\layersep{2cm}
+				\tikzstyle{every pin edge}=[thick]
+				\tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+				\tikzstyle{entree}=[];
+				\tikzstyle{input neuron}=[neuron, fill=green!50];
+				\tikzstyle{output neuron}=[neuron, fill=red!50];
+				\tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+				\tikzstyle{annot} = [text width=4em, text centered]
+				
+				
+				% Entree
+				\node[entree,blue] (E-1) at (-\layersep,-0.5) {$x$};
+				\node[entree,blue] (E-2) at (-\layersep,-1.5) {$y$};
+				
+				
+				% Premiere couche
+				\node[input neuron] (I-1) at (0,0) {};
+				%		\node[input neuron] (I-2) at (0,-1.5) {};
+				\node[input neuron] (I-3) at (0,-2) {};
+				
+				
+				\node[above right=0.8ex,scale=0.7] at (I-1) {$\sigma$};
+				%\node[above right=0.8ex,scale=0.7] at (I-2) {$H$};
+				\node[below right=0.8ex,scale=0.7] at (I-3) {$\sigma$};
+				
+				
+				\node[below right=0.8ex,scale=0.7] at (I-1) {};
+				%\node[below right=0.8ex,scale=0.7] at (I-2) {};
+				%\node[below right=0.8ex,scale=0.7] at (I-2) {};
+				
+				
+				% \node[above right=0.8ex,blue] at (I-1) {$s_1$};
+				% \node[above right=0.8ex,blue] at (I-2) {$s_2$};
+				% \node[above right=0.8ex,blue] at (I-3) {$s_3$};
+				
+				
+				%Seconde couche et sortie
+				\node[output neuron] (O) at (\layersep,-1) {};
+				\node[below right=0.8ex,scale=0.7] at (O) {};
+				\node[above right=0.8ex,scale=0.7] at (O) {$id$};
+				
+				
+				% Arrete et poids
+				\path[thick] (E-1) edge node[pos=0.8,above,scale=0.7]{$\omega_1$} (I-1) ;
+				\path[thick] (E-2) edge node[pos=0.7,above left,scale=0.7]{$\omega_3$} (I-1);
+				\draw[-o,thick] (I-1) to node[midway,below right,scale=0.7]{$a$} ++ (-110:0.8);
+				
+				
+				%\path[thick] (E-1) edge node[pos=0.8,above,scale=0.7]{$1$} (I-2);
+				%\path[thick] (E-2) edge node[pos=0.8,above,scale=0.7]{$1$} (I-2);
+				%\draw[-o,thick] (I-2) to node[midway,below right,scale=0.7]{$-2$} ++ (-130:0.8);
+				
+				
+				\path[thick] (E-1) edge node[pos=0.8,above right,scale=0.7]{$\omega_2$} (I-3);
+				\path[thick] (E-2) edge node[pos=0.8,above,scale=0.7]{$\omega_4$} (I-3);
+				\draw[-o,thick] (I-3) to node[midway,below right,scale=0.7]{$b$} ++ (-130:0.8);
+				
+				
+				\path[thick] (I-1) edge node[pos=0.8,above,scale=0.7]{$\omega_5$} (O);
+				%\path[thick] (I-2) edge node[pos=0.8,below,scale=0.7]{$1$}(O);
+				\path[thick] (I-3) edge node[pos=0.8,below,scale=0.7]{$\omega_6$}(O);
+				\draw[-o,thick] (O) to node[midway,below right,scale=0.7]{$c$} ++ (-110:0.8) ;
+				
+				
+				% Sortie
+				\draw[->,thick] (O)-- ++(1,0) node[right,blue]{$F(x,y,a,b,c,\omega_1,\cdots,\omega_6)$};
+				
+				
+			\end{tikzpicture}   
+		\end{center}
+		
+	}
 	
-\begin{center}
-	\begin{tikzpicture}[scale=1.5]
-		\def\layersep{2cm}
-		\tikzstyle{every pin edge}=[thick]
-		\tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
-		\tikzstyle{entree}=[];
-		\tikzstyle{input neuron}=[neuron, fill=green!50];
-		\tikzstyle{output neuron}=[neuron, fill=red!50];
-		\tikzstyle{hidden neuron}=[neuron, fill=blue!50];
-		\tikzstyle{annot} = [text width=4em, text centered]
+	\begin{enumerate}
+		\item \question{ Exprimer la sortie de la première couche en fonction de $x,y,a,b,\omega_1,\cdots,\omega_4$. }
+		\reponse{ Notons $h_1$ la sortie du neurone du haut et $h_2$ celle du bas. En suivant les connexions du graphe :
+			$$h_1 = \sigma(\omega_1 x + \omega_3 y + a)$$
+			$$h_2 = \sigma(\omega_2 x + \omega_4 y + b)$$ }
 		
+		\item \question{ Donner une expression de la sortie $F(x,y,a,b,c,\omega_1,\cdots,\omega_6)$.  }
+		\reponse{ Le neurone de sortie effectue une somme pondérée des entrées $h_1, h_2$ avec le biais $c$, passée dans la fonction identité :
+			$$F = \omega_5 h_1 + \omega_6 h_2 + c = \omega_5 \sigma(\omega_1 x + \omega_3 y + a) + \omega_6 \sigma(\omega_2 x + \omega_4 y + b) + c$$ }
 		
-		% Entree
-		\node[entree,blue] (E-1) at (-\layersep,-0.5) {$x$};
-		\node[entree,blue] (E-2) at (-\layersep,-1.5) {$y$};
+		\item \question{ Exprimer la dérivée $\sigma'$ en fonction de $\sigma$. }
+		\reponse{ Pour la fonction sigmoïde $\sigma(x) = \frac{1}{1+e^{-x}}$, on a $\sigma'(x) = \frac{e^{-x}}{(1+e^{-x})^2}$. 
+			Comme $1 - \sigma(x) = 1 - \frac{1}{1+e^{-x}} = \frac{e^{-x}}{1+e^{-x}}$, on en déduit que :
+			$$\sigma'(x) = \sigma(x)(1 - \sigma(x))$$ }
 		
+		\item \question{ Déterminer les dérivées partielles $\frac{\partial F}{\partial \omega_5}$ et $\frac{\partial F}{\partial \omega_6}$. }
+		\reponse{ Puisque $F = \omega_5 h_1 + \omega_6 h_2 + c$, on a directement :
+			$$\frac{\partial F}{\partial \omega_5} = h_1 = \sigma(\omega_1 x + \omega_3 y + a)$$
+			$$\frac{\partial F}{\partial \omega_6} = h_2 = \sigma(\omega_2 x + \omega_4 y + b)$$ }
 		
-		% Premiere couche
-		\node[input neuron] (I-1) at (0,0) {};
-		%		\node[input neuron] (I-2) at (0,-1.5) {};
-		\node[input neuron] (I-3) at (0,-2) {};
+		\item \question{ Exprimer $\frac{\partial F}{\partial a}$ en fonction de $\frac{\partial F}{\partial \omega_5}$. }
+		\reponse{ En utilisant la règle de la chaîne : $\frac{\partial F}{\partial a} = \frac{\partial F}{\partial h_1} \frac{\partial h_1}{\partial a} = \omega_5 \cdot \sigma'(z_1)$ où $z_1 = \omega_1 x + \omega_3 y + a$.
+			D'après la question 3, $\sigma'(z_1) = \sigma(z_1)(1-\sigma(z_1))$. Comme $\sigma(z_1) = \frac{\partial F}{\partial \omega_5}$, on a :
+			$$\frac{\partial F}{\partial a} = \omega_5 \frac{\partial F}{\partial \omega_5} \left( 1 - \frac{\partial F}{\partial \omega_5} \right)$$ }
 		
+		\item \question{ On considère l'entrée suivante : 
+			$$(x,y) = \left(0{,}05 \, ; \, 0{,}10\right)$$
+			Les poids initiaux sont : 
+			$$W_{init} = (a,b,\omega_1,\cdots,\omega_6) = (0.35, 0.5, 0.15, 0.2, 0.25, 0.3, 0.4, 0.45)$$
+			La sortie obtenue est $F_{\circ} = 1.006117$.
+			
+			On considère la donnée d'apprentissage : $((x,y),t) = \left(\left(0{,}05 \, ; \, 0{,}10\right), 0.99 \right)$. L'erreur quadratique est : 
+			$$E_{\circ} = (0.99 - 1.006117)^2 = 0.00026$$
+			Calculer le gradient de $F$ puis le gradient de $E$ pour $W_{init}$ avec l'entrée $(x,y) = \left(0{,}05 \, ; \, 0{,}10\right)$. 
+		}
+		\reponse{ \textbf{Erreur signalée :} Le vecteur $W_{init}$ donné ne contient pas la valeur de $c$, or $F$ dépend de $c$. Pour obtenir $F_{\circ} = 1.006117$, on doit avoir $c \approx 0.484$. On suppose $c$ fixe dans ce calcul ou non mis à jour car absent de $W_{init}$.
+			
+			Calculons d'abord les sorties intermédiaires :
+			$h_1 = \sigma(0.15 \cdot 0.05 + 0.25 \cdot 0.1 + 0.35) = \sigma(0.3825) \approx 0.594474$
+			$h_2 = \sigma(0.2 \cdot 0.05 + 0.3 \cdot 0.1 + 0.5) = \sigma(0.54) \approx 0.631812$
+			
+			Gradient de $F$ ($\nabla F = [\frac{\partial F}{\partial a}, \frac{\partial F}{\partial b}, \frac{\partial F}{\partial \omega_1}, \frac{\partial F}{\partial \omega_2}, \frac{\partial F}{\partial \omega_3}, \frac{\partial F}{\partial \omega_4}, \frac{\partial F}{\partial \omega_5}, \frac{\partial F}{\partial \omega_6}]$) :
+			- $\frac{\partial F}{\partial \omega_5} = 0.594474$ et $\frac{\partial F}{\partial \omega_6} = 0.631812$
+			- $\frac{\partial F}{\partial a} = 0.4 \cdot 0.594474 (1 - 0.594474) \approx 0.096426$
+			- $\frac{\partial F}{\partial b} = 0.45 \cdot 0.631812 (1 - 0.631812) \approx 0.104684$
+			- $\frac{\partial F}{\partial \omega_1} = x \frac{\partial F}{\partial a} = 0.004821$ ; $\frac{\partial F}{\partial \omega_3} = y \frac{\partial F}{\partial a} = 0.009643$
+			- $\frac{\partial F}{\partial \omega_2} = x \frac{\partial F}{\partial b} = 0.005234$ ; $\frac{\partial F}{\partial \omega_4} = y \frac{\partial F}{\partial b} = 0.010468$
+			
+			Gradient de $E$ : Puisque $E = (t-F)^2$, alors $\frac{\partial E}{\partial w} = 2(F-t)\frac{\partial F}{\partial w}$.
+			Ici $2(F_\circ - t) = 2(1.006117 - 0.99) = 0.032234$.
+			$\nabla E = 0.032234 \cdot \nabla F \approx (0.003108, 0.003374, 0.000155, 0.000169, 0.000311, 0.000337, 0.019162, 0.020366)$. }
 		
-		\node[above right=0.8ex,scale=0.7] at (I-1) {$\sigma$};
-		%\node[above right=0.8ex,scale=0.7] at (I-2) {$H$};
-		\node[below right=0.8ex,scale=0.7] at (I-3) {$\sigma$};
-		
-		
-		\node[below right=0.8ex,scale=0.7] at (I-1) {};
-		%\node[below right=0.8ex,scale=0.7] at (I-2) {};
-		%\node[below right=0.8ex,scale=0.7] at (I-2) {};
-		
-		
-		% \node[above right=0.8ex,blue] at (I-1) {$s_1$};
-		% \node[above right=0.8ex,blue] at (I-2) {$s_2$};
-		% \node[above right=0.8ex,blue] at (I-3) {$s_3$};
-		
-		
-		%Seconde couche et sortie
-		\node[output neuron] (O) at (\layersep,-1) {};
-		\node[below right=0.8ex,scale=0.7] at (O) {};
-		\node[above right=0.8ex,scale=0.7] at (O) {$id$};
-		
-		
-		% Arrete et poids
-		\path[thick] (E-1) edge node[pos=0.8,above,scale=0.7]{$\omega_1$} (I-1) ;
-		\path[thick] (E-2) edge node[pos=0.7,above left,scale=0.7]{$\omega_3$} (I-1);
-		\draw[-o,thick] (I-1) to node[midway,below right,scale=0.7]{$a$} ++ (-110:0.8);
-		
-		
-		%\path[thick] (E-1) edge node[pos=0.8,above,scale=0.7]{$1$} (I-2);
-		%\path[thick] (E-2) edge node[pos=0.8,above,scale=0.7]{$1$} (I-2);
-		%\draw[-o,thick] (I-2) to node[midway,below right,scale=0.7]{$-2$} ++ (-130:0.8);
-		
-		
-		\path[thick] (E-1) edge node[pos=0.8,above right,scale=0.7]{$\omega_2$} (I-3);
-		\path[thick] (E-2) edge node[pos=0.8,above,scale=0.7]{$\omega_4$} (I-3);
-		\draw[-o,thick] (I-3) to node[midway,below right,scale=0.7]{$b$} ++ (-130:0.8);
-		
-		
-		\path[thick] (I-1) edge node[pos=0.8,above,scale=0.7]{$\omega_5$} (O);
-		%\path[thick] (I-2) edge node[pos=0.8,below,scale=0.7]{$1$}(O);
-		\path[thick] (I-3) edge node[pos=0.8,below,scale=0.7]{$\omega_6$}(O);
-		\draw[-o,thick] (O) to node[midway,below right,scale=0.7]{$c$} ++ (-110:0.8) ;
-		
-		
-		% Sortie
-		\draw[->,thick] (O)-- ++(1,0) node[right,blue]{$F(x,y,a,b,c,\omega_1,\cdots,\omega_6)$};
-		
-		
-	\end{tikzpicture}   
-\end{center}
-
-}
-
-\begin{enumerate}
-	\item \question{ Exprimer la sortie de la première couche en fonction de $x,y,a,b,\omega_1,\cdots,\omega_4$. }
-	\item \question{ Donner une expression de la sortie $F(x,y,a,b,c,\omega_1,\cdots,\omega_6)$.  }
-	\item \question{ Exprimer la dérivée $\sigma'$ en fonction de $\sigma$. }
-	\item \question{ Déterminer les dérivées partielles $\frac{\partial F}{\partial \omega_5}$ et $\frac{\partial F}{\partial \omega_6}$. }
-	\item \question{ Exprimer $\frac{\partial F}{\partial a}$ en fonction de $\frac{\partial F}{\partial \omega_5}$. }
-	\item \question{ On considère l'entrée suivante : 
-	$$(x,y) = \left(0{,}05 \, ; \, 0{,}10\right)$$
-	Les poids initiaux sont : 
-	$$W_{init} = (a,b,\omega_1,\cdots,\omega_6) = (0.35, 0.5, 0.15, 0.2, 0.25, 0.3, 0.4, 0.45)$$
-	La sortie obtenue est $F_{\circ} = 1.006117$.
-	
-	On considère la donnée d'apprentissage : $((x,y),t) = \left(\left(0{,}05 \, ; \, 0{,}10\right), 0.99 \right)$. L'erreur quadratique est : 
-	$$E_{\circ} = (0.99 - 1.006117)^2 = 0.00026$$
-	Calculer le gradient de $F$ puis le gradient de $E$ pour $W_{init}$ avec l'entrée $(x,y) = \left(0{,}05 \, ; \, 0{,}10\right)$. 
- }
-  \item \question{ En utilisant la méthode du gradient à pas constant $\delta = 0.1$, réaliser un apprentissage de ce réseau en déterminant les nouveaux poids $W_{new}$. }
-\end{enumerate}
+		\item \question{ En utilisant la méthode du gradient à pas constant $\delta = 0.1$, réaliser un apprentissage de ce réseau en déterminant les nouveaux poids $W_{new}$. }
+		\reponse{ On applique la règle $W_{new} = W_{init} - \delta \nabla E$ :
+			- $a_{new} = 0.35 - 0.1(0.003108) = 0.349689$
+			- $b_{new} = 0.5 - 0.1(0.003374) = 0.499663$
+			- $\omega_{1,new} = 0.15 - 0.0000155 = 0.149984$
+			- $\omega_{2,new} = 0.2 - 0.0000169 = 0.199983$
+			- $\omega_{3,new} = 0.25 - 0.0000311 = 0.249969$
+			- $\omega_{4,new} = 0.3 - 0.0000337 = 0.299966$
+			- $\omega_{5,new} = 0.4 - 0.0019162 = 0.398084$
+			- $\omega_{6,new} = 0.45 - 0.0020366 = 0.447963$
+			$W_{new} \approx (0.3497, 0.4997, 0.1500, 0.2000, 0.2500, 0.3000, 0.3981, 0.4480)$. }
+	\end{enumerate}
 }
