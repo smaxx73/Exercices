@@ -1,156 +1,159 @@
 \uuid{x78l}
-\titre{Analyse de données pharmaceutiques avec tableur}
+\titre{Analyse de données pharmaceutiques avec tableur (Corrigé)}
 \niveau{L2} 
 \module{Probabilités et Statistiques} 
 \chapitre{Échantillonnage et estimation}
 \sousChapitre{Intervalles de confiance, utilisation d'un tableur}
 \theme{Statistiques descriptives, loi normale, intervalle de confiance de Student}
 \auteur{AMSCC}
-\datecreate{2025-12-02}
+\datecreate{2025-12-05}
 \organisation{AMSCC}
 \difficulte{2}
 \contenu{
-    \texte{ 
-    Un laboratoire pharmaceutique teste le temps d'efficacité (en heures) d'un nouveau médicament. Les durées mesurées sur \textbf{25 patients} sont fournies dans le fichier tableur ci-joint et reproduites ci-dessous :
-    
-    \begin{center}
-    \begin{tabular}{ccccc}
-    4.2 & 5.1 & 4.8 & 5.5 & 4.6 \\
-    5.3 & 4.9 & 5.7 & 4.5 & 5.0 \\
-    4.7 & 5.2 & 4.4 & 5.6 & 4.3 \\
-    5.4 & 4.8 & 5.1 & 4.9 & 5.3 \\
-    4.6 & 5.5 & 4.7 & 5.0 & 4.8
-    \end{tabular}
-    \end{center}
-    }
-    
-    \subsection*{Partie A - Statistiques descriptives}
-    
-    \begin{enumerate}
-        \item   \question{À l'aide du tableur, calculer La moyenne $\bar{x}$, la variance empirique corrigée $s^2$, l'écart-type $s$.}
-                \indication{Saisir les données dans une colonne Excel (par exemple A1:A25) et utiliser les fonctions statistiques.}
-                \reponse{
-                \textbf{Saisie dans Excel :}
-                \begin{itemize}
-                    \item Cellule B1 : \texttt{=MOYENNE(A1:A25)}
-                    \item Cellule B2 : \texttt{=VAR.S(A1:A25)}
-                    \item Cellule B3 : \texttt{=ECARTYPE.STANDARD(A1:A25)}
-                \end{itemize}
-                
-                \textbf{Résultats numériques :}
-                \begin{itemize}
-                    \item Moyenne : $\bar{x} = 4.932$ heures
-                    \item Variance : $s^2 = 0.1836$ heures²
-                    \item Écart-type : $s = 0.4285$ heures
-                \end{itemize}
-                
-                \textbf{Interprétation :} Le temps moyen d'efficacité observé est d'environ 4.93 heures, avec une dispersion relativement faible (écart-type de 0.43 heures, soit environ 26 minutes).
-                }
-                
-        \item   \question{Le laboratoire affirme que le temps moyen d'efficacité est de 5 heures.
-                \begin{itemize}
-                    \item Calculer l'écart absolu : $|\bar{x} - 5|$
-                    \item Calculer l'écart relatif : $\dfrac{|\bar{x} - 5|}{5} \times 100\%$
-                    \item Commenter : l'écart observé vous semble-t-il significatif ?
-                \end{itemize}}
-                \indication{Pour l'écart relatif, utiliser \texttt{=ABS(B1-5)/5*100} dans Excel.}
-                \reponse{
-                \textbf{Calculs :}
-                \begin{itemize}
-                    \item Écart absolu : $|\bar{x} - 5| = |4.932 - 5| = 0.068$ heures $\approx 4$ minutes
-                    \item Écart relatif : $\dfrac{0.068}{5} \times 100\% = 1.36\%$
-                \end{itemize}
-                
-                \textbf{Commentaire :} L'écart relatif est très faible (environ 1.4\%). À ce stade, sans test statistique formel, cet écart pourrait être dû aux fluctuations d'échantillonnage. L'intervalle de confiance (partie C) permettra de conclure de façon rigoureuse.
-                }
-    \end{enumerate}
-    
-    \subsection*{Partie B - Modélisation par une loi normale}
-    
-    \texte{
-    On suppose que le temps d'efficacité $X$ suit une loi normale $\mathcal{N}(\mu, \sigma^2)$ où $\mu$ et $\sigma$ sont estimés par $\bar{x}$ et $s$.
-    }
-    
-    \begin{enumerate}
-        \item   \question{Avec le tableur, calculer avec une précision $10^{-6}$ :
-                \begin{itemize}
-                    \item $P(X \leq 4.5)$ ;
-                    \item $P(4.8 \leq X \leq 5.2)$.
-                \end{itemize}
-                Interprétation : Quel pourcentage de patients ont une efficacité entre 4.8 et 5.2 heures ?}
-                \indication{Pour $P(a \leq X \leq b)$, calculer $P(X \leq b) - P(X \leq a)$.}
-                \reponse{
-                \textbf{Formules Excel :}
-                \begin{itemize}
-                    \item Cellule B4 : \texttt{=LOI.NORMALE(4.5; B1; B3; VRAI)}
-                    \item Cellule B5 : \texttt{=LOI.NORMALE(5.2; B1; B3; VRAI) - LOI.NORMALE(4.8; B1; B3; VRAI)}
-                \end{itemize}
-                
-                \textbf{Résultats :}
-                \begin{itemize}
-                    \item $P(X \leq 4.5) \approx 0.1562$, soit environ 15.6\%
-                    \item $P(4.8 \leq X \leq 5.2) \approx 0.4660$, soit environ 46.6\%
-                \end{itemize}
-                
-                \textbf{Interprétation :} Environ $47\%$ des patients ont un temps d'efficacité entre 4.8 et 5.2 heures. La distribution est centrée autour de 4.93 heures.
-                }
-                
-        \item   \question{Déterminer le temps $t_{90}$ tel que $90\%$ des patients ont une efficacité inférieure à $t_{90}$ heures.}
-                \indication{Il s'agit du quantile d'ordre 0.9 de la loi normale estimée.}
-                \reponse{
-                \textbf{Formule Excel :}
-                
-                Cellule B6 : \texttt{=LOI.NORMALE.INVERSE(0.9; B1; B3)}
-                
-                \textbf{Résultat :}
-                $$t_{90} \approx 5.481 \text{ heures}$$
-                
-                \textbf{Interprétation :} $90\%$ des patients ont un temps d'efficacité inférieur à 5.48 heures (soit environ 5h29min). Seulement $10\%$ des patients dépassent cette durée.
-                }
-    \end{enumerate}
-    
-    \subsection*{Partie C - Intervalle de confiance}
-    
-    \begin{enumerate}
-        \item   \question{Déterminer une estimation du temps moyen $\mu$ à l'aide d'un intervalle de confiance à $95\%$.}
-                \indication{On utilise la loi de Student car $\sigma$ est inconnu et estimé par $s$.}
-                \reponse{
-                \textbf{Formules Excel :}
-                \begin{itemize}
-                    \item Cellule B7 : \texttt{=LOI.STUDENT.INVERSE.N(0.975; 24)} $\rightarrow t_{0.025}^{(24)} \approx 2.064$
-                    \item Cellule B8 : \texttt{=B7 * B3 / RACINE(25)} $\rightarrow ME \approx 0.177$
-                    \item Borne inférieure B9 : \texttt{=B1 - B8} $\rightarrow 4.755$
-                    \item Borne supérieure B10 : \texttt{=B1 + B8} $\rightarrow 5.109$
-                \end{itemize}
-                
-                \textbf{Intervalle de confiance à 95\% :}
-                $$IC_{95\%} = [4.755 \; ; \; 5.109] \text{ heures}$$
-                
-                \textbf{Interprétation :} Avec 95\% de confiance, le temps moyen d'efficacité du médicament dans la population est compris entre 4.76 et 5.11 heures.
-                }
-                
-        \item   \question{Comment interpréter ce résultat quant à l'affirmation du laboratoire ?}
-                \indication{Vérifier si $5 \in [4.755; 5.109]$.}
-                \reponse{
-                \textbf{Oui}, la valeur 5 heures appartient à l'intervalle $[4.755; 5.109]$.
-                
-                \textbf{Conclusion :} Au niveau de confiance de 95\%, les données observées sont \textbf{compatibles} avec l'affirmation du laboratoire selon laquelle le temps moyen d'efficacité est de 5 heures. On ne peut pas rejeter cette affirmation sur la base de cet échantillon.
-                
-                Remarque : bien que la moyenne observée soit légèrement inférieure à 5h, cet écart n'est pas statistiquement significatif au seuil de 5\%.
-                }
-                
-        \item   \question{Si on voulait diviser par 2 la largeur de l'intervalle de confiance, quelle devrait être la nouvelle taille d'échantillon $n'$ ?}
-                \indication{Écrire $\frac{1}{\sqrt{n'}} = \frac{1}{2} \times \frac{1}{\sqrt{n}}$ et résoudre.}
-                \reponse{
-                La largeur de l'intervalle est $L = 2 \times ME = 2 \times t_{0.025} \times \dfrac{s}{\sqrt{n}}$
-                
-                Elle est proportionnelle à $\dfrac{1}{\sqrt{n}}$. Pour diviser la largeur par 2 :
-                $$\frac{L_{n'}}{L_n} = \frac{1}{2} \Rightarrow \frac{\frac{1}{\sqrt{n'}}}{\frac{1}{\sqrt{n}}} = \frac{1}{2} \Rightarrow \sqrt{\frac{n}{n'}} = \frac{1}{2}$$
-                
-                D'où :
-                $$\frac{n}{n'} = \frac{1}{4} \Rightarrow n' = 4n = 4 \times 25 = \boxed{100 \text{ patients}}$$
-                
-                \textbf{Conclusion :} Pour diviser par 2 la largeur de l'intervalle de confiance, il faudrait multiplier par 4 la taille de l'échantillon, soit mesurer 100 patients au lieu de 25.
-                }
-    \end{enumerate}
+	\texte{ 
+		Un laboratoire pharmaceutique teste le temps d'efficacité (en heures) d'un nouveau médicament. Les durées mesurées sur \textbf{25 patients} sont fournies dans le fichier tableur ci-joint et reproduites ci-dessous :
+		
+		\begin{center}
+			\begin{tabular}{ccccc}
+				4.2 & 5.1 & 4.8 & 5.5 & 4.6 \\
+				5.3 & 4.9 & 5.7 & 4.5 & 5.0 \\
+				4.7 & 5.2 & 4.4 & 5.6 & 4.3 \\
+				5.4 & 4.8 & 5.1 & 4.9 & 5.3 \\
+				4.6 & 5.5 & 4.7 & 5.0 & 4.8
+			\end{tabular}
+		\end{center}
+	}
+	
+	\subsection*{Partie A - Statistiques descriptives}
+	
+	\begin{enumerate}
+		\item   \question{À l'aide du tableur, calculer la moyenne $\bar{x}$, la variance empirique corrigée $s^2$, l'écart-type $s$.}
+		\indication{Saisir les données dans une colonne Excel (par exemple A1:A25) et utiliser les fonctions statistiques.}
+		\reponse{
+			\textbf{Saisie dans Excel :}
+			\begin{itemize}
+				\item Cellule B1 : \texttt{=MOYENNE(A1:A25)}
+				\item Cellule B2 : \texttt{=VAR.S(A1:A25)}
+				\item Cellule B3 : \texttt{=ECARTYPE.STANDARD(A1:A25)}
+			\end{itemize}
+			
+			\textbf{Résultats numériques corrigés :}
+			\begin{itemize}
+				\item Somme des valeurs : $123.9$
+				\item Moyenne : $\bar{x} = 4.956$ heures
+				\item Variance : $s^2 \approx 0.1701$ heures²
+				\item Écart-type : $s \approx 0.4124$ heures
+			\end{itemize}
+			
+			\textbf{Interprétation :} Le temps moyen d'efficacité observé est de 4.956 heures, avec un écart-type d'environ 0.41 heure (soit environ 25 minutes).
+		}
+		
+		\item   \question{Le laboratoire affirme que le temps moyen d'efficacité est de 5 heures.
+			\begin{itemize}
+				\item Calculer l'écart absolu : $|\bar{x} - 5|$
+				\item Calculer l'écart relatif : $\dfrac{|\bar{x} - 5|}{5} \times 100\%$
+				\item Commenter : l'écart observé vous semble-t-il significatif ?
+		\end{itemize}}
+		\indication{Pour l'écart relatif, utiliser \texttt{=ABS(B1-5)/5*100} dans Excel.}
+		\reponse{
+			\textbf{Calculs :}
+			\begin{itemize}
+				\item Écart absolu : $|\bar{x} - 5| = |4.956 - 5| = 0.044$ heures $\approx 2.6$ minutes
+				\item Écart relatif : $\dfrac{0.044}{5} \times 100\% = 0.88\%$
+			\end{itemize}
+			
+			\textbf{Commentaire :} L'écart relatif est extrêmement faible (moins de 1\%). Cela suggère fortement que la différence observée est due aux fluctuations d'échantillonnage et que la moyenne empirique est très proche de la valeur théorique annoncée.
+		}
+	\end{enumerate}
+	
+	\subsection*{Partie B - Modélisation par une loi normale}
+	
+	\texte{
+		On suppose que le temps d'efficacité $X$ suit une loi normale $\mathcal{N}(\mu, \sigma^2)$ où $\mu$ et $\sigma$ sont estimés par $\bar{x} \approx 4.956$ et $s \approx 0.4124$.
+	}
+	
+	\begin{enumerate}
+		\item   \question{Avec le tableur, calculer les probabilités suivantes :
+			\begin{itemize}
+				\item $P(X \leq 4.5)$ ;
+				\item $P(4.8 \leq X \leq 5.2)$.
+			\end{itemize}
+			Interprétation : Quel pourcentage de patients ont une efficacité entre 4.8 et 5.2 heures ?}
+		\indication{Pour $P(a \leq X \leq b)$, calculer $P(X \leq b) - P(X \leq a)$.}
+		\reponse{
+			\textbf{Formules Excel :}
+			\begin{itemize}
+				\item Cellule B4 : \texttt{=LOI.NORMALE(4.5; B1; B3; VRAI)}
+				\item Cellule B5 : \texttt{=LOI.NORMALE(5.2; B1; B3; VRAI) - LOI.NORMALE(4.8; B1; B3; VRAI)}
+			\end{itemize}
+			
+			\textbf{Résultats :}
+			\begin{itemize}
+				\item $P(X \leq 4.5) \approx 0.1345$, soit environ 13.5\%
+				\item $P(4.8 \leq X \leq 5.2) \approx 0.3707$, soit environ 37.1\%
+			\end{itemize}
+			
+			\textbf{Interprétation :} Environ $37\%$ des patients ont un temps d'efficacité compris entre 4.8 et 5.2 heures selon ce modèle.
+		}
+		
+		\item   \question{Déterminer le temps $t_{90}$ tel que $90\%$ des patients ont une efficacité inférieure à $t_{90}$ heures.}
+		\indication{Il s'agit du quantile d'ordre 0.9 de la loi normale estimée.}
+		\reponse{
+			\textbf{Formule Excel :}
+			
+			Cellule B6 : \texttt{=LOI.NORMALE.INVERSE(0.9; B1; B3)}
+			
+			\textbf{Résultat :}
+			$$t_{90} \approx 5.485 \text{ heures}$$
+			
+			\textbf{Interprétation :} $90\%$ des patients ont un temps d'efficacité inférieur à 5.485 heures (soit environ 5h 29min).
+		}
+	\end{enumerate}
+	
+	\subsection*{Partie C - Intervalle de confiance}
+	
+	\begin{enumerate}
+		\item   \question{Déterminer une estimation du temps moyen $\mu$ à l'aide d'un intervalle de confiance à $95\%$.}
+		\indication{On utilise la loi de Student à $n-1$ degrés de liberté.}
+		\reponse{
+			\textbf{Paramètres :}
+			\begin{itemize}
+				\item Taille $n=25$, degrés de liberté $ddl = 24$.
+				\item Quantile de Student $t_{0.975}^{(24)} \approx 2.0639$ (via \texttt{=LOI.STUDENT.INVERSE.N(0.975; 24)}).
+				\item Marge d'erreur : $ME = t \times \frac{s}{\sqrt{n}} = 2.0639 \times \frac{0.4124}{5} \approx 0.1702$.
+			\end{itemize}
+			
+			\textbf{Calcul des bornes :}
+			\begin{itemize}
+				\item Borne inf : $4.956 - 0.1702 = 4.7858$
+				\item Borne sup : $4.956 + 0.1702 = 5.1262$
+			\end{itemize}
+			
+			\textbf{Intervalle de confiance à 95\% :}
+			$$IC_{95\%} = [4.786 \; ; \; 5.126] \text{ heures}$$
+		}
+		
+		\item   \question{Comment interpréter ce résultat quant à l'affirmation du laboratoire ?}
+		\indication{Vérifier si $5 \in IC_{95\%}$.}
+
+		\reponse{
+	\textbf{Oui}, la valeur théorique 5 heures appartient bien à l'intervalle calculé $[4.786; 5.126]$.
+	
+	\textbf{Conclusion :} Au niveau de confiance de 95\%, les données observées sont \textbf{compatibles} avec l'affirmation du laboratoire selon laquelle le temps moyen d'efficacité est de 5 heures. L'écart observé (4.956 au lieu de 5) n'est pas statistiquement significatif.
+}
+
+		\item   \question{Si on voulait diviser par 2 la largeur de l'intervalle de confiance, quelle devrait être la nouvelle taille d'échantillon $n'$ ?}
+		\indication{Écrire $\frac{1}{\sqrt{n'}} = \frac{1}{2} \times \frac{1}{\sqrt{n}}$ et résoudre.}
+		\reponse{
+	La largeur de l'intervalle est définie par $L = 2 \times ME \approx 2 \times t \times \dfrac{s}{\sqrt{n}}$.
+	
+	Si l'on considère que l'écart-type $s$ et le coefficient $t$ restent relativement stables, la largeur est inversement proportionnelle à $\sqrt{n}$. Pour diviser la largeur par 2, le terme $\sqrt{n}$ doit être multiplié par 2.
+	
+	$$\sqrt{n'} = 2 \times \sqrt{n} \iff n' = 4 \times n$$
+	
+	$$n' = 4 \times 25 = \boxed{100 \text{ patients}}$$
+	
+	\textbf{Conclusion :} Pour obtenir une précision deux fois plus fine (diviser l'intervalle par 2), il est nécessaire de quadrupler la taille de l'échantillon, soit interroger 100 patients.
+}
+\end{enumerate}
 }
