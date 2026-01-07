@@ -1,0 +1,149 @@
+\uuid{6FGJ}
+\titre{Analyse de la conformité des mots de passe}
+
+\niveau{L3} 				
+\module{Statistiques} 	
+\chapitre{Tests statistiques}   			
+\sousChapitre{Test d'adéquation du $\chi^2$}			
+
+\theme{Test du chi-deux, loi multinomiale, sécurité informatique}				
+\auteur{Maxime Nguyen}
+\datecreate{2026-01-07}
+\organisation{AMSCC}			
+\difficulte{3}			
+
+\contenu{
+	
+	\texte{ 
+		Une entreprise de services numériques a récemment renforcé sa politique de sécurité en imposant une longueur minimale de 8 caractères pour tous les mots de passe. L'équipe de cybersécurité souhaite vérifier si les utilisateurs suivent les recommandations de bonnes pratiques en matière de longueur de mots de passe.
+		
+		D'après les études comportementales en cybersécurité, lorsqu'une politique impose un minimum de 8 caractères, la distribution des longueurs de mots de passe choisis par les utilisateurs suit généralement la répartition suivante :
+		
+		\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline
+				Longueur & Proportion théorique \\
+				\hline
+				8 caractères & 35\% \\
+				9-11 caractères & 30\% \\
+				12-14 caractères & 20\% \\
+				15-19 caractères & 10\% \\
+				20 caractères ou plus & 5\% \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
+		Lors d'un audit de sécurité, l'équipe a analysé un échantillon de 200 mots de passe (anonymisés et hachés) stockés dans la base de données. Voici la répartition observée :
+		
+		\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline
+				Longueur & Effectif observé \\
+				\hline
+				8 caractères & 85 \\
+				9-11 caractères & 58 \\
+				12-14 caractères & 32 \\
+				15-19 caractères & 18 \\
+				20 caractères ou plus & 7 \\
+				\hline
+				Total & 200 \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
+		On souhaite tester, au seuil de signification $\alpha = 5\%$, si la distribution observée des longueurs de mots de passe est conforme à la distribution théorique attendue.
+	}
+	
+	\begin{enumerate}
+		\item   \question{Si les proportions théoriques étaient parfaitement respectées, combien de mots de passe de 8 caractères devrait-on observer dans l'échantillon ?}
+		\indication{Les effectifs théoriques se calculent par $T_i = n \times p_i$ où $p_i$ est la proportion théorique de la classe $i$ et $n = 200$ est la taille de l'échantillon.}
+		\reponse{
+			Le tableau complété est le suivant :
+			
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|}
+					\hline
+					Classe & Effectif observé $O_i$ & Proportion théorique $p_i$ & Effectif théorique $T_i$ \\
+					\hline
+					8 caractères & 85 & 0,35 & 70 \\
+					9-11 caractères & 58 & 0,30 & 60 \\
+					12-14 caractères & 32 & 0,20 & 40 \\
+					15-19 caractères & 18 & 0,10 & 20 \\
+					20 ou plus & 7 & 0,05 & 10 \\
+					\hline
+					Total & 200 & 1,00 & 200 \\
+					\hline
+				\end{tabular}
+			\end{center}
+			
+			On remarque que l'effectif observé de mots de passe de 8 caractères (85) est nettement supérieur à l'effectif théorique (70), ce qui suggère que les utilisateurs ont tendance à choisir le minimum requis. À l'inverse, les classes de longueurs supérieures présentent des effectifs observés légèrement inférieurs aux effectifs théoriques.
+		}
+		
+		\item   \question{En raisonnant sur l'échantillon de taille $200$, estimer à l'aide d'un intervalle de confiance à 95\% la proportion $p$ de mots de passe de 8 caractères dans la population des utilisateurs. La proportion théorique de 35\% est-elle compatible avec cet intervalle ?}
+		\indication{Pour une proportion estimée $\hat{p}$ dans un échantillon de taille $n$, l'intervalle de confiance à 95\% est donné par $\left[\hat{p} - 1{,}96\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} ; \hat{p} + 1{,}96\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right]$ (approximation normale).}
+		\reponse{
+			La proportion estimée de mots de passe de 8 caractères est :
+			$$\hat{p} = \frac{85}{200} = 0{,}425$$
+			
+			L'écart-type estimé de $\hat{p}$ est :
+			$$\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} = \sqrt{\frac{0{,}425 \times 0{,}575}{200}} = \sqrt{\frac{0{,}244375}{200}} \approx 0{,}0350$$
+			
+			L'intervalle de confiance à 95\% est donc :
+			\begin{align*}
+				IC_{95\%}(p) &= [0{,}425 - 1{,}96 \times 0{,}0350 ; 0{,}425 + 1{,}96 \times 0{,}0350] \\
+				&= [0{,}425 - 0{,}069 ; 0{,}425 + 0{,}069] \\
+				&= [0{,}356 ; 0{,}494]
+			\end{align*}
+			
+			Soit environ $[35{,}6\% ; 49{,}4\%]$.
+			
+			
+			La proportion théorique de 35\% n'est pas strictement dans cet intervalle (elle est inférieure à la borne inférieure de 35,6\%), mais elle en est extrêmement proche. Cela suggère une tendance des utilisateurs à privilégier légèrement plus le minimum requis que prévu par le modèle théorique, mais l'écart reste faible. Cette observation motive le test d'adéquation du $\chi^2$ pour analyser la distribution globale et déterminer si cet écart, combiné aux autres classes, est statistiquement significatif.
+		}
+		
+		\item   \question{Effectuer un test au seuil de première espèce $\alpha = 5\%$ de l'adéquation de la distribution de la longueur des mots de passe de l'échantillon avec la distribution théorique. Quelle conclusion l'équipe de cybersécurité doit-elle en tirer ?}
+		\indication{La statistique de test est $\chi^2 = \sum_{i=1}^{k} \frac{(O_i - T_i)^2}{T_i}$ où $k$ est le nombre de classes.}
+		\reponse{
+			\textbf{Hypothèses :}
+			\begin{itemize}
+				\item $H_0$ : La distribution des longueurs de mots de passe suit la distribution théorique de référence
+				\item $H_1$ : La distribution des longueurs ne suit pas cette distribution théorique
+			\end{itemize}
+			
+			\textbf{Calcul de la statistique :}
+			\begin{align*}
+				\chi^2_{obs} &= \sum_{i=1}^{5} \frac{(O_i - T_i)^2}{T_i} \\
+				&= \frac{(85-70)^2}{70} + \frac{(58-60)^2}{60} + \frac{(32-40)^2}{40} + \frac{(18-20)^2}{20} + \frac{(7-10)^2}{10} \\
+				&= \frac{225}{70} + \frac{4}{60} + \frac{64}{40} + \frac{4}{20} + \frac{9}{10} \\
+				&= 3,214 + 0,067 + 1,600 + 0,200 + 0,900 \\
+				&= 5,981
+			\end{align*}
+			
+			\textbf{Loi sous $H_0$ :} La statistique $\chi^2_{obs}$ suit une loi du chi-deux à $k-1 = 5-1 = 4$ degrés de liberté, notée $\chi^2(4)$.
+
+			\textbf{Règle de décision :} On rejette $H_0$ si $\chi^2_{obs} > \chi^2_{0,95}(4) \approx 9,488$.
+			
+			\textbf{Décision :} $\chi^2_{obs} = 5,981 < 9,488$, donc on ne rejette pas $H_0$ au seuil de 5\%.
+			
+			\textbf{Conclusion pour la cybersécurité :} 
+			Au seuil de signification de 5\%, les données ne permettent pas de rejeter l'hypothèse selon laquelle la distribution des longueurs de mots de passe suit le comportement théorique attendu. 
+			
+			Malgré une apparente surreprésentation des mots de passe de 8 caractères (85 observés contre 70 attendus), cette différence n'est pas statistiquement significative. Le comportement global des utilisateurs reste conforme aux attentes, même si l'entreprise pourrait envisager des actions de sensibilisation pour encourager l'utilisation de mots de passe plus longs.
+		}
+		
+		\item   \question{Calculer la p-valeur du test. Quelle information supplémentaire apporte-t-elle par rapport au résultat de la question précédente ?}
+		\indication{La p-valeur est la probabilité $\mathbb{P}(\chi^2(4) > \chi^2_{obs})$. On peut l'estimer avec une table de la loi du chi-deux ou un tableur avec la fonction LOI.KHIDEUX.DROITE().}
+		\reponse{
+			La p-valeur est :
+			$$p = \mathbb{P}(\chi^2(4) > 5,981) \approx 0,200$$
+			
+			\textbf{Interprétation :} La p-valeur de 20\% est largement supérieure au seuil de 5\%. Cela signifie que, si la distribution théorique était vraie, on observerait des écarts au moins aussi importants que ceux constatés dans environ 20\% des échantillons.
+			
+			Cette p-valeur relativement élevée confirme qu'il n'y a pas de preuve significative d'un écart à la distribution théorique. L'écart observé (notamment les 85 mots de passe de 8 caractères) peut raisonnablement s'expliquer par la variabilité d'échantillonnage.
+			
+			\textbf{Information supplémentaire :} La p-valeur permet de quantifier précisément le degré de compatibilité entre les données et $H_0$. Une p-valeur de 20\% indique que les données sont tout à fait compatibles avec la distribution théorique, ce qui est plus informatif qu'un simple "non rejet" de $H_0$.
+		}
+		
+	\end{enumerate}
+	
+}

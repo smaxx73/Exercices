@@ -25,15 +25,15 @@
 	}
 	
 	\begin{enumerate}
-		\item   \question{Après avoir importé les données dans un tableur, calculer la moyenne empirique $\overline{x}$ et l'écart-type empirique $s$ de l'échantillon. Que peut-on remarquer par rapport aux valeurs théoriques en fonctionnement normal ?}
+		\item   \question{Après avoir importé les données dans un tableur, calculer la moyenne empirique $\overline{x}$ et l'écart-type empirique $\sigma$ de l'échantillon. Que peut-on remarquer par rapport aux valeurs théoriques en fonctionnement normal ?}
 		\indication{Utiliser les fonctions MOYENNE() et ECARTYPE.STANDARD() du tableur.}
 		\reponse{
-			On trouve : $\overline{x} = 87{,}90$ ms et $s = 13{,}78$ ms.
+			On trouve : $\overline{x} = 87{,}90$ ms et $\sigma = 13{,}78$ ms.
 			
 			La moyenne empirique semble légèrement supérieure à la valeur théorique $\mu_0 = 85$ ms en fonctionnement normal. Il faut déterminer si cette différence est statistiquement significative ou simplement due aux fluctuations d'échantillonnage.
 		}
 		
-		\item   \question{Construire un intervalle de confiance à 95\% pour la vraie moyenne $\mu$ des temps de réponse. Interpréter ce résultat dans le contexte de la détection d'anomalies.}
+		\item   \question{A partir de l'échantillon des données collectées et d'un estimateur bien choisi, déterminer une estimation de la moyenne $\mu$ des temps de réponse du serveur à l'aide d'un intervalle de confiance à 95\%. Interpréter ce résultat.}
 		\indication{Utiliser la statistique $T = \frac{\overline{X} - \mu}{S/\sqrt{n}}$ qui suit une loi de Student à $n-1$ degrés de liberté. Le quantile d'ordre $0,975$ de la loi $t_{199}$ vaut environ $1,972$.}
 		\reponse{
 			L'intervalle de confiance à 95\% est donné par :
