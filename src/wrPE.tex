@@ -15,9 +15,9 @@
 \contenu{
 	
 	\texte{ 
-		Une entreprise de cybersécurité surveille les temps de réponse (en millisecondes) d'un serveur web critique. En fonctionnement normal, le temps de réponse moyen est de $\mu_0 = 85$ ms avec un écart-type $\sigma = 15$ ms.
+		Une entreprise de cybersécurité surveille les temps de réponse (en millisecondes) d'un serveur web critique. En fonctionnement normal, le temps de réponse moyen est de $\mu_0 = 85$ ms avec un écart-type $\sigma_0 = 15$ ms.
 		
-		Le système de détection d'intrusions doit identifier rapidement toute anomalie significative pouvant indiquer une attaque par déni de service (DDoS) ou un dysfonctionnement. Pour cela, l'équipe de sécurité collecte un échantillon de 200 requêtes consécutives et analyse leurs temps de réponse.
+		Le système de détection d'intrusions doit identifier rapidement toute anomalie significative, spécifiquement une **augmentation** du temps de réponse pouvant indiquer une attaque par déni de service (DDoS). Pour cela, l'équipe de sécurité collecte un échantillon de 200 requêtes consécutives.
 		
 		Les données collectées sont disponibles dans le fichier \texttt{temps\_reponse.csv} (une valeur par ligne).
 		
@@ -25,70 +25,60 @@
 	}
 	
 	\begin{enumerate}
-		\item   \question{Après avoir importé les données dans un tableur, calculer la moyenne empirique $\overline{x}$ et l'écart-type empirique $\sigma$ de l'échantillon. Que peut-on remarquer par rapport aux valeurs théoriques en fonctionnement normal ?}
+		\item   \question{Après avoir importé les données dans un tableur, calculer la moyenne empirique $\overline{x}$ et l'écart-type empirique $s$ de l'échantillon.}
 		\indication{Utiliser les fonctions MOYENNE() et ECARTYPE.STANDARD() du tableur.}
 		\reponse{
-			On trouve : $\overline{x} = 87{,}90$ ms et $\sigma = 13{,}78$ ms.
+			On trouve : $\overline{x} = 87{,}90$ ms et $s = 13{,}78$ ms.
 			
-			La moyenne empirique semble légèrement supérieure à la valeur théorique $\mu_0 = 85$ ms en fonctionnement normal. Il faut déterminer si cette différence est statistiquement significative ou simplement due aux fluctuations d'échantillonnage.
+			La moyenne empirique est supérieure à la valeur théorique $\mu_0 = 85$ ms.
 		}
 		
-		\item   \question{A partir de l'échantillon des données collectées et d'un estimateur bien choisi, déterminer une estimation de la moyenne $\mu$ des temps de réponse du serveur à l'aide d'un intervalle de confiance à 95\%. Interpréter ce résultat.}
-		\indication{Utiliser la statistique $T = \frac{\overline{X} - \mu}{S/\sqrt{n}}$ qui suit une loi de Student à $n-1$ degrés de liberté. Le quantile d'ordre $0,975$ de la loi $t_{199}$ vaut environ $1,972$.}
+		\item   \question{Déterminer un intervalle de confiance à 95\% pour la moyenne $\mu$ des temps de réponse. Ce résultat suggère-t-il une anomalie ?}
+		\indication{Utiliser la loi de Student. Le quantile bilatéral $t_{0,975}$ (pour 199 ddl) vaut environ $1,972$.}
 		\reponse{
-			L'intervalle de confiance à 95\% est donné par :
-			$$IC_{95\%}(\mu) = \left[\overline{x} - t_{0,975} \frac{s}{\sqrt{n}} ; \overline{x} + t_{0,975} \frac{s}{\sqrt{n}}\right]$$
+			L'intervalle de confiance bilatéral à 95\% est :
+			$$IC_{95\%}(\mu) = \left[\overline{x} - 1{,}972 \frac{s}{\sqrt{n}} ; \overline{x} + 1{,}972 \frac{s}{\sqrt{n}}\right]$$
 			
-			Application numérique :
-			$$IC_{95\%}(\mu) = \left[87{,}90 - 1{,}972 \times \frac{13{,}78}{\sqrt{200}} ; 87{,}90 + 1{,}972 \times \frac{13{,}78}{\sqrt{200}}\right]$$
+			Application numérique ($SE = 13{,}78/\sqrt{200} \approx 0{,}974$) :
 			$$IC_{95\%}(\mu) = \left[87{,}90 - 1{,}92 ; 87{,}90 + 1{,}92\right] = [85{,}98 ; 89{,}82] \text{ ms}$$
 			
-			Interprétation : Avec un niveau de confiance de 95\%, la vraie moyenne des temps de réponse se situe entre 85,98 ms et 89,82 ms. Cet intervalle \textbf{ne contient pas} la valeur $\mu_0 = 85$ ms (elle est strictement inférieure à la borne inférieure), ce qui suggère une anomalie du système qu'il faudra confirmer par un test d'hypothèse.
+			Interprétation : La valeur nominale $\mu_0 = 85$ ms n'appartient pas à cet intervalle (elle est inférieure à la borne basse), ce qui suggère une anomalie.
 		}
 		
-		\item   \question{On souhaite tester si le système fonctionne normalement. Formuler les hypothèses du test de conformité, puis effectuer le test au seuil de 5\%. Quelle est la conclusion pour l'équipe de cybersécurité ?}
-		\indication{On teste $H_0 : \mu = 85$ contre $H_1 : \mu \neq 85$. Calculer la statistique de test et la comparer à la valeur critique.}
+		\item   \question{On soupçonne une attaque DDoS. Formuler les hypothèses d'un test \textbf{unilatéral} pour confirmer une augmentation anormale du temps de réponse. Effectuer ce test au seuil de 5\%.}
+		\indication{On teste $H_0 : \mu = 85$ contre $H_1 : \mu > 85$. La région critique est de la forme $T > t_{0,95}$. Pour 199 ddl, $t_{0,95} \approx 1{,}653$.}
 		\reponse{
 			\textbf{Hypothèses :}
 			\begin{itemize}
-				\item $H_0$ : $\mu = 85$ ms (le système fonctionne normalement)
-				\item $H_1$ : $\mu \neq 85$ ms (une anomalie est présente)
+				\item $H_0$ : $\mu = 85$ ms (fonctionnement normal)
+				\item $H_1$ : $\mu > 85$ ms (augmentation du temps de réponse / attaque)
 			\end{itemize}
 			
 			\textbf{Statistique de test :}
-			$$t_{obs} = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} = \frac{87{,}90 - 85}{13{,}78/\sqrt{200}} = \frac{2{,}90}{0{,}974} \approx 2{,}97$$
+			$$t_{obs} = \frac{\overline{x} - \mu_0}{s/\sqrt{n}} = \frac{87{,}90 - 85}{0{,}974} \approx 2{,}97$$
 			
-			\textbf{Région de rejet :} Pour un test bilatéral au seuil $\alpha = 5\%$, on rejette $H_0$ si $|t_{obs}| > t_{0,975}^{(199)} \approx 1{,}972$.
+			\textbf{Région de rejet :} 
+			Puisque le test est unilatéral à droite, on place tout le risque $\alpha=5\%$ dans la queue supérieure. La valeur critique est le quantile $t_{0,95}$ de la loi Student(199).
+			$$t_{crit} \approx 1{,}653$$
+			On rejette $H_0$ si $t_{obs} > 1{,}653$.
 			
-			\textbf{Décision :} $|t_{obs}| = 2{,}97 > 1{,}972$, donc on rejette $H_0$ au seuil de 5\%.
-			
-			On peut aussi calculer la p-valeur : $p = 0{,}0033 < 0{,}05$, ce qui confirme le rejet.
-			
-			\textbf{Conclusion :} Les données fournissent une preuve statistiquement significative que le système ne fonctionne pas normalement. L'équipe de cybersécurité doit investiguer cette anomalie qui pourrait indiquer une attaque en cours ou un problème de performance.
+			\textbf{Décision :} $2{,}97 > 1{,}653$, donc on rejette $H_0$. L'augmentation du temps de réponse est statistiquement significative.
 		}
 		
-		\item   \question{En réalité, le serveur subit une attaque DDoS légère qui augmente le temps de réponse moyen à $\mu_1 = 90$ ms (avec le même écart-type $\sigma = 15$ ms). Calculer le risque de deuxième espèce $\beta$, c'est-à-dire la probabilité de ne pas détecter cette attaque. Commenter ce résultat du point de vue de la sécurité informatique.}
-		\indication{Le risque $\beta$ est la probabilité d'accepter $H_0$ alors que $\mu = \mu_1 = 90$ ms. On accepte $H_0$ si $|T| \leq 1,972$, soit si $82{,}91 \leq \overline{X} \leq 87{,}09$ environ (en utilisant $\sigma=15$). Sous l'hypothèse $\mu = 90$, calculer $\mathbb{P}(82{,}91 \leq \overline{X} \leq 87{,}09)$.}
+		\item   \question{En réalité, une attaque augmente le temps moyen à $\mu_1 = 90$ ms (avec le même écart-type $\sigma_0 = 15$ ms). Calculer la probabilité $\beta$ de ne pas détecter cette attaque avec ce test unilatéral.}
+		\indication{On accepte $H_0$ si $T \leq 1{,}653$. Traduire cette condition sur $\overline{X}$ en utilisant $\sigma_0$, puis calculer la probabilité sous la loi $\mathcal{N}(90, \sigma_0^2/n)$.}
 		\reponse{
-			\textbf{Calcul du risque de deuxième espèce :}
+			\textbf{Borne d'acceptation :}
+			On conserve $H_0$ si $t_{obs} \leq 1{,}653$, ce qui correspond à :
+			$$\frac{\overline{X} - 85}{15/\sqrt{200}} \leq 1{,}653 \iff \overline{X} \leq 85 + 1{,}653 \times 1{,}061 \iff \overline{X} \leq 86{,}75$$
 			
-			On accepte $H_0$ si la moyenne empirique vérifie :
-			$$\left|\frac{\overline{X} - 85}{\sigma/\sqrt{n}}\right| \leq 1{,}972$$
+			\textbf{Calcul du risque $\beta$ :}
+			C'est la probabilité d'accepter $H_0$ alors que $\mu = 90$.
+			Sous $H_1$, $\overline{X} \sim \mathcal{N}(90 ; 1{,}061^2)$.
+			$$\beta = \mathbb{P}(\overline{X} \leq 86{,}75) = \mathbb{P}\left(Z \leq \frac{86{,}75 - 90}{1{,}061}\right)$$
+			$$\beta = \mathbb{P}(Z \leq -3{,}06) = \Phi(-3{,}06) \approx 0{,}0011$$
 			
-			Avec $\sigma/\sqrt{n} = 15/\sqrt{200} \approx 1{,}061$, cela équivaut à :
-			$$85 - 1{,}972 \times 1{,}061 \leq \overline{X} \leq 85 + 1{,}972 \times 1{,}061$$
-			$$82{,}91 \leq \overline{X} \leq 87{,}09 \text{ ms}$$
-			
-			Si en réalité $\mu = \mu_1 = 90$ ms (attaque en cours), alors $\overline{X} \sim \mathcal{N}(90 ; \sigma^2/n)$.
-			
-			Le risque de deuxième espèce est :
-			$$\beta = \mathbb{P}_{H_1}(82{,}91 \leq \overline{X} \leq 87{,}09) = \mathbb{P}\left(\frac{82{,}91 - 90}{1{,}061} \leq Z \leq \frac{87{,}09 - 90}{1{,}061}\right)$$
-			$$\beta = \mathbb{P}(-6{,}69 \leq Z \leq -2{,}74) \approx \Phi(-2{,}74) - \Phi(-6{,}69)$$
-			$$\beta \approx 0{,}0031 - 0 \approx 0{,}0031$$
-			
-			\textbf{Interprétation :} Le risque de deuxième espèce est très faible (environ 0{,}31\%). Cela signifie que si une attaque DDoS augmente réellement le temps de réponse moyen à 90 ms, le système de détection a une probabilité de $1 - \beta = 99{,}69\%$ de la détecter avec un échantillon de 200 requêtes. 
-			
-			La puissance du test ($1-\beta \approx 0{,}997$) est excellente pour cette configuration, ce qui est rassurant du point de vue de la cybersécurité : le système de détection d'anomalies est très efficace pour identifier ce type d'attaque.
+			\textbf{Commentaire :} Le risque de manquer cette attaque est extrêmement faible ($0{,}11\%$). Le test unilatéral est plus puissant que le test bilatéral (où $\beta$ était d'environ $0{,}31\%$) car il concentre la zone de rejet du côté de l'anomalie attendue.
 		}
 		
 	\end{enumerate}

@@ -17,127 +17,77 @@
 	\texte{ 
 		Une entreprise de cybersécurité souhaite comparer l'efficacité de deux systèmes de détection d'intrusion (IDS) : le système historique \textbf{IDS-A} et un nouveau système basé sur l'intelligence artificielle \textbf{IDS-B}. 
 		
-		Pour évaluer ces systèmes, l'équipe de sécurité a réalisé des tests en conditions réelles sur deux environnements identiques pendant une période d'un mois. Les deux systèmes ont été confrontés à des scénarios d'attaques variés (injections SQL, XSS, scans de ports, déni de service, etc.).
+		On modélise l'expérience ainsi : pour le système IDS-A (respectivement B), on considère une suite de variables aléatoires $Y_{A,i}$ (respectivement $Y_{B,i}$) qui valent 1 si la $i$-ème attaque est détectée, et 0 sinon.
+		On suppose que ces variables sont indépendantes et suivent une loi de Bernoulli de paramètre $p_A$ (resp. $p_B$), où $p$ représente la probabilité réelle de détection.
 		
-		On note les variables aléatoires $X_A$ donnant le nombre d'attaques détectées sur IDS-A et $X_B$ donnant le nombre d'attaques détectées sur IDS-B. 
-		
-		\textbf{Résultats des tests :}
+		Les tests ont donné les résultats suivants :
 		\begin{itemize}
-			\item \textbf{IDS-A} : Sur $n_A = 250$ attaques, le système a détecté $X_A = 195$ attaques
-			\item \textbf{IDS-B} : Sur $n_B = 280$ attaques, le système a détecté $X_B = 238$ attaques
+			\item \textbf{IDS-A} : Sur $n_A = 250$ attaques, $X_A = \sum\limits_{i=1}^{n_A} Y_{A,i} = 195$ détections.
+			\item \textbf{IDS-B} : Sur $n_B = 280$ attaques, $X_B = \sum\limits_{i=1}^{n_B} Y_{B,i} = 238$ détections.
 		\end{itemize}
 		
-		On note $p_A$ le taux de détection réel du système IDS-A et $p_B$ celui du système IDS-B. L'objectif est de construire un intervalle de confiance à 95\% pour la différence $\Delta = p_B - p_A$ afin de quantifier le gain de performance apporté par le nouveau système.
-		
-		On supposera que les échantillons sont indépendants et que les conditions d'application du théorème central limite sont vérifiées.
+		L'objectif est de construire un intervalle de confiance à 95\% pour la différence $\Delta = p_B - p_A$ afin de quantifier le gain de performance.
 	}
 	
 	\begin{enumerate}
-		\item   \question{Choisir des estimateurs  sans biais $\hat{p}_A$ et $\hat{p}_B$ des taux de détection. En déduire une estimation sans biais de la différence $\Delta = p_B - p_A$.}
-		\indication{Les estimateurs naturels des proportions sont les fréquences empiriques.}
+		\item   \question{Proposer des estimateurs sans biais $\hat{p}_A$ et $\hat{p}_B$ des taux de détection, puis en déduire une estimation de la différence $\Delta$.}
 		\reponse{
-			Les estimateurs ponctuels des taux de détection sont :
-			$$\hat{p}_A = \frac{X_A}{n_A} = \frac{195}{250} = 0{,}78 = 78\%$$
-			$$\hat{p}_B = \frac{X_B}{n_B} = \frac{238}{280} = 0{,}85 = 85\%$$
+			On utilise les proportions empiriques (moyennes des variables de Bernoulli) :
+			$$\hat{p}_A = \frac{1}{n_A} \sum_{i=1}^{n_A} Y_{A,i} = \frac{195}{250} = 0{,}78$$
+			$$\hat{p}_B = \frac{1}{n_B} \sum_{i=1}^{n_B} Y_{B,i} = \frac{238}{280} = 0{,}85$$
 			
-			L'estimateur ponctuel de la différence est :
+			L'estimateur de la différence est :
 			$$\hat{\Delta} = \hat{p}_B - \hat{p}_A = 0{,}85 - 0{,}78 = 0{,}07 = 7\%$$
-			
-			Le nouveau système IDS-B semble avoir un taux de détection supérieur de 7 points de pourcentage par rapport au système historique IDS-A.
-		}
-		\item \question{ Donner la loi de chaque variable aléatoire $X_A$ et $X_B$. }
-		\reponse{ $X_A \sim \mathcal{B}(n_A, p_A)$ et $X_B \sim \mathcal{B}(n_B, p_B)$. }
-		\item   \question{Rappeler la variance de l'estimateur $\hat{p}_A$ (respectivement $\hat{p}_B$) en fonction de $p_A$ et $n_A$ (respectivement $p_B$ et $n_B$).}
-		\reponse{
-			Pour une proportion estimée par la fréquence empirique, la variance est :
-			$$\text{Var}(\hat{p}_A) = \frac{p_A(1-p_A)}{n_A}$$
-			$$\text{Var}(\hat{p}_B) = \frac{p_B(1-p_B)}{n_B}$$
-			
-			Ces formules proviennent du fait que $X_A \sim \mathcal{B}(n_A, p_A)$ et $X_B \sim \mathcal{B}(n_B, p_B)$.
 		}
 		
-		\item   \question{En utilisant l'indépendance des deux échantillons, exprimer la variance de l'estimateur $\hat{\Delta} = \hat{p}_B - \hat{p}_A$ en fonction de $p_A$, $p_B$, $n_A$ et $n_B$.}
-		\indication{Pour deux variables aléatoires indépendantes $X$ et $Y$, on a $\text{Var}(X - Y) = \text{Var}(X) + \text{Var}(Y)$.}
+		\item \question{Quelle est la loi suivie par les variables $X_A$ et $X_B$ (nombre total de détections) ? Rappeler leur espérance et leur variance.}
+		\reponse{ 
+			Comme sommes de $n$ variables de Bernoulli i.i.d., $X_A$ et $X_B$ suivent des lois binomiales :
+			$$X_A \sim \mathcal{B}(n_A, p_A) \quad \text{et} \quad X_B \sim \mathcal{B}(n_B, p_B)$$
+			On a $E[X_A] = n_A p_A$ et $V(X_A) = n_A p_A (1-p_A)$.
+		}
+		
+		\item   \question{Exprimer la variance des estimateurs $\hat{p}_A$ et $\hat{p}_B$.}
 		\reponse{
-			Comme les échantillons sont indépendants, $\hat{p}_A$ et $\hat{p}_B$ sont indépendants. On a donc :
-			\begin{align*}
-				\text{Var}(\hat{\Delta}) &= \text{Var}(\hat{p}_B - \hat{p}_A) \\
-				&= \text{Var}(\hat{p}_B) + \text{Var}(-\hat{p}_A) \\
-				&= \text{Var}(\hat{p}_B) + \text{Var}(\hat{p}_A) \\
-				&= \frac{p_B(1-p_B)}{n_B} + \frac{p_A(1-p_A)}{n_A}
-			\end{align*}
-			
-			L'écart-type de $\hat{\Delta}$ est donc :
+			Puisque $\hat{p}_A = \frac{X_A}{n_A}$, par propriété de la variance ($V(aX) = a^2V(X)$) :
+			$$\text{Var}(\hat{p}_A) = \text{Var}\left(\frac{X_A}{n_A}\right) = \frac{1}{n_A^2} \text{Var}(X_A) = \frac{n_A p_A(1-p_A)}{n_A^2} = \frac{p_A(1-p_A)}{n_A}$$
+			De même, $\text{Var}(\hat{p}_B) = \frac{p_B(1-p_B)}{n_B}$.
+		}
+		
+		\item   \question{En utilisant l'indépendance des échantillons, déterminer l'écart-type de l'estimateur $\hat{\Delta} = \hat{p}_B - \hat{p}_A$.}
+		\reponse{
+			L'indépendance des échantillons implique $\text{Var}(\hat{p}_B - \hat{p}_A) = \text{Var}(\hat{p}_B) + \text{Var}(\hat{p}_A)$.
+			D'où l'écart-type théorique :
 			$$\sigma_{\hat{\Delta}} = \sqrt{\frac{p_B(1-p_B)}{n_B} + \frac{p_A(1-p_A)}{n_A}}$$
 		}
 		
-		\item   \question{En pratique, les valeurs $p_A$ et $p_B$ sont inconnues. Proposer une estimation $\hat{\sigma}_{\hat{\Delta}}$ de l'écart-type de $\hat{\Delta}$.}
-		\indication{Remplacer les paramètres inconnus par leurs estimations.}
+		\item   \question{Calculer une estimation ponctuelle $\hat{\sigma}_{\hat{\Delta}}$ de cet écart-type.}
 		\reponse{
-			On estime l'écart-type de $\hat{\Delta}$ en remplaçant $p_A$ et $p_B$ par leurs estimations $\hat{p}_A$ et $\hat{p}_B$ :
-			$$\hat{\sigma}_{\hat{\Delta}} = \sqrt{\frac{\hat{p}_B(1-\hat{p}_B)}{n_B} + \frac{\hat{p}_A(1-\hat{p}_A)}{n_A}}$$
-			
-			Application numérique :
-			\begin{align*}
-				\hat{\sigma}_{\hat{\Delta}} &= \sqrt{\frac{0{,}85 \times 0{,}15}{280} + \frac{0{,}78 \times 0{,}22}{250}} \\
-				&= \sqrt{\frac{0{,}1275}{280} + \frac{0{,}1716}{250}} \\
-				&= \sqrt{0{,}000455 + 0{,}000686} \\
-				&= \sqrt{0{,}001141} \\
-				&\approx 0{,}0338
-			\end{align*}
-			
-			L'écart-type estimé de $\hat{\Delta}$ est donc d'environ $0{,}034$ ou $3{,}4\%$.
+			On remplace les $p$ inconnus par les $\hat{p}$ observés :
+			$$\hat{\sigma}_{\hat{\Delta}} = \sqrt{\frac{0{,}85(0{,}15)}{280} + \frac{0{,}78(0{,}22)}{250}} = \sqrt{0{,}000455 + 0{,}000686} \approx 0{,}0338$$
 		}
 		
-		\item   \question{D'après le théorème central limite, quelle est la loi approximative de la variable aléatoire $\frac{\hat{\Delta} - \Delta}{\sigma_{\hat{\Delta}}}$ pour des tailles d'échantillons suffisamment grandes ?}
-		\indication{Le TCL s'applique car $\hat{\Delta}$ est une somme (avec coefficients) de variables aléatoires.}
+		\item   \question{Justifier que la variable $\hat{\Delta}$ suit approximativement une loi normale et préciser ses paramètres.}
+		\indication{Utiliser le Théorème Central Limite sur $\hat{p}_A$ et $\hat{p}_B$ séparément.}
 		\reponse{
-			D'après le théorème central limite, pour des tailles d'échantillons suffisamment grandes (conditions vérifiées ici avec $n_A = 250$ et $n_B = 280$), on a :
-			$$\frac{\hat{\Delta} - \Delta}{\sigma_{\hat{\Delta}}} \xrightarrow{\mathcal{L}} \mathcal{N}(0, 1)$$
+			Les estimateurs $\hat{p}_A$ et $\hat{p}_B$ sont des moyennes de variables i.i.d. (Bernoulli).
+			Comme $n_A$ et $n_B$ sont grands ($\geq 30$ et $np(1-p) \geq 5$), le \textbf{Théorème Central Limite} s'applique à chacun d'eux :
+			$$\hat{p}_A \approx \mathcal{N}\left(p_A, \frac{p_A q_A}{n_A}\right) \quad \text{et} \quad \hat{p}_B \approx \mathcal{N}\left(p_B, \frac{p_B q_B}{n_B}\right)$$
 			
-			Autrement dit, la variable aléatoire $\hat{\Delta}$ suit approximativement une loi normale :
-			$$\hat{\Delta} \sim \mathcal{N}\left(\Delta, \sigma_{\hat{\Delta}}^2\right)$$
+			La différence de deux variables aléatoires indépendantes suivant une loi normale suit elle-même une loi normale (dont l'espérance est la différence des espérances et la variance la somme des variances).
+			Ainsi :
+			$$\hat{\Delta} = \hat{p}_B - \hat{p}_A \sim \mathcal{N}\left(\Delta, \sigma_{\hat{\Delta}}^2\right)$$
 			
-			En pratique, comme $\sigma_{\hat{\Delta}}$ est inconnu, on le remplace par son estimation $\hat{\sigma}_{\hat{\Delta}}$, et on utilise :
-			$$\frac{\hat{\Delta} - \Delta}{\hat{\sigma}_{\hat{\Delta}}} \overset{\text{approx.}}{\sim} \mathcal{N}(0, 1)$$
+			La variable centrée réduite suit donc approximativement une loi normale standard $\mathcal{N}(0,1)$.
 		}
 		
-		\item   \question{En utilisant le résultat précédent, construire un intervalle de confiance à 95\% pour la différence $\Delta = p_B - p_A$. Interpréter ce résultat du point de vue de l'équipe de cybersécurité.}
-		\indication{Pour une loi normale centrée réduite, $\mathbb{P}(-1{,}96 \leq Z \leq 1{,}96) = 0{,}95$.}
+		\item   \question{Construire l'intervalle de confiance à 95\% pour le gain de performance $\Delta$ et conclure.}
 		\reponse{
-			Pour un niveau de confiance de 95\%, on utilise le quantile $z_{0{,}975} = 1{,}96$ de la loi normale centrée réduite.
+			$$IC_{95\%} = \left[\hat{\Delta} - 1{,}96 \cdot \hat{\sigma}_{\hat{\Delta}} \: ; \: \hat{\Delta} + 1{,}96 \cdot \hat{\sigma}_{\hat{\Delta}}\right]$$
+			$$IC_{95\%} = [0{,}07 - 1{,}96(0{,}0338) \: ; \: 0{,}07 + 1{,}96(0{,}0338)]$$
+			$$IC_{95\%} = [0{,}0038 \: ; \: 0{,}1362] = [0{,}38\% \: ; \: 13{,}62\%]$$
 			
-			On a :
-			$$\mathbb{P}\left(-1{,}96 \leq \frac{\hat{\Delta} - \Delta}{\hat{\sigma}_{\hat{\Delta}}} \leq 1{,}96\right) \approx 0{,}95$$
-			
-			En isolant $\Delta$, on obtient :
-			$$\mathbb{P}\left(\hat{\Delta} - 1{,}96 \times \hat{\sigma}_{\hat{\Delta}} \leq \Delta \leq \hat{\Delta} + 1{,}96 \times \hat{\sigma}_{\hat{\Delta}}\right) \approx 0{,}95$$
-			
-			L'intervalle de confiance à 95\% pour $\Delta$ est donc :
-			$$IC_{95\%}(\Delta) = \left[\hat{\Delta} - 1{,}96 \times \hat{\sigma}_{\hat{\Delta}} ; \hat{\Delta} + 1{,}96 \times \hat{\sigma}_{\hat{\Delta}}\right]$$
-			
-			Application numérique :
-			\begin{align*}
-				IC_{95\%}(\Delta) &= [0{,}07 - 1{,}96 \times 0{,}0338 ; 0{,}07 + 1{,}96 \times 0{,}0338] \\
-				&= [0{,}07 - 0{,}0662 ; 0{,}07 + 0{,}0662] \\
-				&= [0{,}0038 ; 0{,}1362]
-			\end{align*}
-			
-			Soit environ $[0{,}38\% ; 13{,}62\%]$.
-			
-			\textbf{Interprétation pour l'équipe de cybersécurité :}
-			
-			Avec un niveau de confiance de 95\%, l'amélioration du taux de détection apportée par le système IDS-B par rapport au système IDS-A se situe entre 0,38 et 13,62 points de pourcentage.
-			
-			\textbf{Conclusions importantes :}
-			\begin{itemize}
-				\item L'intervalle de confiance est entièrement positif (ne contient pas 0), ce qui prouve statistiquement que le système IDS-B est significativement plus performant que le système IDS-A.
-				\item L'amélioration minimale attendue est d'au moins 0,38\%, ce qui justifie le déploiement du nouveau système.
-				\item L'amélioration pourrait aller jusqu'à 13,62\%, ce qui représenterait un gain majeur en termes de sécurité.
-				\item L'estimation ponctuelle de 7\% d'amélioration est au milieu de cet intervalle, ce qui renforce la confiance dans cette valeur.
-			\end{itemize}
-			
-			L'équipe peut donc recommander le déploiement du système IDS-B avec une forte assurance statistique de son efficacité supérieure.
+			\textbf{Conclusion :} L'intervalle est strictement positif (la borne inférieure $0{,}38\% > 0$). On peut affirmer avec 95\% de confiance que le nouveau système IDS-B détecte plus d'attaques que l'ancien, avec un gain compris entre 0,4\% et 13,6\%.
 		}
 		
 	\end{enumerate}
