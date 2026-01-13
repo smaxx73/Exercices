@@ -1,0 +1,43 @@
+\uuid{N2bK}
+\titre{Reste de la division de $X^n + X + 1$ par $(X-1)^2$}
+\niveau{L1}
+\module{Algèbre}
+\chapitre{Polynômes}
+\sousChapitre{Division euclidienne}
+\theme{Division euclidienne de polynômes}
+\auteur{}
+\datecreate{2026-01-13}
+\organisation{}
+\difficulte{2}
+\contenu{
+	\texte{ 
+		Pour $n \in \mathbb{N}$, on considère le polynôme $P_n(X) = X^n + X + 1$. 
+		On cherche à déterminer le reste de la division euclidienne de $P_n(X)$ par $D(X) = (X-1)^2$.
+	}
+	\begin{enumerate}
+		\item   \question{Justifier que le reste $R(X)$ de cette division euclidienne est de la forme $R(X) = \alpha X + \beta$ où $\alpha, \beta \in \mathbb{R}$.}
+		\indication{Quel est le degré du diviseur $D(X)$ ?}
+		\reponse{Le diviseur $D(X) = (X-1)^2$ est de degré 2. Le reste d'une division euclidienne par un polynôme de degré 2 est un polynôme de degré strictement inférieur à 2, donc de degré au plus 1. Ainsi $R(X) = \alpha X + \beta$ avec $\alpha, \beta \in \mathbb{R}$.}
+		
+		\item   \question{Écrire la division euclidienne de $P_n(X)$ par $D(X)$, puis en déduire une première relation entre $\alpha$ et $\beta$ en évaluant cette égalité en $X = 1$.}
+		\indication{On a $P_n(X) = Q_n(X) \cdot (X-1)^2 + \alpha X + \beta$ où $Q_n(X)$ est le quotient. Que vaut $(X-1)^2$ en $X=1$ ?}
+		\reponse{On a $P_n(X) = Q_n(X) \cdot (X-1)^2 + \alpha X + \beta$. En évaluant en $X=1$ : 
+			$$P_n(1) = Q_n(1) \cdot 0 + \alpha + \beta$$
+			Or $P_n(1) = 1 + 1 + 1 = 3$, donc $\alpha + \beta = 3$.}
+		
+		\item   \question{Dériver l'égalité obtenue à la question précédente, puis en déduire une deuxième relation en évaluant la dérivée en $X = 1$.}
+		\indication{Utiliser la dérivée d'un produit. Que vaut $(X-1)$ en $X=1$ ?}
+		\reponse{En dérivant $P_n(X) = Q_n(X) \cdot (X-1)^2 + \alpha X + \beta$, on obtient :
+			$$P_n'(X) = Q_n'(X) \cdot (X-1)^2 + Q_n(X) \cdot 2(X-1) + \alpha$$
+			En évaluant en $X=1$ : $P_n'(1) = 0 + 0 + \alpha$.
+			Or $P_n'(X) = nX^{n-1} + 1$, donc $P_n'(1) = n + 1$.
+			Ainsi $\alpha = n + 1$.}
+		
+		\item   \question{Conclure en donnant l'expression du reste $R_n(X)$ en fonction de $n$.}
+		\indication{Utiliser les deux relations obtenues précédemment.}
+		\reponse{Des deux relations $\alpha + \beta = 3$ et $\alpha = n+1$, on déduit :
+			$$\beta = 3 - \alpha = 3 - (n+1) = 2 - n$$
+			Le reste de la division euclidienne de $X^n + X + 1$ par $(X-1)^2$ est donc :
+			$$\boxed{R_n(X) = (n+1)X + (2-n)}$$}
+	\end{enumerate}
+}

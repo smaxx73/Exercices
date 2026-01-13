@@ -1,0 +1,134 @@
+\uuid{KA01}
+\titre{Matrices de permutation et signature}
+\niveau{L1} 
+\module{Algèbre} 
+\chapitre{Matrices}   
+\sousChapitre{Produit matriciel et déterminant}
+\theme{Matrices de permutation, groupe symétrique}
+\auteur{Maxime Nguyen}
+\datecreate{2026-01-13}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+	\texte{ 
+		Une matrice de permutation est une matrice carrée qui contient exactement un $1$ par ligne et un $1$ par colonne, et des $0$ partout ailleurs. Ces matrices permettent de réordonner les composantes d'un vecteur.
+		
+		On considère les trois matrices suivantes :
+		$$P_1 = \begin{pmatrix} 
+			0 & 1 & 0 \\ 
+			1 & 0 & 0 \\ 
+			0 & 0 & 1 
+		\end{pmatrix}, \quad
+		P_2 = \begin{pmatrix} 
+			0 & 0 & 1 \\ 
+			1 & 0 & 0 \\ 
+			0 & 1 & 0 
+		\end{pmatrix}, \quad
+		P_3 = \begin{pmatrix} 
+			1 & 0 & 0 \\ 
+			0 & 0 & 1 \\ 
+			0 & 1 & 0 
+		\end{pmatrix}$$
+	}
+	\begin{enumerate}
+		\item   \question{Soit ${v} = \begin{pmatrix} a \\ b \\ c \end{pmatrix}$ une matrice colonne quelconque. Calculer $P_1 {v}$, $P_2 {v}$ et $P_3 {v}$. Interpréter  l'effet de chaque matrice sur les composantes de $v$.}
+		\indication{Observer comment les composantes du vecteur sont réordonnées.}
+		\reponse{
+			$$P_1 \vec{v} = \begin{pmatrix} b \\ a \\ c \end{pmatrix}, \quad
+			P_2 \vec{v} = \begin{pmatrix} c \\ a \\ b \end{pmatrix}, \quad
+			P_3 \vec{v} = \begin{pmatrix} a \\ c \\ b \end{pmatrix}$$
+			
+			Interprétation :
+			\begin{itemize}
+				\item $P_1$ échange les deux premières composantes (transposition de positions 1 et 2)
+				\item $P_2$ effectue une permutation circulaire : $1 \to 3 \to 2 \to 1$
+				\item $P_3$ échange les deux dernières composantes (transposition de positions 2 et 3)
+			\end{itemize}
+		}
+		
+		\item   \question{Calculer $\det(P_1)$, $\det(P_2)$ et $\det(P_3)$.}
+		\indication{Pour une matrice 3×3, on peut développer par rapport à une ligne ou colonne contenant beaucoup de zéros.}
+		\reponse{
+			Pour $P_1$, développement par la troisième ligne :
+			$$\det(P_1) = 1 \cdot \begin{vmatrix} 0 & 1 \\ 1 & 0 \end{vmatrix} = -1$$
+			
+			Pour $P_2$, développement par la première colonne :
+			$$\det(P_2) = 1 \cdot \begin{vmatrix} 0 & 1 \\ 1 & 0 \end{vmatrix} = 1$$
+			
+			Pour $P_3$, développement par la première ligne :
+			$$\det(P_3) = 1 \cdot \begin{vmatrix} 0 & 1 \\ 1 & 0 \end{vmatrix} = -1$$
+		}
+		
+		\item   \question{Calculer le produit $P_1 \times P_3$, $P_2^2$ et $P_2^3$. }
+
+		\reponse{
+			$$P_1 \cdot P_3 = \begin{pmatrix} 
+				0 & 1 & 0 \\ 
+				1 & 0 & 0 \\ 
+				0 & 0 & 1 
+			\end{pmatrix}
+			\begin{pmatrix} 
+				1 & 0 & 0 \\ 
+				0 & 0 & 1 \\ 
+				0 & 1 & 0 
+			\end{pmatrix}
+			= \begin{pmatrix} 
+				0 & 0 & 1 \\ 
+				1 & 0 & 0 \\ 
+				0 & 1 & 0 
+			\end{pmatrix}$$
+			
+			On reconnaît $P_1 \times P_3 = P_2$.
+			
+
+			$$P_2^2 = \begin{pmatrix} 
+				0 & 0 & 1 \\ 
+				1 & 0 & 0 \\ 
+				0 & 1 & 0 
+			\end{pmatrix}^2
+			= \begin{pmatrix} 
+				0 & 1 & 0 \\ 
+				0 & 0 & 1 \\ 
+				1 & 0 & 0 
+			\end{pmatrix}$$
+			
+			$$P_2^3 = P_2^2 \cdot P_2 = \begin{pmatrix} 
+				0 & 1 & 0 \\ 
+				0 & 0 & 1 \\ 
+				1 & 0 & 0 
+			\end{pmatrix}
+			\begin{pmatrix} 
+				0 & 0 & 1 \\ 
+				1 & 0 & 0 \\ 
+				0 & 1 & 0 
+			\end{pmatrix}
+			= \begin{pmatrix} 
+				1 & 0 & 0 \\ 
+				0 & 1 & 0 \\ 
+				0 & 0 & 1 
+			\end{pmatrix} = I_3$$
+			
+			La matrice $P_2$ est d'ordre 3 : appliquer trois fois la permutation circulaire ramène à l'identité.
+		}
+		
+		\item   \question{Application : Lors d'une transmission radio sécurisée, un message est codé par blocs de 3 symboles. Pour brouiller la transmission, on applique la permutation $P_2$ à chaque bloc. Le message reçu est $(7, 2, 5)$. Quel était le message initial ?}
+		\indication{Il faut appliquer la permutation inverse. Quelle est la matrice inverse de $P_2$ ?}
+		\reponse{
+			Puisque $P_2^3 = I_3$, on a $P_2^{-1} = P_2^2$.
+			
+			Le message initial est :
+			$$\vec{m} = P_2^{-1} \begin{pmatrix} 7 \\ 2 \\ 5 \end{pmatrix} 
+			= P_2^2 \begin{pmatrix} 7 \\ 2 \\ 5 \end{pmatrix}
+			= \begin{pmatrix} 
+				0 & 1 & 0 \\ 
+				0 & 0 & 1 \\ 
+				1 & 0 & 0 
+			\end{pmatrix}
+			\begin{pmatrix} 7 \\ 2 \\ 5 \end{pmatrix}
+			= \begin{pmatrix} 2 \\ 5 \\ 7 \end{pmatrix}$$
+			
+			Le message initial était $(2, 5, 7)$.
+		}
+		
+	\end{enumerate}
+}

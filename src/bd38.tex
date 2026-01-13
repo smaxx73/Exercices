@@ -1,0 +1,142 @@
+\uuid{bd38}
+\titre{Factorisation de polynôme et décomposition en éléments simples}
+\niveau{L1}
+\module{Algèbre}
+\chapitre{Polynômes}
+\sousChapitre{Factorisation et fractions rationnelles}
+\theme{Racines de polynômes, décomposition en éléments simples}
+\auteur{}
+\datecreate{2026-01-13}
+\organisation{}
+\difficulte{3}
+\contenu{
+	\texte{
+		On pose le polynôme $$Q(X)=X^3-(\sqrt{2}+5)X^2+(1+5\sqrt{2})X-5.$$}
+	\begin{enumerate}
+		\item \question{Montrer que $5$ est racine simple de $Q$.}
+		\indication{Calculer $Q(5)$ et vérifier que $Q'(5) \neq 0$.}
+		\reponse{
+			$$Q(5) = 125 - (\sqrt{2}+5) \times 25 + (1+5\sqrt{2}) \times 5 - 5$$
+			$$= 125 - 25\sqrt{2} - 125 + 5 + 25\sqrt{2} - 5 = 0$$
+			
+			Donc $5$ est racine de $Q$.
+			
+			Calculons $Q'(X) = 3X^2 - 2(\sqrt{2}+5)X + (1+5\sqrt{2})$.
+			
+			$$Q'(5) = 3 \times 25 - 2(\sqrt{2}+5) \times 5 + (1+5\sqrt{2})$$
+			$$= 75 - 10\sqrt{2} - 50 + 1 + 5\sqrt{2}$$
+			$$= 26 - 5\sqrt{2} \neq 0$$
+			
+			Donc $5$ est racine simple de $Q$.
+		}
+		
+		\item \question{Déterminer $S$ le polynôme de degré $2$ vérifiant l'égalité suivante:
+			$$Q(X)=(X-5)S(X).$$
+			Le polynôme $S$ est-il irréductible dans $\mathbb{R}[X]$?}
+		\indication{Effectuer la division euclidienne de $Q$ par $(X-5)$ ou utiliser la méthode d'identification.}
+		\reponse{
+			On cherche $S(X) = X^2 + pX + q$ tel que $Q(X) = (X-5)S(X)$.
+			
+			Par identification des coefficients ou division euclidienne :
+			$$(X-5)(X^2+pX+q) = X^3 + pX^2 + qX - 5X^2 - 5pX - 5q$$
+			$$= X^3 + (p-5)X^2 + (q-5p)X - 5q$$
+			
+			En identifiant avec $Q(X) = X^3 - (\sqrt{2}+5)X^2 + (1+5\sqrt{2})X - 5$ :
+			\begin{itemize}
+				\item Coefficient de $X^2$ : $p - 5 = -(\sqrt{2}+5)$ donc $p = -\sqrt{2}$
+				\item Terme constant : $-5q = -5$ donc $q = 1$
+				\item Vérification avec le coefficient de $X$ : $q - 5p = 1 - 5(-\sqrt{2}) = 1 + 5\sqrt{2}$ ✓
+			\end{itemize}
+			
+			Donc $S(X) = X^2 - \sqrt{2}X + 1$.
+			
+			Pour savoir si $S$ est irréductible dans $\mathbb{R}[X]$, calculons son discriminant :
+			$$\Delta = 2 - 4 = -2 < 0$$
+			
+			Puisque $\Delta < 0$, le polynôme $S$ n'a pas de racine réelle, donc $S$ est irréductible dans $\mathbb{R}[X]$.
+		}
+		
+		\item \question{Déterminer les racines complexes de $S$ et donner sa décomposition en facteurs irréductibles dans $\mathbb{C}[X]$.}
+		\indication{Utiliser la formule du discriminant pour trouver les racines complexes.}
+		\reponse{
+			Le discriminant est $\Delta = -2$, donc les racines sont :
+			$$z_1 = \frac{\sqrt{2} + i\sqrt{2}}{2} = \frac{\sqrt{2}}{2}(1+i) \quad \text{et} \quad z_2 = \overline{z_1} = \frac{\sqrt{2}}{2}(1-i)$$
+			
+			La décomposition en facteurs irréductibles dans $\mathbb{C}[X]$ est :
+			$$S(X) = \left(X - \frac{\sqrt{2}}{2}(1+i)\right)\left(X - \frac{\sqrt{2}}{2}(1-i)\right)$$
+			
+			La décomposition complète de $Q$ dans $\mathbb{C}[X]$ est :
+			$$Q(X) = (X-5)\left(X - \frac{\sqrt{2}}{2}(1+i)\right)\left(X - \frac{\sqrt{2}}{2}(1-i)\right)$$
+		}
+		
+		\item \question{Dans cette question on se propose de déterminer la décomposition en éléments simples sur $\mathbb{R}(X)$ de $\frac{1}{Q(X)},$ c'est-à-dire l'existence de 3 coefficients $a,b,c$ réels tels que
+			$$\frac{1}{Q(X)}=\frac{a}{X-5}+\frac{bX+c}{S(X)}.$$
+		}
+		On supposera que cette décomposition existe pour la suite.
+		\begin{itemize}
+			\item \question{Calculer $\lim_{X \to +\infty}\frac{X}{Q(X)}$ de deux façons différentes puis en déduire que $a+b=0$.}
+			\indication{Première méthode : comportement asymptotique. Seconde méthode : utiliser la décomposition proposée.}
+			\reponse{
+				\textbf{Première méthode :} 
+				$$\lim_{X \to +\infty} \frac{X}{Q(X)} = \lim_{X \to +\infty} \frac{X}{X^3(1 + o(1))} = \lim_{X \to +\infty} \frac{1}{X^2} = 0$$
+				
+				\textbf{Seconde méthode :} En multipliant la décomposition par $X$ :
+				$$\frac{X}{Q(X)} = \frac{aX}{X-5} + \frac{(bX+c)X}{S(X)}$$
+				
+				Quand $X \to +\infty$ :
+				$$\frac{aX}{X-5} \sim \frac{aX}{X} = a \quad \text{et} \quad \frac{(bX+c)X}{S(X)} \sim \frac{bX^2}{X^2} = b$$
+				
+				Donc $\lim_{X \to +\infty} \frac{X}{Q(X)} = a + b$.
+				
+				Par unicité de la limite : $a + b = 0$.
+			}
+			
+			\item \question{Calculer la limite quand $X$ tend vers $5$ de $\frac{X-5}{Q(X)}$ de deux façons différentes. En déduire $a$ puis $b$.}
+			\indication{Utiliser le fait que $5$ est racine simple.}
+			\reponse{
+				\textbf{Première méthode :} Puisque $Q(X) = (X-5)S(X)$ :
+				$$\lim_{X \to 5} \frac{X-5}{Q(X)} = \lim_{X \to 5} \frac{X-5}{(X-5)S(X)} = \lim_{X \to 5} \frac{1}{S(X)} = \frac{1}{S(5)}$$
+				
+				Calculons $S(5) = 25 - 5\sqrt{2} + 1 = 26 - 5\sqrt{2}$.
+				
+				Donc $\lim_{X \to 5} \frac{X-5}{Q(X)} = \frac{1}{26-5\sqrt{2}}$.
+				
+				\textbf{Seconde méthode :} En multipliant la décomposition par $(X-5)$ :
+				$$\frac{X-5}{Q(X)} = a + \frac{(bX+c)(X-5)}{S(X)}$$
+				
+				Quand $X \to 5$, le second terme tend vers $0$ car $(X-5) \to 0$ et $S(5) \neq 0$.
+				
+				Donc $\lim_{X \to 5} \frac{X-5}{Q(X)} = a$.
+				
+				Par unicité : $a = \frac{1}{26-5\sqrt{2}}$.
+				
+				On peut rationaliser : $a = \frac{26+5\sqrt{2}}{(26-5\sqrt{2})(26+5\sqrt{2})} = \frac{26+5\sqrt{2}}{676-50} = \frac{26+5\sqrt{2}}{626}$.
+				
+				Comme $a + b = 0$, on a $b = -a = -\frac{26+5\sqrt{2}}{626}$.
+			}
+			
+			\item \question{En posant $X=0$ déterminer $c$ puis donner la décomposition en éléments simples de $\frac{1}{Q(X)}$ sur $\mathbb{R}(X)$.}
+			\indication{Évaluer l'égalité en $X=0$ et utiliser les valeurs de $a$ et $b$ déjà trouvées.}
+			\reponse{
+				En posant $X = 0$ dans la décomposition :
+				$$\frac{1}{Q(0)} = \frac{a}{-5} + \frac{c}{S(0)}$$
+				
+				On a $Q(0) = -5$ et $S(0) = 1$, donc :
+				$$\frac{1}{-5} = \frac{a}{-5} + c$$
+				
+				D'où $-\frac{1}{5} = -\frac{a}{5} + c$, soit $c = \frac{a-1}{5}$.
+				
+				Avec $a = \frac{26+5\sqrt{2}}{626}$ :
+				$$c = \frac{1}{5}\left(\frac{26+5\sqrt{2}}{626} - 1\right) = \frac{1}{5} \cdot \frac{26+5\sqrt{2}-626}{626} = \frac{-600+5\sqrt{2}}{3130}$$
+				
+				On peut simplifier en divisant numérateur et dénominateur par 5 : $c = \frac{-120+\sqrt{2}}{626}$.
+				
+				La décomposition en éléments simples est :
+				$$\frac{1}{Q(X)} = \frac{26+5\sqrt{2}}{626(X-5)} + \frac{-\frac{26+5\sqrt{2}}{626}X + \frac{-120+\sqrt{2}}{626}}{X^2-\sqrt{2}X+1}$$
+				
+				Soit, en factorisant par $\frac{1}{626}$ et en arrangeant les signes :
+				$$\frac{1}{Q(X)} = \frac{1}{626}\left[\frac{26+5\sqrt{2}}{X-5} - \frac{(26+5\sqrt{2})X + 120-\sqrt{2}}{X^2-\sqrt{2}X+1}\right]$$
+			}
+		\end{itemize}
+	\end{enumerate}
+}

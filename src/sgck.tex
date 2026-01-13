@@ -1,0 +1,108 @@
+\uuid{sgck}
+\titre{Système linéaire paramétré}
+\niveau{L1} 
+\module{Algèbre} 
+\chapitre{Systèmes linéaires}   
+\sousChapitre{Systèmes paramétrés}
+\theme{Étude selon un paramètre, déterminant}
+\auteur{Maxime Nguyen (Corrigé)}
+\datecreate{2026-01-13}
+\organisation{AMSCC}
+\difficulte{3}
+\contenu{
+	\texte{ 
+		Soit $\lambda \in \mathbb{R}$ un paramètre réel. On considère le système linéaire suivant :
+		\begin{equation*}
+			(S_\lambda) : 
+			\begin{cases}
+				(\lambda - 1)x + 2z = 1 \\
+				y = 2 \\
+				x + \lambda z = 1
+			\end{cases}
+		\end{equation*}
+	}
+	\begin{enumerate}
+		\item   \question{Écrire la matrice $A_\lambda$ et le vecteur $b$ associés au système $(S_\lambda)$.}
+		\reponse{
+			$$A_\lambda = \begin{pmatrix} 
+				\lambda-1 & 0 & 2 \\ 
+				0 & 1 & 0 \\ 
+				1 & 0 & \lambda 
+			\end{pmatrix}
+			\quad \text{et} \quad
+			b = \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix}$$
+		}
+		
+		\item   \question{Calculer le déterminant $\det(A_\lambda)$ en fonction de $\lambda$ et déterminer ses racines.}
+		\reponse{
+			On développe par rapport à la deuxième ligne (qui ne contient qu'un seul coefficient non nul égal à 1) :
+			$$\det(A_\lambda) = 1 \cdot \begin{vmatrix} \lambda-1 & 2 \\ 1 & \lambda \end{vmatrix} 
+			= (\lambda-1)\lambda - 2 = \lambda^2 - \lambda - 2$$
+			
+			On cherche les racines du polynôme : $\Delta = (-1)^2 - 4(1)(-2) = 1 + 8 = 9$.
+			Les solutions sont $\lambda_1 = \frac{1 - 3}{2} = -1$ et $\lambda_2 = \frac{1 + 3}{2} = 2$.
+			
+			Ainsi : $\det(A_\lambda) = (\lambda + 1)(\lambda - 2)$.
+		}
+		
+		\item   \question{Pour quelles valeurs de $\lambda$ le système admet-il une solution unique ?}
+		\reponse{
+			D'après le théorème de Cramer, le système admet une solution unique si et seulement si $\det(A_\lambda) \neq 0$.
+			Le système admet donc une solution unique pour tout $\lambda \in \mathbb{R} \setminus \{-1, 2\}$.
+		}
+		
+		\item   \question{Pour $\lambda = 2$, le système a-t-il des solutions ? Si oui, déterminer l'ensemble des solutions.}
+		\indication{Le déterminant est nul, il n'y a pas de solution unique. Étudier les équations.}
+		\reponse{
+			Pour $\lambda = 2$, on a $\det(A_2) = 0$. Le système s'écrit :
+			\begin{equation*}
+				\begin{cases}
+					x + 2z = 1 \quad (L_1) \\
+					y = 2 \\
+					x + 2z = 1 \quad (L_3)
+				\end{cases}
+			\end{equation*}
+			Les lignes $L_1$ et $L_3$ sont identiques. Le système se réduit à deux équations :
+			$y = 2$ et $x = 1 - 2z$.
+			
+			Le système est **compatible** mais indéterminé (une infinité de solutions). On choisit $z$ comme paramètre libre.
+			L'ensemble des solutions est :
+			$$\mathcal{S} = \left\{ (1 - 2k, 2, k) \mid k \in \mathbb{R} \right\}$$
+		}
+		
+		\item   \question{Pour $\lambda = -1$, le système a-t-il des solutions ? Si oui, déterminer l'ensemble des solutions.}
+		\reponse{
+			Pour $\lambda = -1$, on a $\det(A_{-1}) = 0$. Le système s'écrit :
+			\begin{equation*}
+				\begin{cases}
+					-2x + 2z = 1 \\
+					y = 2 \\
+					x - z = 1
+				\end{cases}
+			\end{equation*}
+			La troisième équation donne $x - z = 1 \iff -2x + 2z = -2$ (en multipliant par -2).
+			
+			En comparant avec la première équation ($-2x + 2z = 1$), on obtient une contradiction : $1 = -2$.
+			
+			Le système est **incompatible**. L'ensemble des solutions est vide : $\mathcal{S} = \emptyset$.
+		}
+		
+		\item   \question{Pour $\lambda = 0$, résoudre le système.}
+		\reponse{
+			Pour $\lambda = 0$, $\det(A_0) = -2 \neq 0$, donc la solution est unique. Le système devient :
+			\begin{equation*}
+				\begin{cases}
+					-x + 2z = 1 \quad (1) \\
+					y = 2 \\
+					x = 1 \quad (3)
+				\end{cases}
+			\end{equation*}
+			On a directement $x=1$ et $y=2$.
+			
+			On remplace $x$ dans l'équation (1) :
+			$-1 + 2z = 1 \implies 2z = 2 \implies z = 1$.
+			
+			La solution unique est $(x, y, z) = (1, 2, 1)$.
+		}
+	\end{enumerate}
+}
