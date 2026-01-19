@@ -5,18 +5,51 @@
 \sousChapitre{Fraction rationnelle}
 \titre{ Décomposition d'une fraction rationnelle }
 \theme{polynômes, fractions rationnelles}
-\auteur{}
+\auteur{Quentin Liard}
 \datecreate{2024-01-31}
 \organisation{AMSCC}
 
-\difficulte{}
+\difficulte{2}
 \contenu{
-    Soit le polynôme $P \in \R[X]$ défini par : $$P(X) = (X^{2}+1)^2-X^2.$$
-
-    \begin{enumerate}
-    \item Démontrer l'égalité $P(X)=(X^2+X+1)(X^2-X+1)$.
-    \item Déterminer les racines réelles ou complexes des polynômes $X^2+X+1$ et $X^2-X+1$.
-    \item Déterminer des constantes $a,b,c,d \in \R$ telles que : 
-    $$\frac{1}{P(X)}=\frac{aX+b}{X^2+X+1}+\frac{cX+d}{X^2+X+1}.$$
-    \end{enumerate}
+	\texte{  Soit le polynôme $P \in \R[X]$ défini par : $$P(X) = (X^{2}+1)^2-X^2.$$ }
+	
+	\begin{enumerate}
+		\item \question{ Démontrer l'égalité $P(X)=(X^2+X+1)(X^2-X+1)$. }
+		\solution{
+			On reconnaît une identité remarquable de la forme $A^2-B^2$ avec $A=X^2+1$ et $B=X$. Ainsi :
+			$$ P(X) = (X^2+1)^2 - X^2 = ((X^2+1)-X)((X^2+1)+X) $$
+			Ce qui donne bien :
+			$$ P(X) = (X^2-X+1)(X^2+X+1) $$
+		}
+		
+		\item \question{ Déterminer les racines réelles ou complexes des polynômes $X^2+X+1$ et $X^2-X+1$. }
+		\solution{
+			\begin{itemize}
+				\item Pour $X^2+X+1$ : Le discriminant est $\Delta = 1^2 - 4 = -3 = (i\sqrt{3})^2$. Les deux racines complexes conjuguées sont :
+				$$ x_1 = \frac{-1-i\sqrt{3}}{2} = \bar{j} \quad \text{et} \quad x_2 = \frac{-1+i\sqrt{3}}{2} = j $$
+				\item Pour $X^2-X+1$ : Le discriminant est $\Delta = (-1)^2 - 4 = -3$. Les deux racines complexes conjuguées sont :
+				$$ x_3 = \frac{1-i\sqrt{3}}{2} = -j \quad \text{et} \quad x_4 = \frac{1+i\sqrt{3}}{2} = -j^2 $$
+			\end{itemize}
+		}
+		
+		\item \question{ Déterminer des constantes $a,b,c,d \in \R$ telles que : 
+			$$\frac{1}{P(X)}=\frac{aX+b}{X^2+X+1}+\frac{cX+d}{X^2-X+1}.$$ }
+		\solution{
+			On réduit l'expression de droite au même dénominateur :
+			$$ \frac{aX+b}{X^2+X+1}+\frac{cX+d}{X^2-X+1} = \frac{(aX+b)(X^2-X+1) + (cX+d)(X^2+X+1)}{P(X)} $$
+			Pour avoir l'égalité avec $\frac{1}{P(X)}$, il faut que le numérateur soit égal à 1 pour tout $X$ :
+			$$ (aX+b)(X^2-X+1) + (cX+d)(X^2+X+1) = 1 $$
+			On peut développer et identifier les coefficients, ou utiliser la parité. $P(X)$ étant pair, la fraction rationnelle est paire. En changeant $X$ en $-X$, on obtient que $c=-a$ et $d=b$.
+			
+			L'équation devient :
+			$$ (aX+b)(X^2-X+1) + (-aX+b)(X^2+X+1) = 1 $$
+			$$ a(X^3-X^2+X) + b(X^2-X+1) - a(X^3+X^2+X) + b(X^2+X+1) = 1 $$
+			$$ -2aX^2 + 2bX^2 + 2b = 1 $$
+			$$ 2(b-a)X^2 + 2b = 1 $$
+			Par identification des coefficients :
+			$$ \begin{cases} 2b = 1 \\ 2(b-a) = 0 \end{cases} \iff \begin{cases} b = 1/2 \\ a = 1/2 \end{cases} $$
+			On en déduit $c = -1/2$ et $d = 1/2$.
+			$$ \frac{1}{P(X)}=\frac{\frac{1}{2}X+\frac{1}{2}}{X^2+X+1}+\frac{-\frac{1}{2}X+\frac{1}{2}}{X^2-X+1} $$
+		}
+	\end{enumerate}
 }
