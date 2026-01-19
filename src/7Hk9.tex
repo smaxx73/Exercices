@@ -1,5 +1,11 @@
 \uuid{7Hk9}
 \titre{Densité de probabilité et variables aléatoires}
+
+\niveau{L2} 				
+\module{Probabilités et Statistiques} 	
+\chapitre{Variables aléatoires à densité}   
+\sousChapitre{Loi conjointe et marginales}	
+
 \theme{probabilités, densité, variables aléatoires}
 \auteur{Erwan Hillion}
 \datecreate{2025-06-11}
@@ -10,9 +16,64 @@
 	
 	\begin{enumerate}
 		\item \question{Vérifier que $f$ est une densité de probabilité sur $\R^2$.}
+		\reponse{
+			La fonction $f$ est positive ou nulle sur $\mathbb{R}^2$. Pour qu'elle soit une densité, il faut vérifier que son intégrale sur $\mathbb{R}^2$ vaut 1.
+			
+			L'aire du triangle $\mathcal{T}$ est donnée par :
+			\[ \text{Aire}(\mathcal{T}) = \frac{\text{base} \times \text{hauteur}}{2} = \frac{2 \times 1}{2} = 1 \]
+			Ainsi :
+			\[ \iint_{\mathbb{R}^2} f(x,y) \, dx dy = \iint_{\mathcal{T}} 1 \, dx dy = 1 \times \text{Aire}(\mathcal{T}) = 1 \]
+			La fonction $f$ est donc bien une densité de probabilité.
+		}
+		
 		\item \question{Montrer que la variable aléatoire marginale $X$ suit la loi de densité $f_X : x \mapsto \left(1-\frac{x}{2}\right) 1_{x \in [0,2]}$.}
+		\reponse{
+			La densité marginale $f_X$ est obtenue en intégrant la densité conjointe par rapport à $y$.
+			L'équation de la droite passant par $(0,1)$ et $(2,0)$ est $y = -\frac{1}{2}x + 1$.
+			
+			Pour $x \notin [0,2]$, $f_X(x) = 0$.
+			Pour $x \in [0,2]$, $f(x,y)$ est non nulle si $0 \leq y \leq 1 - \frac{x}{2}$.
+			\[ f_X(x) = \int_{-\infty}^{+\infty} f(x,y) \, dy = \int_0^{1 - \frac{x}{2}} 1 \, dy = [y]_0^{1 - \frac{x}{2}} = 1 - \frac{x}{2} \]
+			On a donc bien $f_X(x) = \left(1-\frac{x}{2}\right) \mathbb{1}_{[0,2]}(x)$.
+		}
+		
 		\item \question{Calculer de même la densité de la loi de la marginale $Y$.}
+		\reponse{
+			De la même manière, on intègre par rapport à $x$. L'équation de la droite peut s'écrire $x = 2 - 2y$.
+			
+			Pour $y \notin [0,1]$, $f_Y(y) = 0$.
+			Pour $y \in [0,1]$, $f(x,y)$ est non nulle si $0 \leq x \leq 2 - 2y$.
+			\[ f_Y(y) = \int_{-\infty}^{+\infty} f(x,y) \, dx = \int_0^{2 - 2y} 1 \, dx = [x]_0^{2 - 2y} = 2 - 2y = 2(1-y) \]
+			Ainsi, la densité marginale de $Y$ est $f_Y(y) = 2(1-y) \mathbb{1}_{[0,1]}(y)$.
+		}
+		
 		\item \question{Calculer la covariance $\mathrm{Cov}(X,Y)$.}
+		\reponse{
+			La covariance est donnée par $\mathrm{Cov}(X,Y) = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$.
+			
+			Calculons $\mathbb{E}[X]$ :
+			\[ \mathbb{E}[X] = \int_0^2 x \left(1-\frac{x}{2}\right) \, dx = \left[ \frac{x^2}{2} - \frac{x^3}{6} \right]_0^2 = \frac{4}{2} - \frac{8}{6} = 2 - \frac{4}{3} = \frac{2}{3} \]
+			
+			Calculons $\mathbb{E}[Y]$ :
+			\[ \mathbb{E}[Y] = \int_0^1 y \cdot 2(1-y) \, dy = 2 \left[ \frac{y^2}{2} - \frac{y^3}{3} \right]_0^1 = 2 \left( \frac{1}{2} - \frac{1}{3} \right) = \frac{1}{3} \]
+			
+			Calculons $\mathbb{E}[XY]$ :
+			\[ \mathbb{E}[XY] = \iint_{\mathcal{T}} xy \, dx dy = \int_0^2 x \left( \int_0^{1-x/2} y \, dy \right) dx \]
+			\[ = \int_0^2 x \left[ \frac{y^2}{2} \right]_0^{1-x/2} dx = \frac{1}{2} \int_0^2 x \left(1-\frac{x}{2}\right)^2 dx \]
+			En posant $u = 1 - x/2$, donc $x = 2(1-u)$ et $dx = -2 du$ :
+			\[ = \frac{1}{2} \int_1^0 2(1-u) u^2 (-2) du = 2 \int_0^1 (u^2 - u^3) du = 2 \left[ \frac{u^3}{3} - \frac{u^4}{4} \right]_0^1 = 2 \left( \frac{1}{3} - \frac{1}{4} \right) = \frac{1}{6} \]
+			
+			Enfin, la covariance :
+			\[ \mathrm{Cov}(X,Y) = \frac{1}{6} - \left( \frac{2}{3} \times \frac{1}{3} \right) = \frac{1}{6} - \frac{2}{9} = \frac{3-4}{18} = -\frac{1}{18} \]
+		}
+		
 		\item \question{Les variables aléatoires $X$ et $Y$ sont-elles indépendantes ?}
+		\reponse{
+			Non, les variables $X$ et $Y$ ne sont pas indépendantes.
+			
+			Une condition nécessaire pour l'indépendance est que la covariance soit nulle. Ici $\mathrm{Cov}(X,Y) = -1/18 \neq 0$, donc elles ne sont pas indépendantes.
+			
+			Alternativement, le support de la loi conjointe est le triangle $\mathcal{T}$, alors que le produit des supports des lois marginales est le rectangle $[0,2] \times [0,1]$. Comme le support conjoint n'est pas un produit cartésien ("produit de rectangles"), les variables ne sont pas indépendantes.
+		}
 	\end{enumerate}
 }
