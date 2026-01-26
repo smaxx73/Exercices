@@ -1,0 +1,86 @@
+\uuid{sfRx}
+\titre{Gradient et lignes de niveau}
+
+\niveau{L2} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{Analyse} 	%Analyse, Algèbre...
+\chapitre{Fonctions de plusieurs variables}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{Calcul différentiel}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{Gradient, Lignes de niveau, Orthogonalité}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Maxime NGUYEN}
+\datecreate{2025-01-26}
+\organisation{AMSCC}			%AMSCC, Exo7, ...
+\difficulte{2}			%1, 2, 3, 4 ou 5
+
+\contenu{
+	
+	\texte{ 
+		On considère une colline modélisée par la fonction altitude $f : \mathbb{R}^2 \to \mathbb{R}$ définie par :
+		$$ f(x,y) = 100 - x^2 - y^2 $$
+		On s'intéresse au point $A$ de coordonnées $(3, 4)$.
+	}
+	
+	\begin{enumerate}
+		\item   \question{
+			\begin{enumerate}
+				\item Calculer l'altitude au point $A$.
+				\item Montrer que l'équation de la ligne de niveau passant par $A$ est le cercle d'équation $x^2 + y^2 = 25$.
+			\end{enumerate}
+		}
+		\indication{Une ligne de niveau $k$ est l'ensemble des points $(x,y)$ tels que $f(x,y)=k$.}
+		\reponse{
+			\begin{enumerate}
+				\item $f(3,4) = 100 - 3^2 - 4^2 = 100 - 9 - 16 = 75$. L'altitude est de 75.
+				\item La ligne de niveau passant par $A$ correspond à l'ensemble des points $(x,y)$ tels que $f(x,y) = 75$.
+				$$ 100 - x^2 - y^2 = 75 \iff x^2 + y^2 = 25 $$
+				C'est bien l'équation d'un cercle centré à l'origine et de rayon 5.
+			\end{enumerate}
+		}
+		
+		\item   \question{
+			On décide de marcher le long de cette ligne de niveau. On peut décrire la position à l'instant $t$ par le paramétrage suivant :
+			$$ \begin{cases} x(t) = 5 \cos(t) \\ y(t) = 5 \sin(t) \end{cases} $$
+			On note $M(t)$ le point de coordonnées $(x(t), y(t))$.
+			\begin{enumerate}
+				\item Calculer le \textbf{vecteur vitesse} (ou vecteur tangent) $\vec{v}(t)$ en dérivant $x(t)$ et $y(t)$ par rapport à $t$.
+				\item Calculer le \textbf{vecteur gradient} $\vec{\nabla}f$ au point $M(t)$.
+			\end{enumerate}
+		}
+		\indication{Pour le gradient, calculez d'abord les dérivées partielles de $f$ par rapport à $x$ et $y$, puis substituez $x$ et $y$ par $x(t)$ et $y(t)$.}
+		\reponse{
+			\begin{enumerate}
+				\item Le vecteur vitesse est donné par la dérivée des composantes du paramétrage :
+				$$ \vec{v}(t) = \begin{pmatrix} x'(t) \\ y'(t) \end{pmatrix} = \begin{pmatrix} -5 \sin(t) \\ 5 \cos(t) \end{pmatrix} $$
+				\item Les dérivées partielles de $f$ sont $\frac{\partial f}{\partial x} = -2x$ et $\frac{\partial f}{\partial y} = -2y$.
+				Au point $M(t)$, le gradient vaut :
+				$$ \vec{\nabla}f(M(t)) = \begin{pmatrix} -2(5 \cos t) \\ -2(5 \sin t) \end{pmatrix} = \begin{pmatrix} -10 \cos t \\ -10 \sin t \end{pmatrix} $$
+			\end{enumerate}
+		}
+		
+		\item   \question{Effectuer le produit scalaire entre le vecteur gradient $\vec{\nabla}f(M(t))$ et le vecteur vitesse $\vec{v}(t)$. Que constatez-vous ? Quelle propriété géométrique cela vérifie-t-il ?}
+		\indication{Rappel : $\vec{u} \cdot \vec{w} = x_u x_w + y_u y_w$.}
+		\reponse{
+			Calculons le produit scalaire :
+			$$ \vec{\nabla}f(M(t)) \cdot \vec{v}(t) = (-10 \cos t)(-5 \sin t) + (-10 \sin t)(5 \cos t) $$
+			$$ = 50 \cos t \sin t - 50 \sin t \cos t = 0 $$
+			Le produit scalaire est nul pour tout $t$. On constate que le gradient est orthogonal au vecteur vitesse. Cela vérifie la propriété selon laquelle le gradient est toujours normal (perpendiculaire) à la ligne de niveau.
+		}
+		
+		\item   \question{On note $h(t)$ l'altitude à l'instant $t$. On a donc $h(t) = f(x(t), y(t))$.
+			\begin{enumerate}
+				\item Remplacer $x(t)$ et $y(t)$ dans l'expression de $f$ pour trouver l'expression explicite de $h(t)$.
+				\item Dériver $h(t)$ par rapport à $t$. Le résultat est-il cohérent avec la définition d'une ligne de niveau ?
+			\end{enumerate}
+		}
+		\reponse{
+			\begin{enumerate}
+				\item $h(t) = 100 - (5 \cos t)^2 - (5 \sin t)^2 = 100 - 25(\cos^2 t + \sin^2 t)$. Comme $\cos^2 t + \sin^2 t = 1$, on a $h(t) = 100 - 25 = 75$.
+				\item La fonction $h(t)$ est constante, donc sa dérivée est nulle : $h'(t) = 0$.
+				C'est cohérent car se déplacer sur une ligne de niveau signifie par définition que l'altitude ne change pas.
+				\textit{Remarque :} On retrouve ici la règle de la chaîne, car on a vérifié que $\frac{d}{dt} f(M(t)) = \vec{\nabla}f \cdot \vec{v}(t) = 0$.
+			\end{enumerate}
+		}
+		
+	\end{enumerate}
+	
+}
