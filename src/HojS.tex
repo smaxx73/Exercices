@@ -5,19 +5,55 @@
 \sousChapitre{Autre}
 \titre{Domaine de définition}
 \theme{fonctions de plusieurs variables}
-\auteur{}
+\auteur{Maxime Nguyen}
 \datecreate{2023-02-23}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{1}
 \contenu{
-
-\texte{ Déterminer le domaine de définition des fonctions suivantes et si possible donner une représentation graphique. }
-
-\begin{multicols}{2}
-	\begin{enumerate}
-	\item \question{ $f_1(x,y) = \frac{\sqrt{-y+x^2}}{\sqrt{x}}$ }
-	\item \question{ $f_2(x,y) = \frac{\ln(y)}{\sqrt{x-y}}$ }
-	\item \question{ $f_3(x,y) = \ln(x+2y)$ }
-	\item \question{ $f_4(x,y,z) = \frac{\ln(x^2+1)}{yz}$ }
-	\end{enumerate}
+	
+	\texte{ Déterminer le domaine de définition des fonctions suivantes et si possible donner une représentation graphique. }
+	
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \question{ $f_1(x,y) = \frac{\sqrt{-y+x^2}}{\sqrt{x}}$ }
+			\reponse{
+				Pour que $f_1$ soit définie, il faut satisfaire deux conditions :
+				\begin{itemize}
+					\item Le terme sous la racine du numérateur doit être positif : $-y+x^2 \ge 0 \iff y \le x^2$.
+					\item Le terme sous la racine du dénominateur doit être strictement positif (car au dénominateur) : $x > 0$.
+				\end{itemize}
+				$$ D_{f_1} = \{ (x,y) \in \mathbb{R}^2 \mid x > 0 \text{ et } y \le x^2 \} $$
+				\textbf{Représentation graphique :} Il s'agit de la région située sous (ou sur) la parabole d'équation $y=x^2$, restreinte au demi-plan $x > 0$.
+			}
+			
+			\item \question{ $f_2(x,y) = \frac{\ln(y)}{\sqrt{x-y}}$ }
+			\reponse{
+				Conditions d'existence :
+				\begin{itemize}
+					\item Pour le logarithme : $y > 0$.
+					\item Pour la racine carrée au dénominateur : $x-y > 0 \iff x > y$.
+				\end{itemize}
+				$$ D_{f_2} = \{ (x,y) \in \mathbb{R}^2 \mid 0 < y < x \} $$
+				\textbf{Représentation graphique :} Il s'agit de la portion du plan comprise strictement entre la droite d'équation $y=x$ et l'axe des abscisses ($y=0$), située dans le premier quadrant.
+			}
+			
+			\item \question{ $f_3(x,y) = \ln(x+2y)$ }
+			\reponse{
+				Condition d'existence pour le logarithme :
+				$$ x+2y > 0 \iff 2y > -x \iff y > -\frac{x}{2} $$
+				$$ D_{f_3} = \left\{ (x,y) \in \mathbb{R}^2 \mid y > -\frac{x}{2} \right\} $$
+				\textbf{Représentation graphique :} Il s'agit du demi-plan ouvert situé strictement au-dessus de la droite d'équation $y = -\frac{1}{2}x$.
+			}
+			
+			\item \question{ $f_4(x,y,z) = \frac{\ln(x^2+1)}{yz}$ }
+			\reponse{
+				Conditions d'existence :
+				\begin{itemize}
+					\item Pour le logarithme : $x^2+1 > 0$. Or $x^2 \ge 0$, donc $x^2+1 \ge 1 > 0$. Cette condition est toujours vérifiée pour tout $x \in \mathbb{R}$.
+					\item Pour le dénominateur : $yz \neq 0 \iff y \neq 0 \text{ et } z \neq 0$.
+				\end{itemize}
+				$$ D_{f_4} = \{ (x,y,z) \in \mathbb{R}^3 \mid y \neq 0 \text{ et } z \neq 0 \} $$
+				\textbf{Représentation graphique :} Le domaine est l'espace $\mathbb{R}^3$ tout entier privé des plans d'équation $y=0$ (plan $xOz$) et $z=0$ (plan $xOy$).
+			}
+		\end{enumerate}
 \end{multicols}}
