@@ -5,10 +5,10 @@
 \niveau{L2}
 \module{Analyse}
 \sousChapitre{Extremums locaux}
-\auteur{}
+\auteur{Maxime Nguyen}
 \datecreate{2023-03-20}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
 
 \texte{
@@ -28,16 +28,17 @@
 	\reponse{
 		Le domaine de définition est l’ensemble des couples $(x,y)$ tels que $x\geq0$, $y\geq0$ et $x+y\leq3000$. Géométriquement, il s’agit d’un triangle du plan dont les sommets sont $(0,0)$, $(3000,0)$ et $(0,3000)$.
 		
-		\begin{center}
-			\begin{tikzpicture}[scale=0.0018]
-				\draw[thick,->] (-100,0) -- (3100,0) node[below right] {$x$ (kg)};
-				\draw[thick,->] (0,-100) -- (0,3100) node[above left] {$y$ (kg)};
-				\draw[ultra thick, color=blue, fill=blue!30, opacity=0.4] (0,0) -- (3000,0) -- (0,3000) -- cycle;
-				\node at (800,800) {$\mathcal{D}_c$};
-				\draw (3000,0) node[below] {$3000$};
-				\draw (0,3000) node[left] {$3000$};
-			\end{tikzpicture}
-		\end{center}
+\begin{center}
+	\begin{tikzpicture}[x=0.01mm,y=0.01mm] % 3000 -> 54mm = 5.4cm
+		\draw[thick,->] (-100,0) -- (3100,0) node[above right] {$x$ (kg)};
+		\draw[thick,->] (0,-100) -- (0,3100) node[above left] {$y$ (kg)};
+		\draw[ultra thick, color=blue, fill=blue!30, opacity=0.4] (0,0) -- (3000,0) -- (0,3000) -- cycle;
+		\node at (800,800) {$\mathcal{D}_c$};
+		\draw (3000,0) node[below] {$3000$};
+		\draw (0,3000) node[left] {$3000$};
+	\end{tikzpicture}
+\end{center}
+
 	}
 	\item \question{ Justifier que la fonction $c$ admet un minimum sur $\mathcal{D}_c$ et que ce minimum est atteint.  }
 	\reponse{ On remarque que $\mathcal{D}_c$ est un fermé de $\mathbb{R}^2$. De plus il est borné (c'est un triangle). Par ailleurs, la fonction $c$ est polynomiale donc continue sur $\mathcal{D}_c$. D'après le théorème des valeurs extrêmes, la fonction $c$ admet donc un minimum sur $\mathcal{D}_c$ et ce minimum est atteint en au moins un point de $\mathcal{D}_c$. }
@@ -81,11 +82,11 @@
 	\reponse{
 		Sur le bord du domaine, la contrainte est $x+y=3000$. En posant $y=3000-x$, on définit la fonction d’une variable :
 		$$
-		f(x)=c\bigl(x,3000-x\bigr)=10000+50x+60(3000-x)-0.05x(3000-x).
+		f(x)=c(x,3000-x)=10000+50x+60(3000-x)-0.05x(3000-x).
 		$$
 		Calculons :
 		$$
-		f(x)=10000+50x+180000-60x-0.05\bigl(3000x-x^2\bigr)=190000-10x-150x+0.05x^2,
+		f(x)=10000+50x+180000-60x-0.05(3000x-x^2)=190000-10x-150x+0.05x^2,
 		$$
 		soit
 		$$
