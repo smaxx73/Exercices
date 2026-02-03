@@ -5,13 +5,13 @@
 \sousChapitre{Dérivée partielle}
 \titre{Calcul de dérivées partielles}
 \theme{calcul différentiel}
-\auteur{}
+\auteur{Maxime NGUYEN}
 \datecreate{2023-03-09}
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
 
-\texte{ 	On pose $f: \R^2 \to \R,\ (x,y) \mapsto \dfrac{x^2+xy}{y^2}$. }
+\texte{ 	On pose $f: \R^2 \to \R$ définie pour tout $(x,y) \in \R^2$ par : $$f(x,y) = \dfrac{x^2+xy}{y^2}.$$ }
 \begin{enumerate}
 	\item \question{ \label{Q1} Préciser l'ensemble de dérivabilité de $f$ et calculer $\dpa{f}{x}(x,y)$ et $\dpa{f}{y}(x,y)$. }
 	\reponse{La fonction $f$ admet des dérivées partielles en tout point $(x,y)\in \R^2$ tel que $y \neq 0$ :
@@ -21,7 +21,9 @@
 		&= \frac{-2x^2-xy}{y^3}
 		\end{align*}	
 	}
-	\item \question{ On note $F: \R \to \R,\ t \mapsto t^2+t$. En remarquant que $f(x,y) = F\left(\dfrac{x}{y}\right)$, et en utilisant les règles de dérivation composée, retrouver les expressions obtenues à la question~\ref{Q1}. }
+	\item \question{ On note $F: \R \to \R$ la fonction définie pour tout $t\in \R$ par $F(t) \mapsto t^2+t$. 
+		
+		En remarquant que $f(x,y) = F\left(\dfrac{x}{y}\right)$, et en utilisant les règles de dérivation composée, retrouver les expressions obtenues à la question~\ref{Q1}. }
 	\reponse{Dans un premier temps, on remarque que $F$ est dérivable en tout point $t \in \R$ et $F'(t) = 2t+1$. 
 		
 		D'autre part, par application de la règle des chaînes, on peut calculer 

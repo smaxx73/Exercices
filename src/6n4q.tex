@@ -5,10 +5,10 @@
 \sousChapitre{Dérivée partielle}
 \titre{Dérivées partielles et règle des chaînes}
 \theme{calcul différentiel}
-\auteur{}
+\auteur{Maxime NGUYEN}
 \datecreate{2023-03-09}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
 
 \texte{ 	On considère une boîte dont la longueur $\ell$, la largeur $w$ et la hauteur $h$ varient au cours du temps $t$. 
@@ -31,8 +31,11 @@ On note $V$ le volume, $S$ la surface et $D$ la longueur de la diagonale de cett
 	\reponse{Le taux de variation du volume est modélisé par la dérivée de $\tilde{V}$ par rapport au temps. On peut voir $V$ comme la composée de la fonction $t\mapsto (\ell(t),w(t),h(t)$ avec la fonction de trois variables $(\ell,w,h) \mapsto \ell\times w \times h$.
 		
 		D'après la règle des chaînes, 
-		$$\frac{\partial \tilde{V}}{\partial t}(t_0) = \frac{\partial V}{\partial \ell}(\ell(t_0),w(t_0),h(t_0)) \times \ell'(t_0) + \frac{\partial V}{\partial w}(w(t_0),w(t_0),h(t_0)) \times w'(t_0) + \frac{\partial V}{\partial h}(h(t_0),w(t_0),h(t_0)) \times h'(t_0)$$
+		\begin{align*}
+			\frac{\partial \tilde{V}}{\partial t}(t_0) &= \frac{\partial V}{\partial \ell}(\ell(t_0),w(t_0),h(t_0)) \times \ell'(t_0)\\ &\quad + \frac{\partial V}{\partial w}(w(t_0),w(t_0),h(t_0)) \times w'(t_0) + \frac{\partial V}{\partial h}(h(t_0),w(t_0),h(t_0)) \times h'(t_0)
+		\end{align*}
 		Or $\frac{\partial V}{\partial \ell}(\ell,w,h) = wh$, $\frac{\partial V}{\partial w}(\ell,w,h) = \ell h$ et $\frac{\partial V}{\partial h}(\ell,w,h) = \ell w$.
+
 		
 		Donc en substituant, on obtient :
 		\begin{align*}

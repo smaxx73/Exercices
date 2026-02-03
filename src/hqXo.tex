@@ -5,10 +5,10 @@
 \sousChapitre{Calculs}
 \titre{Différentiabilité}
 \theme{calcul différentiel}
-\auteur{}
+\auteur{Maxime NGUYEN}
 \datecreate{2023-03-09}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{3}
 \contenu{
 
 Soit la fonction $f \colon \R^2 \to \R$ définie par :
@@ -19,6 +19,7 @@ Soit la fonction $f \colon \R^2 \to \R$ définie par :
 
 \begin{enumerate}
 	\item \question{ La fonction $f$ est-elle continue sur $\R^2$~? }
+		\indication{On peut passer en coordonnées polaires en posant $x=r\cos(\theta)$ et $y=r\sin(\theta)$ et montrer la continuité en majorant $|f(x,y)-f(0,0)|$ par une fonction de $r$ qui tend vers $0$ quand $r \to 0$. }
 	\reponse{Tout d'abord, on remarque que $f$ est bien définie sur $\R^2$. Elle est continue (et même $C^{\infty}$ sur $\R^2-\{(0,0)\}$ en tant que fraction rationnelle. Pour étudier la continuité en $(0,0)$, on passe en coordonnées polaires~:
 		\begin{align*}
 		f(r\cos\theta, r\sin\theta) - f(0,0) &= \frac{(r\cos\theta)^2(r\sin\theta)^3}{ (r\cos\theta)^2 + (r\sin\theta)^2 } \\

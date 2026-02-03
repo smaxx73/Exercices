@@ -5,10 +5,10 @@
 \sousChapitre{Dérivée partielle}
 \titre{Calcul de dérivées partielles}
 \theme{calcul différentiel}
-\auteur{}
+\auteur{Maxime NGUYEN}
 \datecreate{2023-03-09}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
 
 \texte{ 	Une étude des glaciers a montré que la température T à l'instant t (mesuré en jours) à la profondeur $x$ (mesurée en pied) peut être modélisée par la fonction 
@@ -27,7 +27,8 @@ où $T_0$, $T_1$, $\omega = \frac{2\pi}{365}$ et $\lambda$ sont des constantes r
 	\reponse{Il suffit de dériver une seconde fois par rapport à $x$ l'expression de $\frac{\partial T}{\partial x}(x,t)$ : on trouve
 		\begin{align*}
 		\frac{\partial^2 T}{\partial x^2}(x,t) &= \frac{\partial}{\partial x}\frac{\partial T}{\partial x}(x,t) \\
-		&= (-\lambda)^2 T_1 e^{-\lambda x} \left( \sin(\omega t-\lambda x)+ \cos(\omega t-\lambda x)  \right) + (-\lambda)^2 T_1 e^{-\lambda x} \left(\cos(\omega t-\lambda x)- \sin(\omega t-\lambda x)\right) \\
+		&= (-\lambda)^2 T_1 e^{-\lambda x} \left( \sin(\omega t-\lambda x)+ \cos(\omega t-\lambda x)  \right)\\
+		&\qquad + (-\lambda)^2 T_1 e^{-\lambda x} \left(\cos(\omega t-\lambda x)- \sin(\omega t-\lambda x)\right) \\
 		&= 2\lambda^2 T_1 e^{-\lambda x} \cos(\omega t - \lambda x)	
 		\end{align*}
 		La constante attendue est donc $k = \frac{\omega}{2\lambda^2}$.	  }
