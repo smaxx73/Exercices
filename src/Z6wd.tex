@@ -1,69 +1,112 @@
 \uuid{Z6wd}
-\chapitre{Dérivabilité des fonctions réelles}
+\chapitre{Fonction de plusieurs variables}
 \niveau{L1}
 \module{Analyse}
 \sousChapitre{Applications}
 \titre{Méthode des moindres carrés}
 \theme{calcul différentiel, optimisation}
-\auteur{}
+\auteur{Maxime NGUYEN}
 \datecreate{2023-03-21}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{4}
 \contenu{
-
-
-\texte{ 	On considère des points $M_{1}, \ldots, M_{n}$ de $\mathbb{R}^{2}$, et on note $\left(x_{i}, y_{i}\right)$ les coordonnées de chaque point $M_{i}$.  }
+	
+	
+	\texte{ 	On considère des points $M_{1}, \ldots, M_{n}$ de $\mathbb{R}^{2}$, et on note $\left(x_{i}, y_{i}\right)$ les coordonnées de chaque point $M_{i}$.  }
 	
 	\begin{enumerate}
 		\item \question{ On cherche les points $(x, y)$ de $\mathbb{R}^{2}$ approchant au mieux le nuage de points formé par les points $M_{i}$ au sens des moindres carrés, c'est-à-dire qu'on cherche à minimiser la fonction
-		$$
-		f:(x, y) \mapsto \sum_{i=1}^{N}\left(x-x_{i}\right)^{2}+\left(y-y_{i}\right)^{2}
-		$$
-		On admet que $f$ admet au moins un minimum global sur $\mathbb{R}^{2}$. Déterminer en quels points $f$ admet ce minimum. }
-		\reponse{On cherche les points stationnaires : on trouve un point stationnaire $(x,y) = \left(\frac{1}{N}\sum_{i=1}^N x_i,\frac{1}{N}\sum_{i=1}^N y_i \right)$ et on reconnait le point moyen du nuage de points. On vérifie aisément qu'il s'agit d'un minimum local et qu'il est unique, c'est donc le minimum global.}
+			$$
+			f:(x, y) \mapsto \sum_{i=1}^{n}\left(x-x_{i}\right)^{2}+\left(y-y_{i}\right)^{2}
+			$$
+			On admet que $f$ admet au moins un minimum global sur $\mathbb{R}^{2}$. Déterminer en quels points $f$ admet ce minimum. }
+		\indication{On cherche les points stationnaires : on trouve un point stationnaire $(x,y) = \left(\frac{1}{n}\sum_{i=1}^n x_i,\frac{1}{n}\sum_{i=1}^n y_i \right)$ et on reconnaît le point moyen du nuage de points. On vérifie aisément qu'il s'agit d'un minimum local et qu'il est unique, c'est donc le minimum global.}
+		
+		\reponse{
+			La fonction $f$ est de classe $\mathcal{C}^1$ (et même $\mathcal{C}^\infty$) sur $\mathbb{R}^2$. On cherche les points critiques (ou stationnaires) en annulant le gradient de $f$.
+			$$
+			\nabla f(x, y) = \begin{pmatrix} \frac{\partial f}{\partial x}(x, y) \\ \frac{\partial f}{\partial y}(x, y) \end{pmatrix}
+			$$
+			Calculons les dérivées partielles :
+			$$
+			\frac{\partial f}{\partial x}(x, y) = \sum_{i=1}^{n} 2(x-x_i) = 2\left(\sum_{i=1}^{n} x - \sum_{i=1}^{n} x_i\right) = 2\left(nx - \sum_{i=1}^{n} x_i\right)
+			$$
+			De même pour $y$ :
+			$$
+			\frac{\partial f}{\partial y}(x, y) = 2\left(ny - \sum_{i=1}^{n} y_i\right)
+			$$
+			On résout le système $\nabla f(x, y) = \vec{0}$ :
+			$$
+			\left\{\begin{array}{l}
+				2(nx - \sum_{i=1}^{n} x_i) = 0 \\
+				2(ny - \sum_{i=1}^{n} y_i) = 0
+			\end{array}\right. \iff \left\{\begin{array}{l}
+				x = \frac{1}{n}\sum_{i=1}^{n} x_i = \bar{x} \\
+				y = \frac{1}{n}\sum_{i=1}^{n} y_i = \bar{y}
+			\end{array}\right.
+			$$
+			Il y a un unique point critique : le barycentre du nuage de points $(\bar{x}, \bar{y})$.
+			
+			Pour vérifier qu'il s'agit d'un minimum, on peut calculer la matrice Hessienne de $f$ :
+			$$
+			H_f(x,y) = \begin{pmatrix} 
+				\frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} \\
+				\frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2}
+			\end{pmatrix} = \begin{pmatrix} 2n & 0 \\ 0 & 2n \end{pmatrix}
+			$$
+			Les valeurs propres sont $2n > 0$. La matrice est définie positive, donc $f$ est strictement convexe et le point critique correspond à un unique minimum global.
+		}
+		
 		\item \question{ On cherche maintenant une relation affine entre les abscisses et les ordonnées de ces points. On cherche des constantes $m$ et $q$ pour que la droite d'équation $y=mx+q$ s'ajuste le mieux possible aux points observés. 
-		
-		Pour cela, on introduit $d_i = y_i - (mx_i + q)$ l'écart vertical du point $M_i$ par rapport à la droite. 
-		
-		La méthode des moindres carrés consiste à choisir $m$ et $q$ de telle sorte que la somme des écarts au carré soit minimale. 
-		
-		Exprimer $m$ et $q$ en fonction des coordonnées des points.  }
+			
+			Pour cela, on introduit $d_i = y_i - (mx_i + q)$ l'écart vertical du point $M_i$ par rapport à la droite. 
+			
+			La méthode des moindres carrés consiste à choisir $m$ et $q$ de telle sorte que la somme des écarts au carré soit minimale. 
+			
+			Exprimer $m$ et $q$ en fonction des coordonnées des points.  }
 		
 		\reponse{Pour cela, on doit minimiser la fonction $\mathscr{E}: \mathbb{R}^{2} \rightarrow \mathbb{R}_{+}$définie par
 			$$
-			\mathscr{E}(m, q)=\sum_{i=0}^{n} d_{i}^{2}=\sum_{i=0}^{n}\left(y_{i}-m x_{i}-q\right)^{2}
+			\mathscr{E}(m, q)=\sum_{i=1}^{n} d_{i}^{2}=\sum_{i=1}^{n}\left(y_{i}-m x_{i}-q\right)^{2}
 			$$
 			Pour minimiser $\mathscr{E}$ on cherche d'abord les points stationnaires, i.e. les points $(m, q)$ qui vérifient $\frac{\partial \mathscr{E}}{\partial m}=\frac{\partial \mathscr{E}}{\partial q}=0$. Puisque
 			$$
-			\frac{\partial \mathscr{E}}{\partial m}(m, q)=-2\left(\sum_{i=0}^{n}\left(y_{i}-\left(m x_{i}+q\right)\right) x_{i}\right), \quad \frac{\partial \mathscr{E}}{\partial q}(m, q)=-2\left(\sum_{i=0}^{n}\left(y_{i}-\left(m x_{i}+q\right)\right)\right),
+			\frac{\partial \mathscr{E}}{\partial m}(m, q)=-2\left(\sum_{i=1}^{n}\left(y_{i}-\left(m x_{i}+q\right)\right) x_{i}\right), \quad \frac{\partial \mathscr{E}}{\partial q}(m, q)=-2\left(\sum_{i=1}^{n}\left(y_{i}-\left(m x_{i}+q\right)\right)\right),
 			$$
 			$$
 			\left\{\begin{array} { l } 
 				{ \frac { \partial \mathscr { E } } { \partial m } ( m , q ) = 0 } \\
 				{ \frac { \partial \mathscr { E } } { \partial q } ( m , q ) = 0 }
 			\end{array} \Longleftrightarrow \left\{\begin{array}{l}
-				\sum_{i=0}^{n}\left(y_{i}-m x_{i}-q\right) x_{i}=0 \\
-				\sum_{i=0}^{n}\left(y_{i}-m x_{i}-q\right)=0
+				\sum_{i=1}^{n}\left(y_{i}x_i -m x_{i}^2-q x_i\right) =0 \\
+				\sum_{i=1}^{n}\left(y_{i}-m x_{i}-q\right)=0
 			\end{array}\right.\right.
 			$$
+			En réarrangeant les termes et en notant que $\sum_{i=1}^n q = nq$, on obtient le système linéaire suivant d'inconnues $(m,q)$ :
 			$$
 			\Longleftrightarrow\left\{\begin{array} { l } 
-				{ ( \sum _ { i = 1 } ^ { n } x _ { i } ^ { 2 } ) m + ( \sum _ { i = 0 } ^ { n } x _ { i } ) q = \sum _ { i = 0 } ^ { n } y _ { i } x _ { i } } \\
-				{ ( \sum _ { i = 1 } ^ { n } x _ { i } ) m + ( n + 1 ) q = \sum _ { i = 0 } ^ { n } y _ { i } }
-			\end{array} \Longleftrightarrow \left\{\begin{array}{l}
-				m=\frac{\left(\sum_{i=0}^{n} x_{i}\right)\left(\sum_{i=0}^{n} y_{i}\right)-(n+1)\left(\sum_{i=0}^{n} x_{i} y_{i}\right)}{\left(\sum_{i=0}^{n} x_{i}\right)^{2}-(n+1)\left(\sum_{i=0}^{n} x_{i}^{2}\right)}, \\
-				q=\frac{\left(\sum_{i=0}^{n} x_{i}\right)\left(\sum_{i=0}^{n} x_{i} y_{i}\right)-\left(\sum_{i=0}^{n} y_{i}\right)\left(\sum_{i=0}^{n} x_{i}^{2}\right)}{\left(\sum_{i=0}^{n} x_{i}\right)^{2}-(n+1)\left(\sum_{i=0}^{n} x_{i}^{2}\right)} .
-			\end{array}\right.\right.
+				{ ( \sum _ { i = 1 } ^ { n } x _ { i } ^ { 2 } ) m + ( \sum _ { i = 1 } ^ { n } x _ { i } ) q = \sum _ { i = 1 } ^ { n } y _ { i } x _ { i } } \\
+				{ ( \sum _ { i = 1 } ^ { n } x _ { i } ) m + n q = \sum _ { i = 1 } ^ { n } y _ { i } }
+			\end{array} \right.
 			$$
-			On a trouvé un seul point stationnaire. On établi sa nature en étudiant la matrice Hessienne :
+			On résout ce système (par exemple avec la méthode de Cramer). Le déterminant du système est $\Delta = n \sum_{i=1}^n x_i^2 - (\sum_{i=1}^n x_i)^2$. D'après l'inégalité de Cauchy-Schwarz (ou la propriété de variance), $\Delta > 0$ tant que tous les $x_i$ ne sont pas égaux.
+			
+			On obtient :
+			$$
+			\left\{\begin{array}{l}
+				m=\frac{n\left(\sum_{i=1}^{n} x_{i} y_{i}\right) - \left(\sum_{i=1}^{n} x_{i}\right)\left(\sum_{i=1}^{n} y_{i}\right)}{n\left(\sum_{i=1}^{n} x_{i}^{2}\right) - \left(\sum_{i=1}^{n} x_{i}\right)^{2}}, \\
+				q=\frac{\left(\sum_{i=1}^{n} x_{i}^2\right)\left(\sum_{i=1}^{n} y_{i}\right)-\left(\sum_{i=1}^{n} x_{i}\right)\left(\sum_{i=1}^{n} x_{i} y_{i}\right)}{n\left(\sum_{i=1}^{n} x_{i}^{2}\right) - \left(\sum_{i=1}^{n} x_{i}\right)^{2}} .
+			\end{array}\right.
+			$$
+			On a trouvé un seul point stationnaire. On établit sa nature en étudiant la matrice Hessienne :
 			$$
 			H_{\mathscr{E}}(m, q)=2\left(\begin{array}{cc}
-				\sum_{i=1}^{n} x_{i}^{2} & \sum_{i=0}^{n} x_{i} \\
-				\sum_{i=0}^{n} x_{i} & (n+1)
+				\sum_{i=1}^{n} x_{i}^{2} & \sum_{i=1}^{n} x_{i} \\
+				\sum_{i=1}^{n} x_{i} & n
 			\end{array}\right)
 			$$
-			et $\operatorname{det}\left(H_{\mathscr{E}}(m, q)\right)=4\left((n+1) \sum_{i=1}^{n} x_{i}^{2}-\left(\sum_{i=0}^{n} x_{i}\right)^{2}\right)>0$ avec $\partial_{m m} \mathscr{E}(m, q)=\sum_{i=1}^{n} x_{i}^{2}>0$ donc il s'agit bien d'un minimum. La droite d'équation $y=m x+q$ ainsi calculée s'appelle droite de régression de y par rapport à $x$.
+			Son déterminant est $\operatorname{det}\left(H_{\mathscr{E}}(m, q)\right)=4\left(n \sum_{i=1}^{n} x_{i}^{2}-\left(\sum_{i=1}^{n} x_{i}\right)^{2}\right) = 4\Delta$. Comme vu précédemment, $\Delta > 0$ (si les $x_i$ ne sont pas tous confondus), et le terme diagonal $2\sum x_i^2$ est positif, donc la Hessienne est définie positive : il s'agit bien d'un minimum. La droite d'équation $y=m x+q$ ainsi calculée s'appelle droite de régression de $y$ par rapport à $x$.
 			
 			
 		}
-	\end{enumerate}}
+\end{enumerate}}
