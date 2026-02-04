@@ -8,6 +8,10 @@ import shutil
 from pathlib import Path
 
 
+REPO_ROOT = Path(__file__).parent.parent
+ALL_EXERCISE_FILES = sorted((REPO_ROOT / "src").glob("*.tex"))
+
+
 @pytest.mark.fast
 class TestSyntax:
     """Tests de syntaxe LaTeX"""
@@ -17,7 +21,7 @@ class TestSyntax:
         """Vérifie que chktex est disponible"""
         return shutil.which('chktex') is not None
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_chktex_no_critical_errors(self, exercise_file, chktex_available):
         """Vérifie qu'il n'y a pas d'erreurs critiques avec chktex"""
         if not chktex_available:
@@ -58,7 +62,7 @@ class TestSyntax:
         except Exception as e:
             pytest.fail(f"Erreur lors de l'exécution de chktex sur {exercise_file.name}: {e}")
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_balanced_braces(self, exercise_file):
         """Vérifie que les accolades sont équilibrées"""
         content = exercise_file.read_text(encoding='utf-8')
@@ -72,7 +76,7 @@ class TestSyntax:
             f"{open_braces} {{ et {close_braces} }}"
         )
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_balanced_environments(self, exercise_file):
         """Vérifie que les environnements \\begin et \\end sont équilibrés"""
         import re
