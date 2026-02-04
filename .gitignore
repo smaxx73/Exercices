@@ -20,3 +20,20 @@
 
 # node module
 node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Tests reports
+tests/reports/
+validation_report.json
+validation_report.html

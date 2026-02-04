@@ -1,0 +1,64 @@
+# Configuration chktex pour les exercices LaTeX
+# Mode warning seulement, ne bloque pas le CI
+
+# Niveau de verbosité
+QuietLevel = 1
+VerbosityLevel = 1
+
+# Warnings activés (critiques seulement)
+# Voir https://www.nongnu.org/chktex/ChkTeX.pdf pour la liste complète
+
+# 1: Command terminated with space
+# 2: Non-breaking space (~) should have been used
+# 3: You should enclose the previous parenthesis with {}
+# 6: Number of `{' doesn't match the number of `}'
+# 8: Wrong length of dash may have been used
+# 10: Solo $ found
+# 11: Solo $ found (end of math mode)
+# 12: Interword spacing
+# 13: Intersentence spacing
+# 17: Number of `(' doesn't match the number of `)'
+# 22: Comment displayed
+# 24: Delete this space to maintain correct pagereferences
+# 25: You might wish to put this between a pair of {}'s
+# 26: You ought to remove spaces in front of punctuation
+
+WarnOn = 1,3,6,8,10,11,17,22,24,25,26
+
+# Warnings désactivés (non pertinents pour nos fichiers)
+# 2: Espaces insécables (~ vs espace) - désactivé car dépend du style
+# 12,13: Espacement inter-mots/phrases - trop de faux positifs en français
+# 18,19: Guillemets (` et ') - style français différent
+# 35,36: Commandes obsolètes - on les garde pour compatibilité
+
+# Ignorer certains patterns
+# Ignorer les commandes personnalisées
+Silent =
+    \uuid
+    \titre
+    \niveau
+    \module
+    \chapitre
+    \sousChapitre
+    \theme
+    \auteur
+    \datecreate
+    \organisation
+    \difficulte
+    \contenu
+    \texte
+    \question
+    \reponse
+    \indication
+    \insertexo
+    \nextexo
+    \listexo
+
+# Format de sortie
+# -1 = format standard
+# 0 = format terse
+# 1 = format verbose
+OutputFormat = -1
+
+# Tabulation
+TabSize = 4
