@@ -3,7 +3,10 @@ name: Validation fichiers LaTeX
 on:
   push:
     branches:
-      - '**'  # Sur toutes les branches
+      - '**'
+  pull_request: # Ajouté pour permettre le commentaire PR
+    branches:
+      - '**' 
     paths:
       - 'src/**/*.tex'
       - '_preambules/**/*.tex'
@@ -14,38 +17,43 @@ jobs:
   validate:
     name: Tests de validation
     runs-on: ubuntu-latest
+    
+    # Permissions explicites pour écrire le commentaire
+    permissions:
+      contents: read
+      pull-requests: write 
+
     container:
       image: texlive/texlive:latest
 
     steps:
+      - name: Install Node needed for Actions
+        # Les actions GitHub (checkout, github-script) ont besoin de Node.js.
+        # L'image texlive ne l'a pas forcément. Le runner le monte souvent, 
+        # mais il vaut mieux s'assurer que les deps système (curl, git) sont là.
+        run: |
+          apt-get update
+          apt-get install -y git curl
+
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-          cache-dependency-path: 'tests/requirements.txt'
-
-      - name: Install Python dependencies
+      # On utilise le Python du système (conteneur) plutôt que setup-python
+      - name: Install Dependencies
         run: |
-          pip install -r tests/requirements.txt
-
-      - name: Install chktex
-        run: |
-          apt-get update
-          apt-get install -y chktex
+          apt-get install -y python3 python3-pip chktex
+          # Installation des libs python au niveau user ou venv (option --break-system-packages nécessaire sur les Debian récents sans venv)
+          pip3 install -r tests/requirements.txt --break-system-packages
 
       - name: Run validation tests
         run: |
           pytest tests/ -v --tb=short --maxfail=0
-        continue-on-error: true  # Ne pas bloquer en cas d'erreur (warnings seulement)
+        continue-on-error: true
 
       - name: Generate summary report
         if: always()
         run: |
-          python scripts/validate_exercises.py --report json > validation_report.json
+          python3 scripts/validate_exercises.py --report json > validation_report.json
 
       - name: Upload validation report
         if: always()
@@ -63,15 +71,18 @@ jobs:
             const fs = require('fs');
             try {
               const report = JSON.parse(fs.readFileSync('validation_report.json', 'utf8'));
+              // Utilisation de context.repo au lieu de l'interpolation YAML pour éviter les erreurs de syntaxe JS
+              const repoUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+              
               const body = `## 📋 Validation LaTeX
 
-${report.summary}
+            ${report.summary}
 
-${report.with_errors > 0 ? '❌ Des erreurs ont été détectées.' : '✅ Tous les tests passent !'}
+            ${report.with_errors > 0 ? '❌ Des erreurs ont été détectées.' : '✅ Tous les tests passent !'}
 
-[Télécharger le rapport détaillé](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})`;
+            [Télécharger le rapport détaillé](${repoUrl})`;
 
-              github.rest.issues.createComment({
+              await github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -80,3 +91,4 @@ ${report.with_errors > 0 ? '❌ Des erreurs ont été détectées.' : '✅ Tous 
             } catch (error) {
               console.error('Erreur lors de la création du commentaire:', error);
             }
+            
