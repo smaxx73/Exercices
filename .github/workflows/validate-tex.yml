@@ -21,21 +21,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-          cache-dependency-path: 'tests/requirements.txt'
+      - name: Install system dependencies
+        run: |
+          apt-get update
+          apt-get install -y python3 python3-pip chktex
 
       - name: Install Python dependencies
         run: |
-          pip install -r tests/requirements.txt
-
-      - name: Install chktex
-        run: |
-          apt-get update
-          apt-get install -y chktex
+          pip3 install -r tests/requirements.txt --break-system-packages
 
       - name: Run validation tests
         run: |
@@ -45,7 +38,7 @@ jobs:
       - name: Generate summary report
         if: always()
         run: |
-          python scripts/validate_exercises.py --report json > validation_report.json
+          python3 scripts/validate_exercises.py --report json > validation_report.json
 
       - name: Upload validation report
         if: always()
