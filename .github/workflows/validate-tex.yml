@@ -63,15 +63,10 @@ jobs:
             const fs = require('fs');
             try {
               const report = JSON.parse(fs.readFileSync('validation_report.json', 'utf8'));
-              const body = `## 📋 Validation LaTeX
-
-${report.summary}
-
-${report.with_errors > 0 ? '❌ Des erreurs ont été détectées.' : '✅ Tous les tests passent !'}
-
-[Télécharger le rapport détaillé](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})`;
-
-              github.rest.issues.createComment({
+              const status = report.with_errors > 0 ? '❌ Des erreurs ont été détectées.' : '✅ Tous les tests passent !';
+              const url = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+              const body = `## 📋 Validation LaTeX\n\n${report.summary}\n\n${status}\n\n[Télécharger le rapport détaillé](${url})`;
+              await github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
