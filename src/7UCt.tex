@@ -1,16 +1,15 @@
 \uuid{7UCt}
+\niveau{L2}
+\module{Probabilité et statistique}
 \chapitre{Probabilité continue}
-\sousChapitre{Lois des grands nombres, théorème central limite}
+\sousChapitre{Convergence en loi}
 
-\titre{Surbooking militaire} %PROBA 277
+\titre{Surbooking militaire}
 \theme{variables aléatoires, théorème central limite}
-\auteur{}
+\auteur{Erwan L'Haridon}
 \datecreate{2022-09-27}
 \organisation{AMSCC}
 \contenu{
-
-
-
 
 \texte{
 Lors d'une opération de transport aérien stratégique, un avion militaire peut transporter au maximum 300 soldats. Pour optimiser l'utilisation des ressources, l'état-major décide de pratiquer du surbooking en acceptant plus de $300$ réservations. Chaque soldat a une probabilité
@@ -25,7 +24,7 @@ de $10 \%$ de ne pas se présenter à l'embarquement (pour diverses raisons opé
 	& \Leftrightarrow \quad 1- \mathbb{P}(X\leq 300)\leq 0.01 \\
 	& \Leftrightarrow \quad \mathbb{P}(X\leq 300) \geq 0.99 \\
 	& \Leftrightarrow \quad \mathbb{P}\left( \frac{X-0.9n}{\frac{3}{10}\sqrt{n}} \leq \frac{300-0.9n}{\frac{3}{10}\sqrt{n}} \right) \geq 0.99 \\
-	& \Leftrightarrow \quad \mathbb{P}\left (Z \leq \frac{300-0.9n}{\frac{3}{10}\sqrt{n}}\right) \geq 0.99 \quad \text{où } Z\sim \mathcal{N}(0,1) \\
+	& \Leftrightarrow \quad \mathbb{P}\left(Z \leq \frac{300-0.9n}{\frac{3}{10}\sqrt{n}}\right) \geq 0.99 \quad \text{où } Z\sim \mathcal{N}(0,1) \\
 	& \Leftrightarrow \quad  \frac{300-0.9n}{\frac{3}{10}\sqrt{n}}\geq 2.33 \quad \text{ par lecture du tableau de loi.}
 	\end{align*}
 	On résout donc l'équation $300-\frac{9}{10}n=2.33\times \frac{3}{10}\sqrt{n}$, c'est-à-dire en posant $x^2=n$:
@@ -34,7 +33,6 @@ de $10 \%$ de ne pas se présenter à l'embarquement (pour diverses raisons opé
 	\[ x_1=\frac{-7-328.71}{2\times 9}<0 \quad \text{et} \quad x_2=\frac{-7+328.71}{2\times 9}=17.87\]
 	donc $n=x_2^2 \simeq 319.43$. On conclut qu'il ne faut pas dépasser $319$ passagers pour avoir un surbooking dans moins de $1$\% des cas.
 }
-
 
 }
 
