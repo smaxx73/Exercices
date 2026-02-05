@@ -73,6 +73,7 @@ class ExerciseParser:
     def _extract_contenu(self) -> Optional[str]:
         """
         Extrait le contenu avec gestion des accolades imbriquées
+        et des caractères d'échappement (ex: \{ ou \})
 
         Returns:
             Contenu extrait ou None si absent
@@ -90,8 +91,17 @@ class ExerciseParser:
         # Compter les accolades pour trouver la fin
         brace_count = 1
         pos = start
+        length = len(self.content)
 
-        while pos < len(self.content) and brace_count > 0:
+        while pos < length and brace_count > 0:
+            # --- FIX: GESTION DE L'ÉCHAPPEMENT ---
+            if self.content[pos] == '\\':
+                # Si on voit un backslash, on saute le caractère suivant
+                # car il est échappé (cela permet d'ignorer \{ et \})
+                pos += 2
+                continue
+            # -------------------------------------
+
             if self.content[pos] == '{':
                 brace_count += 1
             elif self.content[pos] == '}':
