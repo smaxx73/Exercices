@@ -71,7 +71,7 @@ class ExerciseParser:
         return None  # Champ absent
 
     def _extract_contenu(self) -> Optional[str]:
-        """
+        r"""
         Extrait le contenu avec gestion des accolades imbriquées
         et des caractères d'échappement (ex: \{ ou \})
 
