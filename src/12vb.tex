@@ -5,15 +5,12 @@
 \sousChapitre{Probabilité et Statistique}
 \titre{Vraisemblance et Méthode des moments}
 \theme{Statistique}
-\auteur{}
+\auteur{Quentin Liard}
+\datecreate{2024-09-01}
+
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{3}
 \contenu{
-
-
-
-
-
 
 \texte{
 Soit \( \theta \in ]0, 1[ \) un paramètre inconnu, on note \( X \) une variable aléatoire de loi définie par
@@ -29,10 +26,59 @@ $$
 On souhaite estimer \( \theta \) à partir d’un échantillon \( (X_1, \dots, X_n) \) de même loi que \( X \).
 \begin{enumerate}
   \item \question{Donner un estimateur \( \hat{\theta}_n \) de \( \theta \) par la méthode des moments.}
-  \item \question{L’estimateur du maximum de vraisemblance \( \hat{\theta}_n \) de \( \theta \) est-il bien défini ?}
-  \item \question{Étudier la consistance de \( \hat{\theta}_n \) et déterminer sa loi limite.}
-\end{enumerate}
+  \reponse{
+  La méthode des moments consiste à égaler le moment théorique d'ordre 1 avec le moment empirique d'ordre 1.
+  On pose l'équation :
+  \[ E_\theta[X] = \bar{X}_n \iff \frac{2\theta}{1 - \theta} = \bar{X}_n \]
+  En résolvant cette équation pour \( \theta \), on obtient :
+  \[ 2\theta = \bar{X}_n(1 - \theta) \iff 2\theta + \bar{X}_n \theta = \bar{X}_n \iff \theta(2 + \bar{X}_n) = \bar{X}_n \]
+  Ainsi, l'estimateur par la méthode des moments est :
+  \[ \hat{\theta}_n = \frac{\bar{X}_n}{2 + \bar{X}_n} \]
+  }
 
+  \item \question{L’estimateur du maximum de vraisemblance \( \hat{\theta}_n \) de \( \theta \) est-il bien défini ?}
+  \reponse{
+  Écrivons la fonction de vraisemblance pour l'échantillon \( (x_1, \dots, x_n) \) :
+  \[ L(\theta; x_1, \dots, x_n) = \prod_{i=1}^n (x_i + 1)(1 - \theta)^2 \theta^{x_i} = \left( \prod_{i=1}^n (x_i + 1) \right) (1 - \theta)^{2n} \theta^{\sum_{i=1}^n x_i} \]
+  La log-vraisemblance est donnée par :
+  \[ \ell(\theta) = \ln(L(\theta)) = \sum_{i=1}^n \ln(x_i + 1) + 2n \ln(1 - \theta) + \left( \sum_{i=1}^n x_i \right) \ln(\theta) \]
+  Dérivons par rapport à \( \theta \) :
+  \[ \frac{\partial \ell}{\partial \theta} = -\frac{2n}{1 - \theta} + \frac{n \bar{X}_n}{\theta} \]
+  En annulant la dérivée \( \frac{\partial \ell}{\partial \theta} = 0 \), on retrouve l'équation :
+  \[ \frac{n \bar{X}_n}{\theta} = \frac{2n}{1 - \theta} \iff \bar{X}_n(1 - \theta) = 2\theta \]
+  Ce qui conduit au même estimateur que celui des moments : \( \hat{\theta}_{MV} = \frac{\bar{X}_n}{2 + \bar{X}_n} \).
+  
+  Vérifions qu'il s'agit d'un maximum en calculant la dérivée seconde :
+  \[ \frac{\partial^2 \ell}{\partial \theta^2} = -\frac{2n}{(1 - \theta)^2} - \frac{n \bar{X}_n}{\theta^2} < 0 \]
+  La fonction est strictement concave, le point critique est donc bien un maximum unique. L'estimateur est bien défini pour tout \( \bar{X}_n \ge 0 \).
+  }
+
+  \item \question{Étudier la consistance de \( \hat{\theta}_n \) et déterminer sa loi limite.}
+  \reponse{
+  \textbf{Consistance :}
+  D'après la loi forte des grands nombres, \( \bar{X}_n \xrightarrow{p.s.} E[X] = \frac{2\theta}{1-\theta} \).
+  La fonction \( g : x \mapsto \frac{x}{2+x} \) est continue sur \( \mathbb{R}^+ \). Par le théorème de l'application continue :
+  \[ \hat{\theta}_n = g(\bar{X}_n) \xrightarrow{p.s.} g\left( \frac{2\theta}{1-\theta} \right) = \frac{\frac{2\theta}{1-\theta}}{2 + \frac{2\theta}{1-\theta}} = \frac{2\theta}{2(1-\theta) + 2\theta} = \frac{2\theta}{2} = \theta \]
+  L'estimateur \( \hat{\theta}_n \) est donc consistant.
+
+  \textbf{Loi limite (Normalité asymptotique) :}
+  On utilise le Théorème Central Limite (TCL) sur \( \bar{X}_n \) et la Delta-méthode.
+  Le TCL donne :
+  \[ \sqrt{n}(\bar{X}_n - E[X]) \xrightarrow{\mathcal{L}} \mathcal{N}(0, \text{Var}(X)) \]
+  avec \( \text{Var}(X) = \frac{2\theta}{(1-\theta)^2} \).
+  
+  Appliquons la Delta-méthode avec la fonction \( g(x) = \frac{x}{2+x} \).
+  Sa dérivée est \( g'(x) = \frac{2}{(2+x)^2} \).
+  Évaluons la dérivée en \( m = E[X] = \frac{2\theta}{1-\theta} \) :
+  \[ 2 + m = 2 + \frac{2\theta}{1-\theta} = \frac{2(1-\theta) + 2\theta}{1-\theta} = \frac{2}{1-\theta} \]
+  D'où :
+  \[ g'(m) = \frac{2}{\left( \frac{2}{1-\theta} \right)^2} = \frac{2 (1-\theta)^2}{4} = \frac{(1-\theta)^2}{2} \]
+  La variance asymptotique est donc :
+  \[ \sigma^2_{as} = [g'(m)]^2 \times \text{Var}(X) = \left( \frac{(1-\theta)^2}{2} \right)^2 \times \frac{2\theta}{(1-\theta)^2} = \frac{(1-\theta)^4}{4} \times \frac{2\theta}{(1-\theta)^2} = \frac{\theta(1-\theta)^2}{2} \]
+  Ainsi, la loi limite est :
+  \[ \sqrt{n}(\hat{\theta}_n - \theta) \xrightarrow{\mathcal{L}} \mathcal{N}\left( 0, \frac{\theta(1-\theta)^2}{2} \right) \]
+  }
+\end{enumerate}
 
 }
 }

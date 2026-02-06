@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - '**'
-  pull_request: # Ajouté pour permettre le commentaire PR
+  pull_request:
     branches:
-      - '**' 
+      - '**'
     paths:
       - 'src/**/*.tex'
       - '_preambules/**/*.tex'
@@ -17,20 +17,16 @@ jobs:
   validate:
     name: Tests de validation
     runs-on: ubuntu-latest
-    
-    # Permissions explicites pour écrire le commentaire
+
     permissions:
       contents: read
-      pull-requests: write 
+      pull-requests: write
 
     container:
       image: texlive/texlive:latest
 
     steps:
       - name: Install Node needed for Actions
-        # Les actions GitHub (checkout, github-script) ont besoin de Node.js.
-        # L'image texlive ne l'a pas forcément. Le runner le monte souvent, 
-        # mais il vaut mieux s'assurer que les deps système (curl, git) sont là.
         run: |
           apt-get update
           apt-get install -y git curl
@@ -38,11 +34,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # On utilise le Python du système (conteneur) plutôt que setup-python
+      # Résolution du conflit 1 : On combine apt-get update et l'installation avec le flag système
       - name: Install Dependencies
         run: |
+          apt-get update
           apt-get install -y python3 python3-pip chktex
-          # Installation des libs python au niveau user ou venv (option --break-system-packages nécessaire sur les Debian récents sans venv)
+          # Installation des libs python au niveau user (option --break-system-packages nécessaire sur les Debian récents sans venv)
           pip3 install -r tests/requirements.txt --break-system-packages
 
       - name: Run validation tests
@@ -71,7 +68,8 @@ jobs:
             const fs = require('fs');
             try {
               const report = JSON.parse(fs.readFileSync('validation_report.json', 'utf8'));
-              // Utilisation de context.repo au lieu de l'interpolation YAML pour éviter les erreurs de syntaxe JS
+              
+              // Résolution du conflit 2 : Version plus lisible avec template strings
               const repoUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
               
               const body = `## 📋 Validation LaTeX
@@ -91,4 +89,3 @@ jobs:
             } catch (error) {
               console.error('Erreur lors de la création du commentaire:', error);
             }
-            
