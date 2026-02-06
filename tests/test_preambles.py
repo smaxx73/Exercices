@@ -8,6 +8,10 @@ import shutil
 from pathlib import Path
 
 
+REPO_ROOT = Path(__file__).parent.parent
+ALL_PREAMBLE_FILES = sorted((REPO_ROOT / "_preambules").glob("*.tex"))
+
+
 @pytest.mark.fast
 class TestPreambles:
     """Tests des préambules LaTeX"""
@@ -30,7 +34,7 @@ class TestPreambles:
             preamble_path = preambles_dir / preamble
             assert preamble_path.exists(), f"Préambule manquant: {preamble}"
 
-    @pytest.mark.parametrize('preamble_file', pytest.lazy_fixture('all_preamble_files'))
+    @pytest.mark.parametrize('preamble_file', ALL_PREAMBLE_FILES, ids=lambda p: p.name)
     def test_preamble_syntax(self, preamble_file, chktex_available):
         """Vérifie la syntaxe de chaque préambule avec chktex"""
         if not chktex_available:
@@ -65,7 +69,7 @@ class TestPreambles:
         except Exception as e:
             pytest.fail(f"Erreur lors de l'exécution de chktex sur {preamble_file.name}: {e}")
 
-    @pytest.mark.parametrize('preamble_file', pytest.lazy_fixture('all_preamble_files'))
+    @pytest.mark.parametrize('preamble_file', ALL_PREAMBLE_FILES, ids=lambda p: p.name)
     def test_preamble_balanced_braces(self, preamble_file):
         """Vérifie que les accolades sont équilibrées dans les préambules"""
         content = preamble_file.read_text(encoding='utf-8')

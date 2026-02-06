@@ -3,15 +3,20 @@ Tests de cohérence des valeurs
 Vérifie que les formats des champs sont cohérents (sans imposer de valeurs spécifiques)
 """
 import pytest
-from utils.parser import ExerciseParser
-from utils.validators import MetadataValidator
+from pathlib import Path
+from tests.utils.parser import ExerciseParser
+from tests.utils.validators import MetadataValidator
+
+
+REPO_ROOT = Path(__file__).parent.parent
+ALL_EXERCISE_FILES = sorted((REPO_ROOT / "src").glob("*.tex"))
 
 
 @pytest.mark.fast
 class TestConsistency:
     """Tests de cohérence des valeurs de champs"""
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_uuid_format_is_alphanumeric_4chars(self, exercise_file):
         """Vérifie que l'UUID est bien 4 caractères alphanumériques"""
         parser = ExerciseParser(exercise_file)
@@ -23,7 +28,7 @@ class TestConsistency:
 
         assert result.valid, f"UUID invalide dans {exercise_file.name}: {result.message}"
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_datecreate_format_valid(self, exercise_file):
         """Vérifie que la date est au format YYYY-MM-DD valide"""
         parser = ExerciseParser(exercise_file)
@@ -35,7 +40,7 @@ class TestConsistency:
 
         assert result.valid, f"Date invalide dans {exercise_file.name}: {result.message}"
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_difficulte_is_numeric_if_present(self, exercise_file):
         """Vérifie que la difficulté est un chiffre ou vide"""
         parser = ExerciseParser(exercise_file)
@@ -47,7 +52,7 @@ class TestConsistency:
 
         assert result.valid, f"Difficulté invalide dans {exercise_file.name}: {result.message}"
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_contenu_not_empty_and_has_content(self, exercise_file):
         """Vérifie que le contenu n'est pas vide et contient au moins \\texte{} ou \\question{}"""
         parser = ExerciseParser(exercise_file)
@@ -59,7 +64,7 @@ class TestConsistency:
 
         assert result.valid, f"Contenu invalide dans {exercise_file.name}: {result.message}"
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_uuid_not_empty(self, exercise_file):
         """Vérifie que l'UUID n'est pas vide"""
         parser = ExerciseParser(exercise_file)
@@ -71,7 +76,7 @@ class TestConsistency:
 
         assert result.valid, f"UUID vide dans {exercise_file.name}: {result.message}"
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_titre_not_empty(self, exercise_file):
         """Vérifie que le titre n'est pas vide"""
         parser = ExerciseParser(exercise_file)
@@ -83,7 +88,7 @@ class TestConsistency:
 
         assert result.valid, f"Titre vide dans {exercise_file.name}: {result.message}"
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_niveau_not_empty(self, exercise_file):
         """Vérifie que le niveau n'est pas vide"""
         parser = ExerciseParser(exercise_file)

@@ -4,8 +4,13 @@ Vérifie que tous les UUIDs sont uniques et cohérents avec les noms de fichiers
 """
 import pytest
 from collections import Counter
-from utils.parser import ExerciseParser
-from utils.validators import MetadataValidator
+from pathlib import Path
+from tests.utils.parser import ExerciseParser
+from tests.utils.validators import MetadataValidator
+
+
+REPO_ROOT = Path(__file__).parent.parent
+ALL_EXERCISE_FILES = sorted((REPO_ROOT / "src").glob("*.tex"))
 
 
 @pytest.mark.fast
@@ -47,7 +52,7 @@ class TestUniqueness:
                 f"\n{len(duplicates)} UUIDs dupliqués trouvés:\n" + "\n".join(report)
             )
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_uuid_format_is_valid(self, exercise_file):
         """Vérifie que le format de l'UUID est valide (4 caractères alphanumériques)"""
         parser = ExerciseParser(exercise_file)
@@ -59,7 +64,7 @@ class TestUniqueness:
 
         assert result.valid, f"UUID invalide dans {exercise_file.name}: {result.message}"
 
-    @pytest.mark.parametrize('exercise_file', pytest.lazy_fixture('all_exercise_files'))
+    @pytest.mark.parametrize('exercise_file', ALL_EXERCISE_FILES, ids=lambda p: p.name)
     def test_filename_matches_uuid(self, exercise_file):
         """Vérifie que le nom du fichier correspond à l'UUID"""
         parser = ExerciseParser(exercise_file)

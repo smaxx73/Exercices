@@ -3,7 +3,10 @@ name: Validation fichiers LaTeX
 on:
   push:
     branches:
-      - '**'  # Sur toutes les branches
+      - '**'
+  pull_request:
+    branches:
+      - '**'
     paths:
       - 'src/**/*.tex'
       - '_preambules/**/*.tex'
@@ -14,26 +17,35 @@ jobs:
   validate:
     name: Tests de validation
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
     container:
       image: texlive/texlive:latest
 
     steps:
+      - name: Install Node needed for Actions
+        run: |
+          apt-get update
+          apt-get install -y git curl
+
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install system dependencies
+      # Résolution du conflit 1 : On combine apt-get update et l'installation avec le flag système
+      - name: Install Dependencies
         run: |
           apt-get update
           apt-get install -y python3 python3-pip chktex
-
-      - name: Install Python dependencies
-        run: |
+          # Installation des libs python au niveau user (option --break-system-packages nécessaire sur les Debian récents sans venv)
           pip3 install -r tests/requirements.txt --break-system-packages
 
       - name: Run validation tests
         run: |
           pytest tests/ -v --tb=short --maxfail=0
-        continue-on-error: true  # Ne pas bloquer en cas d'erreur (warnings seulement)
+        continue-on-error: true
 
       - name: Generate summary report
         if: always()
@@ -56,9 +68,18 @@ jobs:
             const fs = require('fs');
             try {
               const report = JSON.parse(fs.readFileSync('validation_report.json', 'utf8'));
-              const status = report.with_errors > 0 ? '❌ Des erreurs ont été détectées.' : '✅ Tous les tests passent !';
-              const url = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-              const body = `## 📋 Validation LaTeX\n\n${report.summary}\n\n${status}\n\n[Télécharger le rapport détaillé](${url})`;
+              
+              // Résolution du conflit 2 : Version plus lisible avec template strings
+              const repoUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+              
+              const body = `## 📋 Validation LaTeX
+
+            ${report.summary}
+
+            ${report.with_errors > 0 ? '❌ Des erreurs ont été détectées.' : '✅ Tous les tests passent !'}
+
+            [Télécharger le rapport détaillé](${repoUrl})`;
+
               await github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
