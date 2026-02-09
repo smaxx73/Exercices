@@ -1,0 +1,629 @@
+{
+  "generated_at": "2026-02-07T20:08:18",
+  "source_directory": "src/",
+  "total_files": 552,
+  "parsed_files": 552,
+  "parse_errors": [],
+  "totaux_globaux": {
+    "modules": {
+      "Probabilité et statistique": 285,
+      "Analyse": 132,
+      "Algèbre": 66,
+      "(absent)": 21,
+      "Topologie": 11,
+      "Analyse numérique": 10,
+      "Probabilités et Statistiques": 9,
+      "Optimisation": 6,
+      "Statistiques": 5,
+      "Probabilités": 3,
+      "Géométrie": 1,
+      "Probabilités avancées": 1,
+      "Réseaux de Neurones": 1,
+      "Statistiques inférentielles": 1
+    },
+    "chapitres": {
+      "Probabilité continue": 130,
+      "Statistique": 95,
+      "Probabilité discrète": 64,
+      "Fonction de plusieurs variables": 41,
+      "Série numérique": 29,
+      "Série entière": 27,
+      "Déterminant, système linéaire": 21,
+      "Polynôme, fraction rationnelle": 18,
+      "Matrice": 17,
+      "Autre": 11,
+      "Dérivabilité des fonctions réelles": 9,
+      "Continuité, limite et étude de fonctions réelles": 6,
+      "Série de Fourier": 6,
+      "Analyse numérique": 5,
+      "Fonction convexe": 5,
+      "Résolution de systèmes linéaires : méthode itérative": 5,
+      "Topologie": 5,
+      "Fonctions de plusieurs variables": 4,
+      "Optimisation": 4,
+      "Probabilités continues": 4,
+      "Échantillonnage et estimation": 4,
+      "Equation différentielle": 3,
+      "Interpolation polynomiale": 3,
+      "Méthodes numériques": 3,
+      "Application linéaire": 2,
+      "Calcul d'intégrales": 2,
+      "Dénombrement": 2,
+      "Développement limité": 2,
+      "Estimation": 2,
+      "Nombres complexes": 2,
+      "Polynômes": 2,
+      "Tests statistiques": 2,
+      "Analyse Numérique": 1,
+      "Architecture": 1,
+      "Calcul différentiel": 1,
+      "Couples de variables aléatoires discrètes": 1,
+      "Courbes planes": 1,
+      "Fonctions caractéristiques": 1,
+      "Lois de probabilité discrètes": 1,
+      "Matrices": 1,
+      "Probabilité": 1,
+      "Probabilités conditionnelles": 1,
+      "Résolution d'équation différentielle": 1,
+      "Résolution de systèmes linéaires : méthode directe": 1,
+      "Suite": 1,
+      "Systèmes linéaires": 1,
+      "Théorème central limite": 1,
+      "Variables aléatoires": 1,
+      "Variables aléatoires à densité": 1
+    },
+    "sous_chapitres": {
+      "Densité de probabilité": 71,
+      "Autre": 61,
+      "Tests d'hypothèses, intervalle de confiance": 55,
+      "Loi normale": 37,
+      "Estimation": 25,
+      "Variable aléatoire discrète": 24,
+      "Lois de distributions": 17,
+      "Série à termes positifs": 14,
+      "Calcul de déterminants": 11,
+      "Extremums locaux": 10,
+      "Système linéaire, rang": 10,
+      "Lois des grands nombres, théorème central limite": 9,
+      "Inverse, méthode de Gauss": 8,
+      "Probabilité conditionnelle": 8,
+      "Probabilité et dénombrement": 8,
+      "Propriétés élémentaires, généralités": 8,
+      "Racine, décomposition en facteurs irréductibles": 8,
+      "Dérivée partielle": 7,
+      "Applications": 6,
+      "Convergence en loi": 6,
+      "Equations différentielles": 6,
+      "Tests d'hypothèses, intervalles de confiance": 6,
+      "Calcul de coefficients": 5,
+      "Calcul de la somme d'une série entière": 5,
+      "Calculs": 5,
+      "Division euclidienne": 5,
+      "Développement en série entière": 5,
+      "Fonctions équivalentes, fonctions négligeables": 5,
+      "Fraction rationnelle": 5,
+      "Multiplicateurs de Lagrange": 5,
+      "Différentiabilité": 4,
+      "Limite": 4,
+      "Ouvert, fermé, intérieur, adhérence": 4,
+      "Rayon de convergence": 4,
+      "Résolution d'équation différentielle": 4,
+      "Résolution de systèmes linéaires : méthode itérative": 4,
+      "Dérivées partielles": 3,
+      "Interpolation polynomiale": 3,
+      "Loi, indépendance, loi conditionnelle": 3,
+      "Méthode de Newton": 3,
+      "Théorème central limite": 3,
+      "Convergence absolue": 2,
+      "Critères de Cauchy et d'Alembert": 2,
+      "Limite et continuité": 2,
+      "Loi conjointe": 2,
+      "Optimisation": 2,
+      "(absent)": 1,
+      "Approximation de loi": 1,
+      "Approximation normale": 1,
+      "Biais, convergence et efficacité des estimateurs": 1,
+      "Calcul approché d'intégrale": 1,
+      "Calcul de la somme de série entière": 1,
+      "Calcul différentiel": 1,
+      "Continuité": 1,
+      "Continuité : théorie": 1,
+      "Courbes de niveaux": 1,
+      "Courbes paramétrées": 1,
+      "Différentielle de fonctions composées": 1,
+      "Domaine de convergence": 1,
+      "Définition et propriété d'une probabilité": 1,
+      "Déterminant": 1,
+      "Espérance et Fonction de répartition": 1,
+      "Estimateur": 1,
+      "Factorisation et fractions rationnelles": 1,
+      "Formalisation": 1,
+      "Intervalle de confiance": 1,
+      "Intervalles de confiance": 1,
+      "Intervalles de confiance, utilisation d'un tableur": 1,
+      "Loi conjointe et marginales": 1,
+      "Loi conjointe, marginales, covariance": 1,
+      "Loi de Poisson et fonction caractéristique": 1,
+      "Loi exponentielle": 1,
+      "Loi forte des grands nombres": 1,
+      "Loi normale et somme de variables aléatoires": 1,
+      "Loi normale, loi du chi-deux, approximations": 1,
+      "Maximum de vraisemblance": 1,
+      "Méthode du gradient à pas optimal": 1,
+      "Probabilité et Statistique": 1,
+      "Produit matriciel et déterminant": 1,
+      "Racine n-ieme": 1,
+      "Reconnaissance de lois": 1,
+      "Résolution de systèmes linéaires : méthode de gradient": 1,
+      "Résolution de systèmes linéaires : méthode directe": 1,
+      "Suite dans Rn": 1,
+      "Suite définie par une relation de récurrence": 1,
+      "Surface représentative": 1,
+      "Systèmes paramétrés": 1,
+      "Série à  termes positifs": 1,
+      "Séries divergentes": 1,
+      "Séries semi-convergentes": 1,
+      "Test d'adéquation du $\\chi^2$": 1,
+      "Test de conformité d'une moyenne": 1,
+      "Théorème Central Limite": 1,
+      "Théorème de Bayes": 1
+    }
+  },
+  "hierarchie_module_chapitre_sous_chapitre": {
+    "Probabilité et statistique": {
+      "count": 285,
+      "chapitres": {
+        "Probabilité continue": {
+          "count": 126,
+          "sous_chapitres": {
+            "Densité de probabilité": 71,
+            "Loi normale": 30,
+            "Lois des grands nombres, théorème central limite": 8,
+            "Convergence en loi": 6,
+            "Théorème central limite": 3,
+            "Autre": 2,
+            "Loi conjointe": 2,
+            "Espérance et Fonction de répartition": 1,
+            "Loi exponentielle": 1,
+            "Loi forte des grands nombres": 1,
+            "Théorème Central Limite": 1
+          }
+        },
+        "Statistique": {
+          "count": 95,
+          "sous_chapitres": {
+            "Tests d'hypothèses, intervalle de confiance": 54,
+            "Estimation": 25,
+            "Autre": 8,
+            "Tests d'hypothèses, intervalles de confiance": 6,
+            "(absent)": 1,
+            "Probabilité et Statistique": 1
+          }
+        },
+        "Probabilité discrète": {
+          "count": 64,
+          "sous_chapitres": {
+            "Variable aléatoire discrète": 24,
+            "Lois de distributions": 17,
+            "Probabilité conditionnelle": 8,
+            "Probabilité et dénombrement": 8,
+            "Loi, indépendance, loi conditionnelle": 3,
+            "Approximation de loi": 1,
+            "Autre": 1,
+            "Définition et propriété d'une probabilité": 1,
+            "Estimateur": 1
+          }
+        }
+      }
+    },
+    "Analyse": {
+      "count": 132,
+      "chapitres": {
+        "Fonction de plusieurs variables": {
+          "count": 41,
+          "sous_chapitres": {
+            "Extremums locaux": 10,
+            "Autre": 8,
+            "Dérivée partielle": 7,
+            "Limite": 4,
+            "Différentiabilité": 3,
+            "Dérivées partielles": 3,
+            "Applications": 1,
+            "Continuité": 1,
+            "Courbes de niveaux": 1,
+            "Différentielle de fonctions composées": 1,
+            "Optimisation": 1,
+            "Surface représentative": 1
+          }
+        },
+        "Série numérique": {
+          "count": 29,
+          "sous_chapitres": {
+            "Série à termes positifs": 14,
+            "Autre": 8,
+            "Convergence absolue": 2,
+            "Critères de Cauchy et d'Alembert": 2,
+            "Série à  termes positifs": 1,
+            "Séries divergentes": 1,
+            "Séries semi-convergentes": 1
+          }
+        },
+        "Série entière": {
+          "count": 27,
+          "sous_chapitres": {
+            "Equations différentielles": 6,
+            "Autre": 5,
+            "Calcul de la somme d'une série entière": 5,
+            "Développement en série entière": 5,
+            "Rayon de convergence": 4,
+            "Calcul de la somme de série entière": 1,
+            "Domaine de convergence": 1
+          }
+        },
+        "Dérivabilité des fonctions réelles": {
+          "count": 9,
+          "sous_chapitres": {
+            "Applications": 4,
+            "Calculs": 4,
+            "Autre": 1
+          }
+        },
+        "Continuité, limite et étude de fonctions réelles": {
+          "count": 6,
+          "sous_chapitres": {
+            "Fonctions équivalentes, fonctions négligeables": 5,
+            "Continuité : théorie": 1
+          }
+        },
+        "Série de Fourier": {
+          "count": 6,
+          "sous_chapitres": {
+            "Calcul de coefficients": 5,
+            "Autre": 1
+          }
+        },
+        "Topologie": {
+          "count": 5,
+          "sous_chapitres": {
+            "Ouvert, fermé, intérieur, adhérence": 4,
+            "Suite dans Rn": 1
+          }
+        },
+        "Equation différentielle": {
+          "count": 3,
+          "sous_chapitres": {
+            "Résolution d'équation différentielle": 3
+          }
+        },
+        "Calcul d'intégrales": {
+          "count": 2,
+          "sous_chapitres": {
+            "Autre": 1,
+            "Calcul approché d'intégrale": 1
+          }
+        },
+        "Développement limité": {
+          "count": 2,
+          "sous_chapitres": {
+            "Applications": 1,
+            "Calculs": 1
+          }
+        },
+        "Fonctions de plusieurs variables": {
+          "count": 1,
+          "sous_chapitres": {
+            "Calcul différentiel": 1
+          }
+        },
+        "Suite": {
+          "count": 1,
+          "sous_chapitres": {
+            "Suite définie par une relation de récurrence": 1
+          }
+        }
+      }
+    },
+    "Algèbre": {
+      "count": 66,
+      "chapitres": {
+        "Déterminant, système linéaire": {
+          "count": 21,
+          "sous_chapitres": {
+            "Calcul de déterminants": 11,
+            "Système linéaire, rang": 10
+          }
+        },
+        "Polynôme, fraction rationnelle": {
+          "count": 18,
+          "sous_chapitres": {
+            "Racine, décomposition en facteurs irréductibles": 8,
+            "Fraction rationnelle": 5,
+            "Division euclidienne": 4,
+            "Déterminant": 1
+          }
+        },
+        "Matrice": {
+          "count": 17,
+          "sous_chapitres": {
+            "Inverse, méthode de Gauss": 8,
+            "Propriétés élémentaires, généralités": 8,
+            "Autre": 1
+          }
+        },
+        "Application linéaire": {
+          "count": 2,
+          "sous_chapitres": {
+            "Autre": 2
+          }
+        },
+        "Dénombrement": {
+          "count": 2,
+          "sous_chapitres": {
+            "Autre": 2
+          }
+        },
+        "Nombres complexes": {
+          "count": 2,
+          "sous_chapitres": {
+            "Autre": 1,
+            "Racine n-ieme": 1
+          }
+        },
+        "Polynômes": {
+          "count": 2,
+          "sous_chapitres": {
+            "Division euclidienne": 1,
+            "Factorisation et fractions rationnelles": 1
+          }
+        },
+        "Matrices": {
+          "count": 1,
+          "sous_chapitres": {
+            "Produit matriciel et déterminant": 1
+          }
+        },
+        "Systèmes linéaires": {
+          "count": 1,
+          "sous_chapitres": {
+            "Systèmes paramétrés": 1
+          }
+        }
+      }
+    },
+    "(absent)": {
+      "count": 21,
+      "chapitres": {
+        "Analyse numérique": {
+          "count": 5,
+          "sous_chapitres": {
+            "Autre": 5
+          }
+        },
+        "Optimisation": {
+          "count": 4,
+          "sous_chapitres": {
+            "Autre": 4
+          }
+        },
+        "Probabilité continue": {
+          "count": 4,
+          "sous_chapitres": {
+            "Loi normale": 3,
+            "Lois des grands nombres, théorème central limite": 1
+          }
+        },
+        "Fonctions de plusieurs variables": {
+          "count": 3,
+          "sous_chapitres": {
+            "Limite et continuité": 2,
+            "Optimisation": 1
+          }
+        },
+        "Méthodes numériques": {
+          "count": 3,
+          "sous_chapitres": {
+            "Méthode de Newton": 3
+          }
+        },
+        "Analyse Numérique": {
+          "count": 1,
+          "sous_chapitres": {
+            "Méthode du gradient à pas optimal": 1
+          }
+        },
+        "Probabilité": {
+          "count": 1,
+          "sous_chapitres": {
+            "Loi de Poisson et fonction caractéristique": 1
+          }
+        }
+      }
+    },
+    "Topologie": {
+      "count": 11,
+      "chapitres": {
+        "Autre": {
+          "count": 11,
+          "sous_chapitres": {
+            "Autre": 11
+          }
+        }
+      }
+    },
+    "Analyse numérique": {
+      "count": 10,
+      "chapitres": {
+        "Résolution de systèmes linéaires : méthode itérative": {
+          "count": 5,
+          "sous_chapitres": {
+            "Résolution de systèmes linéaires : méthode itérative": 4,
+            "Résolution de systèmes linéaires : méthode de gradient": 1
+          }
+        },
+        "Interpolation polynomiale": {
+          "count": 3,
+          "sous_chapitres": {
+            "Interpolation polynomiale": 3
+          }
+        },
+        "Résolution d'équation différentielle": {
+          "count": 1,
+          "sous_chapitres": {
+            "Résolution d'équation différentielle": 1
+          }
+        },
+        "Résolution de systèmes linéaires : méthode directe": {
+          "count": 1,
+          "sous_chapitres": {
+            "Résolution de systèmes linéaires : méthode directe": 1
+          }
+        }
+      }
+    },
+    "Probabilités et Statistiques": {
+      "count": 9,
+      "chapitres": {
+        "Probabilités continues": {
+          "count": 4,
+          "sous_chapitres": {
+            "Loi normale": 4
+          }
+        },
+        "Échantillonnage et estimation": {
+          "count": 2,
+          "sous_chapitres": {
+            "Intervalles de confiance, utilisation d'un tableur": 1,
+            "Maximum de vraisemblance": 1
+          }
+        },
+        "Théorème central limite": {
+          "count": 1,
+          "sous_chapitres": {
+            "Approximation normale": 1
+          }
+        },
+        "Variables aléatoires": {
+          "count": 1,
+          "sous_chapitres": {
+            "Loi normale, loi du chi-deux, approximations": 1
+          }
+        },
+        "Variables aléatoires à densité": {
+          "count": 1,
+          "sous_chapitres": {
+            "Loi conjointe et marginales": 1
+          }
+        }
+      }
+    },
+    "Optimisation": {
+      "count": 6,
+      "chapitres": {
+        "Fonction convexe": {
+          "count": 5,
+          "sous_chapitres": {
+            "Multiplicateurs de Lagrange": 5
+          }
+        },
+        "Calcul différentiel": {
+          "count": 1,
+          "sous_chapitres": {
+            "Différentiabilité": 1
+          }
+        }
+      }
+    },
+    "Statistiques": {
+      "count": 5,
+      "chapitres": {
+        "Tests statistiques": {
+          "count": 2,
+          "sous_chapitres": {
+            "Test d'adéquation du $\\chi^2$": 1,
+            "Test de conformité d'une moyenne": 1
+          }
+        },
+        "Échantillonnage et estimation": {
+          "count": 2,
+          "sous_chapitres": {
+            "Biais, convergence et efficacité des estimateurs": 1,
+            "Tests d'hypothèses, intervalle de confiance": 1
+          }
+        },
+        "Estimation": {
+          "count": 1,
+          "sous_chapitres": {
+            "Intervalles de confiance": 1
+          }
+        }
+      }
+    },
+    "Probabilités": {
+      "count": 3,
+      "chapitres": {
+        "Couples de variables aléatoires discrètes": {
+          "count": 1,
+          "sous_chapitres": {
+            "Loi conjointe, marginales, covariance": 1
+          }
+        },
+        "Lois de probabilité discrètes": {
+          "count": 1,
+          "sous_chapitres": {
+            "Reconnaissance de lois": 1
+          }
+        },
+        "Probabilités conditionnelles": {
+          "count": 1,
+          "sous_chapitres": {
+            "Théorème de Bayes": 1
+          }
+        }
+      }
+    },
+    "Géométrie": {
+      "count": 1,
+      "chapitres": {
+        "Courbes planes": {
+          "count": 1,
+          "sous_chapitres": {
+            "Courbes paramétrées": 1
+          }
+        }
+      }
+    },
+    "Probabilités avancées": {
+      "count": 1,
+      "chapitres": {
+        "Fonctions caractéristiques": {
+          "count": 1,
+          "sous_chapitres": {
+            "Loi normale et somme de variables aléatoires": 1
+          }
+        }
+      }
+    },
+    "Réseaux de Neurones": {
+      "count": 1,
+      "chapitres": {
+        "Architecture": {
+          "count": 1,
+          "sous_chapitres": {
+            "Formalisation": 1
+          }
+        }
+      }
+    },
+    "Statistiques inférentielles": {
+      "count": 1,
+      "chapitres": {
+        "Estimation": {
+          "count": 1,
+          "sous_chapitres": {
+            "Intervalle de confiance": 1
+          }
+        }
+      }
+    }
+  }
+}
