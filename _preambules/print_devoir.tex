@@ -258,19 +258,16 @@
 
 % Bouton "Version web" stylisé
 \newcommand{\LienVersionWeb}[1]{%
-	\begin{tcolorbox}[
-		enhanced,
-		nobeforeafter,
-		tcbox raise base,
-		boxrule=0.5pt,
-		top=1pt, bottom=1pt, left=6pt, right=6pt,
-		arc=5pt,
-		colframe=modernblue!80,
-		colback=modernblue!10,
-		width=auto
-		]
-		\href{https://openyourmath.org/exercise/list?list=#1}{%
-			\textcolor{modernblue}{\small\sffamily\bfseries 🌐\ Version web}%
-		}
-	\end{tcolorbox}%
+	\noindent\tikz[baseline=(node.base)]{
+		\node[
+		rounded corners=5pt,
+		fill=modernblue,
+		inner sep=6pt,
+		inner ysep=4pt
+		] (node) {%
+			\href{https://openyourmath.org/exercise/list?list=#1}{%
+				\textcolor{white}{\small\sffamily\bfseries Version web}%
+			}%
+		};
+	}\medskip
 }
