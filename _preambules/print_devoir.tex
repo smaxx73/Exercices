@@ -9,6 +9,11 @@
 
 \definecolor{solutioncolor}{RGB}{0,100,0}
 \definecolor{titrecolor}{RGB}{36,76,146}
+\definecolor{modernblue}{RGB}{59,130,246}      % Bleu moderne
+\definecolor{modernindigo}{RGB}{99,102,241}    % Indigo moderne
+\definecolor{moderngray}{RGB}{107,114,128}     % Gris moderne
+\definecolor{lightgray}{RGB}{249,250,251}      % Gris très clair
+\definecolor{difficultycolor}{RGB}{255,165,0}  % Orange pour la difficulté
 
 %liens vers des ressources extérieures :
 \newcommand{\pathcorrige}{https://openyourmath.org/exercise/}
@@ -55,6 +60,22 @@
 	} % Ajouter l'icône d'ampoule en tant qu'overlay
 }
 
+% Commande pour générer les étoiles de difficulté
+\newcommand{\difficultystars}[1]{%
+	\ifx#1\empty
+	\else
+	\ifnum#1>0
+	\textcolor{difficultycolor}{%
+		\ifnum#1=1 $\star$\fi
+		\ifnum#1=2 $\star$ $\star$\fi
+		\ifnum#1=3 $\star$ $\star$ $\star$\fi
+		\ifnum#1=4 $\star$ $\star$ $\star$ $\star$\fi
+		\ifnum#1=5 $\star$ $\star$ $\star$ $\star$ $\star$\fi
+	}%
+	\fi
+	\fi
+}
+
 \newtcolorbox{titrebox}[3][]{
 	enhanced,
 	breakable,
@@ -66,7 +87,8 @@
 	borderline north={1pt}{0pt}{gray!50},
 	overlay unbroken and first={
 		\node[anchor=west, inner xsep=0pt, inner ysep=5pt, minimum width=\linewidth-2mm, text width=\linewidth-2mm, text depth=1ex, text height=1.5ex, text=black] at ([yshift=2mm]frame.north west) {
-			\small\textbf{\sffamily{\textcolor{black}{Ex #1 - #2}}}
+			\small\textbf{\sffamily{\textcolor{black}{Ex #1 - #2}}}%
+			\ifx\ExoDifficulte\empty\else\hspace{0.5em}\difficultystars{\ExoDifficulte}\fi
 		};
 		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=east, inner ysep=5pt, inner xsep=5pt] at ([yshift=2mm]frame.north east) {
@@ -87,7 +109,8 @@
 	borderline north={1pt}{0pt}{gray!50},
 	overlay unbroken and first={
 		\node[anchor=west, inner xsep=0pt, inner ysep=5pt, minimum width=\linewidth-2mm, text width=\linewidth-2mm, text depth=1ex, text height=1.5ex, text=black] at ([yshift=2mm]frame.north west) {
-			\small\textbf{\sffamily{\textcolor{black}{Partie #1 - #2}}}
+			\small\textbf{\sffamily{\textcolor{black}{Partie #1 - #2}}}%
+			\ifx\ExoDifficulte\empty\else\hspace{0.5em}\difficultystars{\ExoDifficulte}\fi
 		};
 		\ifthenelse{\boolean{isuuid}}{
 			\node[anchor=east, inner ysep=5pt, inner xsep=5pt] at ([yshift=2mm]frame.north east) {
@@ -103,6 +126,9 @@
 
 \newcommand{\titre}[1]{%
 	\def\TitreExo{#1}
+}
+\renewcommand{\difficulte}[1]{%
+	\def\ExoDifficulte{#1}
 }
 \newcommand{\contenu}[1]{%
 	\def\Contenu{#1}
@@ -135,95 +161,97 @@
 }
 
 % \newcommand{\insertexo}[1]{
-% \begin{minipage}[t]{0.85\textwidth}
-%\input{../Exercices/#1}
-%\end{minipage}
-%\begin{minipage}[t]{0.15\textwidth}
-%{\tiny [#1]}
-%\end{minipage}
-%}
-
-\newcommand{\insertexobis}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
-	\noindent
-	\input{\path src/#1}
-	\setboolean{solution}{#2}
-	\setboolean{isuuid}{#3}
-	\setboolean{link}{#4}
+	% \begin{minipage}[t]{0.85\textwidth}
+		%\input{../Exercices/#1}
+		%\end{minipage}
+		%\begin{minipage}[t]{0.15\textwidth}
+		%{\tiny [#1]}
+		%\end{minipage}
+		%}
 	
-	\begin{titreboxbis}[#5]
-		{\bfseries{\TitreExo}}{#1} %\hfill
-		%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
-		\Contenu
-	\end{titreboxbis}	
-}
-
-
-\newcommand{\insertexo}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
-	\noindent
-	\input{\path src/#1}
-	\setboolean{solution}{#2}
-	\setboolean{isuuid}{#3}
-	\setboolean{link}{#4}
-	
-	\begin{titrebox}[#5]
-		{\bfseries{\TitreExo}}{#1}
-		\Contenu
-	\end{titrebox}    
-}
-
-\newcommand{\listexo}[1]{%liste
-	\foreach \ex in #1 {
-		\nextexo
-		\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}
-	}
-}
-
-\newcommand{\insertnotebook}[1]{%contenu, solution, isuuid, lien solution,numerotation
-	\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
-}
-
-\newcommand{\colonnes}[3]{
-	\setboolean{solution}{#1}
-	\ifthenelse{\boolean{solution}} {
-		\ifnumcomp{#3}{=}{1}
-		{}%
-		{\begin{multicols}{#3}}%
-		}%
-		{%
-			\ifnumcomp{#2}{=}{1}
-			{}%
-			{\begin{multicols}{#2}}%
-			}
-		}
+	\newcommand{\insertexobis}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
+		\noindent
+		\def\ExoDifficulte{}%
+		\input{\path src/#1}
+		\setboolean{solution}{#2}
+		\setboolean{isuuid}{#3}
+		\setboolean{link}{#4}
 		
-\newcommand{\fincolonnes}[3]{
-			\setboolean{solution}{#1}
-			\ifthenelse{\boolean{solution}} {
-				\ifnumcomp{#3}{=}{1}
+		\begin{titreboxbis}[#5]
+			{\bfseries{\TitreExo}}{#1} %\hfill
+			%\hfill \ifthenelse{\boolean{link}}{\qrcode{\pathcorrige#1.pdf}}{\phantom{\qrcode{\pathcorrige#1.pdf}}}
+			\Contenu
+		\end{titreboxbis}	
+	}
+	
+	
+	\newcommand{\insertexo}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
+		\noindent
+		\def\ExoDifficulte{}%
+		\input{\path src/#1}
+		\setboolean{solution}{#2}
+		\setboolean{isuuid}{#3}
+		\setboolean{link}{#4}
+		
+		\begin{titrebox}[#5]
+			{\bfseries{\TitreExo}}{#1}
+			\Contenu
+		\end{titrebox}    
+	}
+	
+	\newcommand{\listexo}[1]{%liste
+		\foreach \ex in #1 {
+			\nextexo
+			\insertexo{\ex}{\solution}{\isuuid}{\link}{\thenum}
+		}
+	}
+	
+	\newcommand{\insertnotebook}[1]{%contenu, solution, isuuid, lien solution,numerotation
+		\href{\pathnotebook#1.ipynb}{Lien vers le notebook} 
+	}
+	
+	\newcommand{\colonnes}[3]{
+		\setboolean{solution}{#1}
+		\ifthenelse{\boolean{solution}} {
+			\ifnumcomp{#3}{=}{1}
+			{}%
+			{\begin{multicols}{#3}}%
+			}%
+			{%
+				\ifnumcomp{#2}{=}{1}
+				{}%
+				{\begin{multicols}{#2}}%
+				}
+			}
+			
+			\newcommand{\fincolonnes}[3]{
+				\setboolean{solution}{#1}
+				\ifthenelse{\boolean{solution}} {
+					\ifnumcomp{#3}{=}{1}
+					{}%
+					{\end{multicols}}%
+			}%
+			{%
+				\ifnumcomp{#2}{=}{1}
 				{}%
 				{\end{multicols}}%
-		}%
-		{%
-			\ifnumcomp{#2}{=}{1}
-			{}%
-			{\end{multicols}}%
+		}
 	}
-}
-
-\newcounter{qrcodenum}
-
-\newcommand{\listeqrcode}[2]{%liste d'exercices, initiatialisation du compteur
-\setcounter{qrcodenum}{#2}
-\noindent
-\foreach \exo in #1{
-	% Crée une minipage pour chaque exercice avec son numéro, son titre et son QR code
-	\begin{minipage}{0.24\textwidth}  % ajustez la largeur pour avoir 4 QR codes par ligne
-		\centering
-		\href{\pathcorrige\exo.pdf}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
-		{\qrcode{\pathcorrige\exo.pdf}}  % génère le QR code
-		\par\vspace{2em}  % espace vertical entre les QR codes
-	\end{minipage}
-	% Incrémente le compteur
-	\stepcounter{qrcodenum}
-}
-}
+	
+	\newcounter{qrcodenum}
+	
+	\newcommand{\listeqrcode}[2]{%liste d'exercices, initiatialisation du compteur
+		\setcounter{qrcodenum}{#2}
+		\noindent
+		\foreach \exo in #1{
+			% Crée une minipage pour chaque exercice avec son numéro, son titre et son QR code
+			\begin{minipage}{0.24\textwidth}  % ajustez la largeur pour avoir 4 QR codes par ligne
+				\centering
+				\href{\pathcorrige\exo.pdf}{\texttt{Ex \theqrcodenum : \exo \vspace{1em}}}  % affiche le numéro et le titre de l'exercice
+				{\qrcode{\pathcorrige\exo.pdf}}  % génère le QR code
+				\par\vspace{2em}  % espace vertical entre les QR codes
+			\end{minipage}
+			% Incrémente le compteur
+			\stepcounter{qrcodenum}
+		}
+	}
