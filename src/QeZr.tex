@@ -10,30 +10,30 @@
 \organisation{AMSCC}
 \difficulte{4}
 \contenu{
-\texte{
-	Dans le cadre de la qualification d'une section d'infanterie, on évalue la précision 
-	du tir au FAMAS sur cible à 200 mètres. Le référentiel de l'armée de terre fixe 
-	un écart-type maximal de $\sigma_0 = 8$ cm pour les impacts par rapport au centre 
-	de la cible (tous tireurs confondus) pour qu'une section soit considérée comme opérationnelle.
-	
-	Un chef de section souhaite vérifier si sa section respecte ce standard. 
-	Lors d'une séance de tir, 25 soldats effectuent chacun un tir, 
-	et on mesure la distance de l'impact au centre de la cible (en cm). 
-	
-	\textbf{Distances observées (en cm) :}
-	\begin{center}
-		\begin{tabular}{ccccccccccc}
-			5.2 & 12.3 & 8.7 & 6.5 & 15.1 & 9.2 & 7.4 & 11.8 & 4.9 & 13.6 & 9.8 \\
-			4.1 & 11.2 & 7.8 & 13.5 & 6.9 & 10.5 & 8.3 & 14.2 & 5.7 & 7.2 & 10.1 \\
-			8.9 & 12.5 & 6.3 & & & & & & & &
-		\end{tabular}
-	\end{center}
-	
-	\textbf{Statistiques calculées} (pour vérification) : 
-	$\bar{x} = 9.23$ cm, $s^2 = 11.67$ cm$^2$, $s = 3.42$ cm
-	
-	On suppose que la distance des impacts suit une loi normale.
-}
+	\texte{
+		Dans le cadre de la qualification d'une section d'infanterie, on évalue la précision 
+		du tir au FAMAS sur cible à 200 mètres. Le référentiel de l'armée de terre fixe 
+		un écart-type maximal de $\sigma_0 = 8$ cm pour les impacts par rapport au centre 
+		de la cible (tous tireurs confondus) pour qu'une section soit considérée comme opérationnelle.
+		
+		Un chef de section souhaite vérifier si sa section respecte ce standard. 
+		Lors d'une séance de tir, 25 soldats effectuent chacun un tir, 
+		et on mesure la distance de l'impact au centre de la cible (en cm). 
+		
+		\textbf{Distances observées (en cm) :}
+		\begin{center}
+			\begin{tabular}{ccccccccccc}
+				5.2 & 12.3 & 8.7 & 6.5 & 15.1 & 9.2 & 7.4 & 11.8 & 4.9 & 13.6 & 9.8 \\
+				4.1 & 11.2 & 7.8 & 13.5 & 6.9 & 10.5 & 8.3 & 14.2 & 5.7 & 7.2 & 10.1 \\
+				8.9 & 12.5 & 6.3 & & & & & & & &
+			\end{tabular}
+		\end{center}
+		
+		\textbf{Statistiques calculées} (pour vérification) : 
+		$\bar{x} = 9.27$ cm, $s^2 = 9.83$ cm$^2$, $s = 3.13$ cm
+		
+		On suppose que la distance des impacts suit une loi normale.
+	}
 	\begin{enumerate}
 		\item \question{ 
 			Avant de réaliser les tests statistiques, visualiser les données :
@@ -44,91 +44,91 @@
 				(tireur mal formé, incident de tir, etc.) ?
 			\end{itemize}
 		}
-
-\indication{ Critère de Tukey : une valeur est aberrante si elle est en dehors de 
-	$[Q1 - 1.5 \times IQR; Q3 + 1.5 \times IQR]$. }
 		
-\reponse{
-	\textbf{Calculs des quartiles et statistiques descriptives :}
-	
-	En ordonnant les données :
-	4.1, 4.9, 5.2, 5.7, 6.3, 6.5, 6.9, 7.2, 7.4, 7.8, 8.3, 8.7, 8.9, 
-	9.2, 9.8, 10.1, 10.5, 11.2, 11.8, 12.3, 12.5, 13.5, 13.6, 14.2, 15.1
-	
-	\begin{itemize}
-		\item Effectif : $n = 25$
-		\item Minimum : 4.1 cm
-		\item Q1 (25\%) : 6.7 cm (entre les valeurs 6.5 et 6.9)
-		\item Médiane (50\%) : 8.9 cm (13\textsuperscript{e} valeur)
-		\item Q3 (75\%) : 12.4 cm (entre les valeurs 12.3 et 12.5)
-		\item Maximum : 15.1 cm
-		\item Écart interquartile : IQR = Q3 - Q1 = 12.4 - 6.7 = 5.7 cm
-	\end{itemize}
-	
-	\textbf{Recherche de valeurs aberrantes :}
-	
-	Critère de Tukey : une valeur est aberrante si elle est en dehors de 
-	$[Q1 - 1.5 \times IQR; Q3 + 1.5 \times IQR]$
-	
-	$$[6.7 - 1.5 \times 5.7; 12.4 + 1.5 \times 5.7] = [-1.85; 20.95]$$
-	
-	Toutes les valeurs sont dans cet intervalle : \textbf{pas de valeur aberrante}.
-	
-	\textbf{Cohérence avec la normalité :}
-	\begin{itemize}
-		\item La distribution semble relativement symétrique autour de la médiane (8.9 cm)
-		\item La médiane (8.9 cm) est très proche de la moyenne (9.23 cm), 
-		ce qui suggère une distribution symétrique
-		\item L'écart-type $s = 3.42$ cm représente environ 37\% de la moyenne, 
-		ce qui est raisonnable
-		\item Pas de valeurs extrêmes selon le critère de Tukey
-		\item Distribution unimodale concentrée autour de 9 cm
-		\item L'écart-type est nettement inférieur au standard requis (3.42 < 8 cm)
-	\end{itemize}
-	
-	L'hypothèse de normalité semble acceptable pour ces données.
-	
-	\textbf{Diagramme en boîte (boîte à moustaches) :}
-	
-	\begin{center}
-		\begin{tikzpicture}
-			\draw[->] (0,0) -- (16,0) node[right] {Distance (cm)};
-			\foreach \x in {0,2,4,6,8,10,12,14,16}
-			\draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+		\indication{ Critère de Tukey : une valeur est aberrante si elle est en dehors de 
+			$[Q1 - 1.5 \times IQR; Q3 + 1.5 \times IQR]$. }
+		
+		\reponse{
+			\textbf{Calculs des quartiles et statistiques descriptives :}
 			
-			% Moustaches
-			\draw[thick] (4.1,1) -- (6.7,1);
-			\draw[thick] (12.4,1) -- (15.1,1);
+			En ordonnant les données :
+			4.1, 4.9, 5.2, 5.7, 6.3, 6.5, 6.9, 7.2, 7.4, 7.8, 8.3, 8.7, 8.9, 
+			9.2, 9.8, 10.1, 10.5, 11.2, 11.8, 12.3, 12.5, 13.5, 13.6, 14.2, 15.1
 			
-			% Boîte
-			\draw[thick,fill=blue!20] (6.7,0.5) rectangle (12.4,1.5);
+			\begin{itemize}
+				\item Effectif : $n = 25$
+				\item Minimum : 4.1 cm
+				\item Q1 (25\%) : 6.9 cm (7\textsuperscript{e} valeur)
+				\item Médiane (50\%) : 8.9 cm (13\textsuperscript{e} valeur)
+				\item Q3 (75\%) : 11.8 cm (19\textsuperscript{e} valeur)
+				\item Maximum : 15.1 cm
+				\item Écart interquartile : IQR = Q3 - Q1 = 11.8 - 6.9 = 4.9 cm
+			\end{itemize}
 			
-			% Médiane
-			\draw[very thick,red] (8.9,0.5) -- (8.9,1.5);
+			\textbf{Recherche de valeurs aberrantes :}
 			
-			% Marques
-			\draw[thick] (4.1,0.8) -- (4.1,1.2) node[above] {Min};
-			\draw[thick] (15.1,0.8) -- (15.1,1.2) node[above] {Max};
-			\node[above] at (8.9,1.5) {Médiane};
-			\node[below] at (6.7,0.5) {Q1};
-			\node[below] at (12.4,0.5) {Q3};
-		\end{tikzpicture}
-	\end{center}
-}
-
-\indication{
-	Avec un tableur :
-	\begin{itemize}
-		\item Trier les données : Sélectionner $\to$ Données $\to$ Trier
-		\item Minimum : \texttt{=MIN(plage)} donne 4.1
-		\item Q1 : \texttt{=QUARTILE.INCLURE(plage; 1)} donne 6.7
-		\item Médiane : \texttt{=MEDIANE(plage)} ou \texttt{=QUARTILE.INCLURE(plage; 2)} donne 8.9
-		\item Q3 : \texttt{=QUARTILE.INCLURE(plage; 3)} donne 12.4
-		\item Maximum : \texttt{=MAX(plage)} donne 15.1
-		\item IQR : \texttt{=Q3-Q1} donne 5.7
-		\item Boîte à moustaches : Insertion $\to$ Graphique $\to$ Boîte à moustaches
-	\end{itemize}
-}
+			Critère de Tukey : une valeur est aberrante si elle est en dehors de 
+			$[Q1 - 1.5 \times IQR; Q3 + 1.5 \times IQR]$
+			
+			$$[6.9 - 1.5 \times 4.9; 11.8 + 1.5 \times 4.9] = [-0.45; 19.15]$$
+			
+			Toutes les valeurs sont dans cet intervalle : \textbf{pas de valeur aberrante}.
+			
+			\textbf{Cohérence avec la normalité :}
+			\begin{itemize}
+				\item La distribution semble relativement symétrique autour de la médiane (8.9 cm)
+				\item La médiane (8.9 cm) est très proche de la moyenne (9.27 cm), 
+				ce qui suggère une distribution symétrique
+				\item L'écart-type $s = 3.13$ cm représente environ 34\% de la moyenne, 
+				ce qui est raisonnable
+				\item Pas de valeurs extrêmes selon le critère de Tukey
+				\item Distribution unimodale concentrée autour de 9 cm
+				\item L'écart-type est nettement inférieur au standard requis (3.13 < 8 cm)
+			\end{itemize}
+			
+			L'hypothèse de normalité semble acceptable pour ces données.
+			
+			\textbf{Diagramme en boîte (boîte à moustaches) :}
+			
+			\begin{center}
+				\begin{tikzpicture}
+					\draw[->] (0,0) -- (16,0) node[right] {Distance (cm)};
+					\foreach \x in {0,2,4,6,8,10,12,14,16}
+					\draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+					
+					% Moustaches
+					\draw[thick] (4.1,1) -- (6.9,1);
+					\draw[thick] (11.8,1) -- (15.1,1);
+					
+					% Boîte
+					\draw[thick,fill=blue!20] (6.9,0.5) rectangle (11.8,1.5);
+					
+					% Médiane
+					\draw[very thick,red] (8.9,0.5) -- (8.9,1.5);
+					
+					% Marques
+					\draw[thick] (4.1,0.8) -- (4.1,1.2) node[above] {Min};
+					\draw[thick] (15.1,0.8) -- (15.1,1.2) node[above] {Max};
+					\node[above] at (8.9,1.5) {Médiane};
+					\node[below] at (6.9,0.5) {Q1};
+					\node[below] at (11.8,0.5) {Q3};
+				\end{tikzpicture}
+			\end{center}
+		}
+		
+		\indication{
+			Avec un tableur :
+			\begin{itemize}
+				\item Trier les données : Sélectionner $\to$ Données $\to$ Trier
+				\item Minimum : \texttt{=MIN(plage)} donne 4.1
+				\item Q1 : \texttt{=QUARTILE.INCLURE(plage; 1)} donne 6.9
+				\item Médiane : \texttt{=MEDIANE(plage)} ou \texttt{=QUARTILE.INCLURE(plage; 2)} donne 8.9
+				\item Q3 : \texttt{=QUARTILE.INCLURE(plage; 3)} donne 11.8
+				\item Maximum : \texttt{=MAX(plage)} donne 15.1
+				\item IQR : \texttt{=Q3-Q1} donne 4.9
+				\item Boîte à moustaches : Insertion $\to$ Graphique $\to$ Boîte à moustaches
+			\end{itemize}
+		}
 		
 		\item \question{ 
 			Le chef de section souhaite tester si sa section respecte le standard de l'armée.
@@ -176,10 +176,10 @@
 		\reponse{
 			\textbf{Calcul de la statistique de test :}
 			
-			Avec $n = 25$, $s^2 = 11.67$ cm$^2$ et $\sigma_0^2 = 64$ cm$^2$ :
+			Avec $n = 25$, $s^2 = 9.83$ cm$^2$ et $\sigma_0^2 = 64$ cm$^2$ :
 			
-			$$\chi^2_{\text{obs}} = \frac{(n-1)s^2}{\sigma_0^2} = \frac{24 \times 11.67}{64} 
-			= \frac{280.08}{64} = 4.376$$
+			$$\chi^2_{\text{obs}} = \frac{(n-1)s^2}{\sigma_0^2} = \frac{24 \times 9.83}{64} 
+			= \frac{235.92}{64} \approx 3.69$$
 			
 			\textbf{Région critique :}
 			
@@ -190,7 +190,7 @@
 			
 			\textbf{Décision :}
 			
-			$\chi^2_{\text{obs}} = 4.376 < 36.415$ : on se trouve dans la région d'acceptation.
+			$\chi^2_{\text{obs}} = 3.69 < 36.415$ : on se trouve dans la région d'acceptation.
 			
 			\textbf{On ne rejette pas $H_0$ au seuil $\alpha = 5\%$.}
 			
@@ -198,7 +198,7 @@
 			
 			Au niveau de confiance de 95\%, les données ne permettent pas de rejeter l'hypothèse 
 			que la section respecte le standard de précision de l'armée de terre. 
-			La dispersion observée ($s \approx 3.42$ cm) est \textbf{significativement inférieure} 
+			La dispersion observée ($s \approx 3.13$ cm) est \textbf{significativement inférieure} 
 			au standard requis ($\sigma_0 = 8$ cm).
 			
 			La section peut être considérée comme opérationnelle du point de vue 
@@ -208,9 +208,9 @@
 		\indication{
 			Avec un tableur :
 			\begin{itemize}
-				\item Statistique : \texttt{=24*11.67/64} donne $4.376$
+				\item Statistique : \texttt{=24*9.83/64} donne $3.69$
 				\item Valeur critique : \texttt{=LOI.KHIDEUX.INVERSE(0.05; 24)} donne $36.415$
-				\item $p$-valeur : \texttt{=1-LOI.KHIDEUX(4.376; 24; VRAI)} donne $\approx 0.9995$
+				\item $p$-valeur : \texttt{=1-LOI.KHIDEUX.N(3.69; 24; VRAI)} donne $\approx 0.99999$
 			\end{itemize}
 		}
 		
@@ -225,26 +225,26 @@
 			L'intervalle de confiance à $1-\alpha = 95\%$ pour $\sigma^2$ est :
 			$$\left[\frac{(n-1)s^2}{\chi^2_{1-\alpha/2; n-1}}; \frac{(n-1)s^2}{\chi^2_{\alpha/2; n-1}}\right]$$
 			
-			Avec $n=25$, $s^2 = 11.67$, et les valeurs critiques du $\chi^2_{24}$ :
+			Avec $n=25$, $s^2 = 9.83$, et les valeurs critiques du $\chi^2_{24}$ :
 			\begin{itemize}
 				\item $\chi^2_{0.975; 24} = 39.364$
 				\item $\chi^2_{0.025; 24} = 12.401$
 			\end{itemize}
 			
-			$$IC_{95\%}(\sigma^2) = \left[\frac{24 \times 11.67}{39.364}; \frac{24 \times 11.67}{12.401}\right] 
-			= [7.12; 22.59] \text{ cm}^2$$
+			$$IC_{95\%}(\sigma^2) = \left[\frac{24 \times 9.83}{39.364}; \frac{24 \times 9.83}{12.401}\right] 
+			= [5.99; 19.02] \text{ cm}^2$$
 			
 			\textbf{Intervalle de confiance pour $\sigma$ :}
 			
-			$$IC_{95\%}(\sigma) = [\sqrt{7.12}; \sqrt{22.59}] = [2.67; 4.75] \text{ cm}$$
+			$$IC_{95\%}(\sigma) = [\sqrt{5.99}; \sqrt{19.02}] = [2.45; 4.36] \text{ cm}$$
 			
 			\textbf{Interprétation militaire :}
 			
-			Avec 95\% de confiance, l'écart-type réel de la section se situe entre 2.67 et 4.75 cm.
+			Avec 95\% de confiance, l'écart-type réel de la section se situe entre 2.45 et 4.36 cm.
 			
 			\begin{itemize}
 				\item Le standard de l'armée fixe $\sigma_0 = 8$ cm
-				\item La borne supérieure de l'IC est 4.75 cm, \textbf{bien inférieure} à 8 cm
+				\item La borne supérieure de l'IC est 4.36 cm, \textbf{bien inférieure} à 8 cm
 				\item Même dans le pire scénario (borne supérieure), la section reste largement 
 				en deçà du seuil maximal
 				\item Cela confirme que la section a une précision de tir \textbf{excellente}
@@ -256,17 +256,17 @@
 		\indication{
 			Avec un tableur :
 			\begin{itemize}
-				\item Borne inf : \texttt{=RACINE(24*11.67/LOI.KHIDEUX.INVERSE(0.025; 24))}
-				\item Borne sup : \texttt{=RACINE(24*11.67/LOI.KHIDEUX.INVERSE(0.975; 24))}
+				\item Borne inf : \texttt{=RACINE(24*9.83/LOI.KHIDEUX.INVERSE(0.025; 24))}
+				\item Borne sup : \texttt{=RACINE(24*9.83/LOI.KHIDEUX.INVERSE(0.975; 24))}
 			\end{itemize}
 		}
 		
 		\item \question{ 			
 			Le commandant de compagnie examine les résultats et fait la remarque suivante :
 			
-			\textit{« Votre section montre d'excellents résultats avec un écart-type de 3.4 cm, 
+			\textit{« Votre section montre d'excellents résultats avec un écart-type de 3.1 cm, 
 				bien meilleur que le standard de 8 cm. Cependant, je constate que la moyenne 
-				des impacts est à 9.2 cm du centre. Ne faudrait-il pas aussi vérifier 
+				des impacts est à 9.3 cm du centre. Ne faudrait-il pas aussi vérifier 
 				que le tir n'est pas systématiquement décentré ? »}
 			
 			\begin{itemize}
@@ -299,8 +299,8 @@
 			Test bilatéral (le biais peut être dans n'importe quelle direction).
 			
 			Statistique de test (loi de Student car $\sigma$ inconnu) :
-			$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{9.23 - 0}{\sqrt{11.67}/\sqrt{25}} 
-			= \frac{9.23}{3.416/5} = \frac{9.23}{0.683} = 13.51$$
+			$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{9.27 - 0}{\sqrt{9.83}/\sqrt{25}} 
+			= \frac{9.27}{3.135/5} = \frac{9.27}{0.627} = 14.78$$
 			
 			Sous $H_0$ : $t \sim \mathcal{T}_{24}$ (Student à 24 ddl).
 			
@@ -308,14 +308,14 @@
 			
 			\textbf{Décision :}
 			
-			$|t_{\text{obs}}| = 13.51 > 2.064$ : \textbf{on rejette $H_0$}.
+			$|t_{\text{obs}}| = 14.78 > 2.064$ : \textbf{on rejette $H_0$}.
 			
 			La $p$-valeur est extrêmement faible (quasi nulle).
 			
 			\textbf{Conclusion :}
 			
 			Le tir de la section présente un \textbf{biais systématique très significatif} 
-			d'environ 9.2 cm par rapport au centre.
+			d'environ 9.27 cm par rapport au centre.
 			
 			\textbf{Recommandations opérationnelles :}
 			
@@ -342,16 +342,16 @@
 					\item Après correction du biais, elle devrait être pleinement opérationnelle
 				\end{itemize}
 			\end{enumerate}
-		
+			
 		}
 		
 		\indication{
 			Avec un tableur :
 			\begin{itemize}
-				\item Écart-type : \texttt{=RACINE(11.67)} donne $3.416$ cm
-				\item Statistique $t$ : \texttt{=9.23/(3.416/RACINE(25))} donne $13.51$
+				\item Écart-type : \texttt{=RACINE(9.83)} donne $3.135$ cm
+				\item Statistique $t$ : \texttt{=9.27/(3.135/RACINE(25))} donne $14.78$
 				\item Valeur critique : \texttt{=LOI.STUDENT.INVERSE.BILATERALE(0.05; 24)} donne $2.064$
-				\item $p$-valeur : \texttt{=LOI.STUDENT.BILATERALE(13.51; 24)} donne $\approx 4.6 \times 10^{-13}$
+				\item $p$-valeur : \texttt{=LOI.STUDENT.BILATERALE(14.78; 24)} donne $< 10^{-13}$
 			\end{itemize}
 		}
 		
@@ -372,7 +372,7 @@
 			$$H_1 : \sigma_1^2 \neq \sigma_2^2 \quad \text{(précisions différentes)}$$
 			
 			Statistique de test :
-			$$F = \frac{s_2^2}{s_1^2} = \frac{15.3}{11.67} = 1.311$$
+			$$F = \frac{s_y^2}{s^2} = \frac{15.3}{9.83} = 1.556$$
 			
 			(On place la plus grande variance au numérateur pour avoir $F \geq 1$)
 			
@@ -380,14 +380,14 @@
 			(loi de Fisher).
 			
 			Pour un test bilatéral à $\alpha = 5\%$, on compare $F_{\text{obs}}$ avec 
-			$F_{0.975; 19, 24}$ et $F_{0.025; 19, 24}$.
+			les valeurs critiques correspondantes.
 			
-			En pratique, pour un test bilatéral avec $F > 1$, on compare avec $F_{1-\alpha/2}$ :
-			$$F_{0.975; 19, 24} \approx 2.41$$
+			En pratique, pour un test bilatéral avec $F \geq 1$, on compare avec $F_{1-\alpha/2}$ :
+			$$F_{0.975; 19, 24} \approx 2.35$$
 			
 			\textbf{Décision :}
 			
-			$F_{\text{obs}} = 1.311 < 2.41$ : \textbf{on ne rejette pas $H_0$}.
+			$F_{\text{obs}} = 1.556 < 2.35$ : \textbf{on ne rejette pas $H_0$}.
 			
 			\textbf{Conclusion :}
 			
@@ -405,9 +405,9 @@
 		\indication{
 			Avec un tableur :
 			\begin{itemize}
-				\item Statistique $F$ : \texttt{=15.3/11.67} donne $1.311$
-				\item Valeur critique : \texttt{=LOI.F.INVERSE(0.025; 19; 24)} donne $\approx 2.41$
-				\item $p$-valeur : \texttt{=2*MIN(LOI.F(1.311; 19; 24; VRAI); 1-LOI.F(1.311; 19; 24; VRAI))}
+				\item Statistique $F$ : \texttt{=15.3/9.83} donne $1.556$
+				\item Valeur critique : \texttt{=LOI.F.INVERSE.DROITE(0.025; 19; 24)} donne $\approx 2.35$
+				\item $p$-valeur : \texttt{=2*MIN(LOI.F.N(1.556; 19; 24; VRAI); 1-LOI.F.N(1.556; 19; 24; VRAI))}
 			\end{itemize}
 		}
 	\end{enumerate}
