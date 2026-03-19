@@ -20,7 +20,9 @@
 	\reponse{ La fonction $(x,y) \mapsto \frac{x-2y}{x^2+y^2}$ est définie pour tout $(x,y) \in \R^2$ tels que $x^2+y^2 \neq 0$, c'est-à-dire $(x,y) \neq (0,0)$. Mais $f(0,0)$ est défini à part. Donc l'ensemble de définition de $f$ est $\R^2$. }
 	\item \question{ Déterminer la courbe de niveau $k=0$ de la fonction $f$. }
 		\reponse{ $f(x,y) = 0 \iff x = 2y$, la courbe de niveau $0$ est donc la droite d'équation $y=\frac{x}{2}$. }
-	\item \question{ Vérifier que la courbe de niveau $k=1$ est un cercle de centre $\left(\frac{1}{2} ; -1 \right)$ dont on déterminera le rayon.}
+	
+	\item \question{ Déterminer la courbe de niveau $k=1$ de la fonction $f$. }
+	\indication{ Vérifier que la courbe de niveau $k=1$ est un cercle de centre $\left(\frac{1}{2} ; -1 \right)$ dont on déterminera le rayon.}
 		\reponse{ Soit $k = 1$ : $f(x,y) = 1 \iff x-2y = (x^2+y^2) \iff x^2 -x + y^2 +2y = 0 \iff \left(x - \frac{1}{2}\right)^2 + \left(y + 1 \right)^2 = \frac{5}{4}$, la courbe de niveau $1$ est donc un cercle de centre $\left(\frac{1}{2} ; -1 \right)$ et de rayon $\frac{\sqrt{5}}{2}$.  }	
 	\item \question{ Calculer $\lim\limits_{h \to 0} f(h,0)$ et $\lim\limits_{h \to 0} f(2h,h)$.  }
 	\reponse{ $\lim\limits_{h \to 0} f(h,0) = \lim\limits_{h \to 0}\frac{1}{h} = \begin{cases}
@@ -36,6 +38,7 @@
 		$\frac{\partial f}{\partial x}(x,y) = \frac{y^2 + 4xy - x^2}{(x^2+y^2)^2}$ et $\frac{\partial f}{\partial y}(x,y) = \frac{-2xy + 2y^2 - 2x^2}{(x^2+y^2)^2}$. 
 		}
 	\item \question{ Calculer $\frac{\partial f}{\partial x}(0,0)$ et $\frac{\partial f}{\partial y}(0,0)$. Les dérivées partielles de $f$ sont-elles continues en $(0,0)$ ?}
+	\indication{Il faut revenir à la définition en calculant la limite du taux d'accroissement pour chaque variable en $(0,0)$. }
 	\reponse{
 		On calcule la limite du taux d'accroissement pour chaque variable : $\frac{\partial f}{\partial x}(0,0) = \lim\limits_{h \to 0} \frac{f(h,0) - f(0,0)}{h} = \lim\limits_{h \to 0} \frac{1}{h^2} = +\infty$ et $\frac{\partial f}{\partial y}(0,0) = \lim\limits_{h \to 0} \frac{f(0,h) - f(0,0)}{h} = \lim\limits_{h \to 0} \frac{-2}{h^2} = -\infty$. 
 
