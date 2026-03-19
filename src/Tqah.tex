@@ -1,0 +1,115 @@
+\uuid{Tqah}
+\titre{Développement en série et étude de suites définies par des équations polynomiales}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Séries}
+\sousChapitre{Développement en série entière}
+\theme{Fonction de répartition, équation polynomiale, série entière, intégration terme à terme, série alternée, développement limité, série double, sommabilité}
+\auteur{Maxime Nguyen}
+\datecreate{2026-02-10}
+\organisation{AMSCC}
+\difficulte{5}
+
+\contenu{
+    \texte{On supposera connues les relations suivantes :
+    \[
+    \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} \quad \text{et} \quad \sum_{n=1}^\infty \frac{1}{n^4} = \frac{\pi^4}{90}.
+    \]
+    }
+
+    \begin{enumerate}
+        \item
+        \question{Montrer que l'équation \((E_n): x^n + x^{n-1} + \cdots + x - 1 = 0\) admet une unique racine positive \(x_n\), pour tout entier \(n \geq 1\), qui définit une suite \((x_n)_{n \in \mathbb{N}^*}\) décroissant vers \(\frac{1}{2}\). Établir alors pour \(n\) assez grand la relation :
+        \[
+        (I_n) \quad x_n = \frac{1}{2} + \sum_{p=1}^\infty \frac{1}{2^{p(n+1)+1} p} \binom{p(n+1)}{p-1}.
+        \]
+        }
+        \indication{On pourra montrer que pour un polynôme \(P \in \mathbb{R}_{n-1}[X]\), on a :
+        \[
+        \sum_{j=0}^n (-1)^{n-j} \binom{n}{j} P(X+j) = 0.
+        \]}
+        \reponse{
+        \begin{itemize}
+            \item Pour tout \(n \geq 1\), la fonction \(f_n: [0, +\infty[ \to \mathbb{R}, x \mapsto x^n + x^{n-1} + \cdots + x - 1\) est continue et strictement croissante. Comme \(f_n(0)f_n(1) \leq 0\), le théorème des valeurs intermédiaires assure l'existence d'une unique solution \(x_n\) de \((E_n)\) dans \([0,1]\), pour tout \(n \geq 1\).
+            \item On montre que \(f_n(x_{n+1}) = -x_{n+1}^{n+1} < 0\), ce qui implique \(f_n(x_{n+1}) < f_n(x_n)\) et permet de déduire la décroissance stricte de la suite \((x_n)_{n \in \mathbb{N}^*}\).
+            \item \(x_n\) vérifie la relation \(x_n^{n+1} - 2x_n + 1 = 0\) et donc \(|x_n - \frac{1}{2}| = \frac{x_n^{n+1}}{2}\). Comme \(x_2 < x_1 = 1\), on a \(\lim_{n \to +\infty} x_n = \frac{1}{2}\).
+            \item En utilisant la série entière \(S = \sum_{p=1}^\infty \frac{1}{2p} \binom{p(n+1)}{p-1} x^p\), on montre que son rayon de convergence est \(R_n = \frac{n^n}{(n+1)^{n+1}}\). Pour \(n\) assez grand, \(\frac{1}{2^{n+1}} < R_n\), ce qui assure la convergence de la série.
+            \item On établit finalement que \(x_n = \frac{1}{2} + \sum_{p=1}^\infty \frac{1}{2^{p(n+1)+1} p} \binom{p(n+1)}{p-1}\) pour \(n\) assez grand.
+        \end{itemize}
+        }
+
+        \item
+        \question{Montrer que la fonction :
+        \[
+        f(x) = \sum_{n=1}^\infty (-1)^n \log \left(1 + \frac{1}{n(1+x^2)}\right)
+        \]
+        est définie sur \(\mathbb{R}\) et admet au voisinage de l'origine un développement en série entière que l'on déterminera. Préciser \(f(0)\) et \(f''(0)\).}
+        \indication{Utiliser le critère des séries alternées pour montrer la convergence de la série définissant \(f(x)\).}
+        \reponse{
+        \begin{itemize}
+            \item Pour tout réel \(x\) fixé, la série alternée \(\sum_{n=1}^\infty (-1)^n \log \left(1 + \frac{1}{n(1+x^2)}\right)\) converge grâce au critère des séries alternées.
+            \item On montre que \(f(x) = f(0) + \sum_{n=1}^\infty a_n x^{2n}\) pour \(x \in ]-1, 1[\), où \(a_n = \sum_{m=1}^\infty \frac{(-1)^{m+n+1}}{m} \left(\left(\frac{n}{n+1}\right)^m - 1\right)\).
+            \item On trouve \(f(0) = \log \frac{2}{\pi}\) et \(f''(0) = 2(1 - \log 2)\).
+        \end{itemize}
+        }
+
+        \item
+        \question{Déterminer un développement limité à tout ordre en \(\frac{1}{n}\) de :
+        \[
+        u_n = \int_0^1 \frac{\log t}{1 + t^n} dt \quad \text{et} \quad v_n = \int_0^1 \frac{dt}{1 + t^n}.
+        \]
+        }
+        \indication{Utiliser une décomposition en série de fonctions pour établir les développements limités.}
+        \reponse{
+        \begin{itemize}
+            \item Pour \(u_n\), on montre que \(u_n = -1 + \sum_{k=2}^\infty \frac{a_k}{n^k}\), où \(a_k = (k-1) \sum_{p=1}^\infty \frac{(-1)^{k+p+1}}{p^k}\).
+            \item Pour \(v_n\), on montre que \(v_n = 1 + \sum_{k=1}^\infty \frac{a_k}{n^k}\), où \(a_k = \sum_{p=1}^\infty (-1)^{k+1} \left(\frac{1}{(2p)^k} - \frac{1}{(2p-1)^k}\right)\).
+        \end{itemize}
+        }
+
+        \item
+        \question{Étudier la convergence et déterminer la somme des séries :
+        \begin{enumerate}
+            \item \(\sum_{n=p}^\infty \frac{1}{C_n^p}\) pour \(p \geq 2\).
+            \item \(\sum_{k=1}^\infty k \sum_{n=k}^\infty \frac{a_n}{n(n+1)}\), où \(a_n\) est le terme général d'une série positive convergente.
+        \end{enumerate}
+        }
+        \indication{Pour la première série, utiliser une décomposition en éléments simples. Pour la deuxième série, étudier la sommabilité de la suite double associée.}
+        \reponse{
+        \begin{itemize}
+            \item Pour la première série, on montre que \(\sum_{n=p}^\infty \frac{1}{C_n^p} = \frac{p}{p-1}\).
+            \item Pour la deuxième série, on montre que \(\sum_{k=1}^\infty k \sum_{n=k}^\infty \frac{a_n}{n(n+1)} = \frac{1}{2} \sum_{n=1}^\infty a_n\).
+        \end{itemize}
+        }
+
+        \item
+        \question{Déterminer une suite double \((a_{p,q})_{(p,q) \in \mathbb{N}^2}\) telle que :
+        \[
+        \sum_{p=0}^\infty \sum_{q=0}^\infty a_{p,q} \quad \text{et} \quad \sum_{q=0}^\infty \sum_{p=0}^\infty a_{p,q}
+        \]
+        soient définies et aient pour somme respective \(a\) et \(b\).}
+        \indication{Construire une suite double antisymétrique et utiliser des combinaisons linéaires pour obtenir les sommes souhaitées.}
+        \reponse{
+        \begin{itemize}
+            \item On construit une suite double \(u_{p,q}\) telle que \(u_{q,p} = -u_{p,q}\) et on utilise une combinaison linéaire pour obtenir les sommes \(a\) et \(b\).
+        \end{itemize}
+        }
+
+        \item
+        \question{Établir les relations :
+        \begin{enumerate}
+            \item \(\sum_{n \wedge p = 1} \frac{1}{n^2 p^2} = \frac{5}{2}\).
+            \item \(\sum_{n=1}^\infty \frac{x^n}{1 + x^{2n}} = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{1 - x^{2n+1}}\) pour \(|x| < 1\).
+            \item \(\frac{x}{1-x} = \sum_{n=0}^\infty \frac{x^{2^n}}{1 - x^{2^{n+1}}} = \sum_{n=0}^\infty \frac{2^n x^{2^n}}{1 + x^{2^n}}\) pour \(|x| < 1\).
+        \end{enumerate}
+        }
+        \indication{Utiliser des partitions d'ensembles et des propriétés de sommabilité pour établir les égalités.}
+        \reponse{
+        \begin{itemize}
+            \item Pour la première relation, on utilise une partition de \(\mathbb{N}^* \times \mathbb{N}^*\) et les relations connues sur les séries.
+            \item Pour la deuxième relation, on utilise la sommabilité de la suite double \((x^{(2p+1)n})_{(p,q) \in \mathbb{N}^2}\).
+            \item Pour la troisième relation, on utilise une partition de \(\mathbb{N}^*\) basée sur la 2-valuation des entiers.
+        \end{itemize}
+        }
+    \end{enumerate}
+}
