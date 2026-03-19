@@ -1,0 +1,47 @@
+\uuid{ChUD}
+\titre{ Forward pass d'un MLP : identification des erreurs }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Forward pass, fonctions d'activation}
+\theme{Forward pass, ReLU, régression, classification}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On compare trois implémentations du forward pass d'un MLP à une couche cachée :
+  \begin{itemize}
+    \item[A.] \texttt{Z1 = X @ W1 + b1 ; A1 = relu(Z1) ; y\_hat = A1 @ W2 + b2}
+    \item[B.] \texttt{A1 = relu(X) ; Z1 = A1 @ W1 + b1 ; y\_hat = Z1 @ W2 + b2}
+    \item[C.] \texttt{Z1 = X @ W1 + b1 ; A1 = relu(Z1) ; y\_hat = relu(A1 @ W2 + b2)}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Lequel est correct pour une tâche de régression ?}
+  \reponse{\textbf{A} est correct : pré-activation linéaire, activation ReLU, puis sortie linéaire (pas d'activation finale pour la régression).}
+
+\item
+  \question{Qu'est-ce qui ne va pas dans B ?}
+  \reponse{
+    B applique ReLU directement sur les entrées $X$ avant la première couche linéaire,
+    ce qui n'a aucun sens : la pré-activation $Z^{[1]}$ doit être calculée \emph{avant} d'appliquer l'activation.
+    De plus, $Z1 = A1 @ W1 + b1$ applique ensuite une deuxième transformation linéaire sans activation,
+    rendant les deux premières couches entièrement linéaires.
+  }
+
+\item
+  \question{C pourrait convenir pour quel type de problème ?}
+  \reponse{
+    C applique une ReLU en sortie, ce qui contraint $\hat{y} \geq 0$.
+    Cela pourrait convenir pour une régression sur une cible strictement positive
+    (prix, durée, quantité), mais rarement en pratique car cela limite l'expressivité du modèle.
+    Pour la classification binaire, on utiliserait une sigmoïde, pas une ReLU.
+  }
+
+\end{enumerate}
+}

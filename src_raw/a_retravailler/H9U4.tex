@@ -1,0 +1,35 @@
+\uuid{H9U4}
+\titre{ Règle de mise à jour en descente de gradient }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Descente de gradient, mise à jour des paramètres}
+\theme{Signe du gradient, minimisation du coût}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{1}
+
+\contenu{
+\texte{
+  On cherche à minimiser un coût $J$ par descente de gradient.
+  On compare trois règles de mise à jour :
+  \begin{itemize}
+    \item[A.] \texttt{w = w + lr * gradient}
+    \item[B.] \texttt{w = w - lr * gradient}
+    \item[C.] \texttt{w = w * lr * gradient}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Laquelle est correcte pour minimiser $J$ ? Justifier les erreurs des deux autres.}
+  \reponse{
+    \textbf{B} est correcte : la descente de gradient soustrait le gradient pour aller dans la direction de plus grande décroissance.
+    \textbf{A} effectue une \emph{montée} de gradient, ce qui maximise $J$ au lieu de le minimiser.
+    \textbf{C} est une opération sans sens mathématique dans ce contexte : elle modifie l'ordre de grandeur de $w$
+    de façon multiplicative et ne correspond à aucun algorithme d'optimisation standard.
+  }
+
+\end{enumerate}
+}

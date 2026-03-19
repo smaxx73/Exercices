@@ -1,0 +1,52 @@
+\uuid{AVF9}
+\titre{ Stabilité numérique de la fonction sigmoïde }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Fonctions d'activation, stabilité numérique}
+\theme{Sigmoïde, overflow, underflow, stabilité numérique}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On compare deux implémentations de la fonction sigmoïde :
+  \begin{itemize}
+    \item[A.] \texttt{return 1 / (1 + np.exp(-z))}
+    \item[B.] \texttt{return np.where(z >= 0, 1 / (1 + np.exp(-z)), np.exp(z) / (1 + np.exp(z)))}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Les deux fonctions calculent-elles la même valeur mathématique ?}
+  \reponse{
+    Oui. Pour $z < 0$, on peut écrire :
+    \[
+      \frac{1}{1 + e^{-z}} = \frac{e^z}{e^z + 1}.
+    \]
+    Les deux expressions sont donc mathématiquement équivalentes.
+  }
+
+\item
+  \question{Pour $z = -1000$, que se passe-t-il avec A ? Et avec B ?}
+  \reponse{
+    Avec A : \texttt{np.exp(1000)} produit un dépassement de capacité (\emph{overflow}) et retourne \texttt{inf},
+    ce qui donne $\frac{1}{1 + \texttt{inf}} = 0$ — numériquement instable selon les implémentations.
+
+    Avec B : pour $z = -1000 < 0$, on calcule \texttt{np.exp(-1000)} $\approx 0$,
+    donc $\frac{e^{-1000}}{1 + e^{-1000}} \approx 0$, ce qui est numériquement stable.
+  }
+
+\item
+  \question{Quel problème pratique B résout-il ?}
+  \reponse{
+    B évite l'overflow de \texttt{np.exp(-z)} pour $z \ll 0$ en utilisant une forme équivalente
+    qui ne fait jamais appel à \texttt{exp} d'un grand nombre positif.
+    C'est la technique classique du \emph{log-sum-exp} appliquée à la sigmoïde.
+  }
+
+\end{enumerate}
+}

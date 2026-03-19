@@ -1,0 +1,39 @@
+\uuid{I54c}
+\titre{ Effet de la normalisation sur le gradient }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Normalisation des données, descente de gradient}
+\theme{Normalisation standard, gradient, vitesse de convergence}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On dispose de deux exemples $x^{(1)} = 1000$ et $x^{(2)} = 2000$.
+  La normalisation standard est effectuée avec une moyenne $\mu = 1500$ et un écart-type $\sigma = 500$.
+}
+\begin{enumerate}
+
+\item
+  \question{Calculer les valeurs normalisées $\tilde{x}^{(1)}$ et $\tilde{x}^{(2)}$.}
+  \reponse{
+    \[
+      \tilde{x}^{(1)} = \frac{1000 - 1500}{500} = -1, \qquad
+      \tilde{x}^{(2)} = \frac{2000 - 1500}{500} = 1.
+    \]
+  }
+
+\item
+  \question{Si on oublie de normaliser et qu'on initialise $w = 0{,}01$, comment le gradient $\frac{\partial J}{\partial w}$ se compare-t-il proportionnellement à celui obtenu avec les données normalisées ? Qu'est-ce que ça change en pratique ?}
+  \reponse{
+    Sans normalisation, le gradient est multiplié par un facteur de l'ordre de $x \sim 1000$--$2000$,
+    soit environ $1000$ à $2000$ fois plus grand qu'avec des données normalisées (où $x \in \{-1, 1\}$).
+    En pratique, cela impose d'utiliser un taux d'apprentissage très faible pour éviter la divergence,
+    et ralentit considérablement la convergence.
+  }
+
+\end{enumerate}
+}

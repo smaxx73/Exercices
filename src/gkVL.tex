@@ -1,0 +1,182 @@
+\uuid{gkVL}
+\titre{Rétropropagation et problème du neurone mort}
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Rétropropagation du gradient}
+\theme{Backpropagation, ReLU, gradient, neurone mort}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	\texte{
+		On étudie, sur un exemple simple, le calcul de la propagation avant et de la rétropropagation du gradient dans un réseau de neurones de régression.
+		
+		Le réseau possède :
+		\begin{itemize}
+			\item une seule variable d'entrée ;
+			\item une couche cachée de $2$ neurones avec fonction d'activation ReLU ;
+			\item une seule sortie réelle.
+		\end{itemize}
+		
+		On adopte la convention suivante : les exemples sont rangés par lignes et les poids sont multipliés à droite. Ainsi, pour un lot de données $X$, on a
+		\[
+		Z^{[1]} = XW^{[1]} + b^{[1]}, \qquad
+		A^{[1]} = \mathrm{ReLU}(Z^{[1]}), \qquad
+		\hat y = A^{[1]}W^{[2]} + b^{[2]}.
+		\]
+		
+		Dans cet exercice, on considère un seul exemple, donc
+		\[
+		X=\begin{bmatrix} 1 \end{bmatrix},
+		\qquad
+		y=\begin{bmatrix} 0 \end{bmatrix}.
+		\]
+		
+		Les paramètres du réseau sont
+		\[
+		W^{[1]} = \begin{bmatrix} 1 & -2 \end{bmatrix}, \quad
+		b^{[1]} = \begin{bmatrix} 0 & 0 \end{bmatrix}, \quad
+		W^{[2]} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \quad
+		b^{[2]} = \begin{bmatrix} 0 \end{bmatrix}.
+		\]
+		
+		On utilise la fonction de coût
+		\[
+		J=\frac12(\hat y-y)^2.
+		\]
+		
+		Dans la suite, le symbole $\odot$ désigne le produit terme à terme, et
+		\[
+		\mathrm{ReLU}'(z)=
+		\begin{cases}
+			1 & \text{si } z>0,\\
+			0 & \text{si } z<0.
+		\end{cases}
+		\]
+	}
+	\begin{enumerate}
+		
+		\item
+		\question{Calculer $Z^{[1]}$, puis $A^{[1]}$. En déduire la prédiction $\hat y$.}
+		\reponse{
+			\[
+			Z^{[1]}
+			= XW^{[1]} + b^{[1]}
+			= \begin{bmatrix} 1 \end{bmatrix}
+			\begin{bmatrix} 1 & -2 \end{bmatrix}
+			+ \begin{bmatrix} 0 & 0 \end{bmatrix}
+			= \begin{bmatrix} 1 & -2 \end{bmatrix}.
+			\]
+			
+			\[
+			A^{[1]} = \mathrm{ReLU}(Z^{[1]})
+			= \begin{bmatrix} 1 & 0 \end{bmatrix}.
+			\]
+			
+			\[
+			\hat y
+			= A^{[1]}W^{[2]} + b^{[2]}
+			= \begin{bmatrix} 1 & 0 \end{bmatrix}
+			\begin{bmatrix} 1 \\ 1 \end{bmatrix}
+			+ \begin{bmatrix} 0 \end{bmatrix}
+			= \begin{bmatrix} 1 \end{bmatrix}.
+			\]
+		}
+		
+		\item
+		\question{Calculer le coût $J$.}
+		\reponse{
+			\[
+			J = \frac12(1-0)^2 = \frac12.
+			\]
+		}
+		
+		\item
+		\question{Calculer
+			\[
+			\delta^{[2]} = \hat y-y,
+			\qquad
+			dW^{[2]} = (A^{[1]})^\top \delta^{[2]},
+			\qquad
+			db^{[2]}=\delta^{[2]}.
+			\]}
+		\reponse{
+			\[
+			\delta^{[2]}=\begin{bmatrix} 1 \end{bmatrix}.
+			\]
+			
+			\[
+			dW^{[2]}
+			= \begin{bmatrix} 1 \\ 0 \end{bmatrix}
+			\begin{bmatrix} 1 \end{bmatrix}
+			= \begin{bmatrix} 1 \\ 0 \end{bmatrix}.
+			\]
+			
+			\[
+			db^{[2]}=\begin{bmatrix} 1 \end{bmatrix}.
+			\]
+		}
+		
+		\item
+		\question{Calculer
+			\[
+			dA^{[1]} = \delta^{[2]}(W^{[2]})^\top,
+			\qquad
+			\delta^{[1]} = dA^{[1]} \odot \mathrm{ReLU}'(Z^{[1]}).
+			\]
+			Que remarque-t-on pour le deuxième neurone caché ?}
+		\reponse{
+			\[
+			dA^{[1]}
+			= \begin{bmatrix} 1 \end{bmatrix}
+			\begin{bmatrix} 1 & 1 \end{bmatrix}
+			= \begin{bmatrix} 1 & 1 \end{bmatrix}.
+			\]
+			
+			\[
+			\mathrm{ReLU}'(Z^{[1]})
+			= \begin{bmatrix} 1 & 0 \end{bmatrix}.
+			\]
+			
+			\[
+			\delta^{[1]}
+			= \begin{bmatrix} 1 & 1 \end{bmatrix}
+			\odot
+			\begin{bmatrix} 1 & 0 \end{bmatrix}
+			= \begin{bmatrix} 1 & 0 \end{bmatrix}.
+			\]
+			
+			Le deuxième neurone caché est inactif car sa préactivation vaut $-2<0$. Sa dérivée est donc nulle et son gradient est bloqué à $0$.
+		}
+		
+		\item
+		\question{En déduire
+			\[
+			dW^{[1]} = X^\top \delta^{[1]},
+			\qquad
+			db^{[1]}=\delta^{[1]}.
+			\]}
+		\reponse{
+			\[
+			dW^{[1]}
+			= \begin{bmatrix} 1 \end{bmatrix}
+			\begin{bmatrix} 1 & 0 \end{bmatrix}
+			= \begin{bmatrix} 1 & 0 \end{bmatrix}.
+			\]
+			
+			\[
+			db^{[1]} = \begin{bmatrix} 1 & 0 \end{bmatrix}.
+			\]
+		}
+		
+		\item
+		\question{Quels paramètres seront modifiés lors d'une étape de descente de gradient ?}
+		\reponse{
+			Les gradients associés au premier neurone caché sont non nuls, ainsi que le biais de sortie. En revanche, les paramètres liés au deuxième neurone caché ne seront pas modifiés sur cet exemple, car leur gradient est nul.
+		}
+		
+	\end{enumerate}
+}

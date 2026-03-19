@@ -1,0 +1,44 @@
+\uuid{O1Bu}
+\titre{ Calcul de la fonction softmax et perte entropie croisée }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Classification multiclasse, softmax}
+\theme{Softmax, entropie croisée catégorielle, probabilités de sortie}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  Un réseau multiclasse produit les scores bruts $z = [3,\ 1,\ 0]$ pour 3 classes.
+  On rappelle que $\text{softmax}(z)_k = \frac{e^{z_k}}{\sum_j e^{z_j}}$,
+  et que $e^0 = 1$, $e^1 \approx 2{,}7$, $e^3 \approx 20$.
+}
+\begin{enumerate}
+
+\item
+  \question{Calculer approximativement $\hat{p}_1$, $\hat{p}_2$, $\hat{p}_3$.}
+  \reponse{
+    $\sum_j e^{z_j} \approx 20 + 2{,}7 + 1 = 23{,}7$.
+    \[
+      \hat{p}_1 \approx \frac{20}{23{,}7} \approx 0{,}84, \quad
+      \hat{p}_2 \approx \frac{2{,}7}{23{,}7} \approx 0{,}11, \quad
+      \hat{p}_3 \approx \frac{1}{23{,}7} \approx 0{,}04.
+    \]
+  }
+
+\item
+  \question{Vérifier que leur somme vaut bien $1$.}
+  \reponse{$0{,}84 + 0{,}11 + 0{,}04 \approx 0{,}99 \approx 1$. ✓}
+
+\item
+  \question{La vraie classe est $1$. La perte CCE vaut $-\log(\hat{p}_1)$. Est-elle faible ou forte ?}
+  \reponse{
+    $-\log(0{,}84) \approx 0{,}17$. La perte est \emph{faible} :
+    le modèle attribue une probabilité élevée ($84\,\%$) à la bonne classe.
+  }
+
+\end{enumerate}
+}

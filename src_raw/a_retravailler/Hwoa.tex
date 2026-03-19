@@ -1,0 +1,41 @@
+\uuid{Hwoa}
+\titre{ MSE, MAE et dépendance à la taille du jeu de données }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Fonctions de coût, régression}
+\theme{MSE, MAE, comparaison de modèles, taille du dataset}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On compare trois implémentations d'une fonction de coût :
+  \begin{itemize}
+    \item[A.] \texttt{J = np.mean((y\_hat - y) ** 2)}
+    \item[B.] \texttt{J = np.sum((y\_hat - y) ** 2)}
+    \item[C.] \texttt{J = np.mean(np.abs(y\_hat - y))}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Laquelle est la MSE standard ? Laquelle est la MAE ?}
+  \reponse{
+    \textbf{A} est la MSE standard (moyenne des carrés des erreurs).
+    \textbf{C} est la MAE (moyenne des valeurs absolues des erreurs).
+  }
+
+\item
+  \question{Pourquoi B est-il problématique si on compare deux modèles entraînés sur des jeux de données de tailles différentes ?}
+  \reponse{
+    B calcule la \emph{somme} (et non la moyenne) des erreurs au carré.
+    Sa valeur dépend directement du nombre d'exemples $m$ : un modèle entraîné sur $m = 10000$ exemples
+    aura mécaniquement un coût beaucoup plus élevé qu'un modèle entraîné sur $m = 100$,
+    même si les erreurs individuelles sont identiques. La comparaison est donc impossible.
+  }
+
+\end{enumerate}
+}

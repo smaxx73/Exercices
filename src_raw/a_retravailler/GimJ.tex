@@ -1,0 +1,51 @@
+\uuid{GimJ}
+\titre{ Vérification des dimensions dans le backward pass }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Rétropropagation, algèbre linéaire}
+\theme{Dimensions, produit matriciel, backward pass, cohérence}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On dispose des dimensions suivantes :
+  $X : (m, 1)$, $W^{[1]} : (1, h)$, $A^{[1]} : (m, h)$, $W^{[2]} : (h, 1)$, $dy : (m, 1)$.
+
+  On compare deux implémentations du backward pass :
+  \begin{itemize}
+    \item[A.] \texttt{dW2 = (1/m) * A1.T @ dy} de forme $(h, 1)$,
+              \texttt{dA1 = dy @ W2.T} de forme $(m, h)$,
+              \texttt{dW1 = (1/m) * X.T @ dZ1} de forme $(1, h)$.
+    \item[B.] \texttt{dW2 = (1/m) * dy.T @ A1} de forme $(1, h)$,
+              \texttt{dA1 = W2.T @ dy.T} de forme $(h, m)$,
+              \texttt{dW1 = (1/m) * dZ1.T @ X} de forme $(h, 1)$.
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Pour chaque ligne, vérifier les dimensions. Laquelle des deux versions est cohérente avec les formes de $W^{[1]}$ et $W^{[2]}$ ?}
+  \reponse{
+    \textbf{Version A} :
+    \begin{itemize}
+      \item \texttt{dW2 = A1.T @ dy} : $(h, m) \times (m, 1) = (h, 1)$ ✓ — même forme que $W^{[2]}$.
+      \item \texttt{dA1 = dy @ W2.T} : $(m, 1) \times (1, h) = (m, h)$ ✓ — même forme que $A^{[1]}$.
+      \item \texttt{dW1 = X.T @ dZ1} : $(1, m) \times (m, h) = (1, h)$ ✓ — même forme que $W^{[1]}$.
+    \end{itemize}
+    \textbf{Version A est cohérente.}
+
+    \textbf{Version B} :
+    \begin{itemize}
+      \item \texttt{dW2} de forme $(1, h)$ ✗ — devrait être $(h, 1)$ comme $W^{[2]}$.
+      \item \texttt{dA1} de forme $(h, m)$ ✗ — devrait être $(m, h)$ comme $A^{[1]}$.
+      \item \texttt{dW1} de forme $(h, 1)$ ✗ — devrait être $(1, h)$ comme $W^{[1]}$.
+    \end{itemize}
+    \textbf{Version B est incohérente} : les gradients ont des formes transposées par rapport aux paramètres correspondants.
+  }
+
+\end{enumerate}
+}

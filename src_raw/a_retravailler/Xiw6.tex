@@ -1,0 +1,52 @@
+\uuid{Xiw6}
+\titre{ Normalisation train/test : fuites de données }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Prétraitement des données}
+\sousChapitre{Normalisation, généralisation}
+\theme{StandardScaler, data leakage, fuite de données, train/test split}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On compare trois façons de normaliser les données d'entraînement et de test :
+  \begin{itemize}
+    \item[A.] \texttt{scaler.fit\_transform(X\_train)} puis \texttt{scaler.transform(X\_test)}
+    \item[B.] \texttt{scaler.fit\_transform(X\_train)} puis \texttt{scaler.fit\_transform(X\_test)}
+    \item[C.] \texttt{scaler.fit\_transform(X\_all)}, puis découpage en train/test
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Laquelle est correcte ?}
+  \reponse{
+    \textbf{A} est correcte : le \texttt{scaler} est ajusté (\texttt{fit}) uniquement sur les données
+    d'entraînement, puis appliqué (\texttt{transform}) aux données de test sans les regarder.
+    Cela simule fidèlement la situation réelle où les données de test sont inconnues à l'entraînement.
+  }
+
+\item
+  \question{Quel problème introduit B ?}
+  \reponse{
+    B normalise le jeu de test avec sa propre moyenne et son propre écart-type,
+    différents de ceux du jeu d'entraînement. Le modèle reçoit donc des données de test
+    dans une échelle différente de celle sur laquelle il a été entraîné,
+    ce qui dégrade les performances et rend l'évaluation non représentative.
+  }
+
+\item
+  \question{Quel problème introduit C, plus subtil ?}
+  \reponse{
+    C calcule la moyenne et l'écart-type sur l'ensemble complet (train + test),
+    ce qui constitue une \emph{fuite de données} (\emph{data leakage}) :
+    des informations statistiques issues du jeu de test influencent la normalisation
+    du jeu d'entraînement. L'évaluation est donc optimiste et ne reflète pas
+    les performances réelles sur des données vraiment inédites.
+  }
+
+\end{enumerate}
+}

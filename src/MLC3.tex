@@ -1,0 +1,37 @@
+\uuid{MLC3}
+\titre{ Effet du taux d'apprentissage sur la descente de gradient }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Descente de gradient, hyperparamètres}
+\theme{Learning rate, divergence, oscillation}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On se place dans la situation suivante : $w = 3$, gradient $= 4$.
+}
+\begin{enumerate}
+
+\item
+  \question{Avec $\alpha = 0{,}1$ : quelle est la nouvelle valeur de $w$ ?}
+  \reponse{$w \leftarrow 3 - 0{,}1 \times 4 = 2{,}6$.}
+
+\item
+  \question{Avec $\alpha = 1$ : quelle est la nouvelle valeur de $w$ ?}
+  \reponse{$w \leftarrow 3 - 1 \times 4 = -1$.}
+
+\item
+  \question{Avec $\alpha = 10$ : quelle est la nouvelle valeur de $w$ ? Que se passe-t-il si le gradient reste $\approx 4$ à l'itération suivante ?}
+  \reponse{
+    $w \leftarrow 3 - 10 \times 4 = -37$.
+    Si le gradient reste $\approx 4$, la mise à jour suivante donne $w \leftarrow -37 - 40 = -77$.
+    Le paramètre $w$ diverge : le coût augmente au lieu de diminuer.
+    Un taux d'apprentissage trop élevé empêche la convergence.
+  }
+
+\end{enumerate}
+}

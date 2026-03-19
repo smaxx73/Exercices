@@ -1,0 +1,143 @@
+\uuid{L9Tu}
+\titre{Une étape de descente de gradient sur un modèle linéaire}
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Descente de gradient, mise à jour des paramètres}
+\theme{Gradient MSE, learning rate, facteur $1/m$}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+	\texte{
+		On cherche à ajuster un modèle linéaire de la forme
+		\[
+		\hat y = wx+b,
+		\]
+		où $x$ désigne l'entrée, $\hat y$ la valeur prédite par le modèle, et $y$ la valeur cible.
+		
+		On considère un seul exemple d'entraînement :
+		\[
+		x=2, \qquad y=1.
+		\]
+		
+		Les paramètres initiaux du modèle sont
+		\[
+		w=3, \qquad b=0,
+		\]
+		et on choisit un taux d'apprentissage
+		\[
+		\alpha = 0{,}1.
+		\]
+		
+		On utilise la fonction de coût quadratique moyenne
+		\[
+		J = \frac{1}{2m}\sum_{i=1}^m \left(\hat y^{(i)}-y^{(i)}\right)^2.
+		\]
+		Dans cet exercice, comme on ne considère qu'un seul exemple, on a $m=1$.
+		
+		L'objectif est de calculer à la main une étape de descente de gradient, puis d'interpréter le sens de la mise à jour obtenue.
+	}
+	\begin{enumerate}
+		
+		\item
+		\question{Calculer la prédiction initiale $\hat y$.}
+		\reponse{
+			On applique la formule
+			\[
+			\hat y = wx+b.
+			\]
+			Donc
+			\[
+			\hat y = 3\times 2 + 0 = 6.
+			\]
+		}
+		
+		\item
+		\question{Calculer le gradient du coût par rapport à $w$, noté $\frac{\partial J}{\partial w}$.}
+		\reponse{
+			Pour un lot de $m$ exemples, on a
+			\[
+			\frac{\partial J}{\partial w}
+			= \frac{1}{m}\sum_{i=1}^m \left(\hat y^{(i)}-y^{(i)}\right)x^{(i)}.
+			\]
+			
+			Ici, comme $m=1$, cela donne
+			\[
+			\frac{\partial J}{\partial w} = (\hat y-y)x.
+			\]
+			
+			En remplaçant par les valeurs numériques :
+			\[
+			\frac{\partial J}{\partial w} = (6-1)\times 2 = 10.
+			\]
+		}
+		
+		\item
+		\question{Effectuer une itération de descente de gradient pour calculer la nouvelle valeur de $w$.}
+		\reponse{
+			La mise à jour s'écrit
+			\[
+			w \leftarrow w - \alpha \frac{\partial J}{\partial w}.
+			\]
+			
+			Donc
+			\[
+			w \leftarrow 3 - 0{,}1\times 10 = 3 - 1 = 2.
+			\]
+			
+			La nouvelle valeur du paramètre est donc
+			\[
+			\boxed{w=2}.
+			\]
+		}
+		
+		\item
+		\question{Calculer la nouvelle prédiction obtenue après cette mise à jour. La prédiction se rapproche-t-elle de la cible ?}
+		\reponse{
+			Après mise à jour, on a $w=2$ et $b=0$, donc
+			\[
+			\hat y_{\text{nouveau}} = 2\times 2 + 0 = 4.
+			\]
+			
+			La prédiction passe donc de $6$ à $4$.
+			
+			Comme la cible vaut $1$, la nouvelle prédiction est encore trop grande, mais elle est plus proche de la cible que la prédiction initiale. La mise à jour va donc dans le bon sens.
+		}
+		
+		\item
+		\question{Sans refaire tous les calculs, expliquer pourquoi il était cohérent que la mise à jour fasse diminuer $w$.}
+		\reponse{
+			La prédiction initiale vaut $\hat y=6$, alors que la cible vaut $y=1$ : le modèle prédit une valeur trop grande.
+			
+			Comme ici $x=2>0$, la prédiction
+			\[
+			\hat y = wx+b
+			\]
+			augmente lorsque $w$ augmente, et diminue lorsque $w$ diminue.
+			
+			Pour rapprocher la prédiction de la cible, il est donc logique de diminuer $w$. C'est bien ce que produit la descente de gradient, puisque $w$ passe de $3$ à $2$.
+		}
+		
+		\item
+		\question{Si l'on oubliait le facteur $\frac{1}{m}$ dans la formule du gradient, quelle serait ici la nouvelle valeur de $w$ ? Cet oubli est-il problématique dans ce cas ?}
+		\reponse{
+			Ici, comme $m=1$, enlever le facteur $\frac{1}{m}$ ne change rien :
+			\[
+			\frac{\partial J}{\partial w}=10.
+			\]
+			
+			On obtient donc la même mise à jour :
+			\[
+			w \leftarrow 3 - 0{,}1\times 10 = 2.
+			\]
+			
+			Dans ce cas précis, l'oubli du facteur $\frac{1}{m}$ n'a donc aucun effet.
+			
+			En revanche, lorsque $m>1$, oublier ce facteur conduit à un gradient trop grand, donc à des mises à jour trop importantes, ce qui peut perturber la convergence.
+		}
+		
+	\end{enumerate}
+}

@@ -1,0 +1,46 @@
+\uuid{9avh}
+\titre{ Rétropropagation : ordre des opérations }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Rétropropagation du gradient}
+\theme{Backpropagation, ordre d'exécution, erreur de variable non définie}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On compare deux implémentations du backward pass d'un MLP à une couche cachée :
+  \begin{itemize}
+    \item[A.] \begin{verbatim}
+dW2 = (1/m) * A1.T @ dy
+dA1 = dy @ W2.T
+dZ1 = relu_backward(dA1, Z1)
+dW1 = (1/m) * X.T @ dZ1
+\end{verbatim}
+    \item[B.] \begin{verbatim}
+dW1 = (1/m) * X.T @ dZ1
+dZ1 = relu_backward(dA1, Z1)
+dA1 = dy @ W2.T
+dW2 = (1/m) * A1.T @ dy
+\end{verbatim}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Lequel peut fonctionner ? Lequel produira une erreur à l'exécution, et pourquoi ?}
+  \reponse{
+    \textbf{A} est correct : les variables sont calculées dans le bon ordre — \texttt{dA1} est défini avant
+    d'être utilisé dans \texttt{relu\_backward}, et \texttt{dZ1} est défini avant \texttt{dW1}.
+
+    \textbf{B} produira une erreur \texttt{NameError} (ou utilisera des valeurs périmées) :
+    \texttt{dW1} est calculé en utilisant \texttt{dZ1} avant que \texttt{dZ1} ne soit défini,
+    et \texttt{dZ1} utilise \texttt{dA1} avant que \texttt{dA1} ne soit défini.
+    La rétropropagation doit impérativement se faire dans l'ordre inverse du forward pass.
+  }
+
+\end{enumerate}
+}

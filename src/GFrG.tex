@@ -1,0 +1,53 @@
+\uuid{GFrG}
+\titre{ Comptage de paramètres d'un MLP }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Architecture, paramètres}
+\theme{Nombre de paramètres, couche cachée, entrée aplatie}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{1}
+
+\contenu{
+\texte{
+  On considère un réseau de neurones entièrement connecté avec une entrée de dimension $3$,
+  une couche cachée de $4$ neurones ReLU, et une sortie scalaire.
+}
+\begin{enumerate}
+
+\item
+  \question{Combien de paramètres ce réseau contient-il au total ? Détailler par couche.}
+  \reponse{
+    \begin{itemize}
+      \item Couche 1 (entrée $\to$ cachée) : $3 \times 4 = 12$ poids $+ 4$ biais $= 16$ paramètres.
+      \item Couche 2 (cachée $\to$ sortie) : $4 \times 1 = 4$ poids $+ 1$ biais $= 5$ paramètres.
+    \end{itemize}
+    Total : $16 + 5 = \mathbf{21}$ paramètres.
+  }
+
+\item
+  \question{Si on double la taille de la couche cachée (8 neurones), combien de paramètres supplémentaires ajoute-t-on ?}
+  \reponse{
+    Avec $h = 8$ :
+    \begin{itemize}
+      \item Couche 1 : $3 \times 8 + 8 = 32$ paramètres ($+16$ par rapport à $h=4$).
+      \item Couche 2 : $8 \times 1 + 1 = 9$ paramètres ($+4$ par rapport à $h=4$).
+    \end{itemize}
+    Paramètres supplémentaires : $16 + 4 = \mathbf{20}$.
+  }
+
+\item
+  \question{Même question pour une image $8 \times 8$ aplatie en entrée avec une couche cachée de $32$ neurones.}
+  \reponse{
+    L'entrée aplatie est de dimension $64$.
+    \begin{itemize}
+      \item Couche 1 : $64 \times 32 + 32 = 2080$ paramètres.
+      \item Couche 2 : $32 \times 1 + 1 = 33$ paramètres.
+    \end{itemize}
+    Total : $2080 + 33 = \mathbf{2113}$ paramètres.
+  }
+
+\end{enumerate}
+}

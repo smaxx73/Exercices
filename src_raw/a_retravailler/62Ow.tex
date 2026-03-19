@@ -1,0 +1,50 @@
+\uuid{62Ow}
+\titre{ Implémentation de ReLU et de sa dérivée }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Fonctions d'activation, rétropropagation}
+\theme{ReLU, dérivée de ReLU, neurone mort, backward pass}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On compare trois implémentations de ReLU et de sa dérivée utilisée dans le backward pass :
+  \begin{itemize}
+    \item[A.] \texttt{relu\_backward} met à zéro \texttt{dZ} là où \texttt{Z <= 0}
+    \item[B.] \texttt{relu\_backward} retourne \texttt{dA * Z}
+    \item[C.] \texttt{relu\_backward} met à zéro \texttt{dZ} là où \texttt{Z < 0}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Laquelle est correcte ?}
+  \reponse{
+    \textbf{A} est la référence standard : $\text{ReLU}'(z) = \mathbf{1}_{z > 0}$,
+    donc on annule le gradient là où $z \leq 0$, ce qui inclut $z = 0$.
+  }
+
+\item
+  \question{Quelle est la différence entre A et C ? Est-ce important en pratique ?}
+  \reponse{
+    A met à zéro pour $z \leq 0$ (inclut $z = 0$), C met à zéro pour $z < 0$ (exclut $z = 0$).
+    En $z = 0$, la dérivée de ReLU n'est mathématiquement pas définie (point de non-dérivabilité).
+    En pratique, la différence est négligeable : la probabilité qu'une activation soit exactement $0$
+    est quasi nulle sur des données réelles, et les deux conventions donnent des résultats identiques.
+  }
+
+\item
+  \question{Qu'est-ce qui ne va pas dans B ?}
+  \reponse{
+    B retourne \texttt{dA * Z}, c'est-à-dire le produit du gradient amont par la valeur de la pré-activation $z$,
+    au lieu de le masquer par $\mathbf{1}_{z > 0}$.
+    Cette formule est incorrecte : pour $z > 0$, on devrait passer le gradient tel quel (\texttt{dA}),
+    et non le multiplier par $z$. B introduit donc une erreur dans le calcul du gradient.
+  }
+
+\end{enumerate}
+}

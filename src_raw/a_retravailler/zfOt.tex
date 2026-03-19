@@ -1,0 +1,51 @@
+\uuid{zfOt}
+\titre{ Nettoyage de données : ordre des opérations et choix de la stratégie }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Prétraitement des données}
+\sousChapitre{Nettoyage, valeurs manquantes, filtrage}
+\theme{dropna, fillna, valeurs aberrantes, ordre des opérations}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On compare trois façons de nettoyer un DataFrame \texttt{df} contenant des colonnes \texttt{SqFt} et \texttt{PRV} :
+  \begin{itemize}
+    \item[A.] \texttt{df = df.dropna()} puis \texttt{df = df[(df["SqFt"] > 0) \& (df["PRV"] > 0)]}
+    \item[B.] \texttt{df = df[(df["SqFt"] > 0) \& (df["PRV"] > 0)]} puis \texttt{df = df.dropna()}
+    \item[C.] \texttt{df = df.fillna(0)} puis \texttt{df = df[(df["SqFt"] > 0) \& (df["PRV"] > 0)]}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{A et B produisent-ils toujours le même résultat ? Donner un exemple où ils diffèrent.}
+  \reponse{
+    Non. Considérons une ligne avec \texttt{SqFt = NaN} et \texttt{PRV = 500}.
+    \begin{itemize}
+      \item \textbf{A} supprime cette ligne dès le \texttt{dropna()}, donc elle n'arrive pas au filtre.
+      \item \textbf{B} évalue d'abord \texttt{df["SqFt"] > 0} : \texttt{NaN > 0} vaut \texttt{False},
+            donc la ligne est supprimée par le filtre, puis \texttt{dropna()} ne trouve plus rien à faire.
+    \end{itemize}
+    Le résultat final est identique dans ce cas, mais diffère si une ligne a \texttt{SqFt = NaN}
+    et \texttt{PRV = NaN} : avec B, la comparaison \texttt{NaN > 0} donne \texttt{False},
+    la ligne est retirée par le filtre ; avec A, \texttt{dropna()} la retire en premier.
+    En pratique, A et B donnent souvent le même résultat, mais A est plus lisible et explicite.
+  }
+
+\item
+  \question{Quel problème pose C par rapport à A ?}
+  \reponse{
+    C remplace les valeurs manquantes par $0$ avant de filtrer.
+    Or \texttt{SqFt = 0} et \texttt{PRV = 0} ne satisfont pas \texttt{> 0},
+    donc ces lignes sont ensuite supprimées — ce qui revient à supprimer les valeurs manquantes
+    mais en introduisant des $0$ parasites pour les autres colonnes non filtrées.
+    De plus, imputer $0$ pour une surface (\texttt{SqFt}) ou un prix (\texttt{PRV}) est sémantiquement faux
+    et peut biaiser les modèles si d'autres colonnes avec \texttt{NaN} reçoivent aussi $0$.
+  }
+
+\end{enumerate}
+}

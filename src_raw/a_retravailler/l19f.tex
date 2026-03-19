@@ -1,0 +1,46 @@
+\uuid{l19f}
+\titre{ Interprétation des courbes de coût lors de l'entraînement }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Descente de gradient, diagnostic d'entraînement}
+\theme{Courbe de coût, learning rate, divergence, neurone mort, initialisation}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On entraîne un modèle de régression linéaire par descente de gradient et on observe trois allures possibles de la courbe de coût :
+  \begin{itemize}
+    \item \textbf{Courbe A} : descend régulièrement et se stabilise.
+    \item \textbf{Courbe B} : descend puis remonte en explosant.
+    \item \textbf{Courbe C} : reste parfaitement plate dès la première itération.
+  \end{itemize}
+  Parmi les causes suivantes, associer la plus probable à chaque courbe :
+  \begin{enumerate}[(1)]
+    \item \texttt{lr = 10} au lieu de \texttt{lr = 0.01}
+    \item \texttt{w -= lr * dw} remplacé par \texttt{w += lr * dw}
+    \item $w$ et $b$ initialisés à zéro sur un réseau à une couche cachée
+    \item Tout est correct
+  \end{enumerate}
+}
+\begin{enumerate}
+
+\item
+  \question{Associer la cause la plus probable à chacune des trois courbes. Justifier.}
+  \reponse{
+    \begin{itemize}
+      \item \textbf{Courbe A} $\to$ cause (4) : tout est correct, l'entraînement converge normalement.
+      \item \textbf{Courbe B} $\to$ cause (1) ou (2) : un learning rate trop élevé ($\alpha = 10$) provoque
+            des mises à jour trop grandes et fait diverger le coût ; de même, \texttt{w += lr * dw}
+            effectue une montée de gradient, ce qui fait croître $J$.
+      \item \textbf{Courbe C} $\to$ cause (3) : initialiser tous les poids à zéro sur un réseau à couche cachée
+            entraîne une symétrie parfaite — tous les neurones sont identiques, les gradients s'annulent
+            ou se répètent, et le coût ne bouge pas (ou très peu).
+    \end{itemize}
+  }
+
+\end{enumerate}
+}

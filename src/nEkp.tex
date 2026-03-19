@@ -1,0 +1,84 @@
+\uuid{nEkp}
+\titre{Nombre de paramètres d’un réseau de neurones}
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Architecture, régression multiple}
+\theme{Nombre de paramètres, régression multiple, couche cachée}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{1}
+
+\contenu{
+	\texte{
+		On considère deux réseaux de neurones ayant une seule couche cachée contenant $h$ neurones et une unique sortie.
+		
+		Le premier réseau reçoit une seule variable d'entrée : son architecture est $1 \to h \to 1$.
+		
+		Le second réseau reçoit trois variables d'entrée : son architecture est $3 \to h \to 1$.
+		
+		L'objectif est de comprendre comment le nombre total de paramètres dépend du nombre de variables d'entrée, lorsque le nombre de neurones cachés reste fixé.
+	}
+	\begin{enumerate}
+		
+		\item
+		\question{Exprimer en fonction de $h$ le nombre de paramètres du réseau $3 \to h \to 1$. Détailler par couche.}
+		\reponse{
+			\begin{itemize}
+				\item Couche d'entrée vers couche cachée : $3h$ poids et $h$ biais, soit $4h$ paramètres.
+				\item Couche cachée vers sortie : $h$ poids et $1$ biais, soit $h+1$ paramètres.
+			\end{itemize}
+			Le nombre total de paramètres est donc
+			$$
+			4h + (h+1) = \mathbf{5h+1}.
+			$$
+		}
+		
+		\item
+		\question{Exprimer en fonction de $h$ le nombre de paramètres du réseau $1 \to h \to 1$.}
+		\reponse{
+			\begin{itemize}
+				\item Couche d'entrée vers couche cachée : $h$ poids et $h$ biais, soit $2h$ paramètres.
+				\item Couche cachée vers sortie : $h$ poids et $1$ biais, soit $h+1$ paramètres.
+			\end{itemize}
+			Le nombre total de paramètres est donc
+			$$
+			2h + (h+1) = \mathbf{3h+1}.
+			$$
+		}
+		
+		\item
+		\question{Combien de paramètres supplémentaires le réseau $3 \to h \to 1$ possède-t-il par rapport au réseau $1 \to h \to 1$ ? Interpréter ce résultat.}
+		\reponse{
+			La différence vaut
+			$$
+			(5h+1) - (3h+1) = \mathbf{2h}.
+			$$
+			
+			Le réseau à trois entrées possède donc $\mathbf{2h}$ paramètres supplémentaires.
+			
+			Cela s'explique par le fait que, par rapport au réseau à une seule entrée, on ajoute $2$ variables d'entrée supplémentaires, chacune étant connectée aux $h$ neurones de la couche cachée. Cela ajoute donc $2h$ poids.
+		}
+		
+		\item
+		\question{Application numérique : retrouver le résultat lorsque $h=8$.}
+		\reponse{
+			Si $h=8$, alors :
+			$$
+			5h+1 = 5 \times 8 + 1 = 41
+			$$
+			pour le réseau $3 \to 8 \to 1$, et
+			$$
+			3h+1 = 3 \times 8 + 1 = 25
+			$$
+			pour le réseau $1 \to 8 \to 1$.
+			
+			La différence est donc
+			$$
+			41 - 25 = 16.
+			$$
+		}
+		
+	\end{enumerate}
+}

@@ -1,0 +1,38 @@
+\uuid{Vbh8}
+\titre{ Initialisation des poids : analyse de trois stratégies }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Initialisation, symétrie, explosion du gradient}
+\theme{Initialisation à zéro, initialisation aléatoire, brisure de symétrie}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On considère trois initialisations pour une matrice de poids $W \in \mathbb{R}^{4 \times 3}$ :
+  \begin{itemize}
+    \item[A.] \texttt{W = np.zeros((4, 3))}
+    \item[B.] \texttt{W = np.random.randn(4, 3) * 0.01}
+    \item[C.] \texttt{W = np.random.randn(4, 3) * 100}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Laquelle de ces initialisations est problématique, et pourquoi ?}
+  \reponse{
+    \textbf{A} est problématique : initialiser tous les poids à zéro brise la rétropropagation par \emph{symétrie}.
+    Tous les neurones d'une même couche calculent la même sortie et reçoivent les mêmes gradients,
+    donc ils évoluent identiquement : la couche cachée est équivalente à un seul neurone, quelle que soit sa largeur.
+
+    \textbf{C} est également problématique : des poids initiaux très grands ($\times 100$) provoquent
+    une saturation des activations ou une explosion des gradients dès le début de l'entraînement.
+
+    \textbf{B} est la bonne pratique : petite valeur aléatoire, brise la symétrie sans saturer les activations.
+  }
+
+\end{enumerate}
+}

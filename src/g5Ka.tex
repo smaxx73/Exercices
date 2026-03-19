@@ -1,0 +1,42 @@
+\uuid{g5Ka}
+\titre{ Forward pass et interprétation d'un neurone sigmoïde }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Forward pass, fonction sigmoïde}
+\theme{Neurone sigmoïde, entropie croisée binaire, degré de confiance}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On considère un réseau réduit à un seul neurone sigmoïde, de paramètres $w = 2$ et $b = -1$,
+  recevant une entrée $x = 1$. On rappelle que $\sigma(z) = \frac{1}{1+e^{-z}}$ et que $\sigma(1) \approx 0{,}73$.
+}
+\begin{enumerate}
+
+\item
+  \question{Calculer $z = wx + b$, puis $\hat{p} = \sigma(z)$.}
+  \reponse{
+    On a $z = 2 \times 1 + (-1) = 1$, donc $\hat{p} = \sigma(1) \approx 0{,}73$.
+  }
+
+\item
+  \question{La vraie classe est $y = 0$. Le modèle se trompe-t-il ? Avec quel degré de confiance prédit-il la classe $1$ ?}
+  \reponse{
+    Le modèle prédit $\hat{p} \approx 0{,}73$, soit une probabilité de $73\,\%$ pour la classe $1$.
+    Or la vraie classe est $y = 0$ : le modèle se trompe, avec un degré de confiance élevé ($73\,\%$) dans la mauvaise direction.
+  }
+
+\item
+  \question{Sans calculer la perte d'entropie croisée binaire (BCE) exacte, anticiper si elle sera plutôt faible ou forte. Justifier.}
+  \reponse{
+    La BCE vaut $-\log(1 - \hat{p}) \approx -\log(0{,}27) \approx 1{,}31$.
+    Elle est \emph{forte} : le modèle est confiant ($\hat{p} \approx 0{,}73$) mais dans la mauvaise classe.
+    Plus le modèle est confiant et erroné, plus $-\log$ d'une probabilité proche de $0$ est grande.
+  }
+
+\end{enumerate}
+}

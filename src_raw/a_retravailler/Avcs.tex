@@ -1,0 +1,52 @@
+\uuid{Avcs}
+\titre{ Facteur $\frac{1}{2m}$ dans la MSE : impact sur la convergence }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Fonctions de coût, descente de gradient}
+\theme{MSE, facteur de normalisation, minimum, convergence, learning rate}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On considère deux variantes du coût MSE :
+  \[
+    J_1 = \frac{1}{m} \sum_{i=1}^m (\hat{y}^{(i)} - y^{(i)})^2, \qquad
+    J_2 = \frac{1}{2m} \sum_{i=1}^m (\hat{y}^{(i)} - y^{(i)})^2.
+  \]
+  Un code utilise $J_1$ au lieu de $J_2$.
+}
+\begin{enumerate}
+
+\item
+  \question{La descente de gradient avec $J_1$ converge-t-elle vers le même minimum qu'avec $J_2$ ?}
+  \reponse{
+    Oui. $J_1 = 2 J_2$, donc les deux fonctions ont exactement les mêmes minimiseurs :
+    annuler le gradient de l'une annule celui de l'autre. Le minimum est identique.
+  }
+
+\item
+  \question{Les poids obtenus seront-ils identiques ?}
+  \reponse{
+    Oui, à convergence. Le minimum global est le même pour $J_1$ et $J_2$,
+    donc les poids optimaux $w^*$ sont identiques.
+  }
+
+\item
+  \question{Le nombre d'itérations nécessaires changera-t-il ?}
+  \reponse{
+    Oui, en pratique. Le gradient de $J_1$ est exactement le double de celui de $J_2$ :
+    \[
+      \nabla J_1 = 2\,\nabla J_2.
+    \]
+    Avec le même taux d'apprentissage $\alpha$, les mises à jour sont deux fois plus grandes avec $J_1$.
+    Cela peut accélérer la convergence si $\alpha$ est bien choisi, ou provoquer des oscillations
+    si $\alpha$ est trop grand. Le facteur $\frac{1}{2}$ dans $J_2$ simplifie simplement
+    le calcul analytique du gradient (le $2$ du carré se simplifie) sans changer le problème d'optimisation.
+  }
+
+\end{enumerate}
+}

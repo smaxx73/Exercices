@@ -1,0 +1,44 @@
+\uuid{YkjP}
+\titre{ Compléter le forward pass d'un réseau $2 \to 4 \to 1$ }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Forward pass, dimensions}
+\theme{Forward pass, dimensions, ReLU, régression}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On considère un réseau $2 \to 4 \to 1$ avec les paramètres initialisés ainsi :
+\begin{verbatim}
+W1 = np.random.randn(2, 4) * 0.1
+b1 = np.zeros((1, 4))
+W2 = np.random.randn(4, 1) * 0.1
+b2 = np.zeros((1, 1))
+\end{verbatim}
+  On note $X$ la matrice d'entrée de forme $(m, 2)$.
+}
+\begin{enumerate}
+
+\item
+  \question{Compléter le forward pass en précisant la forme attendue de chaque variable :
+  \texttt{Z1 = ...}, \texttt{A1 = ...}, \texttt{y\_hat = ...}.}
+  \reponse{
+\begin{verbatim}
+Z1    = X @ W1 + b1   # forme (m, 4)
+A1    = relu(Z1)      # forme (m, 4)
+y_hat = A1 @ W2 + b2  # forme (m, 1)
+\end{verbatim}
+    Détail des dimensions :
+    \begin{itemize}
+      \item $X : (m, 2)$, $W^{[1]} : (2, 4)$ $\Rightarrow$ $Z^{[1]} : (m, 4)$.
+      \item $A^{[1]} : (m, 4)$, $W^{[2]} : (4, 1)$ $\Rightarrow$ $\hat{y} : (m, 1)$.
+    \end{itemize}
+    Pas d'activation en sortie car il s'agit d'une régression.
+  }
+
+\end{enumerate}
+}

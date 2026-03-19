@@ -1,0 +1,43 @@
+\uuid{av7Q}
+\titre{ Détection d'une erreur dans une boucle d'entraînement }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Descente de gradient, implémentation}
+\theme{Montée de gradient, signe de la mise à jour, divergence}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On considère la boucle d'entraînement suivante pour une régression linéaire :
+\begin{verbatim}
+for it in range(num_iter):
+    y_hat = X @ w + b
+    diff  = y_hat - y
+    cost  = (1/(2*m)) * np.sum(diff**2)
+
+    dw = (1/m) * X.T @ diff
+    db = (1/m) * np.sum(diff)
+
+    w += lr * dw   # <- ?
+    b -= lr * db
+\end{verbatim}
+}
+\begin{enumerate}
+
+\item
+  \question{Ce code contient une erreur. Laquelle, et quel effet a-t-elle sur l'entraînement ?}
+  \reponse{
+    La ligne \texttt{w += lr * dw} effectue une \emph{montée} de gradient sur $w$ au lieu d'une descente.
+    La mise à jour correcte est \texttt{w -= lr * dw}.
+
+    En conséquence, $w$ est mis à jour dans la direction qui \emph{augmente} le coût $J$,
+    ce qui provoque la divergence de l'entraînement : le coût croît à chaque itération au lieu de décroître.
+    Seul $b$ est mis à jour correctement (\texttt{b -= lr * db}).
+  }
+
+\end{enumerate}
+}

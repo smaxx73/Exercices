@@ -1,0 +1,49 @@
+\uuid{5cOi}
+\titre{ Calcul de l'accuracy pour un classifieur sigmoïde }
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Évaluation, métriques de classification}
+\theme{Accuracy, seuil de décision, sigmoïde, classification binaire}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On compare trois calculs d'accuracy pour un neurone de sortie sigmoïde produisant $\hat{y} \in [0, 1]$ :
+  \begin{itemize}
+    \item[A.] \texttt{preds = (y\_hat > 0.5).astype(int) ; acc = np.mean(preds == y)}
+    \item[B.] \texttt{acc = np.mean(y\_hat == y)}
+    \item[C.] \texttt{preds = (y\_hat > 0).astype(int) ; acc = np.mean(preds == y)}
+  \end{itemize}
+}
+\begin{enumerate}
+
+\item
+  \question{Lequel est correct pour un neurone sigmoïde ?}
+  \reponse{
+    \textbf{A} est correct : on seuille $\hat{y}$ à $0{,}5$ pour obtenir une prédiction binaire $\in \{0, 1\}$,
+    puis on compare à la vraie étiquette $y$.
+  }
+
+\item
+  \question{Pourquoi B ne fonctionnera presque jamais ?}
+  \reponse{
+    La sortie sigmoïde $\hat{y}$ est un flottant dans $]0, 1[$ : la probabilité qu'il soit exactement
+    égal à $y \in \{0, 1\}$ est quasi nulle. \texttt{np.mean(y\_hat == y)} retournera donc presque
+    toujours $0$, ce qui n'a aucun sens comme mesure d'accuracy.
+  }
+
+\item
+  \question{Dans quel cas C serait-il correct ?}
+  \reponse{
+    C seuille à $0$, ce qui serait pertinent si la sortie du réseau était une valeur brute non bornée
+    (logit) plutôt qu'une probabilité sigmoïde. Par exemple, pour un neurone \texttt{tanh} dont la sortie
+    est dans $]-1, 1[$, un seuil à $0$ permettrait de distinguer les deux classes.
+    Pour une sigmoïde, le seuil naturel est $0{,}5$ (A), pas $0$ (C).
+  }
+
+\end{enumerate}
+}
