@@ -1,0 +1,59 @@
+\uuid{pL3m}
+\titre{Calcul de taille de sortie}
+\niveau{L2}
+\module{Informatique / Signal}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Convolution 2D}
+\theme{Formule de taille de sortie, stride, padding}
+\auteur{}
+\datecreate{2026-03-23}
+\organisation{}
+\difficulte{1}
+
+\contenu{
+\texte{
+  Pour chacune des configurations suivantes, on rappelle la formule :
+  \[
+    \text{out} = \left\lfloor \frac{\text{in} + 2p - k}{s} \right\rfloor + 1,
+  \]
+  où $p$ désigne le padding, $k$ la taille du noyau et $s$ le stride.
+}
+\begin{enumerate}
+\item
+  \question{Compléter le tableau suivant en calculant la taille de sortie pour chaque configuration.
+  \begin{center}
+  \begin{tabular}{ccccc}
+  \hline
+  \# & Entrée & Noyau & Padding & Stride \\
+  \hline
+  a & $10\times10$ & $3\times3$ & 0 & 1 \\
+  b & $10\times10$ & $3\times3$ & 1 & 1 \\
+  c & $10\times10$ & $5\times5$ & 2 & 1 \\
+  d & $16\times16$ & $3\times3$ & 0 & 2 \\
+  e & $28\times28$ & $5\times5$ & 0 & 1 \\
+  f & $32\times32$ & $3\times3$ & 1 & 2 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  }
+  \reponse{
+    \begin{itemize}
+      \item[a.] $\lfloor(10+0-3)/1\rfloor+1 = 8$. Sortie : $8\times8$.
+      \item[b.] $\lfloor(10+2-3)/1\rfloor+1 = 10$. Sortie : $10\times10$.
+      \item[c.] $\lfloor(10+4-5)/1\rfloor+1 = 10$. Sortie : $10\times10$.
+      \item[d.] $\lfloor(16+0-3)/2\rfloor+1 = \lfloor13/2\rfloor+1 = 6+1 = 7$. Sortie : $7\times7$.
+      \item[e.] $\lfloor(28+0-5)/1\rfloor+1 = 24$. Sortie : $24\times24$.
+      \item[f.] $\lfloor(32+2-3)/2\rfloor+1 = \lfloor31/2\rfloor+1 = 15+1 = 16$. Sortie : $16\times16$.
+    \end{itemize}
+  }
+
+\item
+  \question{Pour les cas b et c : que remarque-t-on sur la taille de sortie par rapport à l'entrée ? Comment appelle-t-on ce type de padding ?}
+  \reponse{
+    Dans les deux cas, la sortie a la même taille que l'entrée ($10\times10$).
+    On parle de padding \textbf{same} : le padding est choisi précisément pour que
+    $\text{out} = \text{in}$, ce qui est pratique pour empiler des couches sans
+    réduire la résolution spatiale.
+  }
+\end{enumerate}
+}

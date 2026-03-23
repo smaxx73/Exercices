@@ -1,0 +1,71 @@
+\uuid{i7Xp}
+\titre{Convolution 2D à la main — mode valid}
+\niveau{L2}
+\module{Informatique / Signal}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Convolution 2D}
+\theme{Calcul à la main, noyau $2\times2$, mode valid}
+\auteur{}
+\datecreate{2026-03-23}
+\organisation{}
+\difficulte{1}
+
+\contenu{
+\texte{
+  On considère l'image $I$ et le noyau $K$ suivants :
+  \[
+  I = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix},
+  \qquad
+  K = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.
+  \]
+  On utilise le mode \textbf{valid} (pas de padding) et un stride de $1$.
+}
+\begin{enumerate}
+\item
+  \question{Quelle est la taille de la carte de sortie ? Justifier à l'aide de la formule
+  $\text{out} = \lfloor (\text{in} + 2p - k)/s \rfloor + 1$.}
+  \reponse{
+    Avec $\text{in} = 3$, $p = 0$, $k = 2$, $s = 1$ :
+    \[
+      \text{out} = \lfloor (3 + 0 - 2)/1 \rfloor + 1 = 1 + 1 = 2.
+    \]
+    La sortie est donc de taille $2 \times 2$.
+  }
+
+\item
+  \question{Calculer à la main tous les coefficients de la carte de sortie $S = I \star K$.}
+  \indication{Rappel : on renverse le noyau ($\mathrm{flip}$) avant de calculer le produit scalaire avec chaque fenêtre.}
+  \reponse{
+    Le noyau renversé est $K' = \mathrm{flip}(K) = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+    (symétrique, donc $K' = K$).
+
+    Les quatre fenêtres $2 \times 2$ extraites de $I$ (en mode valid) sont :
+    \begin{align*}
+      F_{00} &= \begin{pmatrix}1&2\\4&5\end{pmatrix}, &
+      F_{01} &= \begin{pmatrix}2&3\\5&6\end{pmatrix}, \\
+      F_{10} &= \begin{pmatrix}4&5\\7&8\end{pmatrix}, &
+      F_{11} &= \begin{pmatrix}5&6\\8&9\end{pmatrix}.
+    \end{align*}
+    Produits scalaires terme à terme avec $K'$ :
+    \begin{align*}
+      S_{00} &= 1\cdot0 + 2\cdot1 + 4\cdot1 + 5\cdot0 = 6,\\
+      S_{01} &= 2\cdot0 + 3\cdot1 + 5\cdot1 + 6\cdot0 = 8,\\
+      S_{10} &= 4\cdot0 + 5\cdot1 + 7\cdot1 + 8\cdot0 = 12,\\
+      S_{11} &= 5\cdot0 + 6\cdot1 + 8\cdot1 + 9\cdot0 = 14.
+    \end{align*}
+    Donc :
+    \[
+      S = \begin{pmatrix} 6 & 8 \\ 12 & 14 \end{pmatrix}.
+    \]
+  }
+
+\item
+  \question{Que détecte intuitivement ce noyau $K$ ?}
+  \reponse{
+    Le noyau $K = \begin{pmatrix}0&1\\1&0\end{pmatrix}$ somme les deux pixels situés sur la
+    diagonale anti-principale (haut-droite et bas-gauche) de chaque fenêtre.
+    Il réagit aux variations diagonales (à $45°$) dans l'image, et peut être vu comme
+    un détecteur de corrélation diagonale. Ce n'est ni un détecteur horizontal ni vertical pur.
+  }
+\end{enumerate}
+}

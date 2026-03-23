@@ -1,0 +1,75 @@
+\uuid{cF8j}
+\titre{Composition de convolutions et champ réceptif}
+\niveau{L3}
+\module{Informatique / Signal}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Empilement de couches convolutives}
+\theme{Champ réceptif, comptage de paramètres, profondeur vs largeur}
+\auteur{}
+\datecreate{2026-03-23}
+\organisation{}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On empile deux couches de convolution successives, chacune avec un noyau $3 \times 3$,
+  padding $= 0$ et stride $= 1$.
+}
+\begin{enumerate}
+\item
+  \question{Après la première couche, quelle est la taille de la sortie si l'entrée est $7 \times 7$ ?}
+  \reponse{
+    $\lfloor(7+0-3)/1\rfloor+1 = 5$. Sortie : $5 \times 5$.
+  }
+
+\item
+  \question{Après la deuxième couche, quelle est la taille finale ?}
+  \reponse{
+    $\lfloor(5+0-3)/1\rfloor+1 = 3$. Sortie finale : $3 \times 3$.
+  }
+
+\item
+  \question{Quel est le champ réceptif d'un pixel de la sortie finale (c'est-à-dire la zone
+  de l'image d'entrée qui a influencé sa valeur) ? Montrer le raisonnement.}
+  \reponse{
+    Un pixel de la sortie de la couche 2 dépend d'une fenêtre $3 \times 3$ de la
+    sortie de la couche 1.
+    Chaque pixel de cette fenêtre $3 \times 3$ dépend lui-même d'une fenêtre $3 \times 3$
+    de l'image d'entrée.
+    La fenêtre totale couverte dans l'entrée est donc de taille
+    $(3-1) + (3-1) + 1 = 5$, soit un champ réceptif de $\mathbf{5 \times 5}$.
+
+    Formule générale pour $L$ couches de noyaux $k \times k$ (stride $= 1$, pas de padding) :
+    \[
+      \text{champ réceptif} = L(k-1) + 1.
+    \]
+    Ici : $2(3-1)+1 = 5$.
+  }
+
+\item
+  \question{Comparer avec une unique convolution $5 \times 5$ appliquée directement sur l'image $7 \times 7$ (padding $= 0$). Même champ réceptif ? Même taille de sortie ?}
+  \reponse{
+    Taille de sortie : $\lfloor(7+0-5)/1\rfloor+1 = 3 \times 3$. Identique.
+
+    Champ réceptif : $5 \times 5$. Identique.
+
+    Les deux architectures voient la même zone de l'image pour chaque pixel de sortie.
+  }
+
+\item
+  \question{Combien de paramètres comporte chaque approche (sans biais) ?
+  Quelle configuration est plus économique ?}
+  \reponse{
+    \begin{itemize}
+      \item \textbf{Deux couches $3 \times 3$} (1 seul filtre par couche, pour simplifier) :
+        $3^2 + 3^2 = 9 + 9 = 18$ paramètres.
+      \item \textbf{Une couche $5 \times 5$} :
+        $5^2 = 25$ paramètres.
+    \end{itemize}
+    Deux couches $3 \times 3$ sont donc plus économiques ($18 < 25$) tout en couvrant
+    le même champ réceptif. C'est l'une des raisons pour lesquelles les architectures
+    modernes (VGG, ResNet) privilégient des petits noyaux empilés plutôt que de grands
+    noyaux uniques.
+  }
+\end{enumerate}
+}

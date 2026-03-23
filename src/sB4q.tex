@@ -1,0 +1,87 @@
+\uuid{sB4q}
+\titre{Noyaux séparables et gain de calcul}
+\niveau{L3}
+\module{Informatique / Signal}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Convolution 2D}
+\theme{Séparabilité, produit extérieur, complexité algorithmique}
+\auteur{}
+\datecreate{2026-03-23}
+\organisation{}
+\difficulte{3}
+
+\contenu{
+\texte{
+  Un noyau $K$ de taille $k \times k$ est dit \textbf{séparable} s'il peut s'écrire
+  comme le produit extérieur de deux vecteurs :
+  \[
+    K = \mathbf{v} \cdot \mathbf{h}^\top,
+  \]
+  où $\mathbf{v} \in \mathbb{R}^k$ est un vecteur colonne et $\mathbf{h} \in \mathbb{R}^k$
+  un vecteur ligne. Dans ce cas, appliquer $K$ revient à effectuer deux convolutions 1D
+  successives : d'abord $\mathbf{h}$ horizontalement, puis $\mathbf{v}$ verticalement.
+
+  On considère le noyau gaussien $3 \times 3$ :
+  \[
+    K_g = \frac{1}{16}\begin{pmatrix}1&2&1\\2&4&2\\1&2&1\end{pmatrix}.
+  \]
+}
+\begin{enumerate}
+\item
+  \question{Vérifier que $K_g$ est séparable en trouvant $\mathbf{v}$ et $\mathbf{h}$ tels que $K_g = \mathbf{v} \cdot \mathbf{h}^\top$.}
+  \reponse{
+    On pose $\mathbf{v} = \frac{1}{4}\begin{pmatrix}1\\2\\1\end{pmatrix}$ et
+    $\mathbf{h} = \frac{1}{4}\begin{pmatrix}1\\2\\1\end{pmatrix}$.
+    Alors :
+    \[
+      \mathbf{v}\mathbf{h}^\top =
+      \frac{1}{16}
+      \begin{pmatrix}1\\2\\1\end{pmatrix}
+      \begin{pmatrix}1&2&1\end{pmatrix}
+      =
+      \frac{1}{16}\begin{pmatrix}1&2&1\\2&4&2\\1&2&1\end{pmatrix}
+      = K_g. \quad \checkmark
+    \]
+  }
+
+\item
+  \question{Soit une image de taille $N \times N$ et un noyau de taille $k \times k$.
+  Comparer le nombre de multiplications pour appliquer $K_g$ en 2D directement
+  versus en deux passes 1D successives. Quel est le gain ?}
+  \reponse{
+    \begin{itemize}
+      \item \textbf{Convolution 2D directe :} pour chaque pixel de sortie, on effectue
+        $k^2$ multiplications. Il y a $N^2$ pixels. Coût total : $N^2 k^2$.
+      \item \textbf{Deux passes 1D :} la première passe (horizontale, noyau $1 \times k$)
+        coûte $N^2 k$ multiplications ; la seconde passe (verticale, noyau $k \times 1$)
+        coûte également $N^2 k$. Coût total : $2N^2 k$.
+    \end{itemize}
+    Le rapport est $\dfrac{k^2}{2k} = \dfrac{k}{2}$.
+    Pour $k = 3$, on divise le nombre de multiplications par $3/2 \approx 1{,}5$~;
+    pour $k = 7$ (gaussien large), par $3{,}5$. Le gain est d'autant plus important
+    que $k$ est grand.
+  }
+
+\item
+  \question{Le noyau Sobel $K_C = \begin{pmatrix}-1&0&+1\\-2&0&+2\\-1&0&+1\end{pmatrix}$
+  est-il séparable ? Si oui, trouver sa décomposition.}
+  \indication{Chercher si toutes les lignes de $K_C$ sont proportionnelles.}
+  \reponse{
+    Les lignes de $K_C$ sont $(−1,0,+1)$, $(−2,0,+2)$ et $(−1,0,+1)$, qui sont
+    toutes proportionnelles au vecteur $(−1,0,+1)$. Le noyau est donc de rang 1,
+    i.e. séparable.
+
+    On pose $\mathbf{h}^\top = \begin{pmatrix}-1&0&+1\end{pmatrix}$
+    et $\mathbf{v} = \begin{pmatrix}1\\2\\1\end{pmatrix}$.
+    Alors :
+    \[
+      \mathbf{v}\mathbf{h}^\top =
+      \begin{pmatrix}1\\2\\1\end{pmatrix}
+      \begin{pmatrix}-1&0&+1\end{pmatrix}
+      =
+      \begin{pmatrix}-1&0&+1\\-2&0&+2\\-1&0&+1\end{pmatrix}
+      = K_C. \quad \checkmark
+    \]
+  }
+\end{enumerate}
+}

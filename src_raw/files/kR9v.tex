@@ -1,0 +1,82 @@
+\uuid{kR9v}
+\titre{Interprétation de filtres classiques}
+\niveau{L2}
+\module{Informatique / Signal}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Filtres de convolution 2D}
+\theme{Lissage, Sobel, Laplacien, détection de contours}
+\auteur{}
+\datecreate{2026-03-23}
+\organisation{}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On donne les quatre noyaux suivants :
+  \[
+  K_A = \frac{1}{9}\begin{pmatrix}1&1&1\\1&1&1\\1&1&1\end{pmatrix},\quad
+  K_B = \begin{pmatrix}-1&-1&-1\\-1&8&-1\\-1&-1&-1\end{pmatrix},
+  \]
+  \[
+  K_C = \begin{pmatrix}-1&0&+1\\-2&0&+2\\-1&0&+1\end{pmatrix},\quad
+  K_D = \begin{pmatrix}0&1&0\\1&-4&1\\0&1&0\end{pmatrix}.
+  \]
+}
+\begin{enumerate}
+\item
+  \question{Associer chaque noyau à l'un des rôles suivants : \textbf{lissage}, \textbf{détection de contours tous azimuts}, \textbf{détection de contours verticaux (Sobel X)}, \textbf{Laplacien discret}.}
+  \reponse{
+    \begin{itemize}
+      \item $K_A$ : \textbf{lissage} (filtre moyenneur uniforme).
+      \item $K_B$ : \textbf{détection de contours tous azimuts} (filtre laplacien centré sur 8, réagit dans toutes les directions).
+      \item $K_C$ : \textbf{détection de contours verticaux} (filtre de Sobel X, sensible aux variations horizontales d'intensité).
+      \item $K_D$ : \textbf{Laplacien discret} (approximation de $\nabla^2 I$ avec les 4-voisins).
+    \end{itemize}
+  }
+
+\item
+  \question{Pour $K_A$ : calculer la somme de ses coefficients. Qu'implique ce résultat sur les zones uniformes de l'image ?}
+  \reponse{
+    $\sum K_A = 9 \times \frac{1}{9} = 1$.
+    Sur une zone uniforme (tous les pixels égaux à une constante $c$), la convolution
+    donne $c \times 1 = c$ : l'intensité est préservée. Le filtre ne crée ni n'annule de
+    luminosité ; c'est un filtre \textbf{passe-bas normalisé}.
+  }
+
+\item
+  \question{Pour $K_B$ : calculer la somme de ses coefficients. Qu'implique ce résultat sur les zones uniformes ?}
+  \reponse{
+    $\sum K_B = 8 + 8\times(-1) = 8 - 8 = 0$.
+    Sur une zone uniforme, la convolution donne $0$ : les zones plates apparaissent
+    en noir dans la carte de sortie. Seules les transitions d'intensité produisent
+    une réponse non nulle ; c'est caractéristique d'un filtre \textbf{passe-haut} ou
+    détecteur de contours.
+  }
+
+\item
+  \question{Pour $K_C$ : si on l'applique à une image dont toutes les colonnes sont identiques, que vaut la sortie ? Pourquoi ?}
+  \reponse{
+    Si toutes les colonnes sont identiques, l'intensité ne varie pas horizontalement.
+    Or $K_C$ calcule $-I(\cdot, j-1) + I(\cdot, j+1)$ (pondéré), ce qui est une
+    différence entre colonne de droite et colonne de gauche. Cette différence est nulle
+    si toutes les colonnes sont égales. La sortie est donc entièrement \textbf{nulle}.
+    $K_C$ ne réagit qu'aux variations horizontales d'intensité (i.e. aux contours verticaux).
+  }
+
+\item
+  \question{Calculer $K_B + 9 K_A$ (addition élément par élément). Interpréter le résultat.}
+  \reponse{
+    \[
+      K_B + 9 K_A =
+      \begin{pmatrix}-1&-1&-1\\-1&8&-1\\-1&-1&-1\end{pmatrix}
+      +
+      \begin{pmatrix}1&1&1\\1&1&1\\1&1&1\end{pmatrix}
+      =
+      \begin{pmatrix}0&0&0\\0&9&0\\0&0&0\end{pmatrix}.
+    \]
+    On obtient $9$ fois le filtre identité. Cela illustre que $K_B$ peut s'interpréter
+    comme \og identité (mise à l'échelle) $-$ filtre moyenneur \fg{} : il soustrait
+    la moyenne locale pour ne conserver que les variations.
+  }
+\end{enumerate}
+}

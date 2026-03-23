@@ -1,0 +1,96 @@
+\uuid{eT5r}
+\titre{Équivariance par translation et max pooling}
+\niveau{L3}
+\module{Informatique / Signal}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Propriétés des convolutions}
+\theme{Équivariance, invariance, translation, max pooling}
+\auteur{}
+\datecreate{2026-03-23}
+\organisation{}
+\difficulte{4}
+
+\contenu{
+\texte{
+  Soit $I$ une image discrète et $T_d(I)$ l'image $I$ translatée de $d$ pixels
+  vers la droite, définie par $[T_d(I)](i,j) = I(i, j-d)$.
+  On note $\star$ la convolution 2D discrète :
+  \[
+    (I \star K)(i,j) = \sum_{m,n} I(i-m,\, j-n)\, K(m,n).
+  \]
+}
+\begin{enumerate}
+\item
+  \question{Démontrer formellement que $T_d(I) \star K = T_d(I \star K)$.}
+  \indication{Écrire $(T_d(I) \star K)(i,j)$ en utilisant la définition, puis poser un changement de variable.}
+  \reponse{
+    \begin{align*}
+      [T_d(I) \star K](i,j)
+      &= \sum_{m,n} [T_d(I)](i-m,\, j-n)\, K(m,n) \\
+      &= \sum_{m,n} I(i-m,\, j-n-d)\, K(m,n).
+    \end{align*}
+    D'autre part :
+    \[
+      [T_d(I \star K)](i,j) = (I \star K)(i,\, j-d)
+      = \sum_{m,n} I(i-m,\, (j-d)-n)\, K(m,n)
+      = \sum_{m,n} I(i-m,\, j-n-d)\, K(m,n).
+    \]
+    Les deux expressions sont égales, donc $T_d(I) \star K = T_d(I \star K)$. $\square$
+  }
+
+\item
+  \question{Pourquoi cette propriété est-elle précieuse pour la reconnaissance d'objets
+  dans une image ?}
+  \reponse{
+    L'équivariance par translation garantit que si un objet est décalé dans l'image
+    d'entrée, sa \emph{représentation} (carte d'activation) est décalée de la même
+    façon dans la sortie. Le réseau \og voit \fg{} le même motif quelle que soit sa
+    position : il n'est pas nécessaire d'apprendre séparément le même filtre pour
+    chaque position possible de l'objet.
+    Cela réduit drastiquement le nombre de paramètres nécessaires et favorise la
+    généralisation.
+  }
+
+\item
+  \question{Le max pooling brise-t-il cette propriété d'équivariance ? Illustrer sur un
+  exemple 1D avec un signal $[0, 1, 0, 3]$, un signal translaté d'un pixel $[0, 0, 1, 0]$
+  (bord droit ignoré), et pool size $= 2$.}
+  \reponse{
+    \textbf{Signal $s_1 = [0, 1, 0, 3]$} :
+    \begin{itemize}
+      \item Fenêtre $[0,1]$ : max $= 1$.
+      \item Fenêtre $[0,3]$ : max $= 3$.
+    \end{itemize}
+    Sortie : $[1, 3]$.
+
+    \textbf{Signal translaté $s_2 = [0, 0, 1, 0]$} (translation de $1$ pixel) :
+    \begin{itemize}
+      \item Fenêtre $[0,0]$ : max $= 0$.
+      \item Fenêtre $[1,0]$ : max $= 1$.
+    \end{itemize}
+    Sortie : $[0, 1]$.
+
+    La sortie de $s_1$ poolée était $[1,3]$~; celle de $s_2$ est $[0,1]$, qui n'est
+    pas simplement une translation de $[1,3]$. \textbf{L'équivariance exacte est donc
+    brisée} par le max pooling.
+  }
+
+\item
+  \question{Malgré cette rupture, pourquoi dit-on que le max pooling confère une
+  certaine \textbf{invariance} par translation ? Distinguer équivariance et invariance.}
+  \reponse{
+    \begin{itemize}
+      \item \textbf{Équivariance} : une transformation de l'entrée produit une
+        transformation \emph{identique} de la sortie. La convolution est équivariante.
+      \item \textbf{Invariance} : une transformation de l'entrée ne change \emph{pas}
+        la sortie. Le max pooling tend vers l'invariance.
+    \end{itemize}
+    Le max pooling agrège sur des fenêtres locales : tant que l'activation maximale
+    reste dans la \emph{même fenêtre} après une petite translation, la sortie est
+    inchangée. Il confère donc une invariance \textbf{locale} (à l'échelle de la
+    fenêtre de pooling). Combiné à l'empilement de couches, cela produit une
+    invariance croissante à mesure que l'on monte dans le réseau : les couches
+    profondes deviennent peu sensibles à la position exacte des motifs.
+  }
+\end{enumerate}
+}
