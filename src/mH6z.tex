@@ -4,108 +4,108 @@
 \module{Informatique / Signal}
 \chapitre{Réseaux de neurones}
 \sousChapitre{Convolution 2D}
-\theme{Calcul à la main, Sobel X, padding same, noyau antisymétrique}
+\theme{Sobel X, padding same, noyau antisymétrique}
 \auteur{}
 \datecreate{2026-03-23}
 \organisation{}
 \difficulte{3}
 
 \contenu{
-\texte{
-  On considère l'image $I$ et le noyau $K$ suivants :
-  \[
-  I = \begin{pmatrix}
-    1 & 0 & 1 & 2 \\
-    3 & 1 & 0 & 1 \\
-    2 & 2 & 1 & 0 \\
-    0 & 1 & 3 & 1
-  \end{pmatrix},
-  \qquad
-  K = \begin{pmatrix}
-    1 & 0 & -1 \\
-    2 & 0 & -2 \\
-    1 & 0 & -1
-  \end{pmatrix}.
-  \]
-  On applique ce filtre en mode \textbf{same} (padding $p = 1$) avec stride $= 1$.
-}
-\begin{enumerate}
-\item
-  \question{Écrire l'image paddée $I_p$ ($6 \times 6$ avec des zéros sur les bords).}
-  \reponse{
-    \[
-    I_p = \begin{pmatrix}
-      0 & 0 & 0 & 0 & 0 & 0 \\
-      0 & 1 & 0 & 1 & 2 & 0 \\
-      0 & 3 & 1 & 0 & 1 & 0 \\
-      0 & 2 & 2 & 1 & 0 & 0 \\
-      0 & 0 & 1 & 3 & 1 & 0 \\
-      0 & 0 & 0 & 0 & 0 & 0
-    \end{pmatrix}.
-    \]
-  }
-
-\item
-  \question{Rappeler le noyau renversé $K' = \mathrm{flip}(K)$. Que remarque-t-on ?}
-  \reponse{
-    Le retournement (rotation de $180°$) de $K$ donne :
-    \[
-    K' = \begin{pmatrix}
-      -1 & 0 & 1 \\
-      -2 & 0 & 2 \\
-      -1 & 0 & 1
-    \end{pmatrix}.
-    \]
-    On remarque que $K' = -K$ : le noyau est \textbf{antisymétrique par rotation de
-    $180°$}. Cela implique que la convolution $I \star K$ et la corrélation croisée
-    $I \star\star K$ diffèrent d'un signe.
-  }
-
-\item
-  \question{Calculer les 4 coefficients de la ligne du milieu de la sortie,
-  aux positions $(1,0)$, $(1,1)$, $(1,2)$, $(1,3)$ (indexation ligne/colonne à partir de 0).}
-  \reponse{
-    On travaille sur $I_p$ et on extrait les fenêtres $3 \times 3$ centrées sur les
-    pixels $(1,0)$ à $(1,3)$ de $I$ (soit les lignes 1 à 3, colonnes 0 à 2 de $I_p$
-    après décalage de $p=1$). Le produit scalaire se fait avec $K'$.
-
-    \textbf{Position $(1,0)$} — fenêtre $I_p[0:3,\; 0:3]$ :
-    \[
-      \begin{pmatrix}0&0&0\\0&1&0\\0&3&1\end{pmatrix} \odot
-      \begin{pmatrix}-1&0&1\\-2&0&2\\-1&0&1\end{pmatrix}
-      = 0+0+0+0+0+0+0+0+1 = 1.
-    \]
-
-    \textbf{Position $(1,1)$} — fenêtre $I_p[0:3,\; 1:4]$ :
-    \[
-      \begin{pmatrix}0&0&0\\1&0&1\\3&1&0\end{pmatrix} \odot K'
-      = 0+0+0 + (-2)+0+2 + (-3)+0+0 = -3.
-    \]
-
-    \textbf{Position $(1,2)$} — fenêtre $I_p[0:3,\; 2:5]$ :
-    \[
-      \begin{pmatrix}0&0&0\\0&1&2\\1&0&1\end{pmatrix} \odot K'
-      = 0+0+0 + 0+0+4 + (-1)+0+1 = 4.
-    \]
-
-    \textbf{Position $(1,3)$} — fenêtre $I_p[0:3,\; 3:6]$ :
-    \[
-      \begin{pmatrix}0&0&0\\1&2&0\\0&1&0\end{pmatrix} \odot K'
-      = 0+0+0 + (-2)+0+0 + 0+0+0 = -2.
-    \]
-
-    Ligne du milieu de la sortie : $\begin{pmatrix}1 & -3 & 4 & -2\end{pmatrix}$.
-  }
-
-\item
-  \question{Interpréter le résultat : ce filtre est-il symétrique ? Que détecte-t-il ?}
-  \reponse{
-    $K$ n'est pas symétrique : il vaut $+1$ à gauche et $-1$ à droite (colonnes).
-    C'est le filtre de \textbf{Sobel X} : il calcule approximativement la dérivée
-    partielle horizontale $\partial I / \partial x$.
-    Une valeur positive indique une transition sombre $\to$ clair de gauche à droite~;
-    une valeur négative indique clair $\to$ sombre. Il détecte donc les
-    \textbf{contours verticaux} (variations horizontales d'intensité).
-  }
-\end{enumerate}
+	\texte{
+		On considère l'image $I$ et le noyau $K$ suivants :
+		\[
+		I = \begin{pmatrix}
+			1 & 0 & 1 & 2 \\
+			3 & 1 & 0 & 1 \\
+			2 & 2 & 1 & 0 \\
+			0 & 1 & 3 & 1
+		\end{pmatrix},
+		\qquad
+		K = \begin{pmatrix}
+			1 & 0 & -1 \\
+			2 & 0 & -2 \\
+			1 & 0 & -1
+		\end{pmatrix}.
+		\]
+		On applique ce filtre en mode \textbf{same} (padding $p = 1$) avec stride $= 1$.
+	}
+	\begin{enumerate}
+		\item
+		\question{Écrire l'image paddée $I_p$ ($6 \times 6$ avec des zéros sur les bords).}
+		\reponse{
+			\[
+			I_p = \begin{pmatrix}
+				0 & 0 & 0 & 0 & 0 & 0 \\
+				0 & 1 & 0 & 1 & 2 & 0 \\
+				0 & 3 & 1 & 0 & 1 & 0 \\
+				0 & 2 & 2 & 1 & 0 & 0 \\
+				0 & 0 & 1 & 3 & 1 & 0 \\
+				0 & 0 & 0 & 0 & 0 & 0
+			\end{pmatrix}.
+			\]
+		}
+		
+		\item
+		\question{Rappeler le noyau renversé $K' = \mathrm{flip}(K)$. Que remarque-t-on ?}
+		\reponse{
+			Le retournement (rotation de $180^\circ$) de $K$ donne :
+			\[
+			K' = \begin{pmatrix}
+				-1 & 0 & 1 \\
+				-2 & 0 & 2 \\
+				-1 & 0 & 1
+			\end{pmatrix}.
+			\]
+			On remarque que $K' = -K$ : le noyau est \textbf{antisymétrique par rotation de
+				$180^\circ$}. Cela implique que la convolution $I \star K$ et la corrélation croisée
+			$I \star\star K$ diffèrent d'un signe.
+		}
+		
+		\item
+		\question{Calculer les 4 coefficients de la ligne du milieu de la sortie,
+			aux positions $(1,0)$, $(1,1)$, $(1,2)$, $(1,3)$ (indexation ligne/colonne à partir de 0).}
+		\reponse{
+			On travaille sur $I_p$ et on extrait les fenêtres $3 \times 3$ centrées sur les
+			pixels $(1,0)$ à $(1,3)$ de $I$ (ce qui correspond aux lignes d'indices 1 à 3 de $I_p$
+			grâce au décalage de $p=1$). Le produit scalaire se fait avec $K'$.
+			
+			\textbf{Position $(1,0)$} — fenêtre $I_p[1:4,\; 0:3]$ :
+			\[
+			\begin{pmatrix}0&1&0\\0&3&1\\0&2&2\end{pmatrix} \odot
+			\begin{pmatrix}-1&0&1\\-2&0&2\\-1&0&1\end{pmatrix}
+			= 0+0+0 + 0+0+2 + 0+0+2 = 4.
+			\]
+			
+			\textbf{Position $(1,1)$} — fenêtre $I_p[1:4,\; 1:4]$ :
+			\[
+			\begin{pmatrix}1&0&1\\3&1&0\\2&2&1\end{pmatrix} \odot K'
+			= (-1)+0+1 + (-6)+0+0 + (-2)+0+1 = -7.
+			\]
+			
+			\textbf{Position $(1,2)$} — fenêtre $I_p[1:4,\; 2:5]$ :
+			\[
+			\begin{pmatrix}0&1&2\\1&0&1\\2&1&0\end{pmatrix} \odot K'
+			= 0+0+2 + (-2)+0+2 + (-2)+0+0 = 0.
+			\]
+			
+			\textbf{Position $(1,3)$} — fenêtre $I_p[1:4,\; 3:6]$ :
+			\[
+			\begin{pmatrix}1&2&0\\0&1&0\\1&0&0\end{pmatrix} \odot K'
+			= (-1)+0+0 + 0+0+0 + (-1)+0+0 = -2.
+			\]
+			
+			Ligne du milieu de la sortie : $\begin{pmatrix}4 & -7 & 0 & -2\end{pmatrix}$.
+		}
+		
+		\item
+		\question{Interpréter le résultat : ce filtre est-il symétrique ? Que détecte-t-il ?}
+		\reponse{
+			$K$ n'est pas symétrique : il vaut $+1$ à gauche et $-1$ à droite (colonnes).
+			C'est le filtre de \textbf{Sobel X} : il calcule approximativement la dérivée
+			partielle horizontale $\partial I / \partial x$.
+			Une valeur positive indique une transition sombre $\to$ clair de gauche à droite~;
+			une valeur négative indique clair $\to$ sombre. Il détecte donc les
+			\textbf{contours verticaux} (variations horizontales d'intensité).
+		}
+	\end{enumerate}
 }
