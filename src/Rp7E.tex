@@ -1,0 +1,43 @@
+\uuid{Rp7E}
+\titre{Étude de la classe $\mathcal{C}^1$ de $f(x,y)=e^{-1/(x^2+y^2)}$}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Continuité et différentiabilité}
+\theme{Dérivées partielles, continuité, croissances comparées, classe $\mathcal{C}^1$}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{4}
+
+\contenu{
+\texte{
+  On considère la fonction $f$ définie sur $\mathbb{R}^2$ par
+  \[
+    f(x,y) = e^{-\frac{1}{x^2+y^2}} \;\text{ si } (x,y) \neq (0,0), \qquad f(0,0) = 0.
+  \]
+  Cette fonction est-elle de classe $\mathcal{C}^1$ ?
+}
+\begin{enumerate}
+  \item \question{Calculer les dérivées partielles de $f$ pour $(x,y) \neq (0,0)$.}
+    \reponse{
+      \[
+        \frac{\partial f}{\partial x}(x,y) = \frac{2x}{(x^2+y^2)^2}\,e^{-\frac{1}{x^2+y^2}}, \qquad \frac{\partial f}{\partial y}(x,y) = \frac{2y}{(x^2+y^2)^2}\,e^{-\frac{1}{x^2+y^2}}.
+      \]
+    }
+
+  \item \question{Calculer les dérivées partielles de $f$ en $(0,0)$.}
+    \reponse{
+      Pour $h \neq 0$, $f(h,0) = e^{-1/h^2}$. Par croissances comparées, $\displaystyle\lim_{h\to 0}\dfrac{e^{-1/h^2}}{h} = 0$. Donc $\dfrac{\partial f}{\partial x}(0,0) = 0$. De même $\dfrac{\partial f}{\partial y}(0,0) = 0$.
+    }
+
+  \item \question{Étudier la continuité des dérivées partielles en $(0,0)$.}
+    \reponse{
+      En coordonnées polaires :
+      \[
+        \left|\frac{\partial f}{\partial x}(x,y)\right| = \frac{2|\cos\theta|}{r^3}\,e^{-1/r^2} \leq \frac{2}{r^3}\,e^{-1/r^2}.
+      \]
+      Par croissances comparées, $\dfrac{1}{r^3}e^{-1/r^2} \to 0$ quand $r \to 0$. Donc $\dfrac{\partial f}{\partial x}$ est continue en $(0,0)$, et de même pour $\dfrac{\partial f}{\partial y}$. Ainsi $f$ est de classe $\mathcal{C}^1$ sur $\mathbb{R}^2$.
+    }
+\end{enumerate}
+}

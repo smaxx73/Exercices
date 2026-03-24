@@ -1,0 +1,42 @@
+\uuid{Bt3S}
+\titre{Points critiques et extremums de $f(x,y)=xye^{-(x^2+y^2)}$}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Optimisation sans contrainte}
+\theme{Points critiques, matrice hessienne, maximums et minimums locaux, points selles}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On considère la fonction $f : \mathbb{R}^2 \to \mathbb{R}$ définie par $f(x,y) = xy\,e^{-(x^2+y^2)}$.
+}
+\begin{enumerate}
+  \item \question{Déterminer les points critiques de $f$. Admet-elle des extremums locaux ?}
+    \reponse{
+      On calcule :
+      \[
+        \frac{\partial f}{\partial x} = y(1-2x^2)e^{-(x^2+y^2)}, \qquad \frac{\partial f}{\partial y} = x(1-2y^2)e^{-(x^2+y^2)}.
+      \]
+      Le système $\nabla f = 0$ (avec $e^{-(x^2+y^2)} > 0$) donne :
+      \begin{itemize}
+        \item $x = 0$ ou $y = 0$ : seule solution commune est $(0,0)$ ;
+        \item $x \neq 0$, $y \neq 0$ : $x^2 = \tfrac{1}{2}$, $y^2 = \tfrac{1}{2}$, i.e. $x,y = \pm\tfrac{1}{\sqrt{2}}$.
+      \end{itemize}
+      Les cinq points critiques sont :
+      \[
+        (0,0),\; \Bigl(\tfrac{1}{\sqrt{2}}, \tfrac{1}{\sqrt{2}}\Bigr),\; \Bigl(-\tfrac{1}{\sqrt{2}}, \tfrac{1}{\sqrt{2}}\Bigr),\; \Bigl(\tfrac{1}{\sqrt{2}}, -\tfrac{1}{\sqrt{2}}\Bigr),\; \Bigl(-\tfrac{1}{\sqrt{2}}, -\tfrac{1}{\sqrt{2}}\Bigr).
+      \]
+
+      On calcule les dérivées secondes et la matrice hessienne :
+      \begin{itemize}
+        \item En $(0,0)$ : $\Delta_f(0,0) = -1 < 0$ $\Rightarrow$ point selle.
+        \item En $\bigl(\pm\tfrac{1}{\sqrt{2}}, \pm\tfrac{1}{\sqrt{2}}\bigr)$ (signes égaux) : $\Delta_f = 4e^{-2} > 0$ et $\dfrac{\partial^2 f}{\partial x^2} = -2e^{-1} < 0$ $\Rightarrow$ maximum local.
+        \item En $\bigl(\pm\tfrac{1}{\sqrt{2}}, \mp\tfrac{1}{\sqrt{2}}\bigr)$ (signes opposés) : $\Delta_f = 4e^{-2} > 0$ et $\dfrac{\partial^2 f}{\partial x^2} = 2e^{-1} > 0$ $\Rightarrow$ minimum local.
+      \end{itemize}
+    }
+\end{enumerate}
+}

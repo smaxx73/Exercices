@@ -1,0 +1,33 @@
+\uuid{Td5F}
+\titre{Continuité et dérivées partielles de $f(x,y)=y^2\ln|x|$}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Continuité et dérivées partielles}
+\theme{Continuité en $(0,0)$, dérivées partielles, contre-exemple par suite}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On considère la fonction $f$ définie sur $\mathbb{R}^2$ par
+  \[
+    f(x,y) = y^2 \ln|x| \;\text{ si } (x,y) \neq (0,0), \qquad f(0,0) = 0.
+  \]
+}
+\begin{enumerate}
+  \item \question{Cette fonction est-elle continue en $(0,0)$ ?}
+    \reponse{
+      Non. Considérons la suite $u_n = (e^{-n^2}, \tfrac{1}{n})$, qui tend vers $(0,0)$. On a $f(u_n) = \tfrac{1}{n^2} \ln e^{-n^2} = -1 \to -1 \neq f(0,0)$. Donc $f$ n'est pas continue en $(0,0)$.
+    }
+
+  \item \question{Cette fonction admet-elle des dérivées partielles en $(0,0)$ ?}
+    \reponse{
+      Pour $\dfrac{\partial f}{\partial x}(0,0)$ : on a $f(h,0) = 0$ pour $h \neq 0$, donc $\dfrac{\partial f}{\partial x}(0,0) = \displaystyle\lim_{h\to 0}\dfrac{0-0}{h} = 0$.
+
+      La dérivée partielle par rapport à $y$ en $(0,0)$ n'existe pas, car $f(0,y)$ n'est pas définie pour $y \neq 0$ ($\ln|0|$ est indéfini).
+    }
+\end{enumerate}
+}

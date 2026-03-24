@@ -1,0 +1,53 @@
+\uuid{Xc6R}
+\titre{Optimisation d'une fonction d'efficacité radar sur un disque fermé}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Optimisation sur un compact}
+\theme{Maximum et minimum globaux, disque fermé, bornes atteintes, paramétrage polaire}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{4}
+
+\contenu{
+\texte{
+  Dans une zone militaire, l'efficacité de détection d'un radar est modélisée par la fonction
+  \[
+    E(x,y) = \frac{5x - 2y}{1 + (x-1)^2 + (y+1)^2},
+  \]
+  où $(x,y) \in \mathbb{R}^2$ représente les coordonnées géographiques du radar. La zone d'installation possible est le disque
+  \[
+    D = \left\{(x,y) \in \mathbb{R}^2 : (x-1)^2 + (y+1)^2 \leq 4\right\}.
+  \]
+}
+\begin{enumerate}
+  \item \question{Montrer que $E$ est continue sur $D$. En déduire que $E$ admet un maximum et un minimum global sur $D$.}
+    \reponse{
+      $E$ est un quotient de deux fonctions continues sur $\mathbb{R}^2$ ; le dénominateur est une somme de termes quadratiques strictement positive sur $D$. Donc $E$ est continue sur $D$. De plus, $D$ est un disque fermé et borné, donc compact. D'après le théorème des bornes atteintes, $E$ admet un maximum et un minimum globaux sur $D$.
+    }
+
+  \item \question{Trouver les points critiques de $E$ à l'intérieur de $D$.}
+    \reponse{
+      On pose $N(x,y) = 5x-2y$ et $\mathcal{D}(x,y) = 1+(x-1)^2+(y+1)^2$. On calcule les dérivées partielles et on annule le gradient. En combinant les deux équations, on obtient que tout point critique vérifie $4(x-1)+10(y+1)=0$, soit $y = -\tfrac{2}{5}x - \tfrac{3}{5}$. En substituant, on obtient l'équation $-\tfrac{29}{5}x^2 - \tfrac{12}{5}x + \tfrac{66}{5} = 0$, dont les solutions sont
+      \[
+        x = \frac{1}{29}\left(-6 \pm 5\sqrt{78}\right).
+      \]
+      Seul le point $\approx (1{,}316,\,-1{,}126)$ appartient à $D$.
+    }
+
+  \item \question{Étudier la fonction $E$ sur la frontière de $D$ en utilisant la paramétrisation polaire $x = 1 + 2\cos\theta$, $y = -1 + 2\sin\theta$.}
+    \reponse{
+      En substituant, on obtient :
+      \[
+        E(\theta) = \frac{7 + 10\cos\theta - 4\sin\theta}{5} = \frac{7}{5} + 2\cos\theta - \frac{4}{5}\sin\theta.
+      \]
+      On a $E'(\theta) = 0 \Leftrightarrow \sin(\theta+\alpha) = 0$, avec $\alpha \approx 0{,}38$ tel que $\cos\alpha = \tfrac{5}{\sqrt{29}}$ et $\sin\alpha = \tfrac{2}{\sqrt{29}}$. Les valeurs extrémales sur le bord sont $E(-\alpha) \approx 3{,}55$ et $E(\pi-\alpha) \approx -0{,}754$.
+    }
+
+  \item \question{Comparer les valeurs obtenues pour déterminer le point d'installation optimal du radar ainsi que le point où $E$ est minimale.}
+    \reponse{
+      On a $E(1{,}316,\,-1{,}126) \approx 7{,}92$, et les extremums sur le bord valent environ $3{,}55$ et $-0{,}754$. Le maximum global est donc atteint en $\approx (1{,}316,\,-1{,}126)$, et le minimum global sur le bord en $\approx (-0{,}857,\,-0{,}257)$.
+    }
+\end{enumerate}
+}

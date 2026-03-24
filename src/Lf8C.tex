@@ -1,0 +1,37 @@
+\uuid{Lf8C}
+\titre{Prolongement continu et dérivées partielles en l'origine}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Continuité et dérivées partielles}
+\theme{Prolongement par continuité, dérivées partielles, coordonnées polaires}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On définit $f : \mathbb{R}^2 \setminus \{(0,0)\} \to \mathbb{R}$ par
+  \[
+    f(x,y) = \frac{x^2}{(x^2+y^2)^{3/4}}.
+  \]
+}
+\begin{enumerate}
+  \item \question{Justifier que l'on peut prolonger $f$ en une fonction continue sur $\mathbb{R}^2$.}
+    \reponse{
+      On pose $x = r\cos\theta$, $y = r\sin\theta$. Alors :
+      \[
+        f(x,y) = \frac{r^2\cos^2\theta}{r^{3/2}} = r^{1/2}\cos^2\theta.
+      \]
+      Ainsi $|f(x,y)| \leq r^{1/2} \to 0$ quand $r \to 0$. Donc $\displaystyle\lim_{(x,y)\to(0,0)} f(x,y) = 0$, et on prolonge $f$ en posant $f(0,0) = 0$.
+    }
+
+  \item \question{Étudier l'existence des dérivées partielles en $(0,0)$ pour ce prolongement.}
+    \reponse{
+      On a $f(x,0) = \sqrt{|x|}$ pour $x \neq 0$. La fonction $x \mapsto \sqrt{|x|}$ n'est pas dérivable en $0$, donc $\dfrac{\partial f}{\partial x}(0,0)$ n'existe pas.
+
+      En revanche, $f(0,y) = 0$ pour tout $y \in \mathbb{R}$, donc $\dfrac{\partial f}{\partial y}(0,0) = 0$.
+    }
+\end{enumerate}
+}

@@ -1,0 +1,48 @@
+\uuid{Um8A}
+\titre{Étude de la classe $\mathcal{C}^1$ de $f(x,y)=x^2y^2\ln(x^2+y^2)$}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Continuité et différentiabilité}
+\theme{Dérivées partielles, continuité, coordonnées polaires, classe $\mathcal{C}^1$}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{4}
+
+\contenu{
+\texte{
+  On considère la fonction $f$ définie sur $\mathbb{R}^2$ par
+  \[
+    f(x,y) = x^2 y^2 \ln(x^2+y^2) \;\text{ si } (x,y) \neq (0,0), \qquad f(0,0) = 0.
+  \]
+  Cette fonction est-elle de classe $\mathcal{C}^1$ ?
+}
+\begin{enumerate}
+  \item \question{Calculer les dérivées partielles de $f$ pour $(x,y) \neq (0,0)$.}
+    \reponse{
+      \[
+        \frac{\partial f}{\partial x}(x,y) = 2xy^2\ln(x^2+y^2) + \frac{2x^3y^2}{x^2+y^2},
+      \]
+      \[
+        \frac{\partial f}{\partial y}(x,y) = 2x^2y\ln(x^2+y^2) + \frac{2x^2y^3}{x^2+y^2}.
+      \]
+    }
+
+  \item \question{Calculer les dérivées partielles de $f$ en $(0,0)$ par la définition (taux d'accroissement).}
+    \reponse{
+      On a $f(h,0) = 0$ et $f(0,h) = 0$ pour $h \neq 0$. Donc $\dfrac{\partial f}{\partial x}(0,0) = \dfrac{\partial f}{\partial y}(0,0) = 0$.
+    }
+
+  \item \question{Étudier la continuité des dérivées partielles en $(0,0)$.}
+    \reponse{
+      En coordonnées polaires $x = r\cos\theta$, $y = r\sin\theta$ :
+      \[
+        \left|\frac{\partial f}{\partial x}(x,y)\right| \leq 4r^3|\ln r| + 2r^3.
+      \]
+      Par croissances comparées, $r^3|\ln r| \to 0$ et $r^3 \to 0$ quand $r \to 0$. Donc $\dfrac{\partial f}{\partial x}$ est continue en $(0,0)$. Le raisonnement est identique pour $\dfrac{\partial f}{\partial y}$.
+
+      Ainsi $f$ est de classe $\mathcal{C}^1$ en $(0,0)$, puis $\mathcal{C}^1$ sur $\mathbb{R}^2$ par opérations sur les fonctions $\mathcal{C}^1$.
+    }
+\end{enumerate}
+}

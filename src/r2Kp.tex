@@ -1,0 +1,64 @@
+\uuid{r2Kp}
+\titre{Calcul de limite en l'origine par coordonnées polaires}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Limites et continuité}
+\theme{Limite en $(0,0)$, coordonnées polaires, inégalité triangulaire}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{3}
+
+\contenu{
+\texte{
+  Soit la fonction $g : \mathbb{R}^2 \to \mathbb{R}$ définie par
+  \[
+    g(x,y) = \frac{x^2 + 3y^3}{|x| + |y|}.
+  \]
+}
+\begin{enumerate}
+  \item \question{Déterminer l'ensemble de définition de $g$.}
+    \reponse{
+      L'expression $g(x,y)$ est définie si et seulement si $|x|+|y| \neq 0$. Or $|x|+|y|=0 \Rightarrow x=0$ et $y=0$. Par conséquent, $D_g = \mathbb{R}^2 \setminus \{(0,0)\}$.
+    }
+
+  \item \question{Démontrer que $\displaystyle\lim_{h\to 0} g(h,0) = \lim_{h\to 0} g(0,h) = \lim_{h\to 0} g(h,h)$.}
+    \reponse{
+      Pour $h \neq 0$ :
+      \[
+        g(h,0) = \frac{h^2}{|h|} = |h|, \quad g(0,h) = \frac{3h^3}{|h|} = 3h^2 \text{ si } h>0 \text{ (et } {-3h^2} \text{ si } h<0\text{)},
+      \]
+      \[
+        g(h,h) = \frac{h^2+3h^3}{2|h|} = \frac{1}{2}(g(h,0)+g(0,h)).
+      \]
+      Ces trois expressions tendent vers $0$ quand $h \to 0$.
+    }
+
+  \item \question{On admet que pour tout $\theta \in \mathbb{R}$, $|\cos\theta| + |\sin\theta| \geq 1$. Déterminer une fonction $m$ ne dépendant pas de $\theta$ telle que pour tout $r>0$ et $\theta\in\mathbb{R}$ :
+    \[
+      \frac{1}{r|\cos\theta| + r|\sin\theta|} \leq m(r).
+    \]}
+    \reponse{
+      Puisque $|\cos\theta|+|\sin\theta| \geq 1$, on a $\dfrac{1}{|\cos\theta|+|\sin\theta|} \leq 1$. En divisant par $r>0$ :
+      \[
+        \frac{1}{r|\cos\theta|+r|\sin\theta|} \leq \frac{1}{r}.
+      \]
+      On peut donc prendre $m(r) = \dfrac{1}{r}$.
+    }
+
+  \item \question{Déterminer $\displaystyle\lim_{(x,y)\to(0,0)} g(x,y)$.}
+    \indication{Passer en coordonnées polaires et utiliser la majoration établie à la question précédente.}
+    \reponse{
+      On pose $x = r\cos\theta$, $y = r\sin\theta$. D'après la question précédente :
+      \[
+        |g(r\cos\theta, r\sin\theta)| = \frac{|r^2\cos^2\theta + 3r^3\sin^3\theta|}{r|\cos\theta|+r|\sin\theta|} \leq \frac{|r^2\cos^2\theta + 3r^3\sin^3\theta|}{r}.
+      \]
+      En simplifiant par $r$ et par inégalité triangulaire :
+      \[
+        |g(r\cos\theta, r\sin\theta)| \leq r|\cos^2\theta| + 3r^2|\sin^3\theta| \leq r + 3r^2.
+      \]
+      Puisque $r + 3r^2 \to 0$ quand $r \to 0$, on conclut que $\displaystyle\lim_{(x,y)\to(0,0)} g(x,y) = 0$.
+    }
+\end{enumerate}
+}

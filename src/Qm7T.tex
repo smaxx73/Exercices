@@ -1,0 +1,36 @@
+\uuid{Qm7T}
+\titre{Limite et continuité en un point}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Continuité et différentiabilité}
+\theme{Limite, continuité, dérivées partielles, différentiabilité}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{2}
+
+\contenu{
+\texte{
+  Soit $f$ une fonction définie sur $\mathbb{R}^2$ telle que
+  \[
+    \lim_{(x,y)\to(3,1)} f(x,y) = 6.
+  \]
+}
+\begin{enumerate}
+  \item \question{Peut-on dire que $f(3,1) = 6$ ?}
+    \reponse{Non. Il faudrait pour cela que $f$ soit continue en $(3,1)$, ce qui n'est pas précisé.}
+
+  \item \question{Si $f$ est continue en $(3,1)$, peut-on dire que $f(3,1) = 6$ ?}
+    \reponse{Oui, par définition de la continuité en $(3,1)$, on a $\lim_{(x,y)\to(3,1)} f(x,y) = f(3,1)$.}
+
+  \item \question{Si $\dfrac{\partial f}{\partial x}(3,1) = -1$ et $\dfrac{\partial f}{\partial y}(3,1) = 1$, peut-on dire que $f(3,1) = 6$ ?}
+    \reponse{Non. L'existence de dérivées partielles en $(3,1)$ n'implique pas que $f$ soit continue en $(3,1)$.}
+
+  \item \question{Si $f$ est différentiable en $(3,1)$, peut-on dire que $f(3,1) = 6$ ?}
+    \reponse{Oui. Une fonction différentiable en $(3,1)$ est continue en $(3,1)$ d'après le cours.}
+
+  \item \question{Si $f$ est de classe $\mathcal{C}^1(\mathbb{R}^2)$, peut-on dire que $f(3,1) = 6$ ?}
+    \reponse{Oui. D'après le cours, une fonction $\mathcal{C}^1$ est continue.}
+\end{enumerate}
+}

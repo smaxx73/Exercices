@@ -1,0 +1,44 @@
+\uuid{Hn9L}
+\titre{Domaine de définition et lignes de niveau}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Domaine de définition et courbes de niveau}
+\theme{Domaine de définition, logarithme, racine carrée, courbes de niveau}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On considère la fonction $f$ définie par
+  \[
+    f(x,y) = \frac{\sqrt{5y - 2x}}{\ln(x-1)}.
+  \]
+}
+\begin{enumerate}
+  \item \question{Déterminer le domaine de définition de $f$.}
+    \reponse{
+      L'expression $f(x,y)$ est définie si et seulement si :
+      \begin{itemize}
+        \item $x > 1$ (pour que $\ln(x-1)$ soit bien défini),
+        \item $5y - 2x \geq 0$ (pour que $\sqrt{5y-2x}$ soit bien définie),
+        \item $\ln(x-1) \neq 0$, i.e. $x \neq 2$ (pour que le quotient soit bien défini).
+      \end{itemize}
+      Donc :
+      \[
+        D_f = \left\{(x,y) \in \mathbb{R}^2 \;\middle|\; x > 1,\; 5y - 2x \geq 0,\; x \neq 2\right\}.
+      \]
+    }
+
+  \item \question{Déterminer la ligne de niveau $k = 0$ de $f$.}
+    \reponse{
+      $f(x,y) = 0$ si et seulement si $\sqrt{5y-2x} = 0$, soit $5y = 2x$, i.e. $y = \dfrac{2}{5}x$. En tenant compte du domaine, la courbe de niveau $0$ est :
+      \[
+        \left\{(x,y) \in \mathbb{R}^2 \;\middle|\; y = \tfrac{2}{5}x,\; x > 1,\; x \neq 2\right\}.
+      \]
+      Il s'agit de l'union d'un segment et d'une demi-droite.
+    }
+\end{enumerate}
+}

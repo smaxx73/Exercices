@@ -1,0 +1,38 @@
+\uuid{Ew0Q}
+\titre{Minimum global d'une forme quadratique affine}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Optimisation sans contrainte}
+\theme{Point critique unique, complétion du carré, minimum global}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{3}
+
+\contenu{
+\texte{
+  Soit $f$ définie sur $\mathbb{R}^2$ par $f(x,y) = 9x^2 + 8xy + 3y^2 + x - 2y$.
+}
+\begin{enumerate}
+  \item \question{Déterminer l'unique point critique de $f$, puis son image par $f$.}
+    \reponse{
+      On calcule $\dfrac{\partial f}{\partial x} = 18x + 8y + 1$ et $\dfrac{\partial f}{\partial y} = 8x + 6y - 2$. En résolvant le système linéaire, on obtient $x = -\tfrac{1}{2}$ et $y = 1$. L'unique point critique est $\bigl(-\tfrac{1}{2}, 1\bigr)$ et $f\bigl(-\tfrac{1}{2}, 1\bigr) = -\tfrac{5}{4}$.
+    }
+
+  \item \question{Développer l'expression $E = 3\!\left(y + \tfrac{4}{3}x - \tfrac{1}{3}\right)^2 + \tfrac{11}{3}\!\left(x + \tfrac{1}{2}\right)^2$.}
+    \reponse{
+      En développant chaque terme :
+      \begin{align*}
+        3\!\left(y + \tfrac{4}{3}x - \tfrac{1}{3}\right)^2 &= 3y^2 + 8xy - 2y + \tfrac{16}{3}x^2 - \tfrac{8}{3}x + \tfrac{1}{3}, \\
+        \tfrac{11}{3}\!\left(x + \tfrac{1}{2}\right)^2 &= \tfrac{11}{3}x^2 + \tfrac{11}{3}x + \tfrac{11}{12}.
+      \end{align*}
+      En additionnant : $E = 9x^2 + 8xy + 3y^2 + x - 2y + \tfrac{5}{4} = f(x,y) + \tfrac{5}{4}$.
+    }
+
+  \item \question{Que peut-on en conclure sur la nature du point critique ?}
+    \reponse{
+      On a $E \geq 0$, donc $f(x,y) \geq -\tfrac{5}{4}$ pour tout $(x,y) \in \mathbb{R}^2$. Le point critique $\bigl(-\tfrac{1}{2}, 1\bigr)$ est donc un minimum global de $f$, de valeur $-\tfrac{5}{4}$.
+    }
+\end{enumerate}
+}

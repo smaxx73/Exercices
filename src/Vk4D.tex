@@ -1,0 +1,34 @@
+\uuid{Vk4D}
+\titre{Dérivée partielle via la règle de dérivation composée}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Dérivation des fonctions composées}
+\theme{Règle de dérivation composée, dérivée partielle}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{2}
+
+\contenu{
+\texte{
+  Soit $f$ une fonction de classe $\mathcal{C}^1$ sur $\mathbb{R}^2$ vérifiant $\forall t \in \mathbb{R},\; f(t, t^2) = 1$.
+}
+\begin{enumerate}
+  \item \question{En utilisant la dérivée de la composée, montrer que $\dfrac{\partial f}{\partial x}(0,0) = 0$.}
+    \reponse{
+      On pose $\varphi(t) = f(t, t^2)$. Par la règle de dérivation composée :
+      \[
+        \varphi'(t) = \frac{\partial f}{\partial x}(t, t^2) + 2t\,\frac{\partial f}{\partial y}(t, t^2).
+      \]
+      Comme $\varphi(t) = 1$ pour tout $t$, on a $\varphi'(t) = 0$, donc :
+      \[
+        \frac{\partial f}{\partial x}(t, t^2) + 2t\,\frac{\partial f}{\partial y}(t, t^2) = 0.
+      \]
+      En particulier pour $t = 0$ :
+      \[
+        \frac{\partial f}{\partial x}(0,0) = 0.
+      \]
+    }
+\end{enumerate}
+}

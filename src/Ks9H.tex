@@ -1,0 +1,51 @@
+\uuid{Ks9H}
+\titre{Continuité, dérivées partielles et non-différentiabilité en l'origine}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Continuité et différentiabilité}
+\theme{Continuité, dérivées partielles, non-différentiabilité, coordonnées polaires}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{4}
+
+\contenu{
+\texte{
+  On donne $f : \mathbb{R}^2 \to \mathbb{R}$ définie par
+  \[
+    f(x,y) = \begin{cases} \dfrac{x^3 + 2x^2y + 3y^3}{x^2+y^2} & \text{si } (x,y) \neq (0,0), \\ 0 & \text{sinon.} \end{cases}
+  \]
+  Montrer que $f$ est continue en $(0,0)$, que les dérivées partielles $\dfrac{\partial f}{\partial x}(0,0)$ et $\dfrac{\partial f}{\partial y}(0,0)$ existent, et que $f$ n'est pas différentiable en $(0,0)$.
+}
+\begin{enumerate}
+  \item \question{Continuité en $(0,0)$.}
+    \reponse{
+      En coordonnées polaires :
+      \[
+        f(r\cos\theta, r\sin\theta) = r\bigl(\cos^3\theta + 2\cos^2\theta\sin\theta + 3\sin^3\theta\bigr).
+      \]
+      Donc $|f(r\cos\theta, r\sin\theta)| \leq 6r \to 0$ quand $r \to 0$. $f$ est continue en $(0,0)$.
+    }
+
+  \item \question{Existence des dérivées partielles en $(0,0)$.}
+    \reponse{
+      $f(h,0) = h$ pour $h \neq 0$, donc $\dfrac{\partial f}{\partial x}(0,0) = \displaystyle\lim_{h\to 0}\dfrac{h}{h} = 1$.
+
+      $f(0,h) = 3h$ pour $h \neq 0$, donc $\dfrac{\partial f}{\partial y}(0,0) = \displaystyle\lim_{h\to 0}\dfrac{3h}{h} = 3$.
+    }
+
+  \item \question{Non-différentiabilité en $(0,0)$.}
+    \reponse{
+      Si $f$ était différentiable en $(0,0)$, on aurait
+      \[
+        \lim_{(x,y)\to(0,0)} \frac{f(x,y) - x - 3y}{\sqrt{x^2+y^2}} = 0.
+      \]
+      En coordonnées polaires :
+      \[
+        \frac{f(r\cos\theta, r\sin\theta) - r\cos\theta - 3r\sin\theta}{r} = 2\cos^2\theta\sin\theta,
+      \]
+      qui dépend de $\theta$. Donc $f$ n'est pas différentiable en $(0,0)$.
+    }
+\end{enumerate}
+}

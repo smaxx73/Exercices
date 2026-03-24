@@ -1,0 +1,43 @@
+\uuid{Ob2N}
+\titre{Étude de la différentiabilité de $f(x,y)=\dfrac{x^2 y}{x^2+y^2}$}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Continuité et différentiabilité}
+\theme{Classe $\mathcal{C}^1$, différentiabilité, coordonnées polaires, limite dépendant de $\theta$}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{4}
+
+\contenu{
+\texte{
+  On considère la fonction $f$ définie sur $\mathbb{R}^2$ par
+  \[
+    f(x,y) = \frac{x^2 y}{x^2+y^2} \;\text{ si } (x,y) \neq (0,0), \qquad f(0,0) = 0.
+  \]
+}
+\begin{enumerate}
+  \item \question{La fonction $f$ est-elle $\mathcal{C}^1$ en $(0,0)$ ?}
+    \reponse{
+      Pour $(x,y) \neq (0,0)$ :
+      \[
+        \frac{\partial f}{\partial x}(x,y) = \frac{2xy^3}{(x^2+y^2)^2}, \qquad \frac{\partial f}{\partial y}(x,y) = \frac{x^2(x^2-y^2)}{(x^2+y^2)^2}.
+      \]
+      En coordonnées polaires :
+      \[
+        \frac{\partial f}{\partial x}(x,y) = 2\cos\theta\sin^3\theta,
+      \]
+      qui dépend de $\theta$ et n'a donc pas de limite en $(0,0)$. Ainsi $\dfrac{\partial f}{\partial x}$ n'est pas continue en $(0,0)$, et $f$ n'est pas $\mathcal{C}^1$ en $(0,0)$.
+    }
+
+  \item \question{La fonction $f$ est-elle différentiable en $(0,0)$ ?}
+    \reponse{
+      On calcule $\dfrac{\partial f}{\partial x}(0,0) = \dfrac{\partial f}{\partial y}(0,0) = 0$. Pour la différentiabilité, on étudie :
+      \[
+        \frac{f(x,y)}{\sqrt{x^2+y^2}} = \frac{r\cos^2\theta\sin\theta}{r} = \cos^2\theta\sin\theta,
+      \]
+      qui dépend de $\theta$. Donc $f$ n'est pas différentiable en $(0,0)$.
+    }
+\end{enumerate}
+}

@@ -1,0 +1,31 @@
+\uuid{Pz5W}
+\titre{Continuité, lignes de niveau et points critiques de $f(x,y)=x^2 y$}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Dérivées partielles et points critiques}
+\theme{Continuité, courbes de niveau, gradient, points critiques}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{2}
+
+\contenu{
+\texte{
+  On considère la fonction $f$ définie sur $\mathbb{R}^2$ par $f(x,y) = x^2 y$.
+}
+\begin{enumerate}
+  \item \question{Montrer que $f$ est continue sur $\mathbb{R}^2$.}
+    \reponse{La fonction $f$ est le produit de fonctions continues sur $\mathbb{R}^2$, donc est continue sur $\mathbb{R}^2$.}
+
+  \item \question{Déterminer les lignes de niveau de $f$.}
+    \reponse{
+      Soit $k \in \mathbb{R}$. On résout $x^2 y = k$. La courbe de niveau $k$ est la courbe d'équation $y = \dfrac{k}{x^2}$ avec $x \neq 0$.
+    }
+
+  \item \question{Quels sont les points critiques de $f$ ?}
+    \reponse{
+      On calcule $\dfrac{\partial f}{\partial x}(x,y) = 2xy$ et $\dfrac{\partial f}{\partial y}(x,y) = x^2$. Le système $\nabla f = 0$ donne $x^2 = 0$ et $2xy = 0$, soit $x = 0$. L'ensemble des points critiques est $\{(0,y) \mid y \in \mathbb{R}\}$.
+    }
+\end{enumerate}
+}

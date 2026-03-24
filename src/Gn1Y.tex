@@ -1,0 +1,41 @@
+\uuid{Gn1Y}
+\titre{Points critiques et extremums de $f(x,y)=x^2y^3+(y-1)^2$}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonctions de plusieurs variables}
+\sousChapitre{Optimisation sans contrainte}
+\theme{Points critiques, hessienne, minimum local, minimum global}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-24}
+\organisation{amscc}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On considère la fonction $f : \mathbb{R}^2 \to \mathbb{R}$ définie par $f(x,y) = x^2y^3 + (y-1)^2$.
+}
+\begin{enumerate}
+  \item \question{Déterminer les points critiques de $f$. Admet-elle des extremums locaux ? Les extremums locaux trouvés sont-ils globaux ?}
+    \reponse{
+      On calcule :
+      \[
+        \frac{\partial f}{\partial x} = 2xy^3, \qquad \frac{\partial f}{\partial y} = 3x^2y^2 + 2(y-1).
+      \]
+      \begin{itemize}
+        \item $\dfrac{\partial f}{\partial x} = 0 \Rightarrow x = 0$ ou $y = 0$.
+        \item Cas $y = 0$ : $\dfrac{\partial f}{\partial y} = -2 \neq 0$ $\Rightarrow$ pas de point critique.
+        \item Cas $x = 0$ : $\dfrac{\partial f}{\partial y} = 2(y-1) = 0 \Rightarrow y = 1$.
+      \end{itemize}
+      L'unique point critique est $(0,1)$.
+
+      Les dérivées secondes en $(0,1)$ :
+      \[
+        \frac{\partial^2 f}{\partial x^2}(0,1) = 2, \quad \frac{\partial^2 f}{\partial y^2}(0,1) = 2, \quad \frac{\partial^2 f}{\partial x\partial y}(0,1) = 0.
+      \]
+      \[
+        \operatorname{Hess}_f(0,1) = \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}, \quad \Delta_f(0,1) = 4 > 0, \quad \frac{\partial^2 f}{\partial x^2} > 0.
+      \]
+      Donc $f$ admet un minimum local en $(0,1)$. Cependant, $f(1,y) \to -\infty$ quand $y \to -\infty$, donc ce minimum local n'est pas global.
+    }
+\end{enumerate}
+}
