@@ -1,20 +1,36 @@
 \uuid{Rg7q}
 \titre{Calcul d'intégrales par reconnaissance de dérivées}
-\niveau{L2}
-\module{Analyse}
-\chapitre{Intégration}
-\sousChapitre{Intégrale de Riemann}
-\theme{trigonométrie, exponentielle, logarithme}
-\auteur{Erwan L'Haridon}
-\datecreate{2026-02-10}
-\organisation{AMSCC}
-\difficulte{3}
+
+\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{ Intégration } 	%Analyse, Algèbre...
+\chapitre{Intégration directe}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Erwan l'Haridon}
+\datecreate{ 2026-02-11}
+\organisation{AMSCC}			%AMSCC, Exo7, ...
+\difficulte{1}			%1, 2, 3, 4 ou 5
 
 \contenu{
-    \texte{Calculer les intégrales suivantes. On pourra reconnaître des dérivées de fonctions composées :}
-    \begin{enumerate}
-        \item \question{\( I_1 = \int_{0}^{\frac{\pi}{3}} (1 - \cos(3x)) dx \)}
-        \item \question{\( I_2 = \int_{0}^{\sqrt{\pi}} 2x \sin(x^2) dx \)}
-        \item \question{\( I_3 = \int_{1}^{2} \frac{1}{x} (\ln x)^{\frac{1}{2}} dx \)}
-    \end{enumerate}
+
+\texte{ 
+
+}
+
+\begin{enumerate}
+\item   \question{Calculer $I_1=\displaystyle\int_0^{\pi/3}\bigl(1-\cos(3x)\bigr)\,dx$.}
+\indication{}
+\reponse{$\displaystyle I_1=\left[x-\frac13\sin(3x)\right]_0^{\pi/3}=\frac{\pi}{3}-\frac13\sin(\pi)=\frac{\pi}{3}$.}
+
+\item   \question{Calculer $I_2=\displaystyle\int_0^{\sqrt{\pi}} 2x\sin(x^2)\,dx$.}
+\indication{}
+\reponse{Posons $u=x^2$, $du=2x\,dx$. Alors $I_2=\displaystyle\int_0^{\pi}\sin u\,du=\bigl[-\cos u\bigr]_0^{\pi}=2$.}
+
+\item   \question{Calculer $I_3=\displaystyle\int_1^{2}\frac{1}{x\sqrt{\ln x}}\,dx$.}
+\indication{}
+\reponse{Posons $u=\ln x$, $du=\frac{dx}{x}$. Alors $I_3=\displaystyle\int_{0}^{\ln 2} u^{-1/2}du=\left[2\sqrt{u}\right]_0^{\ln 2}=2\sqrt{\ln 2}$.}
+
+\end{enumerate}
+
 }

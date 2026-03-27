@@ -1,0 +1,36 @@
+\uuid{Qc6c}
+\titre{Primitives de fonctions rationnelles }
+
+\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{ Intégration } 	%Analyse, Algèbre...
+\chapitre{Méthode d'intégration}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Quentin Liard}
+\datecreate{ 2026-02-11}
+\organisation{AMSCC}			%AMSCC, Exo7, ...
+\difficulte{2}			%1, 2, 3, 4 ou 5
+
+\contenu{
+
+\texte{ 
+
+}
+
+\begin{enumerate}
+\item   \question{Calculer $I_1=\displaystyle\int \frac{1}{x^2+1}\,dx$.}
+\indication{}
+\reponse{$\displaystyle I_1=\arctan x + C$.}
+
+\item   \question{Montrer une relation entre $I_2=\displaystyle\int \frac{1}{(x^2+1)^2}\,dx$ et $I_1$ en utilisant (par exemple) l’identité $\dfrac{d}{dx}\!\left(\dfrac{x}{1+x^2}\right)=\dfrac{1-x^2}{(1+x^2)^2}$.}
+\indication{}
+\reponse{On a $\displaystyle \frac{1}{(1+x^2)^2}=\frac12\left(\frac{1}{1+x^2}+\frac{1-x^2}{(1+x^2)^2}\right)=\frac12\left(\frac{1}{1+x^2}+\frac{d}{dx}\left(\frac{x}{1+x^2}\right)\right)$. En intégrant : $I_2=\frac12 I_1+\frac12\frac{x}{1+x^2}+C$.}
+
+\item   \question{En déduire une expression explicite de $I_2$.}
+\indication{}
+\reponse{Comme $I_1=\arctan x + C$, on obtient une primitive : $\displaystyle I_2=\frac12\arctan x+\frac12\frac{x}{1+x^2}+C$.}
+
+\end{enumerate}
+
+}

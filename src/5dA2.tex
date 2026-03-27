@@ -1,0 +1,179 @@
+\uuid{5dA2}
+\titre{ Domaine, courbes de niveau et continuité }
+
+\niveau{}
+\module{ Fonctions de plusieurs variables }
+\chapitre{Courbe de niveau}
+\sousChapitre{}
+\theme{}
+\auteur{Quentin Liard}
+\datecreate{ 2026-03-18}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+On considère la fonction $f$ définie sur $\mathbb{R}^2$ par
+$$
+f(x,y)=\sqrt{4-x^2-y^2}.
+$$
+}
+
+\begin{enumerate}
+
+\item   \question{Déterminer le domaine de définition $D_f$ de $f$ et le représenter dans le plan. Cet ensemble est-il ouvert?}
+\indication{}
+\reponse{Pour que $f(x,y)$ soit définie, il faut
+\[
+4-x^2-y^2\geq 0,
+\]
+soit
+\[
+x^2+y^2\leq 4.
+\]
+Ainsi
+\[
+D_f=\{(x,y)\in\mathbb{R}^2\mid x^2+y^2\leq 4\}.
+\]
+C’est le disque fermé de centre $(0,0)$ et de rayon $2$.}
+
+\item   \question{Déterminer les courbes de niveau de $f$, c’est-à-dire les ensembles $\{(x,y)\in D_f\mid f(x,y)=k\}$, selon les valeurs de $k$.}
+\indication{}
+\reponse{On cherche les points tels que
+\[
+\sqrt{4-x^2-y^2}=k.
+\]
+Cela impose d’abord $k\geq 0$. En élevant au carré :
+\[
+4-x^2-y^2=k^2
+\quad\Longleftrightarrow\quad
+x^2+y^2=4-k^2.
+\]
+Donc :
+\begin{itemize}
+\item si $0\leq k\leq 2$, la courbe de niveau est le cercle de centre $(0,0)$ et de rayon $\sqrt{4-k^2}$ ;
+\item si $k<0$ ou $k>2$, il n’y a pas de courbe de niveau.
+\end{itemize}}
+
+\item   \question{La fonction $f$ est-elle continue sur son domaine de définition $D_f$ ?}
+\indication{}
+\reponse{Oui. La fonction $(x,y)\mapsto 4-x^2-y^2$ est polynomiale donc continue sur $\mathbb{R}^2$, et la fonction racine carrée est continue sur $[0,+\infty[$. Par composition, $f$ est continue sur son domaine $D_f$.}
+
+\item   \question{Calculer les dérivées partielles $\dfrac{\partial f}{\partial x}$ et $\dfrac{\partial f}{\partial y}$ sur l'intérieur de $D_f$.}
+\indication{}
+\reponse{Pour $x^2+y^2<4$, on a
+\[
+f(x,y)=(4-x^2-y^2)^{1/2}.
+\]
+Donc
+\[
+\frac{\partial f}{\partial x}(x,y)=\frac12(4-x^2-y^2)^{-1/2}(-2x)
+=\frac{-x}{\sqrt{4-x^2-y^2}},
+\]
+et de même
+\[
+\frac{\partial f}{\partial y}(x,y)=\frac{-y}{\sqrt{4-x^2-y^2}}.
+\]}
+\item \question{Les dérivées partielles en $(2,0)$ et $(0,2)$ existent-elles?}
+
+\reponse{
+On étudie l'existence des dérivées partielles de
+\[
+f(x,y)=\sqrt{4-x^2-y^2}
+\]
+aux points \((2,0)\) et \((0,2)\).
+
+\medskip
+
+\textbf{En \((2,0)\).} On a \(f(2,0)=0\).
+
+Pour la dérivée partielle par rapport à \(x\), on considère
+\[
+\frac{\partial f}{\partial x}(2,0)
+=\lim_{h\to 0}\frac{f(2+h,0)-f(2,0)}{h},
+\]
+si cette limite existe. Or, pour que \((2+h,0)\in D_f\), il faut
+\[
+(2+h)^2\le 4,
+\]
+donc \(h\le 0\) au voisinage de \(0\). Pour \(h<0\),
+\[
+f(2+h,0)=\sqrt{4-(2+h)^2}=\sqrt{-4h-h^2}.
+\]
+Ainsi,
+\[
+\frac{f(2+h,0)-f(2,0)}{h}
+=\frac{\sqrt{-4h-h^2}}{h}.
+\]
+Quand \(h\to 0^{-}\), ce quotient tend vers \(-\infty\). La dérivée partielle
+\[
+\frac{\partial f}{\partial x}(2,0)
+\]
+n'existe donc pas.
+
+Pour la dérivée partielle par rapport à \(y\), on regarde
+\[
+\frac{\partial f}{\partial y}(2,0)
+=\lim_{h\to 0}\frac{f(2,\,h)-f(2,0)}{h}.
+\]
+Mais
+\[
+f(2,h)=\sqrt{4-4-h^2}=\sqrt{-h^2},
+\]
+ce qui n'est défini que pour \(h=0\). Il n'existe donc pas de voisinage de \(0\) dans lequel ce quotient soit défini pour \(h\neq 0\). Par conséquent,
+\[
+\frac{\partial f}{\partial y}(2,0)
+\]
+n'existe pas.
+
+\medskip
+
+\textbf{En \((0,2)\).} On a \(f(0,2)=0\).
+
+Pour la dérivée partielle par rapport à \(x\), on considère
+\[
+\frac{\partial f}{\partial x}(0,2)
+=\lim_{h\to 0}\frac{f(h,2)-f(0,2)}{h}.
+\]
+Or
+\[
+f(h,2)=\sqrt{4-h^2-4}=\sqrt{-h^2},
+\]
+qui n'est défini que pour \(h=0\). Donc
+\[
+\frac{\partial f}{\partial x}(0,2)
+\]
+n'existe pas.
+
+Pour la dérivée partielle par rapport à \(y\), on considère
+\[
+\frac{\partial f}{\partial y}(0,2)
+=\lim_{h\to 0}\frac{f(0,2+h)-f(0,2)}{h}.
+\]
+Pour que \((0,2+h)\in D_f\), il faut
+\[
+(2+h)^2\le 4,
+\]
+donc \(h\le 0\) au voisinage de \(0\). Pour \(h<0\),
+\[
+f(0,2+h)=\sqrt{4-(2+h)^2}=\sqrt{-4h-h^2}.
+\]
+Ainsi,
+\[
+\frac{f(0,2+h)-f(0,2)}{h}
+=\frac{\sqrt{-4h-h^2}}{h},
+\]
+et ce quotient tend vers \(-\infty\) quand \(h\to 0^{-}\). Donc
+\[
+\frac{\partial f}{\partial y}(0,2)
+\]
+n'existe pas.
+
+\medskip
+
+En conclusion, en \((2,0)\) et en \((0,2)\), les dérivées partielles de \(f\) n'existent pas.
+}
+\end{enumerate}
+
+}

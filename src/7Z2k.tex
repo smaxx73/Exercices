@@ -1,0 +1,98 @@
+\uuid{7Z2k}
+\titre{ Sous-espaces vectoriels de $\mathbb{R}^4$ }
+
+\niveau{L1} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{ Espaces vectoriels } 	%Analyse, Algèbre...
+\chapitre{Bases et espaces supplémentaires}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Quentin Liard}
+\datecreate{ 2026-02-19}
+\organisation{AMSCC}			%AMSCC, Exo7, ...
+\difficulte{2}			%1, 2, 3, 4 ou 5
+
+\contenu{
+
+\texte{ 
+On se place dans $\mathbb{R}^4$.
+On considère
+$E=\{(x,y,z,t)\in\mathbb{R}^4\mid x+y+z+t=0\}$
+et \\
+$F=\{(x,y,z,t)\in\mathbb{R}^4\mid x-y=0\ \text{et}\ z-t=0\}$.
+}
+
+\begin{enumerate}
+\item   \question{Montrer que $E$ et $F$ sont des sous-espaces vectoriels de $\mathbb{R}^4$.}
+\indication{}
+\reponse{\textbf{Pour $E$ :}  
+On a $E=\{(x,y,z,t)\mid x+y+z+t=0\}$.
+
+\begin{itemize}
+\item Le vecteur nul $(0,0,0,0)$ vérifie $0+0+0+0=0$, donc $0\in E$.
+\item Si $u=(x,y,z,t)\in E$ et $v=(x',y',z',t')\in E$, alors
+\[
+(x+x')+(y+y')+(z+z')+(t+t')=(x+y+z+t)+(x'+y'+z'+t')=0.
+\]
+Donc $u+v\in E$.
+\item Pour $\lambda\in\mathbb{R}$,
+\[
+\lambda(x+y+z+t)=\lambda\cdot 0=0,
+\]
+donc $\lambda u\in E$.
+\end{itemize}
+
+Ainsi $E$ est un sous-espace vectoriel.
+
+\medskip
+
+\textbf{Pour $F$ :}  
+On a $F=\{(x,y,z,t)\mid x-y=0 \text{ et } z-t=0\}$.
+
+\begin{itemize}
+\item $(0,0,0,0)$ vérifie les deux équations, donc $0\in F$.
+\item Si $u,v\in F$, alors
+\[
+(x+x')-(y+y')=(x-y)+(x'-y')=0
+\]
+et
+\[
+(z+z')-(t+t')=(z-t)+(z'-t')=0,
+\]
+donc $u+v\in F$.
+\item Pour $\lambda\in\mathbb{R}$,
+\[
+\lambda(x-y)=0 \quad \text{et} \quad \lambda(z-t)=0,
+\]
+donc $\lambda u\in F$.
+\end{itemize}
+
+Ainsi $F$ est un sous-espace vectoriel de $\mathbb{R}^4$.}
+
+\item   \question{Donner une base de $E$ et déterminer $\dim E$.}
+\indication{}
+\reponse{Paramétrisation : $x=-y-z-t$ donc $(x,y,z,t)=y(-1,1,0,0)+z(-1,0,1,0)+t(-1,0,0,1)$.
+Une base est $\{(-1,1,0,0),(-1,0,1,0),(-1,0,0,1)\}$ car les vecteurs sont libres . En effet soit $\lambda_1,\lambda_2,\lambda_3 \in \mathbb{R}$ tels que $$\lambda_1 (-1,1,0,0)+\lambda_2 (-1,0,1,0)+\lambda_3 (-1,0,0,1)=0.$$ Ceci implique $$-\lambda_1-\lambda_2-\lambda_3=0,\quad \lambda_1=0,\quad \lambda_2=0,\quad \lambda_3=0,$$
+Ainsi $\dim E=3$.}
+
+\item   \question{Donner une base de $F$ et déterminer $\dim F$.}
+\indication{}
+\reponse{Les contraintes sont $x=y$ et $z=t$. Posons . Alors $(x,y,z,t)=(x,x,b,b)=x(1,1,0,0)+z(0,0,1,1)$.
+Donc $\dim F=2$ et une base est $\{(1,1,0,0),(0,0,1,1)\}$.}
+
+\item   \question{Déterminer $E\cap F$.}
+\indication{}
+\reponse{Dans $F$, un vecteur est $(a,a,b,b)$. Il est dans $E$ ssi $a+a+b+b=0$, soit $2a+2b=0$, donc $a=-b$.
+Ainsi $E\cap F=\{(a,a,-a,-a)\mid a\in\mathbb{R}\}=\mathrm{Vect}((1,1,-1,-1))$ et $\dim(E\cap F)=1$.}
+
+\item   \question{A-t-on $\mathbb{R}^4=E+F$ ?}
+\indication{}
+\reponse{Oui, car $\dim(E+F)=\dim E+\dim F-\dim(E\cap F)=3+2-1=4$, donc $E+F$ est un sous-espace de dimension 4, donc $E+F=\mathbb{R}^4$.}
+
+\item   \question{A-t-on $\mathbb{R}^4=E\oplus F$ ?}
+\indication{}
+\reponse{Non, une somme directe impose $E\cap F=\{0\}$. Or $E\cap F=\mathrm{Vect}((1,1,-1,-1))\neq\{0\}$.}
+
+\end{enumerate}
+
+}

@@ -1,0 +1,100 @@
+\uuid{4g7B}
+\titre{ Continuité et dérivées partielles en un point }
+
+\niveau{}
+\module{ Fonctions de plusieurs variables }
+\chapitre{}
+\sousChapitre{}
+\theme{}
+\auteur{Grégoire Menet}
+\datecreate{ 2026-03-22}
+\organisation{}
+\difficulte{}
+
+\contenu{
+
+\texte{ 
+On considère la fonction $f : \mathbb{R}^2 \to \mathbb{R}$ définie par
+\[
+f(x,y)=
+\begin{cases}
+\dfrac{y^2}{\sqrt{x^2+y^2}} & \text{si } (x,y)\neq(0,0),\\[1ex]
+0 & \text{si } (x,y)=(0,0).
+\end{cases}
+\]
+}
+
+\begin{enumerate}
+
+\item   \question{Quel est le domaine de définition de $f$ ?}
+\indication{}
+\reponse{La fonction est définie sur tout $\mathbb{R}^2$. En effet, pour $(x,y)\neq(0,0)$, on a $x^2+y^2>0$, donc $\sqrt{x^2+y^2}$ est bien définie et non nulle. De plus, la valeur de $f(0,0)$ est donnée séparément. Ainsi,
+\[
+D_f=\mathbb{R}^2.
+\]}
+
+\item   \question{La fonction $f$ est-elle continue en $(0,0)$ ?}
+\indication{}
+\reponse{Oui. Pour $(x,y)\neq(0,0)$,
+\[
+|f(x,y)|=\frac{y^2}{\sqrt{x^2+y^2}}.
+\]
+Or on a $y^2\leq x^2+y^2$, donc
+\[
+|f(x,y)|\leq \frac{x^2+y^2}{\sqrt{x^2+y^2}}=\sqrt{x^2+y^2}.
+\]
+Lorsque $(x,y)\to(0,0)$, on a $\sqrt{x^2+y^2}\to 0$, donc par encadrement
+\[
+f(x,y)\to 0=f(0,0).
+\]
+Ainsi, $f$ est continue en $(0,0)$.}
+
+\item   \question{Les dérivées partielles de $f$ en $(0,0)$ existent-elles ? Si oui les calculer.}
+\indication{}
+\reponse{On calcule les dérivées partielles par définition.
+
+Pour la dérivée partielle par rapport à $x$ :
+\[
+\frac{\partial f}{\partial x}(0,0)
+=
+\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}.
+\]
+Or pour $h\neq 0$,
+\[
+f(h,0)=\frac{0^2}{\sqrt{h^2+0^2}}=0.
+\]
+Donc
+\[
+\frac{f(h,0)-f(0,0)}{h}=\frac{0-0}{h}=0,
+\]
+et par suite
+\[
+\frac{\partial f}{\partial x}(0,0)=0.
+\]
+
+Pour la dérivée partielle par rapport à $y$ :
+\[
+\frac{\partial f}{\partial y}(0,0)
+=
+\lim_{h\to 0}\frac{f(0,h)-f(0,0)}{h}.
+\]
+Or pour $h\neq 0$,
+\[
+f(0,h)=\frac{h^2}{\sqrt{h^2}}=\frac{h^2}{|h|}=|h|.
+\]
+Donc
+\[
+\frac{f(0,h)-f(0,0)}{h}=\frac{|h|}{h}.
+\]
+Cette quantité vaut $1$ si $h>0$ et $-1$ si $h<0$, donc la limite n’existe pas.
+
+Ainsi :
+\[
+\frac{\partial f}{\partial x}(0,0)=0
+\qquad\text{et}\qquad
+\frac{\partial f}{\partial y}(0,0)\ \text{n’existe pas}.
+\]}
+
+\end{enumerate}
+
+}
