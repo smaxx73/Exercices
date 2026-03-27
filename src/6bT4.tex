@@ -1,0 +1,67 @@
+\uuid{6bT4}
+\titre{ Décomposition d’un sous-espace de $\mathbb{R}^3$ }
+
+\niveau{}
+\module{ Espaces vectoriels }
+\chapitre{Base d'un espace vectoriel}
+\sousChapitre{}
+\theme{}
+\auteur{Quentin Liard}
+\datecreate{ 2026-02-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+
+\texte{
+On considère dans $\mathbb{R}^3$ l’ensemble
+\[
+E=\{(x,y,z)\in\mathbb{R}^3 \mid x+y+z=0\}.
+\]
+On pose également $
+F=\mathrm{Vect}\big((1,-1,0)\big).
+$
+}
+
+\begin{enumerate}
+
+\item   \question{Montrer que $E$ est un sous-espace vectoriel de $\mathbb{R}^3$.}
+\indication{}
+\reponse{$E$ est l’ensemble des solutions de l’équation linéaire homogène $x+y+z=0$. Il contient le vecteur nul, est stable par addition et multiplication par un scalaire. Donc $E$ est un sous-espace vectoriel.}
+
+\item   \question{Déterminer $\dim E$ et donner une base de $E$.}
+\indication{}
+\reponse{On a $z=-x-y$. Donc
+\[
+(x,y,z)=x(1,0,-1)+y(0,1,-1).
+\]
+Ainsi $E=\mathrm{Vect}\big((1,0,-1),(0,1,-1)\big)$.
+Ces deux vecteurs sont libres, donc $\dim E=2$.}
+
+\item   \question{Montrer que $F$ est inclus dans $E$.}
+\indication{}
+\reponse{Pour le vecteur $(1,-1,0)$, on a $1-1+0=0$, donc il appartient à $E$. Comme $F$ est l’espace engendré par ce vecteur, on a $F\subset E$.}
+
+\item   \question{Trouver un sous-espace $G$ de dimension 1 tel que $E=F\oplus G$.}
+\indication{}
+\reponse{On peut prendre un vecteur de $E$ non colinéaire à $(1,-1,0)$, par exemple $(1,0,-1)$.
+On pose $G=\mathrm{Vect}((1,0,-1))$.
+Les vecteurs $(1,-1,0)$ et $(1,0,-1)$ sont libres et engendrent $E$, donc
+\[
+E=F\oplus G.
+\]
+}
+
+\item   \question{L’espace $E$ est-il supplémentaire de $\mathrm{Vect}((1,1,1))$ dans $\mathbb{R}^3$ ?}
+\indication{}
+\reponse{Oui. On a $\dim E=2$ et $\dim\mathrm{Vect}((1,1,1))=1$.
+De plus, si $(x,y,z)\in E\cap\mathrm{Vect}((1,1,1))$, alors $(x,y,z)=\lambda(1,1,1)$ et $x+y+z=3\lambda=0$, donc $\lambda=0$.
+Ainsi l’intersection est réduite à $\{0\}$ et
+\[
+\mathbb{R}^3=E\oplus \mathrm{Vect}((1,1,1)).
+\]
+}
+
+\end{enumerate}
+
+}

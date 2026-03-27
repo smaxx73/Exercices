@@ -1,0 +1,54 @@
+\uuid{p9K4}
+\titre{Espaces vectoriels engendrés dans $\mathbb{R}^3$}
+
+\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{ Espaces vectoriels } 	%Analyse, Algèbre...
+\chapitre{Dimension et bases}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Quentin Liard}
+\datecreate{ 2026-02-19}
+\organisation{AMSCC}			%AMSCC, Exo7, ...
+\difficulte{}			%1, 2, 3, 4 ou 5
+
+\contenu{
+
+\texte{ 
+Dans $\mathbb{R}^3$, on considère
+$u=(1,1,0)$, $v=(0,1,1)$, $w=(1,2,1)$, $z=(1,0,-1)$.
+On pose $F=\mathrm{Vect}(u,v,w)$ et $G=\mathrm{Vect}(u,z)$.
+}
+
+\begin{enumerate}
+\item   \question{La famille $(u,v,w)$ est-elle libre ?}
+\indication{}
+\reponse{Non, car $u+v=(1,1,0)+(0,1,1)=(1,2,1)=w$. Donc $w-u-v=0$ : dépendance linéaire.}
+
+\item   \question{Déterminer $\dim F$ et  $\dim G$.}
+\indication{}
+\reponse{Puisque $w=u+v$, on a $F=\mathrm{Vect}(u,v,w)=\mathrm{Vect}(u,v)$.
+Or $u$ et $v$ ne sont pas colinéaires, donc ils sont libres. Ainsi $\dim F=2$.
+$G=\mathrm{Vect}(u,z)$. Les vecteurs $u=(1,1,0)$ et $z=(1,0,-1)$ ne sont pas colinéaires, donc ils sont libres. Ainsi $\dim G=2$.
+}
+
+%\item   \question{Déterminer.}
+%\indication{}
+%\reponse{$G=\mathrm{Vect}(u,z)$. Les vecteurs $u=(1,1,0)$ et $z=(1,0,-1)$ ne sont pas colinéaires, donc ils sont libres. Ainsi $\dim G=2$.}
+
+\item   \question{Déterminer $F\cap G$.}
+\indication{}
+\reponse{Montrons que $F\subset G$ : il suffit de vérifier que $v\in G$ (car $F=\mathrm{Vect}(u,v)$).
+Cherchons $c,d$ tels que $v=c\,u+d\,z$ :
+$c(1,1,0)+d(1,0,-1)=(c+d,\ c,\ -d)=(0,1,1)$.
+On obtient $c=1$, $-d=1\Rightarrow d=-1$, et $c+d=0$.
+Donc $v\in G$ et ainsi $F=\mathrm{Vect}(u,v)\subset \mathrm{Vect}(u,z)=G$.
+Comme $\dim F=\dim G=2$, on a en fait $F=G$ et donc $F\cap G=F$ (et $\dim(F\cap G)=2$).}
+
+\item   \question{Déterminer $\dim(F+G)$.}
+\indication{}
+\reponse{Comme $F=G$, on a $F+G=F$, donc $\dim(F+G)=\dim F=2$.}
+
+\end{enumerate}
+
+}

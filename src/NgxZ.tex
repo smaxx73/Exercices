@@ -1,15 +1,28 @@
 \uuid{NgxZ}
-\titre{Intégration par parties}
-\niveau{L2}
-\module{Analyse}
-\chapitre{Intégration}
-\sousChapitre{Intégration par parties}
-\theme{logarithme, racine carrée}
-\auteur{Erwan L'Haridon}
-\datecreate{2026-02-10}
-\organisation{AMSCC}
-\difficulte{3}
+\titre{Intégration par parties }
+
+\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{ Intégration } 	%Analyse, Algèbre...
+\chapitre{Méthode d'intégration}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{Intégration par parties}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Erwan l'Haridon}
+\datecreate{ 2026-02-11}
+\organisation{AMSCC}			%AMSCC, Exo7, ...
+\difficulte{2}			%1, 2, 3, 4 ou 5
 
 \contenu{
-    \question{En intégrant par parties, calculer : \( \int_0^1 \ln \left(x + \sqrt{x^2 + 1}\right) dx \)}
+
+\texte{ 
+
+}
+
+\begin{enumerate}
+\item   \question{Calculer $\displaystyle \int_0^{1}\ln\!\left(x+\sqrt{x^2+1}\right)\,dx$.}
+\indication{}
+\reponse{On remarque $\ln\!\left(x+\sqrt{x^2+1}\right)=\operatorname{arsinh}(x)$. Par parties : $u=\operatorname{arsinh}(x)$, $dv=dx$, donc $du=\frac{dx}{\sqrt{x^2+1}}$, $v=x$. Ainsi $I=[x\,\operatorname{arsinh}(x)]_0^1-\int_0^1 \frac{x}{\sqrt{x^2+1}}dx$. Or $\int_0^1 \frac{x}{\sqrt{x^2+1}}dx=\sqrt{x^2+1}\big|_0^1=\sqrt2-1$. Donc $I=\ln(1+\sqrt2)-(\sqrt2-1)=\ln(1+\sqrt2)-\sqrt2+1$.}
+
+\end{enumerate}
+
 }

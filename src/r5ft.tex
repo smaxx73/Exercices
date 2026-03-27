@@ -1,20 +1,36 @@
 \uuid{r5ft}
-\titre{Primitives de fonctions}
-\niveau{L2}
-\module{Analyse}
-\chapitre{Intégration}
-\sousChapitre{Primitives}
-\theme{exponentielle, trigonométrie, racine carrée}
-\auteur{Erwan L'Haridon}
-\datecreate{2026-02-10}
-\organisation{AMSCC}
-\difficulte{2}
+\titre{Primitives de fonctions }
+
+\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{ Intégration } 	%Analyse, Algèbre...
+\chapitre{Primitive et intégration}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Quentin Liard}
+\datecreate{ 2026-02-11}
+\organisation{AMSCC}			%AMSCC, Exo7, ...
+\difficulte{1}			%1, 2, 3, 4 ou 5
 
 \contenu{
-    \texte{Déterminer toutes les primitives des fonctions suivantes :}
-    \begin{enumerate}
-        \item \question{\( f(x) = \frac{e^{3x}}{1 + e^{3x}} \)}
-        \item \question{\( g(x) = \cos(x) \cdot \sin^2(x) \)}
-        \item \question{\( h(x) = 3x\sqrt{1 + x^2} \)}
-    \end{enumerate}
+
+\texte{ 
+
+}
+
+\begin{enumerate}
+\item   \question{Déterminer toutes les primitives de $f(x)=\dfrac{e^{3x}}{1+e^{3x}}$.}
+\indication{}
+\reponse{Posons $u=1+e^{3x}$, alors $du=3e^{3x}\,dx$. Donc $\displaystyle \int \frac{e^{3x}}{1+e^{3x}}dx=\frac13\int \frac{du}{u}=\frac13\ln(1+e^{3x})+C$.}
+
+\item   \question{Déterminer toutes les primitives de $g(x)=\cos x\,\sin^2 x$.}
+\indication{}
+\reponse{Avec $u=\sin x$, $du=\cos x\,dx$. Alors $\displaystyle \int \cos x\,\sin^2 x\,dx=\int u^2\,du=\frac{u^3}{3}+C=\frac{\sin^3 x}{3}+C$.}
+
+\item   \question{Déterminer toutes les primitives de $h(x)=\dfrac{3x}{\sqrt{1+x^2}}$.}
+\indication{}
+\reponse{Posons $u=1+x^2$, $du=2x\,dx$. Alors $\displaystyle \int \frac{3x}{\sqrt{1+x^2}}dx=\frac32\int u^{-1/2}\,du=3\sqrt{u}+C=3\sqrt{1+x^2}+C$.}
+
+\end{enumerate}
+
 }
