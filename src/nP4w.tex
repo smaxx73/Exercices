@@ -1,0 +1,174 @@
+\uuid{nP4w}
+\titre{EMV pour la loi de Laplace -- minimisation par la médiane empirique}
+\niveau{L2}
+\module{Probabilités et Statistique}
+\chapitre{Statistique}
+\sousChapitre{Estimation par maximum de vraisemblance}
+\theme{Loi de Laplace, médiane empirique, minimisation de la somme des valeurs absolues}
+\auteur{}
+\datecreate{2026-03-30}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	
+	\texte{
+		Soit $X_1, \ldots, X_n$ des variables aléatoires i.i.d. de densité commune
+		\[
+		f_\theta(x) = \frac{1}{2}e^{-|x-\theta|}, \quad \theta \in \mathbb{R}.
+		\]
+		On note $X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}$ les statistiques d'ordre
+		associées à l'échantillon.
+	}
+	
+	\begin{enumerate}
+		
+		%------------------------------------------------------------
+		\item
+		\question{
+			Écrire la vraisemblance $L(\theta)$ et la log-vraisemblance $\ell(\theta)$.
+			Montrer que maximiser $\ell(\theta)$ est équivalent à minimiser
+			\[
+			g(\theta) = \sum_{i=1}^n |X_i - \theta|.
+			\]
+		}
+		\reponse{
+			La vraisemblance est
+			\[
+			L(\theta) = \prod_{i=1}^n \frac{1}{2} e^{-|X_i - \theta|}
+			= \left(\frac{1}{2}\right)^{\!n} \exp\!\left(-\sum_{i=1}^n |X_i - \theta|\right).
+			\]
+			En prenant le logarithme :
+			\[
+			\ell(\theta) = -n\ln 2 - \sum_{i=1}^n |X_i - \theta| = -n\ln 2 - g(\theta).
+			\]
+			Puisque $-n\ln 2$ est une constante, maximiser $\ell(\theta)$ revient bien à
+			minimiser $g(\theta)$.
+		}
+		
+		%------------------------------------------------------------
+		\item
+		\question{
+			Montrer que la fonction $\theta \mapsto |x - \theta|$ est convexe pour tout
+			$x \in \mathbb{R}$, et en déduire que $g$ est convexe.
+		}
+		\reponse{
+			Pour tout $x$ fixé, la fonction $h : \theta \mapsto |x - \theta|$ est l'opposé
+			d'une valeur absolue translatée. Elle est convexe car, pour tous
+			$\theta_1, \theta_2 \in \mathbb{R}$ et $\lambda \in [0,1]$ :
+			\begin{align*}
+				h(\lambda \theta_1 + (1-\lambda)\theta_2)
+				&= |x - \lambda\theta_1 - (1-\lambda)\theta_2| \\
+				&= |\lambda(x-\theta_1) + (1-\lambda)(x-\theta_2)| \\
+				&\leq \lambda|x-\theta_1| + (1-\lambda)|x-\theta_2| \\
+				&= \lambda h(\theta_1) + (1-\lambda)h(\theta_2).
+			\end{align*}
+			$g$ est une somme finie de fonctions convexes, donc $g$ est convexe.
+			Tout minimum local de $g$ est donc un minimum global.
+		}
+		
+		%------------------------------------------------------------
+		\item
+		\question{
+			Montrer que $g$ est dérivable sur chaque intervalle ouvert
+			$(X_{(k)}, X_{(k+1)})$ pour $k = 0, 1, \ldots, n$
+			(avec la convention $X_{(0)} = -\infty$ et $X_{(n+1)} = +\infty$),
+			et calculer $g'(\theta)$ sur chacun de ces intervalles en fonction de $k$.
+		}
+		\reponse{
+			Sur l'intervalle $(X_{(k)}, X_{(k+1)})$, aucune observation ne coïncide avec
+			$\theta$, donc chaque terme $|X_i - \theta|$ est différentiable en $\theta$.
+			Plus précisément :
+			\[
+			\frac{\mathrm{d}}{\mathrm{d}\theta}|X_i - \theta|
+			= \begin{cases} +1 & \text{si } X_i < \theta, \\ -1 & \text{si } X_i > \theta. \end{cases}
+			\]
+			Sur $(X_{(k)}, X_{(k+1)})$, exactement $k$ observations vérifient $X_i < \theta$
+			et $n - k$ vérifient $X_i > \theta$, donc :
+			\[
+			g'(\theta) = k \cdot (+1) + (n-k) \cdot (-1) = k - (n-k) = 2k - n.
+			\]
+		}
+		
+		%------------------------------------------------------------
+		\item
+		\question{
+			Étudier le signe de $g'(\theta)$ sur chaque intervalle et en déduire les
+			variations de $g$. Montrer que $g$ est décroissante puis croissante, et
+			identifier l'intervalle (ou le point) où $g$ atteint son minimum.
+		}
+		\reponse{
+			Sur l'intervalle $(X_{(k)}, X_{(k+1)})$, on a $g'(\theta) = 2k - n$.
+			\begin{itemize}
+				\item Si $k < n/2$, alors $g'(\theta) < 0$ : $g$ est strictement décroissante.
+				\item Si $k > n/2$, alors $g'(\theta) > 0$ : $g$ est strictement croissante.
+				\item Si $k = n/2$ (possible seulement lorsque $n$ est pair), alors
+				$g'(\theta) = 0$ : $g$ est constante sur $(X_{(n/2)}, X_{(n/2+1)})$.
+			\end{itemize}
+			Ainsi $g$ est décroissante jusqu'à l'indice $k = \lfloor n/2 \rfloor$, puis
+			croissante à partir de $k = \lceil n/2 \rceil$. Le minimum est atteint sur
+			l'intervalle (éventuellement réduit à un point) correspondant au passage
+			$k = \lfloor n/2 \rfloor$ à $k = \lceil n/2 \rceil$.
+		}
+		
+		%------------------------------------------------------------
+		\item
+		\question{
+			Distinguer les deux cas $n$ impair et $n$ pair pour identifier précisément
+			le ou les minimiseurs de $g$.
+		}
+		\reponse{
+			\textbf{Cas $n = 2p+1$ impair.}
+			
+			On a $n/2 = p + 1/2$, donc $\lfloor n/2 \rfloor = p$ et $\lceil n/2 \rceil = p+1$.
+			\begin{itemize}
+				\item Sur $(X_{(p)}, X_{(p+1)})$ : $g'(\theta) = 2p - n = -1 < 0$ ($g$ décroissante).
+				\item Sur $(X_{(p+1)}, X_{(p+2)})$ : $g'(\theta) = 2(p+1) - n = 1 > 0$ ($g$ croissante).
+			\end{itemize}
+			$g$ admet donc un minimum global unique en $\theta = X_{(p+1)}$.
+			
+			\textbf{Cas $n = 2p$ pair.}
+			
+			\begin{itemize}
+				\item Sur $(X_{(p-1)}, X_{(p)})$ : $g'(\theta) = 2(p-1) - n = -2 < 0$ ($g$ décroissante).
+				\item Sur $(X_{(p)}, X_{(p+1)})$ : $g'(\theta) = 2p - n = 0$ ($g$ constante).
+				\item Sur $(X_{(p+1)}, X_{(p+2)})$ : $g'(\theta) = 2(p+1) - n = 2 > 0$ ($g$ croissante).
+			\end{itemize}
+			$g$ est minimale et constante sur le segment $[X_{(p)}, X_{(p+1)}]$ : tout point
+			de cet intervalle est un minimiseur.
+		}
+		
+		%------------------------------------------------------------
+		\item
+		\question{
+			Rappeler la définition de la médiane empirique $\mathrm{med}(X_1, \ldots, X_n)$
+			et conclure que l'estimateur du maximum de vraisemblance est
+			\[
+			\hat{\theta}_{MV} = \mathrm{med}(X_1, \ldots, X_n).
+			\]
+		}
+		\reponse{
+			La médiane empirique est définie par
+			\[
+			\mathrm{med}(X_1,\ldots,X_n) =
+			\begin{cases}
+				X_{(p+1)} & \text{si } n = 2p+1 \text{ (impair)}, \\[4pt]
+				\dfrac{X_{(p)}+X_{(p+1)}}{2} & \text{si } n = 2p \text{ (pair)}.
+			\end{cases}
+			\]
+			D'après les deux questions précédentes :
+			\begin{itemize}
+				\item Si $n$ est impair, l'unique minimiseur de $g$ est $X_{(p+1)} = \mathrm{med}(X_1,\ldots,X_n)$.
+				\item Si $n$ est pair, tout point de $[X_{(p)}, X_{(p+1)}]$ minimise $g$,
+				et la médiane empirique $\tfrac{1}{2}(X_{(p)}+X_{(p+1)})$ appartient à cet
+				intervalle.
+			\end{itemize}
+			Dans les deux cas, la médiane empirique minimise $g(\theta) = \sum_{i=1}^n |X_i - \theta|$,
+			ce qui maximise la log-vraisemblance. On conclut :
+			\[
+			\hat{\theta}_{MV} = \mathrm{med}(X_1, \ldots, X_n).
+			\]
+		}
+		
+	\end{enumerate}
+}
