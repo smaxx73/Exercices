@@ -1,0 +1,46 @@
+\uuid{4a3b}
+\titre{Vrai/Faux sur les espaces vectoriels}
+
+\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\module{ Espaces vectoriels } 	%Analyse, Algèbre...
+\chapitre{}   			%Continuité, Groupes, Fonctions de plusieurs variables...
+\sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
+
+\theme{}				%Fonction de répartition, Division euclidienne de polynômes, ...
+\auteur{Q. Liard}
+\datecreate{ 2026-02-19}
+\organisation{AMSCC}			%AMSCC, Exo7, ...
+\difficulte{1}			%1, 2, 3, 4 ou 5
+
+\contenu{
+
+\texte{ 
+Pour chaque affirmation, dire si elle est vraie ou fausse et {\textbf{justifier}}.
+}
+
+\begin{enumerate}
+\item   \question{L'ensemble $E=\{(x_1,x_2,x_3,x_4)\in\mathbb{R}^4 \mid x_1+x_2+x_3+x_4=1\}$ est un sous-espace vectoriel de $\mathbb{R}^4$.}
+
+
+
+
+
+
+\indication{}
+\reponse{Faux. Un sous-espace doit contenir le vecteur nul. Or $0=(0,\dots,0)$ vérifie $0\neq 1$, donc $0\notin E$.}
+
+\item   \question{Si $F$ et $G$ sont deux sous-espaces vectoriels de $\mathbb{R}^n$, alors $F\cup G$ est toujours un sous-espace vectoriel de $\mathbb{R}^n$.}
+\indication{}
+\reponse{Faux en général. Exemple dans $\mathbb{R}^2$ : $F=\mathrm{Vect}((1,0))$ et $G=\mathrm{Vect}((0,1))$. Alors $(1,0)\in F\cup G$ et $(0,1)\in F\cup G$ mais $(1,1)=(1,0)+(0,1)\notin F\cup G$. Donc pas stable par addition. (C’est un sous-espace seulement si $F\subset G$ ou $G\subset F$.)}
+
+\item   \question{Si $(u,v,w)$ est une famille libre dans un espace vectoriel $E$, alors $(u,\,u+v,\,u+v+w)$ est aussi une famille libre.}
+\indication{}
+\reponse{Vrai. Supposons $\alpha u+\beta(u+v)+\gamma(u+v+w)=0$. Alors $(\alpha+\beta+\gamma)u+(\beta+\gamma)v+\gamma w=0$. Comme $(u,v,w)$ est libre, on a $\gamma=0$, puis $\beta=0$, puis $\alpha=0$. Donc la nouvelle famille est libre.}
+
+%\item   \question{Si $F$ et $G$ sont des sous-espaces vectoriels de $\mathbb{R}^n$ et si $F\cap G=\{0\}$, alors tout vecteur de $F+G$ s’écrit de manière unique sous la forme $f+g$ avec $f\in F$ et $g\in G$.}
+%\indication{}
+%\reponse{Vrai. Si $f+g=f'+g'$ alors $f-f'=g'-g\in F\cap G=\{0\}$ donc $f=f'$ et $g=g'$. C’est exactement l’unicité associée à la somme directe.}
+
+\end{enumerate}
+
+}
