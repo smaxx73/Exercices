@@ -1,0 +1,178 @@
+\uuid{mK7w}
+\titre{Perceptron multicouche et détection d'un triangle du plan}
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Perceptron multicouche}
+\theme{Fonction d'activation Heaviside, séparation linéaire, région convexe}
+\auteur{Maxime Nguyen}
+\datecreate{2026-03-30}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+	\texte{
+		On considère le triangle $T$ du plan dont les sommets sont
+		$A = (1, 1)$, $B = (3, 1)$ et $C = (2, 3)$.
+		On souhaite construire un réseau de neurones à propagation avant qui implémente
+		la fonction indicatrice $f : \mathbb{R}^2 \to \{0, 1\}$ définie par
+		\[
+		f(x, y) = \begin{cases} 1 & \text{si } (x,y) \in T, \\ 0 & \text{sinon.} \end{cases}
+		\]
+		Chaque neurone dispose d'une fonction d'activation \textbf{Heaviside}
+		$H : \mathbb{R} \to \{0,1\}$ définie par
+		\[
+		H(z) = \begin{cases} 1 & \text{si } z \geq 0, \\ 0 & \text{sinon,} \end{cases}
+		\]
+		et calcule donc, pour des poids $(w_1, w_2)$, un biais $b$ et des entrées $(x,y)$ :
+		\[
+		H(w_1 x + w_2 y + b).
+		\]
+	}
+	
+	\begin{enumerate}
+		
+		\item
+		\question{
+			Déterminer les équations des trois droites $(AB)$, $(BC)$ et $(CA)$.
+			Pour chacune, préciser de quel côté se trouve l'intérieur du triangle,
+			et écrire une inégalité de la forme $w_1 x + w_2 y + b \geq 0$
+			qui caractérise le demi-plan contenant $T$.
+		}
+		\indication{
+			Vérifier le signe de chaque expression en un point intérieur évident,
+			par exemple le barycentre $G = (2, \frac{5}{3})$.
+		}
+		\reponse{
+			\textbf{Droite $(AB)$} : $A=(1,1)$, $B=(3,1)$, donc $(AB)$ est la droite $y = 1$.
+			$C = (2,3)$ vérifie $y - 1 = 2 > 0$, donc le demi-plan contenant $T$ est
+			\[ y - 1 \geq 0. \]
+			Neurone $n_1$ : $w_1 = 0$, $w_2 = 1$, $b = -1$.
+			
+			\medskip
+			\textbf{Droite $(BC)$} : $B=(3,1)$, $C=(2,3)$.
+			Vecteur directeur $\overrightarrow{BC} = (-1, 2)$, donc un vecteur normal est $(2, 1)$.
+			Équation : $2(x-3) + 1(y-1) = 0$, soit $2x + y - 7 = 0$.
+			$A=(1,1)$ donne $2(1)+1-7 = -4 < 0$, donc le demi-plan contenant $T$ est
+			\[ -2x - y + 7 \geq 0. \]
+			Neurone $n_2$ : $w_1 = -2$, $w_2 = -1$, $b = 7$.
+			
+			\medskip
+			\textbf{Droite $(CA)$} : $C=(2,3)$, $A=(1,1)$.
+			Vecteur directeur $\overrightarrow{CA} = (-1,-2)$, donc un vecteur normal est $(2,-1)$.
+			Équation : $2(x-1) - 1(y-1) = 0$, soit $2x - y - 1 = 0$.
+			$B=(3,1)$ donne $2(3)-1-1 = 4 > 0$, donc le demi-plan contenant $T$ est
+			\[ 2x - y - 1 \geq 0. \]
+			Neurone $n_3$ : $w_1 = 2$, $w_2 = -1$, $b = -1$.
+		}
+		
+		\item
+		\question{
+			Montrer que $(x,y) \in T$ si et seulement si
+			$n_1(x,y) + n_2(x,y) + n_3(x,y) = 3$.
+			En déduire les poids, biais et activation d'un neurone de sortie $n_s$,
+			prenant en entrées $n_1, n_2, n_3$, tel que $n_s(x,y) = f(x,y)$.
+		}
+		\reponse{
+			Le triangle $T$ est l'intersection des trois demi-plans définis à la question
+			précédente. Chaque $n_i$ vaut $1$ si le point est dans le $i$-ème demi-plan,
+			$0$ sinon. Donc $n_1 + n_2 + n_3 = 3$ si et seulement si les trois contraintes
+			sont satisfaites, c'est-à-dire si et seulement si $(x,y) \in T$.
+			
+			On pose :
+			\[
+			n_s = H(n_1 + n_2 + n_3 - 3),
+			\]
+			neurone de poids $(1,1,1)$ sur $(n_1,n_2,n_3)$ et de biais $-3$.
+			On a $n_1+n_2+n_3-3 \geq 0 \iff n_1+n_2+n_3=3 \iff (x,y)\in T$,
+			donc $n_s(x,y) = f(x,y)$.
+		}
+		
+		\item
+		\question{
+			Décrire l'architecture complète du réseau : nombre de couches, nombre de neurones
+			par couche. Récapituler dans un tableau tous les poids et biais.
+			Vérifier ensuite que le réseau produit la bonne sortie pour les points
+			$P_1 = (2, 2)$, $P_2 = (3, 3)$ et $P_3 = (1, 1)$.
+		}
+		\reponse{
+			Le réseau comporte :
+			\begin{itemize}
+				\item une \textbf{couche d'entrée} : 2 neurones ($x$ et $y$) ;
+				\item une \textbf{couche cachée} : 3 neurones $n_1, n_2, n_3$ (activation Heaviside) ;
+				\item une \textbf{couche de sortie} : 1 neurone $n_s$ (activation Heaviside).
+			\end{itemize}
+			
+			\begin{center}
+				\renewcommand{\arraystretch}{1.3}
+				\begin{tabular}{lcccc}
+					\hline
+					Neurone & Entrées & $w_x$ ou $w_{n_1}$ & $w_y$ ou $w_{n_2}$ & biais $b$ \\
+					\hline
+					$n_1$ & $x,y$ & $0$  & $1$  & $-1$ \\
+					$n_2$ & $x,y$ & $-2$ & $-1$ & $7$  \\
+					$n_3$ & $x,y$ & $2$  & $-1$ & $-1$ \\
+					$n_s$ & $n_1,n_2,n_3$ & $1$ & $1$ & $-3$ (+ $w_{n_3}=1$) \\
+					\hline
+				\end{tabular}
+			\end{center}
+			
+			\textbf{Vérification pour $P_1 = (2,2)$} (intérieur du triangle) :
+			\begin{align*}
+				n_1 &= H(2-1) = H(1) = 1, \\
+				n_2 &= H(-4-2+7) = H(1) = 1, \\
+				n_3 &= H(4-2-1) = H(1) = 1, \\
+				n_s &= H(1+1+1-3) = H(0) = 1. \quad \checkmark
+			\end{align*}
+			
+			\textbf{Vérification pour $P_2 = (3,3)$} (extérieur, au-delà de $(BC)$) :
+			\begin{align*}
+				n_1 &= H(3-1) = 1, \\
+				n_2 &= H(-6-3+7) = H(-2) = 0, \\
+				n_s &= H(1+0+\cdots - 3) \leq H(-1) = 0. \quad \checkmark
+			\end{align*}
+			
+			\textbf{Vérification pour $P_3 = (1,1)$} (sommet $A$, sur la frontière) :
+			\begin{align*}
+				n_1 &= H(1-1) = H(0) = 1, \\
+				n_2 &= H(-2-1+7) = H(4) = 1, \\
+				n_3 &= H(2-1-1) = H(0) = 1, \\
+				n_s &= H(3-3) = H(0) = 1. \quad \checkmark
+			\end{align*}
+		}
+		
+		\item
+		\question{
+			On suppose maintenant que l'on souhaite construire un réseau détectant l'union
+			de deux triangles disjoints $T_1$ et $T_2$ du plan.
+			Proposer une architecture (sans calculer les poids) permettant d'implémenter
+			la fonction indicatrice de $T_1 \cup T_2$, et justifier pourquoi
+			une seule couche cachée ne suffit pas en général pour une telle région.
+		}
+		\reponse{
+			\textbf{Architecture proposée :}
+			On ajoute une deuxième couche cachée.
+			\begin{itemize}
+				\item \textit{Première couche cachée} : 6 neurones, trois pour chaque triangle
+				($n_1^{(1)}, n_2^{(1)}, n_3^{(1)}$ pour $T_1$ et
+				$n_1^{(2)}, n_2^{(2)}, n_3^{(2)}$ pour $T_2$).
+				\item \textit{Deuxième couche cachée} : 2 neurones $s_1$ et $s_2$,
+				chacun implémentant la détection d'un triangle comme à la question
+				précédente ($s_i = H(n_1^{(i)}+n_2^{(i)}+n_3^{(i)}-3)$).
+				\item \textit{Couche de sortie} : 1 neurone $n_s = H(s_1 + s_2 - 1)$,
+				qui vaut $1$ dès que l'un des deux triangles détecte le point.
+			\end{itemize}
+			
+			\textbf{Pourquoi une seule couche cachée ne suffit pas :}
+			Une seule couche cachée de neurones Heaviside ne peut implémenter que des
+			intersections de demi-plans (régions convexes). Or $T_1 \cup T_2$ est en général
+			une région \emph{non convexe} dès que les deux triangles sont disjoints :
+			il existe des points sur le segment reliant un point de $T_1$ à un point de $T_2$
+			qui n'appartiennent ni à $T_1$ ni à $T_2$, et qu'aucune intersection de
+			demi-plans ne peut exclure tout en incluant les deux triangles.
+			Une deuxième couche est donc nécessaire pour combiner les deux détecteurs convexes
+			par une opération de type \og ou logique \fg.
+		}
+		
+	\end{enumerate}
+}

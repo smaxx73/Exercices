@@ -1,0 +1,56 @@
+\uuid{qHgW}
+\chapitre{Dérivabilité des fonctions réelles}
+\niveau{L1}
+\module{Analyse}
+\sousChapitre{Optimisation}
+\titre{Étude des points critiques d'une fonction de deux variables}
+\theme{calcul différentiel}
+\auteur{Maxime NGUYEN}
+\datecreate{2026-03-30}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+	\texte{ On pose \[ f(x,y)= x\,(x+1)^2 - y^2. \] }
+	\begin{enumerate}
+		\item \question{ Déterminer les points stationnaires de $f$ et préciser leur nature. }
+		\reponse{
+			On calcule les dérivées partielles :
+			\[
+			\frac{\partial f}{\partial y}(x,y) = -2y, \qquad
+			\frac{\partial f}{\partial x}(x,y) = (x+1)^2 + 2x(x+1) = (x+1)(3x+1).
+			\]
+			On a $\frac{\partial f}{\partial y}(x,y) = 0 \iff y = 0$
+			et $\frac{\partial f}{\partial x}(x,y) = 0 \iff x \in \left\{-1\,;\,-\frac{1}{3}\right\}$.
+			
+			Les points stationnaires de $f$ sont donc $(-1, 0)$ et $\left(-\frac{1}{3}, 0\right)$.
+			
+			On calcule la matrice hessienne :
+			\[
+			\mathrm{Hess}_f(x,y) = \begin{pmatrix} 6x+4 & 0 \\ 0 & -2 \end{pmatrix}.
+			\]
+			En $(-1, 0)$ :
+			\[
+			\mathrm{Hess}_f(-1,0) = \begin{pmatrix} -2 & 0 \\ 0 & -2 \end{pmatrix}.
+			\]
+			On a $\det(\mathrm{Hess}_f(-1,0)) = 4 > 0$ et le terme diagonal $-2 < 0$,
+			donc $f$ admet un \textbf{maximum local} en $(-1, 0)$.
+			
+			En $\left(-\frac{1}{3}, 0\right)$ :
+			\[
+			\mathrm{Hess}_f\!\left(-\tfrac{1}{3},0\right) = \begin{pmatrix} 2 & 0 \\ 0 & -2 \end{pmatrix}.
+			\]
+			On a $\det = -4 < 0$, donc $f$ présente un \textbf{point selle} en $\left(-\frac{1}{3}, 0\right)$.
+		}
+		
+		\item \question{ La fonction $f$ admet-elle un minimum global ou un maximum global sur $\mathbb{R}^2$ ? }
+		\reponse{
+			Non. En effet :
+			\begin{itemize}
+				\item $f(x, 0) = x(x+1)^2 \to +\infty$ quand $x \to +\infty$,
+				donc $f$ n'est pas majorée et n'admet pas de maximum global.
+				\item $f(0, y) = -y^2 \to -\infty$ quand $|y| \to +\infty$,
+				donc $f$ n'est pas minorée et n'admet pas de minimum global.
+			\end{itemize}
+		}
+	\end{enumerate}
+}
