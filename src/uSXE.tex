@@ -14,7 +14,7 @@
 
 \texte{ On s'intéresse à la méthode de contrôle fiscal d'une entreprise qui consiste à vérifier la comptabilité de l'entreprise.
 
-On considère que le temps de contrôle d'une entreprise est une variable aléatoire de loi $\mathcal{N}\left(m, \sigma^2\right)$. On réalise 7 contrôles et on obtient les temps suivants (en jours) :
+On considère que le temps de contrôle d'une entreprise est une variable aléatoire de loi $\mathcal{N}\left(m, \sigma\right)$. On réalise 7 contrôles et on obtient les temps suivants (en jours) :
 $$
 \begin{array}{lllllll}
 	57 & 61 & 42 & 53 & 45 & 65 & 58 .
@@ -23,7 +23,7 @@ $$
  }
 \begin{enumerate}
 	\item 
-\question{ Donner une estimation de $m$ et de $\sigma^2$. On précisera les estimateurs utilisés en indiquant leurs propriétés.}
+\question{ Donner une estimation de $m$ et de la variance $\sigma^2$. On précisera les estimateurs utilisés en indiquant leurs propriétés.}
 \reponse{ On estime la moyenne $m$ à l'aide de la moyenne empirique $\left(\bar{X}=\frac{1}{n} \sum_{i=1}^n X_i\right)$, qui est sans biais et convergente :
 $$
 \bar{x}=\frac{57+61+42+53+45+65+58}{7}=\frac{381}{7} \simeq 54.43
