@@ -5,10 +5,10 @@
 \sousChapitre{Séries divergentes}
 \titre{Séries divergentes}
 \theme{séries}
-\auteur{}
+\auteur{Maxime Nguyen}
 \datecreate{2023-05-17}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
 
 
@@ -21,6 +21,7 @@
 		\item \question{ $\displaystyle \sum_{n\geq 1} \frac{(-1)^n}{1+n^{-1}}$ ; }
 		\reponse{On pose $u_n = \frac{(-1)^n}{1+n^{-1}}$ : alors $u_{2n} = \frac{1}{1+\frac1n} \xrightarrow[n \to +\infty]{} 1$ donc $\lim\limits u_n \neq 0$ donc la série est divergente.}
 		\item \question{ $\displaystyle \sum_{n\geq 1} \left(\left(\frac{n}{n+1}\right)^n-1\right)$. }
+				\indication{Utiliser un développement limité de $\ln\left(1-\frac{1}{n+1}\right)$ pour déterminer la limite de $\left(\frac{n}{n+1}\right)^n$.}
 		\reponse{Contrairement aux apparences, le terme général ne tend pas vers vers $0$. En effet : \\ $\frac{n}{n+1} = \frac{n+1-1}{n+1} = 1-\frac{1}{n+1}$ donc $\left(\frac{n}{n+1}\right)^n = e^{n\ln\left(1-\frac{1}{n+1}\right)}$. \\
 			Or $\ln\left(1-\frac{1}{n+1}\right) \underset{n\to +\infty}{\sim} -\frac{1}{n+1}$ donc $n\ln\left(1-\frac{1}{n+1}\right) \underset{n\to +\infty}{\sim} -1$. \\
 			Par composition de limites, on en déduit que $\left(\frac{n}{n+1}\right)^n \xrightarrow[n \to +\infty]{} e^{-1} = \frac{1}{e} \neq 0$. Donc la série est divergente. 

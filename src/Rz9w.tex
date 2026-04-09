@@ -1,0 +1,63 @@
+\uuid{Rz9w}
+\titre{Étude de séries numériques (2)}
+\niveau{L1}
+\module{Analyse}
+\chapitre{Série numérique}
+\sousChapitre{Nature d'une série}
+\theme{séries}
+\auteur{Maxime Nguyen}
+\datecreate{2026-04-09}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	
+	\texte{ Dans chacun des cas, dire si la série de terme général $u_n$ est absolument convergente, semi-convergente, divergente ou grossièrement divergente. }
+	
+	\colonnes{\solution}{3}{1}
+	\begin{enumerate}
+		
+		\item \question{$u_n=\dfrac{(-1)^n\ln(n)}{n}$}
+		\indication{Commencer par étudier la convergence absolue, puis appliquer le critère des séries alternées à la suite $\left(\frac{\ln n}{n}\right)$.}
+		\reponse{$|u_n| = \frac{\ln n}{n} \geq \frac{1}{n}$, donc $\sum u_n$ ne converge pas absolument (comparaison à la série harmonique). \\
+			Par le critère des séries alternées, $\left(\frac{\ln n}{n}\right)$ est décroissante et tend vers $0$, donc $\sum u_n$ converge. \\
+			Conclusion : $\sum u_n$ est \textbf{semi-convergente}.}
+		
+		\item \question{$u_n=\dfrac{\cos(n^2\pi)}{n\ln(n)}$}
+		\indication{Remarquer que $|\cos(n^2\pi)| = 1$ pour tout $n$, puis conclure par comparaison à une série de Bertrand.}
+		\reponse{On a $|u_n| = \frac{1}{n \ln n}$, terme général d'une série de Bertrand convergente (paramètres $\alpha = 1$, $\beta = 1$). Donc $\sum u_n$ est \textbf{absolument convergente}.}
+		
+		\item \question{$u_n=\dfrac{1}{n\cos^2(n)}$}
+		\indication{Chercher une minoration de $u_n$ en termes de $\frac{1}{n}$.}
+		\reponse{Pour tout $n$, $\cos^2(n) \leq 1$ donc $u_n \geq \frac{1}{n} \geq 0$. Par comparaison à la série harmonique divergente, $\sum u_n$ \textbf{diverge}.}
+		
+		\item \question{$u_n=\sin\!\left(\dfrac{n^2+1}{n}\,\pi\right)$}
+		\indication{Décomposer $\frac{n^2+1}{n} = n + \frac{1}{n}$ puis utiliser la formule $\sin(n\pi + \theta) = (-1)^n \sin(\theta)$.}
+		\reponse{On réécrit :
+			\[u_n = \sin\!\left(\!\left(n + \frac{1}{n}\right)\!\pi\right) = \sin\!\left(n\pi + \frac{\pi}{n}\right) = (-1)^n \sin\!\left(\frac{\pi}{n}\right).\]
+			Comme $|u_n| \sim \frac{\pi}{n}$, la série $\sum u_n$ ne converge pas absolument. \\
+			Par le critère des séries alternées, $\left(\sin\frac{\pi}{n}\right)$ est décroissante de limite $0$, donc $\sum u_n$ converge. \\
+			Conclusion : $\sum u_n$ est \textbf{semi-convergente}.}
+		
+		\item \question{$u_n=\dfrac{1}{(\ln n)^n}$}
+		\indication{Calculer $(|u_n|)^{1/n}$ et appliquer le critère de Cauchy.}
+		\reponse{Par le critère de Cauchy : $(|u_n|)^{1/n} = \frac{1}{\ln n} \to 0 < 1$. Donc $\sum u_n$ est \textbf{absolument convergente}.}
+		
+		\item \question{$u_n = 1 - \cos\!\left(\dfrac{1}{n}\right)$}
+		\indication{Effectuer un développement limité du cosinus en $0$ à l'ordre $2$.}
+		\reponse{Par développement limité : $u_n \sim \dfrac{1}{2n^2}$, terme général d'une série de Riemann convergente. Donc $\sum u_n$ est \textbf{absolument convergente}.}
+		
+		\item \question{$u_n=\left(\dfrac{4n+1}{3n+2}\right)^n$}
+		\reponse{$u_n \to \left(\frac{4}{3}\right)^{+\infty} = +\infty$, donc $(u_n)$ ne tend pas vers $0$ : $\sum u_n$ \textbf{diverge grossièrement}.}
+		
+		\item \question{$u_n=\dfrac{1}{n(n+1)(n+2)}$}
+		\indication{Décomposer en éléments simples pour calculer explicitement les sommes partielles.}
+		\reponse{$u_n \sim \frac{1}{n^3}$, série de Riemann convergente, donc $\sum u_n$ est \textbf{absolument convergente}. \\
+			Décomposition en éléments simples :
+			\[\frac{1}{n(n+1)(n+2)} = \frac{1/2}{n} - \frac{1}{n+1} + \frac{1/2}{n+2}.\]
+			Les sommes partielles donnent :
+			\[\sum_{k=1}^{n} u_k = \frac{1}{4} - \frac{1}{2(n+1)} - \frac{1}{2(n+2)} \xrightarrow[n\to+\infty]{} \frac{1}{4}.\]
+			La somme de la série vaut $\dfrac{1}{4}$.}
+		
+	\end{enumerate}
+	\fincolonnes{\solution}{3}{1}}

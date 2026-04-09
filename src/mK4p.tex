@@ -1,0 +1,58 @@
+\uuid{mK4p}
+\titre{Étude de séries numériques (1)}
+\niveau{L1}
+\module{Analyse}
+\chapitre{Série numérique}
+\sousChapitre{Nature d'une série}
+\theme{séries}
+\auteur{Maxime Nguyen}
+\datecreate{2026-04-09}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+	
+	\texte{ Dans chacun des cas, dire si la série de terme général $u_n$ est absolument convergente, semi-convergente, divergente ou grossièrement divergente. }
+	
+	\indication{
+		Pour montrer qu'une série est semi-convergente, deux démonstrations sont nécessaires : montrer que $\sum u_n$ converge, et que $\sum |u_n|$ diverge.
+	}
+	
+	\colonnes{\solution}{3}{1}
+	\begin{enumerate}
+		
+		\item \question{$u_n=\dfrac{\sin(n^2)}{n^2}$}
+		\reponse{La série est \textbf{absolument convergente} : le terme général vérifie $|u_n| \leq \frac{1}{n^2}$, qui est le terme général d'une série de Riemann convergente (paramètre $2 > 1$).}
+		
+		\item \question{$u_n=\dfrac{(2n+1)^4}{(7n^2+1)^3}$}
+		\reponse{Série à termes positifs. On a $u_n \sim \dfrac{16}{7^3 n^2}$, terme général d'une série de Riemann convergente de paramètre $2$. Donc $\sum u_n$ est \textbf{absolument convergente}.}
+		
+		\item \question{$u_n=\left(1-\dfrac{1}{n}\right)^n$}
+		\reponse{$u_n \to e^{-1} \neq 0$ donc $\sum u_n$ \textbf{diverge grossièrement}.}
+		
+		\item \question{$u_n=\dfrac{n}{2^n}$}
+		\reponse{Série à termes positifs. Par le critère de D'Alembert :
+			\[\frac{u_{n+1}}{u_n} = \frac{n+1}{2n} \xrightarrow[n\to+\infty]{} \frac{1}{2} < 1.\]
+			Donc $\sum u_n$ est \textbf{absolument convergente}.}
+		
+		\item \question{$u_n=\left(1+\dfrac{1}{n}\right)^{n^2}$}
+		\reponse{$u_n = \left(1+\frac{1}{n}\right)^{n^2} \geq 1$ donc $(u_n)$ ne tend pas vers $0$ : $\sum u_n$ \textbf{diverge grossièrement}.}
+		
+		\item \question{$u_n=\dfrac{(-1)^n}{\sqrt{n+1}}$}
+		\reponse{$|u_n| \sim \frac{1}{\sqrt{n}}$, terme général d'une série de Riemann divergente, donc $\sum u_n$ ne converge pas absolument. \\
+			Par le critère des séries alternées, $\left(\frac{1}{\sqrt{n+1}}\right)$ est décroissante de limite $0$, donc $\sum u_n$ converge. \\
+			Conclusion : $\sum u_n$ est \textbf{semi-convergente}.}
+		
+		\item \question{$u_n=\ln\!\left(1+e^{-n}\right)$}
+		\reponse{Série à termes positifs. On a $u_n \sim e^{-n}$, terme général d'une série géométrique convergente (raison $e^{-1} < 1$). Donc $\sum u_n$ est \textbf{absolument convergente}.}
+		
+		\item \question{$u_n=\dfrac{n^{10000}}{n!}$}
+		\reponse{Par le critère de D'Alembert :
+			\[\frac{u_{n+1}}{u_n} = \left(\frac{n+1}{n}\right)^{10000} \cdot \frac{1}{n+1} \xrightarrow[n\to+\infty]{} 0 < 1.\]
+			Donc $\sum u_n$ est \textbf{absolument convergente}.}
+		
+		\item \question{$u_n=\dfrac{\ln(n)}{n}$}
+		\reponse{Série à termes positifs. Comme $u_n \geq \frac{1}{n}$, par comparaison à la série harmonique divergente, $\sum u_n$ \textbf{diverge}.}
+		
+	\end{enumerate}
+	\fincolonnes{\solution}{3}{1}}
