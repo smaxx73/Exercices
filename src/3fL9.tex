@@ -1,0 +1,196 @@
+\uuid{3fL9}
+\titre{Optimisation avec contrainte }
+
+\niveau{L2}
+\module{ Fonctions de plusieurs variables }
+\chapitre{Optimisation}
+\sousChapitre{Optimisation sous contrainte}
+\theme{Etude de fonctions}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-03}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+On considère la fonction $f:\mathbb{R}^2\to\mathbb{R}$ définie par
+\[
+f(x,y)=x^2+y^2-2x-4y
+\]
+sur le domaine
+\[
+D=\{(x,y)\in\mathbb{R}^2\mid x\ge 0,\ y\ge 0,\ x+y\le 2\}.
+\]
+}
+
+\begin{enumerate}
+
+\item   \question{Justifier que $f$ admet un minimum global et un maximum global sur $D$.}
+\indication{}
+\reponse{
+La fonction $f$ est polynomiale, donc continue sur $\mathbb{R}^2$, en particulier sur $D$.
+
+Le domaine $D$ est fermé et borné dans $\mathbb{R}^2$, donc compact.
+
+Par le théorème de Weierstrass, $f$ admet un minimum global et un maximum global sur $D$.
+}
+
+\item   \question{Déterminer les points critiques éventuels de $f$ à l’intérieur de $D$.}
+\indication{}
+\reponse{
+On calcule
+\[
+\frac{\partial f}{\partial x}(x,y)=2x-2,
+\qquad
+\frac{\partial f}{\partial y}(x,y)=2y-4.
+\]
+Un point critique intérieur vérifie
+\[
+2x-2=0,\qquad 2y-4=0,
+\]
+soit
+\[
+x=1,\qquad y=2.
+\]
+Mais ce point n’appartient pas à $D$ car
+\[
+1+2=3>2.
+\]
+Il n’y a donc aucun point critique à l’intérieur de $D$.
+}
+
+\item   \question{Étudier $f$ sur le bord défini par $x=0$, avec $0\le y\le 2$.}
+\indication{}
+\reponse{
+Sur ce bord,
+\[
+f(0,y)=y^2-4y.
+\]
+On pose
+\[
+\varphi_1(y)=y^2-4y,\qquad y\in[0,2].
+\]
+Alors
+\[
+\varphi_1'(y)=2y-4.
+\]
+Sur $[0,2]$, on a $\varphi_1'(y)\le 0$, donc $\varphi_1$ est décroissante.
+Ainsi
+\[
+\varphi_1(0)=0,\qquad \varphi_1(2)=-4.
+\]
+Le maximum sur ce bord vaut $0$ en $(0,0)$, et le minimum vaut $-4$ en $(0,2)$.
+}
+
+\item   \question{Étudier $f$ sur le bord défini par $y=0$, avec $0\le x\le 2$.}
+\indication{}
+\reponse{
+Sur ce bord,
+\[
+f(x,0)=x^2-2x.
+\]
+On pose
+\[
+\varphi_2(x)=x^2-2x,\qquad x\in[0,2].
+\]
+Alors
+\[
+\varphi_2'(x)=2x-2.
+\]
+Donc $\varphi_2$ admet un minimum en
+\[
+x=1,
+\]
+de valeur
+\[
+\varphi_2(1)=-1.
+\]
+Aux extrémités :
+\[
+\varphi_2(0)=0,\qquad \varphi_2(2)=0.
+\]
+Ainsi, sur ce bord, le minimum vaut $-1$ en $(1,0)$ et le maximum vaut $0$ aux points $(0,0)$ et $(2,0)$.
+}
+
+\item   \question{Étudier $f$ sur le bord défini par $x+y=2$, avec $x\in[0,2]$.}
+\indication{}
+\reponse{
+On pose
+\[
+y=2-x,\qquad x\in[0,2].
+\]
+Alors
+\[
+f(x,2-x)=x^2+(2-x)^2-2x-4(2-x).
+\]
+Développons :
+\[
+f(x,2-x)=x^2+4-4x+x^2-2x-8+4x
+=2x^2-2x-4.
+\]
+On pose
+\[
+\varphi_3(x)=2x^2-2x-4,\qquad x\in[0,2].
+\]
+Alors
+\[
+\varphi_3'(x)=4x-2.
+\]
+Le point critique est
+\[
+x=\frac12,
+\qquad y=\frac32.
+\]
+On obtient
+\[
+\varphi_3\left(\frac12\right)=2\cdot\frac14-2\cdot\frac12-4=-\frac92.
+\]
+Aux extrémités :
+\[
+\varphi_3(0)=-4,\qquad \varphi_3(2)=0.
+\]
+Ainsi, sur ce bord, le minimum vaut
+\[
+-\frac92
+\]
+au point
+\[
+\left(\frac12,\frac32\right),
+\]
+et le maximum vaut $0$ au point $(2,0)$.
+}
+
+\item   \question{Conclure en déterminant le minimum global et le maximum global de $f$ sur $D$.}
+\indication{}
+\reponse{
+Comme il n’y a aucun point critique à l’intérieur de $D$, les extrema globaux sont sur le bord.
+
+Récapitulons :
+\begin{itemize}
+\item sur $x=0$ : min $=-4$, max $=0$ ;
+\item sur $y=0$ : min $=-1$, max $=0$ ;
+\item sur $x+y=2$ : min $=-\dfrac92$, max $=0$.
+\end{itemize}
+
+Donc le minimum global de $f$ sur $D$ est
+\[
+-\frac92
+\]
+atteint en
+\[
+\left(\frac12,\frac32\right),
+\]
+et le maximum global de $f$ sur $D$ est
+\[
+0,
+\]
+atteint aux points
+\[
+(0,0)\quad\text{et}\quad(2,0).
+\]
+}
+
+\end{enumerate}
+
+}

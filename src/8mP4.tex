@@ -1,0 +1,185 @@
+\uuid{8mP4}
+\titre{Dérivées partielles, composée et structure d’une fonction }
+
+\niveau{}
+\module{ Fonctions de plusieurs variables }
+\chapitre{Dérivation de fonctions composées}
+\sousChapitre{Équations aux dérivées partielles}
+\theme{}
+\auteur{Maxime Nguyen}
+\datecreate{ 2026-04-07}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+Soit $f:\mathbb{R}^2\to\mathbb{R}$ une fonction de classe $C^1$ telle que
+\[
+\forall (x,y)\in\mathbb{R}^2,\qquad \frac{\partial f}{\partial x}(x,y)-\frac{\partial f}{\partial y}(x,y)=0.
+\]
+
+On introduit la fonction $h:\mathbb{R}^2\to\mathbb{R}$ définie par
+\[
+h(u,v)=f(u+v,u-v).
+\]
+}
+
+\begin{enumerate}
+
+\item   \question{Calculer $\dfrac{\partial h}{\partial v}(u,v)$ en fonction des dérivées partielles de $f$.}
+\indication{}
+\reponse{
+On pose
+\[
+\varphi(u,v)=u+v,
+\qquad
+\psi(u,v)=u-v.
+\]
+Alors
+\[
+h(u,v)=f(\varphi(u,v),\psi(u,v)).
+\]
+Comme $f$ est de classe $C^1$, on peut appliquer la formule de dérivation des fonctions composées :
+\[
+\frac{\partial h}{\partial v}(u,v)
+=
+\frac{\partial f}{\partial x}(u+v,u-v)\frac{\partial \varphi}{\partial v}(u,v)
++
+\frac{\partial f}{\partial y}(u+v,u-v)\frac{\partial \psi}{\partial v}(u,v).
+\]
+Or
+\[
+\frac{\partial \varphi}{\partial v}(u,v)=1,
+\qquad
+\frac{\partial \psi}{\partial v}(u,v)=-1.
+\]
+Donc
+\[
+\frac{\partial h}{\partial v}(u,v)
+=
+\frac{\partial f}{\partial x}(u+v,u-v)
+-
+\frac{\partial f}{\partial y}(u+v,u-v).
+\]
+}
+
+\item   \question{En utilisant l’hypothèse sur $f$, montrer que
+\[
+\forall (u,v)\in\mathbb{R}^2,\qquad \frac{\partial h}{\partial v}(u,v)=0.
+\]}
+\indication{}
+\reponse{
+D’après la question précédente,
+\[
+\frac{\partial h}{\partial v}(u,v)
+=
+\frac{\partial f}{\partial x}(u+v,u-v)
+-
+\frac{\partial f}{\partial y}(u+v,u-v).
+\]
+Or l’hypothèse sur $f$ affirme que, pour tout couple $(x,y)\in\mathbb{R}^2$,
+\[
+\frac{\partial f}{\partial x}(x,y)-\frac{\partial f}{\partial y}(x,y)=0.
+\]
+En particulier, en prenant
+\[
+x=u+v,\qquad y=u-v,
+\]
+on obtient
+\[
+\frac{\partial h}{\partial v}(u,v)=0
+\qquad\text{pour tout }(u,v)\in\mathbb{R}^2.
+\]
+}
+
+\item   \question{{\textbf{Bonus:}} En déduire qu’il existe une fonction $g:\mathbb{R}\to\mathbb{R}$ telle que
+\[
+\forall (x,y)\in\mathbb{R}^2,\qquad f(x,y)=g(x+y).
+\]}
+\indication{}
+\reponse{
+Comme
+\[
+\frac{\partial h}{\partial v}(u,v)=0
+\qquad\text{pour tout }(u,v)\in\mathbb{R}^2,
+\]
+la fonction $h$ ne dépend pas de la variable $v$. Il existe donc une fonction $g:\mathbb{R}\to\mathbb{R}$ telle que
+\[
+h(u,v)=g(u)
+\qquad\text{pour tout }(u,v)\in\mathbb{R}^2.
+\]
+
+Or, par définition,
+\[
+h(u,v)=f(u+v,u-v).
+\]
+Pour relier cela à $f(x,y)$, on effectue le changement de variables
+\[
+x=u+v,\qquad y=u-v.
+\]
+En additionnant, on obtient
+\[
+x+y=2u,
+\qquad\text{donc}\qquad
+u=\frac{x+y}{2}.
+\]
+Ainsi
+\[
+f(x,y)=h\!\left(\frac{x+y}{2},\frac{x-y}{2}\right)=g\!\left(\frac{x+y}{2}\right).
+\]
+
+En posant alors
+\[
+k(t)=g\!\left(\frac{t}{2}\right),
+\]
+on obtient bien
+\[
+f(x,y)=g(x+y).
+\]
+Autrement dit, $f$ ne dépend que de la somme $x+y$.
+}
+
+\item   \question{Vérifier que toute fonction de la forme
+$
+f(x,y)=g(x+y)
+$
+avec $g\in C^1(\mathbb{R})$ vérifie bien
+$$
+\frac{\partial f}{\partial x}(x,y)-\frac{\partial f}{\partial y}(x,y)=0.
+$$}
+\indication{}
+\reponse{
+Supposons
+\[
+f(x,y)=g(x+y),
+\]
+où $k\in C^1(\mathbb{R})$.
+
+Alors, en appliquant la formule de dérivation en chaîne,
+\[
+\frac{\partial f}{\partial x}(x,y)=g'(x+y)\cdot 1=g'(x+y),
+\]
+et
+\[
+\frac{\partial f}{\partial y}(x,y)=g'(x+y)\cdot 1=g'(x+y).
+\]
+On en déduit
+\[
+\frac{\partial f}{\partial x}(x,y)-\frac{\partial f}{\partial y}(x,y)
+=
+g'(x+y)-g'(x+y)=0.
+\]
+Ainsi, toute fonction de la forme
+\[
+f(x,y)=g(x+y)
+\]
+vérifie bien l’équation
+\[
+\frac{\partial f}{\partial x}(x,y)-\frac{\partial f}{\partial y}(x,y)=0.
+\]
+}
+
+\end{enumerate}
+
+}

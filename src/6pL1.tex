@@ -1,0 +1,185 @@
+\uuid{6pL1}
+\titre{Production industrielle : loi normale }
+
+\niveau{}
+\module{ Probabilités }
+\chapitre{Lois usuelles}
+\sousChapitre{Lois normales}
+\theme{}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-06}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+Le diamètre d’une pièce produite par une machine est modélisé par une variable aléatoire $X$ suivant une loi normale de moyenne $50$ mm et d’écart-type $0{,}4$ mm :
+$$
+X\sim \mathcal N(50\,;\,0{,}4).
+$$
+
+Une pièce est déclarée conforme si son diamètre appartient à l’intervalle $[49{,}5\,;\,50{,}5]$.
+}
+
+\begin{enumerate}
+
+\item   \question{Calculer la probabilité qu’une pièce produite soit conforme.}
+\indication{}
+\reponse{
+Une pièce est conforme si
+\[
+49{,}5 \le X \le 50{,}5.
+\]
+On centre et on réduit :
+\[
+Z=\frac{X-50}{0{,}4}\sim \mathcal N(0,1).
+\]
+Ainsi
+\[
+P(49{,}5\le X\le 50{,}5)
+=
+P\left(\frac{49{,}5-50}{0{,}4}\le Z\le \frac{50{,}5-50}{0{,}4}\right)
+=
+P(-1{,}25\le Z\le 1{,}25).
+\]
+Donc
+\[
+P(49{,}5\le X\le 50{,}5)=2\Phi(1{,}25)-1.
+\]
+Avec la table de la loi normale centrée réduite,
+\[
+\Phi(1{,}25)\approx 0{,}8944.
+\]
+Donc
+\[
+P(49{,}5\le X\le 50{,}5)\approx 2\times 0{,}8944-1=0{,}7888.
+\]
+La probabilité qu’une pièce soit conforme vaut donc environ
+\[
+0{,}789.
+\]
+}
+
+\item   \question{Calculer la probabilité qu’une pièce soit trop petite.}
+\indication{}
+\reponse{
+Une pièce est trop petite si
+\[
+X<49{,}5.
+\]
+Donc
+\[
+P(X<49{,}5)=P\left(Z<\frac{49{,}5-50}{0{,}4}\right)=P(Z<-1{,}25).
+\]
+Par symétrie de la loi normale,
+\[
+P(Z<-1{,}25)=1-\Phi(1{,}25)\approx 1-0{,}8944=0{,}1056.
+\]
+Ainsi,
+\[
+P(X<49{,}5)\approx 0{,}106.
+\]
+}
+
+%\item   \question{Calculer la probabilité qu’une pièce soit trop grande.}
+%\indication{}
+%\reponse{
+%Une pièce est trop grande si
+%\[
+%X>50{,}5.
+%\]
+%Donc
+%\[
+%P(X>50{,}5)=P\left(Z>\frac{50{,}5-50}{0{,}4}\right)=P(Z>1{,}25).
+%\]
+%Or
+%\[
+%P(Z>1{,}25)=1-\Phi(1{,}25)\approx 0{,}1056.
+%\]
+%Donc
+%\[
+%P(X>50{,}5)\approx 0{,}106.
+%\]
+%}
+
+\item   \question{Déterminer la probabilité que le diamètre d’une pièce s’écarte de plus de $0{,}8$ mm de la moyenne.}
+\indication{}
+\reponse{
+On cherche
+\[
+P(|X-50|>0{,}8).
+\]
+Cela équivaut à
+\[
+P(X<49{,}2 \ \text{ou}\ X>50{,}8).
+\]
+En centrant et réduisant :
+\[
+P(|X-50|>0{,}8)=P\left(\left|Z\right|>\frac{0{,}8}{0{,}4}\right)=P(|Z|>2).
+\]
+Donc
+\[
+P(|X-50|>0{,}8)=2P(Z>2)=2(1-\Phi(2)).
+\]
+Or
+\[
+\Phi(2)\approx 0{,}9772.
+\]
+Ainsi
+\[
+P(|X-50|>0{,}8)\approx 2(1-0{,}9772)=0{,}0456.
+\]
+Donc la probabilité cherchée vaut environ
+\[
+0{,}046.
+\]
+}
+
+\item   \question{On prélève une pièce au hasard. Sachant qu’elle n’est pas conforme, quelle est la probabilité qu’elle soit trop grande ?}
+\indication{}
+\reponse{
+On cherche
+\[
+P(X>50{,}5 \mid X\notin [49{,}5;50{,}5]).
+\]
+Or l’événement ``non conforme'' est
+\[
+\{X<49{,}5\}\cup\{X>50{,}5\},
+\]
+et les deux événements ont la même probabilité par symétrie de la loi normale autour de la moyenne $50$.
+
+Donc
+\[
+P(X>50{,}5 \mid X\notin [49{,}5;50{,}5])
+=
+\frac{P(X>50{,}5)}{P(X<49{,}5)+P(X>50{,}5)}
+=\frac{0{,}1056}{0{,}1056+0{,}1056}
+=\frac12.
+\]
+Ainsi, la probabilité cherchée vaut
+\[
+0{,}5.
+\]
+}
+
+%\item   \question{On prélève indépendamment $10$ pièces. On note $Y$ le nombre de pièces conformes. Quelle est la loi de $Y$ ? Préciser son paramètre.}
+%\indication{}
+%\reponse{
+%Chaque pièce a la probabilité
+%\[
+%p=P(\text{une pièce est conforme})\approx 0{,}7888.
+%\]
+%Les $10$ prélèvements étant indépendants, $Y$, nombre de pièces conformes parmi $10$, suit une loi binomiale de paramètres $10$ et $p$ %:
+%\[
+%Y\sim \mathcal B(10,\,0{,}7888).
+%\]
+%On peut aussi écrire, de façon exacte,
+%\[
+%Y\sim \mathcal B\bigl(10,\ 2\Phi(1{,}25)-1\bigr).
+%\]
+%}
+
+\end{enumerate}
+
+}

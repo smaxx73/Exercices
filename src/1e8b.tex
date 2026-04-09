@@ -1,0 +1,45 @@
+\uuid{1e8b}
+\chapitre{EDP}
+\niveau{L2}
+\module{Analyse, Résolution d'EDP }
+\sousChapitre{Règle de la chaine}
+\titre{Solution d'une EDP}
+\theme{EDP d'ordre 2}
+\auteur{Quentin Liard}
+\datecreate{2026-12-14}
+\organisation{AMSCC}
+\difficulte{3}
+\contenu{
+
+
+
+
+
+
+
+
+
+
+\texte{
+
+
+
+
+Soient deux fonctions $g,h$ d'une variable réelle, de classe $\mathcal{C}^2$ sur $\mathbb{R}$. On définit la fonction $f$ sur $\mathbb{R}^{+,*} \times \mathbb{R}$ par:
+$$f(x,y)=g(\frac{y}{x})+x\,h(\frac{y}{x}).$$}
+
+
+
+
+
+\begin{enumerate}
+\item Justifier que $f$ est de classe $\mathcal{C}^2$ sur $\mathbb{R}^{+,*} \times \mathbb{R}$.
+\item Calculer les dérivées partielles d'ordre $1$ de $f$ au point $(x,y) \in \mathbb{R}^{+,*} \times \mathbb{R}$, c'est-à-dire $\frac{\partial f}{\partial x}(x,y)$ et $\frac{\partial f}{\partial y}(x,y)$.
+\item Montrer les égalités suivantes pour tout $(x,y) \in \mathbb{R}^{+,*} \times \mathbb{R}:$
+$$\frac{\partial^2 f}{\partial x^2}(x,y)=\frac{2y}{x^3}g'(\frac{y}{x})+\frac{y^2}{x^4}g''(\frac{y}{x})+\frac{y^2}{x^3}h''(\frac{y}{x}),$$
+$$\frac{\partial^2 f}{\partial y^2}(x,y)=\frac{1}{x^2}g''(\frac{y}{x})+\frac{1}{x}h''(\frac{y}{x}).$$
+\item En déduire que $f$ satisfait l'EDP suivante pour tout $(x,y) \in \mathbb{R}^{+,*} \times \mathbb{R}$:
+$$x^2\frac{\partial^2 f}{\partial x^2}(x,y)+2xy\frac{\partial^2 f}{\partial x\partial y}(x,y)+y^2\frac{\partial^2 f}{\partial y^2}(x,y)=0.$$
+\end{enumerate}
+
+}
