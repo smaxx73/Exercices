@@ -1,0 +1,68 @@
+\uuid{mN4p}
+\titre{Séries de même nature via un équivalent}
+\niveau{L1}
+\module{Analyse}
+\chapitre{Série numérique}
+\sousChapitre{Série à termes positifs}
+\theme{Critère d'équivalence, nature d'une série}
+\auteur{Maxime Nguyen}
+\datecreate{2026-04-09}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	\texte{
+		Soit $\sum u_n$ une série à termes positifs et soit $v_n = \dfrac{u_n}{1 + u_n}$.
+	}
+	\begin{enumerate}
+		
+		\item
+		\question{Montrer que $0 \leq v_n < 1$ pour tout $n$, et que $v_n \leq u_n$.}
+		\reponse{
+			Puisque $u_n \geq 0$, on a $1 + u_n \geq 1 > 0$, donc $v_n = \dfrac{u_n}{1+u_n} \geq 0$.
+			De plus $u_n < 1 + u_n$, donc $v_n < 1$.
+			Enfin, $v_n = \dfrac{u_n}{1+u_n} \leq u_n$ car $\dfrac{1}{1+u_n} \leq 1$.
+		}
+		
+		\item
+		\question{Montrer que si $u_n \to 0$, alors $v_n \sim u_n$, et en déduire que $\sum u_n$ et $\sum v_n$ sont de même nature.}
+		\indication{Utiliser le critère d'équivalence pour les séries à termes positifs.}
+		\reponse{
+			Si $u_n \to 0$, alors $1 + u_n \to 1$, donc
+			\[
+			\frac{v_n}{u_n} = \frac{1}{1+u_n} \xrightarrow[n\to+\infty]{} 1,
+			\]
+			ce qui signifie $v_n \sim u_n$. Comme $u_n \geq 0$ et $v_n \geq 0$,
+			le critère d'équivalence pour les séries à termes positifs garantit que
+			$\sum u_n$ et $\sum v_n$ sont de même nature.
+		}
+		
+		\item
+		\question{Montrer que si $u_n \not\to 0$, alors $\sum u_n$ diverge. Montrer également que $v_n \not\to 0$, et en déduire que $\sum v_n$ diverge.}
+		\reponse{
+			Si $u_n \not\to 0$, la condition nécessaire de convergence n'est pas satisfaite,
+			donc $\sum u_n$ diverge.
+			
+			Par ailleurs, on peut écrire
+			\[
+			v_n = \frac{u_n}{1+u_n} = 1 - \frac{1}{1+u_n}.
+			\]
+			Si $u_n \not\to 0$, alors $\dfrac{1}{1+u_n} \not\to 1$, donc $v_n \not\to 0$.
+			La condition nécessaire de convergence n'est pas satisfaite pour $\sum v_n$ non plus,
+			donc $\sum v_n$ diverge.
+		}
+		
+		\item
+		\question{Conclure : $\sum u_n$ et $\sum v_n$ sont de même nature.}
+		\reponse{
+			D'après les questions précédentes :
+			\begin{itemize}
+				\item si $u_n \to 0$, les deux séries sont de même nature par équivalence (question 2) ;
+				\item si $u_n \not\to 0$, les deux séries divergent (question 3).
+			\end{itemize}
+			Dans tous les cas, $\sum u_n$ et $\sum v_n$ sont simultanément convergentes
+			ou divergentes : elles sont de même nature.
+		}
+		
+	\end{enumerate}
+}
