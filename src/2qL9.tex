@@ -1,0 +1,199 @@
+\uuid{2qL9}
+\titre{Différentiabilité en un point }
+
+\niveau{}
+\module{ Fonctions de plusieurs variables }
+\chapitre{Continuité et différentiabilité}
+\sousChapitre{}
+\theme{}
+\auteur{Maxime Nguyen}
+\datecreate{ 2026-04-07}
+\organisation{AMSCC}
+\difficulte{}
+
+\contenu{
+
+\texte{ 
+On considère la fonction $f:\mathbb{R}^2\to\mathbb{R}$ définie par
+\[
+f(x,y)=
+\begin{cases}
+\dfrac{x^3+y^3}{x^2+y^2} & \text{si } (x,y)\neq(0,0),\\[0.5em]
+0 & \text{si } (x,y)=(0,0).
+\end{cases}
+\]
+}
+
+\begin{enumerate}
+
+\item   \question{Montrer que $f$ est continue en $(0,0)$.}
+\indication{}
+\reponse{
+Posons
+\[
+r=\sqrt{x^2+y^2}.
+\]
+Pour $(x,y)\neq(0,0)$, on a $|x|\le r$ et $|y|\le r$, donc
+\[
+|x^3+y^3|\le |x|^3+|y|^3\le r^3+r^3=2r^3.
+\]
+Comme $x^2+y^2=r^2$, on obtient
+\[
+|f(x,y)|=\left|\frac{x^3+y^3}{x^2+y^2}\right|
+\le \frac{2r^3}{r^2}=2r.
+\]
+Lorsque $(x,y)\to(0,0)$, on a $r\to 0$, donc
+\[
+|f(x,y)|\to 0.
+\]
+Ainsi
+\[
+f(x,y)\to 0=f(0,0),
+\]
+ce qui montre que $f$ est continue en $(0,0)$.
+}
+
+\item   \question{Étudier l’existence des dérivées partielles
+\[
+\frac{\partial f}{\partial x}(0,0)
+\qquad \text{et} \qquad
+\frac{\partial f}{\partial y}(0,0),
+\]
+et les calculer si elles existent.}
+\indication{}
+\reponse{
+Par définition,
+\[
+\frac{\partial f}{\partial x}(0,0)
+=
+\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}.
+\]
+Or, pour $h\neq 0$,
+\[
+f(h,0)=\frac{h^3}{h^2}=h.
+\]
+Donc
+\[
+\frac{f(h,0)-f(0,0)}{h}=\frac{h-0}{h}=1,
+\]
+et par suite
+\[
+\frac{\partial f}{\partial x}(0,0)=1.
+\]
+
+De même,
+\[
+\frac{\partial f}{\partial y}(0,0)
+=
+\lim_{h\to 0}\frac{f(0,h)-f(0,0)}{h}.
+\]
+Or, pour $h\neq 0$,
+\[
+f(0,h)=\frac{h^3}{h^2}=h.
+\]
+Donc
+\[
+\frac{f(0,h)-f(0,0)}{h}=\frac{h-0}{h}=1,
+\]
+d’où
+\[
+\frac{\partial f}{\partial y}(0,0)=1.
+\]
+
+Les deux dérivées partielles existent donc, et
+\[
+\nabla f(0,0)=(1,1).
+\]
+}
+
+%\item   \question{Déterminer le gradient de $f$ en tout point de $\mathbb{R}^2\setminus\{(0,0)\}$.}
+%\indication{}
+%\reponse{
+%Pour $(x,y)\neq(0,0)$, on pose
+%\[
+%N(x,y)=x^3+y^3,\qquad D(x,y)=x^2+y^2.
+%\]
+%Alors
+%\[
+%f(x,y)=\frac{N(x,y)}{D(x,y)}.
+%\]
+
+%Par la formule de dérivation d’un quotient,
+%\[
+%\frac{\partial f}{\partial x}(x,y)
+%=
+%\frac{3x^2(x^2+y^2)-(x^3+y^3)\,2x}{(x^2+y^2)^2}.
+%\]
+%En développant,
+%\[
+%\frac{\partial f}{\partial x}(x,y)
+%=
+%\frac{3x^4+3x^2y^2-2x^4-2xy^3}{(x^2+y^2)^2}
+%=
+%\frac{x^4+3x^2y^2-2xy^3}{(x^2+y^2)^2}.
+%\]
+
+%De même,
+%\[
+%\frac{\partial f}{\partial y}(x,y)
+%=
+%\frac{3y^2(x^2+y^2)-(x^3+y^3)\,2y}{(x^2+y^2)^2},
+%\]
+%d’où
+%\[
+%\frac{\partial f}{\partial y}(x,y)
+%=
+%\frac{3x^2y^2+3y^4-2x^3y-2y^4}{(x^2+y^2)^2}
+%=
+%\frac{-2x^3y+3x^2y^2+y^4}{(x^2+y^2)^2}.
+%\]
+
+%Ainsi, pour $(x,y)\neq(0,0)$,
+%\[
+%\nabla f(x,y)
+%=
+%\left(
+%\frac{x^4+3x^2y^2-2xy^3}{(x^2+y^2)^2},
+%\frac{-2x^3y+3x^2y^2+y^4}{(x^2+y^2)^2}
+%\right).
+%\]
+%}
+
+\item   \question{Montrer que $f$ n'est pas différentiable en $(0,0)$. La fonction $f$ est-elle de classe $C^1$ en $(0,0)$ ?}
+\indication{}
+\reponse{
+Si $f$ était différentiable en $(0,0)$, sa différentielle serait donnée par
+\[
+df_{(0,0)}(h,k)=\frac{\partial f}{\partial x}(0,0)h+\frac{\partial f}{\partial y}(0,0)k=h+k,
+\]
+puisque les dérivées partielles en $(0,0)$ valent toutes deux $1$.
+
+Il faudrait donc avoir
+\[
+f(x,y)-(x+y)=o\!\left(\sqrt{x^2+y^2}\right).
+\]
+
+Étudions cette quantité le long de la droite $y=x$, avec $x\neq 0$. On a
+\[
+f(x,x)=\frac{x^3+x^3}{x^2+x^2}=\frac{2x^3}{2x^2}=x.
+\]
+Donc
+\[
+f(x,x)-(x+x)=x-2x=-x.
+\]
+Par conséquent,
+\[
+\frac{|f(x,x)-2x|}{\sqrt{x^2+x^2}}
+=
+\frac{|x|}{\sqrt{2}\,|x|}
+=
+\frac{1}{\sqrt2}.
+\]
+Cette quantité ne tend pas vers $0$ lorsque $x\to 0$. Donc $f$ n’est pas différentiable en $(0,0)$.
+
+En particulier, une fonction de classe $C^1$ est différentiable. Comme $f$ n’est pas différentiable en $(0,0)$, elle n’est pas de classe $C^1$ en $(0,0)$.
+}
+
+\end{enumerate}
+
+}

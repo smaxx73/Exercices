@@ -1,0 +1,85 @@
+\uuid{7aK2}
+\titre{Reconnaître une loi usuelle et ses paramètres }
+
+\niveau{}
+\module{ Probabilités: définitions et premières propriétés }
+\chapitre{Lois usuelles}
+\sousChapitre{}
+\theme{Probabilités}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-03}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+
+\texte{ 
+Pour chaque situation, indiquer la loi de probabilité la plus adaptée et préciser ses paramètres. On justifiera brièvement chaque réponse.
+}
+
+\begin{enumerate}
+
+\item   \question{On considère un tir unique sur une cible. La probabilité d'atteindre la cible est $p=0{,}82$. On note $X$ la variable aléatoire valant $1$ en cas de réussite et $0$ en cas d’échec. Quelle est la loi de $X$ ?}
+\indication{}
+\reponse{La variable $X$ prend deux valeurs, $0$ et $1$, avec une probabilité de succès égale à $0{,}82$. Donc
+\[
+X\sim \mathcal{B}(0{,}82),
+\]
+c'est-à-dire une loi de Bernoulli de paramètre $p=0{,}82$.}
+
+\item   \question{Dans un lot de 15 drones identiques, chacun tombe en panne indépendamment avec une probabilité $p=0{,}04$ pendant une mission. On note $Y$ le nombre de drones en panne. Quelle est la loi de $Y$ ?}
+\indication{}
+\reponse{On compte le nombre de pannes dans $15$ essais indépendants, chaque panne ayant une probabilité $0{,}04$. Donc
+\[
+Y\sim \mathcal{B}(15,0{,}04),
+\]
+loi binomiale de paramètres $n=15$ et $p=0{,}04$.}
+
+%\item   \question{Dans un dépôt logistique, le nombre d’incidents mineurs observés en une journée suit un modèle avec en moyenne $2{,}5$ incidents par jour. On note $Z$ le nombre d’incidents sur une journée. Quelle est la loi de $Z$ ?}
+%\indication{}
+%\reponse{On modélise un nombre d’événements sur un intervalle de temps avec un paramètre moyen connu. Donc
+%\[
+%Z\sim \mathcal{P}(2{,}5),
+%\]
+%loi de Poisson de paramètre $\lambda=2{,}5$.}
+
+%\item   \question{Un service de contrôle choisit au hasard $8$ véhicules parmi un parc de $60$, dont $12$ nécessitent une révision immédiate. On note $T$ le nombre de véhicules nécessitant une révision parmi les $8$ choisis. Quelle est la loi de $T$ ?}
+%\indication{}
+%\reponse{On effectue un tirage sans remise dans une population finie de taille $N=60$, contenant $K=12$ véhicules à réviser, avec un échantillon de taille $n=8$. Donc
+%\[
+%T\sim \mathcal{H}(12,12/60,60),
+%\]
+%loi hypergéométrique.}
+
+\item   \question{On choisit au hasard un instant dans l'heure entre 14h00 et 15h00. On note $U$ le nombre de minutes écoulées depuis 14h00. Quelle est la loi de $U$ ?}
+\indication{}
+\reponse{Tous les instants entre $0$ et $60$ minutes sont équiprobables. Donc
+\[
+U\sim \mathcal{U}([0,60]),
+\]
+loi uniforme sur l’intervalle $[0,60]$.}
+
+%\item   \question{La durée de vie (en heures) d’un composant électronique suit une loi normale de moyenne $1200$ et d’écart-type $150$. On note $V$ cette durée de vie. Quelle est la loi de $V$ ?}
+%\indication{}
+%\reponse{Par hypothèse,
+%\[
+%V\sim \mathcal{N}(1200,150^2),
+%\]
+%loi normale de moyenne $1200$ et de variance $150^2$.}
+
+
+\item   \question{Dans une usine, on prélève une pièce au hasard. La pièce est conforme avec probabilité $0{,}97$. On répète l'expérience jusqu’à obtenir la première pièce non conforme. Quelle loi pourrait modéliser le rang de la première pièce non conforme ?}
+\indication{}
+\reponse{La probabilité qu’une pièce soit non conforme vaut
+\[
+1-0{,}97=0{,}03.
+\]
+Le rang d’apparition du premier échec suit donc une loi géométrique de paramètre $0{,}03$ :
+\[
+X\sim \mathcal{G}(0{,}03).
+\]
+}
+
+\end{enumerate}
+
+}

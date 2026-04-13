@@ -1,0 +1,131 @@
+\uuid{9qB5}
+\titre{Loi binomiale et approximation normale }
+
+\niveau{}
+\module{ Probabilités }
+\chapitre{Loi binomiale}
+\sousChapitre{Loi binomiale et approximation}
+\theme{Probabilité et loi binomiale}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-03}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+Une entreprise fabrique en grande série des capteurs. La probabilité qu’un capteur soit défectueux est $p=0{,}08$.
+On prélève au hasard un lot de $n=200$ capteurs, en supposant les fabrications indépendantes.
+On note $X$ le nombre de capteurs défectueux dans le lot.
+
+}
+
+\begin{enumerate}
+
+\item   \question{Justifier que $X$ suit une loi binomiale, dont on précisera les paramètres.}
+\indication{}
+\reponse{
+Chaque capteur correspond à une épreuve de Bernoulli indépendante, avec succès = ``le capteur est défectueux'' de probabilité $p=0{,}08$. Le nombre de succès sur $n=200$ épreuves suit donc une loi binomiale :
+\[
+X\sim \mathcal{B}(200 ; 0{,}08).
+\]
+}
+
+\item   \question{Calculer l’espérance et la variance de $X$.}
+\indication{}
+\reponse{
+Pour une loi binomiale $\mathcal{B}(n,p)$,
+\[
+E(X)=np,\qquad V(X)=np(1-p).
+\]
+Donc ici
+\[
+E(X)=200\times 0{,}08=16,
+\]
+et
+\[
+V(X)=200\times 0{,}08\times 0{,}92=14{,}72.
+\]
+}
+
+\item   \question{Déterminer une valeur approchée de la probabilité $P(X=20)$.}
+\indication{}
+\reponse{
+\[
+P(X=20)=\binom{200}{20}(0{,}08)^{20}(0{,}92)^{180}.
+\]
+Numériquement,
+\[
+P(X=20)\approx 0{,}0564.
+\]
+}
+
+%\item   \question{Calculer la probabilité $P(X\geq 15)$.}
+%\indication{}
+%\reponse{
+%\[
+%P(X\geq 15)=\sum_{k=15}^{200}\binom{200}{k}(0{,}08)^k(0{,}92)^{200-k}.
+%\]
+%Numériquement,
+%\[
+%P(X\geq 15)\approx 0{,}6403.
+%\]
+%}
+
+\item   \question{En approchant $X$ par une loi normale $Y$ de même espérance et de même variance, estimer $P(Y\leq 10)$.}
+\indication{}
+\reponse{
+On approche $X$ par une variable aléatoire
+\[
+Y\sim \mathcal{N}(16\,;\,14{,}72).
+\]
+Alors
+\[
+P(X\leq 10)\approx P(Y\leq 10).
+\]
+On standardise :
+\[
+P(Y\leq 10)=
+P\left(\frac{Y-16}{\sqrt{14{,}72}}\leq \frac{10-16}{\sqrt{14{,}72}}\right).
+\]
+Or
+\[
+\frac{10-16}{\sqrt{14{,}72}}\approx -1{,}56.
+\]
+Donc
+\[
+P(X\leq 10)\approx \Phi(-1{,}56)\approx 0{,}059.
+\]
+}
+
+%\item   \question{En approchant $X$ par une loi normale de même espérance et de même variance, estimer $P(12\leq X\leq 20)$.}
+%\indication{}
+%\reponse{
+%On approche $X$ par une variable aléatoire
+%\[
+%Y\sim \mathcal{N}(16\,;\,14{,}72).
+%\]
+%Alors
+%\[
+%P(12\leq X\leq 20)\approx P(12\leq Y\leq 20).
+%\]
+%On standardise :
+%\[
+%P(12\leq Y\leq 20)
+%=
+%P\left(\frac{12-16}{\sqrt{14{,}72}}\leq \frac{Y-16}{\sqrt{14{,}72}}%\leq \frac{20-16}{\sqrt{14{,}72}}\right).
+%\]
+%Or
+%\[
+%\frac{12-16}{\sqrt{14{,}72}}\approx -1{,}04,
+%\qquad
+%\frac{20-16}{\sqrt{14{,}72}}\approx 1{,}04.
+%\]
+%Donc
+%\[
+%P(12\leq X\leq 20)\approx \Phi(1{,}04)-\Phi(-1{,}04)\approx 0{,}702.
+%\]
+%}
+
+\end{enumerate}
+}

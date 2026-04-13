@@ -1,0 +1,186 @@
+\uuid{6pT4}
+\titre{Loi discrète, espérance, variance et probabilité conditionnelle }
+
+\niveau{}
+\module{ Probabilités }
+\chapitre{Lois discrètes}
+\sousChapitre{}
+\theme{}
+\auteur{Erwan Hillion}
+\datecreate{ 2026-04-09}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+Une urne contient des jetons numérotés de $1$ à $5$. On tire un jeton au hasard et on note $X$ la variable aléatoire correspondant au numéro obtenu.
+
+La loi de probabilité de $X$ est définie par le tableau suivant, où $a$ est une constante réelle :
+$$
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+x_i & 1 & 2 & 3 & 4 & 5 \\
+\hline
+P(X=x_i) & 0{,}1 & a & 0{,}3 & 2a & 0{,}15 \\
+\hline
+\end{array}
+$$
+
+
+
+}
+
+\begin{enumerate}
+
+\item   \question{Déterminer la valeur de la constante $a$.}
+\indication{}
+\reponse{
+Comme la somme des probabilités vaut $1$, on a
+\[
+0{,}1+a+0{,}3+2a+0{,}15=1.
+\]
+Donc
+\[
+0{,}55+3a=1,
+\]
+d’où
+\[
+3a=0{,}45
+\qquad\Longrightarrow\qquad
+a=0{,}15.
+\]
+}
+
+\item   \question{Calculer l’espérance mathématique $E(X)$. Quelle interprétation peut-on donner à ce résultat ?}
+\indication{}
+\reponse{
+On a donc la loi :
+\[
+P(X=1)=0{,}1,\quad P(X=2)=0{,}15,\quad P(X=3)=0{,}3,\quad P(X=4)=0{,}3,\quad P(X=5)=0{,}15.
+\]
+Ainsi
+\[
+E(X)=1\times 0{,}1+2\times 0{,}15+3\times 0{,}3+4\times 0{,}3+5\times 0{,}15.
+\]
+Donc
+\[
+E(X)=0{,}1+0{,}3+0{,}9+1{,}2+0{,}75=3{,}25.
+\]
+Ainsi
+\[
+E(X)=3{,}25.
+\]
+
+Interprétation : sur un grand nombre de tirages, la moyenne des numéros obtenus se rapproche de $3{,}25$.
+}
+
+\item   \question{Calculer la variance $V(X)$, puis en déduire l’écart-type $\sigma(X)$.}
+\indication{}
+\reponse{
+On calcule d’abord
+\[
+E(X^2)=1^2\times 0{,}1+2^2\times 0{,}15+3^2\times 0{,}3+4^2\times 0{,}3+5^2\times 0{,}15.
+\]
+Donc
+\[
+E(X^2)=1\times 0{,}1+4\times 0{,}15+9\times 0{,}3+16\times 0{,}3+25\times 0{,}15,
+\]
+soit
+\[
+E(X^2)=0{,}1+0{,}6+2{,}7+4{,}8+3{,}75=11{,}95.
+\]
+
+Ainsi
+\[
+V(X)=E(X^2)-[E(X)]^2=11{,}95-(3{,}25)^2.
+\]
+Or
+\[
+(3{,}25)^2=10{,}5625.
+\]
+Donc
+\[
+V(X)=11{,}95-10{,}5625=1{,}3875.
+\]
+
+L’écart-type vaut donc
+\[
+\sigma(X)=\sqrt{1{,}3875}\approx 1{,}18.
+\]
+}
+\end{enumerate}
+On utilise désormais les résultats de la variable X pour un test de contrôle qualité sur une chaine de
+production. On sait que :\\
+— Si le jeton tiré est pair (\'ev\`enement A), la probabilité que la pi\`ece produite soit défectueuse (év\`enement
+D) est de $0,05$.\\
+— Si le jeton tiré est impair (év\`enement B), la probabilité que la pi\`ece soit défectueuse est de $0,12$.
+
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item   \question{Calculer la probabilité des événements $A$ et $B$.}
+\indication{}
+\reponse{
+L’év\`enement $A$ correspond aux numéros pairs : $2$ et $4$. Donc
+\[
+P(A)=P(X=2)+P(X=4)=0{,}15+0{,}30=0{,}45.
+\]
+
+L’événement $B$ correspond aux numéros impairs : $1$, $3$ et $5$. Donc
+\[
+P(B)=P(X=1)+P(X=3)+P(X=5)=0{,}1+0{,}3+0{,}15=0{,}55.
+\]
+}
+
+\item   \question{Calculer la probabilité totale qu’une pièce soit défectueuse, c’est-à-dire $P(D)$.}
+\indication{}
+\reponse{
+D’après la formule des probabilités totales,
+\[
+P(D)=P(A)P(D\mid A)+P(B)P(D\mid B).
+\]
+Donc
+\[
+P(D)=0{,}45\times 0{,}05+0{,}55\times 0{,}12.
+\]
+Ainsi
+\[
+P(D)=0{,}0225+0{,}066=0{,}0885.
+\]
+Donc
+\[
+P(D)=0{,}0885.
+\]
+}
+
+\item   \question{On tire une pièce au hasard et on constate qu’elle est défectueuse. Quelle est la probabilité que le jeton tiré initialement ait été pair ?}
+\indication{}
+\reponse{
+On cherche
+\[
+P(A\mid D).
+\]
+Par la formule de Bayes :
+\[
+P(A\mid D)=\frac{P(A\cap D)}{P(D)}=\frac{P(A)P(D\mid A)}{P(D)}.
+\]
+Donc
+\[
+P(A\mid D)=\frac{0{,}45\times 0{,}05}{0{,}0885}
+=\frac{0{,}0225}{0{,}0885}.
+\]
+On obtient
+\[
+P(A\mid D)=\frac{15}{59}\approx 0{,}254.
+\]
+
+Ainsi, la probabilité que le jeton ait été pair sachant que la pièce est défectueuse est
+\[
+P(A\mid D)\approx 0{,}254.
+\]
+}
+
+\end{enumerate}
+
+}

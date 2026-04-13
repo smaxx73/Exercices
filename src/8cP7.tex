@@ -1,0 +1,162 @@
+\uuid{8cP7}
+\titre{Continuité, dérivées partielles, classe $C^1$ et différentiabilité }
+
+\niveau{}
+\module{ Fonctions de plusieurs variables }
+\chapitre{Régularité d'une fonction à plusieurs variables}
+\sousChapitre{Caractère $C^1$}
+\theme{Étude de fonctions}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-03}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+
+\texte{ 
+On considère la fonction $f:\mathbb{R}^2\to\mathbb{R}$ définie par
+\[
+f(x,y)=
+\begin{cases}
+\dfrac{x^2y}{x^2+y^2} & \text{si } (x,y)\neq(0,0),\\[1ex]
+0 & \text{si } (x,y)=(0,0).
+\end{cases}
+\]
+}
+
+\begin{enumerate}
+
+\item   \question{Étudier la continuité de $f$ sur $\mathbb{R}^2$.}
+\indication{}
+\reponse{
+Sur $\mathbb{R}^2\setminus\{(0,0)\}$, la fonction est quotient de fonctions polynomiales avec dénominateur non nul, donc elle est continue.
+
+Il reste à étudier la continuité en $(0,0)$. Pour $(x,y)\neq(0,0)$,
+\[
+|f(x,y)|=\left|\frac{x^2y}{x^2+y^2}\right|
+\le |y|\frac{x^2}{x^2+y^2}
+\le |y|.
+\]
+Comme $(x,y)\to(0,0)$ implique $|y|\to 0$, on obtient
+\[
+f(x,y)\to 0=f(0,0).
+\]
+Donc $f$ est continue sur $\mathbb{R}^2$.
+}
+
+\item   \question{Calculer les dérivées partielles de $f$ en $(0,0)$, si elles existent.}
+\indication{}
+\reponse{
+Par définition,
+\[
+\frac{\partial f}{\partial x}(0,0)
+=
+\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}.
+\]
+Or
+\[
+f(h,0)=0,
+\]
+donc
+\[
+\frac{\partial f}{\partial x}(0,0)=0.
+\]
+
+De même,
+\[
+\frac{\partial f}{\partial y}(0,0)
+=
+\lim_{h\to 0}\frac{f(0,h)-f(0,0)}{h}.
+\]
+Or
+\[
+f(0,h)=0,
+\]
+donc
+\[
+\frac{\partial f}{\partial y}(0,0)=0.
+\]
+
+Les deux dérivées partielles existent en $(0,0)$ et valent $0$.
+}
+
+\item   \question{Calculer les dérivées partielles de $f$ sur $\mathbb{R}^2\setminus\{(0,0)\}$.}
+\indication{}
+\reponse{
+Pour $(x,y)\neq(0,0)$, on dérive par la formule du quotient.
+
+On obtient
+\[
+\frac{\partial f}{\partial x}(x,y)
+=
+\frac{(2xy)(x^2+y^2)-x^2y(2x)}{(x^2+y^2)^2}
+=
+\frac{2xy^3}{(x^2+y^2)^2},
+\]
+et
+\[
+\frac{\partial f}{\partial y}(x,y)
+=
+\frac{x^2(x^2+y^2)-x^2y(2y)}{(x^2+y^2)^2}
+=
+\frac{x^2(x^2-y^2)}{(x^2+y^2)^2}.
+\]
+}
+
+\item   \question{La fonction $f$ est-elle de classe $C^1$ sur $\mathbb{R}^2$ ?}
+\indication{}
+\reponse{
+Sur $\mathbb{R}^2\setminus\{(0,0)\}$, $f$ est de classe $C^\infty$.
+
+Il faut étudier la continuité des dérivées partielles en $(0,0)$.
+
+Pour
+\[
+\frac{\partial f}{\partial x}(x,y)=\frac{2xy^3}{(x^2+y^2)^2},
+\]
+on a
+\[
+\left|\frac{\partial f}{\partial x}(x,y)\right|
+\le \frac{2|x||y|^3}{(x^2+y^2)^2}.
+\]
+En coordonnées polaires $x=r\cos\theta$, $y=r\sin\theta$, cela devient
+\[
+2|\cos\theta||\sin^3\theta|,
+\]
+ce qui ne tend pas vers $0$ quand $r\to 0$ en général. Donc $\frac{\partial f}{\partial x}$ n’est pas continue en $(0,0)$.
+
+Ainsi $f$ n’est pas de classe $C^1$ sur $\mathbb{R}^2$.
+}
+
+\item   \question{La fonction $f$ est-elle différentiable en $(0,0)$ ?}
+\indication{}
+\reponse{
+Si $f$ était différentiable en $(0,0)$, sa différentielle serait nulle puisque les dérivées partielles y valent $0$. Il faudrait alors
+\[
+f(x,y)=o\bigl(\sqrt{x^2+y^2}\bigr).
+\]
+
+Or en prenant $y=x$ avec $x\neq 0$,
+\[
+f(x,x)=\frac{x^3}{2x^2}=\frac{x}{2}.
+\]
+Comme
+\[
+\|(x,x)\|=\sqrt{2}|x|,
+\]
+on a
+\[
+\frac{|f(x,x)|}{\|(x,x)\|}
+=
+\frac{|x|/2}{\sqrt{2}|x|}
+=
+\frac{1}{2\sqrt{2}},
+\]
+ce qui ne tend pas vers $0$.
+
+Donc $f$ n’est pas différentiable en $(0,0)$.
+}
+
+\end{enumerate}
+
+}

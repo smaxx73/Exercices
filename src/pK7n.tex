@@ -1,0 +1,52 @@
+\uuid{pK7n}
+\titre{Points critiques d'une fonction de deux variables}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonction de plusieurs variables}
+\sousChapitre{Extremums locaux}
+\theme{Hessienne, point selle, minimum local}
+\auteur{}
+\datecreate{2026-04-08}
+\organisation{}
+\difficulte{2}
+
+\contenu{
+	\texte{
+		Soit $f : \mathbb{R}^2 \to \mathbb{R}$ définie par
+		\[
+		f(x, y) = x^3 - 3x + y^2.
+		\]
+	}
+	\begin{enumerate}
+		
+		\item
+		\question{Déterminer les points critiques de $f$.}
+		\indication{Résoudre le système $\nabla f(x,y) = (0,0)$.}
+		\reponse{
+			On calcule les dérivées partielles :
+			\[
+			\frac{\partial f}{\partial x}(x,y) = 3x^2 - 3, \qquad
+			\frac{\partial f}{\partial y}(x,y) = 2y.
+			\]
+			Le système $\nabla f = 0$ donne $x = \pm 1$ et $y = 0$.
+			Les points critiques sont donc $A = (1, 0)$ et $B = (-1, 0)$.
+		}
+		
+		\item
+		\question{Pour chaque point critique, déterminer sa nature à l'aide de la matrice hessienne.}
+		\indication{Calculer $\det H_f$ et le signe de $\frac{\partial^2 f}{\partial x^2}$ en chaque point critique.}
+		\reponse{
+			La matrice hessienne de $f$ est
+			\[
+			H_f(x,y) = \begin{pmatrix} 6x & 0 \\ 0 & 2 \end{pmatrix}.
+			\]
+			\begin{itemize}
+				\item En $A = (1, 0)$ : $\det H_f = 12 > 0$ et $\frac{\partial^2 f}{\partial x^2}(1,0) = 6 > 0$,
+				donc $A$ est un \textbf{minimum local}.
+				\item En $B = (-1, 0)$ : $\det H_f = -12 < 0$,
+				donc $B$ est un \textbf{point selle} (ni maximum ni minimum local).
+			\end{itemize}
+		}
+		
+	\end{enumerate}
+}

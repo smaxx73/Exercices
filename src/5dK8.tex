@@ -1,0 +1,188 @@
+\uuid{5dK8}
+\titre{ Loi à densité }
+
+\niveau{L3}
+\module{ Probabilités }
+\chapitre{Lois absolument continues}
+\sousChapitre{}
+\theme{}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-06}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+
+\texte{ 
+On considère la fonction $f$ définie sur $\mathbb{R}$ par
+\[
+f(x)=
+\begin{cases}
+c\,x(3-x) & \text{si } x\in[0,2],\\
+0 & \text{sinon},
+\end{cases}
+\]
+où $c$ est une constante réelle. On suppose que $f$ est la densité d’une variable aléatoire réelle $X$.
+}
+
+\begin{enumerate}
+
+\item   \question{Déterminer la constante $c$ pour que $f$ soit bien une densité de probabilité sur $\mathbb{R}$.}
+\indication{}
+\reponse{
+Pour que $f$ soit une densité, il faut
+\[
+\int_{-\infty}^{+\infty} f(x)\,dx=1.
+\]
+Comme $f(x)=0$ hors de $[0,2]$, on doit avoir
+\[
+\int_0^2 c\,x(3-x)\,dx=1.
+\]
+Or
+\[
+x(3-x)=3x-x^2,
+\]
+donc
+\[
+\int_0^2 x(3-x)\,dx=\int_0^2 (3x-x^2)\,dx
+=\left[\frac{3x^2}{2}-\frac{x^3}{3}\right]_0^2
+=6-\frac{8}{3}
+=\frac{10}{3}.
+\]
+Ainsi
+\[
+c\cdot \frac{10}{3}=1,
+\]
+d’où
+\[
+c=\frac{3}{10}.
+\]
+}
+
+%\item   \question{Calculer la fonction de répartition $F_X(x)=P(X\le x)$.}
+%\indication{}
+%\reponse{
+%On a
+%\[
+%F_X(x)=\int_{-\infty}^x f(t)\,dt.
+%\]
+%On distingue les cas :
+
+%Si $x<0$, alors
+%\[
+%F_X(x)=0.
+%\]
+
+%Si $0\le x\le 2$, alors
+%\[
+%F_X(x)=\int_0^x \frac{3}{10}\,t(3-t)\,dt
+%=\frac{3}{10}\int_0^x (3t-t^2)\,dt.
+%\]
+%Donc
+%\[
+%F_X(x)=\frac{3}{10}\left[\frac{3t^2}{2}-\frac{t^3}{3}\right]_0^x
+%=\frac{3}{10}\left(\frac{3x^2}{2}-\frac{x^3}{3}\right).
+%\]
+%Ainsi
+%\[
+%F_X(x)=\frac{9x^2}{20}-\frac{x^3}{10}.
+%\]
+
+%Si $x>2$, alors
+%\[
+%F_X(x)=1.
+%\]
+
+%Finalement,
+%\[
+%F_X(x)=
+%\begin{cases}
+%0 & \text{si } x<0,\\[0.4em]
+%\displaystyle \frac{9x^2}{20}-\frac{x^3}{10} & \text{si } 0\le x\le 2,\\[0.8em]
+%1 & \text{si } x>2.
+%\end{cases}
+%\]
+%}
+
+\item   \question{Calculer $P(1\le X\le 2)$.}
+\indication{}
+\reponse{
+\[
+P(1\le X\le 2)=\int_1^2 \frac{3}{10}\,x(3-x)\,dx.
+\]
+On peut aussi utiliser la fonction de répartition :
+\[
+P(1\le X\le 2)=F_X(2)-F_X(1).
+\]
+Or
+\[
+F_X(2)=1,
+\qquad
+F_X(1)=\frac{9}{20}-\frac{1}{10}=\frac{7}{20}.
+\]
+Donc
+\[
+P(1\le X\le 2)=1-\frac{7}{20}=\frac{13}{20}.
+\]
+}
+
+\item   \question{Calculer l’espérance $E(X)$ et $E(X^2)$.}
+\indication{}
+\reponse{
+On a
+\[
+E(X)=\int_{-\infty}^{+\infty} x f(x)\,dx
+=\int_0^2 x\cdot \frac{3}{10}x(3-x)\,dx
+=\frac{3}{10}\int_0^2 x^2(3-x)\,dx.
+\]
+Donc
+\[
+E(X)=\frac{3}{10}\int_0^2 (3x^2-x^3)\,dx
+=\frac{3}{10}\left[x^3-\frac{x^4}{4}\right]_0^2
+=\frac{3}{10}(8-4)
+=\frac{6}{5}.
+\]
+
+De même,
+\[
+E(X^2)=\int_{-\infty}^{+\infty} x^2 f(x)\,dx
+=\int_0^2 x^2\cdot \frac{3}{10}x(3-x)\,dx
+=\frac{3}{10}\int_0^2 x^3(3-x)\,dx.
+\]
+Ainsi
+\[
+E(X^2)=\frac{3}{10}\int_0^2 (3x^3-x^4)\,dx
+=\frac{3}{10}\left[\frac{3x^4}{4}-\frac{x^5}{5}\right]_0^2.
+\]
+Or
+\[
+\frac{3\cdot 2^4}{4}-\frac{2^5}{5}=12-\frac{32}{5}=\frac{28}{5}.
+\]
+Donc
+\[
+E(X^2)=\frac{3}{10}\cdot \frac{28}{5}=\frac{42}{25}.
+\]
+}
+
+\item   \question{En déduire la variance $V(X)$.}
+\indication{}
+\reponse{
+On utilise la formule
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+Donc
+\[
+V(X)=\frac{42}{25}-\left(\frac{6}{5}\right)^2
+=\frac{42}{25}-\frac{36}{25}
+=\frac{6}{25}.
+\]
+Ainsi
+\[
+V(X)=\frac{6}{25}.
+\]
+}
+
+\end{enumerate}
+
+}

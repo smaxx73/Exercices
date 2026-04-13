@@ -1,0 +1,280 @@
+\uuid{7cH5}
+\titre{Extrema d’une fonction sur un domaine fermé }
+
+\niveau{}
+\module{ Fonctions de plusieurs variables }
+\chapitre{Optimisation sous contrainte}
+\sousChapitre{}
+\theme{}
+\auteur{Maxime Nguyen}
+\datecreate{ 2026-04-07}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+On considère la fonction $f(x,y)=x^2+2y
+$
+définie sur l'ensemble
+$$
+K=\{(x,y)\in\mathbb{R}^2 \mid x^2+y^2\le 4,\ y\ge x\}.$$
+On note :
+\[
+B_1=\{(x,x)\in\mathbb{R}^2 \mid -\sqrt{2}\le x\le \sqrt{2}\},\,B_2=\{(2\cos\theta,2\sin\theta)\in\mathbb{R}^2 \mid \theta\in[\tfrac{\pi}{4},\tfrac{5\pi}{4}]\}.
+\]
+}
+
+\begin{enumerate}
+
+\item   \question{Représenter graphiquement le domaine $K$.}
+\indication{}
+\reponse{
+L’ensemble $K$ est l’intersection :
+\[
+K=\{(x,y)\in\mathbb{R}^2\mid x^2+y^2\le 4\}\cap \{(x,y)\in\mathbb{R}^2\mid y\ge x\}.
+\]
+Il s’agit donc du disque fermé de centre $(0,0)$ et de rayon $2$, coupé par le demi-plan situé au-dessus de la droite $y=x$.
+
+Le bord de $K$ est formé de deux parties :
+\begin{itemize}
+\item le segment
+\[
+B_1=\{(x,x)\mid -\sqrt{2}\le x\le \sqrt{2}\},
+\]
+qui correspond à la portion de la droite $y=x$ située dans le disque ;
+\item l’arc de cercle
+\[
+B_2=\{(2\cos\theta,2\sin\theta)\mid \theta\in[\tfrac{\pi}{4},\tfrac{5\pi}{4}]\},
+\]
+qui relie les points $(\sqrt{2},\sqrt{2})$ et $(-\sqrt{2},-\sqrt{2})$ en passant par la partie du cercle située dans le demi-plan $y\ge x$.
+\end{itemize}
+
+Graphiquement, $K$ est donc une moitié de disque fermé, bordée par le segment de droite $B_1$ et l’arc de cercle $B_2$.
+}
+
+%\item   \question{Justifier que $K$ est fermé et borné.}
+%\indication{}
+%\reponse{}
+
+\item   \question{Montrer que $f$ admet un minimum global et un maximum global sur $K$.}
+\indication{}
+\reponse{
+La fonction
+\[
+f(x,y)=x^2+2y
+\]
+est polynomiale, donc continue sur $\mathbb{R}^2$.
+
+D’après la représentation précédente, $K$ est fermé et borné, donc compact.
+Par le théorème de Weierstrass, toute fonction continue sur un compact admet un minimum global et un maximum global.
+
+Ainsi, $f$ admet un minimum global et un maximum global sur $K$.
+}
+
+\item   \question{Déterminer les points critiques éventuels de $f$ dans l’intérieur de $K$.}
+\indication{}
+\reponse{
+On calcule le gradient de $f$ :
+\[
+\nabla f(x,y)=\left(\frac{\partial f}{\partial x}(x,y),\frac{\partial f}{\partial y}(x,y)\right)=(2x,2).
+\]
+Un point critique intérieur devrait vérifier
+\[
+2x=0
+\qquad\text{et}\qquad
+2=0.
+\]
+La seconde équation est impossible. Il n’existe donc aucun point critique dans l’intérieur de $K$.
+}
+
+\item   \question{Étudier la restriction de $f$ à $B_1$. On posera
+$g(x)=f(x,x).
+$
+Déterminer les variations de $g$ sur $[-\sqrt{2},\sqrt{2}]$.}
+\indication{}
+\reponse{
+Sur $B_1$, on a $y=x$, donc
+\[
+g(x)=f(x,x)=x^2+2x,
+\qquad x\in[-\sqrt{2},\sqrt{2}].
+\]
+On dérive :
+\[
+g'(x)=2x+2.
+\]
+Le point critique de $g$ est donné par
+\[
+2x+2=0
+\qquad\Longleftrightarrow\qquad
+x=-1.
+\]
+Comme $-\sqrt{2}<-1<\sqrt{2}$, ce point appartient bien à l’intervalle.
+
+Le signe de $g'(x)$ est :
+\begin{itemize}
+\item négatif si $x<-1$ ;
+\item nul si $x=-1$ ;
+\item positif si $x>-1$.
+\end{itemize}
+Donc $g$ est décroissante sur $[-\sqrt{2},-1]$, puis croissante sur $[-1,\sqrt{2}]$.
+
+Valeurs remarquables :
+\[
+g(-\sqrt{2})=2-2\sqrt{2},
+\qquad
+g(-1)=1-2=-1,
+\qquad
+g(\sqrt{2})=2+2\sqrt{2}.
+\]
+
+Ainsi, sur $B_1$ :
+\begin{itemize}
+\item le minimum est $-1$, atteint en $(-1,-1)$ ;
+\item le maximum est $2+2\sqrt{2}$, atteint en $(\sqrt{2},\sqrt{2})$.
+\end{itemize}
+}
+
+\item   \question{Étudier la restriction de $f$ à $B_2$. On posera
+$
+h(\theta)=f(2\cos\theta,2\sin\theta).
+$
+Déterminer les points critiques de $h$ sur $[\tfrac{\pi}{4},\tfrac{5\pi}{4}]$, puis ses extremums sur cet intervalle.}
+\indication{}
+\reponse{
+Sur $B_2$, on pose
+\[
+x=2\cos\theta,\qquad y=2\sin\theta,
+\qquad \theta\in\left[\frac{\pi}{4},\frac{5\pi}{4}\right].
+\]
+Alors
+\[
+h(\theta)=f(2\cos\theta,2\sin\theta)
+=(2\cos\theta)^2+2(2\sin\theta)
+=4\cos^2\theta+4\sin\theta.
+\]
+
+On dérive :
+\[
+h'(\theta)=-8\sin\theta\cos\theta+4\cos\theta
+=4\cos\theta(1-2\sin\theta).
+\]
+Les points critiques vérifient
+\[
+4\cos\theta(1-2\sin\theta)=0.
+\]
+Donc :
+\[
+\cos\theta=0
+\qquad\text{ou}\qquad
+\sin\theta=\frac12.
+\]
+
+Sur l’intervalle $\left[\frac{\pi}{4},\frac{5\pi}{4}\right]$, cela donne :
+\[
+\theta=\frac{\pi}{2}
+\qquad\text{et}\qquad
+\theta=\frac{5\pi}{6}.
+\]
+
+Étudions ensuite les valeurs de $h$ aux points critiques et aux bornes :
+\[
+h\left(\frac{\pi}{4}\right)=4\cdot \frac12+4\cdot \frac{\sqrt{2}}{2}=2+2\sqrt{2},
+\]
+\[
+h\left(\frac{\pi}{2}\right)=4\cdot 0+4\cdot 1=4,
+\]
+\[
+h\left(\frac{5\pi}{6}\right)=4\cdot \frac34+4\cdot \frac12=3+2=5,
+\]
+\[
+h\left(\frac{5\pi}{4}\right)=4\cdot \frac12+4\cdot \left(-\frac{\sqrt{2}}{2}\right)=2-2\sqrt{2}.
+\]
+
+On peut aussi étudier le signe de $h'$ :
+\begin{itemize}
+\item sur $\left[\frac{\pi}{4},\frac{\pi}{2}\right]$, $h$ décroît ;
+\item sur $\left[\frac{\pi}{2},\frac{5\pi}{6}\right]$, $h$ croît ;
+\item sur $\left[\frac{5\pi}{6},\frac{5\pi}{4}\right]$, $h$ décroît.
+\end{itemize}
+
+Ainsi, sur $B_2$ :
+\begin{itemize}
+\item le minimum est
+\[
+2-2\sqrt{2},
+\]
+atteint pour
+\[
+\theta=\frac{5\pi}{4},
+\]
+c’est-à-dire au point
+\[
+(-\sqrt{2},-\sqrt{2}) ;
+\]
+\item le maximum est
+\[
+5,
+\]
+atteint pour
+\[
+\theta=\frac{5\pi}{6},
+\]
+c’est-à-dire au point
+\[
+\left(2\cos\frac{5\pi}{6},2\sin\frac{5\pi}{6}\right)=(-\sqrt{3},1).
+\]
+\end{itemize}
+}
+
+\item   \question{En déduire le minimum global et le maximum global de $f$ sur $K$, ainsi que les points où ils sont atteints.}
+\indication{}
+\reponse{
+Il n’y a pas de point critique dans l’intérieur de $K$, donc les extrema globaux sont atteints sur le bord, c’est-à-dire sur $B_1\cup B_2$.
+
+D’après les questions précédentes :
+\begin{itemize}
+\item sur $B_1$, le minimum vaut $-1$ en $(-1,-1)$, et le maximum vaut $2+2\sqrt{2}$ en $(\sqrt{2},\sqrt{2})$ ;
+\item sur $B_2$, le minimum vaut $2-2\sqrt{2}$ en $(-\sqrt{2},-\sqrt{2})$, et le maximum vaut $5$ en $(-\sqrt{3},1)$.
+\end{itemize}
+
+On compare ces valeurs :
+\[
+2-2\sqrt{2}\approx -0{,}828,
+\qquad
+-1<2-2\sqrt{2},
+\]
+donc le minimum global est
+\[
+-1,
+\]
+atteint au point
+\[
+(-1,-1).
+\]
+
+De même,
+\[
+5>2+2\sqrt{2}\approx 4{,}828,
+\]
+donc le maximum global est
+\[
+5,
+\]
+atteint au point
+\[
+(-\sqrt{3},1).
+\]
+
+Conclusion :
+\[
+\min_K f=-1 \quad \text{atteint en } (-1,-1),
+\]
+\[
+\max_K f=5 \quad \text{atteint en } (-\sqrt{3},1).
+\]
+}
+
+\end{enumerate}
+\vspace{0.5cm}
+}
