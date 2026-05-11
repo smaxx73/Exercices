@@ -1,0 +1,108 @@
+\uuid{7cR4}
+\titre{QCM — Séries à termes positifs }
+
+\niveau{L1}
+\module{Séries numériques}
+\chapitre{Séries à termes positifs}
+\sousChapitre{Comparaison, équivalents et séries usuelles}
+\theme{séries numériques}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-10}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+Pour chacune des affirmations suivantes, dire si elle est vraie ou fausse, en justifiant.
+}
+
+\begin{enumerate}
+
+\item   \question{La série
+$
+\sum_{n\geq 1}\ln\left(1+\frac1n\right)
+$
+converge.}
+\indication{}
+\reponse{
+\textbf{Faux.} On a
+$
+\ln\left(1+\frac1n\right)=\ln\left(\frac{n+1}{n}\right)=\ln(n+1)-\ln n.
+$
+La série est donc télescopique. Sa somme partielle d’ordre $N$ vaut
+$
+\sum_{n=1}^N \ln\left(1+\frac1n\right)=\ln(N+1),
+$
+qui tend vers $+\infty$. La série diverge.
+}
+
+
+
+
+\item   \question{Si $u_n\sim v_n$ avec $u_n\ge 0$, $v_n\ge 0$ à partir d’un certain rang et que la série $\sum u_n$ diverge alors la série $\sum v_n$ diverge.}
+\indication{}
+\reponse{
+\textbf{Vrai.} C’est le théorème de comparaison par équivalence pour les séries à termes positifs.
+}
+
+
+\item   \question{La série
+$
+\sum_{n\geq 1}\frac{e^{1/n}-1}{n}
+$
+converge.}
+\indication{}
+\reponse{
+\textbf{Vrai.} Comme
+$
+e^x-1\sim x \quad \text{quand } x\to 0,
+$
+on obtient
+$
+e^{1/n}-1\sim \frac1n.
+$
+Ainsi
+$
+\frac{e^{1/n}-1}{n}\sim \frac{1}{n^2}.
+$
+La série est donc de même nature que une série de Riemann convergente.
+}
+
+\item   \question{La série
+$
+\sum_{n\geq 1}\frac{n}{n^2+1}
+$
+converge.}
+\indication{}
+\reponse{
+\textbf{Faux.} On a
+$
+\frac{n}{n^2+1}\sim \frac1n.
+$
+La série est donc de même nature que la série harmonique, qui diverge.
+}
+
+
+\item   \question{La série
+$
+\sum_{n\geq 2}\left(\frac{2}{3}\right)^n
+$
+a pour somme $\dfrac{4}{3}$.}
+\indication{}
+\reponse{
+\textbf{Vrai.} Il s'agit d'une série géométrique de raison $r=\frac{2}{3}$, qui converge car $|r|<1$. En utilisant la formule de la somme d'une série géométrique convergente à partir de l'indice $n=0$~:
+$
+\sum_{n=0}^{+\infty}\left(\frac{2}{3}\right)^n = \frac{1}{1-\frac{2}{3}}=3,
+$
+on en déduit
+$
+\sum_{n=2}^{+\infty}\left(\frac{2}{3}\right)^n
+= 3 - \left(\frac{2}{3}\right)^0 - \left(\frac{2}{3}\right)^1
+= 3 - 1 - \frac{2}{3} = \frac{4}{3}.
+$
+}
+
+\end{enumerate}
+
+}

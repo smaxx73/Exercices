@@ -1,0 +1,112 @@
+	\uuid{9pH3}
+\titre{Étude d’une famille de séries à l’aide d’une rationalisation }
+
+\niveau{L1}
+\module{Séries numériques}
+\chapitre{Séries à termes positifs}
+\sousChapitre{Comparaison avec les séries de Riemann}
+\theme{Paramètre réel et équivalent}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-10}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+Pour $\beta\in\mathbb{R}$, on considère la suite
+$$
+v_n^{(\beta)}=\frac{\sqrt{n+1}-\sqrt n}{n^\beta},
+\qquad n\ge 1.
+$$
+On étudie la nature de la série
+$
+\sum_{n\ge 1} v_n^{(\beta)}.
+$
+}
+
+\begin{enumerate}
+
+\item   \question{Montrer que, pour tout $n\ge 1$, on a $v_n^{(\beta)}\ge 0$.}
+\indication{}
+\reponse{
+Comme
+\[
+n+1>n,
+\]
+on a
+\[
+\sqrt{n+1}-\sqrt n>0.
+\]
+De plus, $n^\beta>0$ pour tout $n\ge 1$. Donc
+\[
+v_n^{(\beta)}=\frac{\sqrt{n+1}-\sqrt n}{n^\beta}\ge 0.
+\]
+}
+
+\item   \question{Montrer l'égalité pour tout $n\geq 1,\,v_n^{(\beta)}=\frac{1}{n^\beta(\sqrt{n+1}+\sqrt n)}$.}
+\indication{}
+\reponse{
+On multiplie par le conjugué :
+$$
+\sqrt{n+1}-\sqrt n
+=
+\frac{(\sqrt{n+1}-\sqrt n)(\sqrt{n+1}+\sqrt n)}{\sqrt{n+1}+\sqrt n}
+=
+\frac{1}{\sqrt{n+1}+\sqrt n}.
+$$
+
+}
+
+\item   \question{En déduire un équivalent de $v_n^{(\beta)}$ lorsque $n\to+\infty$.}
+\indication{}
+\reponse{
+On a
+$
+\sqrt{n+1}+\sqrt n \sim 2\sqrt n.
+$]
+Donc
+$$
+v_n^{(\beta)}
+=
+\frac{1}{n^\beta(\sqrt{n+1}+\sqrt n)}
+\sim
+\frac{1}{2n^\beta \sqrt n}
+=
+\frac{1}{2n^{\beta+\frac12}}.
+$$
+}
+
+\item   \question{Déterminer, suivant les valeurs du paramètre $\beta$, la nature de la série
+$$
+\sum_{n\ge 1}\frac{\sqrt{n+1}-\sqrt n}{n^\beta}.
+$$}
+\indication{}
+\reponse{
+Comme
+\[
+v_n^{(\beta)}\sim \frac{1}{2n^{\beta+\frac12}},
+\]
+la série proposée est de même nature que la série de Riemann
+\[
+\sum \frac{1}{n^{\beta+\frac12}}.
+\]
+Cette série converge si et seulement si
+\[
+\beta+\frac12>1,
+\]
+c’est-à-dire
+\[
+\beta>\frac12.
+\]
+
+Conclusion :
+\begin{itemize}
+\item si $\beta>\frac12$, la série converge ;
+\item si $\beta\le \frac12$, la série diverge.
+\end{itemize}
+}
+
+\end{enumerate}
+
+}

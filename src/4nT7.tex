@@ -1,0 +1,122 @@
+\uuid{4nT7}
+\titre{Série télescopique cachée et équivalent }
+
+\niveau{L1}
+\module{Séries numériques}
+\chapitre{Séries à termes positifs}
+\sousChapitre{Séries télescopiques et équivalents}
+\theme{Fonction arctangente et nature d'une série}
+\auteur{}
+\datecreate{ 2026-04-10}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+\texte{ 
+Pour tout entier $n\geq 1$, on pose
+$$
+u_n=\arctan\left(\frac1n\right)-\arctan\left(\frac{1}{n+1}\right).
+$$
+On considère la série
+$
+\sum_{n\geq 1} u_n.
+$
+}
+
+\begin{enumerate}
+
+\item   \question{Montrer que, pour tout $n\geq 1$, on a $u_n\geq 0$.}
+\indication{}
+\reponse{
+La fonction $\arctan$ est strictement croissante sur $\mathbb{R}$.
+Or, pour tout $n\geq 1$,
+$
+\frac1n>\frac{1}{n+1}.
+$
+Donc
+$
+\arctan\left(\frac1n\right)>\arctan\left(\frac{1}{n+1}\right),
+$
+et par conséquent
+$
+u_n\geq 0.
+$
+}
+
+\item   \question{Montrer que la série $\sum u_n$ est télescopique et calculer sa somme.}
+\indication{}
+\reponse{
+La somme partielle d’ordre $N$ vaut
+$$
+S_N=\sum_{n=1}^N \left(\arctan\left(\frac1n\right)-\arctan\left(\frac{1}{n+1}\right)\right).
+$$
+Les termes se simplifient deux à deux :
+$
+S_N=\arctan(1)-\arctan\left(\frac{1}{N+1}\right).
+$
+Comme
+$
+\arctan(1)=\frac{\pi}{4}
+\qquad\text{et}\qquad
+\arctan\left(\frac{1}{N+1}\right)\xrightarrow[N\to+\infty]{}0,
+$
+on obtient
+$
+\sum_{n\geq 1}u_n=\frac{\pi}{4}.
+$
+La série converge donc, et sa somme vaut
+$
+\boxed{\frac{\pi}{4}}.
+$
+}
+\item \question{Démontrer que pour $x$ proche de $0$, $\arctan(x)=x+o(x)$.}
+\reponse{Pour $x$ proche de $0$ on a $\arctan(x)=\frac{\sin(x)}{\cos(x)} \sim x$.}
+\item   \question{Déterminer un équivalent simple de $u_n$ lorsque $n\to+\infty$.}
+\indication{}
+\reponse{
+Comme la fonction $\arctan$ est de classe $C^1$, on peut utiliser l’accroissement fini :
+$$
+u_n=\arctan\left(\frac1n\right)-\arctan\left(\frac{1}{n+1}\right).
+$$
+Or, pour $x$ voisin de $0$,
+$
+\arctan(x)\sim x.
+$
+On peut aussi écrire directement :
+$$
+u_n
+=
+\left(\frac1n-\frac{1}{n+1}\right)+o\left(\frac1n-\frac{1}{n+1}\right).
+$$
+Comme
+$
+\frac1n-\frac{1}{n+1}=\frac{1}{n(n+1)}\sim \frac{1}{n^2},
+$
+on obtient
+$
+u_n\sim \frac{1}{n^2}.
+$
+}
+
+\item   \question{Retrouver la convergence de la série $\sum u_n$ en la comparant à une série de Riemann.}
+\indication{}
+\reponse{
+D’après la question précédente,
+$
+u_n\sim \frac{1}{n^2}.
+$
+La série
+$
+\sum_{n\geq 1}\frac{1}{n^2}
+$
+est une série de Riemann convergente. Donc, par comparaison par équivalence, la série
+$
+\sum_{n\geq 1}u_n
+$
+converge.
+}
+
+\end{enumerate}
+
+}

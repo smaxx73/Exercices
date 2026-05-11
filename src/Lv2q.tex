@@ -1,0 +1,85 @@
+\uuid{Lv2q}
+\titre{Série télescopique et décomposition en éléments simples}
+
+\niveau{L1}
+\module{Séries numériques}
+\chapitre{Séries à termes positifs}
+\sousChapitre{Séries télescopiques}
+\theme{décomposition en éléments simples, série télescopique, calcul de somme}
+\auteur{}
+\datecreate{2026-05-11}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+
+\texte{
+On considère la série
+$$
+\sum_{n\geq 1}\frac{1}{(2n-1)(2n+1)}.
+$$
+}
+
+\begin{enumerate}
+
+\item \question{Montrer que, pour tout $n\geq 1$,
+$$
+\frac{1}{(2n-1)(2n+1)}=\frac{1}{2}\left(\frac{1}{2n-1}-\frac{1}{2n+1}\right).
+$$
+}
+\indication{}
+\reponse{
+On effectue une décomposition en éléments simples. On cherche $A, B \in \mathbb{R}$ tels que
+$$
+\frac{1}{(2n-1)(2n+1)}=\frac{A}{2n-1}+\frac{B}{2n+1}.
+$$
+En réduisant au même dénominateur :
+$$
+\frac{A}{2n-1}+\frac{B}{2n+1} = \frac{A(2n+1)+B(2n-1)}{(2n-1)(2n+1)}.
+$$
+On identifie :
+$$
+A(2n+1)+B(2n-1)=1 \quad \text{pour tout } n\geq 1.
+$$
+En posant $n=\tfrac12$ : $2A=1$ donc $A=\tfrac12$.
+En posant $n=-\tfrac12$ : $-2B=1$ donc $B=-\tfrac12$.
+
+On obtient bien
+$$
+\frac{1}{(2n-1)(2n+1)}=\frac{1}{2}\left(\frac{1}{2n-1}-\frac{1}{2n+1}\right).
+$$
+}
+
+\item \question{En déduire que la série $\displaystyle\sum_{n\geq 1}\frac{1}{(2n-1)(2n+1)}$ converge, et calculer sa somme.}
+\indication{Écrire la somme partielle d'ordre $N$ et faire tendre $N$ vers $+\infty$.}
+\reponse{
+D'après la question précédente, la somme partielle d'ordre $N$ vaut
+$$
+S_N = \sum_{n=1}^N \frac{1}{(2n-1)(2n+1)}
+= \frac{1}{2}\sum_{n=1}^N\left(\frac{1}{2n-1}-\frac{1}{2n+1}\right).
+$$
+La série est télescopique : les termes consécutifs se simplifient deux à deux,
+$$
+S_N = \frac{1}{2}\left(1 - \frac{1}{2N+1}\right).
+$$
+Comme $\dfrac{1}{2N+1}\xrightarrow[N\to+\infty]{}0$, on obtient
+$$
+\sum_{n\geq 1}\frac{1}{(2n-1)(2n+1)}=\frac{1}{2}.
+$$
+}
+
+\item \question{Vérifier la convergence de la série en comparant le terme général à une série de Riemann.}
+\indication{}
+\reponse{
+Pour $n$ grand, $(2n-1)(2n+1) = 4n^2 - 1 \sim 4n^2$, donc
+$$
+\frac{1}{(2n-1)(2n+1)} \sim \frac{1}{4n^2}.
+$$
+La série de Riemann $\displaystyle\sum_{n\geq 1}\frac{1}{n^2}$ converge (exposant $2>1$). Par comparaison par équivalence, la série
+$\displaystyle\sum_{n\geq 1}\frac{1}{(2n-1)(2n+1)}$
+converge, ce qui est cohérent avec le résultat de la question précédente.
+}
+
+\end{enumerate}
+
+}
