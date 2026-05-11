@@ -21,7 +21,7 @@ Pour chacune des affirmations suivantes, dire si elle est vraie ou fausse, en ju
 
 \item   \question{La série
 $
-\sum_{n\geq 1}\ln\left(1+\frac1n\right)
+\sum\limits_{n\geq 1}\ln\left(1+\frac1n\right)
 $
 converge.}
 \indication{}
@@ -32,7 +32,7 @@ $
 $
 La série est donc télescopique. Sa somme partielle d’ordre $N$ vaut
 $
-\sum_{n=1}^N \ln\left(1+\frac1n\right)=\ln(N+1),
+\sum\limits_{n=1}^N \ln\left(1+\frac1n\right)=\ln(N+1),
 $
 qui tend vers $+\infty$. La série diverge.
 }
@@ -40,7 +40,7 @@ qui tend vers $+\infty$. La série diverge.
 
 
 
-\item   \question{Si $u_n\sim v_n$ avec $u_n\ge 0$, $v_n\ge 0$ à partir d’un certain rang et que la série $\sum u_n$ diverge alors la série $\sum v_n$ diverge.}
+\item   \question{Si $u_n\underset{n\to+\infty}{\sim} v_n$ avec pour tout $n \geq 3$, $u_n\ge 0$, $v_n\ge 0$ et que la série $\sum\limits_{n\geq 0} u_n$ diverge alors la série $\sum\limits_{n\geq 0}   v_n$ diverge.}
 \indication{}
 \reponse{
 \textbf{Vrai.} C’est le théorème de comparaison par équivalence pour les séries à termes positifs.
@@ -49,7 +49,7 @@ qui tend vers $+\infty$. La série diverge.
 
 \item   \question{La série
 $
-\sum_{n\geq 1}\frac{e^{1/n}-1}{n}
+\sum\limits_{n\geq 1}\frac{e^{1/n}-1}{n}
 $
 converge.}
 \indication{}
@@ -71,7 +71,7 @@ La série est donc de même nature que une série de Riemann convergente.
 
 \item   \question{La série
 $
-\sum_{n\geq 1}\frac{n}{n^2+1}
+\sum\limits_{n\geq 1}\frac{n}{n^2+1}
 $
 converge.}
 \indication{}
@@ -86,9 +86,9 @@ La série est donc de même nature que la série harmonique, qui diverge.
 
 \item   \question{La série
 $
-\sum_{n\geq 2}\left(\frac{2}{3}\right)^n
+\sum\limits_{n\geq 2}\left(\frac{2}{3}\right)^n
 $
-a pour somme $\dfrac{4}{3}$.}
+converge et a pour somme $\dfrac{4}{3}$.}
 \indication{}
 \reponse{
 \textbf{Vrai.} Il s'agit d'une série géométrique de raison $r=\frac{2}{3}$, qui converge car $|r|<1$. En utilisant la formule de la somme d'une série géométrique convergente à partir de l'indice $n=0$~:
