@@ -1,0 +1,126 @@
+\uuid{Tz9w}
+\titre{Rétropropagation à travers le temps (BPTT)}
+\niveau{L3}
+\module{Apprentissage automatique}
+\chapitre{Réseaux de neurones récurrents}
+\sousChapitre{Rétropropagation à travers le temps}
+\theme{Gradient, règle de dérivation en chaîne, mise à jour des poids}
+\auteur{Maxime Nguyen}
+\datecreate{2026-05-13}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On considère un RNN simple scalaire ($h_t \in \mathbb{R}$) défini par :
+  \[
+    h_t = \tanh(w_h h_{t-1} + w_x x_t), \qquad y_t = w_y h_t
+  \]
+  On dispose de la séquence $x_1 = 1$, $x_2 = 0$, $x_3 = -1$ et des cibles $\hat{y}_1 = 0$, $\hat{y}_2 = 0$, $\hat{y}_3 = 1$.
+
+  La fonction de perte est :
+  \[
+    \mathcal{L} = \frac{1}{3}\sum_{t=1}^{3} (y_t - \hat{y}_t)^2
+  \]
+  Les paramètres sont $w_x = 1$, $w_h = 0.5$, $w_y = 1$, et $h_0 = 0$.
+}
+\begin{enumerate}
+\item
+  \question{(\textit{Forward pass}) Calculer $h_1, h_2, h_3$, puis $y_1, y_2, y_3$, et enfin la perte $\mathcal{L}$.}
+  \reponse{
+    \[
+      h_1 = \tanh(1) \approx 0.762, \quad
+      h_2 = \tanh(0.5 \times 0.762) = \tanh(0.381) \approx 0.365
+    \]
+    \[
+      h_3 = \tanh(0.5 \times 0.365 - 1) = \tanh(-0.818) \approx -0.674
+    \]
+    \[
+      y_1 \approx 0.762, \quad y_2 \approx 0.365, \quad y_3 \approx -0.674
+    \]
+    \[
+      \mathcal{L} = \frac{1}{3}\left[(0.762)^2 + (0.365)^2 + (-0.674 - 1)^2\right]
+                \approx \frac{1}{3}(0.581 + 0.133 + 2.802) \approx 1.172
+    \]
+  }
+
+\item
+  \question{Calculer $\dfrac{\partial \mathcal{L}}{\partial y_t}$ pour chaque $t$.}
+  \reponse{
+    \[
+      \frac{\partial \mathcal{L}}{\partial y_t} = \frac{2}{3}(y_t - \hat{y}_t)
+    \]
+    \[
+      \frac{\partial \mathcal{L}}{\partial y_1} \approx \frac{2}{3}(0.762) \approx 0.508, \quad
+      \frac{\partial \mathcal{L}}{\partial y_2} \approx \frac{2}{3}(0.365) \approx 0.243, \quad
+      \frac{\partial \mathcal{L}}{\partial y_3} \approx \frac{2}{3}(-1.674) \approx -1.116
+    \]
+  }
+
+\item
+  \question{On pose $\delta_t = \dfrac{\partial \mathcal{L}}{\partial h_t}$. Montrer que :
+  \[
+    \delta_t = \frac{\partial \mathcal{L}}{\partial y_t} \cdot w_y \cdot (1 - h_t^2) + \delta_{t+1} \cdot w_h \cdot (1 - h_t^2)
+  \]
+  avec la convention $\delta_4 = 0$. Calculer $\delta_3$, $\delta_2$, $\delta_1$ en remontant le temps.}
+  \indication{Écrire $\mathcal{L}$ comme une somme de termes dépendant de $h_t$ directement (via $y_t$) et indirectement (via $h_{t+1}, \ldots, h_T$), puis appliquer la règle de dérivation en chaîne.}
+  \reponse{
+    Par la règle de dérivation en chaîne :
+    \[
+      \delta_t = \frac{\partial \mathcal{L}}{\partial h_t}
+               = \frac{\partial \mathcal{L}}{\partial y_t}\frac{\partial y_t}{\partial h_t}
+               + \frac{\partial \mathcal{L}}{\partial h_{t+1}}\frac{\partial h_{t+1}}{\partial h_t}
+               = \frac{\partial \mathcal{L}}{\partial y_t} \cdot w_y
+               + \delta_{t+1} \cdot w_h \cdot (1 - h_{t+1}^2)
+    \]
+    En regroupant le facteur $(1-h_t^2)$ provenant de la dérivée de $\tanh$ en $h_t$ :
+    \[
+      \delta_t = \left(\frac{\partial \mathcal{L}}{\partial y_t} \cdot w_y + \delta_{t+1} \cdot w_h\right)(1 - h_t^2)
+    \]
+    Calcul numérique ($\delta_4 = 0$) :
+    \[
+      \delta_3 = (-1.116 \times 1 + 0) \times (1 - (-0.674)^2) \approx -1.116 \times 0.546 \approx -0.609
+    \]
+    \[
+      \delta_2 = (0.243 \times 1 + (-0.609) \times 0.5) \times (1 - 0.365^2)
+               \approx (0.243 - 0.305) \times 0.867 \approx -0.054
+    \]
+    \[
+      \delta_1 = (0.508 \times 1 + (-0.054) \times 0.5) \times (1 - 0.762^2)
+               \approx (0.508 - 0.027) \times 0.419 \approx 0.201
+    \]
+  }
+
+\item
+  \question{En déduire les gradients :
+  \[
+    \frac{\partial \mathcal{L}}{\partial w_y} = \sum_{t=1}^3 \frac{\partial \mathcal{L}}{\partial y_t} h_t, \qquad
+    \frac{\partial \mathcal{L}}{\partial w_h} = \sum_{t=1}^3 \delta_t h_{t-1}, \qquad
+    \frac{\partial \mathcal{L}}{\partial w_x} = \sum_{t=1}^3 \delta_t x_t
+  \]
+  Calculer numériquement ces trois gradients.}
+  \reponse{
+    \[
+      \frac{\partial \mathcal{L}}{\partial w_y}
+        = 0.508 \times 0.762 + 0.243 \times 0.365 + (-1.116) \times (-0.674)
+        \approx 0.387 + 0.089 + 0.752 \approx 1.228
+    \]
+    \[
+      \frac{\partial \mathcal{L}}{\partial w_h}
+        = 0.201 \times 0 + (-0.054) \times 0.762 + (-0.609) \times 0.365
+        \approx 0 - 0.041 - 0.222 \approx -0.263
+    \]
+    \[
+      \frac{\partial \mathcal{L}}{\partial w_x}
+        = 0.201 \times 1 + (-0.054) \times 0 + (-0.609) \times (-1)
+        \approx 0.201 + 0 + 0.609 \approx 0.810
+    \]
+  }
+
+\item
+  \question{Le gradient $\dfrac{\partial \mathcal{L}}{\partial w_h}$ fait intervenir le produit $\delta_t \cdot h_{t-1}$. Que se passe-t-il si la séquence est beaucoup plus longue ? Pourquoi $w_h < 1$ est-il un problème ?}
+  \reponse{
+    Le calcul de $\delta_t$ implique de remonter la chaîne de dépendances sur $T$ pas. La contribution du pas $t$ au gradient de $w_h$ est proportionnelle à $w_h^{T-t} \cdot \prod_{k=t}^{T}(1-h_k^2)$. Si $|w_h| < 1$ et que les activations sont saturées ($|h_t| \approx 1$, donc $1-h_t^2 \approx 0$), ce produit s'effondre exponentiellement : les contributions des premiers pas de temps deviennent négligeables, et le réseau ne peut pas apprendre de dépendances à long terme. C'est le phénomène du \textit{gradient vanishing}.
+  }
+\end{enumerate}
+}

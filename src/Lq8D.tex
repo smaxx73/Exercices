@@ -1,0 +1,131 @@
+\uuid{Lq8D}
+\titre{Compter les paramètres d'un RNN, LSTM et GRU}
+\niveau{L3}
+\module{Apprentissage automatique}
+\chapitre{Réseaux de neurones récurrents}
+\sousChapitre{Architecture et complexité}
+\theme{Nombre de paramètres, RNN, LSTM, GRU, capacité du modèle}
+\auteur{Maxime Nguyen}
+\datecreate{2026-05-13}
+\organisation{AMSCC}
+\difficulte{1}
+
+\contenu{
+\texte{
+  Le nombre de paramètres d'un réseau est un indicateur clé de sa capacité et de son coût d'entraînement. On note :
+  \begin{itemize}
+    \item $d$ : dimension de l'entrée $x_t$,
+    \item $h$ : dimension de l'état caché,
+    \item $p$ : dimension de la sortie $y_t$.
+  \end{itemize}
+  Chaque architecture possède une \textbf{couche de sortie linéaire} $y_t = W_y h_t + b_y$.
+
+  \medskip
+  \textbf{Rappel des architectures.}
+
+  \textit{RNN simple :}
+  \[
+    h_t = \tanh(W_x x_t + W_h h_{t-1} + b_h)
+  \]
+
+  \textit{LSTM} — quatre portes, chacune de la forme $W x_t + U h_{t-1} + b$ :
+  \[
+    f_t, \quad i_t, \quad \tilde{c}_t, \quad o_t
+  \]
+
+  \textit{GRU} — trois portes :
+  \begin{align*}
+    r_t &= \sigma(W_r x_t + U_r h_{t-1} + b_r) & &\text{(porte de réinitialisation)}\\
+    z_t &= \sigma(W_z x_t + U_z h_{t-1} + b_z) & &\text{(porte de mise à jour)}\\
+    \tilde{h}_t &= \tanh(W_h x_t + U_h (r_t \odot h_{t-1}) + b_h) & &\text{(candidat)}\\
+    h_t &= (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
+  \end{align*}
+}
+\begin{enumerate}
+\item
+  \question{Justifier que le nombre de paramètres du RNN simple (hors couche de sortie) est $N_{\text{RNN}} = h(d + h + 1)$. Détailler la contribution de chaque matrice et biais.}
+  \reponse{
+    Le RNN simple possède trois jeux de paramètres :
+    \begin{itemize}
+      \item $W_x \in \mathbb{R}^{h \times d}$ : $hd$ paramètres,
+      \item $W_h \in \mathbb{R}^{h \times h}$ : $h^2$ paramètres,
+      \item $b_h \in \mathbb{R}^h$ : $h$ paramètres.
+    \end{itemize}
+    Total : $hd + h^2 + h = h(d + h + 1)$.
+  }
+
+\item
+  \question{Montrer que le nombre de paramètres de la LSTM (hors couche de sortie) est $N_{\text{LSTM}} = 4h(d + h + 1)$. Pourquoi ce facteur $4$ ?}
+  \reponse{
+    Chacune des quatre portes ($f$, $i$, $\tilde{c}$, $o$) possède exactement la même structure qu'un RNN simple : une matrice $W \in \mathbb{R}^{h \times d}$, une matrice $U \in \mathbb{R}^{h \times h}$ et un biais $b \in \mathbb{R}^h$, soit $h(d + h + 1)$ paramètres par porte. Le facteur $4$ provient du fait qu'il y a quatre portes indépendantes :
+    \[
+      N_{\text{LSTM}} = 4 \times h(d + h + 1).
+    \]
+  }
+
+\item
+  \question{Montrer que le nombre de paramètres du GRU (hors couche de sortie) est $N_{\text{GRU}} = 3h(d + h + 1)$.}
+  \reponse{
+    Le GRU possède trois portes ($r$, $z$, $\tilde{h}$), chacune avec la même structure : $W \in \mathbb{R}^{h \times d}$, $U \in \mathbb{R}^{h \times h}$ et $b \in \mathbb{R}^h$. (Remarque : dans $\tilde{h}_t$, $U_h$ multiplie $r_t \odot h_{t-1}$, mais $U_h$ reste de taille $h \times h$.) D'où :
+    \[
+      N_{\text{GRU}} = 3 \times h(d + h + 1).
+    \]
+  }
+
+\item
+  \question{Ajouter la contribution de $W_y \in \mathbb{R}^{p \times h}$ et $b_y \in \mathbb{R}^p$. Écrire le nombre total de paramètres $N_{\text{total}}$ pour chacune des trois architectures.}
+  \reponse{
+    La couche de sortie ajoute $ph + p = p(h+1)$ paramètres dans les trois cas.
+    \begin{align*}
+      N_{\text{total}}^{\text{RNN}}  &= h(d + h + 1) + p(h + 1) \\
+      N_{\text{total}}^{\text{LSTM}} &= 4h(d + h + 1) + p(h + 1) \\
+      N_{\text{total}}^{\text{GRU}}  &= 3h(d + h + 1) + p(h + 1)
+    \end{align*}
+  }
+
+\item
+  \question{Application numérique : $d = 10$, $h = 64$, $p = 5$. Compléter le tableau suivant.
+
+  \begin{center}
+  \begin{tabular}{lcc}
+    \hline
+    Architecture & Paramètres (hors sortie) & Paramètres (avec sortie) \\
+    \hline
+    RNN simple & & \\
+    GRU        & & \\
+    LSTM       & & \\
+    \hline
+  \end{tabular}
+  \end{center}
+  }
+  \reponse{
+    $h(d + h + 1) = 64 \times (10 + 64 + 1) = 64 \times 75 = 4\,800$.
+
+    $p(h + 1) = 5 \times 65 = 325$.
+
+    \begin{center}
+    \begin{tabular}{lcc}
+      \hline
+      Architecture & Hors sortie & Avec sortie \\
+      \hline
+      RNN simple & $4\,800$  & $5\,125$  \\
+      GRU        & $14\,400$ & $14\,725$ \\
+      LSTM       & $19\,200$ & $19\,525$ \\
+      \hline
+    \end{tabular}
+    \end{center}
+  }
+
+\item
+  \question{La LSTM a davantage de paramètres que le GRU, mais est-elle toujours plus performante ? Dans quel cas préférerait-on le GRU ?}
+  \reponse{
+    Non, une plus grande capacité ne garantit pas de meilleures performances. Le GRU est souvent préféré dans les situations suivantes :
+    \begin{itemize}
+      \item \textbf{Données peu abondantes} : moins de paramètres réduit le risque de surapprentissage.
+      \item \textbf{Contrainte de temps ou de mémoire} : le GRU est environ $25\,\%$ plus rapide à entraîner que la LSTM pour une même taille de couche cachée.
+      \item \textbf{Séquences de longueur modérée} : la LSTM apporte un avantage surtout pour des dépendances très longues ; sur des séquences courtes, les deux architectures sont comparables.
+    \end{itemize}
+    En pratique, le choix se fait souvent par validation croisée sur la tâche cible.
+  }
+\end{enumerate}
+}

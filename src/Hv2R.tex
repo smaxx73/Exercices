@@ -1,0 +1,85 @@
+\uuid{Hv2R}
+\titre{Le problème du gradient vanishing}
+\niveau{L3}
+\module{Apprentissage automatique}
+\chapitre{Réseaux de neurones récurrents}
+\sousChapitre{Gradient vanishing et exploding}
+\theme{Règle de dérivation en chaîne, saturation de tanh, dépendances à long terme}
+\auteur{Maxime Nguyen}
+\datecreate{2026-05-13}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On considère un RNN simple scalaire sans entrée, pour isoler la dynamique de l'état caché :
+  \[
+    h_t = \tanh(w_h \, h_{t-1})
+  \]
+  On s'intéresse à la propagation du gradient sur $T$ pas de temps. Par la règle de dérivation en chaîne :
+  \[
+    \frac{\partial h_T}{\partial h_0} = \prod_{t=1}^{T} \frac{\partial h_t}{\partial h_{t-1}}
+                                      = \prod_{t=1}^{T} w_h \cdot (1 - h_t^2)
+  \]
+}
+\begin{enumerate}
+\item
+  \question{Justifier la formule ci-dessus en appliquant la règle de dérivation en chaîne à $h_T = f(h_{T-1}) = f(f(\cdots f(h_0)\cdots))$.}
+  \reponse{
+    La fonction $f : x \mapsto \tanh(w_h x)$ est composée $T$ fois. Par la règle de dérivation des fonctions composées :
+    \[
+      \frac{\partial h_T}{\partial h_0}
+        = \frac{\partial h_T}{\partial h_{T-1}} \cdot \frac{\partial h_{T-1}}{\partial h_{T-2}} \cdots \frac{\partial h_1}{\partial h_0}
+        = \prod_{t=1}^{T} f'(h_{t-1})
+    \]
+    Or $f'(x) = w_h \cdot (1 - \tanh(w_h x)^2) = w_h \cdot (1 - h_t^2)$, d'où la formule.
+  }
+
+\item
+  \question{Montrer que pour tout $h \in \mathbb{R}$, on a $0 < 1 - \tanh(h)^2 \leq 1$, avec égalité uniquement en $h = 0$. Que peut-on en conclure sur chaque facteur $w_h \cdot (1 - h_t^2)$ lorsque $|w_h| \leq 1$ ?}
+  \reponse{
+    On a $\tanh(h)^2 \in [0, 1)$ pour tout $h \in \mathbb{R}$ (puisque $|\tanh(h)| < 1$), donc $1 - \tanh(h)^2 \in (0, 1]$, avec la valeur $1$ atteinte seulement en $h = 0$ (car $\tanh(0) = 0$).
+
+    Si $|w_h| \leq 1$, alors $|w_h \cdot (1 - h_t^2)| \leq 1$, et dès que $h_t \neq 0$, la majoration est stricte. Chaque facteur du produit est donc strictement inférieur à $1$ en valeur absolue, ce qui implique que le produit de $T$ tels facteurs tend vers $0$ exponentiellement vite quand $T \to +\infty$.
+  }
+
+\item
+  \question{On suppose $h_t \approx 0.9$ pour tout $t$, et $w_h = 0.8$. Calculer numériquement $\left|\dfrac{\partial h_T}{\partial h_0}\right|$ pour $T = 5$, $T = 10$, $T = 20$. Commenter.}
+  \reponse{
+    Chaque facteur vaut $|w_h \cdot (1 - h_t^2)| = 0.8 \times (1 - 0.81) = 0.8 \times 0.19 = 0.152$.
+
+    \[
+      T = 5  : \quad 0.152^5 \approx 8.0 \times 10^{-4}
+    \]
+    \[
+      T = 10 : \quad 0.152^{10} \approx 6.4 \times 10^{-8}
+    \]
+    \[
+      T = 20 : \quad 0.152^{20} \approx 4.1 \times 10^{-15}
+    \]
+    Le gradient est pratiquement nul dès $T = 10$ : toute information sur $h_0$ est perdue lors de la rétropropagation, rendant l'apprentissage de dépendances longues impossible.
+  }
+
+\item
+  \question{Montrer que le gradient ne s'évanouit pas si et seulement si $|w_h| \cdot (1 - h_t^2) \geq 1$ pour tout $t$. Quelle condition sur $w_h$ cela impose-t-il lorsque $h_t \approx 0$ ? Quel nouveau problème apparaît alors ?}
+  \reponse{
+    Pour que $\left|\dfrac{\partial h_T}{\partial h_0}\right|$ ne tende pas vers $0$, il faut que le produit ne s'effondre pas, ce qui requiert que chaque facteur soit au moins $1$ en valeur absolue : $|w_h| \cdot (1 - h_t^2) \geq 1$.
+
+    Lorsque $h_t \approx 0$, on a $1 - h_t^2 \approx 1$, donc la condition devient $|w_h| \geq 1$.
+
+    Mais si $|w_h| > 1$ et que les activations ne saturent pas, les facteurs sont tous strictement supérieurs à $1$, et le produit diverge exponentiellement : c'est le problème du \textit{gradient exploding}, qui rend l'entraînement instable (mises à jour de poids de taille arbitrairement grande).
+  }
+
+\item
+  \question{On cherche à minimiser une perte $\mathcal{L}$ dépendant de $h_T$. Exprimer $\dfrac{\partial \mathcal{L}}{\partial w_h}\big|_{t=1}$, la contribution du tout premier pas de temps au gradient de $w_h$, en fonction de $\dfrac{\partial \mathcal{L}}{\partial h_T}$ et du produit ci-dessus. Pourquoi les dépendances à long terme sont-elles si difficiles à apprendre ?}
+  \reponse{
+    Par la règle de dérivation en chaîne, la contribution du pas $t = 1$ est :
+    \[
+      \left.\frac{\partial \mathcal{L}}{\partial w_h}\right|_{t=1}
+        = \frac{\partial \mathcal{L}}{\partial h_T} \cdot \frac{\partial h_T}{\partial h_1} \cdot \frac{\partial h_1}{\partial w_h}
+        = \frac{\partial \mathcal{L}}{\partial h_T} \cdot \left(\prod_{t=2}^{T} w_h(1-h_t^2)\right) \cdot h_0(1-h_1^2)
+    \]
+    Ce terme est proportionnel au produit de $(T-1)$ facteurs, chacun inférieur à $1$ si $|w_h| \leq 1$. Il devient donc exponentiellement petit : le signal de gradient provenant de la perte à $T$ ne parvient pratiquement plus au premier pas de temps, empêchant le réseau d'ajuster $w_h$ pour capturer une dépendance entre $h_1$ et $h_T$.
+  }
+\end{enumerate}
+}
