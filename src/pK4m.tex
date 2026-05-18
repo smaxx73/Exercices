@@ -11,87 +11,100 @@
 \difficulte{2}
 
 \contenu{
-\texte{
-  On considère un RNN simple à un seul état caché, défini par les équations :
-  \[
-    h_t = \tanh(W_h h_{t-1} + W_x x_t + b_h), \qquad y_t = W_y h_t + b_y
-  \]
-  avec les dimensions suivantes : entrée $x_t \in \mathbb{R}$, état caché $h_t \in \mathbb{R}^2$, sortie $y_t \in \mathbb{R}$.
-
-  Les paramètres du réseau sont :
-  \[
-    W_x = \begin{pmatrix} 1 \\ -1 \end{pmatrix}, \quad
-    W_h = \begin{pmatrix} 0.5 & 0 \\ 0 & 0.5 \end{pmatrix}, \quad
-    b_h = \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \quad
-    W_y = \begin{pmatrix} 1 & 1 \end{pmatrix}, \quad
-    b_y = 0
-  \]
-  L'état caché initial est $h_0 = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$.
-  On traite la séquence d'entrée $x_1 = 1$, $x_2 = 0$, $x_3 = -1$.
-}
-\begin{enumerate}
-\item
-  \question{Calculer $h_1$, $h_2$, $h_3$ en appliquant la formule de récurrence pas à pas. On rappelle que $\tanh$ s'applique composante par composante.}
-  \reponse{
-    \textbf{Pas $t=1$.}
-    \[
-      h_1 = \tanh\!\left(W_h h_0 + W_x x_1\right)
-           = \tanh\!\left(\begin{pmatrix}0\\0\end{pmatrix} + \begin{pmatrix}1\\-1\end{pmatrix}\right)
-           = \begin{pmatrix}\tanh(1)\\\tanh(-1)\end{pmatrix}
-           \approx \begin{pmatrix}0.762\\-0.762\end{pmatrix}
-    \]
-    \textbf{Pas $t=2$.}
-    \[
-      W_h h_1 + W_x x_2
-        = \begin{pmatrix}0.5 & 0\\0 & 0.5\end{pmatrix}\begin{pmatrix}0.762\\-0.762\end{pmatrix}
-          + \begin{pmatrix}0\\0\end{pmatrix}
-        = \begin{pmatrix}0.381\\-0.381\end{pmatrix}
-    \]
-    \[
-      h_2 = \begin{pmatrix}\tanh(0.381)\\\tanh(-0.381)\end{pmatrix} \approx \begin{pmatrix}0.365\\-0.365\end{pmatrix}
-    \]
-    \textbf{Pas $t=3$.}
-    \[
-      W_h h_2 + W_x x_3
-        = \begin{pmatrix}0.183\\-0.183\end{pmatrix} + \begin{pmatrix}-1\\1\end{pmatrix}
-        = \begin{pmatrix}-0.817\\0.817\end{pmatrix}
-    \]
-    \[
-      h_3 = \begin{pmatrix}\tanh(-0.817)\\\tanh(0.817)\end{pmatrix} \approx \begin{pmatrix}-0.674\\0.674\end{pmatrix}
-    \]
-  }
-
-\item
-  \question{En déduire les sorties $y_1$, $y_2$, $y_3$.}
-  \reponse{
-    On applique $y_t = W_y h_t = h_t^{(1)} + h_t^{(2)}$ (somme des deux composantes) :
-    \[
-      y_1 = 0.762 + (-0.762) = 0, \quad
-      y_2 = 0.365 + (-0.365) = 0, \quad
-      y_3 = -0.674 + 0.674 = 0.
-    \]
-    La sortie est identiquement nulle : les deux composantes de $h_t$ sont opposées par symétrie des poids $W_x$.
-  }
-
-\item
-  \question{Décrire qualitativement ce que fait ce réseau : comment l'état caché $h_t$ évolue-t-il lorsque l'entrée change de signe ?}
-  \reponse{
-    Les deux composantes de $h_t$ sont en permanence opposées ($h_t^{(2)} = -h_t^{(1)}$), car $W_x$ injecte $x_t$ et $-x_t$ respectivement, et $W_h$ est diagonale avec les mêmes coefficients. Lorsque $x_t$ change de signe, les composantes s'inversent progressivement (à cause de la saturation de $\tanh$ et de l'effet mémoire de $W_h$). Le réseau encode donc le signe courant de l'entrée, atténué par l'historique.
-  }
-
-\item
-  \question{(\textit{Bonus}) Que se passerait-il si on remplaçait $\tanh$ par la fonction identité ? Réécrire alors $h_t$ comme une combinaison linéaire des entrées passées $x_1, \ldots, x_t$.}
-  \indication{Développer la récurrence $h_t = W_h h_{t-1} + W_x x_t$ et itérer.}
-  \reponse{
-    Avec l'activation identité :
-    \[
-      h_t = W_h h_{t-1} + W_x x_t = \sum_{k=1}^{t} W_h^{t-k} W_x x_k.
-    \]
-    Puisque $W_h = 0.5 \, I_2$, on a $W_h^{t-k} = 0.5^{t-k} I_2$, donc :
-    \[
-      h_t = W_x \sum_{k=1}^{t} 0.5^{t-k} x_k.
-    \]
-    Le réseau calcule une moyenne exponentielle pondérée des entrées passées, avec des poids décroissant géométriquement vers le passé.
-  }
-\end{enumerate}
+	\texte{
+		On considère un RNN simple à un seul état caché, défini par les équations :
+		\[
+		h_t = \tanh(W_h h_{t-1} + W_x x_t + b_h), \qquad y_t = W_y h_t + b_y
+		\]
+		avec les dimensions suivantes : entrée $x_t \in \mathbb{R}$, état caché $h_t \in \mathbb{R}^2$, sortie $y_t \in \mathbb{R}$.
+		
+		Les paramètres du réseau sont :
+		\[
+		W_x = \begin{pmatrix} 1 \\ -1 \end{pmatrix}, \quad
+		W_h = \begin{pmatrix} 0.5 & 0 \\ 0 & 0.5 \end{pmatrix}, \quad
+		b_h = \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \quad
+		W_y = \begin{pmatrix} 1 & 1 \end{pmatrix}, \quad
+		b_y = 0
+		\]
+		L'état caché initial est $h_0 = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$.
+		On traite la séquence d'entrée $x_1 = 1$, $x_2 = 0$, $x_3 = -1$.
+	}
+	\begin{enumerate}
+		\item
+		\question{Calculer $h_1$, $h_2$, $h_3$ en appliquant la formule de récurrence pas à pas. On rappelle que $\tanh$ s'applique composante par composante.}
+		\reponse{
+			\textbf{Pas $t=1$.}
+			\[
+			h_1 = \tanh\!\left(W_h h_0 + W_x x_1\right)
+			= \tanh\!\left(\begin{pmatrix}0\\0\end{pmatrix} + \begin{pmatrix}1\\-1\end{pmatrix}\right)
+			= \begin{pmatrix}\tanh(1)\\\tanh(-1)\end{pmatrix}
+			\approx \begin{pmatrix}0.762\\-0.762\end{pmatrix}
+			\]
+			\textbf{Pas $t=2$.}
+			\[
+			W_h h_1 = \begin{pmatrix}0.5 & 0\\0 & 0.5\end{pmatrix}\begin{pmatrix}\tanh(1)\\-\tanh(1)\end{pmatrix}
+			= \begin{pmatrix}0.5\tanh(1)\\-0.5\tanh(1)\end{pmatrix}
+			\approx \begin{pmatrix}0.381\\-0.381\end{pmatrix}, \qquad
+			W_x x_2 = \begin{pmatrix}1\\-1\end{pmatrix}(0) = \begin{pmatrix}0\\0\end{pmatrix}
+			\]
+			\[
+			h_2 = \tanh\!\left(\begin{pmatrix}0.381\\-0.381\end{pmatrix}\right)
+			= \begin{pmatrix}\tanh(0.381)\\\tanh(-0.381)\end{pmatrix}
+			\approx \begin{pmatrix}0.365\\-0.365\end{pmatrix}
+			\]
+			\textbf{Pas $t=3$.}
+			\[
+			W_h h_2 = \begin{pmatrix}0.5\tanh(0.381)\\-0.5\tanh(0.381)\end{pmatrix}
+			\approx \begin{pmatrix}0.183\\-0.183\end{pmatrix}, \qquad
+			W_x x_3 = \begin{pmatrix}1\\-1\end{pmatrix}(-1) = \begin{pmatrix}-1\\1\end{pmatrix}
+			\]
+			\[
+			h_3 = \tanh\!\left(\begin{pmatrix}0.183\\-0.183\end{pmatrix} + \begin{pmatrix}-1\\1\end{pmatrix}\right)
+			= \begin{pmatrix}\tanh(-0.817)\\\tanh(0.817)\end{pmatrix}
+			\approx \begin{pmatrix}-0.674\\0.674\end{pmatrix}
+			\]
+		}
+		
+		\item
+		\question{En déduire les sorties $y_1$, $y_2$, $y_3$.}
+		\reponse{
+			On applique $y_t = W_y h_t + b_y$. Puisque $W_y = \begin{pmatrix}1 & 1\end{pmatrix}$ et $b_y = 0$ :
+			\[
+			y_t = \begin{pmatrix}1 & 1\end{pmatrix}\begin{pmatrix}h_t^{(1)}\\h_t^{(2)}\end{pmatrix} = h_t^{(1)} + h_t^{(2)}
+			\]
+			\[
+			y_1 = \tanh(1) + \tanh(-1) \approx 0.762 + (-0.762) = 0, \quad
+			y_2 = \tanh(0.381) + \tanh(-0.381) \approx 0, \quad
+			y_3 = \tanh(-0.817) + \tanh(0.817) \approx 0.
+			\]
+			La sortie est identiquement nulle car les deux composantes de $h_t$ sont systématiquement opposées, propriété induite par la structure antisymétrique de $W_x$ et la parité impaire de $\tanh$.
+		}
+		
+		\item
+		\question{Décrire qualitativement ce que fait ce réseau : comment l'état caché $h_t$ évolue-t-il lorsque l'entrée change de signe ?}
+		\reponse{
+			Les deux composantes de $h_t$ sont en permanence opposées ($h_t^{(2)} = -h_t^{(1)}$), pour trois raisons conjointes :
+			\begin{itemize}
+				\item $W_x$ injecte $x_t$ dans la première composante et $-x_t$ dans la seconde ;
+				\item $W_h = 0.5\,I_2$ atténue l'état précédent de façon identique sur les deux composantes, préservant leur relation d'opposition ;
+				\item $\tanh$ est une fonction impaire, donc $\tanh(-u) = -\tanh(u)$ conserve l'opposition.
+			\end{itemize}
+			Lorsque $x_t$ change de signe, les composantes s'inversent progressivement. Le réseau encode donc la polarité courante de l'entrée, atténuée par l'historique. La sortie $y_t$ étant toujours nulle, l'information pertinente réside uniquement dans l'état caché $h_t$.
+		}
+		
+		\item
+		\question{(\textit{Bonus}) Que se passerait-il si on remplaçait $\tanh$ par la fonction identité ? Réécrire alors $h_t$ comme une combinaison linéaire des entrées passées $x_1, \ldots, x_t$.}
+		\indication{Développer la récurrence $h_t = W_h h_{t-1} + W_x x_t$ et itérer.}
+		\reponse{
+			Avec l'activation identité, la récurrence devient $h_t = W_h h_{t-1} + W_x x_t$. Par développement itératif (avec $h_0 = 0$) :
+			\[
+			h_t = W_h^{t-1}W_x x_1 + W_h^{t-2}W_x x_2 + \cdots + W_h^0 W_x x_t = \sum_{k=1}^{t} W_h^{t-k} W_x x_k.
+			\]
+			Puisque $W_h = 0.5\,I_2$, on a $W_h^{t-k} = (0.5)^{t-k} I_2$. En substituant :
+			\[
+			h_t = \sum_{k=1}^{t} (0.5)^{t-k} I_2\, W_x x_k = W_x \left(\sum_{k=1}^{t} (0.5)^{t-k} x_k\right).
+			\]
+			Le vecteur $h_t$ est proportionnel à $W_x = \begin{pmatrix}1\\-1\end{pmatrix}$, le facteur de proportionnalité étant une moyenne exponentielle pondérée des entrées passées, avec des poids $(0.5)^{t-k}$ décroissant géométriquement vers le passé.
+		}
+	\end{enumerate}
 }
