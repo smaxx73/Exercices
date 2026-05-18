@@ -11,121 +11,121 @@
 \difficulte{2}
 
 \contenu{
-\texte{
-  Une cellule LSTM maintient deux vecteurs d'état : la \textit{cell state} $c_t \in \mathbb{R}$ et l'état caché $h_t \in \mathbb{R}$ (on reste scalaire pour les calculs). À chaque pas de temps, quatre quantités intermédiaires sont calculées à partir de $x_t$ et $h_{t-1}$ :
-  \begin{align*}
-    f_t &= \sigma(w_f x_t + u_f h_{t-1} + b_f) & &\text{(porte d'oubli)}\\
-    i_t &= \sigma(w_i x_t + u_i h_{t-1} + b_i) & &\text{(porte d'entrée)}\\
-    \tilde{c}_t &= \tanh(w_c x_t + u_c h_{t-1} + b_c) & &\text{(candidat)}\\
-    o_t &= \sigma(w_o x_t + u_o h_{t-1} + b_o) & &\text{(porte de sortie)}
-  \end{align*}
-  La mise à jour des états suit :
-  \[
-    c_t = f_t \cdot c_{t-1} + i_t \cdot \tilde{c}_t, \qquad h_t = o_t \cdot \tanh(c_t)
-  \]
-  où $\sigma$ désigne la fonction sigmoïde.
+	\texte{
+		Une cellule LSTM maintient deux vecteurs d'état : la \textit{cell state} $c_t \in \mathbb{R}$ et l'état caché $h_t \in \mathbb{R}$ (on reste scalaire pour les calculs). À chaque pas de temps, quatre quantités intermédiaires sont calculées à partir de $x_t$ et $h_{t-1}$ :
+		\begin{align*}
+			f_t &= \sigma(w_f x_t + u_f h_{t-1} + b_f) & &\text{(porte d'oubli)}\\
+			i_t &= \sigma(w_i x_t + u_i h_{t-1} + b_i) & &\text{(porte d'entrée)}\\
+			\tilde{c}_t &= \tanh(w_c x_t + u_c h_{t-1} + b_c) & &\text{(candidat)}\\
+			o_t &= \sigma(w_o x_t + u_o h_{t-1} + b_o) & &\text{(porte de sortie)}
+		\end{align*}
+		La mise à jour des états suit :
+		\[
+		c_t = f_t \cdot c_{t-1} + i_t \cdot \tilde{c}_t, \qquad h_t = o_t \cdot \tanh(c_t)
+		\]
+		où $\sigma$ désigne la fonction sigmoïde.
+		
+		\medskip
+		Les paramètres sont tous les biais nuls et :
+		
+		\begin{center}
+			\begin{tabular}{ccc}
+				\hline
+				& $w$ & $u$ \\
+				\hline
+				Porte d'oubli $f$ & $0$ & $0$ \\
+				Porte d'entrée $i$ & $2$ & $0$ \\
+				Candidat $\tilde{c}$ & $2$ & $0$ \\
+				Porte de sortie $o$ & $1$ & $0$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
+		Les états initiaux sont $h_0 = 0$, $c_0 = 0$. On traite la séquence $x_1 = 1$, $x_2 = 1$, $x_3 = 0$, $x_4 = -1$.
+		
 
-  \medskip
-  Les paramètres sont tous les biais nuls et :
-
-  \begin{center}
-  \begin{tabular}{ccc}
-    \hline
-    & $w$ & $u$ \\
-    \hline
-    Porte d'oubli $f$ & $0$ & $0$ \\
-    Porte d'entrée $i$ & $2$ & $0$ \\
-    Candidat $\tilde{c}$ & $2$ & $0$ \\
-    Porte de sortie $o$ & $1$ & $0$ \\
-    \hline
-  \end{tabular}
-  \end{center}
-
-  Les états initiaux sont $h_0 = 0$, $c_0 = 0$. On traite la séquence $x_1 = 1$, $x_2 = 1$, $x_3 = 0$, $x_4 = -1$.
-
-  \medskip
-  Valeurs utiles : $\sigma(0) = 0.5$, $\sigma(2) \approx 0.88$, $\sigma(-2) \approx 0.12$, $\tanh(2) \approx 0.96$, $\tanh(0) = 0$.
-}
-\begin{enumerate}
-\item
-  \question{(\textit{Pas $t=1$}) Calculer $f_1, i_1, \tilde{c}_1, o_1$, puis $c_1$ et $h_1$.}
-  \reponse{
-    \[
-      f_1 = \sigma(0 \cdot 1 + 0 \cdot 0) = \sigma(0) = 0.5
-    \]
-    \[
-      i_1 = \sigma(2 \cdot 1) = \sigma(2) \approx 0.88
-    \]
-    \[
-      \tilde{c}_1 = \tanh(2 \cdot 1) = \tanh(2) \approx 0.96
-    \]
-    \[
-      o_1 = \sigma(1 \cdot 1) = \sigma(1) \approx 0.731
-    \]
-    \[
-      c_1 = 0.5 \times 0 + 0.88 \times 0.96 \approx 0.845
-    \]
-    \[
-      h_1 = 0.731 \times \tanh(0.845) \approx 0.731 \times 0.687 \approx 0.502
-    \]
-  }
-
-\item
-  \question{(\textit{Pas $t=2$}) Calculer $f_2, i_2, \tilde{c}_2, o_2$, puis $c_2$ et $h_2$. Que remarque-t-on sur $c_2$ par rapport à $c_1$ ?}
-  \reponse{
-    Les poids $u$ sont tous nuls, donc $h_1$ n'intervient pas :
-    \[
-      f_2 = \sigma(0) = 0.5, \quad i_2 \approx 0.88, \quad \tilde{c}_2 \approx 0.96, \quad o_2 \approx 0.731
-    \]
-    \[
-      c_2 = 0.5 \times 0.845 + 0.88 \times 0.96 \approx 0.423 + 0.845 \approx 1.268
-    \]
-    \[
-      h_2 = 0.731 \times \tanh(1.268) \approx 0.731 \times 0.852 \approx 0.623
-    \]
-    La cell state $c_2 > c_1$ : la porte d'entrée a de nouveau injecté de l'information positive, qui s'accumule dans $c_t$ grâce à la porte d'oubli (qui conserve environ la moitié de l'état précédent à chaque pas).
-  }
-
-\item
-  \question{(\textit{Pas $t=3$}) L'entrée est $x_3 = 0$. Calculer $c_3$ et $h_3$. Que fait la porte d'oubli ici ? Comparer $c_3$ et $c_2$.}
-  \reponse{
-    \[
-      f_3 = \sigma(0) = 0.5, \quad i_3 = \sigma(0) = 0.5, \quad \tilde{c}_3 = \tanh(0) = 0, \quad o_3 = \sigma(0) = 0.5
-    \]
-    \[
-      c_3 = 0.5 \times 1.268 + 0.5 \times 0 = 0.634
-    \]
-    \[
-      h_3 = 0.5 \times \tanh(0.634) \approx 0.5 \times 0.560 \approx 0.280
-    \]
-    Avec une entrée nulle, la porte d'oubli conserve la moitié de $c_2$ et la porte d'entrée n'ajoute rien ($\tilde{c}_3 = 0$). La cell state diminue donc de moitié : $c_3 \approx c_2 / 2$. Le réseau « oublie » progressivement l'information accumulée.
-  }
-
-\item
-  \question{(\textit{Pas $t=4$}) L'entrée est $x_4 = -1$. Calculer $c_4$ et $h_4$. Commenter le rôle de la porte d'entrée.}
-  \reponse{
-    \[
-      f_4 = \sigma(0) = 0.5, \quad i_4 = \sigma(-2) \approx 0.12, \quad \tilde{c}_4 = \tanh(-2) \approx -0.96, \quad o_4 = \sigma(-1) \approx 0.269
-    \]
-    \[
-      c_4 = 0.5 \times 0.634 + 0.12 \times (-0.96) \approx 0.317 - 0.115 \approx 0.202
-    \]
-    \[
-      h_4 = 0.269 \times \tanh(0.202) \approx 0.269 \times 0.200 \approx 0.054
-    \]
-    La porte d'entrée $i_4 \approx 0.12$ est faible pour une entrée négative : le candidat négatif $\tilde{c}_4$ n'est injecté que partiellement dans $c_t$. Cela atténue l'effondrement brutal de la cell state, qui reste positive. La porte d'entrée régule ainsi la quantité d'information nouvelle incorporée selon le signe de l'entrée.
-  }
-
-\item
-  \question{Dans l'exercice 1, l'état caché $h_t$ était directement écrasé à chaque pas. Expliquer en quoi le mécanisme de cell state $c_t$ de la LSTM permet de mieux préserver l'information sur le long terme, en lien avec l'exercice 3.}
-  \reponse{
-    Dans le RNN simple, $h_t = \tanh(\cdots)$ est une transformation non linéaire saturante de $h_{t-1}$ : l'état précédent est systématiquement « compressé » dans $[-1, 1]$, ce qui fait que $\frac{\partial h_t}{\partial h_{t-1}} = w_h(1 - h_t^2)$ peut être proche de $0$ si $h_t$ est saturé (exercice 3).
-
-    Dans la LSTM, la mise à jour de $c_t$ est \emph{additive} et modulée par des portes :
-    \[
-      c_t = f_t \cdot c_{t-1} + i_t \cdot \tilde{c}_t
-    \]
-    Si $f_t \approx 1$ et $i_t \approx 0$, alors $c_t \approx c_{t-1}$ : la cell state est copiée presque intacte, et $\frac{\partial c_t}{\partial c_{t-1}} \approx 1$. Le gradient peut ainsi se propager sans s'atténuer sur de longues séquences, ce qui atténue le problème du \textit{gradient vanishing}.
-  }
-\end{enumerate}
+		\textit{Pour gagner du temps, vous pouvez utiliser : $\sigma(0) = 0.5$, $\sigma(1) \approx 0.731$, $\sigma(-1) \approx 0.269$, $\sigma(2) \approx 0.88$, $\sigma(-2) \approx 0.12$, $\tanh(2) \approx 0.96$, $\tanh(0) = 0$.}
+	}
+	\begin{enumerate}
+		\item
+		\question{(\textit{Pas $t=1$}) Calculer $f_1, i_1, \tilde{c}_1, o_1$, puis $c_1$ et $h_1$.}
+		\reponse{
+			\[
+			f_1 = \sigma(0 \cdot 1 + 0 \cdot 0) = \sigma(0) = 0.5
+			\]
+			\[
+			i_1 = \sigma(2 \cdot 1) = \sigma(2) \approx 0.88
+			\]
+			\[
+			\tilde{c}_1 = \tanh(2 \cdot 1) = \tanh(2) \approx 0.96
+			\]
+			\[
+			o_1 = \sigma(1 \cdot 1) = \sigma(1) \approx 0.731
+			\]
+			\[
+			c_1 = 0.5 \times 0 + 0.88 \times 0.96 \approx 0.845
+			\]
+			\[
+			h_1 = 0.731 \times \tanh(0.845) \approx 0.731 \times 0.688 \approx 0.503
+			\]
+		}
+		
+		\item
+		\question{(\textit{Pas $t=2$}) Calculer $f_2, i_2, \tilde{c}_2, o_2$, puis $c_2$ et $h_2$. Que remarque-t-on sur $c_2$ par rapport à $c_1$ ?}
+		\reponse{
+			Les poids $u$ sont tous nuls, donc $h_1$ n'intervient pas :
+			\[
+			f_2 = \sigma(0) = 0.5, \quad i_2 \approx 0.88, \quad \tilde{c}_2 \approx 0.96, \quad o_2 \approx 0.731
+			\]
+			\[
+			c_2 = 0.5 \times 0.845 + 0.88 \times 0.96 \approx 0.423 + 0.845 = 1.268
+			\]
+			\[
+			h_2 = 0.731 \times \tanh(1.268) \approx 0.731 \times 0.853 \approx 0.624
+			\]
+			La cell state $c_2 > c_1$ : la porte d'entrée a de nouveau injecté de l'information positive, qui s'accumule dans $c_t$ grâce à la porte d'oubli (qui conserve environ la moitié de l'état précédent à chaque pas).
+		}
+		
+		\item
+		\question{(\textit{Pas $t=3$}) L'entrée est $x_3 = 0$. Calculer $c_3$ et $h_3$. Que fait la porte d'oubli ici ? Comparer $c_3$ et $c_2$.}
+		\reponse{
+			\[
+			f_3 = \sigma(0) = 0.5, \quad i_3 = \sigma(0) = 0.5, \quad \tilde{c}_3 = \tanh(0) = 0, \quad o_3 = \sigma(0) = 0.5
+			\]
+			\[
+			c_3 = 0.5 \times 1.268 + 0.5 \times 0 = 0.634
+			\]
+			\[
+			h_3 = 0.5 \times \tanh(0.634) \approx 0.5 \times 0.561 \approx 0.281
+			\]
+			Avec une entrée nulle, la porte d'oubli conserve la moitié de $c_2$ et la porte d'entrée n'ajoute rien ($\tilde{c}_3 = 0$). La cell state diminue donc de moitié : $c_3 \approx c_2 / 2$. Le réseau « oublie » progressivement l'information accumulée.
+		}
+		
+		\item
+		\question{(\textit{Pas $t=4$}) L'entrée est $x_4 = -1$. Calculer $c_4$ et $h_4$. Commenter le rôle de la porte d'entrée.}
+		\reponse{
+			\[
+			f_4 = \sigma(0) = 0.5, \quad i_4 = \sigma(-2) \approx 0.12, \quad \tilde{c}_4 = \tanh(-2) \approx -0.96, \quad o_4 = \sigma(-1) \approx 0.269
+			\]
+			\[
+			c_4 = 0.5 \times 0.634 + 0.12 \times (-0.96) \approx 0.317 - 0.115 \approx 0.202
+			\]
+			\[
+			h_4 = 0.269 \times \tanh(0.202) \approx 0.269 \times 0.199 \approx 0.054
+			\]
+			La porte d'entrée $i_4 \approx 0.12$ est faible pour une entrée négative : le candidat négatif $\tilde{c}_4$ n'est injecté que partiellement dans $c_t$. Cela atténue l'effondrement brutal de la cell state, qui reste positive. La porte d'entrée régule ainsi la quantité d'information nouvelle incorporée selon le signe de l'entrée.
+		}
+		
+		\item
+		\question{Dans un RNN simple, l'état caché $h_t$ était directement écrasé à chaque pas. Expliquer en quoi le mécanisme de cell state $c_t$ de la LSTM permet de mieux préserver l'information sur le long terme.}
+		\reponse{
+			Dans le RNN simple, $h_t = \tanh(\cdots)$ est une transformation non linéaire saturante de $h_{t-1}$ : l'état précédent est systématiquement « compressé » dans $[-1, 1]$, ce qui fait que le gradient peut facilement tendre vers $0$ au fil des pas de temps (phénomène du \textit{gradient vanishing}).
+			
+			Dans la LSTM, la mise à jour de $c_t$ est \emph{additive} et modulée par des portes :
+			\[
+			c_t = f_t \cdot c_{t-1} + i_t \cdot \tilde{c}_t
+			\]
+			Si la porte d'oubli est ouverte ($f_t \approx 1$) et la porte d'entrée fermée ($i_t \approx 0$), alors $c_t \approx c_{t-1}$ : la cell state est copiée presque intacte. Dans ce cas, la dérivée $\frac{\partial c_t}{\partial c_{t-1}} \approx 1$. Le gradient peut ainsi se propager linéairement et sans s'atténuer sur de longues séquences, ce qui résout le problème de l'oubli à long terme.
+		}
+	\end{enumerate}
 }
