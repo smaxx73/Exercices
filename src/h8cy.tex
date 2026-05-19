@@ -1,0 +1,112 @@
+\uuid{h8cy}
+\titre{Identification des coefficients d'une série entière}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Série entière}
+\sousChapitre{Développement en série entière}
+\theme{Dérivation terme à terme, série géométrique, parité des coefficients}
+\auteur{Maxime Nguyen}
+\datecreate{2026-05-19}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+	
+	\texte{
+		On rappelle que, pour tout réel $x$ tel que $|x|<1$,
+		\[
+		\frac{1}{1-x} = \sum_{n=0}^{+\infty} x^n.
+		\]
+	}
+	
+	\begin{enumerate}
+		
+		\item
+		\question{En dérivant cette égalité, montrer que
+			\[
+			\frac{1}{(1-x)^2} = \sum_{n=0}^{+\infty} (n+1)x^n.
+			\]
+		}
+		\indication{La dérivation terme à terme est licite sur le disque ouvert de convergence.}
+		\reponse{
+			La série $\sum_{n=0}^{+\infty} x^n$ converge normalement sur tout compact de $(-1,1)$,
+			donc on peut dériver terme à terme sur $(-1,1)$.
+			On obtient
+			\[
+			\frac{1}{(1-x)^2} = \left(\frac{1}{1-x}\right)' = \sum_{n=1}^{+\infty} n x^{n-1}
+			= \sum_{n=0}^{+\infty} (n+1) x^n.
+			\]
+		}
+		
+		\item
+		\question{En déduire le développement en série entière de $\dfrac{x}{(1-x)^2}$.
+			On donnera explicitement le coefficient de $x^n$ pour tout $n\in\mathbb{N}$.
+		}
+		\reponse{
+			Pour $|x|<1$, en multipliant l'égalité précédente par $x$ :
+			\[
+			\frac{x}{(1-x)^2} = \sum_{n=0}^{+\infty} (n+1)x^{n+1} = \sum_{n=1}^{+\infty} n\, x^n.
+			\]
+			Le coefficient de $x^n$ est donc $n$ pour tout $n\in\mathbb{N}$
+			(avec la convention que le coefficient de $x^0$ est $0$).
+		}
+		
+		\item
+		\question{En utilisant l'égalité $\dfrac{1}{1-x^2} = \dfrac{1}{1-(x^2)}$,
+			déterminer le développement en série entière de $\dfrac{1}{1-x^2}$.
+			On précisera le coefficient de $x^n$ selon la parité de $n$.
+		}
+		\reponse{
+			Pour $|x|<1$, on substitue $x^2$ à $x$ dans la série géométrique :
+			\[
+			\frac{1}{1-x^2} = \sum_{n=0}^{+\infty} x^{2n}.
+			\]
+			Le coefficient de $x^n$ est donc $1$ si $n$ est pair, et $0$ si $n$ est impair.
+			Le rayon de convergence est $R=1$.
+		}
+		
+		\item
+		\question{Déterminer de même le développement en série entière de $\dfrac{x}{1-x^2}$.
+			On précisera le coefficient de $x^n$ selon la parité de $n$.
+		}
+		\reponse{
+			Pour $|x|<1$, en multipliant par $x$ :
+			\[
+			\frac{x}{1-x^2} = \sum_{n=0}^{+\infty} x^{2n+1}.
+			\]
+			Le coefficient de $x^n$ est donc $1$ si $n$ est impair, et $0$ si $n$ est pair.
+			Le rayon de convergence est $R=1$.
+		}
+		
+		\item
+		\question{En déduire le développement en série entière de $\dfrac{1+x}{1-x^2}$.
+			Que remarque-t-on ?
+		}
+		\reponse{
+			Pour $|x|<1$, en additionnant les deux développements précédents :
+			\[
+			\frac{1+x}{1-x^2} = \frac{1}{1-x^2} + \frac{x}{1-x^2}
+			= \sum_{n=0}^{+\infty} x^{2n} + \sum_{n=0}^{+\infty} x^{2n+1}
+			= \sum_{n=0}^{+\infty} x^n.
+			\]
+			On remarque que $\dfrac{1+x}{1-x^2} = \dfrac{1+x}{(1-x)(1+x)} = \dfrac{1}{1-x}$
+			pour $x \neq -1$, ce qui est cohérent avec la série géométrique de départ.
+		}
+		
+		\item
+		\question{Pour chacune des fonctions précédentes, préciser le rayon de convergence
+			du développement obtenu.
+		}
+		\reponse{
+			Toutes les séries obtenues ont un rayon de convergence $R = 1$ :
+			\begin{itemize}
+				\item $\dfrac{1}{(1-x)^2} = \sum_{n=0}^{+\infty}(n+1)x^n$, $R=1$ (la série géométrique dérivée terme à terme conserve le rayon de convergence) ;
+				\item $\dfrac{x}{(1-x)^2} = \sum_{n=1}^{+\infty} n\, x^n$, $R=1$ ;
+				\item $\dfrac{1}{1-x^2} = \sum_{n=0}^{+\infty} x^{2n}$, $R=1$ ;
+				\item $\dfrac{x}{1-x^2} = \sum_{n=0}^{+\infty} x^{2n+1}$, $R=1$ ;
+				\item $\dfrac{1+x}{1-x^2} = \sum_{n=0}^{+\infty} x^n$, $R=1$.
+			\end{itemize}
+		}
+		
+	\end{enumerate}
+}

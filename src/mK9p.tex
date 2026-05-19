@@ -1,0 +1,136 @@
+\uuid{mK9p}
+\titre{Tests d'hypothèses et test d'adéquation}
+\niveau{L3}
+\module{Probabilité et statistique}
+\chapitre{Tests sur la moyenne, test du chi2}
+\sousChapitre{Tests d'hypothèses, intervalle de confiance}
+\theme{Test de Student, puissance, test du chi-deux, loi binomiale}
+\auteur{}
+\datecreate{2026-05-19}
+\organisation{}
+\difficulte{3}
+
+\contenu{
+
+\texte{
+Emmanuel, étudiant en ESM3, se demande combien de temps ses camarades ont révisé en moyenne pour l'examen de statistique inférentielle. Il estime que ce temps moyen est d'environ 3 heures. Mathis n'est pas d'accord : selon lui, les étudiants ont révisé davantage qu'ils ne le laissent paraître.
+
+Pour départager leurs points de vue, Emmanuel interroge 6 camarades et obtient les temps de révision suivants (en heures) :
+\[
+  0{,}5 \quad 5 \quad 1 \quad 8 \quad 3 \quad 0{,}083
+\]
+On suppose que le temps de révision suit une loi normale $\mathcal{N}(\mu, \sigma)$ avec $\mu$ et $\sigma$ inconnus.
+}
+
+\begin{enumerate}
+
+\item
+  \question{Construire un test statistique permettant de départager les hypothèses d'Emmanuel ($\mu = 3$ h) et de Mathis ($\mu > 3$ h), au risque de première espèce $\alpha = 5\%$.}
+  \indication{La variance étant inconnue, on utilisera la statistique de Student.}
+  \reponse{
+    On teste $H_0 : \mu = 3$ contre $H_1 : \mu > 3$. Il s'agit d'un test unilatéral à droite.
+
+    On calcule la moyenne empirique et l'écart-type corrigé sur l'échantillon :
+    \[
+      \bar{x} = \frac{0{,}5 + 5 + 1 + 8 + 3 + 0{,}083}{6} \approx 2{,}93 \text{ h},
+      \qquad
+      s^2 = \frac{1}{n-1}\sum_{i=1}^{6}(x_i - \bar{x})^2 \approx 8{,}34.
+    \]
+    La statistique de test est :
+    \[
+      T = \frac{\bar{X} - \mu_0}{S/\sqrt{n}} \sim \mathcal{S}t(n-1) = \mathcal{S}t(5) \quad \text{sous } H_0.
+    \]
+    La région de rejet est $\mathcal{R} = \left]q_{5;\,1-\alpha} ; +\infty\right[$ où $q_{5;\,0{,}95} \approx 2{,}015$.
+
+    Application numérique :
+    \[
+      t_{\text{obs}} = \frac{2{,}93 - 3}{\sqrt{8{,}34}/\sqrt{6}} \approx -0{,}059.
+    \]
+    Comme $t_{\text{obs}} \approx -0{,}059 < 2{,}015$, on ne rejette pas $H_0$ au risque $5\%$ : les données ne permettent pas de conclure que les étudiants ont révisé davantage que 3 heures.
+  }
+
+\item
+  \question{Mathis pense désormais que le temps moyen de révision est plutôt de $\mu_1 = 4{,}5$ h. En supposant la variance connue et égale à $\sigma^2 = 8$ h$^2$, calculer la puissance du test $H_0 : \mu = 3$ contre $H_1 : \mu > 3$ au niveau $\alpha = 5\%$. Commenter.}
+  \indication{La puissance est la probabilité de rejeter $H_0$ lorsque $\mu = \mu_1$.}
+  \reponse{
+    La variance étant maintenant connue, la statistique de test est :
+    \[
+      Z = \frac{\bar{X} - 3}{\sigma/\sqrt{n}} = \frac{\bar{X} - 3}{\sqrt{8}/\sqrt{6}} \sim \mathcal{N}(0,1) \quad \text{sous } H_0.
+    \]
+    La région de rejet est $\mathcal{R} = \left]z_{0{,}95} ; +\infty\right[$ avec $z_{0{,}95} \approx 1{,}645$.
+
+    La puissance est la probabilité de rejeter $H_0$ lorsque $\mu = 4{,}5$ :
+    \begin{align*}
+      \pi(\mu_1)
+      &= P_{\mu_1}\!\left(Z > 1{,}645\right)
+       = P_{\mu_1}\!\left(\frac{\bar{X} - 3}{\sqrt{8/6}} > 1{,}645\right) \\
+      &= P\!\left(\mathcal{N}(0,1) > 1{,}645 - \frac{4{,}5 - 3}{\sqrt{8/6}}\right)
+       = P\!\left(\mathcal{N}(0,1) > 1{,}645 - 1{,}837\right) \\
+      &= P\!\left(\mathcal{N}(0,1) > -0{,}192\right)
+       \approx \Phi(0{,}192) \approx 0{,}576.
+    \end{align*}
+    La puissance est d'environ $57{,}6\%$ : avec seulement $n = 6$ observations, le test a moins d'une chance sur deux de détecter un écart de $1{,}5$ heure par rapport à $H_0$. L'échantillon est trop petit pour un test puissant.
+  }
+
+\item
+  \texte{
+    Après l'examen, Emmanuel et Mathis s'interrogent sur la distribution des notes. Ils souhaitent tester l'hypothèse selon laquelle les notes suivent une loi binomiale $\mathcal{B}\!\left(5;\frac{1}{2}\right)$. L'examen est noté sur 5 et 90 étudiants ont composé. Le tableau des effectifs observés est le suivant :
+
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+      Note & 0 & 1 & 2 & 3 & 4 & 5 \\
+      \hline
+      Effectif observé & 1 & 5 & 31 & 41 & 11 & 1 \\
+      \hline
+    \end{tabular}
+    \end{center}
+  }
+  \question{À l'aide d'un test du $\chi^2$ d'adéquation au risque $\alpha = 2{,}5\%$, tester l'hypothèse que les notes suivent une loi $\mathcal{B}\!\left(5;\frac{1}{2}\right)$. Justifier soigneusement la démarche.}
+  \indication{Calculer les effectifs théoriques sous $H_0$, vérifier qu'ils sont tous supérieurs à 5 (regrouper si nécessaire), puis calculer la statistique $\chi^2$.}
+  \reponse{
+    Sous $H_0 : X \sim \mathcal{B}(5;\frac{1}{2})$, les probabilités théoriques sont :
+    \[
+      p_k = \binom{5}{k}\left(\frac{1}{2}\right)^5, \quad k = 0,\ldots,5.
+    \]
+    Les effectifs théoriques $e_k = 90 \times p_k$ sont :
+
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+      Note $k$ & 0 & 1 & 2 & 3 & 4 & 5 \\
+      \hline
+      $p_k$ & $1/32$ & $5/32$ & $10/32$ & $10/32$ & $5/32$ & $1/32$ \\
+      \hline
+      $e_k$ & $2{,}81$ & $14{,}06$ & $28{,}13$ & $28{,}13$ & $14{,}06$ & $2{,}81$ \\
+      \hline
+    \end{tabular}
+    \end{center}
+
+    Les effectifs théoriques des notes 0 et 5 sont inférieurs à 5 ; on les regroupe avec leurs voisins :
+
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      Classe & $\{0,1\}$ & $\{2\}$ & $\{3\}$ & $\{4,5\}$ \\
+      \hline
+      Effectif observé $o_j$ & 6 & 31 & 41 & 12 \\
+      \hline
+      Effectif théorique $e_j$ & $16{,}88$ & $28{,}13$ & $28{,}13$ & $16{,}88$ \\
+      \hline
+    \end{tabular}
+    \end{center}
+
+    La statistique de test est :
+    \[
+      D = \sum_{j=1}^{4} \frac{(o_j - e_j)^2}{e_j}
+      = \frac{(6-16{,}88)^2}{16{,}88} + \frac{(31-28{,}13)^2}{28{,}13} + \frac{(41-28{,}13)^2}{28{,}13} + \frac{(12-16{,}88)^2}{16{,}88}
+      \approx 7{,}01 + 0{,}29 + 5{,}88 + 1{,}41 \approx 14{,}59.
+    \]
+    Sous $H_0$, $D \sim \chi^2(r - 1)$ où $r = 4$ est le nombre de classes après regroupement et les paramètres de la loi sont supposés connus (non estimés). Donc $D \sim \chi^2(3)$.
+
+    Le quantile $\chi^2_{3;\,0{,}975} \approx 9{,}35$. Comme $D \approx 14{,}59 > 9{,}35$, on rejette $H_0$ au risque $2{,}5\%$ : les données ne sont pas compatibles avec une loi $\mathcal{B}(5;\frac{1}{2})$.
+  }
+
+\end{enumerate}
+}

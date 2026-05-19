@@ -1,0 +1,204 @@
+\uuid{Rw4k}
+\titre{Estimation d'un paramètre de la loi de Rayleigh}
+\niveau{L3}
+\module{Probabilité et statistique}
+\chapitre{Estimateur}
+\sousChapitre{Intervalle de confiance}
+\theme{Loi de Rayleigh, biais, théorème central limite, Bienaymé-Tchebychev, loi du chi-deux}
+\auteur{}
+\datecreate{2026-05-19}
+\organisation{}
+\difficulte{3}
+
+\contenu{
+
+\texte{
+Soit $\sigma > 0$ un paramètre inconnu. On dit qu'une variable aléatoire $X$ suit une \textbf{loi de Rayleigh} de paramètre $\sigma$ si elle admet pour densité :
+\[
+  f_\sigma(x) = \frac{x}{\sigma^2} e^{-x^2/(2\sigma^2)} \mathbf{1}_{[0,+\infty[}(x).
+\]
+Soit $X_1, \ldots, X_n$ un échantillon i.i.d. de loi $f_\sigma$. On pose
+\[
+  \overline{Q}_n = \frac{1}{n} \sum_{i=1}^n X_i^2.
+\]
+}
+
+\begin{enumerate}
+
+%------- Partie 1 : propriétés de la loi -------
+
+\item
+  \question{Vérifier que $f_\sigma$ est bien une densité de probabilité.}
+  \indication{Effectuer le changement de variable $u = x^2/(2\sigma^2)$.}
+  \reponse{
+    On a $f_\sigma \geq 0$. Pour $x > 0$, on pose $u = \dfrac{x^2}{2\sigma^2}$, soit $du = \dfrac{x}{\sigma^2}\,dx$. Alors :
+    \[
+      \int_0^{+\infty} \frac{x}{\sigma^2} e^{-x^2/(2\sigma^2)}\,dx
+      = \int_0^{+\infty} e^{-u}\,du = 1.
+    \]
+    Donc $f_\sigma$ est bien une densité de probabilité.
+  }
+
+\item
+  \question{Calculer $\mathbb{E}[X_1^2]$ et $\mathrm{Var}(X_1^2)$.}
+  \indication{Utiliser le même changement de variable $u = x^2/(2\sigma^2)$ et la formule $\int_0^{+\infty} u^n e^{-u}\,du = n!$.}
+  \reponse{
+    Avec $u = \dfrac{x^2}{2\sigma^2}$, on a $x^2 = 2\sigma^2 u$ et $dx = \dfrac{\sigma}{\sqrt{2u}}\,du$, donc :
+    \[
+      \mathbb{E}[X_1^2]
+      = \int_0^{+\infty} x^2 \cdot \frac{x}{\sigma^2} e^{-x^2/(2\sigma^2)}\,dx
+      = \int_0^{+\infty} 2\sigma^2 u\, e^{-u}\,du
+      = 2\sigma^2.
+    \]
+    De même :
+    \[
+      \mathbb{E}[X_1^4]
+      = \int_0^{+\infty} (2\sigma^2 u)^2 e^{-u}\,du \cdot \frac{1}{2\sigma^2}\cdot 2\sigma^2
+      = \int_0^{+\infty} 4\sigma^4 u^2 e^{-u}\,du = 8\sigma^4.
+    \]
+    Donc :
+    \[
+      \mathrm{Var}(X_1^2) = \mathbb{E}[X_1^4] - \left(\mathbb{E}[X_1^2]\right)^2 = 8\sigma^4 - 4\sigma^4 = 4\sigma^4.
+    \]
+  }
+
+%------- Partie 2 : estimateur ponctuel -------
+
+\item
+  \question{Montrer que $\hat{\sigma}^2_n = \dfrac{\overline{Q}_n}{2}$ est un estimateur sans biais de $\sigma^2$.}
+  \reponse{
+    Par linéarité de l'espérance et la question précédente :
+    \[
+      \mathbb{E}[\hat{\sigma}^2_n]
+      = \frac{1}{2}\,\mathbb{E}[\overline{Q}_n]
+      = \frac{1}{2}\,\mathbb{E}[X_1^2]
+      = \frac{1}{2} \cdot 2\sigma^2 = \sigma^2.
+    \]
+    Donc $\hat{\sigma}^2_n$ est sans biais.
+  }
+
+\item
+  \question{Calculer le risque quadratique de $\hat{\sigma}^2_n$ et montrer que $\hat{\sigma}^2_n$ est convergent.}
+  \reponse{
+    L'estimateur étant sans biais, le risque quadratique est égal à la variance :
+    \[
+      \mathrm{Var}(\hat{\sigma}^2_n)
+      = \frac{1}{4}\,\mathrm{Var}(\overline{Q}_n)
+      = \frac{1}{4} \cdot \frac{\mathrm{Var}(X_1^2)}{n}
+      = \frac{1}{4} \cdot \frac{4\sigma^4}{n}
+      = \frac{\sigma^4}{n}.
+    \]
+    Donc $\mathrm{RQ}(\hat{\sigma}^2_n) = \dfrac{\sigma^4}{n} \xrightarrow[n\to+\infty]{} 0$, ce qui établit la convergence en moyenne quadratique, donc en probabilité.
+  }
+
+%------- Partie 3 : IC exact -------
+
+\item
+  \question{Montrer que pour tout $i$, la variable $Y_i = \dfrac{X_i^2}{\sigma^2}$ suit une loi exponentielle de paramètre $\dfrac{1}{2}$.}
+  \indication{Calculer la fonction de répartition de $Y_i$ en effectuant le changement de variable $u = x^2/(2\sigma^2)$.}
+  \reponse{
+    Pour $t > 0$ :
+    \[
+      P(Y_i \leq t)
+      = P\!\left(X_i \leq \sigma\sqrt{t}\right)
+      = \int_0^{\sigma\sqrt{t}} \frac{x}{\sigma^2} e^{-x^2/(2\sigma^2)}\,dx.
+    \]
+    Avec $u = \dfrac{x^2}{2\sigma^2}$, quand $x = \sigma\sqrt{t}$ on a $u = \dfrac{t}{2}$, donc :
+    \[
+      P(Y_i \leq t) = \int_0^{t/2} e^{-u}\,du = 1 - e^{-t/2}.
+    \]
+    C'est la fonction de répartition d'une loi exponentielle de paramètre $\dfrac{1}{2}$.
+  }
+
+\item
+  \texte{On admet que la somme de $n$ variables aléatoires indépendantes de loi exponentielle de paramètre $\dfrac{1}{2}$ suit une loi $\chi^2(2n)$.}
+  \question{En déduire que $T_n = \dfrac{2n\,\overline{Q}_n}{\sigma^2}$ suit une loi $\chi^2(2n)$.}
+  \reponse{
+    Les variables $Y_i = X_i^2/\sigma^2$ sont i.i.d. de loi exponentielle de paramètre $\frac{1}{2}$ d'après la question précédente. Par le résultat admis :
+    \[
+      \sum_{i=1}^n Y_i = \frac{1}{\sigma^2}\sum_{i=1}^n X_i^2 = \frac{n\,\overline{Q}_n}{\sigma^2} \cdot 2 \cdot \frac{1}{2}
+    \]
+    Plus précisément, $T_n = \displaystyle\sum_{i=1}^n Y_i = \frac{2n\,\overline{Q}_n}{\sigma^2} \sim \chi^2(2n)$.
+  }
+
+\item
+  \question{En déduire un intervalle de confiance \textbf{exact} de niveau $1-\alpha$ pour $\sigma^2$, symétrique en probabilité. On notera $\chi^2_{2n,\,p}$ le quantile d'ordre $p$ de la loi $\chi^2(2n)$.}
+  \reponse{
+    On cherche $a$ et $b$ tels que $P(a \leq T_n \leq b) = 1-\alpha$ avec $P(T_n < a) = P(T_n > b) = \alpha/2$. On pose $a = \chi^2_{2n,\,\alpha/2}$ et $b = \chi^2_{2n,\,1-\alpha/2}$. L'inégalité $a \leq T_n \leq b$ est équivalente à :
+    \[
+      \frac{2n\,\overline{Q}_n}{b} \leq \sigma^2 \leq \frac{2n\,\overline{Q}_n}{a}.
+    \]
+    L'intervalle de confiance exact de niveau $1-\alpha$ pour $\sigma^2$ est donc :
+    \[
+      I_{1-\alpha} = \left[\frac{2n\,\overline{Q}_n}{\chi^2_{2n,\,1-\alpha/2}}\;;\;\frac{2n\,\overline{Q}_n}{\chi^2_{2n,\,\alpha/2}}\right].
+    \]
+  }
+
+%------- Partie 4 : IC asymptotique -------
+
+\item
+  \question{À l'aide du théorème central limite, déterminer la loi asymptotique de $\sqrt{n}\!\left(\hat{\sigma}^2_n - \sigma^2\right)$.}
+  \reponse{
+    Les variables $X_i^2$ sont i.i.d. d'espérance $2\sigma^2$ et de variance $4\sigma^4$. Le TCL donne :
+    \[
+      \sqrt{n}\!\left(\overline{Q}_n - 2\sigma^2\right) \xrightarrow[n\to+\infty]{\mathcal{L}} \mathcal{N}(0, 4\sigma^4).
+    \]
+    Comme $\hat{\sigma}^2_n = \overline{Q}_n/2$, on obtient :
+    \[
+      \sqrt{n}\!\left(\hat{\sigma}^2_n - \sigma^2\right) \xrightarrow[n\to+\infty]{\mathcal{L}} \mathcal{N}(0, \sigma^4).
+    \]
+  }
+
+\item
+  \question{En déduire un intervalle de confiance \textbf{asymptotique} de niveau $1-\alpha$ pour $\sigma^2$. On notera $z_{\alpha/2}$ le quantile d'ordre $1-\alpha/2$ de la loi $\mathcal{N}(0,1)$.}
+  \reponse{
+    D'après la question précédente :
+    \[
+      \frac{\sqrt{n}\!\left(\hat{\sigma}^2_n - \sigma^2\right)}{\sigma^2} \xrightarrow{\mathcal{L}} \mathcal{N}(0,1).
+    \]
+    Pour $n$ grand, $P\!\left(\left|\hat{\sigma}^2_n - \sigma^2\right| \leq \dfrac{z_{\alpha/2}\,\sigma^2}{\sqrt{n}}\right) \approx 1-\alpha$.
+    En remplaçant $\sigma^2$ par $\hat{\sigma}^2_n$ dans la marge d'erreur, on obtient l'intervalle asymptotique :
+    \[
+      J_{1-\alpha} = \left[\hat{\sigma}^2_n\!\left(1 - \frac{z_{\alpha/2}}{\sqrt{n}}\right) \;;\; \hat{\sigma}^2_n\!\left(1 + \frac{z_{\alpha/2}}{\sqrt{n}}\right)\right].
+    \]
+  }
+
+%------- Partie 5 : Bienaymé-Tchebychev -------
+
+\item
+  \question{Sans hypothèse supplémentaire sur la loi de $\hat{\sigma}^2_n$, montrer qu'il existe une constante $M > 0$ ne dépendant ni de $\sigma$ ni de $n$ telle que, pour tout $\lambda > 0$ :
+  \[
+    P\!\left(\left|\hat{\sigma}^2_n - \sigma^2\right| \geq \lambda\sigma^2\right) \leq \frac{M}{n}.
+  \]
+  }
+  \indication{Appliquer l'inégalité de Bienaymé-Tchebychev à $\hat{\sigma}^2_n$.}
+  \reponse{
+    L'inégalité de Bienaymé-Tchebychev appliquée à $\hat{\sigma}^2_n$ donne, pour tout $\varepsilon > 0$ :
+    \[
+      P\!\left(\left|\hat{\sigma}^2_n - \sigma^2\right| \geq \varepsilon\right) \leq \frac{\mathrm{Var}(\hat{\sigma}^2_n)}{\varepsilon^2} = \frac{\sigma^4}{n\varepsilon^2}.
+    \]
+    En posant $\varepsilon = \lambda\sigma^2$ :
+    \[
+      P\!\left(\left|\hat{\sigma}^2_n - \sigma^2\right| \geq \lambda\sigma^2\right) \leq \frac{\sigma^4}{n\lambda^2\sigma^4} = \frac{1}{n\lambda^2}.
+    \]
+    On pose $M = \dfrac{1}{\lambda^2}$, constante ne dépendant ni de $\sigma$ ni de $n$.
+  }
+
+\item
+  \question{En déduire un intervalle de confiance de niveau \textbf{au moins} $1-\alpha$ pour $\sigma^2$. Comparer sa largeur à celle des intervalles obtenus aux questions 7 et 9 : quel est le prix à payer pour ne pas utiliser la loi exacte de $\hat{\sigma}^2_n$ ?}
+  \reponse{
+    On fixe $\alpha \in (0,1)$. D'après la question précédente, en prenant $\varepsilon$ tel que $\dfrac{\sigma^4}{n\varepsilon^2} \leq \alpha$, soit $\varepsilon = \sigma^2\sqrt{\dfrac{1}{n\alpha}}$, on obtient :
+    \[
+      P\!\left(\left|\hat{\sigma}^2_n - \sigma^2\right| \leq \sigma^2\sqrt{\frac{1}{n\alpha}}\right) \geq 1 - \alpha.
+    \]
+    En remplaçant $\sigma^2$ par $\hat{\sigma}^2_n$, l'intervalle de confiance BT est :
+    \[
+      K_{1-\alpha} = \left[\hat{\sigma}^2_n\!\left(1 - \sqrt{\frac{1}{n\alpha}}\right) \;;\; \hat{\sigma}^2_n\!\left(1 + \sqrt{\frac{1}{n\alpha}}\right)\right].
+    \]
+    Sa demi-largeur relative est $\sqrt{\dfrac{1}{n\alpha}}$, contre $\dfrac{z_{\alpha/2}}{\sqrt{n}}$ pour l'IC asymptotique.
+    Pour $\alpha = 5\%$, on a $\sqrt{1/(n\alpha)} = \sqrt{20/n}$ contre $z_{0.025}/\sqrt{n} \approx 1{,}96/\sqrt{n}$.
+    L'IC par BT est donc environ $\sqrt{20}/1{,}96 \approx 2{,}3$ fois plus large que l'IC asymptotique : c'est le coût de ne pas exploiter la structure probabiliste précise de l'estimateur.
+  }
+
+\end{enumerate}
+}
