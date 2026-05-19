@@ -1,5 +1,5 @@
 \uuid{uI4M}
-\titre{Introduction aux séries de Fourier — Retrouver une fonction périodique à partir d'une somme trigonométrique}
+\titre{Introduction aux séries de Fourier}
 \niveau{L2}
 \module{Analyse}
 \chapitre{Série de Fourier}
@@ -13,25 +13,24 @@
 \contenu{
 	
 	\texte{
-		On connaît déjà les séries numériques et les séries entières, qui permettent d'écrire certaines
-		fonctions sous la forme d'une somme infinie. On cherche ici à comprendre une autre idée : peut-on
-		reconstruire une fonction périodique à partir des fonctions
-		\[
-		1,\quad \cos(x),\quad \sin(x),\quad \cos(2x),\quad \sin(2x),\quad \ldots
-		\]
+		Peut-on reconstruire une fonction périodique à partir des fonctions
+		$$
+		1,\quad \cos(x),\quad \sin(x),\quad \cos(2x),\quad \sin(2x),\quad \ldots ?
+		$$
+		On considère la fonction $f$, $2\pi$-périodique, définie sur $[-\pi,\pi]$ par $f(x)=x$.
 	}
 	
 	\begin{enumerate}
 		
 		%-------------------------------------------------------
-		\item \texte{\textbf{Une première approximation.}
+		\item 
 			
-			On considère la fonction $f$, $2\pi$-périodique, définie sur $[-\pi,\pi]$ par $f(x)=x$.
+
 			On cherche à l'approcher par une fonction de la forme $S_1(x)=a\cos(x)+b\sin(x)$.}
 		
 		\begin{enumerate}
 			
-			\item \question{Représenter qualitativement la fonction $f$ sur $[-\pi,\pi]$.}
+			\item \question{Représenter graphiquement la fonction $f$ sur $[-\pi,\pi]$.}
 			\reponse{La fonction $f : x \mapsto x$ est la droite passant par l'origine, de pente $1$,
 				tracée sur $[-\pi,\pi]$.}
 			
@@ -44,16 +43,30 @@
 				Approcher une fonction impaire par une combinaison de fonctions implique que les termes pairs
 				n'ont pas leur place : on conjecture $a = 0$.}
 			
-			\item \question{On choisit donc une approximation de la forme $S_1(x)=b\sin(x)$.
-				On souhaite choisir $b$ de sorte que l'erreur $f(x)-b\sin(x)$ soit, en un certain sens,
-				aussi petite que possible.
-				
-				\emph{Note.} On peut montrer que la condition ci-dessous est équivalente à minimiser
-				l'erreur quadratique intégrale $\displaystyle\int_{-\pi}^{\pi}\bigl(f(x)-b\sin(x)\bigr)^2\,dx$.
-				C'est en ce sens que $b$ sera « optimal ».}
-			\reponse{Cette remarque prépare la condition d'orthogonalité introduite à la partie suivante.
-				Elle évite que le choix de la condition intégrale paraisse arbitraire.}
-			
+		\item \question{On choisit donc une approximation de la forme $S_1(x)=b\sin(x)$.
+		On souhaite choisir $b$ de sorte que l'erreur quadratique intégrale
+	\[
+	E(b) = \int_{-\pi}^{\pi}\bigl(f(x)-b\sin(x)\bigr)^2\,dx
+	\]
+	soit minimale. Montrer que minimiser $E(b)$ revient à imposer la condition
+	\[
+	\int_{-\pi}^{\pi}\left(f(x)-b\sin(x)\right)\sin(x)\,dx = 0.
+	\]}
+\reponse{$E(b)$ est une fonction polynomiale de degré 2 en $b$, à coefficients réels.
+	En développant :
+	\[
+	E(b)
+	= \int_{-\pi}^{\pi} f(x)^2\,dx
+	- 2b\int_{-\pi}^{\pi} f(x)\sin(x)\,dx
+	+ b^2\int_{-\pi}^{\pi}\sin^2(x)\,dx.
+	\]
+	Comme $\int_{-\pi}^{\pi}\sin^2(x)\,dx = \pi > 0$, $E$ est une parabole ouverte vers le haut,
+	et admet un unique minimum atteint en $b^*$ vérifiant $E'(b^*)=0$, soit
+	\[
+	-2\int_{-\pi}^{\pi}f(x)\sin(x)\,dx + 2b^*\int_{-\pi}^{\pi}\sin^2(x)\,dx = 0,
+	\]
+	ce qui est exactement la condition d'orthogonalité
+	$\displaystyle\int_{-\pi}^{\pi}\bigl(f(x)-b^*\sin(x)\bigr)\sin(x)\,dx = 0$.}
 		\end{enumerate}
 		
 		%-------------------------------------------------------
@@ -65,17 +78,7 @@
 			\]}
 		
 		\begin{enumerate}
-			
-			\item \question{Montrer que cette condition équivaut à
-				\[
-				\int_{-\pi}^{\pi} f(x)\sin(x)\,dx = b\int_{-\pi}^{\pi} \sin^2(x)\,dx.
-				\]}
-			\reponse{Par linéarité de l'intégrale :
-				\[
-				\int_{-\pi}^{\pi} \bigl(f(x)-b\sin(x)\bigr)\sin(x)\,dx
-				= \int_{-\pi}^{\pi} f(x)\sin(x)\,dx - b\int_{-\pi}^{\pi} \sin^2(x)\,dx = 0,
-				\]
-				ce qui donne bien l'égalité annoncée.}
+
 			
 			\item \question{Calculer $\displaystyle\int_{-\pi}^{\pi} \sin^2(x)\,dx$.}
 			\reponse{En utilisant la formule $\sin^2(x)=\dfrac{1-\cos(2x)}{2}$ :
@@ -238,26 +241,7 @@
 			
 		\end{enumerate}
 		
-		%-------------------------------------------------------
-		\item \texte{\textbf{Bilan.}
-			
-			Pour approcher une fonction périodique, on peut chercher à la décomposer comme une somme
-			de fonctions trigonométriques :
-			\[
-			f(x) \sim \frac{a_0}{2} + \sum_{n\geqslant 1}\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr).
-			\]
-			Le terme $\dfrac{a_0}{2}$ correspond à la « valeur moyenne » de $f$ sur $[-\pi,\pi]$,
-			obtenue en appliquant la même condition d'orthogonalité à la fonction constante $1$
-			(le facteur $\tfrac{1}{2}$ est une convention qui uniformise la formule).
-			Les nombres $a_n$ et $b_n$ sont appelés \textbf{coefficients de Fourier} de $f$.
-			Ils mesurent la « quantité » de chaque oscillation $\cos(nx)$ ou $\sin(nx)$ présente dans $f$.
-			
-			Dans le cas général, on montrera que
-			\[
-			a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos(nx)\,dx,
-			\qquad
-			b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin(nx)\,dx.
-			\]}
+
 		
 	\end{enumerate}
 }
