@@ -1,0 +1,119 @@
+\uuid{gqgj}
+\titre{Estimation d'un paramètre de la loi de Weibull}
+\niveau{L3}
+\module{Probabilité et statistique}
+\chapitre{Estimateur}
+\sousChapitre{Estimateur}
+\theme{Loi de Weibull, maximum de vraisemblance, loi du chi-deux, biais, convergence}
+\auteur{Erwan L'haridon}
+\datecreate{2026-05-19}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+	
+	\texte{
+		La durée de vie d'un matériel est modélisée par une variable aléatoire $X$ suivant une loi de Weibull $\mathcal{W}\!\left(\lambda, \frac{1}{2}\right)$ de densité :
+		\[
+		f(x, \lambda) = \frac{1}{2\lambda\sqrt{x}}\exp\!\left(-\frac{\sqrt{x}}{\lambda}\right)\mathbf{1}_{\mathbb{R}^+}(x),
+		\]
+		dont l'espérance vaut $\mathbb{E}(X) = 2\lambda$ et la variance $\mathbb{V}(X) = 20\lambda^2$.
+		
+		Soit $(X_1, \ldots, X_n)$ un $n$-échantillon i.i.d. de loi $\mathcal{W}\!\left(\lambda, \frac{1}{2}\right)$.
+	}
+	
+	\begin{enumerate}
+		
+		\item
+		\question{Déterminer l'estimateur du maximum de vraisemblance $\hat{\lambda}$ de $\lambda$.}
+		\indication{Étudier la log-vraisemblance et annuler sa dérivée par rapport à $\lambda$.}
+		\reponse{
+			Pour $x_i > 0$, $\forall\, 1 \leq i \leq n$, la vraisemblance est :
+			\[
+			\mathcal{L}(x_1, \ldots, x_n, \lambda)
+			= \prod_{i=1}^n f(x_i, \lambda)
+			= \frac{1}{2^n \lambda^n \sqrt{\prod_{i=1}^n x_i}}
+			\exp\!\left(-\frac{1}{\lambda}\sum_{i=1}^n \sqrt{x_i}\right).
+			\]
+			La log-vraisemblance est :
+			\[
+			\hat{\mathcal{L}}(x_1, \ldots, x_n, \lambda)
+			= -n\ln 2 - n\ln\lambda - \frac{1}{2}\sum_{i=1}^n \ln x_i - \frac{1}{\lambda}\sum_{i=1}^n \sqrt{x_i}.
+			\]
+			On annule la dérivée par rapport à $\lambda$ :
+			\[
+			\frac{\partial}{\partial\lambda}\hat{\mathcal{L}} = -\frac{n}{\lambda} + \frac{1}{\lambda^2}\sum_{i=1}^n \sqrt{x_i} = 0
+			\iff \lambda = \frac{1}{n}\sum_{i=1}^n \sqrt{x_i}.
+			\]
+			On vérifie qu'il s'agit bien d'un maximum en calculant la dérivée seconde évaluée en $\hat{\lambda}$ :
+			\[
+			\frac{\partial^2}{\partial\lambda^2}\hat{\mathcal{L}}\!\left(x_1,\ldots,x_n,\frac{1}{n}\sum_{i=1}^n\sqrt{x_i}\right)
+			= -\frac{n^3}{\left(\sum_{i=1}^n\sqrt{x_i}\right)^2} < 0.
+			\]
+			L'estimateur du maximum de vraisemblance est donc :
+			\[
+			\hat{\lambda} = \frac{1}{n}\sum_{i=1}^n \sqrt{X_i}.
+			\]
+		}
+		
+		\item
+		\question{Montrer que $\dfrac{2}{\lambda}\sqrt{X}$ suit une loi du $\chi^2$ dont on précisera le paramètre. En déduire que $\dfrac{2}{\lambda}\displaystyle\sum_{i=1}^n \sqrt{X_i} \sim \chi^2(2n)$.}
+		\indication{Pour toute fonction $\varphi$ continue bornée, calculer $\mathbb{E}\!\left(\varphi\!\left(\frac{2}{\lambda}\sqrt{X}\right)\right)$ à l'aide du changement de variable $u = \frac{2}{\lambda}\sqrt{x}$.}
+		\reponse{
+			Soit $\varphi$ une fonction continue bornée. On calcule :
+			\begin{align*}
+				\mathbb{E}\!\left(\varphi\!\!\left(\frac{2}{\lambda}\sqrt{X}\right)\right)
+				&= \int_0^{+\infty} \varphi\!\!\left(\frac{2}{\lambda}\sqrt{x}\right)
+				\frac{1}{2\lambda\sqrt{x}}\exp\!\left(-\frac{\sqrt{x}}{\lambda}\right)dx.
+			\end{align*}
+			On pose $u = \dfrac{2}{\lambda}\sqrt{x}$, soit $x = \dfrac{\lambda^2 u^2}{4}$ et $dx = \dfrac{\lambda^2 u}{2}\,du$. Alors $\sqrt{x} = \dfrac{\lambda u}{2}$ et :
+			\begin{align*}
+				\mathbb{E}\!\left(\varphi\!\!\left(\frac{2}{\lambda}\sqrt{X}\right)\right)
+				&= \int_0^{+\infty} \varphi(u)\,
+				\frac{1}{2\lambda \cdot \frac{\lambda u}{2}}
+				\exp\!\left(-\frac{u}{2}\right)
+				\frac{\lambda^2 u}{2}\,du \\
+				&= \int_0^{+\infty} \varphi(u)\,\frac{1}{2}\exp\!\left(-\frac{u}{2}\right)du \\
+				&= \int_0^{+\infty} \varphi(u)\,\frac{1}{\Gamma\!\left(\frac{1}{2}\right) \cdot 2^{1/2}}\,
+				u^{\frac{1}{2}-1} e^{-u/2}\,du \cdot \Gamma\!\!\left(\tfrac{1}{2}\right)2^{1/2} \cdot \frac{1}{2}.
+			\end{align*}
+			On reconnaît la densité d'une loi $\chi^2(2)$ (i.e. $\Gamma\!\left(1, \frac{1}{2}\right)$) :
+			\[
+			\frac{1}{2}e^{-u/2} = \frac{1}{\Gamma(1)\cdot 2^1}\,u^{1-1}e^{-u/2}.
+			\]
+			Donc $\dfrac{2}{\lambda}\sqrt{X} \sim \chi^2(2)$.
+			
+			Les variables $\dfrac{2}{\lambda}\sqrt{X_i}$ sont i.i.d. de loi $\chi^2(2)$. Par stabilité de la loi du $\chi^2$ par sommation de variables indépendantes :
+			\[
+			\frac{2}{\lambda}\sum_{i=1}^n \sqrt{X_i} \sim \chi^2(2n).
+			\]
+		}
+		
+		\item
+		\question{En déduire la loi de $\dfrac{2n\hat{\lambda}}{\lambda}$, puis le biais et la variance de $\hat{\lambda}$. L'estimateur $\hat{\lambda}$ est-il convergent ?}
+		\reponse{
+			On a $\dfrac{2n\hat{\lambda}}{\lambda} = \dfrac{2}{\lambda}\displaystyle\sum_{i=1}^n \sqrt{X_i} \sim \chi^2(2n)$.
+			
+			Si $T \sim \chi^2(m)$, alors $\mathbb{E}(T) = m$ et $\mathbb{V}(T) = 2m$. On en déduit :
+			\[
+			\mathbb{E}\!\left(\frac{2n\hat{\lambda}}{\lambda}\right) = 2n
+			\implies \frac{2n}{\lambda}\,\mathbb{E}(\hat{\lambda}) = 2n
+			\implies \mathbb{E}(\hat{\lambda}) = \lambda.
+			\]
+			Donc $\hat{\lambda}$ est \textbf{sans biais} : $\mathbb{B}(\hat{\lambda}) = 0$.
+			
+			Pour la variance :
+			\[
+			\mathbb{V}\!\left(\frac{2n\hat{\lambda}}{\lambda}\right) = 4n
+			\implies \frac{4n^2}{\lambda^2}\,\mathbb{V}(\hat{\lambda}) = 4n
+			\implies \mathbb{V}(\hat{\lambda}) = \frac{\lambda^2}{n}.
+			\]
+			L'estimateur étant sans biais, le risque quadratique est :
+			\[
+			\mathrm{EQM}(\hat{\lambda}) = \mathbb{V}(\hat{\lambda}) = \frac{\lambda^2}{n} \xrightarrow[n\to+\infty]{} 0.
+			\]
+			Donc $\hat{\lambda}$ est \textbf{convergent} (en moyenne quadratique, donc en probabilité).
+		}
+		
+	\end{enumerate}
+}
