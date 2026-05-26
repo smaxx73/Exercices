@@ -14,33 +14,30 @@
 	
 	\texte{
 		Soit $\theta > 0$ un paramètre inconnu. On dit qu'une variable aléatoire $X$ suit une \textbf{loi de Rayleigh} de paramètre $\theta$ si elle admet pour densité :
-		\[
-		f_\theta(x) = \frac{x}{\theta^2} e^{-x^2/(2\theta^2)} \mathbf{1}_{[0,+\infty[}(x).
-		\]
-		Soit $X_1, \ldots, X_n$ un échantillon i.i.d. de loi $f_\theta$. On pose
-		\[
-		\overline{Q}_n = \frac{1}{n} \sum_{i=1}^n X_i^2.
-		\]
+		$$
+		f_\theta(x) = \frac{x}{\theta^2} e^{\frac{-x^2}{2\theta^2}} \mathbf{1}_{[0,+\infty[}(x).
+		$$
+		Soit $X_1, \ldots, X_n$ un échantillon i.i.d. de loi $f_\theta$. On pose $\displaystyle \overline{Q}_n = \frac{1}{n} \sum_{i=1}^n X_i^2.$
 	}
 	
 	\begin{enumerate}
 		
 		%------- Partie 1 : propriétés de la loi -------
 		
-		\item
-		\question{Vérifier que $f_\theta$ est bien une densité de probabilité.}
-		\indication{Effectuer le changement de variable $u = x^2/(2\theta^2)$.}
-		\reponse{
-			On a $f_\theta \geq 0$. Pour $x > 0$, on pose $u = \dfrac{x^2}{2\theta^2}$, soit $du = \dfrac{x}{\theta^2}\,dx$. Alors :
-			\[
-			\int_0^{+\infty} \frac{x}{\theta^2} e^{-x^2/(2\theta^2)}\,dx
-			= \int_0^{+\infty} e^{-u}\,du = 1.
-			\]
-			Donc $f_\theta$ est bien une densité de probabilité.
-		}
+%		\item
+%		\question{Vérifier que $f_\theta$ est bien une densité de probabilité.}
+%		\indication{Effectuer le changement de variable $u = x^2/(2\theta^2)$.}
+%		\reponse{
+%			On a $f_\theta \geq 0$. Pour $x > 0$, on pose $u = \dfrac{x^2}{2\theta^2}$, soit $du = \dfrac{x}{\theta^2}\,dx$. Alors :
+%			\[
+%			\int_0^{+\infty} \frac{x}{\theta^2} e^{-x^2/(2\theta^2)}\,dx
+%			= \int_0^{+\infty} e^{-u}\,du = 1.
+%			\]
+%			Donc $f_\theta$ est bien une densité de probabilité.
+%		}
 		
 		\item
-		\question{Calculer $\mathbb{E}[X_1^2]$ et $\mathrm{Var}(X_1^2)$.}
+		\question{Montrer que $\mathbb{E}[X_1^2] = 2\theta^2$ et en déduire que $\mathrm{Var}(X_1^2) = 4\theta^4$.}
 		\indication{Utiliser le même changement de variable $u = x^2/(2\theta^2)$ et la formule $\int_0^{+\infty} u^k e^{-u}\,du = k!$.}
 		\reponse{
 			Avec $u = \dfrac{x^2}{2\theta^2}$, on a $x^2 = 2\theta^2 u$ et $dx = \dfrac{\theta}{\sqrt{2u}}\,du$, donc :
@@ -86,7 +83,7 @@
 		}
 		
 		\item
-		\question{Montrer que $\hat{\theta}^2_n := \hat{\theta}^2_{\mathrm{MV}} = \dfrac{\overline{Q}_n}{2}$ est un estimateur sans biais de $\theta^2$.}
+		\question{Montrer que $\hat{\theta}^2_n = \hat{\theta}^2_{\mathrm{MV}} = \dfrac{\overline{Q}_n}{2}$ est un estimateur sans biais de $\theta^2$.}
 		\reponse{
 			Par linéarité de l'espérance et la question 2 :
 			\[
@@ -99,7 +96,7 @@
 		}
 		
 		\item
-		\question{Calculer l'écart quadratique moyen de $\hat{\theta}^2_n$ et montrer que $\hat{\theta}^2_n$ converge en moyenne quadratique vers $\theta^2$.}
+		\question{Montrer que $\hat{\theta}^2_n$ converge en moyenne quadratique vers $\theta^2$.}
 		\reponse{
 			L'estimateur étant sans biais, l'écart quadratique moyen est égal à la variance :
 			\[
@@ -188,9 +185,9 @@
 		
 		\item
 		\question{Sans hypothèse supplémentaire sur la loi de $\hat{\theta}^2_n$, montrer qu'il existe une constante $M > 0$ ne dépendant ni de $\theta$ ni de $n$ telle que, pour tout $\lambda > 0$ :
-			\[
+			$$
 			P\!\left(\left|\hat{\theta}^2_n - \theta^2\right| \geq \lambda\theta^2\right) \leq \frac{M}{n}.
-			\]
+			$$
 		}
 		\indication{Appliquer l'inégalité de Bienaymé-Tchebychev à $\hat{\theta}^2_n$.}
 		\reponse{
@@ -206,12 +203,12 @@
 		}
 		
 		\item
-		\question{En déduire un intervalle de confiance de niveau \textbf{au moins} $95\%$ pour $\theta^2$ via l'inégalité de Bienaymé-Tchebychev. Comparer sa largeur à celle des intervalles obtenus aux questions 8 et 10 : quel est le prix à payer pour ne pas utiliser la loi exacte de $\hat{\theta}^2_n$ ?}
+		\question{En déduire un intervalle de confiance de niveau au moins $95\%$ pour $\theta^2$ via l'inégalité de Bienaymé-Tchebychev. Comparer sa largeur à celle des intervalles obtenus aux questions 8 et 10 : quel est le prix à payer pour ne pas utiliser la loi exacte de $\hat{\theta}^2_n$ ?}
 		\reponse{
 			On fixe un niveau de confiance $95\%$, soit $\alpha = 0{,}05$. D'après la question précédente, en prenant $\varepsilon$ tel que $\dfrac{\theta^4}{n\varepsilon^2} \leq 0{,}05$, soit $\varepsilon = \theta^2\sqrt{\dfrac{20}{n}}$, on obtient :
-			\[
+			$$
 			P\!\left(\left|\hat{\theta}^2_n - \theta^2\right| \leq \theta^2\sqrt{\frac{20}{n}}\right) \geq 0{,}95.
-			\]
+			$$
 			En remplaçant $\theta^2$ par $\hat{\theta}^2_n$, l'intervalle de confiance BT est :
 			\[
 			K_{0{,}95} = \left[\hat{\theta}^2_n\!\left(1 - \sqrt{\frac{20}{n}}\right) \;;\; \hat{\theta}^2_n\!\left(1 + \sqrt{\frac{20}{n}}\right)\right].

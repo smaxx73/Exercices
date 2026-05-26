@@ -4,146 +4,137 @@
 \module{Probabilité et statistique}
 \chapitre{Tests sur la moyenne, test du chi2}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\theme{Test de Student, intervalle de confiance, test de la variance, chi-deux, puissance, p-valeur}
-\auteur{}
+\theme{Test de Student, intervalle de confiance, test de la variance, chi-deux, puissance, p-valeur, approximation de Fisher}
+\auteur{Erwan l'Haridon}
 \datecreate{2026-05-19}
-\organisation{}
+\organisation{AMSCC}
 \difficulte{3}
 
 \contenu{
+	
+	\texte{
+		En 1879, Michelson effectue 100 mesures de la vitesse de la lumière (en km$\cdot$s$^{-1}$). On modélise ces mesures comme des variables aléatoires i.i.d. gaussiennes d'espérance $\mu$ et d'écart-type $\sigma$ inconnus. Sur cet échantillon, on dispose des observations suivantes :
+		$$
+		\bar{x} = 299\,852 \text{ km$\cdot$s$^{-1}$}, \qquad s = 79 \text{ km$\cdot$s$^{-1}$} \quad (n = 100).
+		$$
+		L'estimateur $S$ utilisé ici est $S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X_i - \overline{X})^2}$.
+		
+		À l'époque, la valeur communément admise était $c_{1879} = 299\,840$ km$\cdot$s$^{-1}$. Aujourd'hui, elle est établie à $c_{2026} = 299\,792$ km$\cdot$s$^{-1}$.
+		
+		Dans tout l'exercice, le risque de première espèce vaut $\alpha = 5\%$.
+	}
+	
+	\begin{enumerate}
+		
+		\item
+		\question{Tester l'hypothèse nulle que les mesures de Michelson sont conformes à la valeur $c_{1879} = 299\,840$ km$\cdot$s$^{-1}$ communément admise en 1879, puis tester si elles sont en accord avec la valeur établie aujourd'hui $c_{2026} = 299\,792$ km$\cdot$s$^{-1}$. Pour chaque test, construire la statistique, la région de rejet et conclure.}
+		\indication{La variance étant inconnue, on utilise la statistique de Student ; pour $n = 100$, la table de Student n'étant pas disponible pour de grands échantillons, on approchera la loi de Student par une loi normale centrée réduite.}
+		\reponse{
+			\textbf{Test 1 : conformité avec $c_{1879}$.}
+			
+			On teste $H_0 : \mu = c_{1879}$ contre $H_1 : \mu \neq c_{1879}$. C'est un test bilatéral sur la moyenne d'un échantillon gaussien de variance inconnue. La statistique de test est :
+			\[
+			T = \frac{\bar{X} - c_{1879}}{S/\sqrt{n}} \sim \mathcal{S}t(n-1) = \mathcal{S}t(99) \quad \text{sous } H_0.
+			\]
+			Pour $n = 100$, on approche $\mathcal{S}t(99)$ par $\mathcal{N}(0,1)$. Rappelons que le \textbf{quantile d'ordre $p$} d'une loi est la valeur $q_p$ telle que $P(X \le q_p) = p$. La région de rejet au seuil de $5\%$ est :
+			\[
+			\mathcal{R} = \left]-\infty\,;\,-q_{0{,}975}\right[ \cup \left]q_{0{,}975}\,;\,+\infty\right[, \quad \text{avec } q_{0{,}975} \approx 1{,}96.
+			\]
+			Application numérique :
+			\[
+			t_{\text{obs}} = \frac{299\,852 - 299\,840}{79/\sqrt{100}} \approx 1{,}52.
+			\]
+			Comme $|t_{\text{obs}}| = 1{,}52 < 1{,}96$, on ne rejette pas $H_0$ au seuil de $5\%$ : les mesures de Michelson sont jugées compatibles avec $c_{1879}$.
+			
+			La $p$-valeur est :
+			\[
+			p\text{-val} = P_{H_0}(|T| > 1{,}52) \approx 2\Phi(-1{,}52) \approx 0{,}13 > 0{,}05.
+			\]
+			On confirme le non-rejet de $H_0$.
+			
+			Le risque de seconde espèce ne peut pas être calculé car l'hypothèse alternative $H_1 : \mu \neq c_{1879}$ est composite (elle ne spécifie pas une valeur exacte pour $\mu$).
+			
+			\medskip
+			\textbf{Test 2 : conformité avec $c_{2026}$.}
+			
+			On teste $H_0 : \mu = c_{2026} = 299\,792$ contre $H_1 : \mu \neq c_{2026}$. Sous $H_0$, la même statistique de test suit approximativement une loi $\mathcal{N}(0,1)$, avec la même région de rejet.
+			
+			Application numérique :
+			\[
+			t_{\text{obs}} = \frac{299\,852 - 299\,792}{79/\sqrt{100}} \approx 7{,}59.
+			\]
+			Comme $|t_{\text{obs}}| = 7{,}59 \gg 1{,}96$, on rejette $H_0$. Les mesures de Michelson ne sont pas en accord avec la valeur moderne établie en 2026.
+		}
+		
 
-\texte{
-En 1879, Michelson effectue 100 mesures de la vitesse de la lumière (en km$\cdot$s$^{-1}$). On modélise ces mesures comme des variables aléatoires i.i.d. gaussiennes d'espérance $\mu$ et d'écart-type $\sigma$ inconnus. Sur cet échantillon, on dispose de :
-\[
-  \bar{x} = 299\,852 \text{ km$\cdot$s$^{-1}$}, \qquad s = 79 \text{ km$\cdot$s$^{-1}$} \quad (n = 100).
-\]
-À l'époque, la valeur communément admise est $c_{1879} = 299\,840$ km$\cdot$s$^{-1}$. Aujourd'hui, elle est établie à $c_{2026} = 299\,792$ km$\cdot$s$^{-1}$.
+\texte{On souhaite tester l'écart-type $\sigma$ de la mesure. Sous $H_0 : \sigma = \sigma_0$, la statistique de test usuelle est :
+	$$
+	K = (n-1)\,\frac{S^2}{\sigma_0^2} \sim \chi^2(n-1).
+	$$
+	La table du $\chi^2$ n'étant pas disponible pour $d = n-1 = 99$ degrés de liberté, on utilise l'approximation de Fisher : si $K \sim \chi^2(d)$, alors pour $d$ grand, la statistique $Z = \sqrt{2K} - \sqrt{2d-1}$ suit approximativement une loi normale centrée réduite $\mathcal{N}(0, 1)$. 
+	
+	On rappelle que le quantile d'ordre $p$ d'une loi est la valeur $q_p$ telle que $P(X \le q_p) = p$.}
 
-Dans tout l'exercice, le risque de première espèce vaut $\alpha = 5\%$.
-}
 
-\begin{enumerate}
-
-\item
-  \question{Tester l'hypothèse nulle que les mesures de Michelson sont conformes à la valeur $c_{1879} = 299\,840$ km$\cdot$s$^{-1}$ communément admise en 1879. Construire le test, préciser la statistique, la région de rejet et la décision. Calculer la $p$-valeur. Peut-on déterminer le risque de seconde espèce ?}
-  \indication{La variance étant inconnue, on utilise la statistique de Student ; pour $n = 100$, on pourra approcher la loi de Student par une loi normale centrée réduite.}
-  \reponse{
-    On teste $H_0 : \mu = c_{1879}$ contre $H_1 : \mu \neq c_{1879}$. C'est un test bilatéral sur la moyenne d'un échantillon gaussien de variance inconnue. La statistique de test est :
-    \[
-      T = \frac{\bar{X} - c_{1879}}{S/\sqrt{n}} \sim \mathcal{S}t(n-1) = \mathcal{S}t(99) \quad \text{sous } H_0.
-    \]
-    Pour $n = 100$, on approche $\mathcal{S}t(99)$ par $\mathcal{N}(0,1)$. La région de rejet est :
-    \[
-      \mathcal{R} = \left]-\infty\,;\,-q_{0{,}975}\right[ \cup \left]q_{0{,}975}\,;\,+\infty\right[, \quad q_{0{,}975} \approx 1{,}98.
-    \]
-    Application numérique :
-    \[
-      t_{\text{obs}} = \frac{299\,852 - 299\,840}{79/\sqrt{100}} \approx 1{,}52.
-    \]
-    Comme $|t_{\text{obs}}| = 1{,}52 < 1{,}98$, on ne rejette pas $H_0$ : les mesures de Michelson sont compatibles avec $c_{1879}$.
-
-    La $p$-valeur est :
-    \[
-      p\text{-val} = P_{H_0}(|T| > 1{,}52) \approx 2\Phi(-1{,}52) \approx 0{,}13 > 0{,}05 = \alpha.
-    \]
-    On confirme la non-rejection de $H_0$.
-
-    Le risque de seconde espèce ne peut pas être calculé ici : l'hypothèse alternative $H_1 : \mu \neq c_{1879}$ est composite (elle ne fixe pas une valeur précise de $\mu$), ce qui empêche de calculer $\beta = P_{H_1}(\text{ne pas rejeter } H_0)$.
-  }
-
-\item
-  \question{Construire un intervalle de confiance bilatère de niveau $95\%$ pour la vitesse de la lumière $\mu$ à partir de l'échantillon de Michelson.}
-  \reponse{
-    La statistique $T = \dfrac{\bar{X} - \mu}{S/\sqrt{n}} \sim \mathcal{S}t(99)$ conduit à l'intervalle de confiance :
-    \[
-      I_{\text{conf}} = \left[\bar{X} - q_{0{,}975}\,\frac{S}{\sqrt{n}}\,;\;\bar{X} + q_{0{,}975}\,\frac{S}{\sqrt{n}}\right]
-    \]
-    où $q_{0{,}975}$ est le quantile d'ordre $0{,}975$ de $\mathcal{S}t(99)$.
-
-    Application numérique ($q_{0{,}975} \approx 1{,}98$) :
-    \[
-      I_{\text{conf}} = \left[299\,852 - 1{,}98 \times \frac{79}{\sqrt{100}}\,;\;299\,852 + 1{,}98 \times \frac{79}{\sqrt{100}}\right] \approx \left[299\,836\,;\,299\,868\right].
-    \]
-  }
-
-\item
-  \question{Les mesures de Michelson sont-elles en accord avec la valeur de la vitesse de la lumière établie aujourd'hui, $c_{2026} = 299\,792$ km$\cdot$s$^{-1}$ ? Justifier par un test d'hypothèse.}
-  \reponse{
-    On teste $H_0 : \mu = c_{2026} = 299\,792$ contre $H_1 : \mu \neq c_{2026}$, avec la même statistique $T \sim \mathcal{S}t(99)$ sous $H_0$.
-
-    Application numérique :
-    \[
-      t_{\text{obs}} = \frac{299\,852 - 299\,792}{79/\sqrt{100}} \approx 7{,}59.
-    \]
-    Comme $|t_{\text{obs}}| = 7{,}59 \gg q_{0{,}975} \approx 1{,}98$, on rejette $H_0$.
-
-    La $p$-valeur est :
-    \[
-      p\text{-val} = P_{H_0}(|T| > 7{,}59) \approx 2\Phi(-7{,}59) \approx 2 \times 10^{-11} \ll 0{,}05.
-    \]
-    Le test est hautement significatif : les mesures de Michelson ne sont pas compatibles avec la valeur actuelle $c_{2026}$.
-  }
-
-\item
-  \texte{On souhaite tester la précision $\sigma$ de la mesure. Dans les trois cas suivants, la statistique de test repose sur l'estimateur sans biais $S^2$ de la variance. Sous $H_0 : \sigma = \sigma_0$, la statistique
-  \[
-    K = (n-1)\,\frac{S^2}{\sigma_0^2} \sim \chi^2(n-1)
-  \]
-  est utilisée.}
-
-  \begin{enumerate}
-
-  \item
-    \question{Tester $H_0 : \sigma = 90$ contre $H_1 : \sigma \neq 90$ au risque $5\%$.}
-    \reponse{
-      Test bilatéral. La région de rejet est :
-      \[
-        \mathcal{R} = \left]0\,;\,q_{\chi^2(99),\,\alpha/2}\right[ \cup \left]q_{\chi^2(99),\,1-\alpha/2}\,;\,+\infty\right[.
-      \]
-      Application numérique ($q_{\chi^2(99),\,0{,}025} \approx 73{,}36$ et $q_{\chi^2(99),\,0{,}975} \approx 128{,}42$) :
-      \[
-        k_{\text{obs}} = 99 \times \frac{79^2}{90^2} \approx 76{,}28.
-      \]
-      Comme $73{,}36 < 76{,}28 < 128{,}42$, on ne rejette pas $H_0$ : les données sont compatibles avec $\sigma = 90$ km$\cdot$s$^{-1}$.
-    }
-
-  \item
-    \question{Tester $H_0 : \sigma = 90$ contre $H_1 : \sigma < 90$ au risque $5\%$.}
-    \reponse{
-      Test unilatéral à gauche. La région de rejet est $\mathcal{R} = \left]0\,;\,q_{\chi^2(99),\,\alpha}\right[$.
-
-      Application numérique ($q_{\chi^2(99),\,0{,}05} \approx 77{,}05$) :
-      \[
-        k_{\text{obs}} \approx 76{,}28 < 77{,}05.
-      \]
-      On rejette $H_0$ : les données suggèrent que $\sigma < 90$ km$\cdot$s$^{-1}$.
-    }
-
-  \item
-    \question{Tester $H_0 : \sigma = 90$ contre $H_1 : \sigma = 91$ au risque $5\%$. Calculer le risque de seconde espèce.}
-    \reponse{
-      Test unilatéral à droite. La région de rejet est $\mathcal{R} = \left]q_{\chi^2(99),\,1-\alpha}\,;\,+\infty\right[$.
-
-      Application numérique ($q_{\chi^2(99),\,0{,}95} \approx 123{,}22$) :
-      \[
-        k_{\text{obs}} \approx 76{,}28 < 123{,}22.
-      \]
-      On ne rejette pas $H_0$.
-
-      \textbf{Risque de seconde espèce.} La frontière de la région de rejet correspond à $s_{\text{obs}}$ tel que :
-      \[
-        (n-1)\,\frac{s_{\text{obs}}^2}{\sigma_0^2} = 123{,}22 \implies s_{\text{obs}}^2 = \frac{123{,}22 \times 90^2}{99} \approx 10\,081{,}64 \implies s_{\text{obs}} \approx 100{,}41.
-      \]
-      Sous $H_1 : \sigma = 91$, la statistique $K' = (n-1)\,\dfrac{S^2}{91^2} \sim \chi^2(99)$. L'erreur de seconde espèce est :
-      \[
-        \beta = P_{H_1}(K \leq 123{,}22)
-        = P_{H_1}\!\left(K' \leq \frac{99 \times 100{,}41^2}{91^2}\right)
-        = P_{H_1}(K' \leq 120{,}53) \approx 0{,}93.
-      \]
-      La puissance du test est seulement $1 - \beta \approx 7\%$ : le test est très peu capable de distinguer $\sigma = 90$ de $\sigma = 91$.
-    }
-
-  \end{enumerate}
-
+	\item
+	\question{À l'aide de cette approximation et d'une table de la loi normale centrée réduite, déterminer une approximation du quantile d'ordre $95\%$ de la loi $\chi^2(99)$, noté $q_{\chi^2(99),\, 0{,}95}$. }
+	\reponse{
+		Soit $K \sim \chi^2(99)$. On cherche la valeur $c$ telle que $P(K \le c) = 0{,}95$.
+		En appliquant la transformation de Fisher avec $d = 99$ :
+		\[
+		P(K \le c) = P\!\left(\sqrt{2K} - \sqrt{197} \le \sqrt{2c} - \sqrt{197}\right) \approx 0{,}95.
+		\]
+		La variable $Z = \sqrt{2K} - \sqrt{197}$ étant approximativement distribuée selon une loi $\mathcal{N}(0, 1)$, on identifie le seuil à l'aide du quantile d'ordre $0{,}95$ de la loi normale :
+		\[
+		\sqrt{2c} - \sqrt{197} \approx z_{0{,}95} = 1{,}645.
+		\]
+		On en déduit :
+		\[
+		\sqrt{2c} \approx \sqrt{197} + 1{,}645 \approx 14{,}036 + 1{,}645 = 15{,}681.
+		\]
+		En élevant au carré :
+		\[
+		2c \approx (15{,}681)^2 \approx 245{,}90 \implies c \approx 122{,}95.
+		\]
+		L'approximation de Fisher donne $q_{\chi^2(99),\, 0{,}95} \approx 122{,}95$ (la valeur exacte est $123{,}22$).
+	}
+	
+	\item
+	\question{Tester $H_0 : \sigma = 90$ contre $H_1 : \sigma = 91$ au risque $5\%$. Calculer le risque de seconde espèce $\beta$.}
+	\reponse{
+		On effectue un test unilatéral à droite. Sous $H_0$, la statistique $Z = \sqrt{2K} - \sqrt{197}$ suit approximativement une loi $\mathcal{N}(0, 1)$. La région de rejet au seuil $5\%$ est :
+		\[
+		\mathcal{R} = \left\{ z_{\text{obs}} > 1{,}645 \right\}.
+		\]
+		Calcul de la statistique observée :
+		\[
+		k_{\text{obs}} = 99 \times \frac{79^2}{90^2} \approx 76{,}28 \implies z_{\text{obs}} = \sqrt{2 \times 76{,}28} - \sqrt{197} \approx 12{,}35 - 14{,}04 = -1{,}69.
+		\]
+		Comme $z_{\text{obs}} \approx -1{,}69 \le 1{,}645$, on ne rejette pas $H_0$.
+		
+		\textbf{Calcul du risque de seconde espèce $\beta$ :}
+		
+		On rejette $H_0$ si $K > q_{\chi^2(99),\, 0{,}95} \approx 122{,}95$ (d'après la question précédente), ce qui correspond à :
+		\[
+		S^2 > \frac{122{,}95 \times 90^2}{99} \approx 10\,059{,}55 \text{ km}^2\cdot\text{s}^{-2}.
+		\]
+		Sous $H_1 : \sigma = 91$, la variable $K' = 99\,\dfrac{S^2}{91^2}$ suit une loi $\chi^2(99)$. Par l'approximation de Fisher, $Z' = \sqrt{2K'} - \sqrt{197} \sim \mathcal{N}(0, 1)$.
+		
+		Le risque de seconde espèce $\beta$ est la probabilité de ne pas rejeter $H_0$ alors que $H_1$ est vraie :
+		\[
+		\beta = P_{H_1}\!\left(S^2 \le 10\,059{,}55\right) = P_{H_1}\!\left(K' \le 99 \times \frac{10\,059{,}55}{91^2}\right) = P_{H_1}\!\left(K' \le 120{,}26\right).
+		\]
+		En appliquant la transformation de Fisher sous $H_1$ :
+		\[
+		\beta \approx P\!\left(Z' \le \sqrt{2 \times 120{,}26} - \sqrt{197}\right) = P\!\left(Z' \le 15{,}51 - 14{,}04\right) = P\!\left(Z' \le 1{,}47\right).
+		\]
+		À l'aide de la table de la loi normale centrée réduite :
+		\[
+		\beta \approx \Phi(1{,}47) \approx 0{,}93.
+		\]
+		La puissance du test est faible ($1 - \beta \approx 7\%$) : l'échantillon ne permet pas de distinguer de manière fiable $\sigma = 90$ de $\sigma = 91$.
+	}
+	
 \end{enumerate}
+		
 }

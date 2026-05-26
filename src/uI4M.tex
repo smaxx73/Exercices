@@ -18,226 +18,185 @@
 		1,\quad \cos(x),\quad \sin(x),\quad \cos(2x),\quad \sin(2x),\quad \ldots ?
 		$$
 		On considère la fonction $f$, $2\pi$-périodique, définie sur $[-\pi,\pi]$ par $f(x)=x$.
+		On cherche à l'approcher par une fonction de la forme $S_1(x)=a\cos(x)+b\sin(x)$.
 	}
 	
 	\begin{enumerate}
 		
 		%-------------------------------------------------------
-		\item \texte{
-			On cherche à l'approcher par une fonction de la forme $S_1(x)=a\cos(x)+b\sin(x)$.}
-		
-		\begin{enumerate}
+		\item \question{Représenter graphiquement $f$ sur $[-\pi,\pi]$, déterminer sa parité,
+			et en déduire lequel de $\cos(x)$ ou $\sin(x)$ est adapté pour l'approcher.
+			Que conjecture-t-on sur le coefficient $a$ ?}
+		\reponse{La fonction $f : x \mapsto x$ est la droite passant par l'origine, de pente $1$,
+			tracée sur $[-\pi,\pi]$.
 			
-			\item \question{Représenter graphiquement la fonction $f$ sur $[-\pi,\pi]$.}
-			\reponse{La fonction $f : x \mapsto x$ est la droite passant par l'origine, de pente $1$,
-				tracée sur $[-\pi,\pi]$.}
+			Pour tout $x$, $f(-x) = -x = -f(x)$, donc $f$ est impaire.
 			
-			\item \question{La fonction $f$ est-elle paire ou impaire ?}
-			\reponse{Pour tout $x$, $f(-x) = -x = -f(x)$, donc $f$ est impaire.}
-			
-			\item \question{Parmi $\cos(x)$ et $\sin(x)$, laquelle semble mieux adaptée pour approcher
-				$f$ ? Que peut-on alors conjecturer sur le coefficient $a$ ?}
-			\reponse{$\cos(x)$ est une fonction paire, tandis que $\sin(x)$ est impaire, comme $f$.
-				Approcher une fonction impaire par une combinaison de fonctions implique que les termes pairs
-				n'ont pas leur place : on conjecture $a = 0$.}
-			
-		\item \question{On choisit donc une approximation de la forme $S_1(x)=b\sin(x)$.
-		On souhaite choisir $b$ de sorte que l'erreur quadratique intégrale
-	\[
-	E(b) = \int_{-\pi}^{\pi}\bigl(f(x)-b\sin(x)\bigr)^2\,dx
-	\]
-	soit minimale. Montrer que minimiser $E(b)$ revient à imposer la condition
-	\[
-	\int_{-\pi}^{\pi}\left(f(x)-b\sin(x)\right)\sin(x)\,dx = 0.
-	\]}
-\reponse{$E(b)$ est une fonction polynomiale de degré 2 en $b$, à coefficients réels.
-	En développant :
-	\[
-	E(b)
-	= \int_{-\pi}^{\pi} f(x)^2\,dx
-	- 2b\int_{-\pi}^{\pi} f(x)\sin(x)\,dx
-	+ b^2\int_{-\pi}^{\pi}\sin^2(x)\,dx.
-	\]
-	Comme $\int_{-\pi}^{\pi}\sin^2(x)\,dx = \pi > 0$, $E$ est une parabole ouverte vers le haut,
-	et admet un unique minimum atteint en $b^*$ vérifiant $E'(b^*)=0$, soit
-	\[
-	-2\int_{-\pi}^{\pi}f(x)\sin(x)\,dx + 2b^*\int_{-\pi}^{\pi}\sin^2(x)\,dx = 0,
-	\]
-	ce qui est exactement la condition d'orthogonalité
-	$\displaystyle\int_{-\pi}^{\pi}\bigl(f(x)-b^*\sin(x)\bigr)\sin(x)\,dx = 0$.}
-		\end{enumerate}
+			$\cos(x)$ est paire, $\sin(x)$ est impaire comme $f$ : c'est donc $\sin(x)$ qui est
+			adapté. Les termes pairs n'ont pas leur place dans l'approximation, on conjecture $a = 0$.}
 		
 		%-------------------------------------------------------
-		\item \texte{
-			
-			Pour déterminer $b$, on impose que l'erreur soit orthogonale à $\sin(x)$, c'est-à-dire :
-			\[
-			\int_{-\pi}^{\pi} \bigl(f(x)-b\sin(x)\bigr)\sin(x)\,dx=0.
-			\]}
-		
-		\begin{enumerate}
-
-			
-			\item \question{Calculer $\displaystyle\int_{-\pi}^{\pi} \sin^2(x)\,dx$.}
-			\reponse{En utilisant la formule $\sin^2(x)=\dfrac{1-\cos(2x)}{2}$ :
-				\[
-				\int_{-\pi}^{\pi} \sin^2(x)\,dx
-				= \int_{-\pi}^{\pi} \frac{1-\cos(2x)}{2}\,dx
-				= \frac{1}{2}\Bigl[x - \frac{\sin(2x)}{2}\Bigr]_{-\pi}^{\pi}
-				= \pi.
-				\]}
-			
-			\item \question{Calculer, à l'aide d'une intégration par parties,
-				$\displaystyle\int_{-\pi}^{\pi} x\sin(x)\,dx$.}
-			\indication{Poser $u=x$ et $v'=\sin(x)$.}
-			\reponse{On pose $u=x$, $v'=\sin(x)$, donc $u'=1$, $v=-\cos(x)$.
-				\begin{align*}
-					\int_{-\pi}^{\pi} x\sin(x)\,dx
-					&= \Bigl[-x\cos(x)\Bigr]_{-\pi}^{\pi} + \int_{-\pi}^{\pi}\cos(x)\,dx \\
-					&= \bigl(-\pi\cos(\pi)+(-\pi)\cos(-\pi)\bigr) + \Bigl[\sin(x)\Bigr]_{-\pi}^{\pi} \\
-					&= \bigl(\pi + (-\pi)(-1)\bigr) \cdot (-1)\cdot(-1) + 0\\
-					&= \pi \cdot 1 + \pi \cdot 1 = 2\pi.
-				\end{align*}
-				Plus directement : $[-x\cos x]_{-\pi}^{\pi} = -\pi(-1)-(-\pi)(-1)(-1)$\ldots
-				On obtient $\displaystyle\int_{-\pi}^{\pi} x\sin(x)\,dx = 2\pi$.}
-			
-			\item \question{En déduire la valeur de $b$.}
-			\reponse{On a $b \cdot \pi = 2\pi$, donc $b = 2$.
-				La première approximation est $S_1(x) = 2\sin(x)$.}
-			
-		\end{enumerate}
+		\item \texte{On choisit donc une approximation de la forme $S_1(x)=b\sin(x)$.
+			On souhaite choisir $b$ de sorte que l'erreur quadratique intégrale
+			$$
+			E(b) = \int_{-\pi}^{\pi}\bigl(f(x)-b\sin(x)\bigr)^2\,dx
+			$$
+			soit minimale.}
+		\question{Montrer que minimiser $E(b)$ revient à imposer la condition d'orthogonalité suivante :
+			$$
+			\int_{-\pi}^{\pi}\left(f(x)-b\sin(x)\right)\sin(x)\,dx = 0.
+			$$}
+		\reponse{$E(b)$ est une fonction polynomiale de degré 2 en $b$, à coefficients réels.
+			En développant :
+			$$
+			E(b)
+			= \int_{-\pi}^{\pi} f(x)^2\,dx
+			- 2b\int_{-\pi}^{\pi} f(x)\sin(x)\,dx
+			+ b^2\int_{-\pi}^{\pi}\sin^2(x)\,dx.
+			$$
+			Comme $\int_{-\pi}^{\pi}\sin^2(x)\,dx = \pi > 0$, $E$ est une parabole ouverte vers le haut,
+			et admet un unique minimum atteint en $b^*$ vérifiant $E'(b^*)=0$, soit
+			$$
+			-2\int_{-\pi}^{\pi}f(x)\sin(x)\,dx + 2b^*\int_{-\pi}^{\pi}\sin^2(x)\,dx = 0,
+			$$
+			ce qui est exactement la condition d'orthogonalité
+			$\displaystyle\int_{-\pi}^{\pi}\bigl(f(x)-b^*\sin(x)\bigr)\sin(x)\,dx = 0$.}
 		
 		%-------------------------------------------------------
-		\item \texte{
-			
-			On cherche maintenant une approximation plus précise de $f$, sous la forme
-			\[
+		\item 
+		\question{Calculer $\displaystyle\int_{-\pi}^{\pi} \sin^2(x)\,dx$, puis
+			$\displaystyle\int_{-\pi}^{\pi} x\sin(x)\,dx$ par intégration par parties.
+			En déduire la valeur de $b$ telle que $E(b)$ est minimale puis l'expression de $S_1$.}
+		\indication{Pour l'intégration par parties, poser $u=x$ et $v'=\sin(x)$.}
+		\reponse{En utilisant $\sin^2(x)=\dfrac{1-\cos(2x)}{2}$ :
+			$$
+			\int_{-\pi}^{\pi} \sin^2(x)\,dx
+			= \frac{1}{2}\Bigl[x - \frac{\sin(2x)}{2}\Bigr]_{-\pi}^{\pi}
+			= \pi.
+			$$
+			On pose $u=x$, $v'=\sin(x)$, donc $u'=1$, $v=-\cos(x)$ :
+			\begin{align*}
+				\int_{-\pi}^{\pi} x\sin(x)\,dx
+				&= \Bigl[-x\cos(x)\Bigr]_{-\pi}^{\pi} + \int_{-\pi}^{\pi}\cos(x)\,dx \\
+				&= \bigl(-\pi(-1)-(-\pi)(-1)\bigr) + \Bigl[\sin(x)\Bigr]_{-\pi}^{\pi} \\
+				&= \bigl(\pi + \pi\bigr) + 0 = 2\pi.
+			\end{align*}
+			La condition d'orthogonalité donne $b \cdot \pi = 2\pi$, donc $b = 2$.
+			La première approximation est $S_1(x) = 2\sin(x)$.}
+		
+		%-------------------------------------------------------
+		\item \texte{On cherche maintenant une approximation plus précise de $f$, sous la forme
+			$$
 			S_2(x)=b_1\sin(x)+b_2\sin(2x).
-			\]
+			$$
 			On impose que l'erreur $f(x)-S_2(x)$ soit orthogonale à $\sin(x)$ et à $\sin(2x)$.}
-		
-		\begin{enumerate}
-			
-			\item \question{Écrire les deux conditions intégrales correspondantes.}
-			\reponse{
-				\[
-				\int_{-\pi}^{\pi} \bigl(f(x)-b_1\sin(x)-b_2\sin(2x)\bigr)\sin(x)\,dx = 0,
-				\]
-				\[
-				\int_{-\pi}^{\pi} \bigl(f(x)-b_1\sin(x)-b_2\sin(2x)\bigr)\sin(2x)\,dx = 0.
-				\]}
-			
-			\item \question{Montrer que
-				$\displaystyle\int_{-\pi}^{\pi} \sin(x)\sin(2x)\,dx=0$.}
-			\indication{Utiliser la formule $\sin(x)\sin(2x) = \tfrac{1}{2}[\cos(x)-\cos(3x)]$.}
-			\reponse{Par la formule produit-en-somme :
-				\[
-				\sin(x)\sin(2x) = \frac{1}{2}\bigl[\cos(x-2x)-\cos(x+2x)\bigr]
-				= \frac{1}{2}\bigl[\cos(x)-\cos(3x)\bigr].
-				\]
-				Donc
-				\[
-				\int_{-\pi}^{\pi}\sin(x)\sin(2x)\,dx
-				= \frac{1}{2}\Bigl[\sin(x)-\frac{\sin(3x)}{3}\Bigr]_{-\pi}^{\pi} = 0.
-				\]
-				C'est un cas particulier du fait que $(\sin(nx))_{n \geq 1}$ est une famille orthogonale
-				pour le produit scalaire $\langle f,g\rangle = \int_{-\pi}^{\pi}f(x)g(x)\,dx$.}
-			
-			\item \question{En déduire que les deux coefficients $b_1$ et $b_2$ peuvent être déterminés
-				séparément par
-				\[
-				b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin(nx)\,dx.
-				\]}
-			\reponse{Grâce à l'orthogonalité $\int_{-\pi}^{\pi}\sin(x)\sin(2x)\,dx=0$, les deux
-				conditions intégrales se découplent. La première donne
-				\[
-				\int_{-\pi}^{\pi}f(x)\sin(x)\,dx = b_1\int_{-\pi}^{\pi}\sin^2(x)\,dx = b_1\pi,
-				\]
-				et la seconde
-				\[
-				\int_{-\pi}^{\pi}f(x)\sin(2x)\,dx = b_2\int_{-\pi}^{\pi}\sin^2(2x)\,dx = b_2\pi.
-				\]
-				D'où la formule $b_n = \dfrac{1}{\pi}\displaystyle\int_{-\pi}^{\pi}f(x)\sin(nx)\,dx$
-				pour $n=1$ et $n=2$.}
-			
-			\item \question{Calculer $b_2$.}
-			\reponse{On intègre par parties $\int_{-\pi}^{\pi}x\sin(2x)\,dx$, avec $u=x$,
-				$v'=\sin(2x)$ :
-				\[
-				\int_{-\pi}^{\pi}x\sin(2x)\,dx
-				= \Bigl[-\frac{x\cos(2x)}{2}\Bigr]_{-\pi}^{\pi}
-				+ \frac{1}{2}\int_{-\pi}^{\pi}\cos(2x)\,dx
-				= -\pi + 0 = -\pi.
-				\]
-				Donc $b_2 = \dfrac{1}{\pi}\cdot(-\pi) = -1$.}
-			
-			\item \question{On admet que, pour tout entier $n\geqslant 1$,
-				\[
-				\int_{-\pi}^{\pi} x\sin(nx)\,dx = \frac{2\pi(-1)^{n+1}}{n}.
-				\]
-				En déduire que $b_n = \dfrac{2(-1)^{n+1}}{n}$.}
-			\reponse{Directement :
-				\[
-				b_n = \frac{1}{\pi}\cdot\frac{2\pi(-1)^{n+1}}{n} = \frac{2(-1)^{n+1}}{n}.
-				\]
-				On vérifie : $b_1=2$, $b_2=-1$, $b_3=\frac{2}{3}$, etc., cohérent avec les calculs
-				précédents.}
-			
-		\end{enumerate}
+		\question{Écrire les deux conditions intégrales correspondantes.}
+		\reponse{
+			$$
+			\int_{-\pi}^{\pi} \bigl(f(x)-b_1\sin(x)-b_2\sin(2x)\bigr)\sin(x)\,dx = 0,
+			$$
+			$$
+			\int_{-\pi}^{\pi} \bigl(f(x)-b_1\sin(x)-b_2\sin(2x)\bigr)\sin(2x)\,dx = 0.
+			$$}
 		
 		%-------------------------------------------------------
-		\item \texte{\textbf{Vers une écriture en série.}
+		\item \question{Montrer que $\displaystyle\int_{-\pi}^{\pi} \sin(x)\sin(2x)\,dx=0$,
+			puis en déduire que les deux coefficients $b_1$ et $b_2$ peuvent être déterminés
+			séparément par
+			$$
+			b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin(nx)\,dx.
+			$$}
+		\indication{Utiliser la formule $\sin(x)\sin(2x) = \tfrac{1}{2}[\cos(x)-\cos(3x)]$.}
+		\reponse{Par la formule produit-en-somme :
+			$$
+			\sin(x)\sin(2x) = \frac{1}{2}\bigl[\cos(x)-\cos(3x)\bigr],
+			$$
+			donc
+			$$
+			\int_{-\pi}^{\pi}\sin(x)\sin(2x)\,dx
+			= \frac{1}{2}\Bigl[\sin(x)-\frac{\sin(3x)}{3}\Bigr]_{-\pi}^{\pi} = 0.
+			$$
+			C'est un cas particulier du fait que $(\sin(nx))_{n \geq 1}$ est une famille orthogonale
+			pour le produit scalaire $\langle f,g\rangle = \int_{-\pi}^{\pi}f(x)g(x)\,dx$.
 			
-			On obtient ainsi formellement, pour $x\in{]-\pi,\pi[}$ :
-			\[
-			x = 2\sin(x)-\sin(2x)+\frac{2}{3}\sin(3x)-\frac{1}{2}\sin(4x)+\cdots
-			\]
-			
-			\emph{Note sur la convergence.} Cette égalité repose sur un théorème de convergence
-			(théorème de Dirichlet) qui sera démontré ultérieurement. On ne peut pas établir cette
-			convergence à l'aide des seuls critères des séries numériques (comparaison, d'Alembert,
-			Leibniz), car les termes $\frac{2(-1)^{n+1}}{n}\sin(nx)$ oscillent simultanément en $n$
-			et en $x$, ce qui échappe à ce cadre. On admet donc ici que l'égalité est valide sur
-			$]-\pi,\pi[$.}
+			Grâce à cette orthogonalité, les deux conditions intégrales se découplent. La première donne
+			$$
+			\int_{-\pi}^{\pi}f(x)\sin(x)\,dx = b_1\int_{-\pi}^{\pi}\sin^2(x)\,dx = b_1\pi,
+			$$
+			et la seconde
+			$$
+			\int_{-\pi}^{\pi}f(x)\sin(2x)\,dx = b_2\int_{-\pi}^{\pi}\sin^2(2x)\,dx = b_2\pi.
+			$$
+			D'où la formule $b_n = \dfrac{1}{\pi}\displaystyle\int_{-\pi}^{\pi}f(x)\sin(nx)\,dx$
+			pour $n=1$ et $n=2$.}
 		
-		\begin{enumerate}
+		%-------------------------------------------------------
+		\item \question{Calculer $b_2$ par intégration par parties. On admet que, pour tout entier
+			$n\geqslant 1$,
+			$$
+			\int_{-\pi}^{\pi} x\sin(nx)\,dx = \frac{2\pi(-1)^{n+1}}{n}.
+			$$
+			En déduire une expression générale de $b_n$.}
+		\reponse{On intègre par parties $\int_{-\pi}^{\pi}x\sin(2x)\,dx$, avec $u=x$,
+			$v'=\sin(2x)$ :
+			$$
+			\int_{-\pi}^{\pi}x\sin(2x)\,dx
+			= \Bigl[-\frac{x\cos(2x)}{2}\Bigr]_{-\pi}^{\pi}
+			+ \frac{1}{2}\int_{-\pi}^{\pi}\cos(2x)\,dx
+			= -\pi + 0 = -\pi.
+			$$
+			Donc $b_2 = \dfrac{1}{\pi}\cdot(-\pi) = -1$.
 			
-			\item \question{Comparer cette écriture avec les développements en série entière déjà rencontrés :
-				quel est le point commun ? Quelle différence importante apparaît ici ?}
-			\reponse{\textbf{Point commun :} dans les deux cas, on écrit une fonction comme somme
-				infinie de fonctions « élémentaires » (puissances de $x$ pour les séries entières,
-				sinus et cosinus ici).
-				
-				\textbf{Différence :} les séries entières convergent sur un intervalle centré en $0$
-				et les fonctions approchées ne sont généralement pas périodiques. Ici, toutes les fonctions
-				de la somme sont $2\pi$-périodiques, et la somme approche une fonction périodique.
-				De plus, la convergence n'est pas uniforme sur $[-\pi,\pi]$ (elle chute aux bords $\pm\pi$).}
+			En appliquant la formule admise :
+			$$
+			b_n = \frac{1}{\pi}\cdot\frac{2\pi(-1)^{n+1}}{n} = \frac{2(-1)^{n+1}}{n}.
+			$$
+			On vérifie : $b_1=2$, $b_2=-1$, $b_3=\frac{2}{3}$, cohérent avec les calculs précédents.}
+		
+		%-------------------------------------------------------
+		\item \texte{
+			On obtient ainsi formellement, pour $x\in{]-\pi,\pi[}$ :
+			$$
+			x = 2\sin(x)-\sin(2x)+\frac{2}{3}\sin(3x)-\frac{1}{2}\sin(4x)+\cdots
+			$$
+			\emph{Note sur la convergence.} Cette égalité repose sur le théorème de Dirichlet,
+			admis ici. On ne peut pas l'établir à l'aide des seuls critères des séries numériques,
+			car les termes $\frac{2(-1)^{n+1}}{n}\sin(nx)$ oscillent simultanément en $n$ et en $x$.}
+		\question{Comparer cette écriture avec les développements en série entière déjà rencontrés :
+			quel est le point commun ? Quelle différence importante apparaît ici ?}
+		\reponse{\textbf{Point commun :} dans les deux cas, on écrit une fonction comme somme
+			infinie de fonctions élémentaires (puissances de $x$ pour les séries entières,
+			sinus et cosinus ici).
 			
-			\item \question{En évaluant formellement l'égalité précédente en $x=\dfrac{\pi}{2}$,
-				montrer que l'on retrouve la série numérique
-				\[
-				1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots = \frac{\pi}{4}.
-				\]}
-			\reponse{En $x=\dfrac{\pi}{2}$ :
-				\begin{align*}
-					\frac{\pi}{2}
-					&= 2\sin\!\Bigl(\frac{\pi}{2}\Bigr)
-					-\sin(\pi)
-					+\frac{2}{3}\sin\!\Bigl(\frac{3\pi}{2}\Bigr)
-					-\frac{1}{2}\sin(2\pi)
-					+\frac{2}{5}\sin\!\Bigl(\frac{5\pi}{2}\Bigr)
-					-\cdots \\
-					&= 2\cdot 1 - 0 + \frac{2}{3}\cdot(-1) - 0 + \frac{2}{5}\cdot 1 - \cdots \\
-					&= 2\Bigl(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7}+\cdots\Bigr).
-				\end{align*}
-				En divisant par $2$ :
-				\[
-				1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots = \frac{\pi}{4}.
-				\]
-				Il s'agit de la formule de Leibniz-Madhava, ici retrouvée comme cas particulier
-				d'une série de Fourier.}
-			
-		\end{enumerate}
+			\textbf{Différence :} les séries entières convergent sur un intervalle centré en $0$
+			et les fonctions approchées ne sont généralement pas périodiques. Ici, toutes les fonctions
+			de la somme sont $2\pi$-périodiques, et la somme approche une fonction périodique.
+			De plus, la convergence n'est pas uniforme sur $[-\pi,\pi]$ (elle chute aux bords $\pm\pi$).}
+		
+		%-------------------------------------------------------
+		\item \question{En évaluant formellement l'égalité précédente en $x=\dfrac{\pi}{2}$,
+			montrer que l'on retrouve la série numérique
+			$$
+			1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots = \frac{\pi}{4}.
+			$$}
+		\reponse{En $x=\dfrac{\pi}{2}$ :
+			\begin{align*}
+				\frac{\pi}{2}
+				&= 2\sin\!\Bigl(\frac{\pi}{2}\Bigr)
+				-\sin(\pi)
+				+\frac{2}{3}\sin\!\Bigl(\frac{3\pi}{2}\Bigr)
+				-\frac{1}{2}\sin(2\pi)
+				+\frac{2}{5}\sin\!\Bigl(\frac{5\pi}{2}\Bigr)
+				-\cdots \\
+				&= 2\cdot 1 - 0 + \frac{2}{3}\cdot(-1) - 0 + \frac{2}{5}\cdot 1 - \cdots \\
+				&= 2\Bigl(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7}+\cdots\Bigr).
+			\end{align*}
+			En divisant par $2$ :
+			$$
+			1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots = \frac{\pi}{4}.
+			$$
+			Il s'agit de la formule de Leibniz-Madhava, retrouvée comme cas particulier
+			d'une série de Fourier.}
 		
 	\end{enumerate}
 }
