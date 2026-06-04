@@ -13,10 +13,10 @@
 \contenu{
 	
 	\texte{
-		En 1879, Michelson effectue 100 mesures de la vitesse de la lumière (en km$\cdot$s$^{-1}$). On modélise ces mesures comme des variables aléatoires i.i.d. gaussiennes d'espérance $\mu$ et d'écart-type $\sigma$ inconnus. Sur cet échantillon, on dispose des observations suivantes :
-		$$
+		En 1879, Michelson effectue 100 mesures de la vitesse de la lumière (en km$\cdot$s$^{-1}$). On modélise ces mesures comme des variables aléatoires $(X_i)$ i.i.d. gaussiennes d'espérance $\mu$ et d'écart-type $\sigma$ inconnus. Sur cet échantillon, on dispose des observations suivantes :
+		\[
 		\bar{x} = 299\,852 \text{ km$\cdot$s$^{-1}$}, \qquad s = 79 \text{ km$\cdot$s$^{-1}$} \quad (n = 100).
-		$$
+		\]
 		L'estimateur $S$ utilisé ici est $S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X_i - \overline{X})^2}$.
 		
 		À l'époque, la valeur communément admise était $c_{1879} = 299\,840$ km$\cdot$s$^{-1}$. Aujourd'hui, elle est établie à $c_{2026} = 299\,792$ km$\cdot$s$^{-1}$.
@@ -27,7 +27,12 @@
 	\begin{enumerate}
 		
 		\item
-		\question{Tester l'hypothèse nulle que les mesures de Michelson sont conformes à la valeur $c_{1879} = 299\,840$ km$\cdot$s$^{-1}$ communément admise en 1879, puis tester si elles sont en accord avec la valeur établie aujourd'hui $c_{2026} = 299\,792$ km$\cdot$s$^{-1}$. Pour chaque test, construire la statistique, la région de rejet et conclure.}
+		\question{On souhaite comparer les mesures de Michelson aux deux valeurs de référence de la vitesse de la lumière : $c_{1879} = 299\,840$ km$\cdot$s$^{-1}$ et $c_{2026} = 299\,792$ km$\cdot$s$^{-1}$. Effectuer deux tests statistiques distincts :
+			\begin{itemize}
+				\item un premier test avec $H_0 : \mu = c_{1879}$ contre $H_1 : \mu \neq c_{1879}$ ;
+				\item un second test avec $H_0 : \mu = c_{2026}$ contre $H_1 : \mu \neq c_{2026}$.
+			\end{itemize}
+			Pour chaque test, construire la statistique, la région de rejet et conclure.}
 		\indication{La variance étant inconnue, on utilise la statistique de Student ; pour $n = 100$, la table de Student n'étant pas disponible pour de grands échantillons, on approchera la loi de Student par une loi normale centrée réduite.}
 		\reponse{
 			\textbf{Test 1 : conformité avec $c_{1879}$.}
@@ -66,75 +71,81 @@
 			Comme $|t_{\text{obs}}| = 7{,}59 \gg 1{,}96$, on rejette $H_0$. Les mesures de Michelson ne sont pas en accord avec la valeur moderne établie en 2026.
 		}
 		
-
-\texte{On souhaite tester l'écart-type $\sigma$ de la mesure. Sous $H_0 : \sigma = \sigma_0$, la statistique de test usuelle est :
-	$$
-	K = (n-1)\,\frac{S^2}{\sigma_0^2} \sim \chi^2(n-1).
-	$$
-	La table du $\chi^2$ n'étant pas disponible pour $d = n-1 = 99$ degrés de liberté, on utilise l'approximation de Fisher : si $K \sim \chi^2(d)$, alors pour $d$ grand, la statistique $Z = \sqrt{2K} - \sqrt{2d-1}$ suit approximativement une loi normale centrée réduite $\mathcal{N}(0, 1)$. 
-	
-	On rappelle que le quantile d'ordre $p$ d'une loi est la valeur $q_p$ telle que $P(X \le q_p) = p$.}
-
-
-	\item
-	\question{À l'aide de cette approximation et d'une table de la loi normale centrée réduite, déterminer une approximation du quantile d'ordre $95\%$ de la loi $\chi^2(99)$, noté $q_{\chi^2(99),\, 0{,}95}$. }
-	\reponse{
-		Soit $K \sim \chi^2(99)$. On cherche la valeur $c$ telle que $P(K \le c) = 0{,}95$.
-		En appliquant la transformation de Fisher avec $d = 99$ :
-		\[
-		P(K \le c) = P\!\left(\sqrt{2K} - \sqrt{197} \le \sqrt{2c} - \sqrt{197}\right) \approx 0{,}95.
-		\]
-		La variable $Z = \sqrt{2K} - \sqrt{197}$ étant approximativement distribuée selon une loi $\mathcal{N}(0, 1)$, on identifie le seuil à l'aide du quantile d'ordre $0{,}95$ de la loi normale :
-		\[
-		\sqrt{2c} - \sqrt{197} \approx z_{0{,}95} = 1{,}645.
-		\]
-		On en déduit :
-		\[
-		\sqrt{2c} \approx \sqrt{197} + 1{,}645 \approx 14{,}036 + 1{,}645 = 15{,}681.
-		\]
-		En élevant au carré :
-		\[
-		2c \approx (15{,}681)^2 \approx 245{,}90 \implies c \approx 122{,}95.
-		\]
-		L'approximation de Fisher donne $q_{\chi^2(99),\, 0{,}95} \approx 122{,}95$ (la valeur exacte est $123{,}22$).
-	}
-	
-	\item
-	\question{Tester $H_0 : \sigma = 90$ contre $H_1 : \sigma = 91$ au risque $5\%$. Calculer le risque de seconde espèce $\beta$.}
-	\reponse{
-		On effectue un test unilatéral à droite. Sous $H_0$, la statistique $Z = \sqrt{2K} - \sqrt{197}$ suit approximativement une loi $\mathcal{N}(0, 1)$. La région de rejet au seuil $5\%$ est :
-		\[
-		\mathcal{R} = \left\{ z_{\text{obs}} > 1{,}645 \right\}.
-		\]
-		Calcul de la statistique observée :
-		\[
-		k_{\text{obs}} = 99 \times \frac{79^2}{90^2} \approx 76{,}28 \implies z_{\text{obs}} = \sqrt{2 \times 76{,}28} - \sqrt{197} \approx 12{,}35 - 14{,}04 = -1{,}69.
-		\]
-		Comme $z_{\text{obs}} \approx -1{,}69 \le 1{,}645$, on ne rejette pas $H_0$.
+		\item
+		\texte{On souhaite à présent tester l'écart-type $\sigma$ de la mesure. Sous $H_0 : \sigma = \sigma_0$, la statistique de test usuelle est :
+			$$
+			K = (n-1)\,\frac{S^2}{\sigma_0^2} \sim \chi^2(n-1).
+			$$
+			La table du $\chi^2$ n'étant pas disponible pour $d = n-1 = 99$ degrés de liberté, on admet l'approximation de Fisher : si $K \sim \chi^2(d)$, alors pour $d$ grand, la statistique :
+			$$
+			Z = \sqrt{2K} - \sqrt{2d-1}
+			$$
+			suit approximativement une loi $\mathcal{N}(0, 1)$.
+			
+			On rappelle que le quantile d'ordre $p$ d'une loi est la valeur $q_p$ telle que $P(X \le q_p) = p$.}
 		
-		\textbf{Calcul du risque de seconde espèce $\beta$ :}
+		\begin{enumerate}
+			
+			\item
+			\question{À l'aide de cette approximation et d'une table de la loi normale centrée réduite, déterminer une approximation du quantile d'ordre $95\%$ de la loi $\chi^2(99)$, noté $q_{\chi^2(99),\, 0{,}95}$.}
+			\reponse{
+				Soit $K \sim \chi^2(99)$. On cherche la valeur $c$ telle que $P(K \le c) = 0{,}95$.
+				En appliquant la transformation de Fisher avec $d = 99$ :
+				\[
+				P(K \le c) = P\!\left(\sqrt{2K} - \sqrt{197} \le \sqrt{2c} - \sqrt{197}\right) \approx 0{,}95.
+				\]
+				La variable $Z = \sqrt{2K} - \sqrt{197}$ étant approximativement distribuée selon une loi $\mathcal{N}(0, 1)$, on identifie le seuil à l'aide du quantile d'ordre $0{,}95$ de la loi normale :
+				\[
+				\sqrt{2c} - \sqrt{197} \approx z_{0{,}95} = 1{,}645.
+				\]
+				On en déduit :
+				\[
+				\sqrt{2c} \approx \sqrt{197} + 1{,}645 \approx 14{,}036 + 1{,}645 = 15{,}681.
+				\]
+				En élevant au carré :
+				\[
+				2c \approx (15{,}681)^2 \approx 245{,}90 \implies c \approx 122{,}95.
+				\]
+				L'approximation de Fisher donne $q_{\chi^2(99),\, 0{,}95} \approx 122{,}95$ (la valeur exacte est $123{,}22$).
+			}
+			
+			\item
+			\question{Tester $H_0 : \sigma = 90$ contre $H_1 : \sigma = 91$ au risque $5\%$. Calculer le risque de seconde espèce $\beta$.}
+			\reponse{
+				On effectue un test unilatéral à droite. Sous $H_0$, la statistique $Z = \sqrt{2K} - \sqrt{197}$ suit approximativement une loi $\mathcal{N}(0, 1)$. La région de rejet au seuil $5\%$ est :
+				\[
+				\mathcal{R} = \left\{ z_{\text{obs}} > 1{,}645 \right\}.
+				\]
+				Calcul de la statistique observée :
+				\[
+				k_{\text{obs}} = 99 \times \frac{79^2}{90^2} \approx 76{,}28 \implies z_{\text{obs}} = \sqrt{2 \times 76{,}28} - \sqrt{197} \approx 12{,}35 - 14{,}04 = -1{,}69.
+				\]
+				Comme $z_{\text{obs}} \approx -1{,}69 \le 1{,}645$, on ne rejette pas $H_0$.
+				
+				\textbf{Calcul du risque de seconde espèce $\beta$ :}
+				
+				On rejette $H_0$ si $K > q_{\chi^2(99),\, 0{,}95} \approx 122{,}95$ (d'après la question précédente), ce qui correspond à :
+				\[
+				S^2 > \frac{122{,}95 \times 90^2}{99} \approx 10\,059{,}55 \text{ km}^2\cdot\text{s}^{-2}.
+				\]
+				Sous $H_1 : \sigma = 91$, la variable $K' = 99\,\dfrac{S^2}{91^2}$ suit une loi $\chi^2(99)$. Par l'approximation de Fisher, $Z' = \sqrt{2K'} - \sqrt{197} \sim \mathcal{N}(0, 1)$.
+				
+				Le risque de seconde espèce $\beta$ est la probabilité de ne pas rejeter $H_0$ alors que $H_1$ est vraie :
+				\[
+				\beta = P_{H_1}\!\left(S^2 \le 10\,059{,}55\right) = P_{H_1}\!\left(K' \le 99 \times \frac{10\,059{,}55}{91^2}\right) = P_{H_1}\!\left(K' \le 120{,}26\right).
+				\]
+				En appliquant la transformation de Fisher sous $H_1$ :
+				\[
+				\beta \approx P\!\left(Z' \le \sqrt{2 \times 120{,}26} - \sqrt{197}\right) = P\!\left(Z' \le 15{,}51 - 14{,}04\right) = P\!\left(Z' \le 1{,}47\right).
+				\]
+				À l'aide de la table de la loi normale centrée réduite :
+				\[
+				\beta \approx \Phi(1{,}47) \approx 0{,}93.
+				\]
+				La puissance du test est faible ($1 - \beta \approx 7\%$) : l'échantillon ne permet pas de distinguer de manière fiable $\sigma = 90$ de $\sigma = 91$.
+			}
+			
+		\end{enumerate}
 		
-		On rejette $H_0$ si $K > q_{\chi^2(99),\, 0{,}95} \approx 122{,}95$ (d'après la question précédente), ce qui correspond à :
-		\[
-		S^2 > \frac{122{,}95 \times 90^2}{99} \approx 10\,059{,}55 \text{ km}^2\cdot\text{s}^{-2}.
-		\]
-		Sous $H_1 : \sigma = 91$, la variable $K' = 99\,\dfrac{S^2}{91^2}$ suit une loi $\chi^2(99)$. Par l'approximation de Fisher, $Z' = \sqrt{2K'} - \sqrt{197} \sim \mathcal{N}(0, 1)$.
-		
-		Le risque de seconde espèce $\beta$ est la probabilité de ne pas rejeter $H_0$ alors que $H_1$ est vraie :
-		\[
-		\beta = P_{H_1}\!\left(S^2 \le 10\,059{,}55\right) = P_{H_1}\!\left(K' \le 99 \times \frac{10\,059{,}55}{91^2}\right) = P_{H_1}\!\left(K' \le 120{,}26\right).
-		\]
-		En appliquant la transformation de Fisher sous $H_1$ :
-		\[
-		\beta \approx P\!\left(Z' \le \sqrt{2 \times 120{,}26} - \sqrt{197}\right) = P\!\left(Z' \le 15{,}51 - 14{,}04\right) = P\!\left(Z' \le 1{,}47\right).
-		\]
-		À l'aide de la table de la loi normale centrée réduite :
-		\[
-		\beta \approx \Phi(1{,}47) \approx 0{,}93.
-		\]
-		La puissance du test est faible ($1 - \beta \approx 7\%$) : l'échantillon ne permet pas de distinguer de manière fiable $\sigma = 90$ de $\sigma = 91$.
-	}
-	
-\end{enumerate}
-		
+	\end{enumerate}
 }

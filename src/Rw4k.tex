@@ -5,36 +5,24 @@
 \chapitre{Estimateur}
 \sousChapitre{Intervalle de confiance}
 \theme{Loi de Rayleigh, maximum de vraisemblance, biais, théorème central limite, Bienaymé-Tchebychev, loi du chi-deux}
-\auteur{}
+\auteur{Maxime Nguyen}
 \datecreate{2026-05-19}
-\organisation{}
+\organisation{AMSCC}
 \difficulte{3}
 
 \contenu{
 	
 	\texte{
 		Soit $\theta > 0$ un paramètre inconnu. On dit qu'une variable aléatoire $X$ suit une \textbf{loi de Rayleigh} de paramètre $\theta$ si elle admet pour densité :
-		$$
+		\[
 		f_\theta(x) = \frac{x}{\theta^2} e^{\frac{-x^2}{2\theta^2}} \mathbf{1}_{[0,+\infty[}(x).
-		$$
+		\]
 		Soit $X_1, \ldots, X_n$ un échantillon i.i.d. de loi $f_\theta$. On pose $\displaystyle \overline{Q}_n = \frac{1}{n} \sum_{i=1}^n X_i^2.$
 	}
 	
 	\begin{enumerate}
 		
 		%------- Partie 1 : propriétés de la loi -------
-		
-%		\item
-%		\question{Vérifier que $f_\theta$ est bien une densité de probabilité.}
-%		\indication{Effectuer le changement de variable $u = x^2/(2\theta^2)$.}
-%		\reponse{
-%			On a $f_\theta \geq 0$. Pour $x > 0$, on pose $u = \dfrac{x^2}{2\theta^2}$, soit $du = \dfrac{x}{\theta^2}\,dx$. Alors :
-%			\[
-%			\int_0^{+\infty} \frac{x}{\theta^2} e^{-x^2/(2\theta^2)}\,dx
-%			= \int_0^{+\infty} e^{-u}\,du = 1.
-%			\]
-%			Donc $f_\theta$ est bien une densité de probabilité.
-%		}
 		
 		\item
 		\question{Montrer que $\mathbb{E}[X_1^2] = 2\theta^2$ et en déduire que $\mathrm{Var}(X_1^2) = 4\theta^4$.}
@@ -131,11 +119,11 @@
 		
 		\item
 		\texte{On admet que la somme de $n$ variables aléatoires indépendantes de loi exponentielle de paramètre $\dfrac{1}{2}$ suit une loi $\chi^2(2n)$.}
-		\question{En déduire que $T_n = \dfrac{2n\,\overline{Q}_n}{\theta^2}$ suit une loi $\chi^2(2n)$.}
+		\question{En déduire que $T_n = \dfrac{n\,\overline{Q}_n}{\theta^2}$ suit une loi $\chi^2(2n)$.}
 		\reponse{
 			Les variables $Y_i = X_i^2/\theta^2$ sont i.i.d. de loi exponentielle de paramètre $\frac{1}{2}$ d'après la question précédente. Par le résultat admis :
 			\[
-			T_n = \sum_{i=1}^n Y_i = \frac{1}{\theta^2}\sum_{i=1}^n X_i^2 = \frac{2n\,\overline{Q}_n}{\theta^2} \sim \chi^2(2n).
+			T_n = \sum_{i=1}^n Y_i = \frac{1}{\theta^2}\sum_{i=1}^n X_i^2 = \frac{n\,\overline{Q}_n}{\theta^2} \sim \chi^2(2n).
 			\]
 		}
 		
@@ -144,11 +132,11 @@
 		\reponse{
 			On cherche $c_1$ et $c_2$ tels que $P(c_1 \leq T_n \leq c_2) = 0{,}95$ avec $P(T_n < c_1) = P(T_n > c_2) = 0{,}025$. L'inégalité $c_1 \leq T_n \leq c_2$ est équivalente à :
 			\[
-			\frac{2n\,\overline{Q}_n}{c_2} \leq \theta^2 \leq \frac{2n\,\overline{Q}_n}{c_1}.
+			\frac{n\,\overline{Q}_n}{c_2} \leq \theta^2 \leq \frac{n\,\overline{Q}_n}{c_1}.
 			\]
 			L'intervalle de confiance exact de niveau $95\%$ pour $\theta^2$ est donc :
 			\[
-			I_{0{,}95} = \left[\frac{2n\,\overline{Q}_n}{\chi^2_{2n;\,0{,}975}}\;;\;\frac{2n\,\overline{Q}_n}{\chi^2_{2n;\,0{,}025}}\right].
+			I_{0{,}95} = \left[\frac{n\,\overline{Q}_n}{\chi^2_{2n;\,0{,}975}}\;;\;\frac{n\,\overline{Q}_n}{\chi^2_{2n;\,0{,}025}}\right].
 			\]
 		}
 		
@@ -185,9 +173,9 @@
 		
 		\item
 		\question{Sans hypothèse supplémentaire sur la loi de $\hat{\theta}^2_n$, montrer qu'il existe une constante $M > 0$ ne dépendant ni de $\theta$ ni de $n$ telle que, pour tout $\lambda > 0$ :
-			$$
+			\[
 			P\!\left(\left|\hat{\theta}^2_n - \theta^2\right| \geq \lambda\theta^2\right) \leq \frac{M}{n}.
-			$$
+			\]
 		}
 		\indication{Appliquer l'inégalité de Bienaymé-Tchebychev à $\hat{\theta}^2_n$.}
 		\reponse{
@@ -206,9 +194,9 @@
 		\question{En déduire un intervalle de confiance de niveau au moins $95\%$ pour $\theta^2$ via l'inégalité de Bienaymé-Tchebychev. Comparer sa largeur à celle des intervalles obtenus aux questions 8 et 10 : quel est le prix à payer pour ne pas utiliser la loi exacte de $\hat{\theta}^2_n$ ?}
 		\reponse{
 			On fixe un niveau de confiance $95\%$, soit $\alpha = 0{,}05$. D'après la question précédente, en prenant $\varepsilon$ tel que $\dfrac{\theta^4}{n\varepsilon^2} \leq 0{,}05$, soit $\varepsilon = \theta^2\sqrt{\dfrac{20}{n}}$, on obtient :
-			$$
+			\[
 			P\!\left(\left|\hat{\theta}^2_n - \theta^2\right| \leq \theta^2\sqrt{\frac{20}{n}}\right) \geq 0{,}95.
-			$$
+			\]
 			En remplaçant $\theta^2$ par $\hat{\theta}^2_n$, l'intervalle de confiance BT est :
 			\[
 			K_{0{,}95} = \left[\hat{\theta}^2_n\!\left(1 - \sqrt{\frac{20}{n}}\right) \;;\; \hat{\theta}^2_n\!\left(1 + \sqrt{\frac{20}{n}}\right)\right].
