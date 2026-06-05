@@ -1,0 +1,122 @@
+\uuid{Yc1j}
+\titre{Équation différentielle du second ordre et intégrale double}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Equation différentielle}
+\sousChapitre{Résolution d'équation différentielle du deuxième ordre}
+\theme{Intégrale double, coordonnées polaires}
+\auteur{}
+\datecreate{2026-06-04}
+\organisation{}
+\difficulte{3}
+
+\contenu{
+\texte{
+  Cet exercice comporte deux parties indépendantes.
+}
+
+\begin{enumerate}
+
+%%%% PARTIE A %%%%
+
+\item
+  \texte{
+    \textbf{Partie A — Équation différentielle du second ordre.}\\[0.3em]
+    On considère l'équation différentielle :
+    \[
+      (E') \;:\quad y''(x) - y'(x) - 2\,y(x) = 2x - 1.
+    \]
+  }
+  \question{Résoudre l'équation homogène associée $(H') : y'' - y' - 2y = 0$.}
+  \reponse{
+    L'équation caractéristique associée est $r^2 - r - 2 = 0$,
+    soit $(r-2)(r+1) = 0$, qui admet deux racines réelles distinctes
+    $r_1 = 2$ et $r_2 = -1$.
+    La solution générale de $(H')$ est donc
+    \[
+      y_H(x) = c_1\,e^{2x} + c_2\,e^{-x}, \quad c_1, c_2 \in \mathbb{R}.
+    \]
+  }
+
+\item
+  \question{Déterminer une solution particulière de $(E')$
+    en cherchant une solution de la forme $y_P(x) = ax + b$.}
+  \reponse{
+    On pose $y_P = ax + b$, d'où $y_P' = a$ et $y_P'' = 0$.
+    En substituant dans $(E')$ :
+    \[
+      0 - a - 2(ax+b) = 2x-1
+      \implies -2ax + (-a-2b) = 2x-1.
+    \]
+    Par identification :
+    \[
+      \begin{cases} -2a = 2 \\ -a - 2b = -1 \end{cases}
+      \implies
+      \begin{cases} a = -1 \\ b = 1. \end{cases}
+    \]
+    Donc $y_P(x) = -x + 1$.
+    \textit{Vérification :} $0 - (-1) - 2(-x+1) = 1 + 2x - 2 = 2x-1$. \checkmark
+  }
+
+\item
+  \question{En déduire la solution générale de $(E')$ sur $\mathbb{R}$.}
+  \reponse{
+    La solution générale de $(E')$ est
+    \[
+      y_G(x) = y_H(x) + y_P(x) = c_1\,e^{2x} + c_2\,e^{-x} - x + 1,
+      \quad c_1, c_2 \in \mathbb{R}.
+    \]
+  }
+
+%%%% PARTIE B %%%%
+
+\item
+  \texte{
+    \textbf{Partie B — Intégrale double.}\\[0.3em]
+    On considère le domaine :
+    \[
+      D = \left\{(x,y)\in\mathbb{R}^2 \;\middle|\;
+          y \geq 0,\quad y \leq x,\quad x^2+y^2 \geq 1,\quad x^2+y^2 \leq 4\right\}.
+    \]
+  }
+  \question{Représenter la région $D$.}
+  \reponse{
+    Le domaine $D$ est délimité par :
+    \begin{itemize}
+      \item la droite horizontale d'équation $y = 0$ (axe des abscisses) ;
+      \item la droite d'équation $y = x$ ;
+      \item le cercle d'équation $x^2+y^2 = 1$, de centre $O$ et de rayon $1$ ;
+      \item le cercle d'équation $x^2+y^2 = 4$, de centre $O$ et de rayon $2$.
+    \end{itemize}
+    $D$ est donc la couronne circulaire $1 \leq r \leq 2$
+    intersectée avec le secteur angulaire $0 \leq \theta \leq \pi/4$
+    (premier octant, en dessous de $y = x$).
+  }
+
+\item
+  \question{Calculer $\displaystyle I = \iint_D (x^2+y^2)\;dx\,dy$.
+    On pourra utiliser un changement de variables en coordonnées polaires.}
+  \indication{Déterminer les bornes de $r$ et $\theta$ correspondant à $D$,
+    puis séparer les deux intégrales.}
+  \reponse{
+    On pose $x = r\cos\theta$, $y = r\sin\theta$, et $dx\,dy = r\,dr\,d\theta$.
+
+    Les contraintes sur $D$ se traduisent en coordonnées polaires :
+    \begin{itemize}
+      \item $y \geq 0$ et $y \leq x$ donnent $0 \leq \theta \leq \dfrac{\pi}{4}$ ;
+      \item $1 \leq x^2+y^2 \leq 4$ donne $1 \leq r \leq 2$.
+    \end{itemize}
+    Ainsi $D^* = \left\{(r,\theta) \;\middle|\; 0 \leq \theta \leq \dfrac{\pi}{4},\; 1 \leq r \leq 2\right\}$.
+
+    En coordonnées polaires, $x^2 + y^2 = r^2$, donc :
+    \begin{align*}
+      I &= \iint_{D^*} r^2 \cdot r\,dr\,d\theta
+         = \int_0^{\pi/4} d\theta \int_1^2 r^3\,dr \\
+        &= \frac{\pi}{4} \cdot \left[\frac{r^4}{4}\right]_1^2
+         = \frac{\pi}{4} \cdot \frac{16-1}{4}
+         = \frac{15\pi}{16}.
+    \end{align*}
+  }
+
+\end{enumerate}
+}

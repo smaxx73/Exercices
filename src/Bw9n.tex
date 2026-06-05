@@ -1,0 +1,74 @@
+\uuid{Bw9n}
+\titre{Changement de variable, intégration par parties et intégrale impropre}
+\niveau{L1}
+\module{Analyse}
+\chapitre{Calcul d'intégrales}
+\sousChapitre{Changement de variables}
+\theme{Intégration par parties, intégrale impropre, limite}
+\auteur{}
+\datecreate{2026-06-04}
+\organisation{}
+\difficulte{3}
+
+\contenu{
+\begin{enumerate}
+
+\item
+  \texte{On rappelle que $\sin^3 t = \sin t\,(1 - \cos^2 t)$.}
+  \question{En considérant le changement de variable $u = \cos t$, calculer l'intégrale
+    \[
+      I = \int_0^\pi \frac{\sin^3 t}{1+\cos^2 t}\;dt.
+    \]}
+  \indication{Après le changement de variable, reconnaître que
+    $\dfrac{1-u^2}{1+u^2} = \dfrac{2}{1+u^2} - 1$, et utiliser la parité de l'intégrande.}
+  \reponse{
+    On pose $u = \cos t$, d'où $du = -\sin t\,dt$.
+    Pour $t = 0$ : $u = 1$ ; pour $t = \pi$ : $u = -1$.
+    En utilisant $\sin^3 t\,dt = (1-\cos^2 t)(-du) = -(1-u^2)\,du$ :
+    \[
+      I = \int_1^{-1} \frac{1-u^2}{1+u^2}(-du) = \int_{-1}^1 \frac{1-u^2}{1+u^2}\,du.
+    \]
+    L'intégrande étant une fonction paire :
+    \[
+      I = 2\int_0^1 \frac{1-u^2}{1+u^2}\,du
+        = 2\int_0^1\!\left(\frac{2}{1+u^2}-1\right)du
+        = 2\Bigl[2\arctan u - u\Bigr]_0^1
+        = 2\!\left(\frac{\pi}{2}-1\right)
+        = \pi - 2.
+    \]
+  }
+
+\item
+  \question{Soit $\alpha > 2$. À l'aide d'une intégration par parties, calculer
+    \[
+      J(\alpha) = \int_2^\alpha \frac{\ln x}{x^2}\;dx.
+    \]}
+  \reponse{
+    On pose $u(x) = \ln x$ et $v'(x) = x^{-2}$,
+    d'où $u'(x) = \dfrac{1}{x}$ et $v(x) = -\dfrac{1}{x}$.
+    \begin{align*}
+      J(\alpha)
+      &= \left[-\frac{\ln x}{x}\right]_2^\alpha
+         + \int_2^\alpha \frac{1}{x} \cdot \frac{1}{x}\,dx \\
+      &= -\frac{\ln\alpha}{\alpha} + \frac{\ln 2}{2}
+         + \left[-\frac{1}{x}\right]_2^\alpha \\
+      &= -\frac{\ln\alpha}{\alpha} + \frac{\ln 2}{2} - \frac{1}{\alpha} + \frac{1}{2} \\
+      &= \frac{1+\ln 2}{2} - \frac{1+\ln\alpha}{\alpha}.
+    \end{align*}
+  }
+
+\item
+  \question{En déduire la valeur de $\displaystyle\int_2^{+\infty} \frac{\ln x}{x^2}\;dx$.}
+  \reponse{
+    Puisque $\ln\alpha = o(\alpha)$ quand $\alpha \to +\infty$, on a
+    $\dfrac{1+\ln\alpha}{\alpha} \to 0$.
+    Donc l'intégrale converge et
+    \[
+      \int_2^{+\infty} \frac{\ln x}{x^2}\,dx
+      = \lim_{\alpha\to+\infty} J(\alpha)
+      = \frac{1+\ln 2}{2}.
+    \]
+  }
+
+\end{enumerate}
+}

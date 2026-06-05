@@ -1,0 +1,101 @@
+\uuid{HuGr}
+\titre{Système linéaire paramétré}
+\niveau{L2}
+\module{Algèbre}
+\chapitre{Déterminant, système linéaire}
+\sousChapitre{Système linéaire, rang}
+\theme{Système paramétré, discussion selon le paramètre, ensemble des solutions}
+\auteur{}
+\datecreate{2026-06-04}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  Soit $\lambda \in \mathbb{R}$. On considère le système linéaire :
+  \[
+    (S_\lambda)\;:\;\begin{cases}
+      (\lambda-1)\,x + 6z = 4 \\
+      y = 1 \\
+      x + \lambda z = 2
+    \end{cases}
+  \]
+}
+\begin{enumerate}
+
+\item
+  \question{Écrire la matrice $A_\lambda$ et le vecteur $b$ associés au système $(S_\lambda)$.}
+  \reponse{
+    \[
+      A_\lambda = \begin{pmatrix}\lambda-1&0&6\\0&1&0\\1&0&\lambda\end{pmatrix},
+      \qquad
+      b = \begin{pmatrix}4\\1\\2\end{pmatrix}.
+    \]
+  }
+
+\item
+  \question{Calculer $\det(A_\lambda)$ en fonction de $\lambda$ et déterminer ses racines.}
+  \reponse{
+    En développant par rapport à la deuxième ligne (qui contient deux zéros) :
+    \[
+      \det(A_\lambda) = 1\cdot\bigl[(\lambda-1)\lambda - 6\bigr]
+                      = \lambda^2 - \lambda - 6
+                      = (\lambda-3)(\lambda+2).
+    \]
+    Les racines sont $\lambda = 3$ et $\lambda = -2$.
+  }
+
+\item
+  \question{Pour quelles valeurs de $\lambda$ le système admet-il une solution unique ?}
+  \reponse{
+    Le système admet une solution unique si et seulement si $\det(A_\lambda) \neq 0$,
+    c'est-à-dire pour tout $\lambda \in \mathbb{R} \setminus \{-2,\,3\}$.
+  }
+
+\item
+  \question{Pour $\lambda = 3$, le système a-t-il des solutions ?
+    Si oui, déterminer l'ensemble des solutions.}
+  \reponse{
+    Pour $\lambda = 3$, le système devient :
+    \[
+      \begin{cases} 2x + 6z = 4 \\ y = 1 \\ x + 3z = 2 \end{cases}
+    \]
+    La première équation se réduit à $x + 3z = 2$, identique à la troisième.
+    Le système est compatible, avec $y = 1$ et l'équation $x + 3z = 2$.
+    En posant $z = t$ ($t \in \mathbb{R}$) comme paramètre libre, on obtient $x = 2-3t$.
+    L'ensemble des solutions est :
+    \[
+      \mathcal{S} = \bigl\{(2-3t,\;1,\;t) \mid t \in \mathbb{R}\bigr\}.
+    \]
+  }
+
+\item
+  \question{Pour $\lambda = -2$, le système a-t-il des solutions ?
+    Si oui, déterminer l'ensemble des solutions.}
+  \reponse{
+    Pour $\lambda = -2$, le système devient :
+    \[
+      \begin{cases} -3x + 6z = 4 \\ y = 1 \\ x - 2z = 2 \end{cases}
+    \]
+    De la troisième équation : $x = 2 + 2z$.
+    En substituant dans la première : $-3(2+2z)+6z = 4 \Rightarrow -6 = 4$.
+    C'est une contradiction, donc le système n'a \textbf{pas de solution}.
+  }
+
+\item
+  \question{Pour $\lambda = 0$, résoudre le système.}
+  \reponse{
+    Pour $\lambda = 0$, le système devient :
+    \[
+      \begin{cases} -x + 6z = 4 \\ y = 1 \\ x = 2 \end{cases}
+    \]
+    La troisième équation donne directement $x = 2$.
+    En substituant dans la première : $-2 + 6z = 4 \Rightarrow z = 1$.
+    La solution unique est :
+    \[
+      (x,\,y,\,z) = (2,\;1,\;1).
+    \]
+  }
+
+\end{enumerate}
+}

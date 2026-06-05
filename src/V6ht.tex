@@ -1,0 +1,145 @@
+\uuid{V6ht}
+\titre{Polynômes — division euclidienne, factorisation et éléments simples}
+\niveau{L1}
+\module{Algèbre}
+\chapitre{Polynôme, fraction rationnelle}
+\sousChapitre{Fraction rationnelle}
+\theme{Division euclidienne, racines, irréductibilité, décomposition en éléments simples}
+\auteur{}
+\datecreate{2026-06-04}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+
+	
+	\texte{
+		Pour $n \in \mathbb{N}$, on considère le polynôme $P_n(X) = X^n + 3X - 2$.
+		On cherche le reste de sa division euclidienne par $D(X) = (X-1)^2$.
+	}
+	
+	\begin{enumerate}
+		
+		\item
+		\question{Montrer qu'il existe un polynôme $Q(X)$ et deux constantes $\alpha$, $\beta$ tels que :
+			\[
+			P_n(X) = Q(X)\,(X-1)^2 + \alpha X + \beta. \tag{1}
+			\]}
+		\reponse{
+			Puisque $\deg(D) = 2$, la division euclidienne de $P_n$ par $D$ donne un reste $R$
+			de degré strictement inférieur à $2$, c'est-à-dire de la forme $R(X) = \alpha X + \beta$.
+			L'égalité $P_n = QD + R$ s'écrit bien sous la forme annoncée.
+		}
+		
+		\item
+		\question{En évaluant $(1)$ en $X = 1$, trouver une première relation entre $\alpha$ et $\beta$.}
+		\reponse{
+			$P_n(1) = 1 + 3 - 2 = 2$. En évaluant $(1)$ en $X = 1$ : $(1-1)^2 = 0$, donc
+			\[
+			2 = \alpha + \beta. \tag{i}
+			\]
+		}
+		
+		\item
+		\question{En dérivant les deux membres de $(1)$ puis en évaluant en $X = 1$, trouver une
+			deuxième relation.}
+		\reponse{
+			On dérive $(1)$ : $P_n'(X) = Q'(X)(X-1)^2 + 2Q(X)(X-1) + \alpha$.
+			En évaluant en $X = 1$ : $P_n'(1) = \alpha$.
+			Or $P_n'(X) = nX^{n-1} + 3$, donc $P_n'(1) = n + 3$. Ainsi :
+			\[
+			\alpha = n + 3. \tag{ii}
+			\]
+		}
+		
+		\item
+		\question{En déduire l'expression du reste $R_n(X)$ en fonction de $n$.}
+		\reponse{
+			Des relations (i) et (ii) : $\beta = 2 - \alpha = 2-(n+3) = -(n+1)$.
+			Donc :
+			\[
+			R_n(X) = (n+3)\,X - (n+1).
+			\]
+			\textit{Vérification pour $n=2$ :} $R_2(X) = 5X-3$.
+			On a $X^2+3X-2-(5X-3) = X^2-2X+1 = (X-1)^2$, ce qui confirme que le quotient
+			vaut $Q(X) = 1$. \checkmark
+		}
+		
+
+	
+	\texte{
+		On pose $Q(X) = X^3 - 5X^2 + 8X - 6$.
+	}
+	
+
+		
+		\item
+		\question{Montrer que $3$ est une racine simple de $Q$.}
+		\reponse{
+			$Q(3) = 27 - 45 + 24 - 6 = 0$ : $3$ est bien une racine.
+			$Q'(X) = 3X^2 - 10X + 8$, donc $Q'(3) = 27 - 30 + 8 = 5 \neq 0$ :
+			la racine est simple.
+		}
+		
+		\item
+		\question{Déterminer $S(X)$ le polynôme de degré $2$ vérifiant $Q(X) = (X-3)\,S(X)$.
+			Le polynôme $S$ est-il irréductible dans $\mathbb{R}[X]$ ?}
+		\reponse{
+			Par identification des coefficients dans $(X-3)(X^2+aX+b)$ :
+			$a - 3 = -5 \Rightarrow a = -2$ et $-3b = -6 \Rightarrow b = 2$.
+			Donc $S(X) = X^2 - 2X + 2$.
+			Son discriminant est $\Delta = 4 - 8 = -4 < 0$ :
+			$S$ est \textbf{irréductible dans $\mathbb{R}[X]$}.
+		}
+		
+		\item
+		\question{Déterminer les racines complexes de $S$ et donner la décomposition en facteurs
+			irréductibles de $Q$ dans $\mathbb{C}[X]$.}
+		\reponse{
+			Les racines de $S$ sont $X = \dfrac{2 \pm \sqrt{-4}}{2} = 1 \pm i$.
+			Dans $\mathbb{C}[X]$ :
+			\[
+			Q(X) = (X-3)(X-1-i)(X-1+i).
+			\]
+		}
+		
+		\item
+		\question{On cherche $a, b, c \in \mathbb{R}$ tels que :
+			\[
+			\frac{1}{Q(X)} = \frac{a}{X-3} + \frac{bX+c}{S(X)}.
+			\]
+			\begin{itemize}
+				\item Calculer $\displaystyle\lim_{X\to+\infty}\frac{X}{Q(X)}$ de deux façons différentes,
+				puis en déduire que $a + b = 0$.
+				\item Calculer $\displaystyle\lim_{X\to 3}\frac{X-3}{Q(X)}$ de deux façons différentes,
+				en déduire $a$ puis $b$.
+				\item En posant $X = 0$, déterminer $c$ puis donner la décomposition en éléments simples
+				de $\dfrac{1}{Q(X)}$ sur $\mathbb{R}(X)$.
+		\end{itemize}}
+		\reponse{
+			\textbf{Relation $a+b=0$.}
+			D'un côté, $\dfrac{X}{Q(X)} = \dfrac{X}{X^3(1-5/X+\ldots)} \to 0$ quand $X\to+\infty$.
+			De l'autre, en multipliant la décomposition par $X$ :
+			$\dfrac{aX}{X-3} + \dfrac{bX^2+cX}{S(X)} \to a + b$.
+			Donc $a + b = 0$.
+			
+			\textbf{Calcul de $a$.}
+			$\displaystyle\lim_{X\to3}\frac{X-3}{Q(X)} = \lim_{X\to3}\frac{1}{S(X)} = \frac{1}{S(3)} = \frac{1}{9-6+2} = \frac{1}{5}$.
+			De la décomposition : $\displaystyle\lim_{X\to3}\frac{X-3}{Q(X)} = a$.
+			Donc $a = \dfrac{1}{5}$, puis $b = -\dfrac{1}{5}$.
+			
+			\textbf{Calcul de $c$.}
+			En $X = 0$ :
+			$\dfrac{1}{Q(0)} = \dfrac{1}{-6}$.
+			La décomposition donne :
+			$\dfrac{a}{-3} + \dfrac{c}{S(0)} = -\dfrac{1}{15} + \dfrac{c}{2} = -\dfrac{1}{6}$.
+			Donc $\dfrac{c}{2} = -\dfrac{1}{6} + \dfrac{1}{15} = -\dfrac{1}{10}$, soit $c = -\dfrac{1}{5}$.
+			
+			\textbf{Décomposition en éléments simples :}
+			\[
+			\frac{1}{Q(X)} = \frac{1}{5(X-3)} - \frac{X+1}{5(X^2-2X+2)}.
+			\]
+		}
+		
+	\end{enumerate}
+}

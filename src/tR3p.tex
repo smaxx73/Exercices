@@ -1,0 +1,53 @@
+\uuid{tR3p}
+\titre{Calcul d'intégrales — puissances et fractions rationnelles}
+\niveau{L1}
+\module{Analyse}
+\chapitre{Calcul d'intégrales}
+\sousChapitre{Fraction rationnelle}
+\theme{Décomposition en éléments simples, primitives de puissances}
+\auteur{}
+\datecreate{2026-06-04}
+\organisation{}
+\difficulte{2}
+
+\contenu{
+\texte{
+  Calculer les intégrales suivantes.
+}
+\begin{enumerate}
+\item
+  \question{Calculer $\displaystyle\int_0^1 (1-x)\sqrt{x}\;dx$.}
+  \reponse{
+    \[
+      \int_0^1 (1-x)\sqrt{x}\;dx
+      = \int_0^1 \left(x^{1/2} - x^{3/2}\right)dx
+      = \left[\frac{2}{3}\,x^{3/2} - \frac{2}{5}\,x^{5/2}\right]_0^1
+      = \frac{2}{3} - \frac{2}{5}
+      = \frac{4}{15}.
+    \]
+  }
+
+\item
+  \question{Calculer $\displaystyle\int_2^3 \dfrac{2x^2-1}{x(x-1)}\;dx$.
+    On pourra déterminer $a$, $b$ et $c$ tels que
+    $\dfrac{2x^2-1}{x(x-1)} = a + \dfrac{b}{x} + \dfrac{c}{x-1}$.}
+  \indication{Effectuer la division euclidienne de $2x^2 - 1$ par $x^2 - x$,
+    puis décomposer le reste en éléments simples.}
+  \reponse{
+    On effectue la division : $2x^2 - 1 = 2(x^2 - x) + (2x - 1)$, donc
+    \[
+      \frac{2x^2-1}{x(x-1)} = 2 + \frac{2x-1}{x(x-1)}.
+    \]
+    On pose $\dfrac{2x-1}{x(x-1)} = \dfrac{b}{x} + \dfrac{c}{x-1}$.
+    En identifiant : $x = 0$ donne $b = 1$ ; $x = 1$ donne $c = 1$.
+    Ainsi $a = 2$, $b = 1$, $c = 1$, et
+    \begin{align*}
+      \int_2^3 \frac{2x^2-1}{x(x-1)}\;dx
+      &= \int_2^3 \left(2 + \frac{1}{x} + \frac{1}{x-1}\right)dx \\
+      &= \Bigl[2x + \ln x + \ln(x-1)\Bigr]_2^3 \\
+      &= (6 + \ln 3 + \ln 2) - (4 + \ln 2 + \ln 1) \\
+      &= 2 + \ln 3.
+    \end{align*}
+  }
+\end{enumerate}
+}

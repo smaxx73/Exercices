@@ -1,0 +1,83 @@
+\uuid{LtKv}
+\titre{Triangularisation et décomposition nilpotente}
+\niveau{L2}
+\module{Algèbre}
+\chapitre{Réduction d'endomorphisme, polynôme annulateur}
+\sousChapitre{Trigonalisation}
+\theme{Changement de base, matrice de passage, décomposition $D+N$ nilpotente}
+\auteur{}
+\datecreate{2026-06-04}
+\organisation{AMSCC}
+\difficulte{3}
+
+\contenu{
+\texte{
+  Soit $A$ la matrice
+  \[
+    A = \begin{pmatrix}1&1&0\\-1&2&1\\-1&0&3\end{pmatrix}.
+  \]
+  On pose $P$ la matrice
+  \[
+    P = \begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}.
+  \]
+}
+\begin{enumerate}
+
+\item
+  \question{Vérifier que $P^{-1}$ est la matrice
+    \[
+      \begin{pmatrix}1&0&0\\-1&1&0\\0&-1&1\end{pmatrix}.
+    \]}
+  \reponse{
+    Il suffit de vérifier que $PP^{-1} = I_3$ :
+    \[
+      \begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}
+      \begin{pmatrix}1&0&0\\-1&1&0\\0&-1&1\end{pmatrix}
+      =
+      \begin{pmatrix}
+        1 & 0 & 0 \\
+        1-1 & 1 & 0 \\
+        1-1 & -1+1 & 1
+      \end{pmatrix}
+      = I_3. \quad\checkmark
+    \]
+  }
+
+\item
+  \question{Déterminer la matrice $T = P^{-1}AP$, puis écrire $T$ sous la forme
+    $T = D + N$ où $D$ est une matrice diagonale et $N$ une matrice vérifiant $N^3 = 0$.}
+  \reponse{
+    \textbf{Calcul de $T = P^{-1}AP$.}
+
+    On calcule d'abord $P^{-1}A$ :
+    \[
+      P^{-1}A
+      = \begin{pmatrix}1&0&0\\-1&1&0\\0&-1&1\end{pmatrix}
+        \begin{pmatrix}1&1&0\\-1&2&1\\-1&0&3\end{pmatrix}
+      = \begin{pmatrix}1&1&0\\-2&1&1\\0&-2&2\end{pmatrix}.
+    \]
+    Puis $(P^{-1}A)P$ :
+    \[
+      T = \begin{pmatrix}1&1&0\\-2&1&1\\0&-2&2\end{pmatrix}
+          \begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}
+        = \begin{pmatrix}2&1&0\\0&2&1\\0&0&2\end{pmatrix}.
+    \]
+
+    \textbf{Décomposition $T = D + N$.}
+
+    On pose :
+    \[
+      D = \begin{pmatrix}2&0&0\\0&2&0\\0&0&2\end{pmatrix} = 2I_3,
+      \qquad
+      N = \begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix}.
+    \]
+    On vérifie bien que $T = D + N$. De plus :
+    \[
+      N^2 = \begin{pmatrix}0&0&1\\0&0&0\\0&0&0\end{pmatrix},
+      \qquad
+      N^3 = 0. \quad\checkmark
+    \]
+  }
+
+\end{enumerate}
+}

@@ -1,0 +1,86 @@
+\uuid{fL6e}
+\titre{Équation différentielle linéaire du premier ordre — variation de la constante}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Equation différentielle}
+\sousChapitre{Résolution d'équation différentielle du premier ordre}
+\theme{Équation linéaire à coefficients variables, variation de la constante}
+\auteur{}
+\datecreate{2026-06-04}
+\organisation{}
+\difficulte{3}
+
+\contenu{
+\texte{
+  On considère les équations différentielles, définies pour $x > 0$ :
+  \[
+    (H) \;:\quad x\,y'(x) + (1+x)\,y(x) = 0,
+  \]
+  \[
+    (E) \;:\quad x\,y'(x) + (1+x)\,y(x) = e^{-x}.
+  \]
+}
+\begin{enumerate}
+
+\item
+  \question{Résoudre $(H)$ sur $]0\,;\,+\infty[$.}
+  \reponse{
+    $(H)$ est une équation linéaire du premier ordre homogène, à variables séparables.
+    Pour $y \neq 0$ :
+    \[
+      \frac{y'(x)}{y(x)} = -\frac{1+x}{x} = -\frac{1}{x} - 1.
+    \]
+    En intégrant :
+    \[
+      \ln|y(x)| = -\ln x - x + c,
+      \quad\text{soit}\quad
+      y_H(x) = \frac{K\,e^{-x}}{x}, \quad K \in \mathbb{R}.
+    \]
+  }
+
+\item
+  \question{Déterminer $y_1$, la solution de $(H)$ qui vérifie $y_1(1) = e^{-1}$.}
+  \reponse{
+    La condition initiale donne $K\,\dfrac{e^{-1}}{1} = e^{-1}$, soit $K = 1$.
+    Donc
+    \[
+      y_1(x) = \frac{e^{-x}}{x}.
+    \]
+  }
+
+\item
+  \question{Déterminer une solution particulière $y_P$ de $(E)$
+    de la forme $y_P(x) = K(x)\cdot y_1(x)$, où $K$ est une fonction dérivable sur $]0;+\infty[$.}
+  \indication{Substituer dans $(E)$ ; le fait que $y_1$ vérifie $(H)$ simplifie
+    l'expression et donne directement $K'(x)$.}
+  \reponse{
+    On pose $y_P = K(x)\,y_1(x)$, d'où $y_P' = K'y_1 + Ky_1'$.
+    En substituant dans $(E)$ :
+    \[
+      x\bigl[K'y_1 + Ky_1'\bigr] + (1+x)Ky_1 = e^{-x}
+      \implies
+      K'(x)\,x\,y_1(x) + K(x)\underbrace{\bigl[x\,y_1'(x)+(1+x)\,y_1(x)\bigr]}_{= \,0 \text{ car }y_1\text{ vérifie }(H)} = e^{-x}.
+    \]
+    Donc $K'(x)\cdot x\cdot\dfrac{e^{-x}}{x} = e^{-x}$, soit $K'(x) = 1$,
+    d'où $K(x) = x$ (en prenant la primitive nulle en $0$).
+    Ainsi
+    \[
+      y_P(x) = x\cdot\frac{e^{-x}}{x} = e^{-x}.
+    \]
+    \textit{Vérification :} $y_P' = -e^{-x}$, donc
+    $x(-e^{-x}) + (1+x)e^{-x} = e^{-x}(-x+1+x) = e^{-x}$. \checkmark
+  }
+
+\item
+  \question{En déduire la solution générale de $(E)$ sur $]0\,;\,+\infty[$.}
+  \reponse{
+    La solution générale de $(E)$ est la somme de la solution générale de $(H)$
+    et d'une solution particulière de $(E)$ :
+    \[
+      y_G(x) = y_H(x) + y_P(x) = \frac{K\,e^{-x}}{x} + e^{-x}
+      = e^{-x}\!\left(\frac{K}{x} + 1\right), \quad K \in \mathbb{R}.
+    \]
+  }
+
+\end{enumerate}
+}
