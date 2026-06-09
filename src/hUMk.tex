@@ -13,10 +13,10 @@
 	\difficulte{}
 	\contenu{
 		
-		\texte{
+		
 
 			
-			\paragraph{Résultats admis sur la Loi Gamma et relation avec la loi exponentielle}
+				\texte{\paragraph{Résultats admis sur la Loi Gamma et relation avec la loi exponentielle}
 			
 			La loi Gamma est une famille de lois de probabilité continues à deux paramètres, définies sur l'intervalle $(0, \infty)$. Elle est fréquemment utilisée pour modéliser des temps d'attente ou des variables continues positives.
 			
@@ -40,8 +40,8 @@
 		\vspace{2em}
 		
 		Soit $\theta \in \left]\frac{1}{2}; 1\right[$ un paramètre inconnu et une fonction densité :
-		$$ g_\theta : x \mapsto \frac{\theta}{1-\theta} x^{\frac{2\theta-1}{1-\theta}} \mathbf{1}_{[0;1]}(x) $$	
-		}
+			$$ g_\theta : x \mapsto \frac{\theta}{1-\theta} x^{\frac{2\theta-1}{1-\theta}} \mathbf{1}_{[0;1]}(x) $$}	
+		
 			\begin{enumerate}
 			\item \question{À l'aide de la méthode du maximum de vraisemblance, proposer un estimateur de $\theta$. }
 			
@@ -82,6 +82,6 @@
 		Alors $\mathbb{E}[T] = \frac{1}{n} \mathbb{E}[S_Y] = \frac{1}{n} \left(n \frac{1-\theta}{\theta}\right) = \frac{1-\theta}{\theta}$.	
 		}
 	\item \question{On souhaite vérifier numériquement certaines propriétés de l'estimateur $\hat{\theta} = \frac{n}{n+S_Y}$. Rappeler comment simuler une variable aléatoire $Y$ suivant une loi exponentielle $\mathcal{E}(\lambda)$ à partir d'une variable aléatoire $U$ suivant une loi uniforme $\mathcal{U}[0,1]$.}
-		\item On suppose que l'on sait simuler une loi uniforme $\mathcal{U}[0,1]$ à l'aide de la méthode \texttt{rand()}. En déduire une méthode permettant d'approcher numériquement le paramètre $\theta$.
-		\end{enumerate}
+		\item \question{On suppose que l'on sait simuler une loi uniforme $\mathcal{U}[0,1]$ à l'aide de la méthode \texttt{rand()}. En déduire une méthode permettant d'approcher numériquement le paramètre $\theta$.
+		\end{enumerate}}
 	} 

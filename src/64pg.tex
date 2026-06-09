@@ -21,7 +21,7 @@
 	\begin{enumerate}
 		\item \question{ Exprimer $q$ en fonction de $p$ et $a$. }
 		\reponse{D'après l'énoncé de la situation et le théorème des probabilités totales, $q=ap+(1-a)(1-p)$.}
-		\item Vérifier que $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ est un estimateur de $q$ sans biais et convergent.
+		\item \question{Vérifier que $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ est un estimateur de $q$ sans biais et convergent.
 		\reponse{ Chaque variable $X_i$ suit une loi $\mathcal{B}(q)$ donc $\mathbb{E}(\overline{X})=q$ : $\overline{X}$ est un estimateur sais biais de $q$. Et $V(\overline{X}) = \frac{q(1-q)}{n} \to 0$ donc $\overline{X}$ est un estimateur convergent.}
 		\item \question{ On pose $$T_n = \frac{\overline{X}-1+a}{2a-1}$$
 		Calculer l'espérance et la variance de $T_n$. }
@@ -45,5 +45,5 @@
 		\item \question{  On fixe $a = \frac{1}{6}$, $n=1000$ et on considère une réalisation de la variable aléatoire $\overline{X}$ égale à $0{,}425$. Déterminer une réalisation de l'intervalle de confiance utilisé pour l'estimation de $p$ au risque $\alpha = 0{,}05$ (on pourra utiliser la majoration $q(1-q) \leq \frac{1}{4}$).  }
 		\reponse{Application numérique : on trouve $\alpha = 0.05$, on utilise $u_{\alpha/2} = 1.96$ et on trouve 
 			$$I = [0.566 \,;\, 0.658]$$ }
-	\end{enumerate}
+	\end{enumerate}}
 }

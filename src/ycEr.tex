@@ -38,8 +38,8 @@ R(a,b) = a^2 \sum_{i=1}^n x_i^2 + 2ab \sum_{i=1}^n x_i + b^2 n -2 a\sum_{i=1}^n 
 \textrm{Hess}_R(a,b)  = \left( \begin{array}{cc} 2 \sum_{i=1}^n x_i^2 & 2 \sum_{i=1}^n x_i \\ 2 \sum_{i=1}^n x_i & 2 n \end{array}\right).
 \end{equation*}  }
 \reponse{ La hessienne s'obtient par calcul direct, en dérivant les dérivées partielles obtenues dans le calcul du gradient. }
-\item \`A l'aide de la question pr\'ec\'edente et de l'in\'egalit\'e de Cauchy-Schwarz, montrer que la fonction $R$ est convexe.
+\item \`\texte{A l'aide de la question pr\'ec\'edente et de l'in\'egalit\'e de Cauchy-Schwarz, montrer que la fonction $R$ est convexe.
 \reponse{ On peut remarquer que la hessienne est constante en $a$ et $b$ (car la fonciton $R$ est polynomiale de degré $2$). Il suffit donc de montrer que $\langle X, H X \rangle \ge 0$ pour tout vecteur $X = \begin{pmatrix} a \\ b \end{pmatrix} \in \R^2$, où $H$ est la hessienne obtenue précédemment. Ce produit scalaire s'écrit, après développement : $$ \frac{1}{4} \langle X, H X \rangle = a^2 \sum_{i=1}^n x_i^2 + 2 a b \sum_{i=1}^n x_i  + b^2 n.$$ Par Cauchy-Schwarz, on a $\sum_{i=1}^n x_i^2 \ge \frac{1}{n} \left(\sum_{i=1}^n x_i \right)^2$, d'où il vient : $$ \frac{1}{4} \langle X, H X \rangle  \ge \frac{1}{n}\left(a \sum_{i=1}^n x_i + b n \right)^2 \ge 0,$$ comme voulu. }
-\end{enumerate}
+\end{enumerate}}
 
 }

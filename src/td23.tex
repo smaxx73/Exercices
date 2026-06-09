@@ -18,7 +18,6 @@ On observe $X_1, \ldots, X_n$ indépendantes et de même loi. On suppose qu’il
 
 \begin{enumerate}
     \item \question{Proposer un estimateur $\hat{\theta}_n$ de $\theta$ et étudier sa loi.}
-    \indication{}
     \reponse{Les $X_i$ ($1 \leq i \leq n$) suivent une loi normale $\mathcal{N}(0, \theta)$ et 
     \begin{equation}
     \text{Var}(X_i) = \mathbb{E}(X_i^2) = \theta.
@@ -39,7 +38,6 @@ $$
 %\hat{theta}_n
 }
     \item \question{Soit $\alpha \in ]0, 1[$. Construire un intervalle de confiance $I_{1-\alpha} = [A_1, B_1]$ de niveau $(1-\alpha)$ pour $\theta$, tel que $P(\theta < A_1) = P(\theta > B_1) = \alpha/2$. Proposer deux autres intervalles de confiance de niveau $(1-\alpha)$, notés $I_{1-\alpha}^{(2)} = [A_2, B_2]$ et $I_{1-\alpha}^{(3)} = [A_3, B_3]$, tels que $P(\theta < A_2) = P(\theta > B_3) = \alpha$. Quel intervalle vous semble préférable ?}
-    \indication{}
     \reponse{
 On note $F_{\chi^2_n}$ la fonction de répartition de la loi du $\chi^2_n$ et $F^{-1}_{\chi^2_n}$ la fonction quantile, qui est la réciproque au sens usuel de $F_{\chi^2_n}$ car cette dernière est une bijection de $[0,\infty)$ vers $[0,1)$. On peut alors écrire :
 \begin{equation}
@@ -90,7 +88,6 @@ Dans le cas général, on ne peut rien dire : selon les valeurs de $n$ et $\alph
 
 }
     \item \question{Donner la loi asymptotique de $\hat{\theta}_n$ et en déduire un intervalle de confiance asymptotique $J_{1-\alpha}$.}
-    \indication{}
     \reponse{Les $X_i$ suivent une loi normale et admettent donc des moments à tous les ordres, en particulier à l'ordre 4. Les variables aléatoires $X_i^2$ sont donc dans $L^2$ et satisfont le TCL :
 
 \[
@@ -130,7 +127,6 @@ en prenant la convention $[a, b] = \emptyset$ si $b < a$.
     
     
     \item \question{On se place dans la situation où $n = 10$, $\hat{\theta}_n(\omega) = 2$ et $\alpha = 5\%$. Comparer l’intervalle de confiance non asymptotique $I_{1-\alpha}^{(1)}$ à l’intervalle de confiance asymptotique $J_{1-\alpha}$.}
-    \indication{}
     \reponse{On a $F^{-1}_{\chi^2_n}(\alpha/2) \approx 3.25$, $F^{-1}_{\chi^2_n}(1 - \alpha/2) \approx 20.48$ et $\Phi^{-1}(1 - \alpha/2) \approx 2$. Les réalisations des intervalles de confiance sont donc :
 
 \[
@@ -149,7 +145,6 @@ Remarque : Pour ces valeurs numériques, on peut voir que $I^{(3)}_{1-\alpha}(\o
    (a) À partir de la définition du niveau, construire un test $T_\alpha(X)$ de niveau non-asymptotique $\alpha$ pour les hypothèses $H_0$ et $H_1$. Déterminer la taille de ce test et sa fonction puissance. \\
    (b) Peut-on retrouver ce résultat grâce au lien avec les intervalles de confiance de la question 2 ? \\
    (c) Pour un seuil $\alpha = 5\%$, lorsque $n = 10$ et qu’on observe $\hat{\theta}_n(\omega) = 4$, rejette-t-on l’hypothèse nulle ? Calculer la p-valeur du test et la comparer à $\alpha$.}
-    \indication{}
     \reponse{Puisque le test $T_{\alpha}(X)$ est, par définition, une variable de Bernoulli telle que l'on accepte $H_1$ (ou que l'on rejette $H_0$) lorsque $T_{\alpha}(X) = 1$ et que $H_1$ correspond à $\theta > 3$, on choisit comme test $T_{\alpha}(X) = 1_{\hat{\theta}_n > c_{\alpha}}$, avec $c_{\alpha} \geq 0$ un réel à déterminer de sorte que le test soit de niveau $\alpha$. Or, la taille du test est :
 
 \[

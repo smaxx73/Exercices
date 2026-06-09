@@ -11,6 +11,7 @@
 \difficulte{}
 \contenu{
 
+
 \begin{minipage}{0.49\textwidth}
 	La chaînette est le nom que porte la courbe obtenue en tenant 
 	une corde (ou un collier, un fil,\ldots) par deux extrémités.
@@ -42,8 +43,8 @@ Ou, ce qui revient au même, si l'on garde les mains fixes, on peut prendre des 
 	\end{minipage}
 			
 			
-Le cosinus hyperbolique et le sinus hyperbolique sont la partie paire et impaire de l'exponentielle :
-$$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$
+	\texte{Le cosinus hyperbolique et le sinus hyperbolique sont la partie paire et impaire de l'exponentielle :
+$$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$}
 
 
 \begin{center}
@@ -98,15 +99,15 @@ $$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$
 
 \begin{enumerate}
 	\item \question{ Démontrer les propriété suivante : }
-	\label{prop:chainette1}
-	\begin{enumerate}
-		\item $\ch^2(x) - \sh^2(x) = 1$, pour tout $x \in \R$.
-		\reponse{$\ch^2 x- \sh^2 x = \frac14 \big[ (e^x+e^{-x})^2 - (e^x-e^{-x})^2 \big] = 
-			\frac14 \big[ (e^{2x}+2+e^{-2x}) - (e^{2x}-2+e^{-2x})  \big] = 1$.}
-		\item $\ch '(x) = \sh(x)$ et $\sh'(x) = \ch(x)$.
-		\reponse{$\frac{d}{dx}(\ch x) = \frac{d}{dx} \frac{e^x+e^{-x}}{2} = \frac{e^x-e^{-x}}{2}  = \sh x$.}
-	\end{enumerate}
-   \item 	Les fonctions trigonométriques $\cos$ et $\sin$ sont dites << circulaires >>. On rappelle les formules d'Euler :
+		\label{prop:chainette1}
+		\begin{enumerate}
+			\item \question{ $\ch^2(x) - \sh^2(x) = 1$, pour tout $x \in \R$. }
+			\reponse{$\ch^2 x- \sh^2 x = \frac14 \big[ (e^x+e^{-x})^2 - (e^x-e^{-x})^2 \big] = 
+				\frac14 \big[ (e^{2x}+2+e^{-2x}) - (e^{2x}-2+e^{-2x})  \big] = 1$.}
+			\item \question{ $\ch '(x) = \sh(x)$ et $\sh'(x) = \ch(x)$. }
+			\reponse{$\frac{d}{dx}(\ch x) = \frac{d}{dx} \frac{e^x+e^{-x}}{2} = \frac{e^x-e^{-x}}{2}  = \sh x$.}
+		\end{enumerate}
+   \item \question{Les fonctions trigonométriques $\cos$ et $\sin$ sont dites << circulaires >>. On rappelle les formules d'Euler :
    $$\cos(x) = \frac{e^{\ii x} + e^{-\ii x}}{2}, \qquad \sin(x) = \frac{e^{\ii x} - e^{-\ii x}}{2\ii}.$$
    L'analogie avec la définition de $\ch(x)$ et $\sh(x)$ justifie les termes << cosinus >> et << sinus >>. 
    Reste à justifier le terme << hyperbolique >> :
@@ -123,7 +124,7 @@ $$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$
    	\end{array}
    	\right.$
    	
-   	\question{ Tracer des représentations graphiques de chacune de ces courbes paramétrées et commenter les calculs de $x(t)^2+y(t)^2$ et $x(t)^2 - y(t)^2$. }
+   Tracer des représentations graphiques de chacune de ces courbes paramétrées et commenter les calculs de $x(t)^2+y(t)^2$ et $x(t)^2 - y(t)^2$. }
 
    \reponse{Si on dessine une courbe paramétrée par $(x(t) = \cos t,y(t) = \sin t)$ alors
    	$x(t)^2+y(t)^2 = \cos^2 t + \sin^2 t =1$. Donc il s'agit d'un cercle
@@ -131,13 +132,13 @@ $$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$
    	Par contre si on dessine une courbe paramétrée par $(x(t) = \ch t, y(t) = \sh t)$.
    	Alors $x(t)^2 - y(t)^2 = \ch^2 t - \sh^2 t = 1$.
    	C'est l'équation d'une branche d'hyperbole ! }
-   \item 		\'Etant donné un arc paramétré $\begin{array}[t]{cccc}
+   \item \question{\'Etant donné un arc paramétré $\begin{array}[t]{cccc}
    \mathcal{C} :&\mathcal ]a;b[ &\rightarrow&\Rr^2\\
    &t&\mapsto&(x(t),y(t))
    \end{array}$, sa longueur dans une base orthonormale est donnée par la quantité 
    $$L = \int_a^b \sqrt{x'(t)^2 + y'(t)^2} \dt$$
    
-   	On considère une chaînette dont le point le plus bas est $(0,a)$ et dont les extrémités ont pour coordonnées $(\pm x_0,y_0)$. On s'intéresse à la longueur $\ell$ de la courbe entre le point le plus bas et une des extrémités. 
+   	On considère une chaînette dont le point le plus bas est $(0,a)$ et dont les extrémités ont pour coordonnées $(\pm x_0,y_0)$. On s'intéresse à la longueur $\ell$ de la courbe entre le point le plus bas et une des extrémités. }
 
    	\begin{enumerate}
    		\item \question{ En utilisant l'équation cartésienne, écrire sous forme de courbe paramétrée la chaînette décrite ci-dessus. }
@@ -155,15 +156,15 @@ $$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$
    			&=& a \sh \left(\tfrac{x_0}{a}\right). \\
    			\end{array}$$}
    	\end{enumerate}
-   \item On peut démontrer les propriétés suivantes des fonctions hyperboliques : 
+   \item \question{On peut démontrer les propriétés suivantes des fonctions hyperboliques :}
 
    	\begin{enumerate}
-   		\item La fonction $x \mapsto \ch x$ est une bijection
+   		\item \question{La fonction $x \mapsto \ch x$ est une bijection
    		de $[0,+\infty[$ dans $[1,+\infty[$. Sa bijection réciproque est 
    		notée $\Argch x$. Donc :
    		$$\ch\left(\Argch(x)\right) = x  \quad \forall x \in [1,+\infty[ 
    		\qquad\qquad  \Argch\left(\ch(x)\right) = x
-   		\quad   \forall x \in [0,+\infty[$$
+   		\quad   \forall x \in [0,+\infty[$$}
    		\reponse{\'Etudions la restriction de la fonction $\ch : [0,+\infty[ \to [1,+\infty[$.
    			\begin{itemize}
    				\item Comme $\ch' x = \sh x \ge 0$, pour $x\ge 0$, alors la restriction de la fonction $\ch$ est croissante.
@@ -177,14 +178,14 @@ $$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$
    			et vérifie :
    			$$\Argch\big(\ch x\big) = x \qquad \text{ pour tout } x \in [0,+\infty[$$
    			$$\ch\big(\Argch x\big) = x \qquad \text{ pour tout } x \in [1,+\infty[.$$	}
-   		\item La fonction $x \mapsto \sh x$ est une bijection
+   		\item \question{La fonction $x \mapsto \sh x$ est une bijection
    		de $\Rr$ dans $\Rr$. Sa bijection réciproque est 
    		notée $\Argsh x$. Donc :
    		$$\sh\left(\Argsh(x)\right) = x  \qquad\qquad  \Argsh\left(\sh(x)\right) = x
-   		\quad   \forall x \in \Rr$$
-   		\item Les fonctions $x \mapsto \Argch(x)$ et $x \mapsto \Argsh(x)$
+   		\quad   \forall x \in \Rr$$}
+   		\item \question{Les fonctions $x \mapsto \Argch(x)$ et $x \mapsto \Argsh(x)$
    		sont dérivables et 
-   		$$\Argch'(x) = \frac{1}{\sqrt{x^2-1}} \qquad\qquad \Argsh'(x) = \frac{1}{\sqrt{x^2+1}}.$$
+   		$$\Argch'(x) = \frac{1}{\sqrt{x^2-1}} \qquad\qquad \Argsh'(x) = \frac{1}{\sqrt{x^2+1}}.$$}
    		\reponse{Comme la fonction $x \mapsto \ch'x$  ne s'annule pas sur $]0,+\infty[$
    			alors la fonction $\Argch$ est dérivable sur $]1,+\infty[$.
    			On calcule la dérivée par dérivation de l'égalité $\ch(\Argch x) = x$ :
@@ -192,13 +193,13 @@ $$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$
    			puis on utilise l'identité $\ch^2 u - \sh^2 u = 1$ avec $u = \Argch x$ :
    			$$\Argch' x = \frac{1}{\sh(\Argch x)} = \frac{1}{\sqrt{\ch^2(\Argch x)-1}}
    			= \frac{1}{\sqrt{x^2-1}}.$$  }
-   		\item Pour tout $x \geq 1$ : $\Argch(x)  =  \ln\left( x+\sqrt{x^2-1} \right)$.
+   		\item \question{Pour tout $x \geq 1$ : $\Argch(x)  =  \ln\left( x+\sqrt{x^2-1} \right)$.}
    		\reponse{ Notons $f(x)=\ln\big(x+ \sqrt{x^2-1}\big)$. 
    			$$f'(x) = \frac{1+\frac{x}{\sqrt{x^2-1}}}{x+ \sqrt{x^2-1}} = \frac{1}{\sqrt{x^2-1}} = \Argch' x.$$ 
    			Comme de plus $f(1)=\ln(1)=0$ et $\Argch(1) = 0$ (car $\ch(0) = 1$), on en déduit que pour tout
    			$x\in \Rr$, $f(x) = \Argch(x)$.
    		}
-   		\item Pour tout $x \in \R$ : $\Argsh(x)  =  \ln\left( x+\sqrt{x^2+1} \right)$.
+   		\item \question{Pour tout $x \in \R$ : $\Argsh(x)  =  \ln\left( x+\sqrt{x^2+1} \right)$.}
    		\reponse{ Notons $f(x)=\ln\big(x+ \sqrt{x^2+1}\big)$. 
    			$$f'(x) = \frac{1+\frac{x}{\sqrt{x^2+1}}}{x+ \sqrt{x^2+1}} = \frac{1}{\sqrt{x^2+1}} = \Argsh' x.$$ 
    			Comme de plus $f(0)=\ln(1)=0$ et $\Argsh 0 = 0$ (car $\sh 0 = 0$), on en déduit que pour tout
@@ -232,4 +233,6 @@ $$\ch(x) = \frac{e^x + e^{-x}}{2}, \qquad \sh(x) = \frac{e^x - e^{-x}}{2}.$$
    	$${\left(\frac{y(t)}{a}\right)^2-1} = t^2 + \left(\frac{y(t)}{a}\right)^2- 2t\frac{y(t)}{a}$$
    	d'où $\frac{y(t)}{a} = \frac{t^2+1}{2t}$,
    	et donc $y(t) = \frac a2 \left(t+\frac 1 t\right)$.}
-\end{enumerate}}
+\end{enumerate}
+
+}

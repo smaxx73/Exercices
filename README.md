@@ -87,6 +87,21 @@ Dans le répertoire /pdf, on trouve :
 - latex : chaque exercice est appelé dans un fichier compilable (standalone) individuel
 - pdf : le résultat après exécution de pdflatex
 
+## Validation LaTeX
+
+Le contrôle de structure compatible avec `openyourmath-v2` est disponible en
+Python :
+
+```bash
+python3 scripts/check_exercise_sources.py
+python3 scripts/check_exercise_sources.py src/6Wjb.tex
+python3 scripts/check_exercise_sources.py --max-errors=0
+python3 scripts/check_exercise_sources.py --csv
+```
+
+La cible par défaut est `src/`. Les codes d'erreur et le format de sortie sont
+alignés avec `pnpm test:tex` dans `openyourmath-v2`.
+
 ## Documentation du Makefile
 Le `Makefile` sert à compiler automatiquement les figures TikZ présentes dans `img/tikz/` (fichiers `*-tikz-*.tex`) vers :
 - `img/pdf/` pour les PDF

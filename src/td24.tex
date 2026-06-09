@@ -29,7 +29,6 @@ $$\sqrt{n}(g(X_n)-g(a)) \xrightarrow[n\to\infty]{\mathcal{L}} g'(a)X.$$
 (b) Expliquer pourquoi il est logique de choisir $Y_n$ comme estimateur de $\theta$. \\
 (c) Déterminer la loi limite de $\sqrt{n}(Y_n - \theta)$. \\
 (d) Donner la loi de $\sum_{i=1}^n X_i$. En déduire la valeur de $E[(Y_n - \theta)^2]$.}
-    \indication{}
     \reponse{(a) La v.a. $Y_n$ est bien définie sur l'événement $\{\sum_{i=1}^n X_i > 0\}$ qui est de probabilité 1 car les $X_i$ sont strictement positifs p.s. (la loi de $X_i$ ne charge pas 0 car elle est absolument continue par rapport à la mesure de Lebesgue). Ainsi, $Y_n$ est bien définie p.s.
 
 (b) Les v.a. $X_i$ suivent une loi exponentielle $\mathcal{E}(\theta)$. On a ainsi $E(X_1) = 1/\theta$. La loi des grands nombres appliquée aux $X_i$ (i.i.d. et intégrables) montre que $\overline{X}_n$ converge p.s. vers $1/\theta > 0$. Par le théorème de continuité, $Y_n = 1/\overline{X}_n$ converge p.s. vers $\theta$. Cela indique que $Y_n = 1/\overline{X}_n$ est un estimateur consistant et donc raisonnable de $\theta$. Ce dernier correspond à l'estimateur par la méthode des moments.
@@ -69,7 +68,6 @@ EQM(Y_n) = E[(Y_n - \theta)^2] = E[Y_n^2] - 2\theta E[Y_n] + \theta^2 = \frac{n+
     \item \question{Pour estimer $\theta$, on propose d’utiliser $Z_n = \frac{n-1}{n} Y_n$.\\
      (a) $Z_n$ vérifie-t-il des propriétés de convergence similaires à celles de $Y_n$ ?\\
      (b) Qui de $Y_n$ ou $Z_n$ choisiriez-vous pour estimer $\theta$ ?}
-    \indication{}
     \reponse{Les propriétés asymptotiques de $Z_n$ sont similaires à celles de $Y_n$ : comme $\frac{n-1}{n} \xrightarrow[n\to\infty]{} 1$ et $Y_n \xrightarrow[n\to\infty]{p.s.} \theta$, on a bien sûr $Z_n \xrightarrow[n\to\infty]{p.s.} \theta$. De plus, comme $\sqrt{n}(Y_n - \theta) \xrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0, \theta)$, nous avons 
 \begin{align}
 \sqrt{n}(Z_n - \theta) &= \sqrt{n}(Y_n - \theta) - \sqrt{n}(Y_n - Z_n)\\
@@ -89,7 +87,6 @@ EQM(Z_n) &= E[(Z_n - \theta)^2] = E[Z_n^2] - 2\theta E[Z_n] + \theta^2 =\frac{\t
 
 On voit que l'écart quadratique moyen de $Z_n$ est inférieur à celui de $Y_n$ (pour toute valeur de $\theta$, puisque $\frac{n+2}{n-1} > 1$), l'estimateur $Z_n$ est donc un peu meilleur au sens du risque quadratique. La différence devient cependant négligeable lorsque $n$ grandit.}
     \item \question{Soit $\alpha \in ]0, 1[$. Donner un intervalle de confiance bilatère de niveau asymptotique $(1-\alpha)$ pour $\theta$.}
-    \indication{}
     \reponse{Puisque $\frac{\sqrt{n}}{\theta}(Z_n - \theta) \xrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0,1)$ nous avons:
     
    $$
@@ -108,7 +105,6 @@ $$
     
     }
     \item \question{Proposer un test de niveau asymptotique $\alpha$ pour tester $H_0 : \theta \geq 1$ contre $H_1 : \theta < 1$.}
-    \indication{}
     \reponse{
 Pour tout $\theta > 0$, par le même raisonnement que ci-dessus, un intervalle de confiance unilatéral de
 niveau asymptotique $1 - \alpha$ pour $\theta$ est (en prenant comme convention $]a, b] = \emptyset$ pour $b \leq a$) :
@@ -149,7 +145,6 @@ est un intervalle de confiance de niveau asymptotique $1-\alpha$ pour $\theta$ s
 
 }
     \item \question{Proposer un test de niveau asymptotique $\alpha$ pour tester $H_0 : \theta = 1$ contre $H_1 : \theta \neq 1$.}
-    \indication{}
     \reponse{\textbf{Sous $H_0$ : $\theta = 1$}, on sait d’après ci-dessus que
 
 $$
