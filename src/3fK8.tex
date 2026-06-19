@@ -1,0 +1,142 @@
+\uuid{3fK8}
+\titre{Développements en série entière au voisinage de $0$ }
+
+\niveau{L2}
+\module{Séries entières}
+\chapitre{Séries entières}
+\sousChapitre{Développement en série entière et rayon de convergence}
+\theme{Calcul de développements en série entière en $0$}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-10}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+
+\texte{ 
+On considère les fonctions
+$$
+f(x)=\frac{1}{3+\frac{x}{2}}
+\qquad\text{et}\qquad
+g(x)=\frac{\ln(1+x)}{x}.
+$$
+
+}
+
+\begin{enumerate}
+\item \question{Déterminer le développement en série entière en $0$ de la fonction $g$ puis donner son rayon de convergence.}
+\indication{}
+\reponse{
+On sait que, pour $|x|<1$,
+$$
+\ln(1+x)=\sum_{n=1}^{+\infty}\frac{(-1)^{n+1}}{n}x^n.
+$$
+En divisant par $x$ (pour $x\neq 0$), on obtient
+$$
+\frac{\ln(1+x)}{x}
+=
+\sum_{n=1}^{+\infty}\frac{(-1)^{n+1}}{n}x^{n-1}.
+$$
+En posant $m=n-1$, cela devient
+$$
+\frac{\ln(1+x)}{x}
+=
+\sum_{m=0}^{+\infty}\frac{(-1)^m}{m+1}x^m.
+$$
+Donc
+$$
+\boxed{\frac{\ln(1+x)}{x}=\sum_{n=0}^{+\infty}\frac{(-1)^n}{n+1}x^n.}
+$$
+
+La série entière de $\ln(1+x)$ a pour rayon de convergence $1$, car sa singularité la plus proche de $0$ est en $x=-1$. La division par $x$ ne modifie pas le rayon de convergence de la série obtenue.
+
+Ainsi,
+$$
+\boxed{R_g=1.}
+$$
+}
+\item   \question{Déterminer le développement en série entière en $0$ de la fonction $h$ définie par
+$$
+h(x)=\frac{1}{1+x},
+$$
+puis donner son rayon de convergence.}
+\indication{}
+\reponse{
+On reconnaît la série géométrique :
+$$
+\frac{1}{1-t}=\sum_{n=0}^{+\infty} t^n,
+\qquad |t|<1.
+$$
+En prenant $t=-x$, on obtient
+$$
+\frac{1}{1+x}=\sum_{n=0}^{+\infty}(-1)^n x^n,
+\qquad |x|<1.
+$$
+Donc
+$$
+\boxed{h(x)=\sum_{n=0}^{+\infty}(-1)^n x^n.}
+$$
+
+La singularité la plus proche de $0$ est en $x=-1$, donc le rayon de convergence est
+$$
+\boxed{R_h=1.}
+$$
+}
+\item \question{En déduire le développement en série entière en $0$ de $f$ et également de la fonction $x \mapsto f(x)^2$.}
+\reponse{
+On commence par écrire
+$$
+f(x)=\frac{1}{3+\frac{x}{2}}
+=\frac{1}{3\left(1+\frac{x}{6}\right)}
+=\frac13\,h\left(\frac{x}{6}\right).
+$$
+En utilisant le développement en série entière de $h$, on obtient
+$$
+f(x)=\frac13\sum_{n=0}^{+\infty}(-1)^n\left(\frac{x}{6}\right)^n
+=
+\sum_{n=0}^{+\infty}\frac{(-1)^n}{3\cdot 6^n}x^n,
+\qquad |x|<6.
+$$
+Ainsi
+$$
+\boxed{f(x)=\sum_{n=0}^{+\infty}\frac{(-1)^n}{3\cdot 6^n}x^n.}
+$$
+
+Pour $f(x)^2$, on a
+$$
+f(x)^2=\frac{1}{\left(3+\frac{x}{2}\right)^2}
+=\frac{1}{9\left(1+\frac{x}{6}\right)^2}.
+$$
+Or, en dérivant le développement de $h(x)=\frac{1}{1+x}$, on obtient
+$$
+\frac{1}{(1+x)^2}=\sum_{n=0}^{+\infty}(-1)^n(n+1)x^n,
+\qquad |x|<1.
+$$
+En remplaçant $x$ par $\frac{x}{6}$, il vient
+$$
+\frac{1}{\left(1+\frac{x}{6}\right)^2}
+=
+\sum_{n=0}^{+\infty}(-1)^n(n+1)\left(\frac{x}{6}\right)^n.
+$$
+Donc
+$$
+f(x)^2
+=
+\frac19\sum_{n=0}^{+\infty}(-1)^n(n+1)\left(\frac{x}{6}\right)^n
+=
+\sum_{n=0}^{+\infty}\frac{(-1)^n(n+1)}{9\cdot 6^n}x^n,
+\qquad |x|<6.
+$$
+Ainsi
+$$
+\boxed{f(x)^2=\sum_{n=0}^{+\infty}\frac{(-1)^n(n+1)}{9\cdot 6^n}x^n.}
+$$
+Le rayon de convergence de ces deux séries est
+$$
+\boxed{R=6.}
+$$
+}
+
+\end{enumerate}
+
+}
