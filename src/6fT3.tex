@@ -1,0 +1,106 @@
+\uuid{6fT3}
+\titre{Rayon de convergence et calcul de somme }
+
+\niveau{L2}
+\module{Séries entières}
+\chapitre{Séries entières}
+\sousChapitre{Rayon de convergence et calcul de somme}
+\theme{Utilisation de la série exponentielle}
+\auteur{Quentin Liard}
+\datecreate{ 2026-04-10}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+
+\texte{ 
+On considère la série entière à variable réelle $$S(x)=\displaystyle\sum_{n=0}^{+\infty}\frac{n+2}{n!}\,x^n.$$
+}
+
+\begin{enumerate}
+
+\item   \question{Déterminer le rayon de convergence de la série entière $S(x)$ ainsi que son domaine de convergence.}
+\indication{}
+\reponse{
+Posons
+\[
+a_n=\frac{n+2}{n!}.
+\]
+On étudie le quotient :
+\[
+\frac{a_{n+1}}{a_n}
+=
+\frac{n+3}{(n+1)!}\cdot \frac{n!}{n+2}
+=
+\frac{n+3}{(n+1)(n+2)}.
+\]
+Lorsque $n\to+\infty$,
+\[
+\frac{a_{n+1}}{a_n}\longrightarrow 0.
+\]
+Donc, pour tout $x\in\mathbb{R}$,
+\[
+\left|\frac{a_{n+1}x^{n+1}}{a_nx^n}\right|
+=
+|x|\left|\frac{a_{n+1}}{a_n}\right|
+\longrightarrow 0.
+\]
+La série converge donc pour tout réel $x$.
+
+Ainsi, le rayon de convergence est
+\[
+\boxed{R=+\infty}.
+\]
+L’intervalle ouvert de convergence est donc
+\[
+\boxed{]-\infty,+\infty[}.
+\]
+}
+
+\item   \question{Déterminer la somme de la série sur l'intervalle ouvert de convergence.}
+\indication{}
+\reponse{
+On écrit
+\[
+\sum_{n=0}^{+\infty}\frac{n+2}{n!}x^n
+=
+\sum_{n=0}^{+\infty}\frac{n}{n!}x^n
++
+2\sum_{n=0}^{+\infty}\frac{x^n}{n!}.
+\]
+Or
+\[
+\sum_{n=0}^{+\infty}\frac{x^n}{n!}=e^x.
+\]
+De plus,
+\[
+\sum_{n=0}^{+\infty}\frac{n}{n!}x^n
+=
+\sum_{n=1}^{+\infty}\frac{x^n}{(n-1)!}.
+\]
+En posant $m=n-1$, on obtient
+\[
+\sum_{n=1}^{+\infty}\frac{x^n}{(n-1)!}
+=
+x\sum_{m=0}^{+\infty}\frac{x^m}{m!}
+=
+xe^x.
+\]
+Ainsi,
+\[
+\sum_{n=0}^{+\infty}\frac{n+2}{n!}x^n
+=
+xe^x+2e^x
+=
+(x+2)e^x.
+\]
+
+Donc la somme cherchée est
+\[
+\boxed{\sum_{n=0}^{+\infty}\frac{n+2}{n!}x^n=(x+2)e^x.}
+\]
+}
+
+\end{enumerate}
+
+}
