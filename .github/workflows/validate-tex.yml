@@ -11,6 +11,9 @@ on:
       - 'src/**/*.tex'
       - '_preambules/**/*.tex'
       - 'scripts/check_exercise_sources.py'
+      - 'scripts/check_image_assets.py'
+      - 'img/pdf/**'
+      - 'img/png/**'
       - 'template_exercice.tex'
       - '.github/workflows/validate-tex.yml'
 
@@ -29,11 +32,14 @@ jobs:
       - name: Validate exercise sources
         run: |
           python3 scripts/check_exercise_sources.py --csv validation_report.csv
+          python3 scripts/check_image_assets.py --csv image_report.csv
 
       - name: Upload validation report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: validation-report
-          path: validation_report.csv
+          path: |
+            validation_report.csv
+            image_report.csv
           retention-days: 30

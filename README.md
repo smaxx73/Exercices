@@ -88,9 +88,10 @@ python3 scripts/check_exercise_sources.py
 python3 scripts/check_exercise_sources.py src/6Wjb.tex
 python3 scripts/check_exercise_sources.py --max-errors=0
 python3 scripts/check_exercise_sources.py --csv
+python3 scripts/check_image_assets.py
 ```
 
-La cible par défaut est `src/`. C'est le contrôle structurel de référence du dépôt et celui exécuté par la CI.
+La cible par défaut est `src/`. Ces contrôles de structure et d'assets sont exécutés par la CI.
 
 ## Documentation du Makefile
 Le `Makefile` sert à compiler automatiquement les figures TikZ présentes dans `img/tikz/` (fichiers `*-tikz-*.tex`) vers :

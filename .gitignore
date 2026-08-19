@@ -45,3 +45,4 @@ tests/reports/
 validation_report.json
 validation_report.html
 validation_report.csv
+image_report.csv
