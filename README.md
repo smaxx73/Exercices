@@ -5,12 +5,12 @@ Chaque exercice est contenu dans un fichier du répertoire ```src/```.
 Pour insérer un exercice dans un document .tex, insérer le préambule : 
 
 ```
-\newcommand{\path}{} %insérer le chemin vers le répertoire où se trouve le dépot Exercice
+\newcommand{\exercisespath}{} % chemin vers le répertoire où se trouve ce dépôt
 
-\input{\path/_preambules/general.tex}
-\input{\path/_preambules/print.tex}
-\input{\path/_preambules/macros.tex}
-\input{\path/_preambules/python.tex}
+\input{\exercisespath/_preambules/general.tex}
+\input{\exercisespath/_preambules/print.tex}
+\input{\exercisespath/_preambules/macros.tex}
+\input{\exercisespath/_preambules/python.tex}
 ```
 
 et dans le corps du document, utiliser la commande

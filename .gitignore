@@ -18,6 +18,13 @@
 *.toc
 *.out
 
+# Fichiers temporaires générés par la compilation des figures TikZ
+img/tikz/*_tmp.*
+img/tikz/*_contourtmp*.dat
+img/tikz/*_contourtmp*.lua
+img/tikz/*_contourtmp*.script
+img/tikz/*_contourtmp*.table
+
 # node module
 node_modules/
 
@@ -37,3 +44,4 @@ htmlcov/
 tests/reports/
 validation_report.json
 validation_report.html
+validation_report.csv

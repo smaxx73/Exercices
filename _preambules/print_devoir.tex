@@ -172,7 +172,7 @@
 	\newcommand{\insertexobis}[5]{%contenu, solution, isuuid, lien solution,numerotation,theme
 		\noindent
 		\def\ExoDifficulte{}%
-		\input{\path src/#1}
+		\input{\exercisespath src/#1}
 		\setboolean{solution}{#2}
 		\setboolean{isuuid}{#3}
 		\setboolean{link}{#4}
@@ -189,7 +189,7 @@
 	\Needspace{4\baselineskip}%
 	\noindent
 	\def\ExoDifficulte{}%
-	\input{\path src/#1}
+	\input{\exercisespath src/#1}
 	\setboolean{solution}{#2}
 	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
