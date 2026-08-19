@@ -6,7 +6,7 @@
 \chapitre{Séries à termes positifs}
 \sousChapitre{Séries télescopiques et équivalents}
 \theme{Fonction arctangente et nature d'une série}
-\auteur{}
+\auteur{Quentin Liard}
 \datecreate{ 2026-04-10}
 \organisation{AMSCC}
 \difficulte{3}
@@ -20,8 +20,10 @@ u_n=\arctan\left(\frac1n\right)-\arctan\left(\frac{1}{n+1}\right).
 $$
 On considère la série
 $
-\sum_{n\geq 1} u_n.
+\sum_{n\geq 1} u_n,
 $
+et on rappelle que pour tout $x$ réel,
+ $$\arctan'(x)=\frac{1}{1+x^2}.$$
 }
 
 \begin{enumerate}
@@ -42,6 +44,120 @@ et par conséquent
 $
 u_n\geq 0.
 $
+}
+
+\item  \question{Donner le développement en série entière en $0$ de $x \mapsto \frac{1}{1+x^2}$.}
+\indication{}
+\reponse{
+On part de la série géométrique classique
+$$
+\frac{1}{1-t}=\sum_{n=0}^{+\infty} t^n,
+\qquad |t|<1.
+$$
+En prenant $t=-x^2$, on obtient
+$$
+\frac{1}{1+x^2}=\sum_{n=0}^{+\infty}(-1)^n x^{2n},
+\qquad |x|<1.
+$$
+Ainsi, le développement en série entière en $0$ est
+$$
+\boxed{\frac{1}{1+x^2}=\sum_{n=0}^{+\infty}(-1)^n x^{2n}}
+\qquad \text{pour } |x|<1.
+$$
+}
+
+\item \question{En déduire le développement en série entière en $0$ de $x\mapsto \arctan(x)$.}
+\indication{}
+\reponse{
+Comme
+$$
+\arctan'(x)=\frac{1}{1+x^2}
+$$
+et que
+$$
+\frac{1}{1+x^2}=\sum_{n=0}^{+\infty}(-1)^n x^{2n}
+\qquad \text{pour } |x|<1,
+$$
+on peut intégrer terme à terme entre $0$ et $x$ :
+$$
+\arctan(x)-\arctan(0)=\int_0^x \frac{1}{1+t^2}\,dt
+=\int_0^x \sum_{n=0}^{+\infty}(-1)^n t^{2n}\,dt.
+$$
+Donc
+$$
+\arctan(x)=\sum_{n=0}^{+\infty}(-1)^n \frac{x^{2n+1}}{2n+1},
+\qquad |x|<1.
+$$
+Ainsi,
+$$
+\boxed{\arctan(x)=\sum_{n=0}^{+\infty}(-1)^n \frac{x^{2n+1}}{2n+1}}
+\qquad \text{pour } |x|<1.
+$$
+}
+
+\item \question{Démontrer que pour $x$ proche de $0$, $\arctan(x)=x+o(x^2)$.}
+\indication{}
+\reponse{
+D’après la question précédente,
+$$
+\arctan(x)=x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots
+$$
+au voisinage de $0$. On en déduit
+$$
+\arctan(x)-x=-\frac{x^3}{3}+o(x^3).
+$$
+En particulier,
+$$
+\arctan(x)-x=o(x^2).
+$$
+Donc
+$$
+\boxed{\arctan(x)=x+o(x^2)}
+\qquad (x\to 0).
+$$
+}
+
+\item   \question{Déterminer un équivalent simple de $u_n$ lorsque $n\to+\infty$.}
+\indication{}
+\reponse{
+En utilisant le résultat précédent,
+$$
+\arctan\left(\frac1n\right)=\frac1n+o\left(\frac1{n^2}\right)
+\qquad\text{et}\qquad
+\arctan\left(\frac1{n+1}\right)=\frac1{n+1}+o\left(\frac1{n^2}\right).
+$$
+Donc
+$$
+u_n
+=
+\left(\frac1n-\frac1{n+1}\right)+o\left(\frac1{n^2}\right).
+$$
+Or
+$$
+\frac1n-\frac1{n+1}=\frac{1}{n(n+1)}\sim \frac1{n^2}.
+$$
+Ainsi,
+$$
+\boxed{u_n\sim \frac1{n^2}}.
+$$
+}
+
+\item   \question{Établir la convergence de la série $\sum u_n$ en la comparant à une série de Riemann.}
+\indication{}
+\reponse{
+D’après la question précédente,
+$
+u_n\sim \frac{1}{n^2}.
+$
+La série
+$
+\sum_{n\geq 1}\frac{1}{n^2}
+$
+est une série de Riemann convergente. Donc, par comparaison par équivalence, la série
+$
+\sum_{n\geq 1}u_n
+$
+converge.
 }
 
 \item   \question{Montrer que la série $\sum u_n$ est télescopique et calculer sa somme.}
@@ -70,53 +186,6 @@ $
 \boxed{\frac{\pi}{4}}.
 $
 }
-\item \question{Démontrer que pour $x$ proche de $0$, $\arctan(x)=x+o(x)$.}
-\reponse{Pour $x$ proche de $0$ on a $\arctan(x)=\frac{\sin(x)}{\cos(x)} \sim x$.}
-\item   \question{Déterminer un équivalent simple de $u_n$ lorsque $n\to+\infty$.}
-\indication{}
-\reponse{
-Comme la fonction $\arctan$ est de classe $C^1$, on peut utiliser l’accroissement fini :
-$$
-u_n=\arctan\left(\frac1n\right)-\arctan\left(\frac{1}{n+1}\right).
-$$
-Or, pour $x$ voisin de $0$,
-$
-\arctan(x)\sim x.
-$
-On peut aussi écrire directement :
-$$
-u_n
-=
-\left(\frac1n-\frac{1}{n+1}\right)+o\left(\frac1n-\frac{1}{n+1}\right).
-$$
-Comme
-$
-\frac1n-\frac{1}{n+1}=\frac{1}{n(n+1)}\sim \frac{1}{n^2},
-$
-on obtient
-$
-u_n\sim \frac{1}{n^2}.
-$
-}
-
-\item   \question{Retrouver la convergence de la série $\sum u_n$ en la comparant à une série de Riemann.}
-\indication{}
-\reponse{
-D’après la question précédente,
-$
-u_n\sim \frac{1}{n^2}.
-$
-La série
-$
-\sum_{n\geq 1}\frac{1}{n^2}
-$
-est une série de Riemann convergente. Donc, par comparaison par équivalence, la série
-$
-\sum_{n\geq 1}u_n
-$
-converge.
-}
-
 \end{enumerate}
 
 }

@@ -47,9 +47,9 @@ Donc $Z_1$ suit une loi de Bernoulli de paramètre $p = \frac{\pi}{4}$ et son es
 
 \subsubsection*{Partie 2 : Technique de la moyenne empirique.}
 \texte{ On définit une fonction $g \colon [0;1] \to [0;+\infty[$ par :
-$$g(x) = \sqrt{1-x^2}$$
+$$g(x) = \sqrt{1-x^2}$$}
 
-Soit $(U_i)$ une suite de variables aléatoires indépendantes, identiquement distribuées selon une loi uniforme sur $[0;1]$. }
+\texte{Soit $(U_i)$ une suite de variables aléatoires indépendantes, identiquement distribuées selon une loi uniforme sur $[0;1]$.}
 
 \begin{enumerate}
 	\item \question{ Justifier que $\E(g(U_1)) = \frac{\pi}{4}$.  }
@@ -58,7 +58,7 @@ $$\E(g(U_1)) = \int g(x) \textbf{1}_{[0,1]}(x) dx = \int_0^1 \sqrt{1-x^2}dx = \f
  }
 	\item \question{ En déduire une suite de variables aléatoires convergeant presque sûrement vers  $\frac{\pi}{4}$. }
 	\reponse{ En posant $T_n^{(2)} = \frac{1}{n} \sum_{i=1}^{n} g(U_i)$ alors d'après la loi forte des grands nombres, la suite $\left(T_n^{(2)}\right)$ converge presque sûrement vers $\E(g(U_1)) = \frac{\pi}{4}$. }
-	\item  \texte{ Soit $n \in \N^*$, on pose :
+	\item  \question{ Soit $n \in \N^*$, on pose :
 	$$T_n^{(2)} = \frac{1}{n} \sum_{i=1}^{n} g(U_i)$$ }
 \question{ 	Montrer qu'il existe $C^{(2)} \in \R$ tel que $\V\left(T_n^{(2)}\right) = \frac{C^{(2)}}{n}$ et donner une valeur numérique approchée de $C^{(2)}$ à $10^{-4}$.  }
 \reponse{ Il s'agit comme en partie 1 de calculer $\V(g(U_1)) = \E(g(U_1)^2) - \left(\frac{\pi}{4}\right)^2$. Or : 

@@ -13,7 +13,8 @@
 
 
 \texte{ 	Lors d'une  élection, un  candidat a obtenu 65\% des voix. On considère deux échantillons de 
-	votants.  Déterminer  la  probabilité  pour  que  deux  échantillons  de  200  votants  chacun 	indiquent  plus  de  10 points  de  différence  entre  les  fréquences  de  gens  qui  ont  voté  pour  ce 	candidat.  }	
+	votants.  }
+\question{Déterminer  la  probabilité  pour  que  deux  échantillons  de  200  votants  chacun 	indiquent  plus  de  10 points  de  différence  entre  les  fréquences  de  gens  qui  ont  voté  pour  ce 	candidat.}
 
 \reponse{
 	On note respectivement $F_1$ et $F_2$ la proportion de votants pour ce candidat dans chaque échantillon de taille 200. En notant $(X_1,...,X_n)$ le premier échantillon, on sait que $n=200$ et que chaque $X_i$ suit une loi de Bernoulli $\mathcal{B}(p)$ où $p = 0{,}65$. Ainsi, d'après le Théorème Central Limite, $F_1 = \frac{1}{n} \sum_{i=1}^n X_i$ suit approximativement une loi normale de moyenne $p$ et de variance $\frac{p(1-p)}{n}$. Il est clair que $F_2$ suit la même loi de probabilité que $F_1$. 

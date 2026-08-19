@@ -1,0 +1,109 @@
+\uuid{4rM6}
+\titre{Rayon de convergence et calcul de somme }
+
+\niveau{L2}
+\module{Séries entières}
+\chapitre{Séries entières}
+\sousChapitre{Rayon de convergence}
+\theme{Méthode du quotient}
+\auteur{}
+\datecreate{ 2026-04-10}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+
+\texte{ 
+On considère la série entière à variable réelle
+$$
+T(x)=\sum_{n\ge 0}\frac{2^{n+1}}{n+1}\,x^{n+1}.
+$$
+}
+
+\begin{enumerate}
+
+\item   \question{Déterminer le rayon de convergence de la série entière $T(x)$ ainsi que son domaine ouvert de convergence.}
+\indication{}
+\reponse{
+On pose
+$$
+u_n(x)=\frac{2^{n+1}}{n+1}x^{n+1}.
+$$
+On applique la règle de d’Alembert :
+$$
+\left|\frac{u_{n+1}(x)}{u_n(x)}\right|
+=
+\frac{2^{n+2}}{n+2}|x|^{n+2}\cdot \frac{n+1}{2^{n+1}|x|^{n+1}}
+=
+2|x|\frac{n+1}{n+2}.
+$$
+Lorsque $n\to+\infty$, on obtient
+$$
+\left|\frac{u_{n+1}(x)}{u_n(x)}\right|\longrightarrow 2|x|.
+$$
+La série converge donc si
+$$
+2|x|<1,
+$$
+c’est-à-dire si
+$$
+|x|<\frac12.
+$$
+Le rayon de convergence est donc
+$$
+\boxed{R=\frac12.}
+$$
+
+
+D’après la question précédente, la série entière converge pour
+$$
+|x|<\frac12.
+$$
+Ainsi, l’intervalle ouvert de convergence sur $\mathbb{R}$ est
+$$
+\boxed{\left]-\frac12,\frac12\right[.}
+$$
+}
+\item   \question{Calculer la somme de la série sur l'intervalle ouvert de convergence.}
+\indication{}
+\reponse{
+Pour $|x|<\frac12$, on pose
+$$
+y=2x.
+$$
+Alors $|y|<1$ et la série devient
+$$
+\sum_{n\ge 0}\frac{2^{n+1}}{n+1}x^{n+1}
+=
+\sum_{n\ge 0}\frac{(2x)^{n+1}}{n+1}
+=
+\sum_{n\ge 0}\frac{y^{n+1}}{n+1}.
+$$
+Or on sait que, pour $|y|<1$,
+$$
+-\ln(1+y)=\sum_{n\ge 1}\frac{(-1)^{n+1}}{n}y^n
+$$
+et surtout
+$$
+-\ln(1-y)=\sum_{n\ge 1}\frac{y^n}{n}.
+$$
+Donc ici,
+$$
+\sum_{n\ge 0}\frac{y^{n+1}}{n+1}
+=
+\sum_{m\ge 1}\frac{y^m}{m}
+=
+-\ln(1-y).
+$$
+En revenant à $y=2x$, on obtient
+$$
+\boxed{\sum_{n\ge 0}\frac{2^{n+1}}{n+1}x^{n+1}=-\ln(1-2x)}
+\qquad \text{pour } |x|<\frac12.
+$$
+}
+
+
+
+\end{enumerate}
+
+}

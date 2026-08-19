@@ -18,7 +18,6 @@ Soient $X_1, \ldots, X_n$ des variables aléatoires indépendantes de même loi 
 
 \begin{enumerate}
     \item \question{Rappeler le Théorème Central Limite vérifié par $\theta_n$. En déduire un intervalle de confiance asymptotique à 95 \% pour $\theta$.}
-    \indication{}
     \reponse{
 D'après le théorème de la limite centrale appliqué aux variables $X_i$ i.i.d. :
 $$
@@ -37,7 +36,6 @@ avec $q = \Phi^{-1}(0.975) \approx 1.96$.
 
 
     \item \question{Trouver une fonction $g : \mathbb{R}^+ \rightarrow \mathbb{R}$ telle que $\sqrt{n}(g(\theta_n) - g(\theta))$ tende en loi vers une gaussienne centrée réduite. En déduire un intervalle de confiance asymptotique à 95\% pour $\theta$.}
-    \indication{}
     \reponse{En utilisant la méthode Delta, nous avons :
 \begin{equation}
     \sqrt{n} (g(\hat{\lambda}_n) - g(\lambda)) \xrightarrow{d} \mathcal{N}(0, \lambda (g'(\lambda))^2).
@@ -52,7 +50,6 @@ D'où un nouvel intervalle de confiance asymptotique à 95\% :
 \end{equation}
 }
     \item \question{Vérifier que les deux résultats sont équivalents.}
-    \indication{}
     \reponse{}
 \end{enumerate}
 
