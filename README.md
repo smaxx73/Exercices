@@ -2,8 +2,6 @@
 ## Exercices de maths
 Chaque exercice est contenu dans un fichier du répertoire ```src/```.
 
-Pour créer un exercice à partir du template, exécuter le script ```create_exercise.py```.
-
 Pour insérer un exercice dans un document .tex, insérer le préambule : 
 
 ```
@@ -81,11 +79,6 @@ Chaque exercice a la structure suivante :
 ```
 
 Les questions /réponses peuvent être agencées par exemple dans une structure enumerate.
-
-## sortie pdf
-Dans le répertoire /pdf, on trouve :
-- latex : chaque exercice est appelé dans un fichier compilable (standalone) individuel
-- pdf : le résultat après exécution de pdflatex
 
 ## Validation LaTeX
 
