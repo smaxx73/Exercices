@@ -15,9 +15,9 @@ Pour insérer un exercice dans un document .tex, insérer le préambule :
 
 et dans le corps du document, utiliser la commande
 
-```\insertexo{...}{solution}{uuid}{lien}{numerotation}```
+```\insertexo{id}{solution}{uuid}{lien}{numerotation}{indication}```
 
-avec l'identifiant de l'exercice comme premier argument. ```solution```, ```uuid```, ```lien``` sont des booléens contrôlant l'affichage (ou non) des solutions, de l'identifiant de l'exercice et du lien vers la solution. Le dernier argument est le numéro de l'exercice.
+avec l'identifiant de l'exercice comme premier argument. Les arguments `solution`, `uuid`, `lien` et `indication` sont des booléens contrôlant l'affichage. `numerotation` est le numéro affiché.
 
 ### Exemple : 
 Si on a plusieurs exercices, on peut utiliser la commande suivante : 
@@ -34,7 +34,7 @@ Si on a un seul exercice et qu'on veut contrôler finement l'affichage des param
 \def\isuuid{true}
 \def\link{true}
 
-\insertexo{J50Z}{\solution}{\uuid}{\link}{\thenum}
+\insertexo{J50Z}{\solution}{\isuuid}{\link}{\thenum}{\isindication}
 ```
 permet d'insérer l'exercice J50Z en affichant la solution, l'identifiant, le lien vers la solution et numéroté avec le compteur num.
 
@@ -63,15 +63,13 @@ Chaque exercice a la structure suivante :
 
 \contenu{
 
-\texte{ 
-}
+\texte{Introduction éventuelle.}
 
 \begin{enumerate}
-\item   \question{}
-\indication{}
-\reponse{}
-\item   \question{}
-\indication{}
+\item \question{Première question.}
+% \indication{Indication éventuelle, non vide.}
+% \reponse{Réponse éventuelle.}
+\item \question{Deuxième question.}
 
 \end{enumerate}
 
@@ -92,8 +90,7 @@ python3 scripts/check_exercise_sources.py --max-errors=0
 python3 scripts/check_exercise_sources.py --csv
 ```
 
-La cible par défaut est `src/`. Les codes d'erreur et le format de sortie sont
-alignés avec `pnpm test:tex` dans `openyourmath-v2`.
+La cible par défaut est `src/`. C'est le contrôle structurel de référence du dépôt et celui exécuté par la CI.
 
 ## Documentation du Makefile
 Le `Makefile` sert à compiler automatiquement les figures TikZ présentes dans `img/tikz/` (fichiers `*-tikz-*.tex`) vers :

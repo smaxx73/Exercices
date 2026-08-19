@@ -9,6 +9,10 @@
 
 \usepackage{listings}
 
+% Affiche les blocs réservés à l'enseignant uniquement lorsque ce booléen vaut true.
+\newboolean{prof}
+\setboolean{prof}{false}
+
 % Python style for highlighting
 \newcommand\pythonstyle{\lstset{
 		language=Python,

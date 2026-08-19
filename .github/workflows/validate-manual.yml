@@ -2,72 +2,23 @@ name: Validation manuelle
 
 on:
   workflow_dispatch:
-    inputs:
-      file_pattern:
-        description: 'Pattern de fichiers à valider (ex: src/*.tex)'
-        required: false
-        default: 'src/*.tex'
-      strict_mode:
-        description: 'Mode strict (erreurs bloquantes)'
-        required: false
-        type: boolean
-        default: false
 
 jobs:
   validate-manual:
     name: Validation manuelle
     runs-on: ubuntu-latest
-    container:
-      image: texlive/texlive:latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Validate exercise sources
         run: |
-          apt-get update
-          apt-get install -y python3 python3-pip chktex
-          pip3 install -r tests/requirements.txt --break-system-packages
+          python3 scripts/check_exercise_sources.py --csv validation_report.csv
 
-      - name: Run validation tests
-        run: |
-          if [ "${{ inputs.strict_mode }}" == "true" ]; then
-            echo "🔒 Mode strict activé - les erreurs bloqueront le workflow"
-            pytest tests/ -v --tb=short
-          else
-            echo "⚠️  Mode warnings - les erreurs ne bloqueront pas le workflow"
-            pytest tests/ -v --tb=short || true
-          fi
-
-      - name: Generate detailed report (JSON)
-        if: always()
-        run: |
-          python3 scripts/validate_exercises.py --report json > validation_report.json
-
-      - name: Generate detailed report (HTML)
-        if: always()
-        run: |
-          python3 scripts/validate_exercises.py --report html > validation_report.html
-
-      - name: Upload JSON report
+      - name: Upload validation report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: validation-report-json
-          path: validation_report.json
+          name: validation-report
+          path: validation_report.csv
           retention-days: 30
-
-      - name: Upload HTML report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: validation-report-html
-          path: validation_report.html
-          retention-days: 30
-
-      - name: Display summary
-        if: always()
-        run: |
-          echo "📊 Résumé de la validation:"
-          python3 -c "import json; report = json.load(open('validation_report.json')); print(report['summary'])"

@@ -10,82 +10,30 @@ on:
     paths:
       - 'src/**/*.tex'
       - '_preambules/**/*.tex'
-      - 'tests/**'
+      - 'scripts/check_exercise_sources.py'
+      - 'template_exercice.tex'
       - '.github/workflows/validate-tex.yml'
 
 jobs:
   validate:
-    name: Tests de validation
+    name: Validation structurelle
     runs-on: ubuntu-latest
 
     permissions:
       contents: read
-      pull-requests: write
-
-    container:
-      image: texlive/texlive:latest
 
     steps:
-      - name: Install Node needed for Actions
-        run: |
-          apt-get update
-          apt-get install -y git curl
-
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Résolution du conflit 1 : On combine apt-get update et l'installation avec le flag système
-      - name: Install Dependencies
+      - name: Validate exercise sources
         run: |
-          apt-get update
-          apt-get install -y python3 python3-pip chktex
-          # Installation des libs python au niveau user (option --break-system-packages nécessaire sur les Debian récents sans venv)
-          pip3 install -r tests/requirements.txt --break-system-packages
-
-      - name: Run validation tests
-        run: |
-          pytest tests/ -v --tb=short --maxfail=0
-        continue-on-error: true
-
-      - name: Generate summary report
-        if: always()
-        run: |
-          python3 scripts/validate_exercises.py --report json > validation_report.json
+          python3 scripts/check_exercise_sources.py --csv validation_report.csv
 
       - name: Upload validation report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: validation-report
-          path: validation_report.json
+          path: validation_report.csv
           retention-days: 30
-
-      - name: Comment PR with results
-        if: github.event_name == 'pull_request' && always()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            try {
-              const report = JSON.parse(fs.readFileSync('validation_report.json', 'utf8'));
-              
-              // Résolution du conflit 2 : Version plus lisible avec template strings
-              const repoUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-              
-              const body = `## 📋 Validation LaTeX
-
-            ${report.summary}
-
-            ${report.with_errors > 0 ? '❌ Des erreurs ont été détectées.' : '✅ Tous les tests passent !'}
-
-            [Télécharger le rapport détaillé](${repoUrl})`;
-
-              await github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: body
-              });
-            } catch (error) {
-              console.error('Erreur lors de la création du commentaire:', error);
-            }
