@@ -1,0 +1,82 @@
+\uuid{cMQM}
+\titre{Probabilité conditionnelle et indépendance}
+\niveau{L1}
+\module{Probabilité et statistique}
+\chapitre{Loi, indépendance, loi conditionnelle}
+\sousChapitre{Probabilité conditionnelle}
+\theme{probabilité conditionnelle, indépendance, loi binomiale, urne, remise}
+\auteur{Maxime Nguyen}
+\datecreate{2026-07-11}
+\organisation{AMSCC}
+
+\contenu{
+	\texte{
+		On dispose de deux urnes. La première contient 3 boules noires et 7 boules blanches. La seconde contient 5 boules noires et 5 boules blanches. 
+		
+		On choisit une urne au hasard et on tire successivement deux boules, avec remise, dans cette urne. On note les événements :
+		\begin{itemize}
+			\item $B1$ : \og on obtient une boule blanche au premier tirage\fg{}
+			\item $B2$ : \og on obtient une boule blanche au second tirage\fg{}
+		\end{itemize}
+	}
+	\question{Les événements $B1$ et $B2$ sont-ils indépendants ?}
+	\reponse{
+		On note \(U_{1}\) (resp. \(U_{2}\)) l’événement « l’urne choisie est la première (resp. la seconde) ».  
+		On a \(\Pr(U_{1})=\Pr(U_{2})=\dfrac12\).
+		
+
+		
+
+		
+		Dans l’urne 1 il y a \(7\) boules blanches sur \(10\) ; dans l’urne 2 il y a \(5\) boules blanches sur \(10\).  
+		\[
+		\Pr(B_{1}\mid U_{1})=\Pr(B_{2}\mid U_{1})=\frac{7}{10},\qquad 
+		\Pr(B_{1}\mid U_{2})=\Pr(B_{2}\mid U_{2})=\frac{5}{10}=\frac12 .
+		\]	
+		
+		
+		Probabilité de \(B_{1}\) (et de \(B_{2}\)).
+		\[
+		\Pr(B_{1})=\Pr(U_{1})\Pr(B_{1}\mid U_{1})+\Pr(U_{2})\Pr(B_{1}\mid U_{2})
+		=\frac12\cdot\frac{7}{10}+\frac12\cdot\frac12
+		=\frac{7}{20}+\frac{5}{20}
+		=\frac{12}{20}=\frac35 .
+		\]
+		Par symétrie, \(\Pr(B_{2})=\dfrac35\).
+		
+		
+		
+	
+		\[
+		\begin{aligned}
+			\Pr(B_{1}\cap B_{2})
+			&=\Pr(U_{1})\Pr(B_{1}\cap B_{2}\mid U_{1})+\Pr(U_{2})\Pr(B_{1}\cap B_{2}\mid U_{2})\\
+			&=\frac12\left(\frac{7}{10}\right)^{2}+\frac12\left(\frac12\right)^{2}\\
+			&=\frac12\cdot\frac{49}{100}+\frac12\cdot\frac{25}{100}
+			=\frac{49+25}{200}
+			=\frac{74}{200}
+			=\frac{37}{100}.
+		\end{aligned}
+		\]
+		
+		
+
+		Les événements \(B_{1}\) et \(B_{2}\) sont indépendants si et seulement si  
+		\[
+		\Pr(B_{1}\cap B_{2})=\Pr(B_{1})\Pr(B_{2}).
+		\]
+		
+		Or  
+		\[
+		\Pr(B_{1})\Pr(B_{2})=\frac35\cdot\frac35=\frac{9}{25}=\frac{36}{100},
+		\]
+		tandis que  
+		\[
+		\Pr(B_{1}\cap B_{2})=\frac{37}{100}\neq\frac{36}{100}.
+		\]
+		
+		Donc \(\Pr(B_{1}\cap B_{2})\neq\Pr(B_{1})\Pr(B_{2})\) et les événements \(B_{1}\) et \(B_{2}\) ne sont pas indépendants.  
+		
+
+	}
+}
