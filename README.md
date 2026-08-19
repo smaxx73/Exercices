@@ -113,8 +113,10 @@ Chaque compilation construit un fichier temporaire `*_tmp.tex`, lance `lualatex`
 - `make fig-svg UUID=<id> N=<n>` : compile une figure SVG
 - `make list` : liste les sources TikZ et les sorties déjà générées
 - `make clean` : supprime les fichiers temporaires
-- `make cleanall` : supprime aussi tous les PDF/SVG générés
-- `make rebuild` : nettoyage complet puis recompilation PDF
-- `make rebuild-svg` : nettoyage complet puis recompilation SVG
+- `make clean-pdf` / `make clean-svg` : supprime uniquement le format indiqué
+- `make cleanall` : supprime tous les PDF/SVG générés
+- `make rebuild` : recompile les PDF sans toucher aux SVG
+- `make rebuild-svg` : recompile les SVG sans toucher aux PDF
+- `make rebuild-all` : recompile les PDF et SVG
 - `make debug` : affiche les variables internes calculées par le `Makefile`
 - `make help` : affiche l’aide intégrée

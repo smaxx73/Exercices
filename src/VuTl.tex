@@ -114,21 +114,7 @@
 			\question{En déduire le minimum de $f$ sur $\R^2$.}
 			\reponse{D'après l'étude précédente, nous en déduisons que $f$ admet deux minimums, l'un en $A$ et l'autre en $B$, et que la valeur minimale pour $f$ est $-8$.
 
-				\begin{tikzpicture}
-					\begin{axis}[
-						width=10cm,
-						view={60}{30},
-						xlabel={$x$},
-						ylabel={$y$},
-						zlabel={$f(x,y)$},
-						domain=-2:2,
-						domain y=-2:2,
-						samples=40,
-						colormap/cool
-						]
-						\addplot3[surf] {x^4 + y^4 - 2*(x - y)^2};
-					\end{axis}
-				\end{tikzpicture}
+				\includegraphics[]{\exercisespath img/pdf/VuTl-tikz-1}
 				%\end{document}
 				
 			}
