@@ -10,8 +10,11 @@ Pour insérer un exercice dans un document .tex, insérer le préambule :
 \input{\exercisespath/_preambules/general.tex}
 \input{\exercisespath/_preambules/print.tex}
 \input{\exercisespath/_preambules/macros.tex}
-\input{\exercisespath/_preambules/python.tex}
 ```
+
+Les extraits Python sont des fichiers dans `code/python/`. Ils s'insèrent dans
+`\contenu{...}` avec `\pythoncode{nom-du-fichier.py}` ; cette commande utilise
+`fancyvrb`, compatible avec le stockage du contenu dans une macro.
 
 et dans le corps du document, utiliser la commande
 
@@ -89,6 +92,7 @@ python3 scripts/check_exercise_sources.py src/6Wjb.tex
 python3 scripts/check_exercise_sources.py --max-errors=0
 python3 scripts/check_exercise_sources.py --csv
 python3 scripts/check_image_assets.py
+python3 scripts/check_python_assets.py
 ```
 
 La cible par défaut est `src/`. Ces contrôles de structure et d'assets sont exécutés par la CI.

@@ -27,38 +27,18 @@ et on s'intéresse au système $A_\varepsilon x = b$ où $x,b \in \mathbb{R}^n$.
 \begin{enumerate}
 	\item \question{ Ecrire une fonction Python qui génère la matrice $A_\varepsilon$ pour tout $n$ et $\varepsilon$ : }
 	
-	\begin{python}
-		\texte{def epsmatrice(n,epsilon):
-		...
-		return ...
-	\end{python}}
-	
-	%\reppython{
-	%def epsmatrice(n,epsilon):
-	%  v = ones(n-1)*epsilon
-	%  A=eye(n)+diag(v,-1)+diag(v,1)
-	%  v = ones(n-2)*epsilon**2
-	%  A = A + diag(v,-2) + diag(v,2)
-	%  return A
-	%}
+	\begin{center}\pythoncode{aOYg-epsmatrice.py}\end{center}
 	\reponse{ \insertnotebook{aOYg}}
 	\item \question{ Donner un intervalle de valeurs de $\varepsilon$ pour lesquelles $A_\varepsilon$ est à diagonale strictement dominante.%, et calculer numériquement le conditionnement de $A_\varepsilon$ pour $n=10$ et $\varepsilon = 0.2$. 
 	}
 	\reponse{La matrice $A_\varepsilon$ est à diagonale strictement dominante si et seulement si $1 > 2\varepsilon + 2\varepsilon^2 \iff \varepsilon \in \left[0 ; \frac{\sqrt{3}-1}{2} \right]$. }
 	\item \question{ Que permet de calculer la fonction suivante où \texttt{matrice} est une matrice carrée de taille $n$ quelconque ? }
 		
-	\begin{python}
-		\texte{def rs(matrice):
-		return max(abs(eigvals(matrice)))
-	\end{python}}
+	\begin{center}\pythoncode{aOYg-rayon-spectral.py}\end{center}
 
 	\reponse{On reconnaît le calcul du rayon spectral de la matrice.}
 	\item \question{ Ecrire une fonction Python qui génère la matrice $b_{\varepsilon} = A_\varepsilon\overline{x}$ où $\overline{x} = (1,...,1) \in \mathbb{R}^n$.}
-	\begin{python}
-		\texte{def epsb(n,epsilon):
-		...
-		return b
-	\end{python}
+	\begin{center}\pythoncode{aOYg-epsb.py}\end{center}
 	\item \question{ La méthode de Jacobi est-elle convergente pour $n=10$ et $\varepsilon = 0.2$ ? Si oui, résoudre le système $A_\varepsilon x = b_{\varepsilon}$ par cette méthode et donner le nombre d'itérations nécessaire pour une erreur de $10^{-8}$ et un vecteur initial $x_0 = 0$.  }
 	\reponse{La matrice est à diagonale strictement dominante pour cette valeur de $\varepsilon$. La résolution demande $26$ itérations.}
 	\item \question{ Soit $B$ la matrice d'itération associée à la méthode de Jacobi pour la matrice $A_\varepsilon$. Pour $n=20$ fixé, représenter graphiquement le rayon spectral de $B$ en fonction de $\varepsilon \in [0;1]$.  }

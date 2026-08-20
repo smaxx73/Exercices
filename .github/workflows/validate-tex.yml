@@ -12,6 +12,8 @@ on:
       - '_preambules/**/*.tex'
       - 'scripts/check_exercise_sources.py'
       - 'scripts/check_image_assets.py'
+      - 'scripts/check_python_assets.py'
+      - 'code/python/**'
       - 'img/pdf/**'
       - 'img/png/**'
       - 'template_exercice.tex'
@@ -33,6 +35,7 @@ jobs:
         run: |
           python3 scripts/check_exercise_sources.py --csv validation_report.csv
           python3 scripts/check_image_assets.py --csv image_report.csv
+          python3 scripts/check_python_assets.py
 
       - name: Upload validation report
         if: always()

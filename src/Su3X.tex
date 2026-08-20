@@ -9,17 +9,6 @@
 \datecreate{2023-09-07}
 \organisation{AMSCC}
 
-\begin{SaveVerbatim}{Su3Xpython}
-	n=1000
-	S=0
-	for i in range(n):
-	u = rand()
-	S= S + sqrt(-2*log(1-u))
-	print("Valeur approchée de I = ")
-	print(S/n)
-\end{SaveVerbatim}
-
-
 \difficulte{}
 \contenu{
 \texte{ 	On suppose dans cet exercice que l'on dispose d'une fonction \texttt{normale()} pour simuler la variable $\mathcal{N}(0,1)$ et de \texttt{rand()} pour simuler la loi  $\mathcal{U}([0;1])$. 
@@ -66,7 +55,7 @@
 			
 			Sachant simuler la loi de $Y_1$, on déduit l'algorithme suivant permettant de déterminer une valeur approchée de $I$ :
 			
-			{\centering \fbox{\BUseVerbatim{Su3Xpython}}\par}
+			\begin{center}\pythoncode{Su3X-estimation.py}\end{center}
 			
 		}
 	\end{enumerate}

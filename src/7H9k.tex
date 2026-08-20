@@ -63,13 +63,7 @@
 		\item \question{On souhaite vérifier numériquement certaines propriétés de l'estimateur $\hat{\theta} = \frac{n}{S_Y}$. Rappeler comment simuler une variable aléatoire $Y$ suivant une loi exponentielle $\mathcal{E}(\lambda)$ à partir d'une variable aléatoire $U$ suivant une loi uniforme $\mathcal{U}[0,1]$.}
 		\reponse{Si \( U \sim \mathcal{U}[0,1] \), alors \( Y = -\frac{1}{\lambda} \ln(U) \sim \text{Exp}(\lambda) \).}
 		\item \question{On suppose que l'on sait simuler une loi uniforme $\mathcal{U}[0,1]$ à l'aide de la fonction \texttt{rand()}. En déduire une méthode permettant de simuler la variable aléatoire $\hat{\theta}$. On pourra écrire un code en python.}
-		\reponse{On propose la fonction python suivante :
-	\texttt{
-				def simulation(theta, n):
-				S=0
-				for i in range(n):
-				S=S-log(rand())/theta
-				return n/S
-	}}
+		\reponse{On propose la fonction Python suivante :
+	\begin{center}\pythoncode{7H9k-simulation.py}\end{center}}
 	\end{enumerate}
 }

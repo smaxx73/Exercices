@@ -9,22 +9,6 @@
 \datecreate{2024-01-16}
 \organisation{AMSCC}
 
-\begin{SaveVerbatim}{j0O1python}
-    def pareto(a,b):
-        return b * rand()**(-1/a)
-\end{SaveVerbatim}
-
-\begin{SaveVerbatim}{j0O1python2}
-    def surprise(a,b):
-        L = []
-        for p in range(5):
-            S = 0
-            for i in range(10**p):
-                S = S + pareto(a,b)
-            L.append(S/10**p)
-        return L
-\end{SaveVerbatim}
-
 \difficulte{}
 \contenu{
 
@@ -52,7 +36,7 @@ $$f(x)=\frac{a b^a}{x^{a+1}} \mathbf{1}_{[b;+\infty[}(x).$$
     }
     \item \question{ En déduire un programme en Python (ou en langage naturel) permettant de simuler une variable aléatoire suivant une loi de Pareto de paramètres $a$ et $b$. On suppose acquis que la fonction \texttt{rand()} simule une variable aléatoire suivant la loi uniforme sur $[0;1]$. }
     \reponse{
-       {\BUseVerbatim{j0O1python}\par}
+       \begin{center}\pythoncode{j0O1-pareto.py}\end{center}
     }
     \item \question{ Montrer que la variable aléatoire $X$ admet une espérance si et seulement si $a>1$ puis montrer que dans ce cas, $\EX = \frac{ab}{a-1}$. }
     \reponse{
@@ -61,7 +45,7 @@ $$f(x)=\frac{a b^a}{x^{a+1}} \mathbf{1}_{[b;+\infty[}(x).$$
         Si $a > 1$, on a $\EX = \int_b^{+\infty} \frac{a b^a}{x^{a}} dx = \left[ -\frac{ab^a}{(a-1)x^{a-1}} \right]_b^{+\infty} = \frac{ab}{a-1}$.
     }
     \item \question{ On considère le programme Python suivant : \\
-    {\BUseVerbatim{j0O1python2}\par}
+    \begin{center}\pythoncode{j0O1-surprise.py}\end{center}
     Que contient la liste \texttt{L} renvoyée par la fonction \texttt{surprise} ? }
     \reponse{
         La loi forte des grands nombres permet d'approcher l'espérance de $X$ par $\frac{1}{n} \sum_{i=1}^n X_i$ lorsque $n$ est grand, ici $n = 10^p$ avec $p \in \{0,1,2,3,4\}$. La liste \texttt{L} contient $5$ réalisations de la variable $\frac{1}{n} \sum_{i=1}^n X_i$ pour différentes valeurs de $n$ donc $5$ valeurs approchées de l'espérance de la variable aléatoire $X$ suivant une loi de Pareto de paramètres $a$ et $b$.

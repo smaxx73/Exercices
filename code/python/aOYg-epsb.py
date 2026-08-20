@@ -1,0 +1,3 @@
+def epsb(n, epsilon):
+    ...
+    return b

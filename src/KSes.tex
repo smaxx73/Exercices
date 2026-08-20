@@ -37,23 +37,9 @@
 				$$\frac{4}{n}\sum_{i=1}^n \frac{1}{\sqrt{2\pi}}e^{-\frac{U_i^2}{2}} \xrightarrow[n \to +\infty]{p.s.} \mathbb{E}\left(\frac{4}{\sqrt{2\pi}}e^{-\frac{U_1^2}{2}}\right) = \int_{\R}^{} \frac{4}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \frac{1}{4} 1_{[0;4]}(x)  dx = I$$	
 			}
 			\item \question{ En déduire une méthode de Monte Carlo permettant d'obtenir une valeur approchée de $I$ en complétant l'algorithme suivant :
-				\texttt{n=1000;S=0 \\
-					for i in range(n): \\
-					  u = ... \\
-					 S= S + ... \\
-					print(...)}
-%\begin{verbatim}
-%%n=1000;S=0
-%%for i in range(n):
-%%   u = ... 
-%%   S= S + ...
-%%print(...)
-%\end{verbatim}
-
+				\begin{center}\pythoncode{KSes-template.py}\end{center}
 }
-			\reponse{		  u = 4*rand() \\
-				S= S + 1/sqrt(2*pi)*exp(-u**2/2) \\
-				print(4*S/n)}
+			\reponse{\begin{center}\pythoncode{KSes-solution.py}\end{center}}
 			\item \question{ Construire un intervalle de confiance $I_{conf}$ tel que $\mathbb{P}(I \in I_{conf}) \approx 0{,}95$. }
 			\reponse{On procède de même en posant $h \colon x \mapsto \frac{4}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$.
 				

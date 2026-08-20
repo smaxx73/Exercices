@@ -9,14 +9,6 @@
 \datecreate{2024-11-17}
 \organisation{ AMSCC }
 
-\begin{SaveVerbatim}{5NS7}
-def ReLu(y):
-	if y<0:
-		return 0
-	else:
-		return y
-\end{SaveVerbatim}
-
 \difficulte{}
 \contenu{
 
@@ -55,7 +47,7 @@ où $g_1$ et $g_2$ sont la fonction ReLu.
 
 
 
-	{\centering \fbox{\BUseVerbatim{5NS7}}\par}
+	\begin{center}\pythoncode{5NS7-relu.py}\end{center}
 
 La fonction d'erreur est : 
 $$E(a,b,c) = \frac{1}{3}\sum_{i=1}^3 E_i(a,b,c)$$
