@@ -38,7 +38,7 @@
 	\item \question{Déterminer la fonction de répartition de $Y_A$. En déduire que $Y_A$ est une variable aléatoire absolument continue dont on déterminera une fonction densité.}
 	\reponse{ Pour tout $x\in\R$,
 		\[ F_{Y_A}(t)=\p(Y_A\leq t)=\p(\max(X_1,X_2,X_3\leq t)=\p(\{X_1\leq t\}\cap\{X_2\leq t\} \cap \{X_3\leq t\}).\]
-		Comme les \vas $X_i$ sont i.i.d., on obtient:
+		Comme les variables aléatoires $X_i$ sont i.i.d., on obtient:
 		\[ F_{Y_A}(t)=\p(X_1\leq t)\p(X_2\leq t)\p(X_3\leq t) =(F_{X_1}(t))^3.\]
 		Donc
 		$ F_{Y_1}(t)=
@@ -48,9 +48,9 @@
 			1 \text{ si } t> 1
 		\end{cases}
 		$.
-		La \va $Y_A$ est donc absolument continue et sa densité vaut $f_{Y_A}(t)=F'_{Y_A}(t)=3t^2\textbf{1}_{[0;1]}(t)$.}
+		La variable aléatoire $Y_A$ est donc absolument continue et sa densité vaut $f_{Y_A}(t)=F'_{Y_A}(t)=3t^2\textbf{1}_{[0;1]}(t)$.}
 	\item \question{En comparant l'espérance des variables aléatoires $Y_A$ et $Y_B$ , peut-on dire qu'il existe une meilleure stratégie ?}
-	\reponse{Comparons l'espérance des \vas $Y_A$ et $Y_B$:
+	\reponse{Comparons l'espérance des variables aléatoires $Y_A$ et $Y_B$:
 		\begin{align*}
 			&\E(Y_A)=\int_0^1 x \times 3x^2 \ dx
 			=\left[ \frac{3}{4} x^4\right]_0^1=\frac{3}{4}, \\
