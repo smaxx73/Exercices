@@ -12,10 +12,40 @@
 
 \difficulte{3}
 \contenu{
-	\texte{ Soit $p \in ]0,1[$ et $X$ une variable aléatoire suivant une loi géométrique de paramètre $p$. 
+	\texte{On répète indépendamment une même expérience de Bernoulli, dont la probabilité de succès à chaque essai est $p\in]0,1[$. On note $X$ le rang du premier succès.
 	}
 
 \begin{enumerate}
+	\item \question{Que représente l'événement $\{X=k\}$, pour $k\geq 1$ ? Calculer $\prob(X=1)$, $\prob(X=2)$ et $\prob(X=3)$.}
+	\reponse{L'événement $\{X=k\}$ signifie que les $k-1$ premiers essais sont des échecs et que le $k$-ième essai est un succès. Ainsi,
+	\[
+	\prob(X=1)=p, \qquad \prob(X=2)=(1-p)p, \qquad \prob(X=3)=(1-p)^2p.
+	\]}
+
+	\item \question{Montrer que, pour tout entier $k\geq 1$,
+	\[
+	\prob(X=k)=(1-p)^{k-1}p.
+	\]
+	En déduire que $X$ suit une loi géométrique de paramètre $p$.}
+	\reponse{Pour que le premier succès ait lieu au $k$-ième essai, il faut observer $k-1$ échecs, puis un succès. Par indépendance des essais,
+	\[
+	\prob(X=k)=(1-p)^{k-1}p.
+	\]
+	C'est précisément la loi géométrique de paramètre $p$ sur $\N^*$.}
+
+	\item \question{Vérifier que cette formule définit bien une loi de probabilité.}
+	\reponse{Comme $0<1-p<1$,
+	\[
+	\sum_{k=1}^{+\infty}\prob(X=k)=\sum_{k=1}^{+\infty}p(1-p)^{k-1}
+	= p\frac{1}{1-(1-p)}=1.
+	\]}
+
+	\item \question{Exprimer $\prob(X>n)$ pour tout entier $n\geq 0$. Interpréter cet événement dans le contexte de l'expérience.}
+	\reponse{L'événement $\{X>n\}$ signifie qu'aucun succès n'a été obtenu lors des $n$ premiers essais. Par indépendance,
+	\[
+	\prob(X>n)=(1-p)^n.
+	\]}
+
 	\item \question{ Montrer que la probabilité que $X$ prenne une valeur paire est $\frac{1-p}{2-p}$. }
 	\indication{ Voir que $\prob(\og X \text{ est pair } \fg{}) =  \sum\limits_{k=1}^{+\infty}\prob(X=2k)$.}
 	\reponse{ $\prob(\og X \text{ est pair } \fg{}) =  \sum\limits_{k=1}^{+\infty}\prob(X=2k) = \sum\limits_{k=1}^{+\infty}p(1-p)^{2k-1} = \frac{p(1-p)}{1-(1-p)^2} = \frac{1-p}{2-p}$. }
