@@ -20,14 +20,23 @@
 
 \reponse{ Soit $X$ le nombre de moteurs tombant en panne sur l'avion $A$ et $Y$  le nombre de moteurs tombant en panne sur l'avion $B$. Alors $X$ suit une loi binomiale $\mathcal{B}(4,p)$ et $Y$ suit une loi binomiale $\mathcal{B}(2,p)$. 
 	
-	Le vol $A$ se termine bien se traduit par l'événement $\{X \leq 1\}$ et le vol $B$ se termine bien se traduit par l'événement $\{Y=0\}$.  
+	Le vol $A$ se termine bien se traduit par l'événement $\{X \leq 2\}$ et le vol $B$ se termine bien se traduit par l'événement $\{Y\leq 1\}$.
 
-On calcule donc $\prob(X=0)+\prob(X=1) = (1-p)^4 + 4p(1-p)^3$ et $\prob(Y=0) = (1-p)^2$.
+	On calcule donc
+	\[
+	\prob(X\leq 2) = (1-p)^4 + 4p(1-p)^3 + 6p^2(1-p)^2
+	\]
+	et
+	\[
+	\prob(Y\leq 1) = (1-p)^2 + 2p(1-p) = 1-p^2.
+	\]
 
-Il est préférable de prendre l'avion $A$ si et seulement si $\prob(X=0)+\prob(X=1) \geq \prob(Y=0)$, c'est-à-dire :
-$$p(1-p)^2(2-3p) \geq 0 \iff 2-3p \geq 0$$
+	Il est préférable de prendre l'avion $A$ si et seulement si $\prob(X\leq 2) \geq \prob(Y\leq 1)$, c'est-à-dire :
+	\[
+	p^2(1-p)(1-3p) \geq 0 \iff 1-3p \geq 0.
+	\]
 
-En conclusion, si $p < \frac{2}{3}$, il est préférable de prendre l'avion $A$. 
+	En conclusion, il est préférable de prendre l'avion $A$ si $p<\frac{1}{3}$, l'avion $B$ si $p>\frac{1}{3}$ et les deux avions sont équivalents si $p=\frac{1}{3}$.
  }
 	
 }

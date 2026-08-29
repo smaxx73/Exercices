@@ -1,10 +1,10 @@
 \uuid{3Df7}
-\titre{Dimensionnement des chargements militaires : estimation et correction de continuité}
+\titre{Dimensionnement des chargements militaires : estimation et quantile}
 \niveau{L2}
 \module{Probabilités et Statistiques}
 \chapitre{Probabilités continues}
 \sousChapitre{Loi normale}
-\theme{Loi normale, estimation de paramètres, correction de continuité, quantiles}
+\theme{Loi normale, estimation de paramètres, quantiles}
 \auteur{Jean-François Culus}
 \datecreate{2025-10-21}
 \organisation{AMSCC}
@@ -13,7 +13,7 @@
 \contenu{
 	\texte{Dans l'ATP 3-21.18 (Foot Marches), la Unit Basic Load (UBL) correspond à la quantité standard de munitions qu'un fantassin doit porter avant réapprovisionnement. Les analyses probabilistes peuvent aider à ajuster cette charge en fonction des profils de mission et du taux réel de consommation observé. La Unit Basic Load (UBL) d'un fantassin est fixée à 7 chargeurs de 30 cartouches pour le fusil M4, soit un total de 210 cartouches.}
 	
-	\texte{On modélise par une variable aléatoire \( X \) le nombre de chargeurs consommés par mission par un fantassin. On suppose que \( X \) suit une loi normale \( X \sim \mathcal{N}(\mu, \sigma) \). Des journaux d'entraînement indiquent qu'environ 20\% des missions consomment au plus 2 chargeurs, et qu'environ 30\% des missions en consomment (strictement) plus de 4.}
+	\texte{On modélise par une variable aléatoire \( X \) la consommation de chargeurs par mission d'un fantassin. On suppose que \( X \) suit une loi normale continue \( X \sim \mathcal{N}(\mu, \sigma^2) \). Des journaux d'entraînement indiquent qu'environ 20\% des missions consomment au plus 2 chargeurs, et qu'environ 30\% des missions en consomment (strictement) plus de 4.}
 	
 	\begin{enumerate}
 		\item \question{Estimer \( \mu \) et \( \sigma \) à partir de ces informations.}
@@ -29,13 +29,13 @@
 		}
 		
 		\item \question{Déterminer le nombre minimal \( m \) de chargeurs à emporter pour que \( P(X \leq m) \geq 0,95 \).}
-		\indication{Utiliser la correction de continuité.}
+		\indication{Utiliser le quantile d'ordre \(0,95\) de la loi normale centrée réduite.}
 		\reponse{
-			Pour couvrir 95\% des situations, on cherche \( m \) entier tel que \( P(X \leq m) \geq 0,95 \). Avec la correction de continuité,
+			Pour couvrir 95\% des situations, on cherche \( m \) entier tel que \( P(X \leq m) \geq 0,95 \). Comme \(X\) est modélisée par une loi normale continue,
 			\[
-			P(X \leq m) \approx \Phi\left(\frac{m + 0,5 - \mu}{\sigma}\right) \geq 0,95 \iff \frac{m + 0,5 - \mu}{\sigma} \geq z_{0,95} \approx 1,645.
+			P(X \leq m) = \Phi\left(\frac{m - \mu}{\sigma}\right) \geq 0,95 \iff \frac{m - \mu}{\sigma} \geq z_{0,95} \approx 1,645.
 			\]
-			Ainsi, \( m + 0,5 \geq \mu + 1,645 \sigma \approx 3,23 + 1,645 \times 1,46 \approx 5,64 \), ce qui implique \( m \geq 5,14 \). Le plus petit entier est donc \( m = 6 \).
+			Ainsi, \( m \geq \mu + 1,645 \sigma \approx 3,23 + 1,645 \times 1,46 \approx 5,64 \). Le plus petit entier est donc \( m = 6 \).
 		}
 		
 		\item \question{Discuter brièvement l'écart éventuel avec une charge « doctrinale » de 7 chargeurs.}
