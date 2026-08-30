@@ -36,6 +36,7 @@ Pour tout $i\in{1,2,3,4,5}$, soit $X_i$ la variable aléatoire qui est égale à
 	
 	
 	\item \question{ Calculer $\prob((X_1=0)\cap(X_2=0))$. Les variables aléatoires $X_1$ et $X_2$ sont-elles indépendantes ? }
+	\indication{L'événement conjoint signifie qu'aucun des quatre tirages ne donne ni $1$ ni $2$. Comparer ensuite cette probabilité au produit des deux probabilités marginales.}
 	\reponse{
 		\begin{align*}
 		\prob((X_1=0)\cap(X_2=0))&=\prob(\text{''Les boules numérotées $1$ et $2$ n'ont jamais été tirées``}) \\
@@ -45,6 +46,7 @@ Pour tout $i\in{1,2,3,4,5}$, soit $X_i$ la variable aléatoire qui est égale à
 	}
 	
 	\item \question{ Déterminer la loi jointe de $(X_1,X_2)$. }
+	\indication{Commencer par la case $(0,0)$, puis obtenir les cases $(1,0)$ et $(0,1)$ par différence avec les marginales ; la dernière case se déduit car la somme des quatre cases vaut $1$.}
 	\reponse{
 		\begin{center}
 			\begin{tabular}{|c|c|c||c|}
@@ -63,6 +65,7 @@ Pour tout $i\in{1,2,3,4,5}$, soit $X_i$ la variable aléatoire qui est égale à
 	}
 	
 	\item \question{ Soit $X$ la variable aléatoire égale au nombre de valeurs gagnantes. Exprimer $X$ en fonction de $X_1$,...,$X_5$. Déterminer l'espérance de $X$. }
+	\indication{Chaque indicatrice $X_i$ compte si la valeur $i$ a été vue. Écrire $X$ comme leur somme et utiliser la linéarité de l'espérance, sans supposer les $X_i$ indépendantes.}
 	\reponse{On a $X=X_1+X_2+X_3+X_4+X_5$. Comme les variables aléatoires $X_i$ sont de même loi, on obtient
 		\[ \E(X)=\sum_{i=1}^5 \E(X_i)=5\E(X_1)=5\times \frac{369}{625}=\frac{369}{125}\simeq 2.95.\]
 		En moyenne, on aura quasiment $3$ valeurs gagnantes par jeu.

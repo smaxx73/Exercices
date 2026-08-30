@@ -32,6 +32,7 @@
 			On pose $Y=\frac{X-\nombre{1000}}{\sqrt{800}}$. 
 			Justifier précisément que l’on peut approcher la loi de $Y$ par la loi normale centrée réduite. 
 		}
+		\indication{Reconnaître $X$ comme une somme de $5000$ Bernoulli indépendantes. Vérifier les conditions usuelles de l'approximation normale, puis expliquer l'effet du centrage et de la réduction.}
 		\reponse{ 
 			Puisque $n$ est grand ($n=5000$) et $p=0.2$ n’est ni trop proche de 0 ni de 1, 
 			la loi binomiale peut être approchée par une loi normale : 
@@ -43,6 +44,7 @@
 			Le poste de commandement souhaite dimensionner son réseau pour que la probabilité de saturation (trop de communications simultanées) soit inférieure à $2.5$\%.  
 			En utilisant l’approximation précédente, proposer une valeur approchée du nombre maximal de connexions que le système doit pouvoir gérer. 
 		}
+		\indication{Si la capacité vaut $c$, imposer $\prob(X\geq c)\leq0{,}025$. Passer à la variable centrée-réduite et utiliser le quantile d'ordre $0{,}975$, puis arrondir la capacité dans le sens de la sécurité.}
 		\reponse{ 
 			Soit $n$ le nombre maximal de connexions simultanées supportées.  
 			On cherche $n$ tel que $\prob(X\geq n)\leq 0.025$, soit :

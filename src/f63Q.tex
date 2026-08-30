@@ -46,6 +46,7 @@
 			On peut aussi remarquer que $v_2 = 1 - u_2 = 1 - 0.45 = 0.55$.
 		}
 		\item \question{Montrer que pour tout entier $n \geqslant 1$, on a $u_{n+1} = 0.6 u_n + 0.3 v_n$. En déduire une relation matricielle entre  $\begin{pmatrix} u_{n+1} \\ v_{n+1} \end{pmatrix}$ et $\begin{pmatrix} u_n \\ v_n \end{pmatrix}$.}
+		\indication{Scinder l'événement $G_{n+1}$ selon $G_n$ ou $\overline{G_n}$, puis appliquer la formule des probabilités totales. Faire de même pour le complément afin d'obtenir la seconde ligne de la matrice.}
 		\reponse{ D'après la formule des probabilités totales, on a : 
 			
 			\begin{align*}
@@ -71,6 +72,7 @@
 			$$\begin{pmatrix} u_{n+1} \\ v_{n+1} \end{pmatrix} = \begin{pmatrix} 0.6 & 0.3 \\ 0.4 & 0.7 \end{pmatrix} \begin{pmatrix} u_n \\ v_n \end{pmatrix}.$$ 
 		}
 		\item \question{Montrer que la suite de terme général $u_n - \frac{3}{7}$ est une suite géométrique de raison $0.3$ et en déduire une expression de $u_n$ et $v_n$ en fonction de $n$ ainsi que leur limite quand $n \to +\infty$.}
+		\indication{Utiliser d'abord $v_n=1-u_n$ pour obtenir une récurrence affine $u_{n+1}=0{,}3u_n+0{,}3$. Chercher ensuite son point fixe avant de soustraire cette valeur à $u_n$.}
 		\reponse{ 
 			Pour tout entier $n \geqslant 1$, on a $u_n + v_n = \prob(G_n) + \prob(\overline{G_n}) = 1$, donc $v_n = 1 - u_n$.
 			En utilisant la relation de la question précédente, on a :
@@ -108,4 +110,3 @@
 		}
 	\end{enumerate}
 }
-

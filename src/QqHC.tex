@@ -41,6 +41,7 @@
  }
  
  \item \question{ Montrer que les événements $\{X=1\}$ et $\{Y=1\}$ sont indépendants si et seulement si $n=2$. }
+ \indication{Calculer séparément $\prob(X=1,Y=1)$, $\prob(X=1)$ et $\prob(Y=1)$ ; l'indépendance équivaut à l'égalité du premier terme avec le produit des deux autres.}
  \reponse{ On a:
  \begin{itemize}
   \item $\prob(X=1,Y=1)=\prob(\text{''On obtient la boule blanche numérotée $1$ au premier tirage``})=\frac{1}{n+2}$.
@@ -56,6 +57,7 @@
  }
  
  \item \question{ Montrer que les variables aléatoires $X$ et $Y$ ne sont pas indépendantes. }
+ \indication{Il suffit de trouver une paire de valeurs pour laquelle la probabilité conjointe ne vaut pas le produit des marginales. Distinguer le cas $n=2$, seul cas non traité par la question précédente.}
  \reponse{ 
  Pour $n\neq 2$, on a montré, par la question précédente, que les événements $\{X=1\}$ et $\{Y=1\}$ n'étaient pas indépendants, ce qui montre que les variables $X$ et $Y$ ne sont pas indépendantes.
  
@@ -78,6 +80,7 @@ donc $X$ et $Y$ ont même loi.
   }
   
   \item \question{ Déterminer la loi du couple $(X,Y)$. }
+  \indication{Pour chaque couple $(i,j)\in\{1,2,3\}^2$, décrire l'ordre des boules imposé par $X=i$ et $Y=j$, puis compter les tirages équiprobables compatibles.}
   \reponse{
     \begin{center}
 \begin{tabular}{|c|c|c|c||c|}

@@ -37,6 +37,7 @@
         }
         
         \item \question{Étudier l'existence de $ \E(X)$ en fonction de la valeur du paramètre $\alpha$.}
+        \indication{Dans l'intégrale définissant $\E(X)$, simplifier $x f(x)$ puis appliquer le critère de convergence des intégrales de Riemann à l'infini.}
         \reponse{
             Si elle existe, l'espérance de $ X $ est $ \int_1^{+\infty} x \alpha \left( \frac{1}{x} \right)^{\alpha+1} dx$. Or cette intégrale existe si et seulement si $ \alpha > 1 $.
         }
@@ -46,6 +47,7 @@
     \texte{Soit $ X $ une variable aléatoire suivant une loi de Pareto de paramètre $(\alpha,1 ,0)$ et soient deux réels $r,s$ tels que  $r > 0$. On pose alors la variable aléatoire $ Y = rX + s $.}
 
         \item \question{Déterminer la loi de la variable aléatoire $Y$. }
+        \indication{Comme $r>0$, la transformation $x\mapsto rx+s$ est croissante. Écrire $F_Y(t)=\prob\left(X\leq\frac{t-s}{r}\right)$ et distinguer les valeurs de $t$ selon le support.}
         \reponse{
             Soit $ t \in \R $. Si $ t \leq s+1 $, alors $ F_Y(t) = 0 $. Si $ t > s+1 $, alors :
             \begin{align*}

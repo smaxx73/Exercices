@@ -16,6 +16,7 @@
 	
 	\begin{enumerate}
 		\item \question{ Pour tout $t \in \mathbb{R}$, exprimer $F_Y(t)$ en fonction de $F_X$. }
+		\indication{Partir de $F_Y(t)=\prob(Y\leq t)$ et résoudre l'inégalité définissant $Y$ en fonction de $X$. Bien distinguer les valeurs de $t$ situées hors du support de $Y$.}
 		\reponse{ Soit $t\in\mathbb{R}$. On a
 			\begin{align*}
 				F_Y(t) &= \prob(Y\leq t) \\
@@ -26,6 +27,7 @@
 				&= F_X(1-e^{-t/2}).
 		\end{align*} }
 		\item \question{ En déduire la loi suivie par $Y=-2\ln(1-X)$ ? }
+		\indication{Remplacer dans l'expression précédente la fonction de répartition de la loi uniforme ; comparer alors la fonction obtenue à celle d'une loi exponentielle.}
 		\reponse{ 
 			Or $X\sim \mathcal{U}([0;1])$ donc $F_X(x)=\begin{cases} 0 & \text{ si } x<0 \\ x & \text{ si } x\in[0;1[ \\ 1 & \text{ si } x\geq 1 \end{cases}$.
 			

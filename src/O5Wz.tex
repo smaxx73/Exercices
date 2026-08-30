@@ -32,12 +32,14 @@ $$ }
         \]
     }
     \item \question{ Soit $E$ l’événement : « Chacune des 3 périodes de fonctionnement de la machine dure plus de 2 heures ». Exprimer $E$ en fonction des événements $A_i = \{X_i > 2\}$ pour $i \in \{1,2,3\}$ et calculer $\prob(E)$. }
+    \indication{L'événement demandé est l'intersection des trois $A_i$. Les variables étant indépendantes, multiplier les trois probabilités de survie.}
     \reponse{
         On a $E = A_1 \cap A_2 \cap A_3$. Or les variables $X_i$ sont indépendantes donc les événements $A_i$ sont indépendants. Donc, $\prob(E) = \prob(A_1) \times \prob(A_2) \times \prob(A_3) = e^{-\frac{2}{2}} \times e^{-\frac{2}{2}} \times e^{-\frac{2}{2}} = e^{-3}$.
     }
     \item \question{Soit $Y$ la variable aléatoire égale à la plus grande des 3 durées de fonctionnement de la machine sans interruption.
     \begin{enumerate}
         \item \question{ Exprimer $Y$ en fonction de $X_1,X_2,X_3$ puis montrer que $\prob(Y \leq t) = \left(1 - e^{-\frac{t}{2}}\right)^3$ pour tout $t \geq 0$.}
+        \indication{Écrire $Y=\max(X_1,X_2,X_3)$ : l'événement $\{Y\leq t\}$ impose simultanément $X_i\leq t$ pour les trois indices.}
         \reponse{
             On a $Y = \max(X_1,X_2,X_3)$. Donc, pour tout $t \geq 0$, on a :
             \begin{align*}
@@ -48,6 +50,7 @@ $$ }
             \end{align*}
         }
         \item \question{ En déduire une fonction densité $f_Y(t)$ de $Y$. }
+        \indication{Dériver la fonction de répartition sur $t>0$ et ne pas oublier que la densité est nulle hors de $[0,+\infty[$.}
         \reponse{
             Pour tout $t < 0$, $\prob(Y \leq t) = 0$. D'après le résultat de la question précédente, pour tout $t \geq 0$, on a :
             \[
@@ -69,6 +72,7 @@ $$ }
             On a $\int_0^{+\infty} t e^{at} \, dt = \left[ t \frac{e^{at}}{a} \right]_0^{+\infty} - \int_0^{+\infty} \frac{e^{at}}{a} \, dt = 0 - \frac{1}{a} \int_0^{+\infty} e^{at} \, dt = -\frac{1}{a} \left[ \frac{e^{at}}{a} \right]_0^{+\infty} = -\frac{1}{a} \left(0 - \frac{1}{a}\right) = \frac{1}{a^2}$.
         }
         \item \question{ Démontrer que la variable aléatoire $Y$ admet une espérance, que l’on calculera. Exprimer la valeur en heures et minutes. }
+        \indication{Développer le carré dans $f_Y(t)$ pour ramener $\E(Y)$ à une combinaison d'intégrales $\int_0^{+\infty}t e^{at}\,\mathrm dt$ de la question précédente.}
         \reponse{
             On a $f_Y(t) = 3 \times \frac{1}{2} e^{-\frac{t}{2}} \times \left(1 - e^{-\frac{t}{2}}\right)^2$. Donc on a :
             \begin{align*}

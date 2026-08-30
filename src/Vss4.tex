@@ -18,6 +18,7 @@
         La variable aléatoire $X$ suit une loi binomiale de paramètres $n = 1000$ et $p = 0{,}05$, ce qui se note $X \hookrightarrow \mathcal{B}(1000, 0{,}05)$. On a $\mathbb{E}(X) = n \times p = 1000 \times 0{,}05 = 50$ et $\sigma(X) = \sqrt{n \times p \times (1-p)} = \sqrt{1000 \times 0{,}05 \times 0{,}95} = \sqrt{47{,}5}$.
     }
     \item \question{ En utilisant l'inégalité de Bienaymé-Tchebychev, majorer la probabilité que le nombre de pièces fausses soit supérieur à 100. }
+    \indication{L'événement $\{X>100\}$ est contenu dans $\{|X-50|>50\}$. Appliquer Bienaymé--Tchebychev à ce dernier événement.}
     \reponse{
         D'après l'inégalité de Bienaymé-Tchebychev appliquée à la variable aléatoire $X$ admettant une espérance $50$, on a pour tout $k > 0$ :
         \[
@@ -30,12 +31,14 @@
         Donc, $\prob(X > 100) = \prob(X - 50 > 50) \leq \prob(|X - 50| > 50) \leq 0{,}019$.
     }
     \item \question{ Justifier que $X$ peut être approchée par une variable suivant une loi normale de moyenne $\mu = 50$ et d’écart-type $\sigma = \sqrt{47{,}5}$. }
+    \indication{Voir $X$ comme la somme de $1000$ indicatrices de Bernoulli indépendantes et vérifier que les effectifs attendus $np$ et $n(1-p)$ sont suffisamment grands.}
     \reponse{
         Soit $S_n = X_1+\cdots X_n$ une somme de variables aléatoires indépendantes et identiquement distribuées suivant une loi de Bernoulli de paramètre $p = 0{,}05$. D'après le théorème central limite, la variable aléatoire $\frac{S_n - 0.05n}{\sqrt{n\times 0.05 \times 0.95}}$ suit approximativement une loi normale centrée réduite pour $n$ grand (supérieur à $30$ en pratique), donc $S_n$ suit approximativement une loi normale de moyenne $0.05n$ et d'écart-type $\sqrt{n\times 0.05 \times 0.95}$.
 
         Or $X$ suit la même loi que $S_{1000}$ donc $X$ peut être approchée par une variable suivant une loi normale de moyenne $\mu = 50$ et d’écart-type $\sigma = \sqrt{47{,}5}$. 
     }
     \item \question{ À l’aide de cette approximation, estimer la probabilité que le nombre de pièces fausses soit compris entre 48 et 52. }
+    \indication{Utiliser la normale approchante avec une correction de continuité : remplacer l'intervalle entier $[48,52]$ par $[47{,}5,52{,}5]$, puis centrer-réduire.}
     \reponse{
         On calcule : 
         \begin{align*}

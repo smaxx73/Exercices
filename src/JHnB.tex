@@ -18,6 +18,8 @@
 
     \question{ Quel est le poison qui a la plus grande probabilité d'avoir été absorbé, sachant que le signe clinique $s$ est observé sur le patient ? }
 
+    \indication{Pour comparer les probabilités a posteriori, les trois dénominateurs sont les mêmes : il suffit donc de comparer les produits $\prob(p_i)\prob(s\mid p_i)$.}
+
     \reponse{Soit $A$ (respectivement $B$ et $C$) l'événement \og{} la personne a ingéré le poison $p_1$ (respectivement $p_2$ et $p_3$)\fg. Soit $S$ l'événement \og{} la personne présente le signe clinique $s$\fg. \\
     On cherche à déterminer quel poison a la probabilité la plus élevée d'avoir été ingéré, sachant que le signe clinique $s$ a été observé. Autrement dit, cela revient à calculer les probabilités suivantes :
     \begin{itemize}
@@ -44,4 +46,3 @@
             ~~ \text{et } \prob(C|S) = \frac {\prob(C\cap S)}{\prob(S)},$$
     il suffit en fait de comparer $\prob(A\cap S)$, $\prob(B\cap S)$ et $\prob(C\cap S)$ pour obtenir la conclusion.}
 }
-

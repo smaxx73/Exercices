@@ -74,6 +74,7 @@ Interprétation : sur un grand nombre de tirages, la moyenne des numéros obtenu
 }
 
 \item   \question{Calculer la variance $V(X)$, puis en déduire l’écart-type $\sigma(X)$.}
+\indication{Calculer séparément $\E(X^2)=\sum_i x_i^2\prob(X=x_i)$, puis employer $V(X)=\E(X^2)-\E(X)^2$.}
 \reponse{
 On calcule d’abord
 \[
@@ -131,6 +132,7 @@ P(B)=P(X=1)+P(X=3)+P(X=5)=0{,}1+0{,}3+0{,}15=0{,}55.
 
 
 \item   \question{Calculer la probabilité totale qu’une pièce soit défectueuse, c’est-à-dire $P(D)$.}
+\indication{Les événements « jeton pair » et « jeton impair » forment une partition : décomposer $D$ suivant ces deux cas.}
 \reponse{
 D’après la formule des probabilités totales,
 \[
@@ -151,6 +153,7 @@ P(D)=0{,}0885.
 }
 
 \item   \question{On tire une pièce au hasard et on constate qu’elle est défectueuse. Quelle est la probabilité que le jeton tiré initialement ait été pair ?}
+\indication{On cherche une probabilité conditionnelle $P(A\mid D)$. Utiliser $P(A\mid D)=\frac{P(A)P(D\mid A)}{P(D)}$, la question précédente fournissant le dénominateur.}
 \reponse{
 On cherche
 \[

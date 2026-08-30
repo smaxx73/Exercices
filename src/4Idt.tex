@@ -22,6 +22,7 @@
 	}
 	
 	\item \question{ Montrer que $\prob(|X-\lambda| \geq \lambda) \leq \frac{1}{\lambda}$ et en déduire que $\prob(X\geq 2\lambda)\leq \frac{1}{\lambda}$. }
+	\indication{Appliquer Bienaymé--Tchebychev avec la moyenne et la variance d'une loi de Poisson. Puis remarquer que $\{X\geq2\lambda\}$ est inclus dans l'événement d'écart à la moyenne considéré.}
 	\reponse{ Par l'inégalité de Bienaymé-Tchebychev, on a
 		\[ \prob(|X-\E(X)|\geq \lambda)\leq \frac{\sigma^2(X)}{\lambda^2}=\frac{\lambda}{\lambda^2}=\frac{1}{\lambda}\]
 		donc
@@ -35,6 +36,7 @@
 	}
 	
 	\item \question{ Pour $\lambda$ assez grand, laquelle des deux inégalités est la meilleure ? }
+	\indication{Comparer directement les deux majorants $1/2$ et $1/\lambda$ ; la plus petite borne est la plus informative.}
 	\reponse{ Pour $\lambda \geq 2$, $\frac{1}{\lambda}\leq \frac{1}{2}$ donc l'inégalité de Bienaymé-Tchebychev est meilleure que celle de Markov.
 	}
 	

@@ -17,6 +17,7 @@
 
     \begin{enumerate}
         \item \question{ \'A l'aide de l'inégalité de Bienaymé-Tchebychev, donner une minoration de la probabilité $\prob(10 < X < 22)$. }
+        \indication{Exprimer le complémentaire de l'événement demandé comme un écart à la moyenne, en tenant compte du fait que $X$ est à valeurs entières, puis appliquer Bienaymé--Tchebychev.}
         \reponse{
             D'après l'inégalité de Bienaymé-Tchebychev, on a : 
             $$\prob(|X-\E(X)|\geq 6 ) \leq  \frac{\V(X)}{6^2}$$
@@ -41,6 +42,7 @@
         \item \question{
             On admet que $X$ peut s'écrire comme la somme de $n$ variables aléatoires indépendantes suivant une loi de Poisson $\mathcal{P}(1)$. Donner une autre approximation de la probabilité $\prob(10 < X < 22)$ en utilisant une loi normale.
         }
+        \indication{La somme a moyenne et variance égales à $16$. Approcher par une normale de ces paramètres et, pour une approximation plus précise, appliquer la correction de continuité aux bornes entières.}
         \reponse{
             On a $\E(X) = 16$ et $\V(X) = 16$. D'après le théorème central limite, la variable aléatoire $Z = \frac{X-16}{4}$ suit approximativement une loi normale centrée réduite. On a donc : 
             $$\prob(10 < X < 22) = \prob\left(\frac{10-16}{4} < Z < \frac{22-16}{4}\right) = \prob(-1.5 < Z < 1.5)$$

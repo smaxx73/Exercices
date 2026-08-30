@@ -46,6 +46,7 @@ $$f_X \colon x \mapsto \begin{cases}
     \end{align*}
     }
     \item \question{ Calculer la probabilité conditionnelle $\prob(X \leq \frac{1}{2} \mid X > 0)$. }
+    \indication{Traduire l'intersection dans le numérateur par $\{0<X\leq1/2\}$, puis calculer numérateur et dénominateur à l'aide de la fonction de répartition précédente.}
     \reponse{
 D'après la formule des probabilités conditionnelles, on a :
 \begin{align*}
@@ -77,6 +78,7 @@ Donc $\prob(X \leq \frac{1}{2} \mid X > 0) = \frac{\frac{1}{16}}{\frac{1}{2}} = 
     Donc $\var(X) = \E(X^2) - \E(X)^2 = \frac{3}{5}$.
     }
     \item \question{ Soit $Y = X^2$. Déterminer la fonction de répartition $F_Y$ de $Y$ et en déduire sa densité. }
+    \indication{Étudier $\{X^2\leq t\}$ par cas : vide si $t<0$, puis $\{-\sqrt t\leq X\leq\sqrt t\}$ ; le support de $X$ impose aussi un changement de cas à $t=1$.}
     \reponse{
     Par définition, si $t \in \R$ alors $F_Y(t) = \prob(Y \leq t) = \prob(X^2 \leq t)$. Donc : 
     $$F_Y(t) = \begin{cases}

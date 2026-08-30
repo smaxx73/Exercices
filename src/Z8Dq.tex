@@ -12,6 +12,7 @@
 \contenu{
 
 \question{ Soit $X$ une variable aléatoire suivant une loi exponentielle  de paramètre $\lambda>0$. Démontrer l'existence des moments d'ordre $n$ de $X$ pour tout $n \in \mathbb{N}$ puis les calculer. }
+\indication{Écrire $\E(X^n)=\int_0^{+\infty}x^n\lambda e^{-\lambda x}\,\mathrm dx$. Une intégration par parties établit une récurrence entre les moments d'ordres $n$ et $n-1$.}
 \reponse{On sait par comparaison que la fonction $x\mapsto x e^{-\lambda x}$ est intégrable au voisinage de $+\infty$ donc on peut calculer par théorème de transfert pour tout $n \in \N^*$ : 
 	\begin{align*}
 		\mathbb{E}(X^n) &= \lambda \int_0^{+\infty} x^n e^{-\lambda x} dx \\

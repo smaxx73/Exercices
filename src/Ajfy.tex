@@ -27,6 +27,7 @@
 	}
 	
 	\item \question{ On prélève $100$ pièces. En utilisant une approximation par la loi de Poisson, donner une approximation de la probabilité qu'il y ait $k$ rondelles refusées, pour $k\in\{0,1,2,3,4\}$. }
+	\indication{Le nombre de refus suit une binomiale de paramètres $n=100$ et $p$ trouvé à la première question. L'approximation de Poisson a pour paramètre $\lambda=np$.}
 	\reponse{ 
 		Soit $Y$ le nombre de rondelles refusées sur les $100$ pièces. On a $Y\sim \mathcal{B}(100,p)$ et $\E(Y)=100\times p = 4.56$ donc $Y$ peut être approchée par la variable aléatoire $Z$ de loi $\mathcal{P}(4.56)$. Ainsi,
 		\[ \forall k \in\{0,\cdots , 4\},\quad \prob(Y=k)\simeq \prob(Z=k)=\frac{4.56^k}{k!}e^{-4.56}.\]
@@ -43,6 +44,7 @@
 	}
 	
 	\item \question{ On prélève $\nombre{1000}$ pièces. Proposer une approximation de la probabilité qu'il y ait au moins $50$ pièces refusées. }
+	\indication{Utiliser cette fois l'approximation normale de la binomiale, de moyenne $np$ et variance $np(1-p)$. Pour « au moins $50$ », appliquer une correction de continuité au seuil $49{,}5$.}
 	\reponse{ 
 		Soit $R$ le nombre de pièces refusées parmi les $\nombre{1000}$ pièces. Alors $Z\sim \mathcal{B}(\nombre{1000},p)$ qui peut être approchée par une loi Normale:
 		\begin{align*}

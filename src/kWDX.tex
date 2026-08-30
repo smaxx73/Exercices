@@ -29,6 +29,7 @@
         \item \question{
             On note $R(t) = \prob(S > t)$ la fiabilité du système à l'instant $t$. C'est la probabilité que le système fonctionne encore après un temps d'utilisation $t$. Exprimer $R(t)$ en fonction de $R_1(t), \ldots, R_n(t)$ et en déduire que $S$ suit une loi exponentielle dont on précisera le paramètre.
         }
+        \indication{Le système fonctionne à l'instant $t$ si tous ses composants fonctionnent encore. Traduire cet événement par une intersection, puis utiliser l'indépendance.}
         \reponse{
             $R(t) = \prob(S > t) = \prob(T_1 > t, \ldots, T_n > t) = \prod_{k=1}^{n} \prob(T_k > t) = \prod_{k=1}^{n} R_k(t) = e^{-nt}$ pour tout $t \geq 0$. Donc $S$ suit une loi exponentielle de paramètre $n$.
         }

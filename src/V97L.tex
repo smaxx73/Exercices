@@ -28,6 +28,7 @@
             On a $-20 \leq G \leq 20 \iff -20 \leq 2X-n \leq 20 \iff -10 \leq X-\frac{n}{2} \leq 10$. Donc l'événement considéré est $\{|X - \frac{n}{2}| \leq 10\}$ ou encore $\{-10 \leq X - \frac{n}{2} \leq 10\}$.
         }
         \item \question{ En utilisant le théorème central limite sans correction de continuité, déterminer le nombre maximal de lancers $n$ à effectuer pour que la probabilité de l'événement \og le gain ou la perte n'excède pas 20 euros \fg{} soit supérieure à $0.9544$. }
+        \indication{Réutiliser l'événement de la question précédente, puis centrer-réduire $X$. Identifier le quantile normal correspondant à une probabilité centrale de $0{,}9544$ avant de résoudre l'inégalité en $n$.}
         \reponse{
             On cherche $n$ tel que $\prob(|X - \frac{n}{2}| \leq 10) \geq 0.9544$. On sait que $\E(X) = \frac{n}{2}$ et $\V(X) = \frac{n}{4}$. D'après le théorème central limite, la variable aléatoire $Z = \frac{X-\frac{n}{2}}{\frac{\sqrt{n}}{2}}$ suit approximativement une loi normale centrée réduite. On a donc : 
             $$\prob(|X - \frac{n}{2}| \leq 10) = \prob\left(\frac{|X - \frac{n}{2}|}{\frac{\sqrt{n}}{2}} \leq \frac{10}{\frac{\sqrt{n}}{2}}\right) = \prob\left(|Z| \leq \frac{10}{\frac{\sqrt{n}}{2}}\right)$$

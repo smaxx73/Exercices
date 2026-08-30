@@ -18,6 +18,7 @@
 	\begin{enumerate}
 		\item \question{Afin de déduire la perte de vitesse par tranche de 10 lb de poids porté, exprimer la vitesse associée au parcours d'une distance de 2 km en 6 h. En déduire que l'expression de la valeur moyenne $\mu_W$ (en km/h) d'un soldat portant une charge de $W$ lb d'au moins 40 lb, en référence à l'extrait de doctrine précédent, est : 
 			\[ \mu_W = 2,4 - 0,333\frac{W-40}{10} \]}
+		\indication{Convertir la perte de distance en perte de vitesse grâce à $v=d/t$. Le nombre de tranches de $10$ lb au-delà de $40$ vaut $(W-40)/10$.}
 		\reponse{
 			Une perte de 2 km en 6 h correspond à une perte de vitesse de $\Delta v = \frac{2}{6} \approx 0,333$ km/h. Cette perte s'applique pour chaque tranche de 10 lb au-delà de 40 lb. L'expression de la moyenne est donc :
 			\[ \mu_W = 2,4 - 0,333 \times \frac{W-40}{10} = 2,4 - 0,0333(W-40), \quad \text{pour } W \geq 40. \]
@@ -31,6 +32,7 @@
 		}
 		
 		\item \question{(Probabilité d'atteindre l'objectif) Pour une charge de 60 livres, déterminer la probabilité $P(D \geq 12)$ que les soldats parcourent au moins D = 12 km en T = 8 h. Avec les mêmes données, calculer ensuite $P(D \geq 16)$.}
+		\indication{À durée fixée, $D=8V$. Déduire la loi normale de $D$ par transformation affine, puis centrer-réduire chaque seuil.}
 		\reponse{
 			La distance $D = T \times V = 8V$. Donc $D \sim \mathcal{N}(8\mu_{60}, (8\sigma)^2) = \mathcal{N}(13,87, 3.2^2)$.
 			\[ P(D \geq 12) = P\left(Z \geq \frac{12 - 13,87}{3,2}\right) = P(Z \geq -0,585) \approx 0,72. \]
@@ -39,6 +41,7 @@
 		}
 		
 		\item \question{(Distance « assurée » à 95\%) Pour les charges de $W = 40, 60$ et $80$ lb, calculer les distances $d_{0,95}(W)$ telles que les soldats aient 95\% de chance de les parcourir en 8 h.}
+		\indication{Chercher $d$ tel que $\prob(D\geq d)=0{,}95$. Il s'agit donc du quantile inférieur d'ordre $0{,}05$ de la loi de $D=8V$, et non de son quantile d'ordre $0{,}95$.}
 		\reponse{
 			On cherche $d$ tel que $P(D \geq d) = 0,95$. Cela revient à $P(V \geq d/8) = 0,95$. Il faut donc $d/8 = \mu_W + z_{0,05}\sigma = \mu_W - z_{0,95}\sigma$. Avec $z_{0,95} \approx 1,645$ :
 			$d_{0,95}(W) = 8(\mu_W - 1,645 \times 0,40) = 8(\mu_W - 0,658)$.
@@ -50,11 +53,13 @@
 		}
 		
 		\item \question{(Faisabilité d'un objectif) Existe-t-il une charge $W$ permettant d'assurer une probabilité de 90\% de réussir à couvrir 20 km en 8 h ? Justifier.}
+		\indication{Traduire l'objectif en une borne sur $\mu_W$ à l'aide du quantile $z_{0{,}90}$, puis comparer cette borne à la valeur maximale possible de $\mu_W$.}
 		\reponse{
 			On cherche $W$ tel que $P(D \geq 20) \geq 0,90$. Cela revient à $P(V \geq 20/8=2,5) \geq 0,90$. Il faut donc $\mu_W \geq 2,5 + z_{0,90}\sigma = 2,5 + 1,282 \times 0,40 \approx 3,013$ km/h. Or $\mu_W \leq 2,4$, donc cet objectif est irréalisable.
 		}
 		
 		\item \question{(Faisabilité d'un objectif 2) Même question mais pour parcourir 10 km en 8 h.}
+		\indication{Procéder comme à la question précédente, puis résoudre l'inégalité obtenue en $W$ dans la formule de $\mu_W$.}
 		\reponse{
 			On cherche $W$ tel que $P(D \geq 10) \geq 0,90$. Cela revient à $P(V \geq 10/8=1,25) \geq 0,90$. Il faut donc $\mu_W \geq 1,25 + 1,282 \times 0,40 \approx 1,763$ km/h.
 			\[ 2,4 - 0,0333(W - 40) \geq 1,763 \implies W - 40 \leq 19,1 \implies W \leq 59,1. \]

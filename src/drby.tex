@@ -41,6 +41,7 @@
 		La probabilité que le temps d'attente soit supérieur à 5 minutes est d'environ 55\%.
 	}
 	\item \question{ Sachant qu'un client a déjà attendu 10 minutes à la caisse, quelle est la probabilité que son attente totale dépasse 15 minutes ? }
+	\indication{Écrire $\prob(T>15\mid T>10)$ : comme $\{T>15\}\subset\{T>10\}$, le quotient se simplifie. Vous retrouvez l'absence de mémoire de la loi exponentielle.}
 	\reponse{
 		\begin{align*}
 			\prob(T > 15 \mid T > 10) &= \frac{\prob(T > 15 \cap T > 10)}{\prob(T > 10)} \\
@@ -54,6 +55,7 @@
 		La probabilité que le temps d'attente soit supérieur à 15 minutes sachant qu'il est déjà supérieur à 10 minutes est la même que la probabilité que le temps d'attente soit supérieur à 5 minutes. Cette probabilité est d'environ 55\%. Cette propriété est appelée \textit{absence de mémoire} de la loi exponentielle. 
 	}
 	\item \question{ On suppose que chaque caisse fonctionne manière indépendante. Etant donné que 6 caisses sont ouvertes, on note $Y$ la variable aléatoire donnant le nombre de caisses pour lesquelles la durée d'attente est supérieure à 10 minutes. Quelle est la loi suivie par la variable $Y$ ? Calculer la probabilité qu'au moins 4 des 6 caisses imposent une durée d'attente supérieure à 10 minutes, ce qui obligerait le magasin à ouvrir une nouvelle caisse. }
+	\indication{Chaque caisse fournit une épreuve de Bernoulli de succès « attente supérieure à 10 minutes », de probabilité $e^{-0{,}12\times10}$. Identifier la loi binomiale puis sommer les trois probabilités correspondant à $4$, $5$ et $6$ succès.}
 	\reponse{ 
 		On a $Y \sim \mathcal{B}(6, \prob(T > 10))$ avec $\prob(T > 10) = e^{-1{,}2} \approx 0{,}3012$. \\
 		Donc \begin{align*}

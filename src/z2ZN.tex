@@ -23,6 +23,7 @@
 			&= 1
 	\end{align*}}
 	\item \question{  Montrer que $X$ n'admet pas de moment d'ordre 1. }
+	\indication{Étudier l'intégrabilité de $|x|f(x)$ au voisinage de l'infini : son comportement est comparable à une intégrale de type $\int \frac{1}{x}\,\mathrm dx$.}
 	\reponse{On remarque que $x \times \frac{1}{1+x^2} \underset{x\to +\infty}\sim \frac{1}{x}$ donc par comparaison, la fonction $x \mapsto xf(x)$ n'est pas intégrable au voisinage de $+\infty$. Donc $X$ n'est pas intégrable et $\mathbb{E}(X)$ n'existe pas. }
 	\item \question{ Calculer la fonction de répartition de $X$. }
 	\reponse{Soit $t \in \R$ : 
@@ -34,6 +35,7 @@
 			&= \frac{1}{2} + \frac{1}{\pi}\arctan(t)
 	\end{align*}}
 	\item \question{ Déterminer la fonction de répartition de $Y=\arctan(X)$ et en déduire sa loi. }
+	\indication{La fonction $\arctan$ est croissante. Pour $t\in]-\pi/2,\pi/2[$, écrire $\{Y\leq t\}=\{X\leq\tan t\}$, puis traiter séparément les deux extrémités du support.}
 	\reponse{On sait que $-\frac{\pi}{2} \leq Y < \frac{\pi}{2}$. Donc si $t < -\frac{\pi}{2}$ alors $F_Y(t) = 0$ et si $t > \frac{\pi}{2}$ alors $F_Y(t) = 1$.  Soit $t \in \left[-\frac{\pi}{2} ; \frac{\pi}{2}\right]$ : 
 		\begin{align*}
 			F_Y(t) &= \PP(X \leq \tan(t) ) \\

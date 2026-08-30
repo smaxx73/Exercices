@@ -31,6 +31,7 @@
 	}
 	
 	\item \question{ Sur $N=10\ 000$ circuits imprimés en stock dont $d=100$ sont défectueux, on en choisit $500$. Quelle est la probabilité que sur les $500$ prélevés il y en ait cinq défectueux ? }
+	\indication{Les prélèvements se font sans remise dans une population finie : reconnaître une loi hypergéométrique et compter les choix de $5$ défectueux et de $495$ non défectueux.}
 	\reponse{ Soit $Z$ le nombre de circuits défectueux sur les $500$ prélevés. Alors $Z\sim \mathcal{H}(500,0.01,10\ 000)$ et on a
 		\[ \prob(Z=5)=\frac{\binom{100}{5}\binom{9900}{495}}{\binom{10\ 000}{500}}.
 		\]
