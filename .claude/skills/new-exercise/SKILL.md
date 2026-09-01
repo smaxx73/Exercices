@@ -1,7 +1,7 @@
 ---
 name: new-exercise
 description: >
-  Rédiger un nouvel exercice de mathématiques au format LaTeX du projet COET/Exercices.
+Rédiger un nouvel exercice de mathématiques au format LaTeX du dépôt Exercices.
   Utiliser quand l'utilisateur veut créer un exercice, ajouter une question, construire un
   problème, rédiger un corrigé, proposer un exercice sur un thème donné (séries, intégrales,
   probabilités, EDP, analyse, algèbre...). Produit un fichier .tex prêt à l'emploi dans src/.
