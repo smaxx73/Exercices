@@ -11,8 +11,12 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 - Variable aléatoire discrète
 - Lois de distributions
 - Probabilité conditionnelle
+- Théorème de Bayes
 - Probabilité et dénombrement
 - Loi, indépendance, loi conditionnelle
+- Loi conjointe, marginales, covariance
+- Reconnaissance de lois discrètes
+- Loi binomiale et approximation
 - Définition et propriété d'une probabilité
 - Autre
 
@@ -25,7 +29,12 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 - Loi conjointe
 - Loi exponentielle
 - Espérance et Fonction de répartition
+- Lois usuelles et approximations
+- Approximation normale
 - Autre
+
+### Fonctions caractéristiques
+- Loi normale et somme de variables aléatoires
 
 ---
 
@@ -38,7 +47,10 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 ### Statistique
 - Statistique descriptive et visualisation
 - Échantillonnage et estimation
+- Estimation
 - Estimation par maximum de vraisemblance
+- Intervalle de confiance
+- Tests d'hypothèses
 - Tests d'hypothèses, intervalle de confiance
 - Autre
 
