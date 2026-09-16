@@ -5,7 +5,7 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 
 ---
 
-## Probabilité et statistique
+## Probabilité
 
 ### Probabilité discrète
 - Variable aléatoire discrète
@@ -27,9 +27,47 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 - Espérance et Fonction de répartition
 - Autre
 
+---
+
+## Analyse de données
+
+Ce module regroupe les exercices dont l'objet est l'exploitation de données : statistique,
+préparation des données et apprentissage automatique. Les résultats et lois de probabilité
+restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-mêmes.
+
 ### Statistique
+- Statistique descriptive et visualisation
+- Échantillonnage et estimation
+- Estimation par maximum de vraisemblance
 - Tests d'hypothèses, intervalle de confiance
-- Estimation
+- Autre
+
+### Prétraitement des données
+- Nettoyage, valeurs manquantes, filtrage
+- Encodage des variables
+- Normalisation et standardisation
+- Découpage entraînement, validation, test
+- Autre
+
+### Apprentissage automatique
+- Régression supervisée
+- Classification supervisée
+- Apprentissage non supervisé
+- Sélection et réduction de variables
+- Validation croisée et réglage d'hyperparamètres
+- Évaluation et métriques de modèles
+- Autre
+
+### Réseaux de neurones
+- Architecture et propagation avant
+- Fonctions d'activation et couche de sortie
+- Fonctions de coût
+- Descente de gradient et optimisation
+- Rétropropagation
+- Initialisation, normalisation et régularisation
+- Évaluation et métriques de classification
+- Réseaux convolutifs
+- Réseaux récurrents, LSTM et GRU
 - Autre
 
 ---
@@ -161,15 +199,26 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 
 ---
 
-## Notes sur les variantes à éviter
+## Règles de migration et variantes à éviter
+
+| Valeurs historiques | Cible canonique |
+|---|---|
+| `Probabilité et statistique` + chapitre `Statistique` | `Analyse de données` / `Statistique` |
+| `Probabilité et statistique` + chapitre `Probabilité discrète` ou `Probabilité continue` | `Probabilité` / chapitre inchangé |
+| `Apprentissage automatique` | `Analyse de données` ; choisir le chapitre métier correspondant |
+| `Réseaux de Neurones` | `Analyse de données` / `Réseaux de neurones` |
+| `Informatique / Signal` + chapitre `Réseaux de neurones` | `Analyse de données` / `Réseaux de neurones` |
+
+Les autres valeurs historiques sont traitées au cas par cas : l'intitulé du module seul ne
+suffit pas à déterminer la cible.
 
 | Variante présente dans le dépôt | Forme canonique |
 |---|---|
-| Probabilités et Statistiques | Probabilité et statistique |
-| Probabilités | Probabilité et statistique |
-| Statistiques | Probabilité et statistique |
-| Statistiques inférentielles | Probabilité et statistique |
-| Probabilités avancées | Probabilité et statistique |
+| Probabilités et Statistiques | Voir les règles de migration ci-dessus |
+| Probabilités | Probabilité |
+| Statistiques | Analyse de données / Statistique |
+| Statistiques inférentielles | Analyse de données / Statistique |
+| Probabilités avancées | Probabilité |
 | Analyse Numérique | Analyse numérique |
 | Fonctions de plusieurs variables | Fonction de plusieurs variables |
 | Matrices | Matrice |
@@ -178,3 +227,4 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 | Dérivées partielles | Dérivée partielle |
 | Série à  termes positifs (double espace) | Série à termes positifs |
 | Théorème Central Limite (majuscules) | Théorème central limite |
+| Réseaux de neurones récurrents | Analyse de données / Réseaux de neurones / Réseaux récurrents, LSTM et GRU |

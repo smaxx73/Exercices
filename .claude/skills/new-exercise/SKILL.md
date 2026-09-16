@@ -23,7 +23,7 @@ Champs obligatoires dans l'ordre :
 - `\uuid{XXXX}` — 4 caractères alphanumériques, **unique** dans `src/`
 - `\titre{...}` — titre court et descriptif
 - `\niveau{L1|L2|L3|M1|M2}`
-- `\module{...}` — ex. "Séries numériques", "Probabilités et Statistiques", "Analyse"
+- `\module{...}` — ex. "Probabilité", "Analyse de données", "Analyse"
 - `\chapitre{...}` — chapitre principal
 - `\sousChapitre{...}` — sous-chapitre précis
 - `\theme{...}` — mots-clés séparés par des virgules
