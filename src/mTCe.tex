@@ -1,0 +1,186 @@
+\uuid{mTCd}
+\titre{Équation différentielle causale et transformée de Fourier}
+
+\niveau{M1}
+\module{Analyse}
+\chapitre{Distributions et transformée de Fourier}
+\sousChapitre{Équations différentielles dans $\mathcal{D}'_+$}
+\theme{Solution fondamentale causale de l'opérateur $\partial_t+1$}
+\auteur{Q. Liard}
+\datecreate{ 2026-09-04}
+\organisation{CentraleSupélec}
+\difficulte{3}
+
+\contenu{
+
+\texte{
+On cherche une distribution $G$ à support dans $\mathbb{R}_+$ vérifiant
+$$
+G'+G=\delta.
+$$
+On note $H$ la fonction de Heaviside. Dans tout l'exercice, on adopte la convention
+$$
+\widehat{u}(\xi)=\int_{\mathbb{R}}u(t)e^{-i\xi t}\,dt.
+$$
+Lorsque la formule d'inversion est applicable, elle s'écrit
+$$
+u(t)=\frac{1}{2\pi}\int_{\mathbb{R}}\widehat{u}(\xi)e^{i\xi t}\,d\xi.
+$$
+}
+
+\begin{enumerate}
+
+\item \question{Résoudre le problème de Cauchy
+$$
+\begin{cases}
+z'+z=0,\\
+z(0)=1.
+\end{cases}
+$$}
+
+\reponse{
+L'équation homogène $z'+z=0$ a pour solutions
+$$
+z(t)=Ce^{-t},
+$$
+où $C\in\mathbb{R}$. La condition initiale $z(0)=1$ impose $C=1$. Ainsi,
+$$
+\boxed{z(t)=e^{-t}}.
+$$
+}
+
+\item \question{Soit $z$ la solution précédente. Vérifier que la distribution $Hz$ est une solution de
+$$
+G'+G=\delta.
+$$}
+\reponse{
+Pour toute fonction $z$ de classe $C^1$, on a au sens des distributions
+$$
+(Hz)'=Hz'+z(0)\delta.
+$$
+Ici, $z(0)=1$ et $z'+z=0$. Par conséquent,
+$$
+(Hz)'+Hz
+=
+H(z'+z)+z(0)\delta
+=
+\delta.
+$$
+La distribution
+$$
+\boxed{G(t)=H(t)e^{-t}}
+$$
+est donc une solution de $G'+G=\delta$. Son support est contenu dans $\mathbb{R}_+$.
+}
+
+\item \question{Avec la convention de Fourier donnée dans l'énoncé, rappeler les expressions de $\widehat{G'}$ et de $\widehat{\delta}$, puis transformer l'équation
+$$
+G'+G=\delta.
+$$
+En déduire l'expression de $\widehat{G}$.}
+
+\reponse{
+Avec la convention
+$$
+\widehat{u}(\xi)=\int_{\mathbb{R}}u(t)e^{-i\xi t}\,dt,
+$$
+la dérivation dans la variable $t$ devient une multiplication par $i\xi$ :
+$$
+\widehat{G'}(\xi)=i\xi\,\widehat{G}(\xi).
+$$
+De plus,
+$$
+\widehat{\delta}(\xi)=1.
+$$
+La transformation de Fourier de l'équation donne alors
+$$
+i\xi\,\widehat{G}(\xi)+\widehat{G}(\xi)=1,
+$$
+soit
+$$
+(1+i\xi)\widehat{G}(\xi)=1.
+$$
+Comme $1+i\xi\neq 0$ pour tout $\xi\in\mathbb{R}$, on obtient
+$$
+\boxed{\widehat{G}(\xi)=\frac{1}{1+i\xi}}.
+$$
+}
+
+\item \question{Vérifier directement que la transformée de Fourier de la fonction
+$$
+t\longmapsto H(t)e^{-t}
+$$
+est égale à $\dfrac{1}{1+i\xi}$.}
+
+\reponse{
+La fonction $t\mapsto H(t)e^{-t}$ appartient à $L^1(\mathbb{R})$. Pour tout $\xi\in\mathbb{R}$,
+$$
+\widehat{H e^{-\cdot}}(\xi)
+=
+\int_{\mathbb{R}}H(t)e^{-t}e^{-i\xi t}\,dt
+=
+\int_0^{+\infty}e^{-(1+i\xi)t}\,dt.
+$$
+Comme la partie réelle de $1+i\xi$ vaut $1>0$, l'intégrale converge et
+$$
+\widehat{H e^{-\cdot}}(\xi)
+=
+\left[
+-\frac{e^{-(1+i\xi)t}}{1+i\xi}
+\right]_{0}^{+\infty}.
+$$
+Le terme exponentiel tend vers $0$ lorsque $t\to+\infty$. Ainsi,
+$$
+\boxed{
+\widehat{H e^{-\cdot}}(\xi)=\frac{1}{1+i\xi}
+}.
+$$
+Ce résultat coïncide avec celui obtenu en transformant directement l'équation différentielle.
+}
+
+\item \question{Plus généralement, soit $a>0$. Déterminer une solution $G_a\in\mathcal{D}'_+$ de
+$$
+G_a'+aG_a=\delta,
+$$
+puis calculer sa transformée de Fourier avec la même convention.}
+
+\reponse{
+On résout d'abord
+$$
+z_a'+az_a=0,
+\qquad
+z_a(0)=1.
+$$
+On obtient
+$$
+z_a(t)=e^{-at}.
+$$
+Par la même formule de dérivation,
+$$
+(Hz_a)'+aHz_a
+=
+H(z_a'+az_a)+z_a(0)\delta
+=
+\delta.
+$$
+On peut donc choisir
+$$
+\boxed{G_a(t)=H(t)e^{-at}}.
+$$
+En transformant l'équation,
+$$
+i\xi\,\widehat{G_a}(\xi)+a\widehat{G_a}(\xi)=1.
+$$
+Par conséquent,
+$$
+\boxed{\widehat{G_a}(\xi)=\frac{1}{a+i\xi}}.
+$$
+On retrouve également cette formule par le calcul direct
+$$
+\int_0^{+\infty}e^{-(a+i\xi)t}\,dt=\frac{1}{a+i\xi}.
+$$
+}
+
+\end{enumerate}
+
+}

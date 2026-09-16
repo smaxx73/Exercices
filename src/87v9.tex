@@ -1,0 +1,146 @@
+\uuid{87v9}
+\titre{Circuit RLC en régime critique}
+
+\niveau{M1}
+\module{Analyse}
+\chapitre{Distributions et systèmes linéaires}
+\sousChapitre{Réponse impulsionnelle d'un circuit RLC}
+\theme{Convolution et signal de sortie}
+\auteur{Q. Liard}
+\datecreate{ 2026-09-03}
+\organisation{CentraleSupélec}
+\difficulte{4}
+
+\contenu{
+
+\texte{
+On considère un circuit RLC dont la tension de sortie $v$ est liée à la tension d'entrée $u$ par
+$$
+\frac{L}{R}v''(t)+v'(t)+\frac{v(t)}{RC}=u'(t).
+$$
+On suppose $R,L,C>0$ et
+$$
+R=2\sqrt{\frac{L}{C}}.
+$$
+}
+
+\begin{enumerate}
+
+\item \question{Déterminer toutes les solutions de l'équation différentielle
+$$
+\frac{L}{R}z''(t)+z'(t)+\frac{z(t)}{RC}=0.
+$$}
+
+\reponse{
+L'hypothèse $R=2\sqrt{L/C}$ donne
+$$
+\frac{L}{R}=\frac{RC}{4}.
+$$
+L'équation devient donc
+$$
+\frac{RC}{4}z''+z'+\frac{1}{RC}z=0,
+$$
+soit, après multiplication par $4/(RC)$,
+$$
+z''+\frac{4}{RC}z'+\frac{4}{R^2C^2}z=0.
+$$
+L'équation caractéristique est
+$$
+r^2+\frac{4}{RC}r+\frac{4}{R^2C^2}=0
+\quad\Longleftrightarrow\quad
+\left(r+\frac{2}{RC}\right)^2=0.
+$$
+Il existe une racine double $-2/(RC)$. Les solutions sont donc
+$$
+\boxed{z(t)=(\alpha+\beta t)e^{-\frac{2t}{RC}},\qquad \alpha,\beta\in\mathbb{R}}.
+$$
+}
+
+\item \question{En choisissant des conditions initiales convenables, déterminer une solution $G\in\mathcal{D}'_+$ de
+$$
+\frac{L}{R}G''+G'+\frac{G}{RC}=\delta.
+$$}
+
+\reponse{
+Choisissons la solution homogène $z$ vérifiant
+$$
+z(0)=0,
+\qquad
+z'(0)=1.
+$$
+D'après la question précédente,
+$$
+z(t)=t e^{-\frac{2t}{RC}}.
+$$
+Pour une telle fonction,
+$$
+(Hz)''=Hz''+\delta.
+$$
+Si l'on note
+$$
+D=\frac{L}{R}\frac{d^2}{dt^2}+\frac{d}{dt}+\frac{1}{RC},
+$$
+alors
+$$
+D(Hz)=\frac{L}{R}\delta.
+$$
+Il suffit donc de poser
+$$
+G=\frac{R}{L}Hz.
+$$
+Or, sous l'hypothèse imposée,
+$$
+\frac{R}{L}=\frac{4}{RC}.
+$$
+Ainsi,
+$$
+\boxed{G(t)=\frac{4}{RC}H(t)t e^{-\frac{2t}{RC}}}.
+$$
+}
+
+\item \question{En déduire une relation de la forme
+$$
+v=g\ast u,
+$$
+et préciser la fonction $g$.}
+
+\reponse{
+Sous l'hypothèse que les convolutions considérées sont définies, notamment pour des signaux causaux, une solution est
+$$
+v=G\ast u'.
+$$
+Comme la dérivation commute à la convolution,
+$$
+v=G'\ast u.
+$$
+Écrivons
+$$
+G(t)=\frac{4}{RC}H(t)q(t),
+\qquad
+q(t)=t e^{-\frac{2t}{RC}}.
+$$
+Comme $q(0)=0$,
+$$
+G'(t)=\frac{4}{RC}H(t)q'(t).
+$$
+Or
+$$
+q'(t)=\left(1-\frac{2t}{RC}\right)e^{-\frac{2t}{RC}}.
+$$
+On obtient donc
+$$
+\boxed{v=g\ast u},
+$$
+avec
+$$
+\boxed{
+g(t)=\frac{4}{RC}
+\left(1-\frac{2t}{RC}\right)
+H(t)e^{-\frac{2t}{RC}}
+}.
+$$
+}
+
+\end{enumerate}
+
+}

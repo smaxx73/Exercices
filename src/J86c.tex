@@ -1,0 +1,144 @@
+\uuid{J86c}
+\titre{Transformée de Fourier d'un signal modulé et translaté}
+
+\niveau{M1}
+\module{Analyse}
+\chapitre{Transformation de Fourier}
+\sousChapitre{Produit, convolution, modulation et translation}
+\theme{Transformée de $\cos(3t)e^{-|t-t_0|}$}
+\auteur{Q. Liard}
+\datecreate{ 2026-09-03}
+\organisation{CentraleSupélec}
+\difficulte{4}
+
+\contenu{
+
+\texte{
+Soit $t_0\in\mathbb{R}$. On considère la fonction
+$$
+f(t)=\cos(3t)e^{-|t-t_0|}.
+$$
+On utilise la convention
+$$
+\widehat{u}(\xi)=\int_{\mathbb{R}}u(t)e^{-i\xi t}\,dt.
+$$
+Lorsque la formule d'inversion est applicable, elle s'écrit
+$$
+u(t)=\frac{1}{2\pi}\int_{\mathbb{R}}\widehat{u}(\xi)e^{i\xi t}\,d\xi.
+$$
+}
+
+\begin{enumerate}
+
+\item \question{Montrer que $f\in L^1(\mathbb{R})$.}
+
+\reponse{
+Pour tout $t\in\mathbb{R}$,
+$$
+|f(t)|=|\cos(3t)|e^{-|t-t_0|}\le e^{-|t-t_0|}.
+$$
+Or
+$$
+\int_{\mathbb{R}}e^{-|t-t_0|}\,dt
+=
+\int_{\mathbb{R}}e^{-|s|}\,ds
+=2.
+$$
+Par comparaison,
+$$
+\boxed{f\in L^1(\mathbb{R})}.
+$$
+}
+
+\item \question{Montrer que
+$$
+\widehat f
+=
+\frac{1}{2\pi}\,\widehat{\cos(3\,\cdot)}\ast\widehat{e^{-|\,\cdot-t_0|}}.
+$$}
+
+\reponse{
+La fonction $t\mapsto\cos(3t)$ définit une distribution tempérée et $t\mapsto e^{-|t-t_0|}$ appartient à $L^1(\mathbb{R})\cap\mathcal{S}'(\mathbb{R})$. Comme
+$$
+f=\cos(3\,\cdot)\,e^{-|\,\cdot-t_0|},
+$$
+avec cette convention, la formule de Fourier transformant un produit en convolution donne
+$$
+\boxed{
+\widehat f
+=
+\frac{1}{2\pi}\,\widehat{\cos(3\,\cdot)}\ast\widehat{e^{-|\,\cdot-t_0|}}
+}.
+$$
+}
+
+\item \question{Montrer que
+$$
+\widehat{\cos(3\,\cdot)}
+=
+\pi\left(\delta_{3}+\delta_{-3}\right).
+$$}
+
+\reponse{
+On écrit
+$$
+\cos(3t)=\frac12\left(e^{3it}+e^{-3it}\right).
+$$
+Avec la convention de Fourier choisie,
+$$
+\widehat{e^{i\alpha t}}=2\pi\,\delta_{\alpha}.
+$$
+Par linéarité,
+$$
+\widehat{\cos(3\,\cdot)}
+=
+\pi\left(\delta_{3}+\delta_{-3}\right).
+$$
+}
+
+\item \question{En déduire l'expression de la transformée de Fourier de $f$.}
+
+\reponse{
+Posons $g(t)=e^{-|t-t_0|}$. Comme $g$ est la translation de $t\mapsto e^{-|t|}$ par $t_0$,
+$$
+\widehat g(\xi)=e^{-i t_0\xi}\widehat{e^{-|\,\cdot|}}(\xi).
+$$
+Or
+$$
+\widehat{e^{-|\,\cdot|}}(\xi)
+=
+\int_{-\infty}^{+\infty}e^{-|t|}e^{-i\xi t}\,dt
+=
+\frac{2}{1+\xi^2}.
+$$
+Ainsi,
+$$
+\widehat g(\xi)=\frac{2e^{-i t_0\xi}}{1+\xi^2}.
+$$
+D'après les questions précédentes,
+$$
+\widehat f(\xi)
+=
+\frac12\left(
+\widehat g\left(\xi-3\right)
++
+\widehat g\left(\xi+3\right)
+\right).
+$$
+On obtient finalement
+$$
+\boxed{
+\widehat f(\xi)
+=
+\frac{e^{-i t_0(\xi-3)}}
+{1+\left(\xi-3\right)^2}
++
+\frac{e^{-i t_0(\xi+3)}}
+{1+\left(\xi+3\right)^2}
+}.
+$$
+}
+
+\end{enumerate}
+
+}

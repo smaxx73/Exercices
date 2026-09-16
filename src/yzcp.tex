@@ -1,0 +1,99 @@
+\uuid{yzcp}
+\titre{Oscillateur harmonique et solution fondamentale causale}
+
+\niveau{M1}
+\module{Analyse}
+\chapitre{Distributions}
+\sousChapitre{Solutions fondamentales et convolution}
+\theme{Équation de l'oscillateur harmonique}
+\auteur{Q. Liard}
+\datecreate{ 2026-09-03}
+\organisation{CentraleSupélec}
+\difficulte{3}
+
+\contenu{
+
+\texte{
+On considère l'équation de l'oscillateur harmonique
+$$
+T''+\omega^2T=B,
+$$
+où $B$ représente le signal extérieur et $\omega\in\mathbb{R}$. On cherche d'abord une solution $G\in\mathcal{D}'_+$ de
+$$
+G''+\omega^2G=\delta.
+$$
+}
+
+\begin{enumerate}
+
+\item \question{Résoudre le problème de Cauchy
+$$
+\begin{cases}
+z''+\omega^2z=0,\\
+z(0)=0,\\
+z'(0)=1.
+\end{cases}
+$$}
+
+\reponse{
+On distingue deux cas.
+
+Si $\omega\neq0$, les solutions de l'équation homogène s'écrivent
+$$
+z(t)=A\cos(\omega t)+B\sin(\omega t).
+$$
+La condition $z(0)=0$ donne $A=0$, puis $z'(0)=1$ donne $B=1/\omega$. Ainsi,
+$$
+\boxed{z(t)=\frac{\sin(\omega t)}{\omega}}.
+$$
+
+Si $\omega=0$, l'équation devient $z''=0$. Les conditions initiales donnent
+$$
+\boxed{z(t)=t}.
+$$
+}
+
+\item \question{En déduire une solution de
+$$
+G''+\omega^2G=\delta,
+$$
+puis une solution de
+$$
+T''+\omega^2T=B.
+$$}
+
+\reponse{
+Pour une fonction $z$ de classe $C^2$ telle que $z(0)=0$ et $z'(0)=1$, on a
+$$
+(Hz)''=Hz''+z'(0)\delta+z(0)\delta'=Hz''+\delta.
+$$
+Par conséquent,
+$$
+(Hz)''+\omega^2Hz
+=H(z''+\omega^2z)+\delta
+=\delta.
+$$
+Ainsi, une solution causale fondamentale est
+$$
+G(t)=
+\begin{cases}
+\displaystyle H(t)\frac{\sin(\omega t)}{\omega}, & \omega\neq0,\\[1ex]
+H(t)t, & \omega=0.
+\end{cases}
+$$
+Sous l'hypothèse que la convolution avec $B$ est définie, par exemple si $B\in\mathcal{D}'_+$, une solution de l'équation forcée est
+$$
+\boxed{T=G\ast B}.
+$$
+En effet,
+$$
+T''+\omega^2T
+=(G''+\omega^2G)\ast B
+=\delta\ast B
+=B.
+$$
+}
+
+\end{enumerate}
+
+}

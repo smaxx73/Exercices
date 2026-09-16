@@ -1,0 +1,121 @@
+\uuid{68Pw}
+\titre{Valeur principale de $1/x$}
+
+\niveau{L3}
+\module{Analyse}
+\chapitre{Distributions}
+\sousChapitre{Valeur principale et dérivation distributionnelle}
+\theme{Dérivée de $\ln|x|$}
+\auteur{Q. Liard}
+\datecreate{ 2026-09-03}
+\organisation{CentraleSupélec}
+\difficulte{4}
+
+\contenu{
+
+\texte{
+On considère la distribution valeur principale, notée $\operatorname{vp}(1/x)$, définie par
+$$
+\left\langle \operatorname{vp}\left(\frac1x\right),\varphi\right\rangle
+=
+\lim_{\varepsilon\to0^+}
+\int_{|x|>\varepsilon}\frac{\varphi(x)}{x}\,dx,
+\qquad \forall\varphi\in\mathcal{D}(\mathbb{R}).
+$$
+}
+
+\begin{enumerate}
+
+\item \question{Montrer que la dérivée de $x\mapsto\ln|x|$ au sens des distributions est $\operatorname{vp}(1/x)$.}
+
+\reponse{
+La fonction $x\mapsto\ln|x|$ appartient à $L^1_{\mathrm{loc}}(\mathbb{R})$ et définit donc une distribution régulière. Soit $\varphi\in\mathcal{D}(\mathbb{R})$. On a
+$$
+\left\langle (\ln|x|)',\varphi\right\rangle
+=-\int_{\mathbb{R}}\ln|x|\,\varphi'(x)\,dx.
+$$
+Pour $\varepsilon>0$, posons
+$$
+I_\varepsilon
+=
+\int_{-\infty}^{-\varepsilon}\ln(-x)\varphi'(x)\,dx
++
+\int_{\varepsilon}^{+\infty}\ln(x)\varphi'(x)\,dx.
+$$
+Une intégration par parties sur chacun des deux intervalles donne
+$$
+I_\varepsilon
+=
+\ln(\varepsilon)\bigl(\varphi(-\varepsilon)-\varphi(\varepsilon)\bigr)
+-
+\int_{|x|>\varepsilon}\frac{\varphi(x)}{x}\,dx.
+$$
+Écrivons $\varphi(x)=\varphi(0)+x\psi(x)$, avec $\psi\in C^\infty(\mathbb{R})$. Alors
+$$
+\varphi(-\varepsilon)-\varphi(\varepsilon)
+=-\varepsilon\bigl(\psi(-\varepsilon)+\psi(\varepsilon)\bigr),
+$$
+et donc
+$$
+\ln(\varepsilon)\bigl(\varphi(-\varepsilon)-\varphi(\varepsilon)\bigr)
+\longrightarrow 0.
+$$
+Par conséquent,
+$$
+-I_\varepsilon
+\longrightarrow
+\left\langle \operatorname{vp}\left(\frac1x\right),\varphi\right\rangle.
+$$
+Or
+$$
+\left\langle (\ln|x|)',\varphi\right\rangle
+=-\lim_{\varepsilon\to0^+}I_\varepsilon.
+$$
+Ainsi,
+$$
+\boxed{(\ln|x|)'=\operatorname{vp}\left(\frac1x\right)}
+$$
+dans $\mathcal{D}'(\mathbb{R})$.
+}
+
+\item \question{Montrer que
+$$
+x\,\operatorname{vp}\left(\frac1x\right)=1
+$$
+au sens des distributions.}
+
+\reponse{
+Soit $\varphi\in\mathcal{D}(\mathbb{R})$. Par définition du produit d'une distribution par une fonction lisse,
+$$
+\left\langle x\,\operatorname{vp}\left(\frac1x\right),\varphi\right\rangle
+=
+\left\langle \operatorname{vp}\left(\frac1x\right),x\varphi\right\rangle.
+$$
+Ainsi,
+$$
+\left\langle x\,\operatorname{vp}\left(\frac1x\right),\varphi\right\rangle
+=
+\lim_{\varepsilon\to0^+}
+\int_{|x|>\varepsilon}\frac{x\varphi(x)}{x}\,dx
+=
+\lim_{\varepsilon\to0^+}
+\int_{|x|>\varepsilon}\varphi(x)\,dx.
+$$
+Comme $\varphi$ est intégrable,
+$$
+\lim_{\varepsilon\to0^+}
+\int_{|x|>\varepsilon}\varphi(x)\,dx
+=
+\int_{\mathbb{R}}\varphi(x)\,dx
+=
+\langle 1,\varphi\rangle.
+$$
+On en déduit
+$$
+\boxed{x\,\operatorname{vp}\left(\frac1x\right)=1}.
+$$
+}
+
+\end{enumerate}
+
+}

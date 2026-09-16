@@ -1,0 +1,67 @@
+\uuid{XPJd}
+\titre{Dérivée distributionnelle de la valeur absolue}
+
+\niveau{M1}
+\module{Analyse}
+\chapitre{Distributions}
+\sousChapitre{Dérivation au sens des distributions}
+\theme{Distribution associée à la fonction signe}
+\auteur{Q.Liard}
+\datecreate{ 2026-09-03}
+\organisation{CentraleSupélec}
+\difficulte{2}
+
+\contenu{
+
+\texte{
+Soit $f:\mathbb{R}\to\mathbb{R}$ la fonction définie par
+$$
+f(x)=|x|.
+$$
+}
+
+\question{Donner la dérivée de $f$ au sens des distributions.}
+
+\reponse{
+Soit $\varphi\in\mathcal{D}(\mathbb{R})$. Par définition de la dérivée d'une distribution régulière,
+$$
+\langle f',\varphi\rangle=-\langle f,\varphi'\rangle
+=-\int_{\mathbb{R}}|x|\varphi'(x)\,dx.
+$$
+En séparant l'intégrale en $0$, on obtient
+$$
+\langle f',\varphi\rangle
+=\int_{-\infty}^{0}x\varphi'(x)\,dx
+-\int_{0}^{+\infty}x\varphi'(x)\,dx.
+$$
+Comme $\varphi$ est à support compact, il existe une constante $K>0$ telle que $\text{supp}(\varphi)\subset [-K,K]$. Une intégration par parties donne
+$$
+\int_{-\infty}^{0}x\varphi'(x)\,dx=\big[x\varphi(x)\big]_{-K}^{0}-\int_{-\infty}^{0}\varphi(x)\,dx=-\int_{-\infty}^{0}\varphi(x)\,dx
+$$
+et
+$$
+\int_{0}^{+\infty}x\varphi'(x)\,dx=\big[x\varphi(x)\big]_{0}^{K}-\int_{0}^{+\infty}\varphi(x)\,dx=-\int_{0}^{+\infty}\varphi(x)\,dx.
+$$
+Ainsi,
+$$
+\langle f',\varphi\rangle
+=-\int_{-\infty}^{0}\varphi(x)\,dx
++\int_{0}^{+\infty}\varphi(x)\,dx.
+$$
+La distribution $f'$ est donc la distribution régulière associée à la fonction signe :
+$$
+\boxed{f'=\operatorname{sgn}},
+$$
+où
+$$
+\operatorname{sgn}(x)=
+\begin{cases}
+-1 & \text{si }x<0,\\
+1 & \text{si }x>0.
+\end{cases}
+$$
+
+}
+
+
+}

@@ -1,0 +1,139 @@
+\uuid{w0NX}
+\titre{Équation différentielle à second membre distributionnel}
+
+\niveau{M1}
+\module{Analyse}
+\chapitre{Distributions}
+\sousChapitre{Équations différentielles dans $\mathcal{D}'_+$}
+\theme{Convolution avec des dérivées de Dirac}
+\auteur{Q. Liard}
+\datecreate{ 2026-09-03}
+\organisation{CentraleSupélec}
+\difficulte{4}
+
+\contenu{
+
+\texte{
+On cherche une distribution $T$ à support dans $\mathbb{R}_+$ vérifiant
+$$
+T''-T=\delta'-\delta''.
+$$
+On utilise la convention de Fourier
+$$
+\widehat{u}(\xi)=\int_{\mathbb{R}}u(t)e^{-i\xi t}\,dt.
+$$
+Lorsque la formule d'inversion est applicable, elle s'écrit
+$$
+u(t)=\frac{1}{2\pi}\int_{\mathbb{R}}\widehat{u}(\xi)e^{i\xi t}\,d\xi.
+$$
+}
+
+\begin{enumerate}
+
+\item \question{Résoudre le problème de Cauchy
+$$
+\begin{cases}
+z''-z=0,\\
+z(0)=0,\\
+z'(0)=1,
+\end{cases}
+$$
+puis en déduire une distribution $G$ vérifiant $G''-G=\delta$.}
+
+\reponse{
+Les solutions de $z''-z=0$ sont de la forme
+$$
+z(t)=Ae^t+Be^{-t}.
+$$
+Les conditions $z(0)=0$ et $z'(0)=1$ donnent
+$$
+A+B=0,
+\qquad
+A-B=1.
+$$
+Ainsi $A=1/2$ et $B=-1/2$, donc
+$$
+\boxed{z(t)=\sinh t}.
+$$
+Comme $z(0)=0$ et $z'(0)=1$,
+$$
+(H z)''-H z
+=H(z''-z)+\delta
+=\delta.
+$$
+On peut donc prendre
+$$
+\boxed{G(t)=H(t)\sinh t}.
+$$
+}
+
+\item \question{En déduire une solution de
+$$
+T''-T=\delta'-\delta''.
+$$}
+
+\reponse{
+Comme $G''-G=\delta$, on pose
+$$
+T=G\ast(\delta'-\delta'')=G'-G''.
+$$
+Calculons les dérivées de $G=H\sinh$ :
+$$
+G'=H\cosh,
+$$
+car $\sinh(0)=0$, puis
+$$
+G''=\delta+H\sinh,
+$$
+car $\cosh(0)=1$. Ainsi,
+$$
+T=H\cosh-\delta-H\sinh.
+$$
+Comme $\cosh t-\sinh t=e^{-t}$,
+$$
+\boxed{T=-\delta+H(t)e^{-t}}.
+$$
+Cette distribution est bien à support dans $\mathbb{R}_+$.
+}
+
+\item \question{Retrouver la solution précédente en utilisant la transformation de Fourier.}
+
+\reponse{
+La solution obtenue à la question précédente est une distribution tempérée. On peut donc appliquer la transformation de Fourier dans $\mathcal{S}'(\mathbb{R})$. En transformant l'équation, on obtient
+$$
+\bigl((i\xi)^2-1\bigr)\widehat T(\xi)
+=
+i\xi-(i\xi)^2.
+$$
+Ainsi,
+$$
+-(\xi^2+1)\widehat T(\xi)
+=
+i\xi+\xi^2,
+$$
+d'où
+$$
+\widehat T(\xi)
+=-\frac{\xi^2+i\xi}{\xi^2+1}.
+$$
+On réécrit cette expression sous la forme
+$$
+\widehat T(\xi)
+=-1+\frac{1-i\xi}{1+\xi^2}
+=-1+\frac{1}{1+i\xi}.
+$$
+Or
+$$
+\widehat{\delta}=1
+\qquad\text{et}\qquad
+\widehat{H e^{-\cdot}}(\xi)=\frac{1}{1+i\xi}.
+$$
+Par inversion de Fourier,
+$$
+\boxed{T=-\delta+H(t)e^{-t}}.
+$$
+}
+
+\end{enumerate}
+
+}

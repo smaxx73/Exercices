@@ -1,0 +1,118 @@
+\uuid{dX9G}
+\titre{Résolution d'une équation différentielle dans $\mathcal{D}'_+$}
+
+\niveau{M1}
+\module{Analyse}
+\chapitre{Distributions}
+\sousChapitre{Équations différentielles causales}
+\theme{Second membre composé de dérivées de Dirac}
+\auteur{Q. Liard}
+\datecreate{ 2026-09-03}
+\organisation{CentraleSupélec}
+\difficulte{4}
+
+\contenu{
+
+\texte{
+Déterminer la distribution $T\in\mathcal{D}'_+$ qui vérifie
+$$
+3T''+5T'+2T=3\delta'+\delta''.
+$$
+}
+
+
+\question{Déterminer explicitement le signal $T$.}
+
+\reponse{
+Notons
+$$
+D=3\frac{d^2}{dt^2}+5\frac{d}{dt}+2.
+$$
+On commence par chercher une solution fondamentale causale $G$ de
+$$
+DG=\delta.
+$$
+Résolvons le problème de Cauchy
+$$
+\begin{cases}
+3z''+5z'+2z=0,\\
+z(0)=0,\\
+z'(0)=1.
+\end{cases}
+$$
+L'équation caractéristique est
+$$
+3r^2+5r+2=(3r+2)(r+1)=0.
+$$
+Ses racines sont $-2/3$ et $-1$. Ainsi,
+$$
+z(t)=Ae^{-t}+Be^{-\frac{2t}{3}}.
+$$
+Les conditions initiales donnent
+$$
+A+B=0,
+\qquad
+-A-\frac23B=1.
+$$
+On obtient $A=-3$ et $B=3$, donc
+$$
+z(t)=3\left(e^{-\frac{2t}{3}}-e^{-t}\right).
+$$
+Comme le coefficient dominant de $D$ vaut $3$, une solution fondamentale est
+$$
+G(t)=\frac13H(t)z(t)
+=H(t)\left(e^{-\frac{2t}{3}}-e^{-t}\right).
+$$
+En effet, $DG=\delta$.
+
+La solution cherchée est alors
+$$
+T=G\ast(3\delta'+\delta'')=3G'+G''.
+$$
+Posons
+$$
+q(t)=e^{-\frac{2t}{3}}-e^{-t},
+\qquad G=Hq.
+$$
+On a $q(0)=0$ et
+$$
+q'(t)=e^{-t}-\frac23e^{-\frac{2t}{3}},
+\qquad
+q'(0)=\frac13.
+$$
+Donc
+$$
+G'=H\left(e^{-t}-\frac23e^{-\frac{2t}{3}}\right)
+$$
+et
+$$
+G''=\frac13\delta
++H\left(\frac49e^{-\frac{2t}{3}}-e^{-t}\right).
+$$
+Par conséquent,
+$$
+T
+=3G'+G''
+=
+\frac13\delta
++H\left(
+3e^{-t}-2e^{-\frac{2t}{3}}
++\frac49e^{-\frac{2t}{3}}-e^{-t}
+\right).
+$$
+Après simplification,
+$$
+\boxed{
+T
+=
+\frac13\delta
++H(t)\left(
+2e^{-t}-\frac{14}{9}e^{-\frac{2t}{3}}
+\right)
+}.
+$$
+}
+
+
+
+}
