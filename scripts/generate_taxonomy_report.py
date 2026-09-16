@@ -16,8 +16,25 @@ FIELDS = ("module", "chapitre", "sousChapitre")
 
 
 def metadata(source: str, field: str) -> str:
-    match = re.search(rf"\\{field}\s*\{{([^}}]*)\}}", source)
-    return match.group(1).strip() if match else "(absent)"
+    match = re.search(rf"\\{field}\s*\{{", source)
+    if not match:
+        return "(absent)"
+
+    start = match.end()
+    depth = 1
+    index = start
+    while index < len(source) and depth:
+        char = source[index]
+        if char == "\\" and index + 1 < len(source) and source[index + 1] in "{}":
+            index += 2
+            continue
+        if char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+        index += 1
+
+    return source[start : index - 1].strip() if depth == 0 else "(absent)"
 
 
 def ordered(counter: Counter[str]) -> list[tuple[str, int]]:

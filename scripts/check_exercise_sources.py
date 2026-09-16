@@ -374,6 +374,7 @@ def validate_source(source: str, file_path: str = "<source>") -> list[Issue]:
     issues: list[Issue] = []
     clean_source = strip_comments_preserve_length(source)
     top_level_calls = find_command_calls(clean_source, TOP_LEVEL_COMMANDS)
+    uuid_calls = [call for call in top_level_calls if call.name == "uuid"]
     contenu_calls = [call for call in top_level_calls if call.name == "contenu"]
     content_calls = find_command_calls(clean_source, CONTENT_COMMANDS)
     contenu_ranges = [Range(call.body_start, call.body_end) for call in contenu_calls]
@@ -382,6 +383,31 @@ def validate_source(source: str, file_path: str = "<source>") -> list[Issue]:
         for call in content_calls
         if call.name == "question" and is_inside_range(call.start, contenu_ranges)
     ]
+
+    if not uuid_calls:
+        add_issue(
+            issues,
+            source,
+            file_path,
+            0,
+            "missing-uuid",
+            "Le fichier doit contenir une commande \\uuid{...}.",
+        )
+    elif len(uuid_calls) == 1 and not uuid_calls[0].malformed:
+        uuid = uuid_calls[0].body.strip()
+        filename_uuid = Path(file_path).stem
+        if file_path != "<source>" and uuid != filename_uuid:
+            add_issue(
+                issues,
+                source,
+                file_path,
+                uuid_calls[0].start,
+                "uuid-filename-mismatch",
+                (
+                    f"L'UUID '{uuid}' doit correspondre au nom du fichier "
+                    f"'{filename_uuid}.tex'."
+                ),
+            )
 
     if not contenu_calls:
         add_issue(

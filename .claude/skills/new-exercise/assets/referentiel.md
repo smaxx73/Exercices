@@ -147,6 +147,20 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Suite dans Rn
 - Autre
 
+### Distributions
+- Dérivation au sens des distributions
+- Valeur principale et dérivation distributionnelle
+- Équations différentielles causales
+- Équations différentielles dans $\mathcal{D}'_+$
+- Solutions fondamentales et convolution
+
+### Systèmes linéaires causals
+- Réponse impulsionnelle d'un circuit RLC
+
+### Transformée de Fourier
+- Produit, convolution, modulation et translation
+- Transformée de Fourier des distributions
+
 ---
 
 ## Algèbre

@@ -1,7 +1,7 @@
 # Répartition des exercices
 
 - Source: `src/`
-- Généré le: `2026-09-16T12:04:59+02:00`
+- Généré le: `2026-09-16T12:31:06+02:00`
 - Fichiers totaux: `668`
 - Fichiers parsés: `668`
 - Erreurs de parsing: `0`
@@ -10,9 +10,9 @@
 
 | Valeur | Occurrences |
 |---|---:|
-| Probabilité | 209 |
+| Probabilité | 207 |
 | Analyse | 177 |
-| Analyse de données | 131 |
+| Analyse de données | 133 |
 | Algèbre | 70 |
 | (absent) | 14 |
 | Analyse numérique | 13 |
@@ -36,8 +36,8 @@
 | Valeur | Occurrences |
 |---|---:|
 | Probabilité continue | 140 |
-| Statistique | 107 |
-| Probabilité discrète | 71 |
+| Statistique | 109 |
+| Probabilité discrète | 69 |
 | Fonction de plusieurs variables | 42 |
 | Série numérique | 32 |
 | Série entière | 28 |
@@ -72,6 +72,7 @@
 | Méthodes numériques | 2 |
 | Nombres complexes | 2 |
 | Polynômes | 2 |
+| Transformée de Fourier | 2 |
 | Algèbre linéaire | 1 |
 | Base d'un espace vectoriel | 1 |
 | Bases et espaces supplémentaires | 1 |
@@ -79,8 +80,6 @@
 | Continuité et différentiabilité | 1 |
 | Courbes planes | 1 |
 | Dimension et bases | 1 |
-| Distributions et systèmes linéaires | 1 |
-| Distributions et transformée de Fourier | 1 |
 | Dérivation de fonctions composées | 1 |
 | EDP | 1 |
 | Extremum, extremum lié | 1 |
@@ -99,10 +98,10 @@
 | Résolution de systèmes linéaires : méthode directe | 1 |
 | Suite | 1 |
 | Systèmes linéaires | 1 |
+| Systèmes linéaires causals | 1 |
 | Séries | 1 |
 | Séries de Fourier | 1 |
-| Topologie de $\mathbb{R | 1 |
-| Transformation de Fourier | 1 |
+| Topologie de $\mathbb{R}^n$ | 1 |
 
 ## Totaux par sous-chapitre
 
@@ -120,9 +119,9 @@
 | Calcul de déterminants | 11 |
 | Extremums locaux | 11 |
 | Système linéaire, rang | 11 |
+| Lois des grands nombres, théorème central limite | 9 |
 | Probabilité conditionnelle | 9 |
 | Inverse, méthode de Gauss | 8 |
-| Lois des grands nombres, théorème central limite | 8 |
 | Probabilité et dénombrement | 8 |
 | Propriétés élémentaires, généralités | 8 |
 | Racine, décomposition en facteurs irréductibles | 8 |
@@ -141,38 +140,36 @@
 | Différentiabilité | 5 |
 | Division euclidienne | 5 |
 | Fonctions équivalentes, fonctions négligeables | 5 |
+| Intervalle de confiance | 5 |
 | Multiplicateurs de Lagrange | 5 |
 | Rayon de convergence | 5 |
 | Réseaux récurrents, LSTM et GRU | 5 |
 | Architecture et propagation avant | 4 |
-| Intervalle de confiance | 4 |
 | Intégration par parties | 4 |
 | Limite | 4 |
 | Optimisation sans contrainte | 4 |
 | Ouvert, fermé, intérieur, adhérence | 4 |
 | Résolution d'équation différentielle | 4 |
 | Résolution de systèmes linéaires : méthode itérative | 4 |
+| Théorème central limite | 4 |
 | Dérivées partielles | 3 |
+| Estimation par maximum de vraisemblance | 3 |
 | Fonctions d'activation et couche de sortie | 3 |
 | Interpolation polynomiale | 3 |
 | Intégrale de Riemann | 3 |
+| Loi conjointe | 3 |
 | Loi, indépendance, loi conditionnelle | 3 |
 | Méthode de Newton | 3 |
 | Optimisation | 3 |
-| Théorème central limite | 3 |
 | Continuité et dérivées partielles | 2 |
 | Convergence absolue | 2 |
 | Critères de Cauchy et d'Alembert | 2 |
 | Descente de gradient et optimisation | 2 |
-| Estimation par maximum de vraisemblance | 2 |
 | Limite et continuité | 2 |
-| Loi conjointe | 2 |
 | Nature d'une série | 2 |
 | Représentation graphique | 2 |
 | Résolution de systèmes linéaires : méthode de gradient | 2 |
 | Tests d'hypothèses | 2 |
-| Équations différentielles dans $\mathcal{D | 2 |
-| Approximation de loi | 1 |
 | Approximation normale | 1 |
 | Calcul approché d'intégrale | 1 |
 | Calcul de la somme de série entière | 1 |
@@ -196,17 +193,14 @@
 | Déterminant | 1 |
 | Développement en série entière et rayon de convergence | 1 |
 | Espérance et Fonction de répartition | 1 |
-| Estimateur | 1 |
 | Factorisation et fractions rationnelles | 1 |
 | Initialisation, normalisation et régularisation | 1 |
 | Inverse, méthode de Gauss-Jordan | 1 |
 | Limites et continuité | 1 |
 | Loi binomiale et approximation | 1 |
-| Loi conjointe et marginales | 1 |
 | Loi conjointe, marginales, covariance | 1 |
 | Loi de Poisson et fonction caractéristique | 1 |
 | Loi exponentielle | 1 |
-| Loi forte des grands nombres | 1 |
 | Loi normale et somme de variables aléatoires | 1 |
 | Lois usuelles et approximations | 1 |
 | Matrice et application linéaire | 1 |
@@ -236,22 +230,23 @@
 | Séries semi-convergentes | 1 |
 | Séries télescopiques | 1 |
 | Séries télescopiques et équivalents | 1 |
-| Théorème Central Limite | 1 |
 | Théorème de Bayes | 1 |
+| Transformée de Fourier des distributions | 1 |
 | Trigonalisation | 1 |
 | Valeur principale et dérivation distributionnelle | 1 |
 | Échantillonnage et estimation | 1 |
 | Équations aux dérivées partielles | 1 |
 | Équations différentielles causales | 1 |
+| Équations différentielles dans $\mathcal{D}'_+$ | 1 |
 
 ---
 
-### Module: Probabilité (209)
+### Module: Probabilité (207)
 
 | Chapitre | Occurrences |
 |---|---:|
 | Probabilité continue | 137 |
-| Probabilité discrète | 71 |
+| Probabilité discrète | 69 |
 | Fonctions caractéristiques | 1 |
 
 #### Probabilité continue (137)
@@ -260,20 +255,17 @@
 |---|---:|
 | Densité de probabilité | 72 |
 | Loi normale | 36 |
-| Lois des grands nombres, théorème central limite | 8 |
+| Lois des grands nombres, théorème central limite | 9 |
 | Convergence en loi | 7 |
-| Théorème central limite | 3 |
+| Théorème central limite | 4 |
+| Loi conjointe | 3 |
 | Autre | 2 |
-| Loi conjointe | 2 |
 | Approximation normale | 1 |
 | Espérance et Fonction de répartition | 1 |
-| Loi conjointe et marginales | 1 |
 | Loi exponentielle | 1 |
-| Loi forte des grands nombres | 1 |
 | Lois usuelles et approximations | 1 |
-| Théorème Central Limite | 1 |
 
-#### Probabilité discrète (71)
+#### Probabilité discrète (69)
 
 | Sous-chapitre | Occurrences |
 |---|---:|
@@ -282,10 +274,8 @@
 | Probabilité conditionnelle | 9 |
 | Probabilité et dénombrement | 8 |
 | Loi, indépendance, loi conditionnelle | 3 |
-| Approximation de loi | 1 |
 | Autre | 1 |
 | Définition et propriété d'une probabilité | 1 |
-| Estimateur | 1 |
 | Loi binomiale et approximation | 1 |
 | Loi conjointe, marginales, covariance | 1 |
 | Reconnaissance de lois discrètes | 1 |
@@ -316,12 +306,11 @@
 | Topologie | 5 |
 | Calcul d'intégrales | 4 |
 | Développement limité | 2 |
-| Distributions et systèmes linéaires | 1 |
-| Distributions et transformée de Fourier | 1 |
+| Transformée de Fourier | 2 |
 | Suite | 1 |
+| Systèmes linéaires causals | 1 |
 | Séries | 1 |
-| Topologie de $\mathbb{R | 1 |
-| Transformation de Fourier | 1 |
+| Topologie de $\mathbb{R}^n$ | 1 |
 
 #### Fonction de plusieurs variables (42)
 
@@ -419,7 +408,7 @@
 | Solutions fondamentales et convolution | 1 |
 | Valeur principale et dérivation distributionnelle | 1 |
 | Équations différentielles causales | 1 |
-| Équations différentielles dans $\mathcal{D | 1 |
+| Équations différentielles dans $\mathcal{D}'_+$ | 1 |
 
 #### Equation différentielle (5)
 
@@ -452,17 +441,12 @@
 | Applications | 1 |
 | Calculs | 1 |
 
-#### Distributions et systèmes linéaires (1)
+#### Transformée de Fourier (2)
 
 | Sous-chapitre | Occurrences |
 |---|---:|
-| Réponse impulsionnelle d'un circuit RLC | 1 |
-
-#### Distributions et transformée de Fourier (1)
-
-| Sous-chapitre | Occurrences |
-|---|---:|
-| Équations différentielles dans $\mathcal{D | 1 |
+| Produit, convolution, modulation et translation | 1 |
+| Transformée de Fourier des distributions | 1 |
 
 #### Suite (1)
 
@@ -470,42 +454,42 @@
 |---|---:|
 | Suite définie par une relation de récurrence | 1 |
 
+#### Systèmes linéaires causals (1)
+
+| Sous-chapitre | Occurrences |
+|---|---:|
+| Réponse impulsionnelle d'un circuit RLC | 1 |
+
 #### Séries (1)
 
 | Sous-chapitre | Occurrences |
 |---|---:|
 | Développement en série entière | 1 |
 
-#### Topologie de $\mathbb{R (1)
+#### Topologie de $\mathbb{R}^n$ (1)
 
 | Sous-chapitre | Occurrences |
 |---|---:|
 | Ouverts et fermés | 1 |
 
-#### Transformation de Fourier (1)
-
-| Sous-chapitre | Occurrences |
-|---|---:|
-| Produit, convolution, modulation et translation | 1 |
-
 ---
 
-### Module: Analyse de données (131)
+### Module: Analyse de données (133)
 
 | Chapitre | Occurrences |
 |---|---:|
-| Statistique | 107 |
+| Statistique | 109 |
 | Réseaux de neurones | 24 |
 
-#### Statistique (107)
+#### Statistique (109)
 
 | Sous-chapitre | Occurrences |
 |---|---:|
 | Tests d'hypothèses, intervalle de confiance | 62 |
 | Estimation | 27 |
 | Autre | 9 |
-| Intervalle de confiance | 4 |
-| Estimation par maximum de vraisemblance | 2 |
+| Intervalle de confiance | 5 |
+| Estimation par maximum de vraisemblance | 3 |
 | Tests d'hypothèses | 2 |
 | Échantillonnage et estimation | 1 |
 
