@@ -8,6 +8,7 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 ## Probabilité
 
 ### Probabilité discrète
+
 - Variable aléatoire discrète
 - Lois de distributions
 - Probabilité conditionnelle
@@ -21,6 +22,7 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 - Autre
 
 ### Probabilité continue
+
 - Densité de probabilité
 - Loi normale
 - Lois des grands nombres, théorème central limite
@@ -34,6 +36,7 @@ Les variantes orthographiques présentes dans le dépôt sont signalées entre p
 - Autre
 
 ### Fonctions caractéristiques
+
 - Loi normale et somme de variables aléatoires
 
 ---
@@ -45,6 +48,7 @@ préparation des données et apprentissage automatique. Les résultats et lois d
 restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-mêmes.
 
 ### Statistique
+
 - Statistique descriptive et visualisation
 - Échantillonnage et estimation
 - Estimation
@@ -55,6 +59,7 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Autre
 
 ### Prétraitement des données
+
 - Nettoyage, valeurs manquantes, filtrage
 - Encodage des variables
 - Normalisation et standardisation
@@ -62,6 +67,7 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Autre
 
 ### Apprentissage automatique
+
 - Régression supervisée
 - Classification supervisée
 - Apprentissage non supervisé
@@ -71,6 +77,7 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Autre
 
 ### Réseaux de neurones
+
 - Architecture et propagation avant
 - Fonctions d'activation et couche de sortie
 - Fonctions de coût
@@ -87,6 +94,7 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 ## Analyse
 
 ### Série numérique
+
 - Série à termes positifs
 - Convergence absolue
 - Critères de Cauchy et d'Alembert
@@ -95,6 +103,7 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Autre
 
 ### Série entière
+
 - Rayon de convergence
 - Domaine de convergence
 - Développement en série entière
@@ -103,6 +112,7 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Autre
 
 ### Fonction de plusieurs variables
+
 - Dérivée partielle
 - Différentiabilité
 - Limite
@@ -115,39 +125,48 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Autre
 
 ### Continuité, limite et étude de fonctions réelles
+
 - Fonctions équivalentes, fonctions négligeables
 - Continuité : théorie
 - Autre
 
 ### Dérivabilité des fonctions réelles
+
 - Calculs
 - Applications
 - Autre
 
 ### Développement limité
+
 - Calculs
 - Applications
 
 ### Équation différentielle
+
 - Résolution d'équation différentielle
 
 ### Série de Fourier
+
 - Calcul de coefficients
 - Autre
 
 ### Calcul d'intégrales
+
 - Calcul approché d'intégrale
 - Autre
 
 ### Suite
+
 - Suite définie par une relation de récurrence
 
 ### Topologie
+
 - Ouvert, fermé, intérieur, adhérence
 - Suite dans Rn
 - Autre
 
 ### Distributions
+
 - Dérivation au sens des distributions
 - Valeur principale et dérivation distributionnelle
 - Équations différentielles causales
@@ -155,9 +174,11 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Solutions fondamentales et convolution
 
 ### Systèmes linéaires causals
+
 - Réponse impulsionnelle d'un circuit RLC
 
 ### Transformée de Fourier
+
 - Produit, convolution, modulation et translation
 - Transformée de Fourier des distributions
 
@@ -166,29 +187,35 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 ## Algèbre
 
 ### Matrice
+
 - Propriétés élémentaires, généralités
 - Inverse, méthode de Gauss
 - Produit matriciel et déterminant
 - Autre
 
 ### Déterminant, système linéaire
+
 - Calcul de déterminants
 - Système linéaire, rang
 
 ### Polynôme, fraction rationnelle
+
 - Racine, décomposition en facteurs irréductibles
 - Division euclidienne
 - Fraction rationnelle
 - Factorisation et fractions rationnelles
 
 ### Application linéaire
+
 - Autre
 
 ### Nombres complexes
+
 - Racine n-ième
 - Autre
 
 ### Dénombrement
+
 - Autre
 
 ---
@@ -196,19 +223,24 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 ## Analyse numérique
 
 ### Résolution de systèmes linéaires : méthode itérative
+
 - Résolution de systèmes linéaires : méthode itérative
 - Résolution de systèmes linéaires : méthode de gradient
 
 ### Résolution de systèmes linéaires : méthode directe
+
 - Résolution de systèmes linéaires : méthode directe
 
 ### Interpolation polynomiale
+
 - Interpolation polynomiale
 
 ### Résolution d'équation différentielle
+
 - Résolution d'équation différentielle
 
 ### Méthodes numériques
+
 - Méthode de Newton
 - Méthode du gradient à pas optimal
 - Autre
@@ -218,9 +250,11 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 ## Optimisation
 
 ### Fonction convexe
+
 - Multiplicateurs de Lagrange
 
 ### Calcul différentiel
+
 - Différentiabilité
 
 ---
@@ -238,7 +272,7 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 Les autres valeurs historiques sont traitées au cas par cas : l'intitulé du module seul ne
 suffit pas à déterminer la cible.
 
-| Variante présente dans le dépôt | Forme canonique |
+| Variante historique | Forme canonique |
 |---|---|
 | Probabilités et Statistiques | Voir les règles de migration ci-dessus |
 | Probabilités | Probabilité |
@@ -254,3 +288,7 @@ suffit pas à déterminer la cible.
 | Série à  termes positifs (double espace) | Série à termes positifs |
 | Théorème Central Limite (majuscules) | Théorème central limite |
 | Réseaux de neurones récurrents | Analyse de données / Réseaux de neurones / Réseaux récurrents, LSTM et GRU |
+
+Ces formes ont été rencontrées dans l'historique du dépôt. Elles ne doivent pas être
+réintroduites ; les alias conservent une projection non destructive pour les sources
+qui les emploient encore.
