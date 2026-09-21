@@ -14,7 +14,7 @@
 portes et 70 arrivent trop tard. On considère la variable aléatoire X égale à l'heure d'arrivée d'un soldat calculée par rapport à l'heure de début de la cérémonie prévue. On suppose que $X$ suit une loi normale de paramètre $\mu$ et d'écart-type $\sigma$.}
 
 \begin{enumerate}
-\item \question{Démontrer que $\mu=14,3$ et $\sigma=8,7$.}\reponse{Les deux données de l'énoncé nous permettent d'écrire un système de deux équations
+\item \question{Démontrer que $\mu=-14,3$ et $\sigma=8,7$.}\reponse{Les deux données de l'énoncé nous permettent d'écrire un système de deux équations
 en les inconnues $\mu$ et $\sigma$, via des lectures inverses dans la table de la loi $\mathcal{N}(0,1)$.  
 On note $\Phi$ la fonction de répartition de la loi $\mathcal{N}(0,1)$.
 
@@ -64,7 +64,7 @@ On obtient donc le système suivant :
 \]
 
 La résolution de ce système est immédiate et donne les valeurs de l'énoncé.}
-\item \question{Déterminer l'heure à laquelle les portes de l'enceinte doivent être ouvertes pour qu'il n'y ait pas plus de $20$ soldats qui attendent à l'extérieur.}
+\item \question{Déterminer l'heure à laquelle les portes de l'enceinte doivent être ouvertes pour qu'il y ait au plus $20$ soldats en moyenne qui attendent à l'extérieur.}
 \reponse{On cherche un instant \( t \) tel que :
 \[
 P(X < t) = \frac{20}{1400}.
@@ -90,7 +90,7 @@ t \approx -33{,}35.
 \]
 
 Les portes de l'enceinte doivent donc ouvrir au moins 34 minutes avant le début de la cérémonie pour qu’il n’y ait pas plus de 20 soldats qui attendent à l'extérieur.}
-\item \question{Calculer le nombre de soldats ayant manqué le début de la cérémonie si celle-ci accuse un retard de $5$ minutes. }
+\item \question{Calculer le nombre moyen de soldats ayant manqué le début de la cérémonie si celle-ci accuse un retard de $5$ minutes. }
 \reponse{Ce nombre vaut :$1400 \times P(X > 5).
 $
 
