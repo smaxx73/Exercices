@@ -1,0 +1,39 @@
+\uuid{3mX3}
+\titre{Une mesure aberrante et le choix de la perte}
+\niveau{L2}
+\module{OPTRN}
+\chapitre{Optimisation}
+\sousChapitre{Moindres carrés}
+\theme{Régression, fonction de perte}
+\auteur{Maxime Nguyen}
+\datecreate{2026-09-25}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{On relève les cinq couples
+\[
+(x_i,y_i)=(0,0),(1,1),(2,2),(3,3),(4,12).
+\]
+On hésite entre les deux modèles $f_1(x)=x$ et $f_2(x)=2x$. On appelle résidu du point $i$ pour un modèle $f$ la différence $y_i-f(x_i)$.}
+
+\begin{enumerate}
+\item \question{Pour chaque modèle, calculer la somme des carrés des résidus
+\[
+Q(f)=\sum_{i=1}^{5}\bigl(y_i-f(x_i)\bigr)^2.
+\]
+Quel modèle ce critère préfère-t-il ?}
+\indication{Pour $f_1$, les quatre premiers résidus sont nuls.}
+\reponse{Les résidus de $f_1$ sont $(0,0,0,0,8)$, d'où $Q(f_1)=64$. Ceux de $f_2$ sont $(0,-1,-2,-3,4)$, d'où $Q(f_2)=1+4+9+16=30$. Le critère quadratique préfère $f_2$.}
+
+\item \question{Refaire la comparaison avec la somme des valeurs absolues des résidus
+\[
+A(f)=\sum_{i=1}^{5}|y_i-f(x_i)|.
+\]}
+\indication{Réutiliser les résidus trouvés à la question précédente.}
+\reponse{On obtient $A(f_1)=8$ et $A(f_2)=1+2+3+4=10$. Ce critère préfère donc $f_1$.}
+
+\item \question{Expliquer pourquoi les deux critères conduisent ici à des choix différents. Quel rôle joue la dernière mesure ?}
+\reponse{La dernière mesure est éloignée de la tendance suivie par les quatre premières. La mise au carré donne un poids particulièrement fort à son résidu : pour $f_1$, sa contribution passe de $8$ à $64$. Le choix du critère de perte modifie ainsi le modèle préféré, même lorsque les données et les deux modèles candidats restent identiques.}
+\end{enumerate}
+}

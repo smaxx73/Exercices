@@ -1,0 +1,53 @@
+\uuid{Anuh}
+\titre{Un pas de descente trop grand}
+\niveau{L2}
+\module{OPTRN}
+\chapitre{Optimisation}
+\sousChapitre{Descente de gradient}
+\theme{Pas d'apprentissage, stabilité}
+\auteur{Maxime Nguyen}
+\datecreate{2026-09-25}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{On considère la fonction
+\[
+f(x,y)=(x-2)^2+4(y+1)^2
+\]
+et la descente de gradient à pas constant
+\[
+(x_{k+1},y_{k+1})=(x_k,y_k)-\eta\nabla f(x_k,y_k),
+\qquad (x_0,y_0)=(0,0).
+\]}
+
+\begin{enumerate}
+\item \question{Calculer $\nabla f(x,y)$, puis écrire séparément les relations de récurrence pour $x_k-2$ et $y_k+1$.}
+\indication{Le minimum de $f$ se trouve en $(2,-1)$ ; exprimer les écarts à ces deux coordonnées.}
+\reponse{On a $\nabla f(x,y)=(2(x-2),8(y+1))$. Par conséquent,
+\[
+x_{k+1}-2=(1-2\eta)(x_k-2),\qquad
+y_{k+1}+1=(1-8\eta)(y_k+1).
+\]}
+
+\item \question{Calculer $(x_1,y_1)$, $(x_2,y_2)$, $f(x_1,y_1)$ et $f(x_2,y_2)$ pour $\eta=1/8$, puis pour $\eta=1/4$.}
+\indication{Utiliser les relations de récurrence de la question précédente.}
+\reponse{Avec $\eta=1/8$, on obtient
+\[
+(x_1,y_1)=(1/2,-1),\quad (x_2,y_2)=(7/8,-1),\quad
+f(x_1,y_1)=9/4,\quad f(x_2,y_2)=81/64.
+\]
+Avec $\eta=1/4$, on obtient
+\[
+(x_1,y_1)=(1,-2),\quad (x_2,y_2)=(3/2,0),\quad
+f(x_1,y_1)=5,\quad f(x_2,y_2)=17/4.
+\]}
+
+\item \question{Pour $\eta=1/4$, montrer que $y_k$ alterne entre deux valeurs. La suite des points peut-elle converger vers le minimum de $f$ ?}
+\indication{Dans la relation portant sur $y_k+1$, calculer le facteur $1-8\eta$.}
+\reponse{Pour $\eta=1/4$, on a $y_{k+1}+1=-(y_k+1)$. Comme $y_0=0$, la suite $(y_k)$ alterne entre $0$ et $-2$. Elle ne converge donc pas vers $-1$, et la suite des points ne converge pas vers le minimum $(2,-1)$.}
+
+\item \question{Expliquer ce que montre la comparaison entre les deux valeurs de $\eta$.}
+\reponse{Le pas $1/8$ annule dès la première itération l'écart vertical $y_k+1$, alors que le pas $1/4$ inverse cet écart à chaque itération sans le réduire. Un pas trop grand peut provoquer des oscillations et empêcher la convergence.}
+\end{enumerate}
+}
