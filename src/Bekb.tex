@@ -82,8 +82,17 @@
 \end{center}  }
 
 
-\reponse{ 
-	This neural network realizes the function $\R \to \R$ as follows:
+\reponse{
+	La sortie du réseau est
+	\[
+	F(x)=\begin{cases}
+	3 & \text{si }1\leq x\leq2,\\
+	2 & \text{si }3\leq x\leq4,\\
+	0 & \text{sinon.}
+	\end{cases}
+	\]
+	Les quatre bornes appartiennent aux intervalles indiqués car $H(0)=1$.
+	Le graphe correspondant est :
 	\begin{tikzpicture}[scale=1]
 		
 		
