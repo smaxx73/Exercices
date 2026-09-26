@@ -1,0 +1,52 @@
+\uuid{LT4V}
+\titre{Quand une ReLU bloque l'apprentissage}
+\niveau{L3}
+\module{OPTRN}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Rétropropagation}
+\theme{ReLU inactive, gradient, initialisation}
+\auteur{Maxime Nguyen}
+\datecreate{2026-09-26}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{On considère un réseau à une entrée, un neurone caché et une sortie linéaire :
+\[
+h(x)=\operatorname{ReLU}(wx+b),\qquad F(x)=v\,h(x),
+\qquad \operatorname{ReLU}(t)=\max(0,t).
+\]
+Pour l'unique donnée d'entraînement $(x,t)=(1,2)$, la perte vaut
+\[
+E(w,b,v)=\frac12\bigl(F(1)-2\bigr)^2.
+\]
+On compare deux initialisations : $A=(-1,0,1)$ et $B=(1,0,1)$, dans l'ordre $(w,b,v)$.}
+
+\begin{enumerate}
+\item \question{Calculer $h(1)$, $F(1)$ et $E$ pour les initialisations $A$ et $B$.}
+\indication{Vérifier le signe de $w+b$ dans chaque cas.}
+\reponse{Pour $A$, $w+b=-1$, donc $h(1)=0$, $F(1)=0$ et $E=2$. Pour $B$, $w+b=1$, donc $h(1)=1$, $F(1)=1$ et $E=1/2$.}
+
+\item \question{Lorsque $w+b\neq0$, calculer les trois dérivées partielles de $E$ en fonction de $F(1)$, $h(1)$ et de $\operatorname{ReLU}'(w+b)$. Les évaluer en $A$ et en $B$.}
+\indication{Appliquer la règle de la chaîne ; la dérivée de ReLU vaut $0$ sur $]-\infty,0[$ et $1$ sur $]0,+\infty[$.}
+\reponse{À l'entrée $x=1$, la règle de la chaîne donne
+\[
+\frac{\partial E}{\partial w}=(F(1)-2)v\,\operatorname{ReLU}'(w+b),\quad
+\frac{\partial E}{\partial b}=(F(1)-2)v\,\operatorname{ReLU}'(w+b),\quad
+\frac{\partial E}{\partial v}=(F(1)-2)h(1).
+\]
+Ainsi $\nabla E(A)=(0,0,0)$ et $\nabla E(B)=(-1,-1,-1)$, dans l'ordre $(w,b,v)$.}
+
+\item \question{Effectuer une mise à jour simultanée par descente de gradient avec un pas $\eta=0{,}1$ depuis chaque initialisation. Pour le point obtenu depuis $B$, recalculer la sortie et la perte.}
+\indication{Toutes les composantes d'une même mise à jour utilisent le gradient calculé aux paramètres initiaux.}
+\reponse{Depuis $A$, le gradient nul laisse les paramètres inchangés. Depuis $B$, la mise à jour donne $(w,b,v)=(1{,}1,0{,}1,1{,}1)$. Alors $h(1)=1{,}2$, $F(1)=1{,}32$ et
+\[
+E=\frac12(1{,}32-2)^2=0{,}2312.
+\]
+La perte a diminué par rapport à $1/2$.}
+
+\item \question{Expliquer pourquoi l'apprentissage est bloqué en $A$ pour cette donnée, malgré une perte non nulle.}
+\indication{Relier la sortie nulle de la ReLU à ses dérivées et à la mise à jour des paramètres.}
+\reponse{En $A$, la préactivation vaut $-1$ : la ReLU est inactive. Sa sortie et sa dérivée valent $0$, ce qui annule les trois composantes du gradient. La descente de gradient ne modifie donc aucun paramètre à partir de cette seule donnée, même si $E=2$. Une autre donnée ou une autre initialisation pourrait activer le neurone.}
+\end{enumerate}
+}
