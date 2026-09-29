@@ -53,7 +53,7 @@ Chaque exercice a la structure suivante :
 \uuid{{ID}}
 \titre{ {TITRE} }
 
-\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\niveau{} 				%L1, L2, L3, M1, M2 (la filière CPGE se note dans \cpge)
 \module{ {MODULE} } 	%Analyse, Algèbre...
 \chapitre{}   			%Continuité, Groupes, Fonctions de plusieurs variables...
 \sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
@@ -63,6 +63,7 @@ Chaque exercice a la structure suivante :
 \datecreate{ {YYYY-MM-DD}}
 \organisation{}			%AMSCC, Exo7, ...
 \difficulte{}			%1, 2, 3, 4 ou 5
+% \cpge{}				%rattachements CPGE relus, ex. pcsi.nombres-complexes.f, mpsi-mp2i.nombres-complexes.f
 
 \contenu{
 
@@ -80,6 +81,22 @@ Chaque exercice a la structure suivante :
 ```
 
 Les questions /réponses peuvent être agencées par exemple dans une structure enumerate.
+
+### Rattachements aux programmes de CPGE
+
+`\cpge{}` (facultatif) rattache l'exercice aux programmes officiels de
+mathématiques des classes préparatoires : une liste d'identifiants séparés par
+des virgules, pris dans le référentiel d'exobase
+(`content/referentials/cpge/programmes/`, identifiant `{#…}` en fin de titre).
+
+```
+\cpge{mpsi-mp2i.nombres-complexes.f, pcsi.nombres-complexes.f}
+```
+
+Seuls les rattachements relus y figurent. Les propositions automatiques
+restent dans OpenYourMath jusqu'à leur validation. La filière n'est pas un
+niveau : un exercice de nombres complexes reste `\niveau{L1}` et reçoit ses
+rattachements CPGE en plus.
 
 ## Validation LaTeX
 

@@ -33,6 +33,7 @@ TOP_LEVEL_COMMANDS = {
     "datecreate",
     "niveau",
     "difficulte",
+    "cpge",
     "module",
     "exo7id",
     "isIndication",
