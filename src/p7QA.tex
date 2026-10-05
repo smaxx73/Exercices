@@ -14,7 +14,7 @@
 
 \contenu{
 \texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
-\texte{Les résistances $X_i$ de câbles sont indépendantes de loi exponentielle de taux $\lambda>0$, de densité $f(x)=\lambda e^{-\lambda x}$ pour $x\geq0$. On rappelle $\mu=\mathbb E(X_i)=1/\lambda$ et $\operatorname{Var}(X_i)=1/\lambda^2$.
+\texte{Les résistances $X_i$ de câbles sont indépendantes de loi exponentielle de taux $\lambda>0$, de densité $f(x)=\lambda e^{-\lambda x}$ pour $x\geq0$. On rappelle $\mu=\mathbb E(X_i)=\frac{1}{\lambda}$ et $\operatorname{Var}(X_i)=\frac{1}{\lambda^2}$.
 Les dix observations en ohms sont $2{,}3;1{,}8;3{,}1;2{,}7;1{,}5;2{,}9;2{,}1;3{,}4;2{,}5;1{,}9$.
 Le cahier des charges fictif de cet exercice impose $\mu\geq2{,}5$ ohms.}
 \begin{enumerate}
@@ -22,22 +22,22 @@ Le cahier des charges fictif de cet exercice impose $\mu\geq2{,}5$ ohms.}
 \reponse{$L(\lambda)=\lambda^{10}\exp(-\lambda\sum r_i)$. C'est un produit de densités, pas la probabilité d'un point pour une loi continue.}
 \item \question{Déterminer l'estimateur du maximum de vraisemblance dans le cas général.}
 \indication{Dériver le logarithme de la vraisemblance avec les valeurs observées, puis définir la statistique aléatoire correspondante.}
-\reponse{$\ell(\lambda)=n\log\lambda-\lambda\sum r_i$ ; $\ell'=n/\lambda-\sum r_i$ et $\ell''=-n/\lambda^2<0$.
-L'estimation est $\widehat\lambda_{\mathrm{obs}}=n/\sum r_i$ ; l'estimateur est $\widehat\Lambda_n=n/\sum X_i=1/\overline X$.}
+\reponse{$\ell(\lambda)=n\log\lambda-\lambda\sum r_i$ ; $\ell'=\frac{n}{\lambda}-\sum r_i$ et $\ell''=-\frac{n}{\lambda^2}<0$.
+L'estimation est $\widehat\lambda_{\mathrm{obs}}=\frac{n}{\sum r_i}$ ; l'estimateur est $\widehat\Lambda_n=\frac{n}{\sum X_i}=\frac{1}{\overline X}$.}
 \item \question{Cet estimateur est-il sans biais ?}
-\reponse{Pour $n>1$, la somme suit une loi gamma de forme $n$ et de taux $\lambda$, d'où $\mathbb E(1/\sum X_i)=\lambda/(n-1)$.
-Ainsi $\mathbb E(\widehat\Lambda_n)=n\lambda/(n-1)$ et le biais vaut $\lambda/(n-1)>0$. L'estimateur $(n-1)/\sum X_i$ est sans biais. Pour $n=1$, l'espérance de $1/X_1$ est infinie.}
+\reponse{Pour $n>1$, la somme suit une loi gamma de forme $n$ et de taux $\lambda$, d'où $\mathbb E(\frac{1}{\sum X_i})=\frac{\lambda}{n-1}$.
+Ainsi $\mathbb E(\widehat\Lambda_n)=\frac{n\lambda}{n-1}$ et le biais vaut $\frac{\lambda}{n-1}>0$. L'estimateur $\frac{n-1}{\sum X_i}$ est sans biais. Pour $n=1$, l'espérance de $\frac{1}{X_1}$ est infinie.}
 \item \question{Calculer l'estimation de $\lambda$.}
-\reponse{$\sum r_i=24{,}2$, $\bar r=2{,}42$ et $\widehat\lambda_{\mathrm{obs}}=10/24{,}2\simeq0{,}413223$ ohm$^{-1}$.}
+\reponse{$\sum r_i=24{,}2$, $\bar r=2{,}42$ et $\widehat\lambda_{\mathrm{obs}}=\frac{10}{24{,}2}\simeq0{,}413223$ ohm$^{-1}$.}
 \item \question{Estimer l'espérance $\mu$.}
-\reponse{$1/\widehat\lambda_{\mathrm{obs}}=\bar r=2{,}42$ ohms, réalisation de l'estimateur sans biais $\overline X$.}
+\reponse{$\frac{1}{\widehat\lambda_{\mathrm{obs}}}=\bar r=2{,}42$ ohms, réalisation de l'estimateur sans biais $\overline X$.}
 \item \question{On admet $2\lambda\sum X_i\sim\chi^2(2n)$. Construire un intervalle de confiance à $95\%$ pour $\lambda$.}
 \reponse{Le pivot donne
 \[IC_{95\%}(\lambda)=\left[\frac{q_{20;0{,}025}}{2\sum r_i};\frac{q_{20;0{,}975}}{2\sum r_i}\right]
 \simeq[0{,}198157;0{,}705984]\ \text{ohm}^{-1}.\]}
 \item \question{En déduire l'intervalle de confiance de $\mu$.}
 \indication{La fonction inverse est décroissante : inverser les deux bornes et leur ordre.}
-\reponse{$IC_{95\%}(\mu)=[2\sum r_i/q_{20;0{,}975};2\sum r_i/q_{20;0{,}025}]\simeq[1{,}41646;5{,}04651]$ ohms.}
+\reponse{$IC_{95\%}(\mu)=[\frac{2\sum r_i}{q_{20;0{,}975}};\frac{2\sum r_i}{q_{20;0{,}025}}]\simeq[1{,}41646;5{,}04651]$ ohms.}
 \item \question{Ces résultats permettent-ils d'établir que la moyenne satisfait $\mu\geq2{,}5$ ?}
 \reponse{Non : l'intervalle contient des moyennes inférieures et supérieures à $2{,}5$. Il ne permet d'établir ni le respect ni le non-respect du seuil. La valeur ponctuelle $2{,}42$ ne suffit pas à conclure.}
 \end{enumerate}

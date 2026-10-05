@@ -14,7 +14,7 @@
 \texte{La commande \texttt{=ALEA.ENTRE.BORNES(1;8)} simule un entier compris entre 1 et 8.}
 \question{Simuler 500 tirages indépendants et tester leur adéquation à la loi uniforme sur $\{1,\ldots,8\}$ au seuil de $5\%$. Illustrer la répartition et calculer la $p$-valeur. Que permet de conclure un non-rejet ?}
 \indication{Figer la simulation comme valeurs avant d'effectuer les calculs, pour que l'échantillon ne change pas à chaque recalcul.}
-\reponse{Sous $H_0$, chacune des huit catégories a probabilité $1/8$, donc effectif attendu $e_j=62{,}5$. Compter les effectifs $o_j$, vérifier leur somme 500 et calculer
+\reponse{Sous $H_0$, chacune des huit catégories a probabilité $\frac{1}{8}$, donc effectif attendu $e_j=62{,}5$. Compter les effectifs $o_j$, vérifier leur somme 500 et calculer
 \[q_{\mathrm{obs}}=\sum_{j=1}^8\frac{(o_j-62{,}5)^2}{62{,}5}.\]
 La référence asymptotique est $\chi^2(7)$ ; le seuil haut est $q_{7;0{,}95}\simeq14{,}067$. Rejeter si $q_{\mathrm{obs}}$ dépasse ce seuil ; la $p$-valeur s'obtient avec \texttt{=LOI.KHIDEUX.DROITE(qobs;7)}.
 Le résultat numérique dépend de la simulation. Un non-rejet signifie que ces 500 tirages ne mettent pas en évidence une non-uniformité au seuil choisi ; il ne certifie pas le générateur. Même un générateur conforme produit environ $5\%$ de rejets si l'approximation du test est adéquate. Le diagramme en bâtons compare les huit effectifs à la hauteur 62,5.}

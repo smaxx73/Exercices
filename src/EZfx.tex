@@ -15,13 +15,13 @@
 \texte{Les poids $X_1,\ldots,X_{16}$ de 16 bestioles constituent un échantillon indépendant de loi $\mathcal N(100,5)$ (en grammes). On pose $\overline X=\frac1{16}\sum X_i$.}
 \begin{enumerate}
 \item \question{Déterminer la loi de $\overline X$.}
-\reponse{La moyenne de variables normales indépendantes est normale : $\overline X\sim\mathcal N(100,5/4)$, de variance $25/16$.}
-\item \question{Déterminer la loi de $Q=\sum_{i=1}^{16}(X_i-100)^2/25$, puis $q$ tel que $\mathbb P(Q>q)=0{,}05$.}
+\reponse{La moyenne de variables normales indépendantes est normale : $\overline X\sim\mathcal N(100,\frac{5}{4})$, de variance $\frac{25}{16}$.}
+\item \question{Déterminer la loi de $Q=\frac{\sum_{i=1}^{16}(X_i-100)^2}{25}$, puis $q$ tel que $\mathbb P(Q>q)=0{,}05$.}
 \reponse{$Q$ est la somme des carrés de 16 normales centrées réduites indépendantes : $Q\sim\chi^2(16)$ et $q=q_{16;0{,}95}\simeq26{,}296$.}
-\item \question{Déterminer la loi de $V=\sum_{i=1}^{16}(X_i-\overline X)^2/25$, puis $v$ tel que $\mathbb P(V>v)=0{,}05$.}
+\item \question{Déterminer la loi de $V=\frac{\sum_{i=1}^{16}(X_i-\overline X)^2}{25}$, puis $v$ tel que $\mathbb P(V>v)=0{,}05$.}
 \reponse{Le théorème de Fisher donne $V\sim\chi^2(15)$, indépendant de $\overline X$ ; $v=q_{15;0{,}95}\simeq24{,}996$.}
-\item \question{Déterminer la loi de $W=4\sqrt{15}(\overline X-100)/\sqrt{\sum_{i=1}^{16}(X_i-\overline X)^2}$, puis $w$ tel que $\mathbb P(W>w)=0{,}05$.}
-\indication{Écrire $W=Z/\sqrt{V/15}$ et vérifier l'indépendance.}
-\reponse{$Z=(\overline X-100)/(5/4)\sim\mathcal N(0,1)$ est indépendant de $V$ par Fisher. Ainsi $W=Z/\sqrt{V/15}\sim St(15)$ et $w=t_{15;0{,}95}\simeq1{,}75305$.}
+\item \question{Déterminer la loi de $W=\frac{4\sqrt{15}(\overline X-100)}{\sqrt{\sum_{i=1}^{16}(X_i-\overline X)^2}}$, puis $w$ tel que $\mathbb P(W>w)=0{,}05$.}
+\indication{Écrire $W=\frac{Z}{\sqrt{\frac{V}{15}}}$ et vérifier l'indépendance.}
+\reponse{$Z=\frac{\overline X-100}{\frac{5}{4}}\sim\mathcal N(0,1)$ est indépendant de $V$ par Fisher. Ainsi $W=\frac{Z}{\sqrt{\frac{V}{15}}}\sim St(15)$ et $w=t_{15;0{,}95}\simeq1{,}75305$.}
 \end{enumerate}
 }

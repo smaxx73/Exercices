@@ -18,10 +18,10 @@ Effectif & 2 & 4 & 5 & 4 & 3 & 2 \\ \hline
 \end{tabular}\end{center}}
 \begin{enumerate}
 \item \question{Estimer l'espérance et la variance. Préciser les estimateurs et leurs propriétés.}
-\reponse{Les estimateurs $\overline X$ et $S^2=\sum(X_i-\overline X)^2/19$ sont sans biais et convergents dans ce modèle. Les réalisations sont $\bar x=216$ cg/L et $s^2=3604{,}21053$ (cg/L)$^2$, donc $s\simeq60{,}03508$ cg/L.}
+\reponse{Les estimateurs $\overline X$ et $S^2=\frac{\sum(X_i-\overline X)^2}{19}$ sont sans biais et convergents dans ce modèle. Les réalisations sont $\bar x=216$ cg/L et $s^2=3604{,}21053$ (cg/L)$^2$, donc $s\simeq60{,}03508$ cg/L.}
 \item \question{Construire un intervalle de confiance bilatéral à $99\%$ pour $\mu$.}
 \indication{La variance est inconnue et le modèle normal est une hypothèse de l'énoncé : utiliser Student à 19 degrés de liberté.}
-\reponse{Le pivot $(\overline X-\mu)/(S/\sqrt{20})$ suit exactement $St(19)$. Ainsi
+\reponse{Le pivot $\frac{\overline X-\mu}{\frac{S}{\sqrt{20}}}$ suit exactement $St(19)$. Ainsi
 \[\left[\bar x-t_{19;0{,}995}\frac s{\sqrt{20}};\ \bar x+t_{19;0{,}995}\frac s{\sqrt{20}}\right]
 \simeq[177{,}594;254{,}406]\ \text{cg/L}.\]
 La normalité ne découle pas du faible effectif ; elle est supposée ici.}

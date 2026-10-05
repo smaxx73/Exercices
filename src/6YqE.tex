@@ -11,15 +11,15 @@
 \difficulte{3}
 \contenu{
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
-\texte{Une machine produit des pièces défectueuses avec probabilité $p$. On contrôle 100 pièces indépendamment ; $X_i=1$ si la pièce $i$ est défectueuse, 0 sinon. Un « succès » désigne ici une pièce défectueuse. On pose $K=\sum X_i$ et $F=K/100$. On teste $H_0:p\leq0{,}05$ contre $H_1:p>0{,}05$, avec un seuil nominal $\alpha=5\%$ ; pour la puissance on considère $p_1=0{,}10$. On observe huit succès.}
+\texte{Une machine produit des pièces défectueuses avec probabilité $p$. On contrôle 100 pièces indépendamment ; $X_i=1$ si la pièce $i$ est défectueuse, 0 sinon. Un « succès » désigne ici une pièce défectueuse. On pose $K=\sum X_i$ et $F=\frac{K}{100}$. On teste $H_0:p\leq0{,}05$ contre $H_1:p>0{,}05$, avec un seuil nominal $\alpha=5\%$ ; pour la puissance on considère $p_1=0{,}10$. On observe huit succès.}
 \begin{enumerate}
 \item \question{Donner l'approximation normale de la fréquence sous $p=p_0=0{,}05$.}
-\reponse{$\mathbb E(F)=p_0$ et $\operatorname{Var}(F)=p_0(1-p_0)/100$. Le TCL conduit à $Z=(F-p_0)/\sqrt{p_0(1-p_0)/100}$ approximativement normal. Ici $np_0=5$ est faible : vérifier le modèle binomial exact est particulièrement utile.}
+\reponse{$\mathbb E(F)=p_0$ et $\operatorname{Var}(F)=\frac{p_0(1-p_0)}{100}$. Le TCL conduit à $Z=\frac{F-p_0}{\sqrt{\frac{p_0(1-p_0)}{100}}}$ approximativement normal. Ici $np_0=5$ est faible : vérifier le modèle binomial exact est particulièrement utile.}
 \item \question{Si l'on rejette pour $F>\pi$, exprimer le risque de première espèce, exactement et approximativement.}
 \reponse{À la frontière $p_0$, $\alpha_{\mathrm{réel}}=\mathbb P_{p_0}(K>100\pi)=1-\mathbb P_{p_0}(K\leq\lfloor100\pi\rfloor)$.
-L'approximation sans correction de continuité donne $1-\Phi((\pi-p_0)/\sqrt{p_0(1-p_0)/100})$.}
+L'approximation sans correction de continuité donne $1-\Phi\left(\frac{\pi-p_0}{\sqrt{\frac{p_0(1-p_0)}{100}}}\right)$.}
 \item \question{Calculer le seuil normal à $5\%$, puis déterminer une règle binomiale exacte de niveau au plus $5\%$.}
-\reponse{$\pi=0{,}05+\Phi^{-1}(0{,}95)\sqrt{0{,}05\times0{,}95/100}\simeq0{,}0858488$.
+\reponse{$\pi=0{,}05+\Phi^{-1}(0{,}95)\sqrt{\frac{0{,}05\times0{,}95}{100}}\simeq0{,}0858488$.
 Cela revient à rejeter pour $K\geq9$, avec un risque réel $0{,}063090$, supérieur à $5\%$. La règle exacte rejette pour \textbf{$K\geq10$}, avec risque $0{,}028188$.}
 \item \question{Conclure pour les huit succès observés.}
 \reponse{$f_{\mathrm{obs}}=0{,}08$. Les deux règles ne rejettent pas $H_0$. La $p$-valeur exacte est $\mathbb P_{p_0}(K\geq8)\simeq0{,}127960$. On n'a pas prouvé que $p\leq0{,}05$.}
@@ -28,11 +28,11 @@ Cela revient à rejeter pour $K\geq9$, avec un risque réel $0{,}063090$, supér
 Pour le rejet $K\geq10$, $\beta=\mathbb P_{0{,}10}(K\leq9)\simeq0{,}451290$, soit une puissance $0{,}548710$.
 Le calcul normal continu au seuil $\pi$ donne $\beta\simeq0{,}318568$ ; il reste approché.}
 \item \question{Dans une étude planifiée, quelle taille permettrait de rejeter à $5\%$ si la fréquence observée était exactement $8\%$ ? Comparer l'approximation normale et le test exact.}
-\reponse{Le calcul normal impose $n>\Phi^{-1}(0{,}95)^2\,0{,}05\times0{,}95/(0{,}08-0{,}05)^2\simeq142{,}793$. L'entier théorique est 143, mais une fréquence exactement égale à $8\%$ n'est réalisable que si $n$ est multiple de 25 ; la première taille réalisable est donc 150.
+\reponse{Le calcul normal impose $n>\frac{\Phi^{-1}(0{,}95)^2\,0{,}05\times0{,}95}{(0{,}08-0{,}05)^2}\simeq142{,}793$. L'entier théorique est 143, mais une fréquence exactement égale à $8\%$ n'est réalisable que si $n$ est multiple de 25 ; la première taille réalisable est donc 150.
 En vérifiant $\mathbb P_{0{,}05}(K\geq0{,}08n)$ pour les multiples de 25, la première taille permettant un rejet exact est \textbf{200}, avec 16 succès. Ce calcul suppose à chaque taille la fréquence indiquée ; il ne prédit pas les observations futures. On ne doit pas poursuivre le prélèvement jusqu'à obtenir un rejet sans adapter la méthode.}
 \item \question{Illustrer $\alpha$ et $\beta$ sur un graphique des distributions de $F$.}
 \indication{$F$ est discrète : tracer ses masses binomiales, ou annoncer explicitement une approximation par des densités normales.}
-\reponse{Pour le test exact, tracer $\mathbb P_p(F=k/100)$ pour $k=0,\ldots,100$, sous $p_0=0{,}05$ puis sous $p_1=0{,}10$. Colorer sous $p_0$ les bâtons $k\geq10$ (risque $\alpha$), et sous $p_1$ les bâtons $k\leq9$ (risque $\beta$).
-Une illustration continue utilise les normales $\mathcal N(0{,}05,\sqrt{0{,}05\times0{,}95/100})$ et $\mathcal N(0{,}10,0{,}03)$ ; les aires de part et d'autre de $\pi$ représentent alors les risques approchés du seuil normal, et non ceux du seuil exact.}
+\reponse{Pour le test exact, tracer $\mathbb P_p(F=\frac{k}{100})$ pour $k=0,\ldots,100$, sous $p_0=0{,}05$ puis sous $p_1=0{,}10$. Colorer sous $p_0$ les bâtons $k\geq10$ (risque $\alpha$), et sous $p_1$ les bâtons $k\leq9$ (risque $\beta$).
+Une illustration continue utilise les normales $\mathcal N(0{,}05,\sqrt{\frac{0{,}05\times0{,}95}{100}})$ et $\mathcal N(0{,}10,0{,}03)$ ; les aires de part et d'autre de $\pi$ représentent alors les risques approchés du seuil normal, et non ceux du seuil exact.}
 \end{enumerate}
 }

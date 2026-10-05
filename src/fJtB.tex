@@ -19,17 +19,17 @@
 \item \question{Rappeler les définitions d'un estimateur sans biais et d'un estimateur convergent.}
 \reponse{Un estimateur $\widehat\Theta_n$ de $\theta$ est sans biais si $\mathbb E_\theta(\widehat\Theta_n)=\theta$ pour toute valeur admissible du paramètre. Il est convergent si, pour tout $\varepsilon>0$, $\mathbb P_\theta(|\widehat\Theta_n-\theta|>\varepsilon)\to0$ quand $n\to\infty$ (convergence en probabilité).}
 \item \question{Étudier le biais des trois estimateurs de $\mu$.}
-\reponse{Par linéarité, $\mathbb E(T_1)=\mathbb E(T_3)=\mu$ et $\mathbb E(T_2)=n\mu/(n-1)$. Les biais sont donc 0, $\mu/(n-1)$ et 0. $T_2$ est biaisé en général, bien que son biais s'annule si $\mu=0$.}
+\reponse{Par linéarité, $\mathbb E(T_1)=\mathbb E(T_3)=\mu$ et $\mathbb E(T_2)=\frac{n\mu}{n-1}$. Les biais sont donc 0, $\frac{\mu}{n-1}$ et 0. $T_2$ est biaisé en général, bien que son biais s'annule si $\mu=0$.}
 \item \question{Calculer leurs variances.}
 \indication{Pour des variables indépendantes, la variance d'une somme pondérée est la somme des variances multipliées par les carrés des poids.}
-\reponse{$\operatorname{Var}(T_1)=\sigma^2/n$, $\operatorname{Var}(T_2)=n\sigma^2/(n-1)^2$ et $\operatorname{Var}(T_3)=\sigma^2$.}
+\reponse{$\operatorname{Var}(T_1)=\frac{\sigma^2}{n}$, $\operatorname{Var}(T_2)=\frac{n\sigma^2}{(n-1)^2}$ et $\operatorname{Var}(T_3)=\sigma^2$.}
 \item \question{Parmi les estimateurs sans biais proposés, lequel est le plus efficace ?}
-\reponse{$T_1$ : pour $n\geq2$ et $\sigma^2>0$, $\sigma^2/n<\sigma^2$. Il a la plus petite variance parmi les estimateurs sans biais proposés.}
+\reponse{$T_1$ : pour $n\geq2$ et $\sigma^2>0$, $\frac{\sigma^2}{n}<\sigma^2$. Il a la plus petite variance parmi les estimateurs sans biais proposés.}
 \item \question{Montrer que $\operatorname{EQM}(\widehat\Theta)=\mathbb E[(\widehat\Theta-\theta)^2]=\operatorname{Var}(\widehat\Theta)+b(\widehat\Theta)^2$.}
 \indication{Écrire $\widehat\Theta-\theta=(\widehat\Theta-\mathbb E\widehat\Theta)+b$, puis développer.}
 \reponse{Le terme croisé a une espérance nulle puisque $\mathbb E(\widehat\Theta-\mathbb E\widehat\Theta)=0$. L'espérance du carré du terme centré est la variance ; le carré du biais est déterministe. D'où l'identité annoncée.}
 \item \question{Calculer les trois EQM et déterminer le meilleur estimateur proposé au sens de l'EQM.}
-\reponse{Les EQM sont $\sigma^2/n$, $(n\sigma^2+\mu^2)/(n-1)^2$ et $\sigma^2$. Puisque $n/(n-1)^2>1/n$, $T_1$ a une EQM strictement plus petite que les deux autres.
+\reponse{Les EQM sont $\frac{\sigma^2}{n}$, $\frac{n\sigma^2+\mu^2}{(n-1)^2}$ et $\sigma^2$. Puisque $\frac{n}{(n-1)^2}>\frac{1}{n}$, $T_1$ a une EQM strictement plus petite que les deux autres.
 L'EQM de $T_1$ tend vers 0 : par l'inégalité de Markov appliquée au carré de l'erreur, cela implique sa convergence en probabilité.}
 \end{enumerate}
 }

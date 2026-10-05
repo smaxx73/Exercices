@@ -17,28 +17,28 @@ Les tailles sont $n_1=10$ et $n_2=25$ ; les écarts-types corrigés (diviseur $n
 Le modèle normal est une simplification pédagogique pour des notes bornées.}
 \begin{enumerate}
 \item \question{Calculer les coefficients de variation et commenter.}
-\reponse{$CV_1=100s_1/\bar x_1=40\%$, $CV_2\simeq22{,}73\%$. La dispersion observée est plus élevée dans l'IUT 1.
+\reponse{$CV_1=\frac{100s_1}{\bar x_1}=40\%$, $CV_2\simeq22{,}73\%$. La dispersion observée est plus élevée dans l'IUT 1.
 Le coefficient de variation dépend du choix de l'origine de l'échelle ; pour les notes, cette comparaison relative demande prudence. Le test ci-dessous porte directement sur les variances.}
 \item \question{Formuler les hypothèses de comparaison des variances et donner la statistique, sa loi et ses conditions.}
 \reponse{$H_0:\sigma_1^2=\sigma_2^2$ contre $H_1:\sigma_1^2\neq\sigma_2^2$.
-On fixe l'ordre des groupes : $R=S_1^2/S_2^2$. Sous $H_0$, $R\sim F(9,24)$ grâce à la normalité et à l'indépendance des échantillons. Les $S_j^2$ sont les variances corrigées. Le test exact de Fisher est sensible à la non-normalité ; il ne suffit pas que les moyennes soient approximativement normales.}
+On fixe l'ordre des groupes : $R=\frac{S_1^2}{S_2^2}$. Sous $H_0$, $R\sim F(9,24)$ grâce à la normalité et à l'indépendance des échantillons. Les $S_j^2$ sont les variances corrigées. Le test exact de Fisher est sensible à la non-normalité ; il ne suffit pas que les moyennes soient approximativement normales.}
 \item \question{Au seuil de $5\%$, les dispersions sont-elles significativement différentes ? Peut-on en déduire une différence de pratiques de notation ?}
-\reponse{$r_{\mathrm{obs}}=25/9\simeq2{,}77778$. On rejette si
+\reponse{$r_{\mathrm{obs}}=\frac{25}{9}\simeq2{,}77778$. On rejette si
 \[r_{\mathrm{obs}}<F_{9,24;0{,}025}\simeq0{,}276687\quad\text{ou}\quad
 r_{\mathrm{obs}}>F_{9,24;0{,}975}\simeq2{,}702711.\]
 Il faut donc \textbf{rejeter l'égalité des variances à $5\%$}.
 La $p$-valeur bilatérale à queues égales est $2\min\{\mathbb P(R\leq r_{\mathrm{obs}}),\mathbb P(R\geq r_{\mathrm{obs}})\}\simeq0{,}044038$.
 Cela met en évidence une différence de dispersion sous le modèle ; les notes seules ne permettent pas d'en attribuer la cause aux enseignants.
 Excel : \texttt{=INVERSE.LOI.F.N(0,975;9;24)} ; ici la $p$-valeur est \texttt{=2*LOI.F.DROITE(25/9;9;24)}.}
-\item \question{Construire l'intervalle de confiance à $95\%$ du rapport $\sigma_1^2/\sigma_2^2$.}
-\indication{Utiliser le pivot $(S_1^2/S_2^2)/(\sigma_1^2/\sigma_2^2)$ et inverser les quantiles dans les bornes.}
+\item \question{Construire l'intervalle de confiance à $95\%$ du rapport $\frac{\sigma_1^2}{\sigma_2^2}$.}
+\indication{Utiliser le pivot $\frac{\frac{S_1^2}{S_2^2}}{\frac{\sigma_1^2}{\sigma_2^2}}$ et inverser les quantiles dans les bornes.}
 \reponse{L'intervalle est
-\[\left[\frac{s_1^2/s_2^2}{F_{9,24;0{,}975}};\frac{s_1^2/s_2^2}{F_{9,24;0{,}025}}\right]
+\[\left[\frac{\frac{s_1^2}{s_2^2}}{F_{9,24;0{,}975}};\frac{\frac{s_1^2}{s_2^2}}{F_{9,24;0{,}025}}\right]
 \simeq[1{,}027775;10{,}039433].\]
 Il exclut 1, en accord avec le rejet, mais reste large. L'incertitude sur l'ampleur de la différence est importante.}
 \item \question{Pour aller plus loin : refaire le test avec $n_1=30,n_2=50$ et les mêmes écarts-types ; chercher la plus petite taille $n_1\geq2$ conduisant au rejet si $n_2=25$ et les écarts-types restent les mêmes ; discuter les causes possibles.}
 \reponse{Pour $(30,50)$, la référence est $F(29,49)$, le seuil haut vaut $1{,}881416$ et la $p$-valeur $0{,}001567$ : rejet.
-En gardant $n_2=25$ et le rapport observé $25/9$, la première taille conduisant au rejet est $n_1=10$. Les tailles $2,\ldots,9$ ne rejettent pas. Ce calcul conditionnel conserve artificiellement les écarts-types ; il ne garantit pas les résultats d'un futur échantillon.
+En gardant $n_2=25$ et le rapport observé $\frac{25}{9}$, la première taille conduisant au rejet est $n_1=10$. Les tailles $2,\ldots,9$ ne rejettent pas. Ce calcul conditionnel conserve artificiellement les écarts-types ; il ne garantit pas les résultats d'un futur échantillon.
 Des différences de recrutement, d'épreuves ou de barèmes pourraient contribuer à l'écart, mais ces causes demandent des informations supplémentaires.}
 \end{enumerate}
 }

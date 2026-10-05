@@ -25,8 +25,8 @@ Le pharmacien propose une moyenne de 25 minutes et le grossiste de 30 minutes.}
 \item Prendre une décision avec les données et expliquer sa portée.
 \end{enumerate}}
 \indication{L'alternative est supérieure à 25 : le test est unilatéral à droite. Pour la puissance exacte de Student, il faut la loi de Student non centrale.}
-\reponse{La statistique $T=(\overline X-25)/(S/\sqrt{13})$ suit $St(12)$ sous $H_0$. On rejette pour $t_{\mathrm{obs}}>t_{12;0{,}95}\simeq1{,}78229$.
-Sous $\mu=30$, $T$ suit une Student non centrale à 12 ddl de paramètre $\delta=5\sqrt{13}/\sigma$. Le risque est
+\reponse{La statistique $T=\frac{\overline X-25}{\frac{S}{\sqrt{13}}}$ suit $St(12)$ sous $H_0$. On rejette pour $t_{\mathrm{obs}}>t_{12;0{,}95}\simeq1{,}78229$.
+Sous $\mu=30$, $T$ suit une Student non centrale à 12 ddl de paramètre $\delta=\frac{5\sqrt{13}}{\sigma}$. Le risque est
 \[\beta(\sigma)=\mathbb P\bigl(T_{12,\delta}\leq1{,}78229\bigr).\]
 Il n'a pas de valeur unique sans $\sigma$. À $\sigma=10$, un logiciel donne $\beta\simeq0{,}477988$ (puissance $0{,}522012$). Cette valeur de $\sigma$ sert à décrire une alternative, et ne remplace pas $S$ dans le test.
 Avec les données, $t_{\mathrm{obs}}\simeq1{,}18565$ et $p_{\mathrm{val}}\simeq0{,}12935$ : non-rejet à $5\%$. On ne prouve pas une moyenne de 25 minutes. Une analyse de moyenne ne garantit pas non plus l'heure d'arrivée de chaque livraison.}

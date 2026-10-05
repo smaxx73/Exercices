@@ -13,10 +13,10 @@
 \texte{Les prix relevés dans sept supermarchés sont, en euros : $52,52,43,51,69,55,49$. On les modélise comme un échantillon indépendant de loi $\mathcal N(\mu,\sigma)$.}
 \begin{enumerate}
 \item \question{Estimer la moyenne et l'écart-type en précisant les estimateurs et leurs propriétés.}
-\reponse{$\overline X$ estime $\mu$ sans biais ; $S^2=\sum(X_i-\overline X)^2/6$ estime $\sigma^2$ sans biais. On obtient $\bar x=53$, $s^2=63{,}66667$ et $s=\sqrt{s^2}\simeq7{,}97914$ euros. $S=\sqrt{S^2}$ est convergent, mais n'est généralement pas sans biais pour $\sigma$.}
+\reponse{$\overline X$ estime $\mu$ sans biais ; $S^2=\frac{\sum(X_i-\overline X)^2}{6}$ estime $\sigma^2$ sans biais. On obtient $\bar x=53$, $s^2=63{,}66667$ et $s=\sqrt{s^2}\simeq7{,}97914$ euros. $S=\sqrt{S^2}$ est convergent, mais n'est généralement pas sans biais pour $\sigma$.}
 \item \question{Déterminer les intervalles de confiance symétriques à $90\%$ et $99\%$ pour $\mu$, centrés sur la moyenne observée $\bar x$.}
 \indication{Avec une variance inconnue et le modèle normal, utiliser les quantiles de Student à 6 degrés de liberté.}
-\reponse{La formule est $[\bar x-t_{6;1-\alpha/2}s/\sqrt7;\bar x+t_{6;1-\alpha/2}s/\sqrt7]$.
+\reponse{La formule est $[\bar x-t_{6;1-\alpha/2}\frac{s}{\sqrt7};\bar x+t_{6;1-\alpha/2}\frac{s}{\sqrt7}]$.
 À $90\%$ : $[47{,}1397;58{,}8603]$ euros. À $99\%$ : $[41{,}8190;64{,}1810]$ euros. Le second intervalle est plus large, car son niveau de confiance est plus élevé.}
 \end{enumerate}
 }

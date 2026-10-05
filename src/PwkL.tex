@@ -11,16 +11,16 @@
 \difficulte{2}
 \contenu{
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
-\texte{Soient $X_1,\ldots,X_n$ indépendantes de loi $\mathcal N(\mu,\sigma)$, $\sigma>0$. On suppose $n\geq2$ et les observations $x_i$ non toutes égales. La densité est $f(x)=(\sigma\sqrt{2\pi})^{-1}\exp(-(x-\mu)^2/(2\sigma^2))$.}
+\texte{Soient $X_1,\ldots,X_n$ indépendantes de loi $\mathcal N(\mu,\sigma)$, $\sigma>0$. On suppose $n\geq2$ et les observations $x_i$ non toutes égales. La densité est $f(x)=(\sigma\sqrt{2\pi})^{-1}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$.}
 \begin{enumerate}
 \item \question{Exprimer la vraisemblance et son logarithme.}
-\reponse{$L(\mu,\sigma)=(\sigma\sqrt{2\pi})^{-n}\exp(-\sum(x_i-\mu)^2/(2\sigma^2))$ et $\ell=-n\log\sigma-\frac n2\log(2\pi)-\sum(x_i-\mu)^2/(2\sigma^2)$.}
+\reponse{$L(\mu,\sigma)=(\sigma\sqrt{2\pi})^{-n}\exp\left(-\frac{\sum(x_i-\mu)^2}{2\sigma^2}\right)$ et $\ell=-n\log\sigma-\frac n2\log(2\pi)-\frac{\sum(x_i-\mu)^2}{2\sigma^2}$.}
 \item \question{Dériver $\ell$ par rapport à $\mu$.}
-\reponse{$\partial\ell/\partial\mu=\sum(x_i-\mu)/\sigma^2$.}
+\reponse{$\frac{\partial\ell}{\partial\mu}=\frac{\sum(x_i-\mu)}{\sigma^2}$.}
 \item \question{En déduire l'estimation et l'estimateur de $\mu$.}
-\reponse{La dérivée s'annule en $\widehat\mu_{\mathrm{obs}}=\bar x$. C'est un maximum pour chaque $\sigma$, car $\partial^2\ell/\partial\mu^2=-n/\sigma^2<0$. L'estimateur est $\widehat M_n=\overline X$.}
+\reponse{La dérivée s'annule en $\widehat\mu_{\mathrm{obs}}=\bar x$. C'est un maximum pour chaque $\sigma$, car $\frac{\partial^2\ell}{\partial\mu^2}=-\frac{n}{\sigma^2}<0$. L'estimateur est $\widehat M_n=\overline X$.}
 \item \question{Déterminer de même l'estimation et l'estimateur de $\sigma$.}
-\reponse{Après remplacement de $\mu$ par $\bar x$, $\partial\ell/\partial\sigma=-n/\sigma+\sum(x_i-\bar x)^2/\sigma^3$. Le maximum est donc
+\reponse{Après remplacement de $\mu$ par $\bar x$, $\frac{\partial\ell}{\partial\sigma}=-\frac{n}{\sigma}+\frac{\sum(x_i-\bar x)^2}{\sigma^3}$. Le maximum est donc
 \[\widehat\sigma_{\mathrm{obs}}=\sqrt{\frac1n\sum_{i=1}^n(x_i-\bar x)^2},\qquad
 \widehat H_n=\sqrt{\frac1n\sum_{i=1}^n(X_i-\overline X)^2}.\]
 La décomposition $\sum(x_i-\mu)^2=\sum(x_i-\bar x)^2+n(\bar x-\mu)^2$ justifie le maximum conjoint. Le diviseur de l'EMV de variance est $n$, tandis que l'estimateur sans biais de variance utilise $n-1$.

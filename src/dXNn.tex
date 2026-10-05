@@ -10,13 +10,13 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-\texte{Pour $a>0$, une variable $X$ à valeurs dans $\mathbb N$ vérifie $\mathbb P(X=k)=a^k/(1+a)^{k+1}$. On inclut aussi $a=0$, avec alors $X=0$ presque sûrement. On observe un échantillon indépendant $x_1,\ldots,x_n$.}
+\texte{Pour $a>0$, une variable $X$ à valeurs dans $\mathbb N$ vérifie $\mathbb P(X=k)=\frac{a^k}{(1+a)^{k+1}}$. On inclut aussi $a=0$, avec alors $X=0$ presque sûrement. On observe un échantillon indépendant $x_1,\ldots,x_n$.}
 \question{Déterminer l'estimateur du maximum de vraisemblance de $a$ et son biais.}
 \indication{Poser $s_x=\sum_{i=1}^n x_i$ ; pour calculer l'espérance, la somme sur $k$ va jusqu'à l'infini.}
-\reponse{Pour $a>0$, $L(a)=a^{s_x}/(1+a)^{s_x+n}$ et
+\reponse{Pour $a>0$, $L(a)=\frac{a^{s_x}}{(1+a)^{s_x+n}}$ et
 \[\frac{d\log L}{da}=\frac{s_x}{a}-\frac{s_x+n}{1+a}=\frac{s_x-na}{a(1+a)}.\]
-Si $s_x>0$, le maximum est en $\widehat a_{\mathrm{obs}}=s_x/n=\bar x$. Si tous les $x_i$ sont nuls, il est en $a=0$, inclus dans notre modèle. Sur le seul domaine $a>0$, ce dernier cas n'aurait pas de maximum.
-L'estimateur est donc $\widehat A_n=\overline X$. Avec $r=a/(1+a)$,
+Si $s_x>0$, le maximum est en $\widehat a_{\mathrm{obs}}=\frac{s_x}{n}=\bar x$. Si tous les $x_i$ sont nuls, il est en $a=0$, inclus dans notre modèle. Sur le seul domaine $a>0$, ce dernier cas n'aurait pas de maximum.
+L'estimateur est donc $\widehat A_n=\overline X$. Avec $r=\frac{a}{1+a}$,
 \[\mathbb E(X)=\frac1{1+a}\sum_{k=1}^{\infty}kr^k=\frac1{1+a}\frac r{(1-r)^2}=a.\]
 Par linéarité, $\mathbb E(\widehat A_n)=a$ : biais nul.}
 }

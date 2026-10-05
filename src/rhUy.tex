@@ -21,15 +21,15 @@ Les consommations sont positives ; on utilise une approximation sur les moyennes
 \item \question{Calculer l'écart des moyennes et les coefficients de variation.}
 \reponse{L'écart observé est 100 kWh, soit $20\%$ de la moyenne B. Les écarts-types sont $141{,}421$ et 400 kWh ; $CV_A\simeq23{,}57\%$ et $CV_B=80\%$. La dispersion observée est beaucoup plus élevée en B.}
 \item \question{Sous une hypothèse normale supplémentaire, effectuer le test de Fisher à $5\%$. Cette hypothèse est-elle réaliste ici ? Un test préalable de variances est-il nécessaire pour utiliser Welch ?}
-\reponse{Sous ce modèle supplémentaire, $R=S_B^2/S_A^2\sim F(99,199)$ si les variances sont égales. On observe $r_{\mathrm{obs}}=8$, le seuil haut à $2{,}5\%$ vaut $1{,}394503$ et la $p$-valeur bilatérale vaut $5{,}79\times10^{-35}$ : rejet sous ce modèle.
+\reponse{Sous ce modèle supplémentaire, $R=\frac{S_B^2}{S_A^2}\sim F(99,199)$ si les variances sont égales. On observe $r_{\mathrm{obs}}=8$, le seuil haut à $2{,}5\%$ vaut $1{,}394503$ et la $p$-valeur bilatérale vaut $5{,}79\times10^{-35}$ : rejet sous ce modèle.
 Cependant une normale $\mathcal N(500,400)$ attribue environ $10{,}6\%$ aux consommations négatives ; elle est peu réaliste pour les observations de B. Le test F exact ne se justifie donc pas par le seul TCL appliqué aux moyennes. Welch ne nécessite pas de prétest d'égalité des variances et peut être choisi directement.}
 \item \question{Formuler les hypothèses pour comparer les moyennes.}
 \reponse{$H_0:\mu_A=\mu_B$ contre $H_1:\mu_A\neq\mu_B$ ; test bilatéral, car aucune direction n'est privilégiée dans la question.}
 \item \question{Calculer la statistique de Welch et les degrés de liberté de Satterthwaite.}
 \reponse{On utilise
-\[T=\frac{\overline X_A-\overline X_B}{\sqrt{S_A^2/n_A+S_B^2/n_B}},\qquad
-\nu\simeq\frac{(s_A^2/n_A+s_B^2/n_B)^2}{(s_A^2/n_A)^2/(n_A-1)+(s_B^2/n_B)^2/(n_B-1)}.\]
-Ici l'erreur-type vaut $\sqrt{1700}\simeq41{,}2311$ kWh, $t_{\mathrm{obs}}=100/\sqrt{1700}\simeq2{,}425356$ et $\nu\simeq111{,}54495$.
+\[T=\frac{\overline X_A-\overline X_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}},\qquad
+\nu\simeq\frac{\left(\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}\right)^2}{\frac{\left(\frac{s_A^2}{n_A}\right)^2}{n_A-1}+\frac{\left(\frac{s_B^2}{n_B}\right)^2}{n_B-1}}.\]
+Ici l'erreur-type vaut $\sqrt{1700}\simeq41{,}2311$ kWh, $t_{\mathrm{obs}}=\frac{100}{\sqrt{1700}}\simeq2{,}425356$ et $\nu\simeq111{,}54495$.
 La référence $St(\nu)$ est une approximation ; Welch n'est pas un pivot de Student exact en général. Dans notre modèle positif de grande taille, son usage repose sur l'approximation des moyennes.}
 \item \question{Prendre une décision à $5\%$ et interpréter.}
 \reponse{La $p$-valeur bilatérale approchée vaut $0{,}016898$ : rejet. Les données sont peu compatibles avec l'égalité des moyennes sous les hypothèses retenues. Elles n'identifient pas les causes de l'écart et ne suffisent pas, seules, à décider d'un investissement.}
@@ -39,8 +39,8 @@ La référence $St(\nu)$ est une approximation ; Welch n'est pas un pivot de Stu
 \simeq[18{,}3023;181{,}6977]\ \text{kWh}.\]
 Il exclut 0, en accord avec le test, mais révèle une incertitude notable sur l'ampleur de l'écart. Ses bornes ne sont pas des limites absolues ou des scénarios garantis. Les valeurs ci-dessus gardent $\nu$ non entier jusqu'au calcul final ; une table papier nécessite une approximation supplémentaire.}
 \item \question{Calculer ce que donnerait un test de Student à variance commune et comparer avec Welch.}
-\reponse{La variance commune estimée serait $s_p^2=(199\times20000+99\times160000)/298\simeq66510{,}0671$.
-On obtiendrait $t_p=100/\sqrt{s_p^2(1/200+1/100)}\simeq3{,}165998$, puis une $p$-valeur nominale $0{,}001706$ sur $St(298)$.
+\reponse{La variance commune estimée serait $s_p^2=\frac{199\times20000+99\times160000}{298}\simeq66510{,}0671$.
+On obtiendrait $t_p=\frac{100}{\sqrt{s_p^2(\frac{1}{200}+\frac{1}{100})}}\simeq3{,}165998$, puis une $p$-valeur nominale $0{,}001706$ sur $St(298)$.
 La mise en commun suppose l'égalité des variances, peu plausible ici. Elle réduit artificiellement l'erreur-type estimée par rapport à Welch ; la $p$-valeur nominale n'est pas correctement calibrée si cette hypothèse est fausse. Même si les deux calculs rejettent ici, on retient Welch et ses conditions d'approximation.}
 \end{enumerate}
 }

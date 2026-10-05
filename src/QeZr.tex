@@ -34,9 +34,9 @@ Les bornes de Tukey sont $-0{,}45$ et $19{,}15$ cm : aucune observation ne dépa
 \end{tikzpicture}\end{center}}
 \item \question{On veut étayer une dispersion inférieure à 8 cm. Formuler les hypothèses et choisir la statistique.}
 \reponse{On teste $H_0:\sigma\geq8$ contre $H_1:\sigma<8$, test unilatéral à gauche.
-La statistique $Q=(n-1)S^2/8^2$ suit $\chi^2(24)$ à la frontière $\sigma=8$ ; sous $\sigma>8$, elle est multipliée par $\sigma^2/8^2$, ce qui diminue la probabilité de rejet dans la queue gauche. Le risque maximal sous $H_0$ est donc atteint à la frontière.}
+La statistique $Q=\frac{(n-1)S^2}{8^2}$ suit $\chi^2(24)$ à la frontière $\sigma=8$ ; sous $\sigma>8$, elle est multipliée par $\frac{\sigma^2}{8^2}$, ce qui diminue la probabilité de rejet dans la queue gauche. Le risque maximal sous $H_0$ est donc atteint à la frontière.}
 \item \question{Effectuer ce test au seuil de $5\%$.}
-\reponse{$q_{\mathrm{obs}}=24\times9{,}82310/64\simeq3{,}683663$.
+\reponse{$q_{\mathrm{obs}}=\frac{24\times9{,}82310}{64}\simeq3{,}683663$.
 Le seuil gauche vaut $q_{24;0{,}05}\simeq13{,}848425$. Comme $q_{\mathrm{obs}}$ est inférieur au seuil, on rejette $H_0$ ; $p_{\mathrm{val}}\simeq5{,}87\times10^{-7}$.
 Sous le modèle, les données étayent une dispersion horizontale inférieure à 8 cm.
 Excel : \texttt{=LOI.KHIDEUX.INVERSE(0,05;24)} pour le seuil ; \texttt{=LOI.KHIDEUX.N(3,683663;24;VRAI)} pour la $p$-valeur.
@@ -46,15 +46,15 @@ Un non-rejet dans le test opposé $H_1:\sigma>8$ n'aurait pas permis d'établir 
 \[IC_{95\%}(\sigma^2)=\left[\frac{24s^2}{q_{24;0{,}975}};\frac{24s^2}{q_{24;0{,}025}}\right]
 \simeq[5{,}98907;19{,}01069]\ \text{cm}^2.\]
 En prenant les racines, $IC_{95\%}(\sigma)\simeq[2{,}4473;4{,}3601]$ cm.
-La borne supérieure unilatérale est $\sqrt{24s^2/q_{24;0{,}05}}\simeq4{,}1260$ cm, inférieure à 8, en accord avec le test.
+La borne supérieure unilatérale est $\sqrt{\frac{24s^2}{q_{24;0{,}05}}}\simeq4{,}1260$ cm, inférieure à 8, en accord avec le test.
 Pour calculer les bornes bilatérales sur tableur, diviser par le quantile gauche $0{,}975$ pour la borne basse, et par le quantile $0{,}025$ pour la borne haute. Ces bornes expriment l'incertitude statistique, pas des garanties absolues.}
 \item \question{Une faible dispersion garantit-elle le centrage ? Tester $\mu=0$ contre $\mu\neq0$ à $5\%$ et commenter.}
-\reponse{La dispersion et le centrage sont distincts. Ici, le test de Student utilise $T=\overline X/(S/\sqrt{25})\sim St(24)$ sous $H_0$.
+\reponse{La dispersion et le centrage sont distincts. Ici, le test de Student utilise $T=\frac{\overline X}{\frac{S}{\sqrt{25}}}\sim St(24)$ sous $H_0$.
 On observe $t_{\mathrm{obs}}\simeq14{,}78535$, au-delà de $t_{24;0{,}975}\simeq2{,}06390$, et $p_{\mathrm{val}}\simeq1{,}49\times10^{-13}$ : rejet.
 Les données étayent un décalage horizontal positif ; il est estimé à $9{,}268$ cm. Le modèle et ces seules mesures ne déterminent pas la cause du décalage ni la position dans les deux dimensions. Une distance radiale, toujours positive, n'aurait pas permis ce test de centrage.}
 \item \question{Un second échantillon indépendant de 20 écarts signés, normal, a moyenne $8{,}1$ cm et variance corrigée $15{,}3$ cm$^2$. Comparer les variances au seuil de $5\%$.}
-\reponse{On fixe le rapport $R=S_2^2/S_1^2$. Sous l'égalité des variances, $R\sim F(19,24)$.
-On observe $r_{\mathrm{obs}}=15{,}3/9{,}82310\simeq1{,}557553$. Les quantiles bilatéraux sont $F_{19,24;0{,}025}\simeq0{,}407777$ et $F_{19,24;0{,}975}\simeq2{,}345154$.
+\reponse{On fixe le rapport $R=\frac{S_2^2}{S_1^2}$. Sous l'égalité des variances, $R\sim F(19,24)$.
+On observe $r_{\mathrm{obs}}=\frac{15{,}3}{9{,}82310}\simeq1{,}557553$. Les quantiles bilatéraux sont $F_{19,24;0{,}025}\simeq0{,}407777$ et $F_{19,24;0{,}975}\simeq2{,}345154$.
 La valeur se situe entre les deux ; $p_{\mathrm{val}}\simeq0{,}303001$ : non-rejet. On ne met pas en évidence une différence de dispersion, sans établir l'égalité.
 Excel : \texttt{=INVERSE.LOI.F.DROITE(0,025;19;24)} pour le seuil haut. Le test porte sur les variances, pas sur l'égalité des moyennes.}
 \end{enumerate}

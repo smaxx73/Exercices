@@ -19,7 +19,7 @@ Effectif & 15 & 30 & 27 & 13 & 9 & 5 & 1 \\ \hline
 \question{Tester l'adéquation à une loi de Poisson de paramètre inconnu au seuil de $5\%$. Regrouper d'emblée les classes en $0,1,2,3,\geq4$ et estimer le paramètre à partir de ces cinq classes. Pour l'optimisation numérique, on pourra utiliser le Solveur du tableur.}
 \indication{Une classe « 6 et plus » ne donne pas la valeur de l'observation correspondante. Utiliser une probabilité de queue, et non une masse au point 6.}
 \reponse{On teste $H_0$ : les nombres d'entretiens suivent une loi $\mathcal P(\lambda)$ pour un certain $\lambda>0$ ; l'alternative est une autre distribution.
-Les effectifs des cinq classes sont $(15,30,27,13,15)$. Avec $p_k(\lambda)=e^{-\lambda}\lambda^k/k!$ et $p_{\geq4}(\lambda)=1-\sum_{k=0}^3p_k(\lambda)$, la log-vraisemblance, à une constante près, est
+Les effectifs des cinq classes sont $(15,30,27,13,15)$. Avec $p_k(\lambda)=\frac{e^{-\lambda}\lambda^k}{k!}$ et $p_{\geq4}(\lambda)=1-\sum_{k=0}^3p_k(\lambda)$, la log-vraisemblance, à une constante près, est
 \[\ell(\lambda)=15\log p_0+30\log p_1+27\log p_2+13\log p_3+15\log p_{\geq4}.\]
 La maximisation numérique donne $\widehat\lambda_{\mathrm{obs}}\simeq1{,}904114$. Elle utilise les mêmes cinq classes que le test. La moyenne des observations brutes est inconnue, car la dernière classe est ouverte.
 \begin{center}\begin{tabular}{lrr}\hline Classe & Observé & Attendu \\ \hline
@@ -29,7 +29,7 @@ La maximisation numérique donne $\widehat\lambda_{\mathrm{obs}}\simeq1{,}904114
 3 & 13 & 17,13884 \\
 $\geq4$ & 15 & 12,60021 \\ \hline
 \end{tabular}\end{center}
-Tous les attendus sont supérieurs à 5. Le test de Pearson donne $q_{\mathrm{obs}}=\sum(o_j-e_j)^2/e_j\simeq1{,}551798$.
+Tous les attendus sont supérieurs à 5. Le test de Pearson donne $q_{\mathrm{obs}}=\sum\frac{(o_j-e_j)^2}{e_j}\simeq1{,}551798$.
 Comme un paramètre est estimé par maximum de vraisemblance dans ces cinq classes, la loi asymptotique est $\chi^2(5-1-1)=\chi^2(3)$.
 Le test utilise la queue droite : $q_{3;0{,}95}\simeq7{,}815$ et $p_{\mathrm{val}}\simeq0{,}670368$. On ne rejette pas l'adéquation à $5\%$, sans prouver que la loi est de Poisson.
 Dans Excel : calculer les quatre masses avec \texttt{LOI.POISSON.N(k;lambda;FAUX)}, la queue par leur complément à 1, puis maximiser la somme des effectifs multipliés par les logarithmes des probabilités avec le Solveur, sous $\lambda>0$.

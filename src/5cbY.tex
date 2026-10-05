@@ -20,13 +20,13 @@
 \item Que peut-on en déduire par rapport à la limite de 7 mg/L ?
 \end{enumerate}}
 \indication{Distinguer la variance descriptive et la variance corrigée ; prendre le quantile gauche $t_{16;0{,}975}$.}
-\reponse{Les estimateurs sans biais sont $\overline X$ et $S^2$. On obtient $\bar x=5{,}2$, $s^2=(17/16)1{,}2^2=1{,}53$ et $s=\sqrt{1{,}53}\simeq1{,}23693$ ; la racine n'est pas un estimateur sans biais de l'écart-type.
+\reponse{Les estimateurs sans biais sont $\overline X$ et $S^2$. On obtient $\bar x=5{,}2$, $s^2=\frac{17}{16}1{,}2^2=1{,}53$ et $s=\sqrt{1{,}53}\simeq1{,}23693$ ; la racine n'est pas un estimateur sans biais de l'écart-type.
 Le pivot de Student à 16 ddl donne
 \[IC_{95\%}(\mu)=\left[5{,}2-t_{16;0{,}975}\frac{\sqrt{1{,}53}}{\sqrt{17}};\ 5{,}2+t_{16;0{,}975}\frac{\sqrt{1{,}53}}{\sqrt{17}}\right]
 \simeq[4{,}564;5{,}836]\ \text{mg/L}.\]
 La borne supérieure est inférieure à 7 : les données étayent une moyenne inférieure à cette limite sous le modèle. Cela concerne la moyenne, et ne garantit pas que chaque mesure soit inférieure à 7.}
 \item \question{Si l'écart-type de la population est connu et vaut $1{,}2$ mg/L, combien de mesures prévoir pour une marge d'erreur d'au plus $0{,}1$ mg/L à $95\%$ ?}
 \indication{La normalité des observations et l'écart-type connu permettent un pivot normal exact. La marge est la demi-largeur de l'intervalle.}
-\reponse{On impose $\Phi^{-1}(0{,}975)1{,}2/\sqrt n\leq0{,}1$. Ainsi $n\geq553{,}1701$ et il faut au moins \textbf{554 mesures}.}
+\reponse{On impose $\frac{\Phi^{-1}(0{,}975)1{,}2}{\sqrt n}\leq0{,}1$. Ainsi $n\geq553{,}1701$ et il faut au moins \textbf{554 mesures}.}
 \end{enumerate}
 }

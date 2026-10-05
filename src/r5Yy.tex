@@ -15,12 +15,12 @@
 Effectif & 38 & 31 & 16 & 10 & 2 & 2 & 1 \\ \hline\end{tabular}\end{center}}
 \begin{enumerate}
 \item \question{Estimer $\lambda$, préciser les propriétés de l'estimateur et comparer graphiquement les effectifs observés à ceux d'une loi de Poisson de paramètre 1.}
-\reponse{$\widehat\Lambda=\overline X$ est sans biais, de variance $\lambda/100$, et convergent lorsque l'effectif augmente. La somme observée vaut 117, donc $\widehat\lambda_{\mathrm{obs}}=1{,}17$.
+\reponse{$\widehat\Lambda=\overline X$ est sans biais, de variance $\frac{\lambda}{100}$, et convergent lorsque l'effectif augmente. La somme observée vaut 117, donc $\widehat\lambda_{\mathrm{obs}}=1{,}17$.
 Pour un diagramme en bâtons comparatif, les effectifs théoriques sous $\lambda=1$ des classes 0 à 6 sont $36{,}788;36{,}788;18{,}394;6{,}131;1{,}533;0{,}307;0{,}051$. Ajouter une classe $\geq7$, observée 0, théorique $0{,}0083$, pour inclure toute la loi.}
 \item \question{Tester $H_0:\lambda\leq1$ contre $H_1:\lambda>1$ à $5\%$, à l'aide du modèle exact. Comparer avec l'approximation normale.}
 \indication{La somme $K=\sum X_i$ suit une loi de Poisson de paramètre $100\lambda$.}
 \reponse{À la frontière $\lambda=1$, $K\sim\mathcal P(100)$. Avec $k_{\mathrm{obs}}=117$, la $p$-valeur exacte est $\mathbb P_{1}(K\geq117)\simeq0{,}05222$. On ne rejette pas au seuil de $5\%$. Le seuil entier de rejet est $K\geq118$.
-L'approximation sans correction de continuité donne $z_{\mathrm{obs}}=(117-100)/10=1{,}7$ et $p_{\mathrm{val}}\simeq0{,}04457$, qui conduirait au rejet. Près du seuil, l'approximation change donc la décision : on retient ici le test exact.
+L'approximation sans correction de continuité donne $z_{\mathrm{obs}}=\frac{117-100}{10}=1{,}7$ et $p_{\mathrm{val}}\simeq0{,}04457$, qui conduirait au rejet. Près du seuil, l'approximation change donc la décision : on retient ici le test exact.
 Excel : \texttt{=1-LOI.POISSON.N(116;100;VRAI)}.}
 \end{enumerate}
 }

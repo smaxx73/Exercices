@@ -15,12 +15,12 @@
 \item \question{Pour les observations $(3,4,4,2,3)$, exprimer la vraisemblance et déterminer l'estimation par maximum de vraisemblance.}
 \reponse{La somme vaut 16, donc $L(p)=p^5(1-p)^{11}$.
 \[L'(p)=p^4(1-p)^{10}(5-16p).\]
-La dérivée est positive avant $5/16$ et négative après : $\widehat p_{\mathrm{obs}}=5/16=0{,}3125$.}
+La dérivée est positive avant $\frac{5}{16}$ et négative après : $\widehat p_{\mathrm{obs}}=\frac{5}{16}=0{,}3125$.}
 \item \question{Généraliser à $n$ observations $x_1,\ldots,x_n$. Exprimer la vraisemblance et déterminer l'EMV lorsque $\sum x_i>n$. Discuter le cas où tous les $x_i$ valent 1.}
 \indication{Poser $s_x=\sum x_i$ et dériver le logarithme de la vraisemblance sur $]0;1[$.}
 \reponse{On a $L(p)=p^n(1-p)^{s_x-n}$ et
 \[\frac{d\log L}{dp}=\frac np-\frac{s_x-n}{1-p}=\frac{n-ps_x}{p(1-p)}.\]
-Si $s_x>n$, le maximum est atteint en $\widehat p_{\mathrm{obs}}=n/s_x$. La statistique correspondante est $\widehat P_n=n/\sum X_i$.
+Si $s_x>n$, le maximum est atteint en $\widehat p_{\mathrm{obs}}=\frac{n}{s_x}$. La statistique correspondante est $\widehat P_n=\frac{n}{\sum X_i}$.
 Si $s_x=n$, $L(p)=p^n$ est strictement croissante : sur $]0;1[$, il n'existe pas d'EMV, seulement un supremum quand $p\to1$. En étendant le modèle à $p=1$ (loi concentrée en 1), la même formule donne l'EMV dans tous les cas.}
 \end{enumerate}
 }

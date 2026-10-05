@@ -16,10 +16,10 @@
 \begin{enumerate}
 \item \question{Déterminer la loi de $X=\sum_{i=1}^9U_i^2$ et $x$ tel que $\mathbb P(X>x)=0{,}05$.}
 \reponse{$X\sim\chi^2(9)$ et $x=q_{9;0{,}95}\simeq16{,}919$.}
-\item \question{Soit $Y\sim\mathcal N(10,3)$ indépendant de $X$. Déterminer la loi de $Z=(Y-10)/\sqrt X$ et $z$ tel que $\mathbb P(Z>z)=0{,}05$.}
-\reponse{$Z=\bigl((Y-10)/3\bigr)/\sqrt{X/9}\sim St(9)$, par indépendance, et $z=t_{9;0{,}95}\simeq1{,}83311$.}
-\item \question{Soit $V\sim\chi^2(3)$ indépendant de $X$. Déterminer les lois de $W_1=X/(3V)$ et $W_2=3V/X$, puis $w_2$ tel que $\mathbb P(W_2>w_2)=0{,}05$.}
-\reponse{$W_1=(X/9)/(V/3)\sim F(9,3)$ et $W_2=(V/3)/(X/9)\sim F(3,9)$.
+\item \question{Soit $Y\sim\mathcal N(10,3)$ indépendant de $X$. Déterminer la loi de $Z=\frac{Y-10}{\sqrt X}$ et $z$ tel que $\mathbb P(Z>z)=0{,}05$.}
+\reponse{$Z=\frac{\frac{Y-10}{3}}{\sqrt{\frac{X}{9}}}\sim St(9)$, par indépendance, et $z=t_{9;0{,}95}\simeq1{,}83311$.}
+\item \question{Soit $V\sim\chi^2(3)$ indépendant de $X$. Déterminer les lois de $W_1=\frac{X}{3V}$ et $W_2=\frac{3V}{X}$, puis $w_2$ tel que $\mathbb P(W_2>w_2)=0{,}05$.}
+\reponse{$W_1=\frac{\frac{X}{9}}{\frac{V}{3}}\sim F(9,3)$ et $W_2=\frac{\frac{V}{3}}{\frac{X}{9}}\sim F(3,9)$.
 Le quantile demandé est $w_2=F_{3,9;0{,}95}\simeq3{,}86255$.}
 \end{enumerate}
 }

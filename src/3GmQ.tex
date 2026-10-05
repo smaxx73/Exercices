@@ -11,7 +11,7 @@
 \difficulte{}
 \contenu{
 \texte{Une production doit avoir une proportion de pièces défectueuses d'au plus $p_0=0{,}01$. Une étude antérieure indépendante sur 5000 pièces en avait trouvé 100 défectueuses, suggérant l'alternative $p_1=0{,}02$.
-Un nouveau contrôle prélève 1500 pièces indépendamment dans une production de grande taille : $K\sim\mathcal B(1500,p)$ et $F=K/1500$. On teste $H_0:p\leq0{,}01$ contre $H_1:p>0{,}01$, au seuil de $1\%$.}
+Un nouveau contrôle prélève 1500 pièces indépendamment dans une production de grande taille : $K\sim\mathcal B(1500,p)$ et $F=\frac{K}{1500}$. On teste $H_0:p\leq0{,}01$ contre $H_1:p>0{,}01$, au seuil de $1\%$.}
 \begin{enumerate}
 \item \question{Déterminer la règle de décision avec l'approximation normale puis vérifier son risque binomial réel. Proposer une règle exacte de niveau au plus $1\%$.}
 \reponse{Le seuil normal de fréquence est
@@ -19,7 +19,7 @@ Un nouveau contrôle prélève 1500 pièces indépendamment dans une production 
 Rejeter pour $F>f_c$ revient à $K\geq24$. Mais le risque réel à $p_0$ vaut $\mathbb P_{p_0}(K\geq24)\simeq0{,}018935$, supérieur à $1\%$.
 La règle exacte rejette pour \textbf{$K\geq26$} : son risque vaut $0{,}005938$. Le seuil 25 donnerait $0{,}010793$, encore trop élevé. La discrétisation empêche généralement d'atteindre exactement le niveau demandé sans randomisation.}
 \item \question{On observe 18 pièces défectueuses. Quelle décision prendre ?}
-\reponse{$f_{\mathrm{obs}}=18/1500=0{,}012$. Les deux règles ne rejettent pas $H_0$ ; cela ne prouve pas que $p\leq0{,}01$.}
+\reponse{$f_{\mathrm{obs}}=\frac{18}{1500}=0{,}012$. Les deux règles ne rejettent pas $H_0$ ; cela ne prouve pas que $p\leq0{,}01$.}
 \item \question{Calculer le risque de seconde espèce et la puissance pour $p_1=0{,}02$, avec la règle exacte retenue.}
 \reponse{$\beta=\mathbb P_{p_1}(K\leq25)\simeq0{,}205776$ et la puissance vaut $1-\beta\simeq0{,}794224$.
 Excel : \texttt{=LOI.BINOMIALE.N(25;1500;0,02;VRAI)}.

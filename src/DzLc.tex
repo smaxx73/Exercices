@@ -21,7 +21,7 @@ $[50;60[$ & 38 & 114 & 167 & 319 \\
 Total & 216 & 601 & 1272 & 2089 \\ \hline\end{tabular}\end{center}}
 \begin{enumerate}
 \item \question{Tester l'indépendance de l'âge et de la réponse au seuil de $1\%$.}
-\indication{Sous $H_0$, calculer $e_{ij}=o_{i\cdot}o_{\cdot j}/2089$.}
+\indication{Sous $H_0$, calculer $e_{ij}=\frac{o_{i\cdot}o_{\cdot j}}{2089}$.}
 \reponse{Les effectifs attendus sont :
 \begin{center}\begin{tabular}{lrrr}\hline Âge & D'accord & Indécis & Pas d'accord \\ \hline
 $[18;30[$ & 54,18095 & 150,75347 & 319,06558 \\
@@ -29,7 +29,7 @@ $[30;40[$ & 43,94447 & 122,27142 & 258,78411 \\
 $[40;50[$ & 35,56917 & 98,96793 & 209,46290 \\
 $[50;60[$ & 32,98420 & 91,77549 & 194,24031 \\
 60 et plus & 49,32121 & 137,23169 & 290,44710 \\ \hline\end{tabular}\end{center}
-Ils sont tous supérieurs à 5. On trouve $q_{\mathrm{obs}}=\sum(o_{ij}-e_{ij})^2/e_{ij}\simeq45{,}97114$ avec $(5-1)(3-1)=8$ ddl.
+Ils sont tous supérieurs à 5. On trouve $q_{\mathrm{obs}}=\sum\frac{(o_{ij}-e_{ij})^2}{e_{ij}}\simeq45{,}97114$ avec $(5-1)(3-1)=8$ ddl.
 Le seuil $q_{8;0{,}99}\simeq20{,}090$ est dépassé et $p_{\mathrm{val}}\simeq2{,}41\times10^{-7}$ : on rejette l'indépendance. Une association est mise en évidence, sans conclusion causale.}
 \item \question{Au seuil de $5\%$, comparer les deux dernières classes d'âge, puis les moins de 30 ans aux 60 ans et plus.}
 \reponse{Chaque comparaison demande de recalculer les marges sur les seules lignes retenues.
