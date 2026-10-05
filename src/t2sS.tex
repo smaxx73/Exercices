@@ -10,19 +10,33 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-\texte{Utiliser les données \href{https://github.com/smaxx73/Exercices/blob/main/data/ronfle.txt}{\texttt{ronfle.txt}} du dépôt (100 personnes, sept colonnes). Les colonnes numériques sont âge, poids, taille et alcool ; sexe, ronfle et taba sont des catégories. Les données sont séparées par des tabulations.}
+\texte{Utiliser les données \href{https://github.com/smaxx73/Exercices/blob/main/data/ronfle.txt}{\texttt{ronfle.txt}} du dépôt. Le fichier contient une ligne par personne et sept colonnes, séparées par des tabulations : âge, poids, taille, alcool, sexe, ronfle et taba. Pour cet exercice, la taille est exprimée en cm. L'unité de la variable alcool n'est pas précisée : ne pas en inventer une.}
+\texte{L'objectif est de préparer des données, construire des graphiques adaptés et interpréter des statistiques descriptives. Conserver les données importées dans une feuille et les calculs dans une autre. Pour chaque graphique, préciser les axes, les catégories et, le cas échéant, le dénominateur des pourcentages.}
 \begin{enumerate}
-\item \question{Importer le fichier dans un tableur et vérifier l'effectif ainsi que les types des colonnes.}
-\reponse{Importer avec le séparateur tabulation, en conservant la première ligne comme en-tête. On obtient 100 observations, sans valeur manquante.}
-\item \question{Classer la taille par intervalles de longueur 10 cm et tracer l'histogramme.}
-\reponse{Avec les classes $[150;160[$, $[160;170[$, $[170;180[$, $[180;190[$, $[190;200[$ et $[200;210[$, les effectifs sont respectivement 4, 27, 10, 21, 37, 1. Leur somme vaut 100. Les classes étant de même largeur, on peut comparer leurs hauteurs directement.}
-\item \question{Les âges sont-ils uniformément représentés ? Justifier graphiquement avec des classes de même largeur.}
-\reponse{Pour $[20;30[$, $[30;40[$, $[40;50[$, $[50;60[$, $[60;70[$ et $[70;80[$, les effectifs sont 1, 14, 30, 24, 27, 4. L'histogramme est concentré entre 40 et 70 ans : l'échantillon ne présente pas une répartition uniforme. C'est un constat descriptif ; aucun test d'uniformité n'est demandé ici.}
-\item \question{Tracer la taille en fonction du poids et commenter.}
-\reponse{Utiliser un nuage de points : poids en abscisse, taille en ordonnée. L'association est croissante et forte ; la corrélation empirique vaut $r\simeq0{,}92697$. Cette corrélation descriptive n'établit pas de causalité.}
-\item \question{Proposer un graphique faisant apparaître la répartition H/F selon des catégories de consommation d'alcool.}
-\reponse{Un choix est de regrouper alcool en 0, de 1 à 4, puis 5 et plus. Les effectifs (F,H) sont respectivement $(23,19)$, $(2,31)$ et $(0,25)$ : 25 femmes et 75 hommes au total.
-Utiliser des barres empilées pour les effectifs, ou des barres empilées à $100\%$ pour comparer les proportions H/F dans chaque catégorie. Indiquer explicitement les regroupements et le dénominateur des pourcentages. Le fichier ne précise pas l'unité de la variable alcool : ne pas en inventer une.}
+\item \question{Importer le fichier. Vérifier le nombre de personnes, les valeurs manquantes et le type de chaque colonne. Quels codes catégoriels observe-t-on ?}
+\indication{Choisir le séparateur tabulation et garder la première ligne comme en-tête. Une colonne de nombres doit être reconnue comme numérique ; un code de catégorie ne doit pas être moyenné.}
+\reponse{On obtient 100 personnes et sept colonnes, sans valeur manquante. Les colonnes âge, poids, taille et alcool sont numériques. Les codes sont F/H pour sexe et N/O pour ronfle et taba. Les âges vont de 23 à 74, les tailles de 158 à 208 cm et alcool de 0 à 15. Ces contrôles servent à détecter un problème d'import ; une valeur inhabituelle ne se supprime pas sans justification.}
+\item \question{Regrouper les tailles dans les classes $[150;160[$, $[160;170[$, $[170;180[$, $[180;190[$, $[190;200[$ et $[200;210[$. Calculer les effectifs et fréquences, vérifier leurs sommes et tracer l'histogramme. Où classe-t-on une taille exactement égale à 170 cm ?}
+\indication{Pour $[a;b[$, compter les valeurs supérieures ou égales à $a$ et strictement inférieures à $b$. Construire les rectangles à partir de ces classes, sans laisser le logiciel choisir d'autres bornes.}
+\reponse{Les effectifs sont respectivement 4, 27, 10, 21, 37 et 1 ; les fréquences sont 4\%, 27\%, 10\%, 21\%, 37\% et 1\%. Leurs sommes valent 100 et 100\%. Une taille de 170 cm appartient à $[170;180[$. Les classes de largeur commune 10 cm couvrent toutes les observations : on peut utiliser les effectifs ou les fréquences comme hauteurs des rectangles adjacents.}
+\item \question{Les âges sont-ils uniformément représentés dans cet échantillon ? Construire un histogramme avec les classes $[20;30[$, $[30;40[$, $[40;50[$, $[50;60[$, $[60;70[$ et $[70;80[$, puis justifier la réponse.}
+\reponse{Les effectifs sont 1, 14, 30, 24, 27 et 4. L'histogramme est concentré entre 40 et 70 ans : les âges ne sont pas uniformément représentés dans cet échantillon. C'est un constat descriptif ; aucun test d'uniformité ni conclusion sur une population plus large n'est demandé.}
+\item \question{Tracer la taille en fonction du poids avec un nuage de points, puis calculer la corrélation linéaire. Commenter le sens et l'intensité de l'association. Peut-on en déduire une causalité ?}
+\indication{Placer le poids en abscisse et la taille en ordonnée, avec un point par personne ; ne pas relier les points dans l'ordre des lignes.}
+\reponse{L'association est croissante et forte ; la corrélation empirique vaut $r\simeq0{,}92697$. Les points sont proches d'une tendance croissante sans être tous alignés. Cette corrélation descriptive n'établit pas de causalité et ne justifie pas d'extrapoler à une population dont le mode de prélèvement est inconnu.}
+\item \question{Regrouper alcool en trois catégories : 0, de 1 à 4, puis 5 et plus. Construire le tableau des effectifs croisant ces catégories avec sexe. Représenter la répartition F/H \emph{dans chaque catégorie d'alcool} par des barres empilées à $100\%$. Préciser le dénominateur de chaque barre.}
+\indication{Utiliser un tableau croisé dynamique, avec alcool regroupé en lignes et sexe en colonnes. Pour cette question, diviser chaque effectif par le total de sa ligne.}
+\reponse{Le tableau est
+\begin{center}\begin{tabular}{lrrr}\hline
+Catégorie alcool & F & H & Total \\ \hline
+0 & 23 & 19 & 42 \\
+1 à 4 & 2 & 31 & 33 \\
+5 et plus & 0 & 25 & 25 \\ \hline
+Total & 25 & 75 & 100 \\ \hline
+\end{tabular}\end{center}
+Les proportions (F,H) dans les trois barres sont environ $(54{,}76\%,45{,}24\%)$, $(6{,}06\%,93{,}94\%)$ et $(0\%,100\%)$. Les dénominateurs sont 42, 33 et 25 ; chaque barre totalise $100\%$.}
+\item \question{Pour comparer cette fois la répartition des catégories d'alcool \emph{parmi les femmes} et \emph{parmi les hommes}, quels pourcentages faut-il calculer ? Pourquoi les effectifs bruts ne suffisent-ils pas ?}
+\reponse{Il faut diviser par 25 pour F et par 75 pour H : les dénominateurs sont les totaux de colonnes. Les proportions des catégories 0, 1 à 4, 5 et plus sont $(92\%,8\%,0\%)$ parmi F, et environ $(25{,}33\%,41{,}33\%,33{,}33\%)$ parmi H. On peut tracer deux barres empilées à $100\%$, une pour chaque sexe. Les effectifs bruts comparent des groupes de tailles différentes. Les deux questions n'utilisent donc pas le même dénominateur. Le résultat décrit les codes enregistrés dans cet échantillon ; il n'explique pas les causes de l'association.}
 \end{enumerate}
-\indication{Pour les classes $[a;b[$, utiliser un comptage avec les conditions « supérieur ou égal à $a$ » et « strictement inférieur à $b$ ». Pour H/F selon alcool, utiliser un tableau croisé dynamique.}
+\texte{À rendre : le fichier du tableur avec les données, les tableaux et les graphiques, accompagné de quelques phrases répondant aux questions d'interprétation.}
 }
