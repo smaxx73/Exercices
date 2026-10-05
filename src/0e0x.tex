@@ -10,25 +10,20 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{ Un centre médical mène des études statistiques sur le taux de cholestérol de son personnel, mesuré en centigramme par litre de sang. Les observations sur 20 individus supposés sains, tirés au sort, sont les suivantes :
- 
- \begin{center}
- \begin{tabular}{|l|l|l|l|l|l|l|}
-\hline
-{\bf Taux de cholestérol en cg} & 120 & 160 & 200 & 240 & 280 & 320 \\ \hline
-{\bf Nombre de sujets observés} & 2   & 4   & 5   & 4   & 3   & 2   \\ \hline
-\end{tabular}
-\end{center}
-
-Le taux de cholestérol chez un individu sain (noté $X$) est supposé suivre une loi normale.
-}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{On relève le taux de cholestérol de 20 personnes choisies indépendamment. On adopte un modèle normal $\mathcal N(\mu,\sigma)$.
+\begin{center}\begin{tabular}{lrrrrrr}\hline
+Taux (cg/L) & 120 & 160 & 200 & 240 & 280 & 320 \\
+Effectif & 2 & 4 & 5 & 4 & 3 & 2 \\ \hline
+\end{tabular}\end{center}}
 \begin{enumerate}
- \item \question{Donner une estimation $\overline{x}$ de l'espérance mathématique de $X$ et une estimation $s^2$ de la variance de $X$. On précisera les estimateurs choisis et on en donnera les propriétés.}
- \reponse{Avec l'estimateur usuel $\overline{X}$, on obtient à partir de la réalisation de cet échantillon de taille $20$ une estimation $\overline{x} = 216$. Avec l'estimateur de variance corrigée $S^2$, on obtient une estimation de la variance $s^2 \approx 3604{,}21$. }
- \item \question{Donner l'intervalle de confiance de l'espérance de $X$, centré sur $\overline{x}$, au risque $\alpha=0.01$.}
- \reponse{Au vu de la taille de l'échantillon, la variable mère est supposée suivre une loi normale donc on utilise une loi de Student $St(19)$ pour calculer la réalisation de l'intervalle de confiance avec la formule du cours : on trouve $[177{,}5;254{,}5]$. 
- 
-\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EdFYJYRKwvBGoIULbkJQ6NkBRZn1HoiI2RaoiEOYqpaQFg?e=cQhUaa}{Feuille de calcul}
+\item \question{Estimer l'espérance et la variance. Préciser les estimateurs et leurs propriétés.}
+\reponse{Les estimateurs $\overline X$ et $S^2=\sum(X_i-\overline X)^2/19$ sont sans biais et convergents dans ce modèle. Les réalisations sont $\bar x=216$ cg/L et $s^2=3604{,}21053$ (cg/L)$^2$, donc $s\simeq60{,}03508$ cg/L.}
+\item \question{Construire un intervalle de confiance bilatéral à $99\%$ pour $\mu$.}
+\indication{La variance est inconnue et le modèle normal est une hypothèse de l'énoncé : utiliser Student à 19 degrés de liberté.}
+\reponse{Le pivot $(\overline X-\mu)/(S/\sqrt{20})$ suit exactement $St(19)$. Ainsi
+\[\left[\bar x-t_{19;0{,}995}\frac s{\sqrt{20}};\ \bar x+t_{19;0{,}995}\frac s{\sqrt{20}}\right]
+\simeq[177{,}594;254{,}406]\ \text{cg/L}.\]
+La normalité ne découle pas du faible effectif ; elle est supposée ici.}
+\end{enumerate}
 }
-\end{enumerate}}

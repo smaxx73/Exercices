@@ -10,5 +10,22 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\question{ 	A partir des données du fichier \href{https://github.com/smaxx73/Exercices/blob/main/data/SOCR-HeightWeight.csv}{SOCR-HeightWeight.csv} et des fonctions du tableur, déterminer tous les indicateurs de position et de dispersion de chaque variable, puis effectuer une analyse graphique et numérique de la corrélation linéaire entre les deux variables. On pourra traduire au préalable les données dans des unités de mesure européennes. }}
+\question{À partir de \href{https://github.com/smaxx73/Exercices/blob/main/data/SOCR-HeightWeight.csv}{\texttt{SOCR-HeightWeight.csv}}, déterminer les indicateurs de position et de dispersion de la taille et du poids, puis étudier graphiquement et numériquement leur corrélation linéaire. Convertir les données en cm et kg.}
+\indication{Le fichier contient une colonne d'index et deux variables mesurées. Un pouce vaut $2{,}54$ cm et une livre vaut $0{,}45359237$ kg.}
+\reponse{Le fichier contient 25000 observations. La colonne \texttt{Index} est un identifiant, pas une troisième variable à analyser. Après conversion :
+\begin{center}\begin{tabular}{lrr}\hline
+Indicateur & Taille (cm) & Poids (kg) \\ \hline
+Minimum & 153,1070 & 35,3869 \\
+Premier quartile & 169,4292 & 54,1175 \\
+Médiane & 172,7091 & 57,6778 \\
+Moyenne & 172,7025 & 57,6423 \\
+Troisième quartile & 175,9533 & 61,1864 \\
+Maximum & 190,8881 & 77,5298 \\
+Étendue & 37,7811 & 42,1429 \\
+Écart interquartile & 6,5241 & 7,0689 \\
+Variance corrigée & 23,33145 & 27,97663 \\
+Écart-type corrigé & 4,83026 & 5,28929 \\ \hline
+\end{tabular}\end{center}
+Les quartiles utilisent l'interpolation de \texttt{QUARTILE.INCLURE}. Les variances et écarts-types ci-dessus utilisent le diviseur $n-1$ (\texttt{VAR.S} et \texttt{ECARTYPE.STANDARD}) ; pour la variance descriptive à diviseur $n$, multiplier par $24999/25000$.
+La corrélation vaut $r\simeq0{,}502859$, inchangée par les conversions positives d'unités. Le nuage de points montre une association croissante modérée, avec une dispersion importante autour d'une droite. Les histogrammes et diagrammes en boîte complètent les indicateurs ; la corrélation seule ne décrit pas toute la relation et n'établit pas de causalité.}
+}

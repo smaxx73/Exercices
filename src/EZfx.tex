@@ -11,27 +11,17 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{La bestiole est un animal dont le poids est distribué selon une loi normale de moyenne 100 g et d'écart-type 5 g.
-
- On prélève un échantillon aléatoire de 16 bestioles. On note $X_i$ le poids de la bestiole numéro $i$ ($1 \leq i \leq 16$).}
-
- \begin{enumerate}
-  \item \question{Déterminer la loi suivie par  $$\overline{X}=\frac{\sum\limits_{i=1}^{16} X_i}{16}$$}
- \reponse{Par propriétés de somme de lois normales, on obtient que $\overline{X}$ suit une loi normale. Il reste à calculer $\mathbb{E}(\overline{X}) = \frac{1}{16} \times 16 \times 100 = 100$ et $V(\overline{X}) = \frac{1}{16^2} \times 16 \times 5^2 = \frac{5^2}{16}$. On en déduit que $\overline{X}$ suit une loi normale $\mathcal{N}(100, \sigma = \frac{5}{4})$. }
-  \item \question{Déterminer la loi suivie par $$Q=\frac{\sum\limits_{i=1} ^{16} (X_i-100)^2}{25}$$
-Déterminer le réel $q$ tel que $\PP(Q > q) = 0.05$.}
-\reponse{On réécrit $Q= \sum\limits_{i=1} ^{16} \left(\frac{X_i-100}{5}\right)^2$ or $\frac{X_i-100}{5}$ suit une loi $\mathcal{N}(0,1)$ et les variables $X_i$ sont indépendantes donc par définition, $Q$ suit une loi $\chi^2(16)$. 
-On cherche maintenant $q$ tel que $\PP(Q \leq q) = 0.95$ dans la table de valeurs soit $q = 26.296$.
- }
-  \item \question{Déterminer la loi suivie par $$V=\frac{\sum\limits_{i=1} ^{16} (X_i-\overline{X})^2}{25}$$
-  puis déterminer le réel $v$ tel que $\PP(V > v) = 0.05$.}
-\reponse{D'après le théorème de Fisher, $V$ suit une loi  $\chi^2(15)$. Par lecture de table, on trouve $\PP(V \leq v) = 0.95$ pour $v=24.996$.}
-  \item \question{Déterminer la loi suivie par $$W=\frac{(\overline{X}-100)4\sqrt{15}}{\sqrt{\sum\limits_{i=1} ^{16} (X_i-\overline{X})^2}}$$
-    Déterminer le réel $w$ tel que $\PP(W > w) = 0.05$.}
-\reponse{D'après la question 1, la variable $\frac{\overline{X}-100}{\frac{5}{4}}$ suit une loi $\mathcal{N}(0,1)$.  On réécrit maintenant :
-$$W = \frac{\frac{\overline{X}-100}{\frac{5}{4}} \times \frac{5}{4} \times 4\sqrt{15}}{\sqrt{\sum\limits_{i=1} ^{16} (X_i-\overline{X})^2}} = \frac{\frac{\overline{X}-100}{\frac{5}{4}}}{\frac{\sqrt{\sum\limits_{i=1} ^{16} (X_i-\overline{X})^2}}{5\sqrt{15}}} = \frac{\frac{\overline{X}-100}{\frac{5}{4}}}{\frac{\sqrt{V}}{\sqrt{15}}} $$
-	Or $V$ suit une  $\chi^2(15)$ d'après la question précédente. Donc par définition, $W$ suit une loi de Student $St(15)$. 
-}
- \end{enumerate}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$ ; $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Les poids $X_1,\ldots,X_{16}$ de 16 bestioles constituent un échantillon indépendant de loi $\mathcal N(100,5)$ (en grammes). On pose $\overline X=\frac1{16}\sum X_i$.}
+\begin{enumerate}
+\item \question{Déterminer la loi de $\overline X$.}
+\reponse{La moyenne de variables normales indépendantes est normale : $\overline X\sim\mathcal N(100,5/4)$, de variance $25/16$.}
+\item \question{Déterminer la loi de $Q=\sum_{i=1}^{16}(X_i-100)^2/25$, puis $q$ tel que $\mathbb P(Q>q)=0{,}05$.}
+\reponse{$Q$ est la somme des carrés de 16 normales centrées réduites indépendantes : $Q\sim\chi^2(16)$ et $q=q_{16;0{,}95}\simeq26{,}296$.}
+\item \question{Déterminer la loi de $V=\sum_{i=1}^{16}(X_i-\overline X)^2/25$, puis $v$ tel que $\mathbb P(V>v)=0{,}05$.}
+\reponse{Le théorème de Fisher donne $V\sim\chi^2(15)$, indépendant de $\overline X$ ; $v=q_{15;0{,}95}\simeq24{,}996$.}
+\item \question{Déterminer la loi de $W=4\sqrt{15}(\overline X-100)/\sqrt{\sum_{i=1}^{16}(X_i-\overline X)^2}$, puis $w$ tel que $\mathbb P(W>w)=0{,}05$.}
+\indication{Écrire $W=Z/\sqrt{V/15}$ et vérifier l'indépendance.}
+\reponse{$Z=(\overline X-100)/(5/4)\sim\mathcal N(0,1)$ est indépendant de $V$ par Fisher. Ainsi $W=Z/\sqrt{V/15}\sim St(15)$ et $w=t_{15;0{,}95}\simeq1{,}75305$.}
+\end{enumerate}
 }

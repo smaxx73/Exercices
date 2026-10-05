@@ -10,56 +10,23 @@
 \organisation{AMSCC}
 \difficulte{3}
 \contenu{
-	
-	\texte{Pour étudier le degré de pollution des eaux d'une rivière par les déchets d'une usine, on mesure la teneur en milligrammes d'un certain polluant par litre d'eau.}
-	
-	\begin{enumerate}
-		\item \question{On effectue 17 mesures pour lesquelles les valeurs observées des teneurs en polluant ont une moyenne de 5.2~mg/L et un écart-type de 1.2~mg/L. 
-			\begin{enumerate}
-				\item Donner une estimation sans biais de la moyenne et de l'écart type de la teneur en polluant dans cette rivière.
-				\item Donner un intervalle de confiance au seuil de 5\% pour la teneur moyenne en polluant de cette rivière.
-				\item A partir de ces résultats, peut-on considérer que l'usine respecte la législation en vigueur selon laquelle cette teneur moyenne en polluant ne doit pas dépasser 7~mg/L ?
-			\end{enumerate}
-		}
-		\reponse{
-			\begin{enumerate}
-				\item La moyenne observée sur l'échantillon, $\overline{x}=5.2$~mg/L, est une estimation ponctuelle et sans biais de la moyenne de la teneur en polluant.
-				L'écart-type observé de 1.2~mg/L est une estimation biaisée. Pour obtenir une estimation non biaisée, on calcule d'abord la variance non biaisée (ou corrigée) $s^2$ :
-				$s^2 = \frac{n}{n-1} \times (\text{écart-type obs.})^2 = \frac{17}{16} \times (1.2)^2 = 1.53$.
-				L'estimation non biaisée de l'écart-type est donc $s = \sqrt{1.53} \approx 1.237$~mg/L.
-				
-				\item L'écart-type de la population est inconnu et la taille de l'échantillon est faible ($n=17<30$), on utilise donc une loi de Student à $n-1=16$ degrés de liberté. On suppose que la distribution de la teneur en polluant est normale.
-				Le quantile $t_{16; 0.025}$ est d'environ $2.12$.
-				L'intervalle de confiance est donné par $\overline{x} \pm t_{n-1; \alpha/2} \frac{s}{\sqrt{n}}$.
-				$I.C._{95\%} = \left[ 5.2 - 2.12 \times \frac{1.237}{\sqrt{17}} \,;\, 5.2 + 2.12 \times \frac{1.237}{\sqrt{17}} \right] \approx [5.2 - 0.636 \,;\, 5.2 + 0.636]$.
-				L'intervalle de confiance est donc environ \textbf{[4.56~;~5.84]~mg/L}.
-				
-				\item La borne supérieure de l'intervalle de confiance, 5.84~mg/L, est inférieure à la limite légale de 7~mg/L. Au niveau de confiance de 95\%, on peut donc considérer que l'usine respecte la législation.
-			\end{enumerate}
-		}
-		\item \question{On suppose ici l'écart type de la population connu et égal à 1.2~mg/L. Combien de mesures devrait-on faire pour estimer la teneur moyenne en polluant avec une précision de 0.1~mg/L au niveau de confiance 95\% ?}
-		\indication{Attention, l'écart-type de la population $\sigma$ est ici supposé connu. Quelle loi statistique doit-on utiliser dans ce cas, quelle que soit la taille de l'échantillon ? De plus, la "précision" correspond à la marge d'erreur, c'est-à-dire au demi-intervalle.}
-		\reponse{
-			L'écart-type de la population $\sigma$ étant connu ($\sigma=1.2$), on utilise la loi normale centrée réduite. 
-			La précision souhaitée $d=0.1$~mg/L correspond à la marge d'erreur (ou demi-longueur de l'intervalle).
-			La formule de la marge d'erreur est $d = z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$.
-			
-			On cherche $n$ tel que $d \leq 0.1$. Pour un niveau de confiance de 95\%, $z_{\alpha/2} = z_{0.025} \approx 1.96$.
-			
-			On doit donc résoudre l'inéquation :
-			$1.96 \times \frac{1.2}{\sqrt{n}} \leq 0.1$
-			
-			Soit $\sqrt{n} \geq \frac{1.96 \times 1.2}{0.1}$
-			
-			$\sqrt{n} \geq 23.52$
-			
-			$n \geq (23.52)^2$
-			
-			$n \geq 553.19$
-			
-			Comme $n$ doit être un entier, on doit effectuer au minimum \fbox{$n=554$} mesures.
-			
-			\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/Ec9ve_iQd-pNn_Tf86GSa8EBJUrDEkRpISpMW4xkp23PeQ?e=oOly0h}{Détail des calculs sur tableur}
-		}
-	\end{enumerate}
+\texte{Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{On modélise les teneurs en polluant (mg/L) par des variables normales indépendantes de même loi. La limite de moyenne fixée pour cet exercice est de 7 mg/L ; elle est fictive.}
+\begin{enumerate}
+\item \question{Pour 17 mesures, la moyenne observée est $5{,}2$ mg/L et l'écart-type descriptif à diviseur 17 est $1{,}2$ mg/L.
+\begin{enumerate}
+\item Estimer sans biais la moyenne et la variance, puis proposer une estimation de l'écart-type.
+\item Construire l'intervalle de confiance bilatéral à $95\%$ de la moyenne.
+\item Que peut-on en déduire par rapport à la limite de 7 mg/L ?
+\end{enumerate}}
+\indication{Distinguer la variance descriptive et la variance corrigée ; prendre le quantile gauche $t_{16;0{,}975}$.}
+\reponse{Les estimateurs sans biais sont $\overline X$ et $S^2$. On obtient $\bar x=5{,}2$, $s^2=(17/16)1{,}2^2=1{,}53$ et $s=\sqrt{1{,}53}\simeq1{,}23693$ ; la racine n'est pas un estimateur sans biais de l'écart-type.
+Le pivot de Student à 16 ddl donne
+\[IC_{95\%}(\mu)=\left[5{,}2-t_{16;0{,}975}\frac{\sqrt{1{,}53}}{\sqrt{17}};\ 5{,}2+t_{16;0{,}975}\frac{\sqrt{1{,}53}}{\sqrt{17}}\right]
+\simeq[4{,}564;5{,}836]\ \text{mg/L}.\]
+La borne supérieure est inférieure à 7 : les données étayent une moyenne inférieure à cette limite sous le modèle. Cela concerne la moyenne, et ne garantit pas que chaque mesure soit inférieure à 7.}
+\item \question{Si l'écart-type de la population est connu et vaut $1{,}2$ mg/L, combien de mesures prévoir pour une marge d'erreur d'au plus $0{,}1$ mg/L à $95\%$ ?}
+\indication{La normalité des observations et l'écart-type connu permettent un pivot normal exact. La marge est la demi-largeur de l'intervalle.}
+\reponse{On impose $\Phi^{-1}(0{,}975)1{,}2/\sqrt n\leq0{,}1$. Ainsi $n\geq553{,}1701$ et il faut au moins \textbf{554 mesures}.}
+\end{enumerate}
 }

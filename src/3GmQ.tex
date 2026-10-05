@@ -10,33 +10,20 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{ Une entreprise fabrique  des pièces en sous-traitance. Au sein d'une démarche qualité,  toutes  les  machines  ont  été  systématiquement révisées  et  on  a  défini  une  nouvelle  organisation  dans  l'atelier  :  les  tâches  de  contrôle  sont  réparties  à  chaque  étape  du  processus  de  fabrication et le taux de pièces défectueuses est tombé à 1\%. 
-
-Quelques  mois  plus  tard,  une  opération  de  contrôle  est  effectuée  pour  vérifier  si  la  norme  de  1\%  (hypothèse  $H_0$)  de  pièces  défectueuses reste valable. Sur les 5 000 pièces contrôlées 100 s'avèrent défectueuses, soit 2\% (hypothèse $H_1$). 
-
-Mme de Mainard, chef d'entreprise, décide que si l'hypothèse nulle est vérifiée, elle ne modifiera plus son processus de production (décision $D0$) et au contraire, si c'est l'hypothèse alternative, elle entreprendra une action de sensibilisation des salariés de cet atelier au problème de la qualité (décision $D1$). 
-
-Pour choisir entre ces deux hypothèses, elle tire un échantillon de 1 500 pièces.  }
+\texte{Une production doit avoir une proportion de pièces défectueuses d'au plus $p_0=0{,}01$. Une étude antérieure indépendante sur 5000 pièces en avait trouvé 100 défectueuses, suggérant l'alternative $p_1=0{,}02$.
+Un nouveau contrôle prélève 1500 pièces indépendamment dans une production de grande taille : $K\sim\mathcal B(1500,p)$ et $F=K/1500$. On teste $H_0:p\leq0{,}01$ contre $H_1:p>0{,}01$, au seuil de $1\%$.}
 \begin{enumerate}
-	
-	\item \question{  Si la chef d'entreprise se fixe un risque de 1\% d'entreprendre une action de sensibilisation des salariés à tort, quel sera le taux critique de pièces défectueuses qui fera prendre une décision ? }
-	\reponse{ On réalise les premières étapes d'un test de conformité d'une proportion : 
-\begin{enumerate}
-	\item Hypothèses : $\begin{cases}
-		H_0 \colon p = 0.01 \\
-		H_1 \colon p > 0.01
-		\end{cases}$
-	\item Variable de décision : $Z = \dfrac{F-0.01}{\sqrt{\frac{0.01\times 0.99}{1500}}} \sim \mathcal{N}(0,1)$
-	\item Zone de rejet : $W = [2.326 ; +\infty][$ pour une erreur de première espèce $\alpha = 1\%$
-	\item proporition critique : on cherche $p_C$ tel que $ \dfrac{F-0.01}{\sqrt{\frac{0.01\times 0.99}{1500}}} = 2.326$ et on trouve $p_C = 0.016 = 1{,}6\%$. 	
-\end{enumerate}	
-Au delà de $1{,}6\%$ de pièces défectueses observées, on rejette l'hypothèse $H_0$ avec un risque de première espèce $\alpha = 1\%$. 
- }
-	
-	\item \question{  Si dans l'échantillon prélevé, le nombre de pièces défectueuses est 18, quelle sera la décision de la chef d'entreprise ? }
-	\reponse{ On a $F_{obs} = \frac{18}{1500} = 0.012$ : la décision prise est donc $D0$ (on ne rejette pas $H_0$).  }
-	\item   \question{ Calculer alors le risque de l'acheteur, c'est-à-dire ne pas modifier le processus de production alors qu'on le devrait. Comment s'appelle ce risque ? }
-	\reponse{ On cherche la probabilité de prendre la décision $D0$ par erreur, c'est-à-dire si $H_1$ est vraie. Sous l'hypothèse $p=0.02$, on a la variable $Z_2 = \dfrac{F-0.02}{\sqrt{\frac{0.02\times 0.98}{1500}}}$ qui suit une loi $ \mathcal{N}(0,1)$.   }
-	
-\end{enumerate}}
+\item \question{Déterminer la règle de décision avec l'approximation normale puis vérifier son risque binomial réel. Proposer une règle exacte de niveau au plus $1\%$.}
+\reponse{Le seuil normal de fréquence est
+\[f_c=0{,}01+\Phi^{-1}(0{,}99)\sqrt{\frac{0{,}01\times0{,}99}{1500}}\simeq0{,}0159765.\]
+Rejeter pour $F>f_c$ revient à $K\geq24$. Mais le risque réel à $p_0$ vaut $\mathbb P_{p_0}(K\geq24)\simeq0{,}018935$, supérieur à $1\%$.
+La règle exacte rejette pour \textbf{$K\geq26$} : son risque vaut $0{,}005938$. Le seuil 25 donnerait $0{,}010793$, encore trop élevé. La discrétisation empêche généralement d'atteindre exactement le niveau demandé sans randomisation.}
+\item \question{On observe 18 pièces défectueuses. Quelle décision prendre ?}
+\reponse{$f_{\mathrm{obs}}=18/1500=0{,}012$. Les deux règles ne rejettent pas $H_0$ ; cela ne prouve pas que $p\leq0{,}01$.}
+\item \question{Calculer le risque de seconde espèce et la puissance pour $p_1=0{,}02$, avec la règle exacte retenue.}
+\reponse{$\beta=\mathbb P_{p_1}(K\leq25)\simeq0{,}205776$ et la puissance vaut $1-\beta\simeq0{,}794224$.
+Excel : \texttt{=LOI.BINOMIALE.N(25;1500;0,02;VRAI)}.
+Pour comparaison, l'approximation normale continue au seuil $f_c$ donne $\beta\simeq0{,}13284$ ; ce n'est pas le risque de la règle exacte $K\geq26$.
+Si le nouveau prélèvement était sans remise dans le lot initial de 5000 pièces, le modèle serait hypergéométrique. L'énoncé suppose ici un contrôle indépendant sur une nouvelle production.}
+\end{enumerate}
+}

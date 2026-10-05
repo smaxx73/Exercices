@@ -10,11 +10,10 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-
-
-\question{ 	A l'aide des formules du tableur, générer une table de probabilité de la loi binomiale $\mathcal{B}(100;0.4)$ ainsi que les probabilités cumulées. Représenter le résultat obtenu par un diagramme en bâtons. Changer les paramètres de la loi binomiale : les tables et le graphique doivent se mettre à jour automatiquement. }
-
-\reponse{ \href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EU0RhMP2JjdIm-TFfMHz79IBFs9M-i5K64Zb3gcMF6OBhg?e=yZvUoa}{Lien vers le fichier tableur} }
-
+\question{Créer sur tableur la table des probabilités et des probabilités cumulées de $\mathcal B(100,0{,}4)$, puis le diagramme en bâtons. Faire dépendre les tables et le graphique des paramètres $n$ et $p$.}
+\indication{Placer $n$ et $p$ dans deux cellules de paramètres, puis utiliser des références absolues.}
+\reponse{Placer $n=100$ en B1 et $p=0{,}4$ en B2. En A5, utiliser \texttt{=SEQUENCE(\$B\$1+1;1;0;1)} pour obtenir automatiquement $k=0,\ldots,n$ (Excel récent).
+En B5 : \texttt{=LOI.BINOMIALE.N(A5;\$B\$1;\$B\$2;FAUX)} ; en C5, la même formule avec \texttt{VRAI} donne la probabilité cumulée. Recopier sur les lignes produites.
+Pour une mise à jour complète, transformer ces calculs en formules matricielles utilisant \texttt{A5\#} au lieu de A5, et définir la série du graphique avec les plages déversées \texttt{A5\#} et \texttt{B5\#}. Sans fonctions matricielles, adapter le nombre de lignes et la plage du graphique lorsque $n$ change.
+Contrôles : somme des probabilités égale à 1, cumul final égal à 1, espérance 40 et variance 24. Le diagramme des probabilités est centré autour de 40 ; le cumul est croissant.}
 }

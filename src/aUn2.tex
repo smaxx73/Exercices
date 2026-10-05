@@ -10,48 +10,19 @@
 \organisation{AMSCC}
 \difficulte{2}
 \contenu{
-
-\texte{ 	Désirant juger le travail d'un ouvrier ajusteur, un chef d'atelier prélève un échantillon de 50 pièces métalliques dans sa production. On note $X$ l'épaisseur de ses pièces. L'objectif est d'avoir $\EX = 5~mm$. Les résultats des mesures sur cet échantillon sont portés dans le tableau suivant :
-	\begin{center}	
-	\begin{tabular}{|c|c|c|c|c|}
-		\hline $n_i$ & 5 & 15 & 20 & 10 \\ 
-		\hline $x_i$ en mm & 4.8 & 4.9 & 5.0 & 5.1 \\ 
-		\hline 
-	\end{tabular} 
-	\end{center} }
-
+\texte{On contrôle 50 épaisseurs indépendantes de même distribution, supposée de variance finie. Les valeurs observées, en mm, sont :
+\begin{center}\begin{tabular}{lrrrr}\hline Épaisseur & 4,8 & 4,9 & 5,0 & 5,1 \\
+Effectif & 5 & 15 & 20 & 10 \\ \hline\end{tabular}\end{center}
+On utilise ici l'approximation normale de la moyenne pour un échantillon de grande taille.}
 \begin{enumerate}
-	\item \question{ 	Cette vérification permet-elle de conclure que le résultat est conforme aux exigences, au seuil de confiance de $99\%$ ? }
-	\reponse{
-		\begin{align*}
-			\bar{x} & = \frac{1}{50} \sum_{i=1}^4 n_i x_i \\
-			& = \frac{1}{50} (5 \times 4.8 + 15 \times 4.9 + 20 \times 5.0 + 10 \times 5.1) \\
-			& = 4.98 \\
-		\end{align*}
-		donc une estimation sans biais de l'épaisseur moyenne des pièces est $\bar{x} = 4.98~mm$. 
-
-		De plus, la variance observée dans cet échantillon est : 
-		\begin{align*}
-			\sigma^2 & = \frac{1}{50} \sum_{i=1}^4 n_i (x_i - \bar{x})^2 \\
-			& = \frac{1}{50} (5 \times (4.8 - 4.98)^2 + 15 \times (4.9 - 4.98)^2 + 20 \times (5.0 - 4.98)^2 + 10 \times (5.1 - 4.98)^2) \\
-			& = 0.081 \\
-		\end{align*}
-		donc une estimation sans biais de la variance de l'épaisseur des pièces est $s^2 = \frac{50}{49} \sigma^2 = 0.083$.
-
-		On réalise le test d'hypothèse suivant :
-		\begin{align*}
-			H_0 &: \EX = 5 \\
-			H_1 &: \EX \neq 5
-		\end{align*}
-		avec un risque de première espèce de $1\%$. 
-
-		La variable de décision est $Z = \frac{\bar{X} - 5}{\frac{S}{\sqrt{n}}} \sim \mathcal{N}(0,1)$.	
-		
-		On fait un test bilatéral, donc on rejette $H_0$ si $|Z| > z_{\frac{\alpha}{2}} = 2.58$ par lecture de la table de la loi normale. Or la valeur observée est $Z_{obs} = \frac{4.98 - 5}{\frac{\sqrt{0.083}}{\sqrt{50}}} = -2{,}33$. Donc on ne rejette pas $H_0$. On peut donc conclure que le résultat est conforme aux exigences, au seuil de confiance de $99\%$.
-		}
-		\item \question{ Quel risque de première espèce devrait-on prendre pour que la prise de décision soit différente ? }
-		\reponse{
-Pour que la prise de décision soit différente, il faudrait que la valeur critique soit $2.33$, ce qui correspond, par lecture de table, à un risque de première espèce de $1.98\%$. 
-		}
+\item \question{Tester $H_0:\mu=5$ contre $H_1:\mu\neq5$, au seuil de $1\%$. Un non-rejet suffit-il à établir la conformité ?}
+\indication{Calculer d'abord la moyenne et la variance corrigée ; le test porte sur une moyenne, pas sur chaque épaisseur.}
+\reponse{$\bar x=4{,}97$, variance descriptive $0{,}0081$, variance corrigée $s^2=0{,}008265306$ et $s\simeq0{,}0909137$.
+La statistique $Z=(\overline X-5)/(S/\sqrt{50})$ est approximativement normale sous $H_0$ et $z_{\mathrm{obs}}=-2{,}33333$.
+Comme $|z_{\mathrm{obs}}|<\Phi^{-1}(0{,}995)\simeq2{,}57583$, on ne rejette pas au seuil de $1\%$.
+La $p$-valeur approchée vaut $0{,}01963$. Le non-rejet ne prouve pas l'égalité ni une conformité à une tolérance, qui demanderait de définir une marge admissible.}
+\item \question{À partir de quel seuil le test normal approché rejette-t-il ?}
+\reponse{Avec la convention de rejet $p_{\mathrm{val}}\leq\alpha$, il rejette pour $\alpha\geq0{,}01963$, soit environ $1{,}963\%$. C'est une analyse de sensibilité ; le seuil d'une étude doit être fixé avant les données.
+Si l'on ajoute l'hypothèse de normalité des observations et utilise Student à 49 ddl, la $p$-valeur est environ $0{,}02378$ ; la décision au seuil de $1\%$ est identique.}
 \end{enumerate}
 }

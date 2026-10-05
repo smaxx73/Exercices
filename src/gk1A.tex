@@ -9,20 +9,14 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{Une association de consommateurs a effectué une enquête sur le prix d'un produit dans le supermarchés. Pour ce produit, les prix suivants (en euros) ont été relevés dans 7 supermarchés différents :
- $$52 \qquad 52 \qquad 43 \qquad 51 \qquad 69 \qquad 55 \qquad 49$$
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Les prix relevés dans sept supermarchés sont, en euros : $52,52,43,51,69,55,49$. On les modélise comme un échantillon indépendant de loi $\mathcal N(\mu,\sigma)$.}
+\begin{enumerate}
+\item \question{Estimer la moyenne et l'écart-type en précisant les estimateurs et leurs propriétés.}
+\reponse{$\overline X$ estime $\mu$ sans biais ; $S^2=\sum(X_i-\overline X)^2/6$ estime $\sigma^2$ sans biais. On obtient $\bar x=53$, $s^2=63{,}66667$ et $s=\sqrt{s^2}\simeq7{,}97914$ euros. $S=\sqrt{S^2}$ est convergent, mais n'est généralement pas sans biais pour $\sigma$.}
+\item \question{Déterminer les intervalles de confiance symétriques à $90\%$ et $99\%$ pour $\mu$, centrés sur la moyenne observée $\bar x$.}
+\indication{Avec une variance inconnue et le modèle normal, utiliser les quantiles de Student à 6 degrés de liberté.}
+\reponse{La formule est $[\bar x-t_{6;1-\alpha/2}s/\sqrt7;\bar x+t_{6;1-\alpha/2}s/\sqrt7]$.
+À $90\%$ : $[47{,}1397;58{,}8603]$ euros. À $99\%$ : $[41{,}8190;64{,}1810]$ euros. Le second intervalle est plus large, car son niveau de confiance est plus élevé.}
+\end{enumerate}
 }
- \begin{enumerate}
-  \item \question{En supposant que le prix $X$ de ce produit est distribué selon une loi normale $\mathcal{N}(\mu,\sigma)$, calculer une estimation $\overline{x}$ de l'espérance $\EX$ et une estimation $s$ de l'écart-type $\sigma(X)$. On précisera les estimateurs choisis et on en donnera les propriétés.}
-  \reponse{Avec l'estimateur usuel $\overline{X}$, on obtient à partir de la réalisation de cet échantillon de taille $7$ une estimation $\overline{x} = 53$. Avec l'estimateur de variance corrigée $S^2$, on obtient une estimation de la variance $s^2 \approx 63{,}667$ d'où une estimation de l'écart type de $7.98$. }
-  \item \question{Déterminer les intervalles de confiances symétriques au seuil de $90\%$ et $99\%$ centrés en $\mu = \EX$.}
-  \reponse{Au vu de la taille de l'échantillon, la variable mère est supposée suivre une loi normale donc on utilise une loi de Student $St(6)$ pour calculer la réalisation de l'intervalle de confiance avec la formule du cours : 
-  		
-  		Au seuil de  $90\%$, on obtient l'intervalle $[47.1;58.9]$ ;
-  		
-  		Au seuil de  $99\%$, on obtient l'intervalle $[41.8;64.2]$.
-  	
-  	\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EaiHx79BvjVEmoQdi_Bixd0BwrtFrlxQpaAxywubog-BcA?e=brgT78}{Détail des calculs sur tableur}
-  }
- \end{enumerate}}

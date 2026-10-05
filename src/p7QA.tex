@@ -13,80 +13,32 @@
 \difficulte{4}
 
 \contenu{
-	
-	\texte{ 
-		Une entreprise fabrique des câbles électriques dont la résistance $R$ (en ohms) est modélisée par une variable aléatoire suivant une loi exponentielle de paramètre $\lambda > 0$. La densité de cette loi est donnée par :
-		$$f(x) = \lambda e^{-\lambda x} \quad \text{pour } x \geq 0$$
-		
-		On rappelle que pour $X \sim \mathcal{E}(\lambda)$ : $\E(X) = \frac{1}{\lambda}$ et $\text{Var}(X) = \frac{1}{\lambda^2}$.
-		
-		Pour contrôler la qualité de production, on mesure la résistance de $n = 10$ câbles tirés au hasard. On obtient les valeurs suivantes (en ohms) :
-		$$2.3 \quad 1.8 \quad 3.1 \quad 2.7 \quad 1.5 \quad 2.9 \quad 2.1 \quad 3.4 \quad 2.5 \quad 1.9$$
-		
-		Les normes de l'industrie exigent que la résistance moyenne des câbles soit au moins égale à 2.5 ohms, c'est-à-dire $\E(R) \geq 2.5$.
-	}
-	
-	\begin{enumerate}
-		\item   \question{Exprimer la fonction de vraisemblance $L(r_1, \ldots, r_{10}, \lambda)$ associée à cet échantillon, où $r_1, \ldots, r_{10}$ désignent les valeurs observées.}
-		\indication{Utiliser le fait que les observations sont indépendantes et identiquement distribuées.}
-		\reponse{La fonction de vraisemblance est le produit des densités :
-			$$L(r_1, \ldots, r_{10}, \lambda) = \prod_{i=1}^{10} \lambda e^{-\lambda r_i} = \lambda^{10} e^{-\lambda \sum_{i=1}^{10} r_i}$$
-		}
-		
-		\item   \question{En utilisant la méthode du maximum de vraisemblance, déterminer un estimateur $\widehat{\Lambda}_n$ du paramètre $\lambda$ à partir d'un $n$-échantillon $(X_1, \ldots, X_n)$.}
-		\indication{Calculer le logarithme de la vraisemblance et annuler sa dérivée par rapport à $\lambda$.}
-		\reponse{On a $\ln L = n \ln \lambda - \lambda \sum_{i=1}^{n} X_i$. 
-			
-			En dérivant : $\frac{\partial \ln L}{\partial \lambda} = \frac{n}{\lambda} - \sum_{i=1}^{n} X_i = 0$
-			
-			D'où l'estimateur du maximum de vraisemblance : 
-			$$\widehat{\Lambda}_n = \frac{n}{\sum_{i=1}^{n} X_i} = \frac{1}{\overline{X}_n}$$
-		}
-		
-		\item   \question{L'estimateur $\widehat{\Lambda}_n$ est-il sans biais ? Justifier.}
-		\indication{Calculer $\E(\widehat{\Lambda}_n)$ et comparer à $\lambda$. Attention, $\E(1/\overline{X}_n) \neq 1/\E(\overline{X}_n)$ en général.}
-		\reponse{L'estimateur est biaisé. Par l'inégalité de Jensen (car $x \mapsto 1/x$ est convexe sur $\mathbb{R}_+^*$), on a :
-			$$\E(\widehat{\Lambda}_n) = \E\left(\frac{1}{\overline{X}_n}\right) \geq \frac{1}{\E(\overline{X}_n)} = \frac{1}{1/\lambda} = \lambda$$
-			
-			Donc $\widehat{\Lambda}_n$ est biaisé positivement. Cependant, il est asymptotiquement sans biais.
-		}
-		
-		\item   \question{Calculer une estimation $\widehat{\lambda}$ du paramètre $\lambda$ à partir des données observées.}
-		\indication{Calculer la moyenne empirique des observations.}
-		\reponse{On calcule $\overline{r} = \frac{1}{10}\sum_{i=1}^{10} r_i = \frac{24.2}{10} = 2.42$ ohms.
-			
-			Donc $\widehat{\lambda} = \frac{1}{2.42} \approx 0.413$.
-		}
-		
-		\item   \question{En déduire une estimation ponctuelle de l'espérance $\E(R)$ de la résistance.}
-		\indication{Utiliser la relation $\E(R) = 1/\lambda$.}
-		\reponse{L'estimation de l'espérance est $\widehat{\E(R)} = \frac{1}{\widehat{\lambda}} = 2.42$ ohms.}
-		
-		\item   \question{On admet que pour un $n$-échantillon de loi exponentielle $\mathcal{E}(\lambda)$, la variable $2\lambda n \overline{X}_n$ suit une loi du chi-deux à $2n$ degrés de liberté. Déterminer un intervalle de confiance à 95\% pour le paramètre $\lambda$.}
-		\indication{Utiliser le fait que $\mathbb{P}(\chi^2_{0.025, 2n} \leq 2\lambda n \overline{X}_n \leq \chi^2_{0.975, 2n}) = 0.95$ où $\chi^2_{\alpha, k}$ désigne le quantile d'ordre $\alpha$ de la loi $\chi^2(k)$.}
-		\reponse{On a $\mathbb{P}\left(\frac{\chi^2_{0.025, 20}}{2n\overline{X}_n} \leq \lambda \leq \frac{\chi^2_{0.975, 20}}{2n\overline{X}_n}\right) = 0.95$
-			
-			Avec $n = 10$, $\overline{r} = 2.42$, $\chi^2_{0.025, 20} \approx 9.59$ et $\chi^2_{0.975, 20} \approx 34.17$, on obtient :
-			
-			$$IC_{95\%}(\lambda) = \left[\frac{9.59}{20 \times 2.42}, \frac{34.17}{20 \times 2.42}\right] \approx [0.198, 0.706]$$
-		}
-		
-		\item   \question{En déduire un intervalle de confiance à 95\% pour l'espérance $\E(R)$.}
-		\indication{Utiliser la relation $\E(R) = 1/\lambda$ et inverser les bornes de l'intervalle.}
-		\reponse{Puisque $\E(R) = 1/\lambda$, on inverse les bornes :
-			
-			$$IC_{95\%}(\E(R)) = \left[\frac{1}{0.706}, \frac{1}{0.198}\right] \approx [1.42, 5.05] \text{ ohms}$$
-		}
-		
-		\item   \question{Au vu de ces résultats, peut-on affirmer avec 95\% de confiance que l'entreprise respecte les normes de l'industrie ($\E(R) \geq 2.5$ ohms) ? Justifier votre réponse.}
-		\indication{Comparer la borne inférieure de l'intervalle de confiance avec la norme exigée.}
-		\reponse{Non, on ne peut pas l'affirmer avec 95\% de confiance. En effet, l'intervalle de confiance $[1.42, 5.05]$ contient des valeurs inférieures à 2.5 ohms. La borne inférieure (1.42 ohms) est même nettement inférieure à la norme exigée.
-			
-			Bien que l'estimation ponctuelle $\widehat{\E(R)} = 2.42$ ohms soit proche de 2.5 ohms, l'incertitude statistique (reflétée par l'intervalle de confiance) ne permet pas de conclure que la norme est respectée avec un niveau de confiance de 95\%.
-			
-			L'entreprise devrait soit augmenter la taille de l'échantillon pour réduire l'incertitude, soit améliorer son processus de fabrication pour augmenter la résistance moyenne.
-		}
-		
-	\end{enumerate}
-	
+\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Les résistances $X_i$ de câbles sont indépendantes de loi exponentielle de taux $\lambda>0$, de densité $f(x)=\lambda e^{-\lambda x}$ pour $x\geq0$. On rappelle $\mu=\mathbb E(X_i)=1/\lambda$ et $\operatorname{Var}(X_i)=1/\lambda^2$.
+Les dix observations en ohms sont $2{,}3;1{,}8;3{,}1;2{,}7;1{,}5;2{,}9;2{,}1;3{,}4;2{,}5;1{,}9$.
+Le cahier des charges fictif de cet exercice impose $\mu\geq2{,}5$ ohms.}
+\begin{enumerate}
+\item \question{Exprimer la vraisemblance pour les observations $r_1,\ldots,r_{10}$.}
+\reponse{$L(\lambda)=\lambda^{10}\exp(-\lambda\sum r_i)$. C'est un produit de densités, pas la probabilité d'un point pour une loi continue.}
+\item \question{Déterminer l'estimateur du maximum de vraisemblance dans le cas général.}
+\indication{Dériver le logarithme de la vraisemblance avec les valeurs observées, puis définir la statistique aléatoire correspondante.}
+\reponse{$\ell(\lambda)=n\log\lambda-\lambda\sum r_i$ ; $\ell'=n/\lambda-\sum r_i$ et $\ell''=-n/\lambda^2<0$.
+L'estimation est $\widehat\lambda_{\mathrm{obs}}=n/\sum r_i$ ; l'estimateur est $\widehat\Lambda_n=n/\sum X_i=1/\overline X$.}
+\item \question{Cet estimateur est-il sans biais ?}
+\reponse{Pour $n>1$, la somme suit une loi gamma de forme $n$ et de taux $\lambda$, d'où $\mathbb E(1/\sum X_i)=\lambda/(n-1)$.
+Ainsi $\mathbb E(\widehat\Lambda_n)=n\lambda/(n-1)$ et le biais vaut $\lambda/(n-1)>0$. L'estimateur $(n-1)/\sum X_i$ est sans biais. Pour $n=1$, l'espérance de $1/X_1$ est infinie.}
+\item \question{Calculer l'estimation de $\lambda$.}
+\reponse{$\sum r_i=24{,}2$, $\bar r=2{,}42$ et $\widehat\lambda_{\mathrm{obs}}=10/24{,}2\simeq0{,}413223$ ohm$^{-1}$.}
+\item \question{Estimer l'espérance $\mu$.}
+\reponse{$1/\widehat\lambda_{\mathrm{obs}}=\bar r=2{,}42$ ohms, réalisation de l'estimateur sans biais $\overline X$.}
+\item \question{On admet $2\lambda\sum X_i\sim\chi^2(2n)$. Construire un intervalle de confiance à $95\%$ pour $\lambda$.}
+\reponse{Le pivot donne
+\[IC_{95\%}(\lambda)=\left[\frac{q_{20;0{,}025}}{2\sum r_i};\frac{q_{20;0{,}975}}{2\sum r_i}\right]
+\simeq[0{,}198157;0{,}705984]\ \text{ohm}^{-1}.\]}
+\item \question{En déduire l'intervalle de confiance de $\mu$.}
+\indication{La fonction inverse est décroissante : inverser les deux bornes et leur ordre.}
+\reponse{$IC_{95\%}(\mu)=[2\sum r_i/q_{20;0{,}975};2\sum r_i/q_{20;0{,}025}]\simeq[1{,}41646;5{,}04651]$ ohms.}
+\item \question{Ces résultats permettent-ils d'établir que la moyenne satisfait $\mu\geq2{,}5$ ?}
+\reponse{Non : l'intervalle contient des moyennes inférieures et supérieures à $2{,}5$. Il ne permet d'établir ni le respect ni le non-respect du seuil. La valeur ponctuelle $2{,}42$ ne suffit pas à conclure.}
+\end{enumerate}
 }

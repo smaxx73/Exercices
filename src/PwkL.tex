@@ -10,28 +10,20 @@
 \datecreate{2024-09-01}
 \difficulte{2}
 \contenu{
-
-\texte{ 	On considère un échantillon $X_1,...,X_n$ suivant une loi normale $\mathcal{N}(\mu,\sigma)$. On cherche un estimateur de $\mu$ et de $\sigma$ par la méthode du maximum de vraisemblance. On note $(x_1,...,x_n)$ une réalisation de cet échantillon. On rappelle que la densité d'une loi normale est $$f(x)=\frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$ }
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
+\texte{Soient $X_1,\ldots,X_n$ indépendantes de loi $\mathcal N(\mu,\sigma)$, $\sigma>0$. On suppose $n\geq2$ et les observations $x_i$ non toutes égales. La densité est $f(x)=(\sigma\sqrt{2\pi})^{-1}\exp(-(x-\mu)^2/(2\sigma^2))$.}
 \begin{enumerate}
-	\item \question{ Exprimer la fonction de vraisemblance $L(x_1,...,x_n,\mu,\sigma)$, puis son logarithme. }
-	\reponse{
-		$$L(x_1,...,x_n,\mu,\sigma) = \prod_{i=1}^n f(x_i) = \prod_{i=1}^n \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}$$
-		$$\ln L(x_1,...,x_n,\mu,\sigma) = \sum_{i=1}^n \ln \left(\frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}\right) = -n\ln(\sigma \sqrt{2\pi}) - \sum_{i=1}^n \frac{(x_i-\mu)^2}{2\sigma^2}$$
-	}
-	\item \question{ Dériver $\ln L(x_1,...,x_n,\mu,\sigma)$ par rapport à $\mu$. }
-	\reponse{
-		$$\frac{\partial \ln L(x_1,...,x_n,\mu,\sigma)}{\partial \mu} = \sum_{i=1}^n \frac{x_i-\mu}{\sigma^2}$$
-	}
-	\item \question{ En déduire un estimateur de $\mu$. }
-	\reponse{
-		$$\frac{\partial \ln L(x_1,...,x_n,\mu,\sigma)}{\partial \mu} = 0 \Leftrightarrow \sum_{i=1}^n \frac{x_i-\mu}{\sigma^2} = 0 \Leftrightarrow \sum_{i=1}^n x_i - n\mu = 0 \Leftrightarrow \mu = \frac{1}{n}\sum_{i=1}^n x_i$$
-		donc $\hat{\mu} = \frac{1}{n}\sum_{i=1}^n x_i$ est un estimateur de $\mu$.
-	}
-	\item \question{ Déterminer un estimateur de $\sigma$ avec une démarche analogue. } 
-	\reponse{
-		$$\frac{\partial \ln L(x_1,...,x_n,\mu,\sigma)}{\partial \sigma} = \sum_{i=1}^n \frac{(x_i-\mu)^2}{\sigma^3} - \frac{n}{\sigma}$$
-		$$\frac{\partial \ln L(x_1,...,x_n,\mu,\sigma)}{\partial \sigma} = 0 \Leftrightarrow \sum_{i=1}^n \frac{(x_i-\mu)^2}{\sigma^3} - \frac{n}{\sigma} = 0 \Leftrightarrow \sum_{i=1}^n (x_i-\mu)^2 = n\sigma^2$$
-		$$\Leftrightarrow \sigma^2 = \frac{1}{n}\sum_{i=1}^n (x_i-\mu)^2$$
-		donc $\hat{\sigma} = \sqrt{\frac{1}{n}\sum_{i=1}^n (x_i-\mu)^2}$ est un estimateur de $\sigma$.
-	}
-\end{enumerate}}
+\item \question{Exprimer la vraisemblance et son logarithme.}
+\reponse{$L(\mu,\sigma)=(\sigma\sqrt{2\pi})^{-n}\exp(-\sum(x_i-\mu)^2/(2\sigma^2))$ et $\ell=-n\log\sigma-\frac n2\log(2\pi)-\sum(x_i-\mu)^2/(2\sigma^2)$.}
+\item \question{Dériver $\ell$ par rapport à $\mu$.}
+\reponse{$\partial\ell/\partial\mu=\sum(x_i-\mu)/\sigma^2$.}
+\item \question{En déduire l'estimation et l'estimateur de $\mu$.}
+\reponse{La dérivée s'annule en $\widehat\mu_{\mathrm{obs}}=\bar x$. C'est un maximum pour chaque $\sigma$, car $\partial^2\ell/\partial\mu^2=-n/\sigma^2<0$. L'estimateur est $\widehat M_n=\overline X$.}
+\item \question{Déterminer de même l'estimation et l'estimateur de $\sigma$.}
+\reponse{Après remplacement de $\mu$ par $\bar x$, $\partial\ell/\partial\sigma=-n/\sigma+\sum(x_i-\bar x)^2/\sigma^3$. Le maximum est donc
+\[\widehat\sigma_{\mathrm{obs}}=\sqrt{\frac1n\sum_{i=1}^n(x_i-\bar x)^2},\qquad
+\widehat H_n=\sqrt{\frac1n\sum_{i=1}^n(X_i-\overline X)^2}.\]
+La décomposition $\sum(x_i-\mu)^2=\sum(x_i-\bar x)^2+n(\bar x-\mu)^2$ justifie le maximum conjoint. Le diviseur de l'EMV de variance est $n$, tandis que l'estimateur sans biais de variance utilise $n-1$.
+Si toutes les observations étaient égales, la vraisemblance serait non bornée lorsque $\sigma\to0$ et il n'y aurait pas de maximum pour $\sigma>0$.}
+\end{enumerate}
+}
