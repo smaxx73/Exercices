@@ -29,5 +29,11 @@
 Pour « au moins deux », utiliser $1-\mathbb P(X\leq1)$ : \texttt{=1-LOI.POISSON.N(1;1,5;VRAI)} donne $0{,}442175$.}
 \item \question{Le réel positif $t$ tel que $\mathbb P(100-t\leq X\leq100+t)=0{,}95$ pour $X\sim\mathcal N(100,15)$.}
 \reponse{\texttt{=LOI.NORMALE.INVERSE.N(0,975;0;15)} donne $t\simeq29{,}39946$.}
+\item \question{\emph{Prolongement -- loi de Student.} Pour $T\sim St(9)$, déterminer $a$ tel que $\mathbb P(T>a)=0{,}05$, puis $c>0$ tel que $\mathbb P(-c\leq T\leq c)=0{,}95$. Pourquoi les probabilités à fournir à la fonction inverse sont-elles différentes ?}
+\indication{Pour le premier seuil, convertir la probabilité à droite en probabilité à gauche. Pour l'intervalle central, répartir les $5\%$ restants entre les deux queues, en utilisant la symétrie.}
+\reponse{$a=t_{9;0{,}95}\simeq1{,}833113$, obtenu par \texttt{=LOI.STUDENT.INVERSE.N(0,95;9)}. Pour l'intervalle central, chaque queue contient $2{,}5\%$ : $c=t_{9;0{,}975}\simeq2{,}262157$, obtenu par \texttt{=LOI.STUDENT.INVERSE.N(0,975;9)}. L'intervalle est donc environ $[-2{,}262157;2{,}262157]$. Les probabilités à gauche sont $0{,}95$ et $0{,}975$.}
+\item \question{\emph{Prolongement -- loi du khi-deux.} Pour $Q\sim\chi^2(9)$, déterminer $b$ tel que $\mathbb P(Q>b)=0{,}05$, puis $\ell$ et $h$ tels que $\mathbb P(Q<\ell)=\mathbb P(Q>h)=0{,}025$. Quelle probabilité contient $[\ell;h]$ ? Cet intervalle est-il symétrique autour de l'espérance de $Q$ ?}
+\indication{Utiliser les quantiles à gauche d'ordres $0{,}95$, $0{,}025$ et $0{,}975$. La loi du khi-deux n'est pas symétrique ; son espérance vaut son nombre de degrés de liberté.}
+\reponse{$b=q_{9;0{,}95}\simeq16{,}918978$, obtenu par \texttt{=LOI.KHIDEUX.INVERSE(0,95;9)}. Les formules \texttt{=LOI.KHIDEUX.INVERSE(0,025;9)} et \texttt{=LOI.KHIDEUX.INVERSE(0,975;9)} donnent $\ell\simeq2{,}700389$ et $h\simeq19{,}022768$. L'intervalle contient $95\%$ de la probabilité, avec deux queues de même probabilité. Il n'est pas symétrique autour de $\mathbb E(Q)=9$ : les distances sont environ $6{,}2996$ et $10{,}0228$. Des queues de même probabilité n'impliquent pas des bornes équidistantes de l'espérance.}
 \end{enumerate}
 }

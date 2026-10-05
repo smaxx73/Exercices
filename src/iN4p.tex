@@ -1,0 +1,31 @@
+\uuid{iN4p}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Échantillonnage et estimation}
+\titre{Une fausse construction de Student}
+\theme{loi de Student, loi du chi2, indépendance, covariance, contre-exemple}
+\auteur{AMSCC}
+\datecreate{2026-10-06}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+\texte{Soit $Z\sim\mathcal N(0,1)$. On pose $V=Z^2$ et $R=\frac Z{\sqrt V}$ lorsque $Z\neq0$ ; on définit $R=0$ lorsque $Z=0$, événement de probabilité nulle.
+Un étudiant affirme : \og $Z$ est normale centrée réduite et $V$ suit une loi du khi-deux à un degré de liberté. Donc $R$ suit une loi de Student à un degré de liberté.\fg}
+\begin{enumerate}
+\item \question{Vérifier que $V\sim\chi^2(1)$.}
+\reponse{Une loi $\chi^2(1)$ est la loi du carré d'une variable normale centrée réduite : $V=Z^2\sim\chi^2(1)$.}
+\item \question{Simplifier $R$ lorsque $Z\neq0$, puis déterminer sa loi. Peut-il suivre une loi de Student ?}
+\indication{Attention : $\sqrt{Z^2}=|Z|$. Distinguer les cas $Z>0$ et $Z<0$, puis utiliser la symétrie de la normale.}
+\reponse{$R=\frac Z{|Z|}$ vaut $1$ si $Z>0$ et $-1$ si $Z<0$. Ainsi $\mathbb P(R=1)=\mathbb P(R=-1)=\frac12$. La loi est concentrée sur deux valeurs, alors qu'une loi de Student admet une densité : ce n'est donc pas une loi de Student.}
+\item \question{Expliquer précisément l'erreur dans le raisonnement de l'étudiant.}
+\indication{Quelles hypothèses faut-il vérifier, en plus des lois du numérateur et du terme sous la racine ?}
+\reponse{La construction $\frac A{\sqrt{\frac B\nu}}\sim St(\nu)$ exige $A\sim\mathcal N(0,1)$, $B\sim\chi^2(\nu)$ et l'indépendance de $A$ et $B$. Ici $Z$ et $V=Z^2$ sont dépendantes. Par exemple, les événements $\{|Z|\leq1\}$ et $\{V\leq1\}$ sont identiques et ont une probabilité $p$ strictement comprise entre 0 et 1 : leur intersection a probabilité $p$, et non $p^2$. Les seules lois marginales ne suffisent pas.}
+\item \question{Soit maintenant $Y\sim\mathcal N(0,1)$ indépendante de $Z$. Quelle est la loi de $R'=\frac Y{\sqrt V}$, défini arbitrairement lorsque $V=0$ ? Justifier.}
+\indication{L'indépendance est conservée lorsqu'on applique une fonction à l'une des deux variables.}
+\reponse{$Y$ est indépendante de $Z$, donc aussi de $V=Z^2$. Comme $V\sim\chi^2(1)$, on a $R'=\frac Y{\sqrt{\frac V1}}\sim St(1)$. Cette fois, toutes les hypothèses de la construction sont vérifiées.}
+\item \question{\emph{Prolongement facultatif.} Calculer $\operatorname{Cov}(Z,V)$. Que montre cet exemple ?}
+\indication{Utiliser $ZV=Z^3$ et la symétrie de la loi de $Z$. Les moments nécessaires existent.}
+\reponse{$\operatorname{Cov}(Z,V)=\mathbb E(Z^3)-\mathbb E(Z)\mathbb E(Z^2)=0$. Pourtant $Z$ et $V$ sont dépendantes : une covariance nulle n'implique pas l'indépendance.}
+\end{enumerate}
+}
