@@ -1,7 +1,7 @@
 \uuid{fJtB}
 \titre{Propriétés fondamentales des estimateurs}
 
-\niveau{L2} 
+\niveau{L2}
 \module{Analyse de données}
 \chapitre{Statistique}
 \sousChapitre{Échantillonnage et estimation}
@@ -13,23 +13,108 @@
 \difficulte{1}
 
 \contenu{
-\texte{Soient $n\geq2$ et $X_1,\ldots,X_n$ indépendantes et identiquement distribuées, d'espérance finie $\mu$ et de variance finie $\sigma^2>0$. On pose
+
+	\texte{Soient $n\geq2$ et $X_1,\ldots,X_n$ indépendantes et identiquement distribuées, d'espérance finie $\mu$ et de variance finie $\sigma^2>0$. On pose
 \[T_1=\frac1n\sum_{i=1}^nX_i,\qquad T_2=\frac1{n-1}\sum_{i=1}^nX_i,\qquad T_3=X_1.\]}
 \begin{enumerate}
-\item \question{Rappeler les définitions d'un estimateur sans biais et d'un estimateur convergent.}
-\reponse{Un estimateur $\widehat\Theta_n$ de $\theta$ est sans biais si $\mathbb E_\theta(\widehat\Theta_n)=\theta$ pour toute valeur admissible du paramètre. Il est convergent si, pour tout $\varepsilon>0$, $\mathbb P_\theta(|\widehat\Theta_n-\theta|>\varepsilon)\to0$ quand $n\to\infty$ (convergence en probabilité).}
-\item \question{Étudier le biais des trois estimateurs de $\mu$.}
-\reponse{Par linéarité, $\mathbb E(T_1)=\mathbb E(T_3)=\mu$ et $\mathbb E(T_2)=\frac{n\mu}{n-1}$. Les biais sont donc 0, $\frac{\mu}{n-1}$ et 0. $T_2$ est biaisé en général, bien que son biais s'annule si $\mu=0$.}
-\item \question{Calculer leurs variances.}
-\indication{Pour des variables indépendantes, la variance d'une somme pondérée est la somme des variances multipliées par les carrés des poids.}
-\reponse{$\operatorname{Var}(T_1)=\frac{\sigma^2}{n}$, $\operatorname{Var}(T_2)=\frac{n\sigma^2}{(n-1)^2}$ et $\operatorname{Var}(T_3)=\sigma^2$.}
-\item \question{Parmi les estimateurs sans biais proposés, lequel est le plus efficace ?}
-\reponse{$T_1$ : pour $n\geq2$ et $\sigma^2>0$, $\frac{\sigma^2}{n}<\sigma^2$. Il a la plus petite variance parmi les estimateurs sans biais proposés.}
-\item \question{Montrer que $\operatorname{EQM}(\widehat\Theta)=\mathbb E[(\widehat\Theta-\theta)^2]=\operatorname{Var}(\widehat\Theta)+b(\widehat\Theta)^2$.}
-\indication{Écrire $\widehat\Theta-\theta=(\widehat\Theta-\mathbb E\widehat\Theta)+b$, puis développer.}
-\reponse{Le terme croisé a une espérance nulle puisque $\mathbb E(\widehat\Theta-\mathbb E\widehat\Theta)=0$. L'espérance du carré du terme centré est la variance ; le carré du biais est déterministe. D'où l'identité annoncée.}
-\item \question{Calculer les trois EQM et déterminer le meilleur estimateur proposé au sens de l'EQM.}
-\reponse{Les EQM sont $\frac{\sigma^2}{n}$, $\frac{n\sigma^2+\mu^2}{(n-1)^2}$ et $\sigma^2$. Puisque $\frac{n}{(n-1)^2}>\frac{1}{n}$, $T_1$ a une EQM strictement plus petite que les deux autres.
-L'EQM de $T_1$ tend vers 0 : par l'inégalité de Markov appliquée au carré de l'erreur, cela implique sa convergence en probabilité.}
-\end{enumerate}
+		\item   \question{Rappeler les définitions d'un estimateur sans biais et d'un estimateur convergent.}
+		\reponse{
+			\textbf{Estimateur sans biais :} Un estimateur $\widehat{\Theta}_n$ du paramètre $\theta$ est dit sans biais si $\E_\theta(\widehat{\Theta}_n) = \theta$ pour tout $n$ et toute valeur admissible du paramètre $\theta$.
+
+			\textbf{Estimateur convergent :} Un estimateur $\widehat{\Theta}_n$ est dit convergent si $\widehat{\Theta}_n \xrightarrow[n \to \infty]{\mathbb{P}} \theta$ (convergence en probabilité vers $\theta$).
+		}
+
+		\item   \question{Les trois estimateurs $T_1$, $T_2$ et $T_3$ sont-ils des estimateurs sans biais de $\mu$ ? Justifier.}
+		\indication{Calculer l'espérance de chaque estimateur en utilisant la linéarité de l'espérance.}
+		\reponse{
+			\textbf{Pour $T_1$ :} $\E(T_1) = \E\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right) = \frac{1}{n}\sum_{i=1}^{n} \E(X_i) = \frac{1}{n} \times n\mu = \mu$
+
+			Donc $T_1$ est sans biais.
+
+			\textbf{Pour $T_2$ :} $\E(T_2) = \frac{1}{n-1}\sum_{i=1}^{n} \E(X_i) = \frac{n\mu}{n-1} = \mu \times \frac{n}{n-1}$
+
+			Le biais est $b(T_2) = \frac{\mu}{n-1}$. Il est non nul si $\mu\neq0$ et s’annule si $\mu=0$ : $T_2$ est biaisé en général, car il n’est pas sans biais pour toutes les valeurs de $\mu$.
+
+			\textbf{Pour $T_3$ :} $\E(T_3) = \E(X_1) = \mu$
+
+			Donc $T_3$ est sans biais.
+		}
+
+		\item   \question{Calculer la variance de chacun des trois estimateurs.}
+		\indication{Utiliser le fait que les variables $X_i$ sont indépendantes et identiquement distribuées.}
+		\reponse{
+			\textbf{Pour $T_1$ :}
+			$$\text{Var}(T_1) = \text{Var}\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right) = \frac{1}{n^2}\sum_{i=1}^{n} \text{Var}(X_i) = \frac{1}{n^2} \times n\sigma^2 = \frac{\sigma^2}{n}$$
+
+			\textbf{Pour $T_2$ :}
+			$$\text{Var}(T_2) = \frac{1}{(n-1)^2}\sum_{i=1}^{n} \text{Var}(X_i) = \frac{n\sigma^2}{(n-1)^2}$$
+
+			\textbf{Pour $T_3$ :}
+			$$\text{Var}(T_3) = \text{Var}(X_1) = \sigma^2$$
+		}
+
+		\item   \question{Parmi les estimateurs sans biais de $\mu$ proposés, lequel est le plus efficace ? Justifier.}
+		\indication{L'estimateur le plus efficace est celui qui a la plus petite variance.}
+		\reponse{Les estimateurs sans biais sont $T_1$ et $T_3$.
+
+			On a $\text{Var}(T_1) = \frac{\sigma^2}{n}$ et $\text{Var}(T_3) = \sigma^2$.
+
+			Pour tout $n \geq 2$, on a $\frac{\sigma^2}{n} < \sigma^2$, donc $\text{Var}(T_1) < \text{Var}(T_3)$.
+
+			Par conséquent, $T_1$ (la moyenne empirique) est l'estimateur le plus efficace parmi les estimateurs sans biais proposés.
+		}
+
+		\item   \question{On définit l'erreur quadratique moyenne (EQM) d'un estimateur $\widehat{\Theta}$ de $\theta$ par :
+			$$\text{EQM}(\widehat{\Theta}) = \E\left[(\widehat{\Theta} - \theta)^2\right]$$
+			Montrer que $\text{EQM}(\widehat{\Theta}) = \text{Var}(\widehat{\Theta}) + b^2(\widehat{\Theta})$ où $b(\widehat{\Theta}) = \E(\widehat{\Theta}) - \theta$ est le biais.}
+		\indication{Développer $(\widehat{\Theta} - \theta)^2 = (\widehat{\Theta} - \E(\widehat{\Theta}) + \E(\widehat{\Theta}) - \theta)^2$.}
+		\reponse{On pose $b = \E(\widehat{\Theta}) - \theta$. Alors :
+			\begin{align*}
+				\text{EQM}(\widehat{\Theta}) &= \E\left[(\widehat{\Theta} - \theta)^2\right] \\
+				&= \E\left[(\widehat{\Theta} - \E(\widehat{\Theta}) + \E(\widehat{\Theta}) - \theta)^2\right] \\
+				&= \E\left[(\widehat{\Theta} - \E(\widehat{\Theta}))^2\right] \\
+                &\quad + 2\E\left[(\widehat{\Theta} - \E(\widehat{\Theta}))(\E(\widehat{\Theta}) - \theta)\right] \\
+                &\quad + (\E(\widehat{\Theta}) - \theta)^2
+			\end{align*}
+
+			Le terme du milieu vaut :
+			$$2(\E(\widehat{\Theta}) - \theta) \times \E[\widehat{\Theta} - \E(\widehat{\Theta})] = 2(\E(\widehat{\Theta}) - \theta) \times 0 = 0$$
+
+			D'où : $\text{EQM}(\widehat{\Theta}) = \text{Var}(\widehat{\Theta}) + b^2(\widehat{\Theta})$
+		}
+
+		\item   \question{Calculer l'erreur quadratique moyenne de chacun des trois estimateurs. Quel est le meilleur estimateur de $\mu$ au sens de l'EQM ?}
+		\indication{Utiliser la formule établie à la question précédente.}
+		\reponse{
+			\textbf{Pour $T_1$ :} $\text{EQM}(T_1) = \frac{\sigma^2}{n} + 0^2 = \frac{\sigma^2}{n}$
+
+			\textbf{Pour $T_2$ :} $\text{EQM}(T_2) = \frac{n\sigma^2}{(n-1)^2} + \left(\frac{\mu}{n-1}\right)^2 = \frac{n\sigma^2 + \mu^2}{(n-1)^2}$
+
+			\textbf{Pour $T_3$ :} $\text{EQM}(T_3) = \sigma^2 + 0^2 = \sigma^2$
+
+			Pour comparer les estimateurs, on analyse leur EQM pour $n \geq 2$ (en supposant $\sigma^2 > 0$).
+
+			\textbf{Comparaison de $T_1$ et $T_3$ :}
+			On a clairement $\text{EQM}(T_1) = \frac{\sigma^2}{n} < \sigma^2 = \text{EQM}(T_3)$. Donc $T_1$ est meilleur que $T_3$.
+
+			\textbf{Comparaison de $T_1$ et $T_2$ :}
+			Pour $n \ge 2$, on a $n^2 > (n-1)^2$, ce qui implique $\frac{n}{(n-1)^2} > \frac{1}{n}$.
+			Par conséquent, $\text{Var}(T_2) = \frac{n\sigma^2}{(n-1)^2} > \frac{\sigma^2}{n} = \text{EQM}(T_1)$.
+			Comme $\text{EQM}(T_2) = \text{Var}(T_2) + b(T_2)^2$ et que le terme de biais au carré est positif ou nul, il s'ensuit que $\text{EQM}(T_2) > \text{EQM}(T_1)$.
+
+			\textbf{Conclusion :} En comparant les trois, $T_1$ est l'estimateur qui possède la plus faible erreur quadratique moyenne pour tout $n \geq 2$.
+
+            De plus, l'EQM de $T_1$ tend vers 0. Par l'inégalité de Markov appliquée au carré de l'erreur, pour tout $\varepsilon>0$ :
+            \[
+            \PP(|T_1-\mu|>\varepsilon)
+            \leq\frac{\E[(T_1-\mu)^2]}{\varepsilon^2}
+            =\frac{\sigma^2}{n\varepsilon^2}
+            \xrightarrow[n\to\infty]{}0.
+            \]
+            Ainsi, $T_1$ converge en probabilité vers $\mu$.
+		}
+
+
+	\end{enumerate}
+
 }
