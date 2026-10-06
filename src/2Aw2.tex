@@ -13,14 +13,36 @@
 \contenu{
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
 \texte{Un restaurant universitaire accueille 600 étudiants et propose risotto ou quiche. On suppose que chacun choisit le risotto avec probabilité $0{,}4$, indépendamment des autres.}
-\question{Quel nombre minimal de portions de risotto prévoir pour que le risque de rupture soit strictement inférieur à $10\%$ ? Approcher la loi binomiale par une normale avec correction de continuité, puis vérifier exactement.}
-\indication{Avec $r$ portions, il manque du risotto si $X>r$. Pour approcher $\mathbb P(X\leq r)$, utiliser la frontière $r+0{,}5$.}
-\reponse{$X\sim\mathcal B(600,0{,}4)$, $\mathbb E(X)=240$, $\operatorname{Var}(X)=144$.
-L'approximation normale $\mathcal N(240,12)$ donne
-\[\mathbb P(X>r)\simeq1-\Phi\left(\frac{r+0{,}5-240}{12}\right).
+\question{Combien de portions de risotto faut-il prévoir pour que le risque de rupture soit strictement inférieur à $10\%$ ? Utiliser l'approximation de la loi binomiale par une loi normale.}
+\indication{Avec $r$ portions, il manque du risotto si $X>r$. Centrer et réduire $X$, puis utiliser le quantile d'ordre $0{,}9$ de la loi normale centrée réduite.}
+\reponse{Soit $X$ le nombre d'étudiants souhaitant une portion de risotto. Sous l'hypothèse de choix indépendants, chacun de probabilité $0{,}4$, on a
+\[
+X\sim\mathcal B(600,0{,}4).
 \]
-Le quantile $\Phi^{-1}(0{,}9)\simeq1{,}28155$ conduit à $r>254{,}8786$, donc $r=255$.
-Vérification binomiale : $\mathbb P(X>254)\simeq0{,}113686$ et $\mathbb P(X>255)\simeq0{,}098533$. Le minimum est bien \textbf{255 portions}.
-Sans correction de continuité, l'approximation conduit à 256, choix prudent mais non minimal.
-Excel : \texttt{=1-LOI.BINOMIALE.N(255;600;0,4;VRAI)}.}
+On cherche un entier $r$ tel que $\mathbb P(X>r)<0{,}1$.
+L'espérance et la variance de $X$ valent
+\[
+\mathbb E(X)=600\times0{,}4=240,\qquad
+\operatorname{Var}(X)=600\times0{,}4\times0{,}6=144=12^2.
+\]
+Les quantités $600\times0{,}4=240$ et $600\times0{,}6=360$ étant grandes, on approche la loi de $X$ par $\mathcal N(240,12)$. Ainsi, $\frac{X-240}{12}$ suit approximativement une loi normale centrée réduite, et
+\[
+\mathbb P(X>r)
+=\mathbb P\left(\frac{X-240}{12}>\frac{r-240}{12}\right)
+\simeq1-\Phi\left(\frac{r-240}{12}\right).
+\]
+Dans cette approximation, la condition recherchée s'écrit
+\[
+\begin{aligned}
+1-\Phi\left(\frac{r-240}{12}\right)<0{,}1
+&\iff\Phi\left(\frac{r-240}{12}\right)>0{,}9\\
+&\iff\frac{r-240}{12}>\Phi^{-1}(0{,}9)\simeq1{,}28155.
+\end{aligned}
+\]
+On obtient donc
+\[
+r>240+12\times\Phi^{-1}(0{,}9)\simeq255{,}3786.
+\]
+Le plus petit entier satisfaisant cette condition approchée est $r=256$.
+Cette méthode conduit donc à prévoir \textbf{256 portions de risotto}.}
 }
