@@ -10,18 +10,70 @@
 \organisation{AMSCC}
 \difficulte{3}
 \contenu{
-\texte{On prélève indépendamment des pièces dans une production de grande taille. Chaque pièce est défectueuse avec probabilité $p$.}
+\texte{On effectue un contrôle de fabrication sur des pièces dont la proportion $p$ est défectueuse. On prélève indépendamment des pièces dans une production de grande taille. Chaque pièce est défectueuse avec probabilité $p$.}
 \begin{enumerate}
-\item \question{Sur $n=200$ pièces, $k_{\mathrm{obs}}=24$ sont défectueuses. Construire l'intervalle de confiance bilatéral approché à $95\%$ pour $p$, centré sur la fréquence observée.}
-\indication{Définir $F=\frac{K}{n}$ puis $f_{\mathrm{obs}}=\frac{24}{200}$.}
-\reponse{$K\sim\mathcal B(n,p)$ ; $F=\frac{K}{n}$ est un estimateur sans biais de $p$. Avec $f_{\mathrm{obs}}=0{,}12$, l'intervalle de Wald vaut
-\[\left[f_{\mathrm{obs}}-u_{0{,}025}\sqrt{\frac{f_{\mathrm{obs}}(1-f_{\mathrm{obs}})}{200}};\
-f_{\mathrm{obs}}+u_{0{,}025}\sqrt{\frac{f_{\mathrm{obs}}(1-f_{\mathrm{obs}})}{200}}\right]
-\simeq[0{,}07496;0{,}16504].\]
-Il s'agit d'un intervalle approché, correspondant à environ $[7{,}50\%;16{,}50\%]$.}
-\item \question{Planifier la taille d'un nouvel échantillon pour une largeur d'intervalle d'au plus $0{,}04$, au même niveau de confiance. Utiliser la proportion pilote puis le cas le plus défavorable.}
-\reponse{La marge souhaitée vaut $0{,}02$. Avec $p_{\mathrm{pilote}}=0{,}12$ :
-\[n\geq\frac{u_{0{,}025}^2\times0{,}12\times0{,}88}{0{,}02^2}\simeq1014{,}1451,\]
-soit \textbf{1015 pièces}. Pour le pire cas $p=0{,}5$, il faut \textbf{2401 pièces}. La planification pilote suppose une proportion proche de $0{,}12$ et ne garantit pas la largeur future ; le cas $0{,}5$ majore le terme de variance dans cette formule approchée.}
+\question{\item Sur $n=200$ pièces contrôlées, $k_{\mathrm{obs}}=24$ sont défectueuses. Donner l'intervalle de confiance bilatéral approché pour $p$, au risque $\alpha=0{,}05$, centré sur la fréquence observée.}
+\indication{La première étape consiste à calculer la fréquence observée $f_{\mathrm{obs}}$ de pièces défectueuses. Distinguer le nombre aléatoire $K$ de pièces défectueuses, la fréquence aléatoire $F=\frac{K}{n}$ et sa réalisation $f_{\mathrm{obs}}=\frac{k_{\mathrm{obs}}}{n}$. Déterminer ensuite la valeur critique $u_{\alpha/2}=\Phi^{-1}(1-\frac{\alpha}{2})$ pour la loi normale centrée réduite. Utiliser l'intervalle approché
+\[
+\left[f_{\mathrm{obs}}-u_{\alpha/2}\sqrt{\frac{f_{\mathrm{obs}}(1-f_{\mathrm{obs}})}{n}}\ ;\
+f_{\mathrm{obs}}+u_{\alpha/2}\sqrt{\frac{f_{\mathrm{obs}}(1-f_{\mathrm{obs}})}{n}}\right].
+\]
+}
+\reponse{Dans le modèle adopté, le nombre aléatoire de pièces défectueuses suit la loi $K\sim\mathcal B(n,p)$. La fréquence aléatoire $F=\frac{K}{n}$ est un estimateur sans biais de $p$, puisque $\mathbb E(F)=\frac{\mathbb E(K)}{n}=p$.
+
+Pour l'échantillon observé, $n=200$ et $k_{\mathrm{obs}}=24$. La réalisation de $F$ vaut donc
+\[
+f_{\mathrm{obs}}=\frac{k_{\mathrm{obs}}}{n}=\frac{24}{200}=0{,}12.
+\]
+Le risque est $\alpha=0{,}05$, soit un niveau de confiance $1-\alpha=0{,}95$. Pour un intervalle bilatéral obtenu par approximation normale, on utilise la valeur critique
+\[
+u_{0{,}025}=\Phi^{-1}(0{,}975)\simeq1{,}959964,
+\]
+qui vérifie $\PP(-u_{0{,}025}\leq Z\leq u_{0{,}025})=0{,}95$ pour $Z$ de loi normale centrée réduite.
+
+La marge d'erreur observée est
+\begin{align*}
+e_{\mathrm{obs}}&=u_{0{,}025}\sqrt{\frac{f_{\mathrm{obs}}(1-f_{\mathrm{obs}})}{n}}\\
+&=u_{0{,}025}\sqrt{\frac{0{,}12\times(1-0{,}12)}{200}}\\
+&=u_{0{,}025}\sqrt{\frac{0{,}1056}{200}}\\
+&\simeq0{,}0450365.
+\end{align*}
+L'intervalle de Wald observé vaut donc
+\[
+[f_{\mathrm{obs}}-e_{\mathrm{obs}}\ ;\ f_{\mathrm{obs}}+e_{\mathrm{obs}}]
+\simeq[0{,}0749635\ ;\ 0{,}1650365].
+\]
+Il s'agit d'un intervalle de confiance approché à $95\%$, correspondant à environ $[7{,}50\%\ ;\ 16{,}50\%]$ pour la proportion de pièces défectueuses dans la production.
+}
+\question{\item Combien de pièces faudrait-il contrôler dans un nouvel échantillon pour que, au risque $\alpha=0{,}05$, la largeur de l'intervalle de confiance centré soit d'au plus $0{,}04$ ? Utiliser la proportion pilote, puis le cas le plus défavorable.}
+\indication{La largeur totale est la différence entre les bornes : elle vaut deux fois la marge d'erreur. Pour une proportion $p_0$ retenue lors de la planification, la formule approchée donne $A=2u_{\alpha/2}\sqrt{\frac{p_0(1-p_0)}{n}}$. Isoler $n$ dans l'inégalité $A\leq0{,}04$. La proportion du nouvel échantillon étant inconnue, utiliser d'abord la proportion pilote $p_0=0{,}12$, puis le cas le plus défavorable $p_0=0{,}5$, qui maximise $p_0(1-p_0)$.}
+\reponse{La largeur souhaitée est d'au plus $0{,}04$ ; la marge d'erreur souhaitée est donc d'au plus $0{,}02$. On conserve le niveau de confiance $95\%$ et la valeur critique $u_{0{,}025}$.
+
+Pour une proportion de planification $p_0$, on impose
+\[
+2u_{0{,}025}\sqrt{\frac{p_0(1-p_0)}{n}}\leq0{,}04.
+\]
+Cela équivaut successivement à
+\begin{align*}
+\sqrt{\frac{p_0(1-p_0)}{n}}&\leq\frac{0{,}02}{u_{0{,}025}},\\
+\frac{p_0(1-p_0)}{n}&\leq\left(\frac{0{,}02}{u_{0{,}025}}\right)^2,\\
+n&\geq\frac{u_{0{,}025}^2p_0(1-p_0)}{0{,}02^2}.
+\end{align*}
+\textbf{Avec la proportion pilote :} on utilise $p_0=f_{\mathrm{obs}}=0{,}12$ de la première question. On obtient
+\[
+n\geq\frac{u_{0{,}025}^2\times0{,}12\times0{,}88}{0{,}02^2}
+\simeq1014{,}1451.
+\]
+Le nombre de pièces devant être entier, on arrondit à l'entier supérieur : il faut prévoir \textbf{1015 pièces} avec cette proportion de planification.
+
+Ce calcul suppose une proportion proche de $0{,}12$ et ne garantit pas la largeur de l'intervalle calculé sur le futur échantillon, dont la fréquence observée peut être différente.
+
+\textbf{Dans le cas le plus défavorable :} en l'absence de proportion de planification fiable, on utilise $p_0=0{,}5$, car $p_0(1-p_0)$ est alors maximal et vaut $0{,}25$. On obtient
+\[
+n\geq\frac{u_{0{,}025}^2\times0{,}5\times(1-0{,}5)}{0{,}02^2}
+\simeq2400{,}9118.
+\]
+On arrondit à l'entier supérieur : il faut prévoir \textbf{2401 pièces}. Ce choix couvre le terme de variance maximal dans la formule de largeur de cet intervalle approché.
+}
 \end{enumerate}
 }
