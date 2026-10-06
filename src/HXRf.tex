@@ -12,7 +12,17 @@
 \contenu{
 \question{Simuler 200 tirages indépendants avec remise d'un élève parmi 13, chaque élève ayant la même probabilité. Représenter la répartition des résultats.}
 \indication{Générer les numéros 1 à 13 puis compter le nombre d'apparitions de chacun.}
-\reponse{En A2 : \texttt{=ALEA.ENTRE.BORNES(1;13)}, puis recopier jusqu'à A201. Coller les résultats comme valeurs pour figer une simulation.
-Placer les numéros 1 à 13 en C2:C14 ; en D2 : \texttt{=NB.SI(\$A\$2:\$A\$201;C2)}, puis recopier jusqu'à D14. Représenter les effectifs par un diagramme en bâtons.
-Le total vaut 200. Chaque effectif a pour espérance $\frac{200}{13}\simeq15{,}38$, mais la simulation ne produit pas nécessairement 13 effectifs égaux.}
+\reponse{\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EZAcxd2Zm4pIlrVf0mC7TyABy5-LvDvznM_4P6Amfs1m9A?e=480NAF}{Lien vers le fichier tableur}
+\par
+En A2 : \texttt{=ALEA.ENTRE.BORNES(1;13)}, puis recopier jusqu'à A201 pour obtenir 200 tirages. La fonction génère de nouveaux résultats lors d'un recalcul.
+\par
+Pour conserver une simulation, copier les résultats puis effectuer un collage spécial « valeurs ».
+\par
+Placer les numéros 1 à 13 en C2:C14. En D2 : \texttt{=NB.SI(\$A\$2:\$A\$201;C2)}, puis recopier jusqu'à D14 pour compter les apparitions de chaque élève.
+\par
+Représenter les effectifs par un diagramme en bâtons. Leur somme doit être 200. Chaque effectif a pour espérance
+\[
+\frac{200}{13}\simeq15{,}38,
+\]
+et les résultats fluctuent d'une simulation à l'autre.}
 }
