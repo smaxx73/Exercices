@@ -24,8 +24,25 @@ Un étudiant affirme : \og $Z$ est normale centrée réduite et $V$ suit une loi
 \item \question{Soit maintenant $Y\sim\mathcal N(0,1)$ indépendante de $Z$. Quelle est la loi de $R'=\frac Y{\sqrt V}$, défini arbitrairement lorsque $V=0$ ? Justifier.}
 \indication{L'indépendance est conservée lorsqu'on applique une fonction à l'une des deux variables.}
 \reponse{$Y$ est indépendante de $Z$, donc aussi de $V=Z^2$. Comme $V\sim\chi^2(1)$, on a $R'=\frac Y{\sqrt{\frac V1}}\sim St(1)$. Cette fois, toutes les hypothèses de la construction sont vérifiées.}
-\item \question{\emph{Prolongement facultatif.} Calculer $\operatorname{Cov}(Z,V)$. Que montre cet exemple ?}
+\item \question{Calculer $\operatorname{Cov}(Z,V)$. Que montre cet exemple ?}
 \indication{Utiliser $ZV=Z^3$ et la symétrie de la loi de $Z$. Les moments nécessaires existent.}
-\reponse{$\operatorname{Cov}(Z,V)=\mathbb E(Z^3)-\mathbb E(Z)\mathbb E(Z^2)=0$. Pourtant $Z$ et $V$ sont dépendantes : une covariance nulle n'implique pas l'indépendance.}
+\reponse{Les moments nécessaires existent, car une variable normale possède des moments de tout ordre. Par définition,
+\[
+\operatorname{Cov}(Z,V)=\mathbb E\bigl[(Z-\mathbb E(Z))(V-\mathbb E(V))\bigr]
+=\mathbb E(ZV)-\mathbb E(Z)\mathbb E(V).
+\]
+Comme $Z\sim\mathcal N(0,1)$, on a $\mathbb E(Z)=0$ et $\operatorname{Var}(Z)=1$. Puisque $V=Z^2$,
+\[
+\mathbb E(V)=\mathbb E(Z^2)=\operatorname{Var}(Z)+\bigl(\mathbb E(Z)\bigr)^2=1.
+\]
+Il reste à calculer $\mathbb E(ZV)=\mathbb E(Z^3)$. La densité normale est paire, donc la fonction $z\mapsto z^3e^{-\frac{z^2}{2}}$ est impaire et intégrable. Ainsi,
+\[
+\mathbb E(Z^3)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{+\infty}z^3e^{-\frac{z^2}{2}}\,\mathrm dz=0.
+\]
+On obtient finalement
+\[
+\boxed{\operatorname{Cov}(Z,V)=0-0\times1=0.}
+\]
+Pourtant $Z$ et $V=Z^2$ sont dépendantes, comme établi à la question 3 : une covariance nulle n'implique pas l'indépendance.}
 \end{enumerate}
 }
