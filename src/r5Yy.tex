@@ -10,17 +10,143 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-\texte{Le nombre d'incidents de paiement pendant un crédit à la consommation, pour un client de la banque A, est modélisé par une loi de Poisson de paramètre $\lambda$. Les 100 observations sont indépendantes :
-\begin{center}\begin{tabular}{lrrrrrrr}\hline Incidents & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
-Effectif & 38 & 31 & 16 & 10 & 2 & 2 & 1 \\ \hline\end{tabular}\end{center}}
+\texte{Soit $X$ le nombre d'incidents de paiement pour un crédit à la consommation, observés sur la durée du prêt. On suppose que $X$ suit une loi de Poisson de paramètre $\lambda>0$. On dispose d'un échantillon de $n$ clients de la banque A, modélisé par des variables $X_1,\ldots,X_n$ indépendantes et de même loi que $X$.}
 \begin{enumerate}
-\item \question{Estimer $\lambda$, préciser les propriétés de l'estimateur et comparer graphiquement les effectifs observés à ceux d'une loi de Poisson de paramètre 1.}
-\reponse{$\widehat\Lambda=\overline X$ est sans biais, de variance $\frac{\lambda}{100}$, et convergent lorsque l'effectif augmente. La somme observée vaut 117, donc $\widehat\lambda_{\mathrm{obs}}=1{,}17$.
-Pour un diagramme en bâtons comparatif, les effectifs théoriques sous $\lambda=1$ des classes 0 à 6 sont $36{,}788;36{,}788;18{,}394;6{,}131;1{,}533;0{,}307;0{,}051$. Ajouter une classe $\geq7$, observée 0, théorique $0{,}0083$, pour inclure toute la loi.}
-\item \question{Tester $H_0:\lambda\leq1$ contre $H_1:\lambda>1$ à $5\%$, à l'aide du modèle exact. Comparer avec l'approximation normale.}
-\indication{La somme $K=\sum X_i$ suit une loi de Poisson de paramètre $100\lambda$.}
-\reponse{À la frontière $\lambda=1$, $K\sim\mathcal P(100)$. Avec $k_{\mathrm{obs}}=117$, la $p$-valeur exacte est $\mathbb P_{1}(K\geq117)\simeq0{,}05222$. On ne rejette pas au seuil de $5\%$. Le seuil entier de rejet est $K\geq118$.
-L'approximation sans correction de continuité donne $z_{\mathrm{obs}}=\frac{117-100}{10}=1{,}7$ et $p_{\mathrm{val}}\simeq0{,}04457$, qui conduirait au rejet. Près du seuil, l'approximation change donc la décision : on retient ici le test exact.
-Excel : \texttt{=1-LOI.POISSON.N(116;100;VRAI)}.}
+\question{\item Donner un estimateur de $\lambda$ sans biais et convergent.}
+\reponse{Pour une variable de Poisson, $\mathbb E(X_i)=\lambda$ et $\operatorname{Var}(X_i)=\lambda$. On prend pour estimateur la moyenne empirique
+\[
+\widehat\Lambda_n=\overline X_n=\frac1n\sum_{i=1}^nX_i.
+\]
+Par linéarité de l'espérance,
+\[
+\mathbb E(\widehat\Lambda_n)=\frac1n\sum_{i=1}^n\mathbb E(X_i)
+=\frac{n\lambda}{n}=\lambda.
+\]
+L'estimateur est donc sans biais (ou centré). L'indépendance donne
+\[
+\operatorname{Var}(\widehat\Lambda_n)
+=\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)
+=\frac{\lambda}{n}.
+\]
+Pour tout $\varepsilon>0$, l'inégalité de Bienaymé--Tchebychev entraîne
+\[
+\PP\bigl(|\widehat\Lambda_n-\lambda|\geq\varepsilon\bigr)
+\leq\frac{\lambda}{n\varepsilon^2}\xrightarrow[n\to\infty]{}0.
+\]
+Ainsi, $\widehat\Lambda_n$ converge en probabilité vers $\lambda$.
+}
+\question{\item On désire tester l'hypothèse nulle selon laquelle les clients de la banque A sont faiblement risqués, avec la référence d'un incident en moyenne par crédit :
+\[
+\begin{cases}
+H_0:\lambda=1,\\
+H_1:\lambda>1.
+\end{cases}
+\]
+Pour un échantillon de 100 clients, on observe les résultats suivants :
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Incidents & 0 & 1 & 2 & 3 & 4 & 5 & 6 & Total \\ \hline
+Effectifs & 38 & 31 & 16 & 10 & 2 & 2 & 1 & 100 \\ \hline
+\end{tabular}
+\end{center}
+Que peut-on conclure pour un risque de première espèce de $5\%$, en utilisant l'approximation normale ? Comparer ensuite avec le test exact de Poisson.
+Sur un même graphique, superposer les effectifs observés et les effectifs théoriques associés à une loi de Poisson de paramètre $\lambda=1$.}
+\indication{La somme $K=\sum_{i=1}^{100}X_i$ suit une loi de Poisson de paramètre $100\lambda$. Sous $H_0$, calculer sa moyenne et son écart-type pour la standardiser. Pour le graphique, comparer les effectifs observés à $100\PP_{\lambda=1}(X=k)$, sur la même échelle.}
+\reponse{\textbf{Valeurs observées.} La somme des nombres d'incidents vaut
+\begin{align*}
+k_{\mathrm{obs}}
+&=0\times38+1\times31+2\times16+3\times10\\
+&\quad+4\times2+5\times2+6\times1\\
+&=31+32+30+8+10+6=117.
+\end{align*}
+La réalisation de l'estimateur de la première question est donc
+\[
+\widehat\lambda_{\mathrm{obs}}=\bar x=\frac{117}{100}=1{,}17.
+\]
+
+\textbf{Test normal approché.} Sous $H_0$, $K\sim\mathcal P(100)$ : son espérance vaut 100, sa variance 100 et son écart-type 10. La variable de décision est
+\[
+Z=\frac{K-100}{10}=\sqrt{100}\,(\overline X_{100}-1).
+\]
+Par le théorème central limite, sa loi est approximativement $\mathcal N(0,1)$ sous $H_0$. L'alternative $\lambda>1$ conduit à un test unilatéral à droite. Au seuil nominal $\alpha=0{,}05$, on rejette pour
+\[
+z_{\mathrm{obs}}\geq\Phi^{-1}(0{,}95)\simeq1{,}64485.
+\]
+Or
+\[
+z_{\mathrm{obs}}=\frac{117-100}{10}=1{,}7>1{,}64485.
+\]
+Le test normal approché rejette donc $H_0$ au seuil de $5\%$. Sa $p$-valeur approchée est
+\[
+p_{\mathrm{val,normal}}=1-\Phi(1{,}7)\simeq0{,}04457<0{,}05.
+\]
+Les données conduisent, avec cette approximation, à retenir une moyenne supérieure à un incident par crédit. Cela ne constitue pas une preuve certaine de $H_1$.
+
+\textbf{Comparaison avec le test exact.} Sous $H_0$, la loi $\mathcal P(100)$ de $K$ est exacte. La $p$-valeur unilatérale vaut
+\[
+p_{\mathrm{val,exact}}=\PP_{\lambda=1}(K\geq117)
+=1-\PP_{\lambda=1}(K\leq116)\simeq0{,}05222.
+\]
+On peut la calculer dans Excel par
+\texttt{=1-LOI.POISSON.N(116;100;VRAI)}.
+Comme $0{,}05222>0{,}05$, le test exact ne rejette pas $H_0$ à $5\%$. Ce non-rejet ne prouve pas que $\lambda=1$.
+
+La règle normale équivaut ici à rejeter pour $K\geq117$, car
+\[
+\frac{K-100}{10}\geq1{,}64485
+\quad\Longleftrightarrow\quad K\geq117
+\qquad(K\text{ entier}).
+\]
+Son risque de première espèce réel vaut donc
+\[
+\PP_{\lambda=1}(K\geq117)\simeq0{,}05222,
+\]
+soit environ $5{,}22\%$, légèrement au-dessus du seuil nominal de $5\%$.
+Pour une règle de rejet de la forme $K\geq c$ de niveau au plus $5\%$, le plus petit seuil entier admissible est $c=118$ :
+\[
+\PP_{\lambda=1}(K\geq118)\simeq0{,}04284\leq0{,}05,
+\qquad
+\PP_{\lambda=1}(K\geq117)>0{,}05.
+\]
+Avec $k_{\mathrm{obs}}=117$, cette règle exacte ne rejette pas. La différence des décisions montre que l'approximation normale peut être déterminante près du seuil. Le calcul normal ci-dessus est effectué sans correction de continuité.
+
+\textbf{Comparaison graphique.} Sous $\lambda=1$, l'effectif théorique de la classe $k$ pour 100 clients est
+\[
+n_k^{\mathrm{th}}=100\PP_{\lambda=1}(X=k)
+=100\frac{\mathrm e^{-1}}{k!}.
+\]
+Il faut comparer des effectifs à des effectifs, et non des effectifs à des probabilités. On ajoute une classe $\geq7$ pour inclure toute la loi ; son effectif observé est nul.
+\begin{center}
+\begin{tabular}{c|rrrrrrrr}
+Incidents & 0 & 1 & 2 & 3 & 4 & 5 & 6 & $\geq7$ \\ \hline
+Observés & 38 & 31 & 16 & 10 & 2 & 2 & 1 & 0 \\
+Théoriques & $36{,}788$ & $36{,}788$ & $18{,}394$ & $6{,}131$ & $1{,}533$ & $0{,}307$ & $0{,}051$ & $0{,}0083$
+\end{tabular}
+\end{center}
+Les effectifs théoriques, avant arrondi, ont une somme égale à 100.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+width=0.88\linewidth,height=5.2cm,
+ybar,bar width=7pt,
+xmin=-0.6,xmax=7.6,ymin=0,ymax=42,
+xtick={0,1,2,3,4,5,6,7},
+xticklabels={0,1,2,3,4,5,6,$\geq7$},
+xlabel={Nombre d'incidents},ylabel={Effectif pour 100 clients},
+ymajorgrids=true,grid style={gray!20},
+legend style={at={(0.5,1.02)},anchor=south,legend columns=2,draw=none,fill=none,font=\small},
+tick label style={font=\small},label style={font=\small}
+]
+\addplot+[fill=blue!45,draw=blue!70!black] coordinates
+{(0,38) (1,31) (2,16) (3,10) (4,2) (5,2) (6,1) (7,0)};
+\addplot+[fill=orange!55,draw=orange!80!black] coordinates
+{(0,36.787944) (1,36.787944) (2,18.393972) (3,6.131324) (4,1.532831) (5,0.306566) (6,0.051094) (7,0.008324)};
+\legend{Observés,Théoriques ($\lambda=1$)}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Les barres sont juxtaposées pour rendre la comparaison lisible. Sur cette échelle, les plus petits effectifs théoriques sont presque invisibles ; le tableau en donne les valeurs.
+}
 \end{enumerate}
 }
