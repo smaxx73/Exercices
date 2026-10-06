@@ -10,13 +10,70 @@
 \difficulte{}
 \contenu{
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
-\texte{Les prix relevés dans sept supermarchés sont, en euros : $52,52,43,51,69,55,49$. On les modélise comme un échantillon indépendant de loi $\mathcal N(\mu,\sigma)$.}
+\texte{Une association de consommateurs a effectué une enquête sur le prix d'un produit dans les supermarchés. Pour ce produit, les prix suivants (en euros) ont été relevés dans 7 supermarchés différents :
+\[
+52 \qquad 52 \qquad 43 \qquad 51 \qquad 69 \qquad 55 \qquad 49.
+\]
+On modélise les observations par des variables indépendantes de même loi normale $\mathcal N(\mu,\sigma)$, avec $\sigma>0$.
+}
 \begin{enumerate}
-\item \question{Estimer la moyenne et l'écart-type en précisant les estimateurs et leurs propriétés.}
-\reponse{$\overline X$ estime $\mu$ sans biais ; $S^2=\frac{\sum(X_i-\overline X)^2}{6}$ estime $\sigma^2$ sans biais. On obtient $\bar x=53$, $s^2=63{,}66667$ et $s=\sqrt{s^2}\simeq7{,}97914$ euros. $S=\sqrt{S^2}$ est convergent, mais n'est généralement pas sans biais pour $\sigma$.}
-\item \question{Déterminer les intervalles de confiance symétriques à $90\%$ et $99\%$ pour $\mu$, centrés sur la moyenne observée $\bar x$.}
+\item \question{Calculer une estimation $\overline{x}$ de l'espérance $\mu$ du prix $X$ de ce produit et une estimation $s$ de son écart-type $\sigma$. On précisera les estimateurs choisis et on en donnera les propriétés.}
+\reponse{Pour un échantillon de taille $n\geq2$, les estimateurs usuels de la moyenne et de la variance sont
+\[
+\overline X_n=\frac{1}{n}\sum_{i=1}^nX_i,
+\qquad
+S_n^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline X_n)^2.
+\]
+Ils sont sans biais : $\mathbb E(\overline X_n)=\mu$ et $\mathbb E(S_n^2)=\sigma^2$. Sous le modèle normal, les deux suites d'estimateurs convergent en probabilité vers ces paramètres lorsque $n\to\infty$.
+
+L'estimateur $S_n=\sqrt{S_n^2}$ converge en probabilité vers $\sigma$, mais n'est pas sans biais pour $\sigma$.
+
+Pour la réalisation de cet échantillon de taille $7$, on obtient
+\[
+\sum_{i=1}^7x_i=371,
+\qquad
+\bar x=\frac{371}{7}=53\ \text{euros}.
+\]
+La somme des carrés des écarts à la moyenne observée vaut
+\begin{align*}
+\sum_{i=1}^7(x_i-\bar x)^2
+&=(52-53)^2+(52-53)^2+(43-53)^2+(51-53)^2\\
+&\quad +(69-53)^2+(55-53)^2+(49-53)^2\\
+&=382.
+\end{align*}
+Avec l'estimateur de variance corrigée $S_7^2$, on obtient donc
+\[
+s^2=\frac{382}{6}\simeq63{,}667\ \text{euros}^2,
+\qquad
+s=\sqrt{s^2}\simeq7{,}98\ \text{euros}.
+\]
+}
+\item \question{Déterminer les intervalles de confiance symétriques aux niveaux de $90\%$ et $99\%$ pour $\mu$, centrés sur la moyenne observée $\bar x$.}
 \indication{Avec une variance inconnue et le modèle normal, utiliser les quantiles de Student à 6 degrés de liberté.}
-\reponse{La formule est $[\bar x-t_{6;1-\alpha/2}\frac{s}{\sqrt7};\bar x+t_{6;1-\alpha/2}\frac{s}{\sqrt7}]$.
-À $90\%$ : $[47{,}1397;58{,}8603]$ euros. À $99\%$ : $[41{,}8190;64{,}1810]$ euros. Le second intervalle est plus large, car son niveau de confiance est plus élevé.}
+\reponse{La normalité est une hypothèse de l'énoncé ; elle ne découle pas du faible effectif. La variance $\sigma^2$ est inconnue. Le pivot
+\[
+T=\frac{\overline X_7-\mu}{\frac{S_7}{\sqrt7}}
+\]
+suit exactement une loi de Student $St(6)$. Pour un niveau de confiance $1-\alpha$, l'intervalle observé est
+\[
+\left[\bar x-t_{6;1-\alpha/2}\frac{s}{\sqrt7}\ ;\
+\bar x+t_{6;1-\alpha/2}\frac{s}{\sqrt7}\right].
+\]
+Au niveau de $90\%$, on utilise le quantile à gauche $t_{6;0{,}95}\simeq1{,}94318$. La demi-largeur vaut environ
+\[
+1{,}94318\times\frac{\sqrt{\frac{382}{6}}}{\sqrt7}\simeq5{,}8603\ \text{euros}.
+\]
+On obtient l'intervalle $[47{,}1397\ ;\ 58{,}8603]$ euros, soit, au dixième, $[47{,}1\ ;\ 58{,}9]$ euros.
+
+Au niveau de $99\%$, on utilise le quantile à gauche $t_{6;0{,}995}\simeq3{,}70743$. La demi-largeur vaut environ
+\[
+3{,}70743\times\frac{\sqrt{\frac{382}{6}}}{\sqrt7}\simeq11{,}1810\ \text{euros}.
+\]
+On obtient l'intervalle $[41{,}8190\ ;\ 64{,}1810]$ euros, soit, au dixième, $[41{,}8\ ;\ 64{,}2]$ euros.
+
+L'intervalle à $99\%$ est plus large : à échantillon identique, un niveau de confiance plus élevé correspond à un quantile plus grand, donc à une marge d'erreur plus grande.
+
+\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EaiHx79BvjVEmoQdi_Bixd0BwrtFrlxQpaAxywubog-BcA?e=brgT78}{Détail des calculs sur tableur}
+}
 \end{enumerate}
 }
