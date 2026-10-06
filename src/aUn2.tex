@@ -10,19 +10,90 @@
 \organisation{AMSCC}
 \difficulte{2}
 \contenu{
-\texte{On contrôle 50 épaisseurs indépendantes de même distribution, supposée de variance finie. Les valeurs observées, en mm, sont :
-\begin{center}\begin{tabular}{lrrrr}\hline Épaisseur & 4,8 & 4,9 & 5,0 & 5,1 \\
-Effectif & 5 & 15 & 20 & 10 \\ \hline\end{tabular}\end{center}
-On utilise ici l'approximation normale de la moyenne pour un échantillon de grande taille.}
+\texte{Désirant juger le travail d'un ouvrier ajusteur, un chef d'atelier prélève un échantillon de 50 pièces métalliques dans sa production. On note $X$ l'épaisseur d'une pièce. L'objectif est d'avoir $\mu=\mathbb E(X)=5\ \mathrm{mm}$. Les résultats des mesures sur cet échantillon sont portés dans le tableau suivant :
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Effectifs $n_i$ & 5 & 15 & 20 & 10 \\ \hline
+Épaisseurs $x_i$ en mm & $4{,}8$ & $4{,}9$ & $5{,}0$ & $5{,}1$ \\ \hline
+\end{tabular}
+\end{center}
+On modélise les 50 mesures par des variables indépendantes de même loi, de variance finie non nulle. On utilise ici l'approximation normale de la moyenne pour un échantillon de grande taille.
+}
 \begin{enumerate}
-\item \question{Tester $H_0:\mu=5$ contre $H_1:\mu\neq5$, au seuil de $1\%$. Un non-rejet suffit-il à établir la conformité ?}
-\indication{Calculer d'abord la moyenne et la variance corrigée ; le test porte sur une moyenne, pas sur chaque épaisseur.}
-\reponse{$\bar x=4{,}97$, variance descriptive $0{,}0081$, variance corrigée $s^2=0{,}008265306$ et $s\simeq0{,}0909137$.
-La statistique $Z=\frac{\overline X-5}{\frac{S}{\sqrt{50}}}$ est approximativement normale sous $H_0$ et $z_{\mathrm{obs}}=-2{,}33333$.
-Comme $|z_{\mathrm{obs}}|<\Phi^{-1}(0{,}995)\simeq2{,}57583$, on ne rejette pas au seuil de $1\%$.
-La $p$-valeur approchée vaut $0{,}01963$. Le non-rejet ne prouve pas l'égalité ni une conformité à une tolérance, qui demanderait de définir une marge admissible.}
-\item \question{À partir de quel seuil le test normal approché rejette-t-il ?}
-\reponse{Avec la convention de rejet $p_{\mathrm{val}}\leq\alpha$, il rejette pour $\alpha\geq0{,}01963$, soit environ $1{,}963\%$. C'est une analyse de sensibilité ; le seuil d'une étude doit être fixé avant les données.
-Si l'on ajoute l'hypothèse de normalité des observations et utilise Student à 49 ddl, la $p$-valeur est environ $0{,}02378$ ; la décision au seuil de $1\%$ est identique.}
+\question{\item Cette vérification permet-elle de conclure que l'épaisseur moyenne est conforme à l'objectif de $5\ \mathrm{mm}$ ? Effectuer un test au risque de première espèce $\alpha=1\%$ et préciser la portée de sa conclusion.}
+\indication{Calculer d'abord la moyenne et la variance corrigée en tenant compte des effectifs du tableau. Distinguer la variance descriptive de la variance corrigée ; le test porte sur une moyenne, pas sur chaque épaisseur.}
+\reponse{\textbf{Calcul de la moyenne.} La moyenne observée est
+\begin{align*}
+\bar x&=\frac1{50}\sum_{i=1}^4n_ix_i\\
+&=\frac{5\times4{,}8+15\times4{,}9+20\times5{,}0+10\times5{,}1}{50}\\
+&=\frac{248{,}5}{50}=4{,}97\ \mathrm{mm}.
+\end{align*}
+C'est la réalisation de l'estimateur $\overline X=\frac1{50}\sum_{j=1}^{50}X_j$, sans biais pour $\mu$.
+
+\textbf{Calcul de la variance.} La somme pondérée des carrés des écarts à la moyenne observée vaut
+\begin{align*}
+\sum_{i=1}^4n_i(x_i-\bar x)^2
+&=5(4{,}8-4{,}97)^2+15(4{,}9-4{,}97)^2\\
+&\quad+20(5{,}0-4{,}97)^2+10(5{,}1-4{,}97)^2\\
+&=0{,}1445+0{,}0735+0{,}018+0{,}169\\
+&=0{,}405\ \mathrm{mm}^2.
+\end{align*}
+La variance descriptive observée, à diviseur 50, est donc
+\[
+v_{\mathrm{obs}}=\frac{0{,}405}{50}=0{,}0081\ \mathrm{mm}^2.
+\]
+L'estimateur $S^2=\frac1{49}\sum_{j=1}^{50}(X_j-\overline X)^2$ est sans biais pour la variance $\sigma^2$ de la population. Sa réalisation est la variance corrigée
+\[
+s^2=\frac{50}{49}v_{\mathrm{obs}}
+=\frac{0{,}405}{49}\simeq0{,}008265306\ \mathrm{mm}^2,
+\]
+d'où $s=\sqrt{s^2}\simeq0{,}0909137\ \mathrm{mm}$.
+
+\textbf{Test de la moyenne.} On réalise le test bilatéral
+\[
+\begin{cases}
+H_0:\mu=5,\\
+H_1:\mu\neq5.
+\end{cases}
+\]
+Le risque de première espèce choisi est $\alpha=0{,}01$. La variable de décision est
+\[
+Z=\frac{\overline X-5}{\frac{S}{\sqrt{50}}}.
+\]
+Sous $H_0$, sa loi est approximativement normale centrée réduite, par l'approximation de la moyenne et le remplacement de l'écart-type inconnu par $S$.
+
+La valeur critique bilatérale est $u_{0{,}005}=\Phi^{-1}(0{,}995)\simeq2{,}57583$, soit environ $2{,}58$ par lecture de table. Avec la convention de rejet $p_{\mathrm{val}}\leq\alpha$, on rejette lorsque $|z_{\mathrm{obs}}|\geq u_{0{,}005}$.
+
+La réalisation de la statistique est
+\[
+z_{\mathrm{obs}}=\frac{4{,}97-5}{\frac{\sqrt{\frac{0{,}405}{49}}}{\sqrt{50}}}
+\simeq-2{,}33333.
+\]
+Comme $|z_{\mathrm{obs}}|<2{,}57583$, on ne rejette pas $H_0$ au seuil de $1\%$.
+
+La $p$-valeur normale approchée vaut
+\[
+p_{\mathrm{val}}=2\bigl(1-\Phi(|z_{\mathrm{obs}}|)\bigr)
+\simeq0{,}0196307>0{,}01.
+\]
+Le test ne détecte pas de différence avec la moyenne cible à ce seuil. Ce non-rejet ne prouve pas l'égalité et ne démontre pas la conformité. Une conformité à une tolérance demanderait de définir une marge admissible ; ce test ne porte pas sur chaque pièce.
+}
+\question{\item Quel risque de première espèce devrait-on prendre pour que la prise de décision du test normal approché soit différente ?}
+\reponse{Avec la convention de rejet $p_{\mathrm{val}}\leq\alpha$, la décision bascule lorsque le seuil atteint la $p$-valeur normale approchée :
+\[
+\alpha\geq p_{\mathrm{val}}\simeq0{,}0196307,
+\]
+soit environ $1{,}96307\%$. Par exemple, au seuil de $2\%$, on rejetterait l'hypothèse $\mu=5$.
+
+Ce calcul est une analyse de sensibilité de la décision. Le risque d'une étude doit être fixé avant l'observation des données ; le modifier après coup ne justifie pas une conclusion annoncée au seuil initial de $1\%$.
+
+\textit{Remarque :} si l'on ajoute l'hypothèse de normalité de la population, on peut utiliser un test exact de Student à $50-1=49$ degrés de liberté. Sa $p$-valeur bilatérale vaut
+\[
+2\PP(T_{49}\geq|z_{\mathrm{obs}}|)\simeq0{,}02378,
+\qquad T_{49}\sim St(49).
+\]
+La décision au seuil de $1\%$ est identique : on ne rejette pas $H_0$.
+}
 \end{enumerate}
 }
