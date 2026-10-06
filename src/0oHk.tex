@@ -13,7 +13,8 @@
 \texte{À l'aide d'un tableur, calculer les quantités suivantes. Dans $\mathcal N(\mu,\sigma)$, le second paramètre est l'écart-type ; dans $\mathcal E(\lambda)$, $\lambda$ est le taux.}
 \begin{enumerate}
 \item \question{$\mathbb P(X\leq1{,}2)$ pour $X\sim\mathcal N(0,1)$.}
-\reponse{\texttt{=LOI.NORMALE.STANDARD.N(1,2;VRAI)} donne $0{,}884930$.}
+\reponse{\texttt{=LOI.NORMALE.STANDARD.N(1,2;VRAI)} donne $0{,}884930$.
+L'argument \texttt{VRAI} demande la fonction de répartition, c'est-à-dire la probabilité à gauche de la valeur indiquée.}
 \item \question{$\mathbb P(X\leq102)$ pour $X\sim\mathcal N(120,4)$.}
 \reponse{\texttt{=LOI.NORMALE.N(102;120;4;VRAI)} donne $3{,}39767\times10^{-6}$.}
 \item \question{Le quantile $t$ tel que $\mathbb P(X\leq t)=0{,}9$ pour $X\sim\mathcal N(120,4)$.}
@@ -26,6 +27,7 @@
 \reponse{\texttt{=1-LOI.EXPONENTIELLE.N(5;0,5;VRAI)} donne $e^{-2{,}5}\simeq0{,}082085$.}
 \item \question{$\mathbb P(X=3)$ et $\mathbb P(X\geq2)$ pour $X\sim\mathcal P(1{,}5)$.}
 \reponse{\texttt{=LOI.POISSON.N(3;1,5;FAUX)} donne $0{,}125511$.
+L'argument \texttt{FAUX} demande ici la probabilité ponctuelle $\mathbb P(X=3)$.
 Pour « au moins deux », utiliser $1-\mathbb P(X\leq1)$ : \texttt{=1-LOI.POISSON.N(1;1,5;VRAI)} donne $0{,}442175$.}
 \item \question{Le réel positif $t$ tel que $\mathbb P(100-t\leq X\leq100+t)=0{,}95$ pour $X\sim\mathcal N(100,15)$.}
 \reponse{\texttt{=LOI.NORMALE.INVERSE.N(0,975;0;15)} donne $t\simeq29{,}39946$.}
