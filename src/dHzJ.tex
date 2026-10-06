@@ -15,7 +15,29 @@
 \texte{Les épaisseurs de feuilles cartonnées sont indépendantes et identiquement distribuées, d'espérance 5 mm et d'écart-type $0{,}4$ mm.}
 \question{Approcher la probabilité qu'un paquet de 100 feuilles ait une épaisseur comprise entre 49 et 51 cm.}
 \indication{Exprimer toutes les épaisseurs en millimètres et appliquer le théorème central limite à leur somme.}
-\reponse{Pour $S=\sum_{i=1}^{100}X_i$, l'espérance vaut 500 mm et la variance vaut $100\times0{,}4^2=16$ mm$^2$. Le TCL permet d'approcher sa loi par $\mathcal N(500,4)$ :
-\[\mathbb P(490\leq S\leq510)\simeq\Phi(2{,}5)-\Phi(-2{,}5)\simeq0{,}98758.\]
-L'approximation concerne la loi de la somme ; les épaisseurs individuelles ne sont pas supposées normales.}
+\reponse{Soient $X_1,\ldots,X_{100}$ les épaisseurs des feuilles, exprimées en millimètres. Elles sont indépendantes et de même loi, avec
+\[
+\mathbb E(X_i)=5,\qquad \operatorname{Var}(X_i)=0{,}4^2=0{,}16.
+\]
+L'épaisseur du paquet est $S=\sum_{i=1}^{100}X_i$. Par linéarité de l'espérance et par indépendance,
+\[
+\mathbb E(S)=100\times5=500,\qquad
+\operatorname{Var}(S)=100\times0{,}16=16.
+\]
+Le TCL permet d'approcher la loi de $S$ par $\mathcal N(500,4)$. Ainsi,
+\[
+Z=\frac{S-500}{4}
+\]
+suit approximativement une loi normale centrée réduite.
+
+Après conversion de $49$ et $51$ cm en millimètres,
+\[
+\begin{aligned}
+\mathbb P(490\leq S\leq510)
+&=\mathbb P\left(\frac{490-500}{4}\leq Z\leq\frac{510-500}{4}\right)\\
+&=\mathbb P(-2{,}5\leq Z\leq2{,}5)\\
+&\simeq\Phi(2{,}5)-\Phi(-2{,}5)\simeq0{,}9876.
+\end{aligned}
+\]
+L'approximation porte sur la loi de la somme ; les épaisseurs individuelles ne sont pas supposées normales.}
 }
