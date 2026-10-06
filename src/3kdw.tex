@@ -10,6 +10,7 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
+
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
 \texte{Les variables $X_1,\ldots,X_5$ sont indépendantes, de loi $\mathcal N(\mu,\sigma)$, $\sigma>0$. On pose
 \begin{align*}
@@ -17,22 +18,63 @@ T_1&=\frac15\sum_{i=1}^5X_i, & T_2&=\frac{X_1+X_2}{5}+\frac{X_3+X_4+X_5}{4},\\
 T_3&=\frac{2X_1+3X_2}{10}+\frac{X_3+2X_4+X_5}{8},\\
 U&=\frac{\sum_{i=1}^5(X_i-\mu)^2}{\sigma^2},&V&=\frac{\sum_{i=1}^5(X_i-T_1)^2}{\sigma^2}.
 \end{align*}}
-\begin{enumerate}
-\item \question{Déterminer la loi de $X_1-X_2$.}
-\reponse{Par normalité et indépendance, $X_1-X_2\sim\mathcal N(0,\sigma\sqrt2)$ ; sa variance est $2\sigma^2$.}
-\item \question{Étudier le biais de $T_1,T_2,T_3$ et comparer l'efficacité des estimateurs sans biais.}
-\reponse{Les sommes des poids sont 1, $\frac{23}{20}$, 1 : $T_1,T_3$ sont sans biais et $b(T_2)=\frac{3\mu}{20}$.
-\[\operatorname{Var}(T_1)=\frac{\sigma^2}{5},\qquad
-\operatorname{Var}(T_3)=\left(\frac4{100}+\frac9{100}+\frac1{64}+\frac4{64}+\frac1{64}\right)\sigma^2=\frac{179}{800}\sigma^2.\]
-Comme $\frac{1}{5}<\frac{179}{800}$, $T_1$ est le plus efficace des deux.}
-\item \question{Déterminer les lois de $U$ et de $V$.}
-\reponse{$U$ est une somme de cinq carrés de normales centrées réduites indépendantes : $U\sim\chi^2(5)$. Le théorème de Fisher donne $V\sim\chi^2(4)$ et l'indépendance entre $V$ et $T_1$.}
-\item \question{Déterminer $x$ tel que $\mathbb P(U>x)=0{,}05$.}
-\reponse{$x=q_{5;0{,}95}\simeq11{,}0705$.}
-\item \question{À partir de $T_1$ et de $V$, construire une variable $Y$ de loi de Student et préciser ses degrés de liberté.}
-\indication{Le dénominateur doit utiliser une variable du khi-deux indépendante du numérateur normal.}
-\reponse{$Z=\frac{\sqrt5(T_1-\mu)}{\sigma}\sim\mathcal N(0,1)$ est indépendant de $V$. Ainsi
-\[Y=\frac{Z}{\sqrt{\frac{V}{4}}}=\frac{T_1-\mu}{\frac{S}{\sqrt5}}\sim St(4),\qquad S^2=\frac14\sum_{i=1}^5(X_i-T_1)^2.\]
-$U$ ne convient pas : $U=V+Z^2$, donc $U$ et $Z$ ne sont pas indépendants.}
-\end{enumerate}
-}
+
+	\begin{enumerate}
+		\item \question{Quelle est la loi suivie par la variable $X_1-X_2$ ? Justifier.}
+		\reponse{
+			D'après le cours, $X_1-X_2$ suit une loi normale d'espérance $\mathbb{E}(X_1-X_2) = \mu - \mu = 0$. Par indépendance, $\operatorname{Var}(X_1-X_2) = \operatorname{Var}(X_1)+(-1)^2\operatorname{Var}(X_2) = 2\sigma^2$. Ainsi, $X_1-X_2\sim\mathcal N(0,\sigma\sqrt2)$.
+		}
+		\item \question{On cherche à estimer $\mu$ à l'aide des estimateurs $T_1$, $T_2$, $T_3$. \'Etudier leur biais et comparer l'efficacité des estimateurs sans biais.}
+		\reponse{ Par linéarité de l'espérance, on calcule $\mathbb{E}(T_1) = \frac{5\mu}{5} = \mu$, $\mathbb{E}(T_2) = \frac{2\mu}{5}+\frac{3\mu}{4}=\frac{23\mu}{20}$, $\mathbb{E}(T_3) = \mu$. Par conséquent, $b(T_1)=b(T_3)=0$ et $b(T_2) = \mathbb{E}(T_2)-\mu = \frac{3\mu}{20}$.
+
+			Pour comparer l'efficacité des deux estimateurs sans biais, on calcule leur EQM (ce qui revient à calculer leur variance.) Par indépendance des variables, on a :
+
+			\[
+\operatorname{Var}(T_1)=\frac{\sigma^2}{5}.
+\]
+\begin{align*}
+\operatorname{Var}(T_3)
+&=\left(\frac4{100}+\frac9{100}+\frac1{64}+\frac4{64}+\frac1{64}\right)\sigma^2\\
+&=\frac{179\sigma^2}{800}.
+\end{align*}
+Comme $\frac15=\frac{160}{800}<\frac{179}{800}$, le plus efficace est donc l'estimateur $T_1$ qui est la moyenne empirique.
+
+		}
+		\item \question{Quelle est la loi suivie par la variable $U$ ? la variable $V$ ? justifier.}
+		\reponse{$U = \sum_{i=1}^{5}  \left(\frac{X_i-\mu}{\sigma}\right)^2$ ; or les $X_i$ sont des variables aléatoires indépendantes et $\frac{X_i-\mu}{\sigma}$ suit une loi $\mathcal{N}(0,1)$ donc par définition, $U$ suit une loi de $\chi^2(5)$.
+
+			De plus, $T_1 = \overline{X}$ est l'estimateur de moyenne empirique donc d'après le théorème de Fisher, $V$ suit une loi de $\chi^2(5-1) = \chi^2(4)$ et est indépendant de $T_1$. }
+		\item \question{Déterminer $x \in \R$ tel que $\PP(U>x) = 0{,}05$.}
+		\reponse{Comme $U$ suit une loi continue, $\PP(U>x)=0{,}05$ équivaut à $\PP(U\leq x)=0{,}95$. On lit dans la table de loi le quantile $x=q_{5;0{,}95}\simeq11{,}07$. }
+		\item \begin{samepage}
+\question{En utilisant $T_1$ et $U$, construire une variable $Y$ qui suive une loi de Student dont on précisera le paramètre.}
+		\indication{Décomposer la somme des carrés autour de $\mu$ en utilisant la moyenne empirique, puis vérifier l'indépendance nécessaire à la construction de Student.}
+\reponse{\begin{minipage}{\linewidth}
+On pose
+\[
+Z=\frac{T_1-\mu}{\frac{\sigma}{\sqrt5}}
+=\frac{\sqrt5(T_1-\mu)}{\sigma}.
+\]
+La moyenne empirique $T_1$ suit la loi $\mathcal N(\mu,\frac{\sigma}{\sqrt5})$, donc $Z\sim\mathcal N(0,1)$.
+
+Pour conserver une construction à partir de $T_1$ et de $U$, on décompose la somme des carrés. Puisque $\sum_{i=1}^5(X_i-T_1)=0$, on a
+\begin{align*}
+\sum_{i=1}^5(X_i-\mu)^2
+&=\sum_{i=1}^5\bigl((X_i-T_1)+(T_1-\mu)\bigr)^2\\
+&=\sum_{i=1}^5(X_i-T_1)^2+5(T_1-\mu)^2.
+\end{align*}
+Après division par $\sigma^2$, on obtient $U=V+Z^2$, donc $U-Z^2=V$.
+
+Le théorème de Fisher donne $V\sim\chi^2(4)$ et l'indépendance entre $V$ et $T_1$, donc entre $V$ et $Z$. Ainsi,
+\[
+Y=\frac{Z}{\sqrt{\frac{U-Z^2}{4}}}
+=\frac{Z}{\sqrt{\frac V4}}
+\sim St(4).
+\]
+La variable construite suit une loi de Student à 4 degrés de liberté.
+La construction $\frac{Z}{\sqrt{\frac U5}}$ ne donne pas une loi de Student à 5 degrés de liberté, car $U=V+Z^2$ dépend de $Z$.
+\end{minipage}}
+\end{samepage}
+	\end{enumerate}
+
+	}
