@@ -15,11 +15,21 @@
 \texte{Les variables $U_1,\ldots,U_9$ sont indépendantes, de loi $\mathcal N(0,1)$.}
 \begin{enumerate}
 \item \question{Déterminer la loi de $X=\sum_{i=1}^9U_i^2$ et $x$ tel que $\mathbb P(X>x)=0{,}05$.}
-\reponse{$X\sim\chi^2(9)$ et $x=q_{9;0{,}95}\simeq16{,}919$.}
+\reponse{On a $X\sim\chi^2(9)$ et $x\simeq16{,}92$.}
 \item \question{Soit $Y\sim\mathcal N(10,3)$ indépendant de $X$. Déterminer la loi de $Z=\frac{Y-10}{\sqrt X}$ et $z$ tel que $\mathbb P(Z>z)=0{,}05$.}
-\reponse{$Z=\frac{\frac{Y-10}{3}}{\sqrt{\frac{X}{9}}}\sim St(9)$, par indépendance, et $z=t_{9;0{,}95}\simeq1{,}83311$.}
+\reponse{On a $Z=\frac{\frac{Y-10}{3}}{\sqrt{\frac{X}{9}}}$ donc par définition, $Z$ suit une loi de Student $St(9)$ et $z\simeq1{,}833$.}
 \item \question{Soit $V\sim\chi^2(3)$ indépendant de $X$. Déterminer les lois de $W_1=\frac{X}{3V}$ et $W_2=\frac{3V}{X}$, puis $w_2$ tel que $\mathbb P(W_2>w_2)=0{,}05$.}
-\reponse{$W_1=\frac{\frac{X}{9}}{\frac{V}{3}}\sim F(9,3)$ et $W_2=\frac{\frac{V}{3}}{\frac{X}{9}}\sim F(3,9)$.
-Le quantile demandé est $w_2=F_{3,9;0{,}95}\simeq3{,}86255$.}
+\reponse{On a
+\[
+W_1=\frac{\frac X9}{\frac V3},
+\]
+donc $W_1$ suit une loi de Fisher $F(9,3)$. De même,
+\[
+W_2=\frac{\frac V3}{\frac X9},
+\]
+donc $W_2$ suit une loi de Fisher $F(3,9)$. On a
+\[
+w_2=F_{3,9;0{,}95}\simeq3{,}863.
+\]}
 \end{enumerate}
 }
