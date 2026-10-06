@@ -11,22 +11,90 @@
 \difficulte{3}
 \contenu{
 \texte{Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
-\texte{On modélise les teneurs en polluant (mg/L) par des variables normales indépendantes de même loi. La limite de moyenne fixée pour cet exercice est de 7 mg/L ; elle est fictive.}
+\texte{Pour étudier le degré de pollution des eaux d'une rivière par les déchets d'une usine, on mesure la teneur en milligrammes d'un certain polluant par litre d'eau.
+On modélise les mesures par des variables normales indépendantes de même loi, de moyenne $\mu$ et d'écart-type $\sigma>0$.
+Dans cet exercice, on retient une limite de $7\ \mathrm{mg/L}$ pour la teneur moyenne en polluant.
+}
 \begin{enumerate}
-\item \question{Pour 17 mesures, la moyenne observée est $5{,}2$ mg/L et l'écart-type descriptif à diviseur 17 est $1{,}2$ mg/L.
+\item \question{On effectue 17 mesures pour lesquelles les valeurs observées des teneurs en polluant ont une moyenne de $5{,}2\ \mathrm{mg/L}$ et un écart-type descriptif de $1{,}2\ \mathrm{mg/L}$, calculé avec le diviseur 17.
 \begin{enumerate}
-\item Estimer sans biais la moyenne et la variance, puis proposer une estimation de l'écart-type.
-\item Construire l'intervalle de confiance bilatéral à $95\%$ de la moyenne.
-\item Que peut-on en déduire par rapport à la limite de 7 mg/L ?
+\item Estimer sans biais la moyenne et la variance de la teneur en polluant dans cette rivière, puis proposer une estimation de son écart-type.
+\item Donner un intervalle de confiance bilatéral de niveau $95\%$ pour la teneur moyenne en polluant de cette rivière.
+\item À partir de ces résultats, que peut-on conclure par rapport à la limite de $7\ \mathrm{mg/L}$ pour la teneur moyenne ?
 \end{enumerate}}
-\indication{Distinguer la variance descriptive et la variance corrigée ; prendre le quantile gauche $t_{16;0{,}975}$.}
-\reponse{Les estimateurs sans biais sont $\overline X$ et $S^2$. On obtient $\bar x=5{,}2$, $s^2=\frac{17}{16}1{,}2^2=1{,}53$ et $s=\sqrt{1{,}53}\simeq1{,}23693$ ; la racine n'est pas un estimateur sans biais de l'écart-type.
-Le pivot de Student à 16 ddl donne
-\[IC_{95\%}(\mu)=\left[5{,}2-t_{16;0{,}975}\frac{\sqrt{1{,}53}}{\sqrt{17}};\ 5{,}2+t_{16;0{,}975}\frac{\sqrt{1{,}53}}{\sqrt{17}}\right]
-\simeq[4{,}564;5{,}836]\ \text{mg/L}.\]
-La borne supérieure est inférieure à 7 : les données étayent une moyenne inférieure à cette limite sous le modèle. Cela concerne la moyenne, et ne garantit pas que chaque mesure soit inférieure à 7.}
-\item \question{Si l'écart-type de la population est connu et vaut $1{,}2$ mg/L, combien de mesures prévoir pour une marge d'erreur d'au plus $0{,}1$ mg/L à $95\%$ ?}
-\indication{La normalité des observations et l'écart-type connu permettent un pivot normal exact. La marge est la demi-largeur de l'intervalle.}
-\reponse{On impose $\frac{\Phi^{-1}(0{,}975)1{,}2}{\sqrt n}\leq0{,}1$. Ainsi $n\geq553{,}1701$ et il faut au moins \textbf{554 mesures}.}
+\indication{Distinguer la variance descriptive et la variance corrigée ; prendre le quantile à gauche $t_{16;0{,}975}$.}
+\reponse{\textbf{(a)} L'estimateur $\overline X_{17}=\frac{1}{17}\sum_{i=1}^{17}X_i$ est sans biais pour la moyenne $\mu$. Sa réalisation donne l'estimation ponctuelle $\bar x=5{,}2\ \mathrm{mg/L}$.
+
+L'écart-type descriptif observé de $1{,}2\ \mathrm{mg/L}$ est calculé avec le diviseur 17. La variance descriptive vaut donc
+\[
+v_{\mathrm{obs}}=\frac{1}{17}\sum_{i=1}^{17}(x_i-\bar x)^2=1{,}2^2=1{,}44\ (\mathrm{mg/L})^2.
+\]
+L'estimateur de variance corrigée
+\[
+S_{17}^2=\frac{1}{16}\sum_{i=1}^{17}(X_i-\overline X_{17})^2
+\]
+est sans biais pour $\sigma^2$. Sa réalisation est
+\[
+s^2=\frac{17}{16}v_{\mathrm{obs}}
+=\frac{17}{16}\times1{,}2^2
+=1{,}53\ (\mathrm{mg/L})^2.
+\]
+On propose donc l'estimation de l'écart-type
+\[
+s=\sqrt{1{,}53}\simeq1{,}237\ \mathrm{mg/L}.
+\]
+Cependant, $S_{17}=\sqrt{S_{17}^2}$ n'est pas un estimateur sans biais de $\sigma$ : prendre la racine carrée d'un estimateur sans biais de la variance ne conserve pas cette propriété.
+
+\par\begin{minipage}{\linewidth}
+\textbf{(b)} L'écart-type $\sigma$ de la population est inconnu. Sous l'hypothèse de mesures normales indépendantes, le pivot
+\[
+T=\frac{\overline X_{17}-\mu}{\frac{S_{17}}{\sqrt{17}}}
+\]
+suit exactement une loi de Student à $17-1=16$ degrés de liberté. La normalité est supposée dans l'énoncé ; elle ne découle pas de la petite taille de l'échantillon.
+\end{minipage}
+
+Pour un niveau de confiance $95\%$, le risque vaut $\alpha=0{,}05$. Le quantile à gauche est $t_{16;0{,}975}\simeq2{,}11991$, avec
+\[
+\PP(-t_{16;0{,}975}\leq T\leq t_{16;0{,}975})=0{,}95.
+\]
+L'intervalle observé est donc
+\[
+\left[\bar x-t_{16;0{,}975}\frac{s}{\sqrt{17}}\ ;\
+\bar x+t_{16;0{,}975}\frac{s}{\sqrt{17}}\right].
+\]
+La demi-largeur vaut environ
+\[
+2{,}11991\times\frac{\sqrt{1{,}53}}{\sqrt{17}}
+\simeq0{,}63597\ \mathrm{mg/L}.
+\]
+On obtient ainsi environ $[4{,}564\ ;\ 5{,}836]\ \mathrm{mg/L}$, soit, au centième, $[4{,}56\ ;\ 5{,}84]\ \mathrm{mg/L}$.
+
+\par\textbf{(c)} La borne supérieure de cet intervalle, environ $5{,}84\ \mathrm{mg/L}$, est inférieure à la limite de $7\ \mathrm{mg/L}$. Sous le modèle adopté, les données étayent une teneur moyenne inférieure à cette limite. Cela ne constitue pas une preuve certaine et concerne la moyenne ; cela ne garantit pas que chaque mesure soit inférieure à $7\ \mathrm{mg/L}$.
+}
+\question{\item On suppose ici l'écart-type de la population connu et égal à $1{,}2\ \mathrm{mg/L}$. Combien de mesures devrait-on faire pour estimer la teneur moyenne en polluant avec une marge d'erreur d'au plus $0{,}1\ \mathrm{mg/L}$ au niveau de confiance $95\%$ ?}
+\indication{Attention, l'écart-type de la population $\sigma$ est ici supposé connu. Sous l'hypothèse de mesures normales indépendantes, quelle loi doit-on utiliser, quelle que soit la taille de l'échantillon ? La précision demandée correspond à la marge d'erreur, c'est-à-dire à la demi-largeur de l'intervalle.}
+\reponse{L'écart-type de la population $\sigma$ est connu et vaut $1{,}2\ \mathrm{mg/L}$. Sous le modèle normal, on utilise le pivot
+\[
+Z=\frac{\overline X_n-\mu}{\frac{\sigma}{\sqrt n}},
+\]
+qui suit exactement la loi normale centrée réduite.
+
+La précision souhaitée $d=0{,}1\ \mathrm{mg/L}$ correspond à la marge d'erreur, ou demi-largeur de l'intervalle. Pour un niveau de confiance $95\%$, on utilise le quantile à gauche
+\[
+z_{0{,}975}=\Phi^{-1}(0{,}975)\simeq1{,}959964.
+\]
+La marge d'erreur est $z_{0{,}975}\frac{\sigma}{\sqrt n}$. On cherche donc un entier $n$ tel que
+\[
+z_{0{,}975}\frac{1{,}2}{\sqrt n}\leq0{,}1.
+\]
+Cela équivaut successivement à
+\begin{align*}
+\sqrt n&\geq\frac{z_{0{,}975}\times1{,}2}{0{,}1},\\
+n&\geq\left(\frac{z_{0{,}975}\times1{,}2}{0{,}1}\right)^2.
+\end{align*}
+Le membre de droite vaut environ $553{,}1701$. Comme $n$ doit être un entier, on arrondit à l'entier supérieur : on doit effectuer au minimum \fbox{$n=554$} mesures.
+
+\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/Ec9ve_iQd-pNn_Tf86GSa8EBJUrDEkRpISpMW4xkp23PeQ?e=oOly0h}{Détail des calculs sur tableur}
+}
 \end{enumerate}
 }
