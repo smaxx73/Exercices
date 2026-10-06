@@ -10,20 +10,143 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-\texte{Une production doit avoir une proportion de pièces défectueuses d'au plus $p_0=0{,}01$. Une étude antérieure indépendante sur 5000 pièces en avait trouvé 100 défectueuses, suggérant l'alternative $p_1=0{,}02$.
-Un nouveau contrôle prélève 1500 pièces indépendamment dans une production de grande taille : $K\sim\mathcal B(1500,p)$ et $F=\frac{K}{1500}$. On teste $H_0:p\leq0{,}01$ contre $H_1:p>0{,}01$, au seuil de $1\%$.}
+\texte{Une entreprise fabrique des pièces en sous-traitance. Au sein d'une démarche qualité, toutes les machines ont été systématiquement révisées et une nouvelle organisation a été définie dans l'atelier : les tâches de contrôle sont réparties à chaque étape du processus de fabrication. Le taux de pièces défectueuses était alors tombé à $1\%$.
+
+Quelques mois plus tard, une opération de contrôle est effectuée pour vérifier si l'objectif de $1\%$ reste valable. Sur les 5000 pièces contrôlées, 100 s'avèrent défectueuses, soit $2\%$. Cette étude antérieure suggère la valeur $p_1=0{,}02$ pour étudier le risque de ne pas détecter une dégradation.
+
+Mme de Mainard, chef d'entreprise, décide de ne pas modifier son processus de production si le test ne rejette pas l'hypothèse nulle (décision $D_0$). S'il la rejette, elle entreprendra une action de sensibilisation des salariés de cet atelier au problème de la qualité (décision $D_1$).
+
+\begin{minipage}{\linewidth}
+Pour effectuer ce test, elle prélève un nouvel échantillon de 1500 pièces dans une production de grande taille, indépendamment de l'étude antérieure. On modélise les états des pièces par des variables $X_1,\ldots,X_{1500}$ indépendantes de même loi, avec $X_i=1$ si la pièce $i$ est défectueuse et $X_i=0$ sinon. Ainsi,
+\[
+X_i\sim\mathcal B(1,p),\qquad K=\sum_{i=1}^{1500}X_i\sim\mathcal B(1500,p),
+\qquad F=\frac{K}{1500}.
+\]
+Les 1500 pièces ne sont pas prélevées sans remise dans le lot initial de 5000 pièces ; un tel prélèvement conduirait à un modèle hypergéométrique.
+\end{minipage}
+}
 \begin{enumerate}
-\item \question{Déterminer la règle de décision avec l'approximation normale puis vérifier son risque binomial réel. Proposer une règle exacte de niveau au plus $1\%$.}
-\reponse{Le seuil normal de fréquence est
-\[f_c=0{,}01+\Phi^{-1}(0{,}99)\sqrt{\frac{0{,}01\times0{,}99}{1500}}\simeq0{,}0159765.\]
-Rejeter pour $F>f_c$ revient à $K\geq24$. Mais le risque réel à $p_0$ vaut $\mathbb P_{p_0}(K\geq24)\simeq0{,}018935$, supérieur à $1\%$.
-La règle exacte rejette pour \textbf{$K\geq26$} : son risque vaut $0{,}005938$. Le seuil 25 donnerait $0{,}010793$, encore trop élevé. La discrétisation empêche généralement d'atteindre exactement le niveau demandé sans randomisation.}
-\item \question{On observe 18 pièces défectueuses. Quelle décision prendre ?}
-\reponse{$f_{\mathrm{obs}}=\frac{18}{1500}=0{,}012$. Les deux règles ne rejettent pas $H_0$ ; cela ne prouve pas que $p\leq0{,}01$.}
-\item \question{Calculer le risque de seconde espèce et la puissance pour $p_1=0{,}02$, avec la règle exacte retenue.}
-\reponse{$\beta=\mathbb P_{p_1}(K\leq25)\simeq0{,}205776$ et la puissance vaut $1-\beta\simeq0{,}794224$.
+\question{\item Si la chef d'entreprise se fixe un risque nominal de $1\%$ d'entreprendre une action de sensibilisation des salariés à tort, quel sera le taux critique de pièces défectueuses qui fera prendre une décision, en utilisant l'approximation normale ? Vérifier le risque binomial réel de cette règle et comparer avec une règle exacte de niveau au plus $1\%$.}
+\indication{Sous $H_0$, utiliser $p_0=0{,}01$ pour calculer la variance de la fréquence. Standardiser $F$ et utiliser le quantile $\Phi^{-1}(0{,}99)$. Conserver la valeur non arrondie du taux critique pour passer au nombre entier de pièces défectueuses.}
+\reponse{On réalise les premières étapes d'un test de conformité d'une proportion.
+\begin{enumerate}
+\item \textbf{Hypothèses.} On teste
+\[
+\begin{cases}
+H_0:p=p_0=0{,}01,\\
+H_1:p>0{,}01.
+\end{cases}
+\]
+Le seuil nominal est $\alpha=0{,}01$ ; la valeur $p_1=0{,}02$ servira au calcul du risque de seconde espèce.
+
+\item \textbf{Variable de décision.} Sous $H_0$,
+\[
+\mathbb E(F)=p_0,\qquad
+\operatorname{Var}(F)=\frac{p_0(1-p_0)}{1500}.
+\]
+Le théorème central limite conduit à la variable standardisée
+\[
+Z=\frac{F-0{,}01}{\sqrt{\frac{0{,}01\times0{,}99}{1500}}},
+\]
+dont la loi est approximativement $\mathcal N(0,1)$ sous $H_0$. Il s'agit d'une approximation, même si l'effectif total est grand : ici, le nombre moyen de pièces défectueuses sous $H_0$ est $1500\times0{,}01=15$.
+
+\item \textbf{Zone de rejet approchée.} L'alternative conduit à rejeter pour les grandes valeurs de $Z$. Le quantile unilatéral est
+\[
+u_{0{,}01}=\Phi^{-1}(0{,}99)\simeq2{,}32635,
+\]
+soit $2{,}326$ avec la table utilisée dans le corrigé initial. On choisit $D_1$ si $z_{\mathrm{obs}}>u_{0{,}01}$, et $D_0$ sinon.
+
+\item \textbf{Taux critique.} La condition précédente équivaut à $f_{\mathrm{obs}}>f_c$, où
+\begin{align*}
+f_c&=0{,}01+\Phi^{-1}(0{,}99)\sqrt{\frac{0{,}01\times0{,}99}{1500}}\\
+&\simeq0{,}01+2{,}32635\times0{,}00256905\\
+&\simeq0{,}0159765=1{,}59765\%.
+\end{align*}
+\begin{minipage}{\linewidth}
+On conserve l'arrondi initial $1{,}6\%$ comme valeur indicative. Pour décider, on utilise le seuil non arrondi : $1500f_c\simeq23{,}96474$, donc la règle est
+\[
+D_1\text{ si }k_{\mathrm{obs}}\geq24,
+\qquad D_0\text{ si }k_{\mathrm{obs}}\leq23.
+\]
+Utiliser strictement le taux arrondi $1{,}6\%$ comme seuil changerait la règle, car $\frac{24}{1500}=1{,}6\%$.
+\end{minipage}
+\end{enumerate}
+
+\textbf{Vérification binomiale.} Sous $H_0$, $K\sim\mathcal B(1500,0{,}01)$ exactement. Le risque de première espèce réel de la règle normale est
+\[
+\alpha_{\mathrm{réel,normal}}
+=\PP_{p_0}(K\geq24)
+=1-\PP_{p_0}(K\leq23)
+\simeq0{,}0189347,
+\]
+soit environ $1{,}8935\%$, supérieur au seuil nominal de $1\%$.
+L'approximation normale sous-estime donc ici ce risque.
+
+Pour une règle exacte de la forme $D_1$ si $K\geq c$, le plus petit seuil entier dont le risque est au plus $1\%$ est $c=26$ :
+\[
+\PP_{p_0}(K\geq25)\simeq0{,}0107933>0{,}01,
+\qquad
+\PP_{p_0}(K\geq26)\simeq0{,}0059380\leq0{,}01.
+\]
+\begin{minipage}{\linewidth}
+Cette règle exacte choisit $D_1$ pour $k_{\mathrm{obs}}\geq26$, et $D_0$ pour $k_{\mathrm{obs}}\leq25$. Son risque vaut environ $0{,}5938\%$. La loi discrète ne permet pas en général d'obtenir exactement le niveau demandé avec une règle de seuil sans randomisation.
+\end{minipage}
+}
+\question{\item Si, dans l'échantillon prélevé, le nombre de pièces défectueuses est 18, quelle sera la décision de la chef d'entreprise ?}
+\reponse{\begin{minipage}{\linewidth}
+La fréquence observée est
+\[
+f_{\mathrm{obs}}=\frac{18}{1500}=0{,}012=1{,}2\%.
+\]
+Elle est inférieure à $f_c\simeq1{,}59765\%$ ; de même, $18<24$ et $18<26$. Les deux règles conduisent donc à la décision $D_0$ : on ne rejette pas $H_0$ et aucune action n'est entreprise au titre de ce test. Ce non-rejet ne prouve ni l'égalité $p=0{,}01$, ni le respect de l'objectif.
+\end{minipage}}
+\question{\item Calculer alors le risque de l'acheteur, c'est-à-dire ne pas modifier le processus de production alors qu'on le devrait, lorsque $p=p_1=0{,}02$. Comment s'appelle ce risque ? Donner aussi la puissance. Distinguer l'approximation normale et les risques binomiaux des deux règles de décision.}
+\indication{Le risque de première espèce $\alpha$ se calcule sous $p_0$, tandis que le risque de seconde espèce $\beta$ se calcule sous $p_1$. Pour $\beta$, utiliser la zone de non-rejet et la variance sous $p_1$, puis identifier le dernier entier non rejeté pour chacune des règles.}
+\reponse{Le risque demandé est le \textbf{risque de seconde espèce} : la probabilité de prendre $D_0$ alors que le taux vaut $p_1=0{,}02$. On le note $\beta(p_1)$ ; la puissance au point $p_1$ est $1-\beta(p_1)$.
+
+\textbf{Calcul normal approché du corrigé initial.} Sous $p=p_1=0{,}02$,
+\[
+\mathbb E(F)=0{,}02,\qquad
+\operatorname{Var}(F)=\frac{0{,}02\times0{,}98}{1500}.
+\]
+La variable
+\[
+Z_2=\frac{F-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}
+\]
+suit approximativement une loi $\mathcal N(0,1)$. La décision $D_0$ correspond au seuil continu $F\leq f_c$. Ainsi,
+\begin{align*}
+\PP_{p_1}(F\leq f_c)
+&=\PP_{p_1}\left(Z_2\leq\frac{f_c-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}\right)\\
+&\simeq\Phi\left(\frac{f_c-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}\right)\\
+&\simeq\Phi\left(\frac{0{,}0159764959-0{,}02}{0{,}0036147845}\right)\\
+&\simeq\Phi(-1{,}11307)\simeq0{,}132839.
+\end{align*}
+Ce calcul fournit $\beta_{\mathrm{approx}}\simeq0{,}132839$, soit environ $13{,}28\%$ de risque de ne pas détecter la dégradation et une puissance approchée de $86{,}72\%$. Ce calcul est effectué sans correction de continuité.
+
+\begin{minipage}{\linewidth}
+\textbf{Risque binomial réel de la règle normale.} La règle normale choisit $D_0$ si $K\leq23$. Sous $p_1$, $K\sim\mathcal B(1500,0{,}02)$, donc
+\[
+\beta_{\mathrm{réel,normal}}=\PP_{p_1}(K\leq23)
+\simeq0{,}112246,
+\qquad 1-\beta_{\mathrm{réel,normal}}\simeq0{,}887754.
+\]
+On obtient ce risque dans Excel par
+\texttt{=LOI.BINOMIALE.N(23;1500;0,02;VRAI)}.
+L'écart avec $0{,}132839$ provient de l'approximation normale de cette même règle.
+\end{minipage}
+
+\textbf{Risque de la règle exacte de niveau au plus $1\%$.} Pour le rejet à partir de 26 pièces défectueuses, $D_0$ correspond à $K\leq25$. Ainsi,
+\[
+\beta_{\mathrm{exact}}=\PP_{p_1}(K\leq25)
+\simeq0{,}205776,
+\qquad 1-\beta_{\mathrm{exact}}\simeq0{,}794224.
+\]
 Excel : \texttt{=LOI.BINOMIALE.N(25;1500;0,02;VRAI)}.
-Pour comparaison, l'approximation normale continue au seuil $f_c$ donne $\beta\simeq0{,}13284$ ; ce n'est pas le risque de la règle exacte $K\geq26$.
-Si le nouveau prélèvement était sans remise dans le lot initial de 5000 pièces, le modèle serait hypergéométrique. L'énoncé suppose ici un contrôle indépendant sur une nouvelle production.}
+Le risque est donc d'environ $20{,}58\%$, pour une puissance de $79{,}42\%$.
+
+\begin{minipage}{\linewidth}
+La règle exacte rejette moins facilement : elle réduit le risque de première espèce, mais augmente ici celui de seconde espèce. Les valeurs $0{,}132839$, $0{,}112246$ et $0{,}205776$ correspondent respectivement à une approximation, au calcul exact de la règle normale et au calcul exact de la règle de seuil 26 ; elles ne doivent pas être confondues.
+\end{minipage}
+}
 \end{enumerate}
 }
