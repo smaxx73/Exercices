@@ -13,17 +13,86 @@
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
 \texte{Soient $X_1,\ldots,X_n$ indépendantes de loi $\mathcal N(\mu,\sigma)$, $\sigma>0$. On suppose $n\geq2$ et les observations $x_i$ non toutes égales. La densité est $f(x)=(\sigma\sqrt{2\pi})^{-1}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$.}
 \begin{enumerate}
-\item \question{Exprimer la vraisemblance et son logarithme.}
-\reponse{$L(\mu,\sigma)=(\sigma\sqrt{2\pi})^{-n}\exp\left(-\frac{\sum(x_i-\mu)^2}{2\sigma^2}\right)$ et $\ell=-n\log\sigma-\frac n2\log(2\pi)-\frac{\sum(x_i-\mu)^2}{2\sigma^2}$.}
-\item \question{Dériver $\ell$ par rapport à $\mu$.}
-\reponse{$\frac{\partial\ell}{\partial\mu}=\frac{\sum(x_i-\mu)}{\sigma^2}$.}
-\item \question{En déduire l'estimation et l'estimateur de $\mu$.}
-\reponse{La dérivée s'annule en $\widehat\mu_{\mathrm{obs}}=\bar x$. C'est un maximum pour chaque $\sigma$, car $\frac{\partial^2\ell}{\partial\mu^2}=-\frac{n}{\sigma^2}<0$. L'estimateur est $\widehat M_n=\overline X$.}
-\item \question{Déterminer de même l'estimation et l'estimateur de $\sigma$.}
-\reponse{Après remplacement de $\mu$ par $\bar x$, $\frac{\partial\ell}{\partial\sigma}=-\frac{n}{\sigma}+\frac{\sum(x_i-\bar x)^2}{\sigma^3}$. Le maximum est donc
-\[\widehat\sigma_{\mathrm{obs}}=\sqrt{\frac1n\sum_{i=1}^n(x_i-\bar x)^2},\qquad
-\widehat H_n=\sqrt{\frac1n\sum_{i=1}^n(X_i-\overline X)^2}.\]
-La décomposition $\sum(x_i-\mu)^2=\sum(x_i-\bar x)^2+n(\bar x-\mu)^2$ justifie le maximum conjoint. Le diviseur de l'EMV de variance est $n$, tandis que l'estimateur sans biais de variance utilise $n-1$.
-Si toutes les observations étaient égales, la vraisemblance serait non bornée lorsque $\sigma\to0$ et il n'y aurait pas de maximum pour $\sigma>0$.}
+\item \question{Exprimer la fonction de vraisemblance $L(x_1,\ldots,x_n,\mu,\sigma)$, puis son logarithme.}
+\reponse{Par indépendance des variables de l'échantillon, on a
+\begin{align*}
+L(x_1,\ldots,x_n,\mu,\sigma)
+&=\prod_{i=1}^n f(x_i)\\
+&=\prod_{i=1}^n\frac1{\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(x_i-\mu)^2}{2\sigma^2}\right)\\
+&=(\sigma\sqrt{2\pi})^{-n}
+\exp\left(-\frac{\sum_{i=1}^n(x_i-\mu)^2}{2\sigma^2}\right).
+\end{align*}
+En notant $\ell(\mu,\sigma)=\ln L(x_1,\ldots,x_n,\mu,\sigma)$, on obtient
+\begin{align*}
+\ell(\mu,\sigma)
+&=\sum_{i=1}^n\ln\left(\frac1{\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(x_i-\mu)^2}{2\sigma^2}\right)\right)\\
+&=-n\ln(\sigma\sqrt{2\pi})
+-\frac1{2\sigma^2}\sum_{i=1}^n(x_i-\mu)^2.
+\end{align*}}
+
+\item \question{Dériver $\ln L(x_1,\ldots,x_n,\mu,\sigma)$ par rapport à $\mu$.}
+\reponse{En dérivant le terme quadratique par rapport à $\mu$, on trouve
+\[
+\frac{\partial\ell}{\partial\mu}
+=\sum_{i=1}^n\frac{x_i-\mu}{\sigma^2}
+=\frac1{\sigma^2}\sum_{i=1}^n(x_i-\mu).
+\]}
+
+\item \question{En déduire une estimation et un estimateur de $\mu$.}
+\reponse{Pour chaque $\sigma>0$, on a
+\begin{align*}
+\frac{\partial\ell}{\partial\mu}=0
+&\iff\sum_{i=1}^n\frac{x_i-\mu}{\sigma^2}=0\\
+&\iff\sum_{i=1}^n x_i-n\mu=0\\
+&\iff\mu=\frac1n\sum_{i=1}^n x_i=\bar x.
+\end{align*}
+Il s'agit bien de l'unique maximum par rapport à $\mu$, pour chaque $\sigma>0$, puisque
+\[
+\frac{\partial^2\ell}{\partial\mu^2}=-\frac n{\sigma^2}<0.
+\]
+On distingue l'estimation obtenue à partir des observations et l'estimateur aléatoire correspondant :
+\[
+\widehat\mu_{\mathrm{obs}}=\bar x,
+\qquad \widehat M_n=\overline X=\frac1n\sum_{i=1}^n X_i.
+\]}
+
+\item \question{Déterminer une estimation et un estimateur de $\sigma$ avec une démarche analogue.}
+\indication{Remplacer $\mu$ par son estimation, puis étudier le signe de la dérivée par rapport à $\sigma$.}
+\reponse{La dérivée du logarithme de la vraisemblance par rapport à $\sigma$ vaut
+\[
+\frac{\partial\ell}{\partial\sigma}
+=\sum_{i=1}^n\frac{(x_i-\mu)^2}{\sigma^3}-\frac n\sigma.
+\]
+Puisque $\mu$ est inconnu, on remplace $\mu$ par son estimation $\bar x$. On pose $Q=\sum_{i=1}^n(x_i-\bar x)^2$. Les observations n'étant pas toutes égales, $Q>0$, et
+\[
+\frac{d}{d\sigma}\ell(\bar x,\sigma)
+=\frac Q{\sigma^3}-\frac n\sigma
+=\frac{Q-n\sigma^2}{\sigma^3}.
+\]
+Pour $\sigma>0$, cette dérivée s'annule si et seulement si
+\begin{align*}
+Q-n\sigma^2=0
+&\iff\sum_{i=1}^n(x_i-\bar x)^2=n\sigma^2\\
+&\iff\sigma^2=\frac1n\sum_{i=1}^n(x_i-\bar x)^2\\
+&\iff\sigma=\sqrt{\frac1n\sum_{i=1}^n(x_i-\bar x)^2}.
+\end{align*}
+La dérivée est positive avant $\sqrt{\frac Qn}$ et négative après. Il s'agit donc de l'unique maximum en $\sigma$. L'estimation et l'estimateur correspondants sont
+\[
+\widehat\sigma_{\mathrm{obs}}=\sqrt{\frac1n\sum_{i=1}^n(x_i-\bar x)^2},
+\qquad
+\widehat H_n=\sqrt{\frac1n\sum_{i=1}^n(X_i-\overline X)^2}.
+\]
+La décomposition
+\[
+\sum_{i=1}^n(x_i-\mu)^2
+=\sum_{i=1}^n(x_i-\bar x)^2+n(\bar x-\mu)^2
+\]
+montre que, pour chaque $\sigma>0$, la vraisemblance est maximale en $\mu=\bar x$. La maximisation précédente en $\sigma$ donne donc le maximum conjoint.
+
+Le diviseur de l'estimateur du maximum de vraisemblance de la variance est $n$, tandis que l'estimateur sans biais de la variance utilise $n-1$.
+
+Si toutes les observations étaient égales, en prenant $\mu$ égal à leur valeur commune, la vraisemblance serait $(\sigma\sqrt{2\pi})^{-n}$, non bornée lorsque $\sigma\to0^+$. Il n'y aurait alors pas de maximum pour $\sigma>0$.}
 \end{enumerate}
 }
