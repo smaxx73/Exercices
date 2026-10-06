@@ -22,7 +22,7 @@ L'argument \texttt{VRAI} demande la fonction de répartition, c'est-à-dire la p
 \item \question{$\mathbb P(X\geq40)$ pour $X\sim\mathcal N(50,3)$.}
 \reponse{\texttt{=1-LOI.NORMALE.N(40;50;3;VRAI)} donne $0{,}999571$.}
 \item \question{$\mathbb P(90\leq X\leq120)$ pour $X\sim\mathcal N(100,15)$.}
-\reponse{\texttt{=LOI.NORMALE.N(120;100;15;VRAI)} moins \texttt{LOI.NORMALE.N(90;100;15;VRAI)} donne $0{,}656296$.}
+\reponse{\texttt{=LOI.NORMALE.N(120;100;15;VRAI)-LOI.NORMALE.N(90;100;15;VRAI)} donne $0{,}656296$.}
 \item \question{$\mathbb P(X\geq5)$ pour $X\sim\mathcal E(\frac{1}{2})$.}
 \reponse{\texttt{=1-LOI.EXPONENTIELLE.N(5;0,5;VRAI)} donne $e^{-2{,}5}\simeq0{,}082085$.}
 \item \question{$\mathbb P(X=3)$ et $\mathbb P(X\geq2)$ pour $X\sim\mathcal P(1{,}5)$.}
