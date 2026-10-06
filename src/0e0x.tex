@@ -11,19 +11,70 @@
 \difficulte{}
 \contenu{
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
-\texte{On relève le taux de cholestérol de 20 personnes choisies indépendamment. On adopte un modèle normal $\mathcal N(\mu,\sigma)$.
-\begin{center}\begin{tabular}{lrrrrrr}\hline
-Taux (cg/L) & 120 & 160 & 200 & 240 & 280 & 320 \\
-Effectif & 2 & 4 & 5 & 4 & 3 & 2 \\ \hline
-\end{tabular}\end{center}}
+\texte{ Un centre médical mène des études statistiques sur le taux de cholestérol de son personnel, mesuré en centigrammes par litre de sang. Les observations sur 20 individus supposés sains, tirés au sort, sont les suivantes :
+
+ \begin{center}
+ \begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+{\bf Taux de cholestérol en cg/L} & 120 & 160 & 200 & 240 & 280 & 320 \\ \hline
+{\bf Nombre de sujets observés} & 2   & 4   & 5   & 4   & 3   & 2   \\ \hline
+\end{tabular}
+\end{center}
+
+Le taux de cholestérol chez un individu sain (noté $X$) est supposé suivre une loi normale $\mathcal N(\mu,\sigma)$, avec $\sigma>0$. Les observations sont modélisées par des variables indépendantes de cette même loi.
+}
 \begin{enumerate}
-\item \question{Estimer l'espérance et la variance. Préciser les estimateurs et leurs propriétés.}
-\reponse{Les estimateurs $\overline X$ et $S^2=\frac{\sum(X_i-\overline X)^2}{19}$ sont sans biais et convergents dans ce modèle. Les réalisations sont $\bar x=216$ cg/L et $s^2=3604{,}21053$ (cg/L)$^2$, donc $s\simeq60{,}03508$ cg/L.}
-\item \question{Construire un intervalle de confiance bilatéral à $99\%$ pour $\mu$.}
+\item \question{Donner une estimation $\overline{x}$ de l'espérance mathématique de $X$ et une estimation $s^2$ de la variance de $X$. On précisera les estimateurs choisis et on en donnera les propriétés.}
+\reponse{Les estimateurs usuels sont, pour un échantillon de taille $n\geq2$,
+\[
+\overline X_n=\frac{1}{n}\sum_{i=1}^nX_i,
+\qquad
+S_n^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline X_n)^2.
+\]
+Sous le modèle normal, ils sont sans biais : $\mathbb E(\overline X_n)=\mu$ et $\mathbb E(S_n^2)=\sigma^2$. Les deux suites d'estimateurs convergent en probabilité vers ces paramètres lorsque $n\to\infty$.
+
+Pour cette réalisation de l'échantillon de taille $20$, la somme des valeurs et la somme de leurs carrés, calculées avec les effectifs du tableau, valent
+\[
+\sum_{i=1}^{20}x_i=4320,
+\qquad \sum_{i=1}^{20}x_i^2=1001600.
+\]
+Avec l'estimateur usuel $\overline X_{20}$, on obtient
+\[
+\bar x=\frac{4320}{20}=216\ \mathrm{cg/L}.
+\]
+Avec l'estimateur de variance corrigée $S_{20}^2$, on obtient
+\begin{align*}
+s^2&=\frac{1}{19}\sum_{i=1}^{20}(x_i-\bar x)^2\\
+&=\frac{\sum_{i=1}^{20}x_i^2-20\bar x^2}{19}\\
+&=\frac{1001600-20\times216^2}{19}
+\simeq3604{,}21\ (\mathrm{cg/L})^2.
+\end{align*}
+On en déduit l'estimation de l'écart-type $s=\sqrt{s^2}\simeq60{,}0351\ \mathrm{cg/L}$.}
+
+\item \question{Donner l'intervalle de confiance de l'espérance de $X$, centré sur $\overline{x}$, au risque $\alpha=0{,}01$.}
 \indication{La variance est inconnue et le modèle normal est une hypothèse de l'énoncé : utiliser Student à 19 degrés de liberté.}
-\reponse{Le pivot $\frac{\overline X-\mu}{\frac{S}{\sqrt{20}}}$ suit exactement $St(19)$. Ainsi
-\[\left[\bar x-t_{19;0{,}995}\frac s{\sqrt{20}};\ \bar x+t_{19;0{,}995}\frac s{\sqrt{20}}\right]
-\simeq[177{,}594;254{,}406]\ \text{cg/L}.\]
-La normalité ne découle pas du faible effectif ; elle est supposée ici.}
+\reponse{La normalité est une hypothèse de l'énoncé ; elle ne découle pas du faible effectif. La variance $\sigma^2$ est inconnue. Dans ce modèle, le pivot
+\[
+T=\frac{\overline X_{20}-\mu}{\frac{S_{20}}{\sqrt{20}}}
+\]
+suit exactement une loi de Student $St(19)$.
+
+On utilise le quantile à gauche $t_{19;0{,}995}\simeq2{,}860935$, de sorte que $\PP(-t_{19;0{,}995}\leq T\leq t_{19;0{,}995})=0{,}99$. L'intervalle observé est donc
+\[
+\left[\bar x-t_{19;0{,}995}\frac{s}{\sqrt{20}}\ ;\
+\bar x+t_{19;0{,}995}\frac{s}{\sqrt{20}}\right].
+\]
+\begin{minipage}{\linewidth}
+La demi-largeur vaut environ $38{,}4059\ \mathrm{cg/L}$. On obtient ainsi
+\[
+[177{,}5941\ ;\ 254{,}4059]\ \mathrm{cg/L},
+\]
+soit, au dixième,
+\[
+[177{,}6\ ;\ 254{,}4]\ \mathrm{cg/L}.
+\]
+\href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EdFYJYRKwvBGoIULbkJQ6NkBRZn1HoiI2RaoiEOYqpaQFg?e=cQhUaa}{Feuille de calcul}
+\end{minipage}
+}
 \end{enumerate}
 }
