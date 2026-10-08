@@ -1,7 +1,7 @@
 \uuid{RHhQ}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Autre}
 \titre{Corrélation entre le poids et la taille}
 \theme{statistiques, tableur}
@@ -10,5 +10,41 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\question{ 	A partir des données du fichier \href{https://github.com/smaxx73/Exercices/blob/main/data/SOCR-HeightWeight.csv}{SOCR-HeightWeight.csv} et des fonctions du tableur, déterminer tous les indicateurs de position et de dispersion de chaque variable, puis effectuer une analyse graphique et numérique de la corrélation linéaire entre les deux variables. On pourra traduire au préalable les données dans des unités de mesure européennes. }}
+\texte{Utiliser \href{https://github.com/smaxx73/Exercices/blob/main/data/SOCR-HeightWeight.csv}{\texttt{SOCR-HeightWeight.csv}}.\par
+Le fichier comporte les colonnes \texttt{Index}, \texttt{Height(Inches)} et \texttt{Weight(Pounds)}. L'objectif est de décrire les deux variables mesurées et leur association, puis de comprendre l'effet des unités. Conserver les données d'origine et effectuer les conversions dans deux nouvelles colonnes.}
+\begin{enumerate}
+\item \question{Importer le fichier, vérifier l'effectif et les valeurs manquantes. Faut-il inclure la colonne \texttt{Index} dans les statistiques ou dans une future ACP ?}
+\indication{Le séparateur est la virgule et le séparateur décimal est le point. Vérifier que les deux colonnes mesurées sont reconnues comme numériques.}
+\reponse{Le fichier contient 25000 observations, sans valeur manquante. \texttt{Index} est un identifiant unique, pas une troisième variable mesurée : on l'exclut des statistiques, de la corrélation et de l'ACP.}
+\item \question{Créer les colonnes Taille (cm) et Poids (kg). On donne $1$ pouce $=2{,}54$ cm et $1$ livre $=0{,}45359237$ kg. Vérifier les unités et conserver assez de décimales pour les calculs suivants.}
+\indication{Multiplier la taille en pouces par $2{,}54$ et le poids en livres par $0{,}45359237$ ; recopier les deux formules sur toutes les lignes. Arrondir l'affichage, pas les données utilisées dans les calculs.}
+\reponse{Les conversions sont $h_{\mathrm{cm}}=2{,}54h_{\mathrm{pouces}}$ et $w_{\mathrm{kg}}=0{,}45359237w_{\mathrm{livres}}$. Les tailles vont d'environ $153{,}1070$ à $190{,}8881$ cm, et les poids de $35{,}3869$ à $77{,}5298$ kg.}
+\item \question{Pour chaque variable convertie, calculer minimum, premier quartile, médiane, moyenne, troisième quartile, maximum, étendue, écart interquartile, variance corrigée et écart-type corrigé. Présenter un tableau avec les unités. Utiliser les quartiles interpolés de \texttt{QUARTILE.INCLURE} et le diviseur $n-1$ pour la variance.}
+\indication{L'étendue est maximum moins minimum ; l'écart interquartile est $Q_3-Q_1$. Dans Excel, \texttt{VAR.S} et \texttt{ECARTYPE.STANDARD} utilisent le diviseur $n-1$. Ne pas inclure l'en-tête ou la colonne d'index dans les plages de calcul.}
+\reponse{\begin{minipage}{\linewidth}
+On obtient :
+\begin{center}\begin{tabular}{lrr}\hline
+Indicateur & Taille & Poids \\ \hline
+Minimum & 153,1070 & 35,3869 \\
+Premier quartile & 169,4292 & 54,1175 \\
+Médiane & 172,7091 & 57,6778 \\
+Moyenne & 172,7025 & 57,6423 \\
+Troisième quartile & 175,9533 & 61,1864 \\
+Maximum & 190,8881 & 77,5298 \\
+Étendue & 37,7811 & 42,1429 \\
+Écart interquartile & 6,5241 & 7,0689 \\
+Variance corrigée & 23,33145 & 27,97663 \\
+Écart-type corrigé & 4,83026 & 5,28929 \\ \hline
+\end{tabular}\end{center}
+Les valeurs de position, l'étendue, l'écart interquartile et l'écart-type sont en cm pour la taille, en kg pour le poids. La variance est en cm$^2$ ou en kg$^2$. Pour la variance descriptive à diviseur $n$, multiplier les variances corrigées par $\frac{24999}{25000}$.
+\end{minipage}}
+\item \question{Tracer un histogramme et un diagramme en boîte pour chaque variable. Comparer moyenne et médiane, puis commenter ce que les graphiques apportent au tableau. Une valeur isolée doit-elle être supprimée automatiquement ?}
+\reponse{Les moyennes et médianes sont proches : $172{,}7025$ et $172{,}7091$ cm ; $57{,}6423$ et $57{,}6778$ kg. Les histogrammes renseignent sur la forme et la concentration ; les boîtes situent médiane, quartiles et observations éloignées selon la convention du logiciel. Une observation isolée doit être examinée, pas supprimée automatiquement. La proximité de la moyenne et de la médiane ne prouve pas une loi normale.}
+\item \question{Tracer le poids en fonction de la taille avec un nuage de points, puis calculer la corrélation linéaire. Commenter le sens et l'intensité de l'association. Comparer avec le résultat de \texttt{t2sS}, si cet exercice a été traité.}
+\indication{Placer la taille en abscisse et le poids en ordonnée, avec des points de petite taille adaptés aux 25000 observations. Ne pas relier les points dans l'ordre de l'index.}
+\reponse{La corrélation vaut $r\simeq0{,}502859$ : l'association est croissante, avec une dispersion importante autour d'une tendance linéaire. Elle est moins marquée que dans \texttt{t2sS}, où $r\simeq0{,}92697$. La corrélation seule ne décrit pas toute la relation et n'établit pas de causalité. Les deux fichiers ne permettent pas, sans information sur leur constitution, de généraliser cette comparaison à des populations.}
+\item \question{Recalculer la corrélation dans les unités d'origine. Pourquoi est-elle inchangée ? Comment une multiplication des valeurs par $a>0$ transforme-t-elle moyenne, écart-type et variance ? Pourquoi ne peut-on pas comparer directement les deux variances numériques pour décider quelle variable domine une ACP ?}
+\reponse{La corrélation reste $r\simeq0{,}502859$ : les conversions positives d'unités ne modifient pas le coefficient de corrélation linéaire. Une multiplication par $a>0$ multiplie moyenne et écart-type par $a$, mais variance par $a^2$. Ici les facteurs de variance sont $2{,}54^2=6{,}4516$ et $0{,}45359237^2\simeq0{,}205746$. Les deux variances ont des unités différentes et leurs valeurs numériques dépendent du choix des unités. Dans une ACP normée, on centre et réduit les variables pour donner à chacune une variance égale à 1 selon la convention retenue. Cette réduction n'efface pas la corrélation.}
+\end{enumerate}
+\texte{À rendre : le fichier du tableur avec les conversions, le tableau et les graphiques, accompagné d'une courte interprétation et de l'explication de l'effet des unités.}
+}

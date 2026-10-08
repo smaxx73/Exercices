@@ -1,7 +1,7 @@
 \uuid{trhY}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
 \titre{Selon le choix de l'hypothèse}
 \theme{tests statistiques}
@@ -10,38 +10,105 @@
 \organisation{AMSCC}
 \difficulte{2}
 \contenu{
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Dans une grande entreprise, le salaire moyen annuel des hommes ayant entre 3 et 5 ans d'ancienneté est de \numprint{28000} euros. Pour préparer une négociation sur la parité des salaires hommes-femmes, on fait un sondage sur 10 femmes de même ancienneté qui donne les résultats suivants (en milliers d'euros) :
+\[
+24\qquad27\qquad31\qquad19\qquad26\qquad27\qquad22\qquad15\qquad33\qquad21.
+\]
+À l'ouverture de la réunion, Monsieur A, délégué du personnel, annonce : \og Le sondage montre qu'il n'y a pas lieu de penser que le salaire des femmes est différent de celui des hommes \fg{}. Il est aussitôt interrompu par Madame B, directrice des ressources humaines, qui dit : \og Pas du tout, le sondage prouve que le salaire des femmes est inférieur à celui des hommes \fg{}. Qu'en pensez-vous ?
 
-\texte{ 	Dans une grande entreprise, le salaire moyen annuel des hommes ayant entre 3 et 5 ans d'ancienneté est de \numprint{28000} euros. Pour préparer une négociation sur la parité des salaires hommes femmes, on fait un sondage sur 10 femmes qui donne les résultats suivants (en milliers d'euros):
-	
-	$$ 24 \qquad 27 \qquad 31 \qquad 19 \qquad 26 \qquad 27 \qquad 22 \qquad 15 \qquad 33 \qquad 21 $$
-	
-	A l'ouverture de la réunion, Monsieur A, délégué du personnel annonce : \og Le sondage montre qu'il n'y a pas lieu de penser que le salaire des femmes est différent de celui des hommes \fg{}. Il est aussitôt interrompu par Madame B, Directrice des Ressources Humaines, qui dit \og Pas du tout, le sondage prouve que le salaire des femmes est inférieur à celui des hommes \fg{}. Qu'en pensez-vous ?
-	
-	Pour argumenter les réponses, on pourra se poser les questions suivantes pour Monsieur A et Madame B. }
-	
-	\begin{enumerate}
-		\item \question{ Que doit-on supposer sur la distribution des salaires des femmes pour pouvoir faire des tests statistiques ? }
-		\reponse{On doit supposer que la distribution dans la population suit une loi normale.}
-		\item \question{ Si on note $\mu_0 = 28$ et $H_0 \colon \mu = \mu_0$ l'hypothèse nulle de Monsieur A / Madame B, quelle est l'hypothèse alternative pour chacun ? }
-		\reponse{Monsieur A fait son test sur le jeu d'hypothèses : $\begin{cases}
-				\mu = 28 \\
-				\mu \neq 28
-			\end{cases}$, partant du principe que la moyenne de salaire des femmes peut être aussi bien supérieur qu'inférieur à la moyenne. 
-	
-	Quant à Mme B, elle fait son test sur les hypothèses : 	$\begin{cases}
-		\mu = 28 \\
-		\mu < 28
-	\end{cases}$, partant du principe qu'il est improbable que les femmes aient une moyenne salariale supérieure.
-	} 
-		\item \question{ Déterminer la variable de décision et sa loi sous $H_0$. }
-		\reponse{On pose $Z = \frac{\overline{X}-28}{\frac{S}{\sqrt{10}}} $, cette variable suit une loi $St(9)$ d'après le cours.   }
-		\item \question{ Déterminer la région critique pour un risque de première espèce $\alpha = 5\%$. }
-		\reponse{Par lecture de table, on déterminer la région critique du test bilatéral de M. A : $W_A = ]-\infty;-2.26[\cup]2.26;+\infty[$. 
-	
-	Pour Mme B, le test unilatéral à gauche donne la région critique $W_B = ]-\infty;-1.83[$.	
-	 }
-		\item \question{ Calculer une réalisation de la variable de décision. }
-		\reponse{Après calculs sur cet échantillon, on obtient $\overline{x}_{obs} = 24.5$ et $s_{obs} \approx 5.46$.}
-		\item \question{ Peut-on dire que Monsieur A ou Madame B se trompe ? }
-		\reponse{}
-	\end{enumerate}}
+Pour argumenter les réponses, on pourra se poser les questions suivantes pour Monsieur A et Madame B. On considère la moyenne masculine comme une référence fixée à 28 milliers d'euros ; son incertitude n'est pas étudiée ici. On examine les deux démarches en supposant leurs hypothèses alternatives choisies avant l'observation des données.
+}
+\begin{enumerate}
+\question{\item Que doit-on supposer sur la distribution des salaires des femmes et le prélèvement pour effectuer ici un test de Student exact de la moyenne ?}
+\reponse{On suppose un échantillon indépendant issu d'une population normale $\mathcal N(\mu,\sigma)$, avec $\sigma>0$. La moyenne $\mu$ et la variance $\sigma^2$ sont inconnues. Dans ce modèle, le test de Student est exact, même avec un petit échantillon.
+
+Une petite taille ne permet pas, à elle seule, de supposer la normalité. Cette hypothèse sert ici à justifier le test de Student exact ; elle n'est pas nécessaire à tout test statistique.
+}
+\question{\item Si on note $\mu_0=28$ et $H_0:\mu=\mu_0$ l'hypothèse nulle de Monsieur A et de Madame B, quelle est l'hypothèse alternative pour chacun ?}
+\reponse{Monsieur A cherche une différence dans l'un ou l'autre sens. Son test est bilatéral :
+\[
+\begin{cases}
+H_0:\mu=28,\\
+H_1:\mu\neq28.
+\end{cases}
+\]
+Madame B cherche une moyenne inférieure à la référence. Son test est unilatéral à gauche :
+\[
+\begin{cases}
+H_0:\mu=28,\\
+H_1:\mu<28.
+\end{cases}
+\]
+\textit{Remarque :} pour Madame B, on peut aussi formuler l'hypothèse nulle composite $H_0:\mu\geq28$ contre $H_1:\mu<28$. Le test est alors calibré à la frontière $\mu=28$ : c'est dans ce cas que le risque de rejet sous cette hypothèse nulle est maximal.
+}
+\question{\item Déterminer la variable de décision et sa loi sous $H_0:\mu=28$.}
+\reponse{On note $X_1,\ldots,X_{10}$ les salaires aléatoires, en milliers d'euros. On utilise les statistiques
+\[
+\overline X=\frac1{10}\sum_{i=1}^{10}X_i,
+\qquad
+S^2=\frac1{9}\sum_{i=1}^{10}(X_i-\overline X)^2.
+\]
+La variable de décision est
+\[
+Z=\frac{\overline X-28}{\frac{S}{\sqrt{10}}}.
+\]
+Sous $H_0$, elle suit exactement une loi de Student à $10-1=9$ degrés de liberté : $Z\sim St(9)$. La lettre $Z$ est le nom choisi ici pour la statistique ; sa loi est Student, et non la loi normale centrée réduite.
+}
+\question{\item Déterminer les régions critiques pour un risque de première espèce $\alpha=5\%$.}
+\reponse{Pour le test bilatéral de Monsieur A, on répartit le risque entre les deux queues. Le quantile à gauche est $t_{9;0{,}975}\simeq2{,}26216$. La région critique est
+\[
+W_A=]-\infty;-t_{9;0{,}975}[\ \cup\ ]t_{9;0{,}975};+\infty[.
+\]
+On rejette donc $H_0$ si $|z_{\mathrm{obs}}|>t_{9;0{,}975}$, soit environ $2{,}26$ par lecture de table.
+
+Pour le test unilatéral à gauche de Madame B, on place tout le risque dans la queue gauche. Par symétrie de la loi de Student, le quantile à gauche d'ordre $0{,}05$ est $-t_{9;0{,}95}\simeq-1{,}83311$. La région critique est
+\[
+W_B=]-\infty;-t_{9;0{,}95}[.
+\]
+On rejette donc $H_0$ si $z_{\mathrm{obs}}<-t_{9;0{,}95}$, soit environ $-1{,}83$ par lecture de table.
+}
+\question{\item Calculer une réalisation de la variable de décision.}
+\reponse{\begin{minipage}{\linewidth}
+Les valeurs observées donnent
+\[
+\sum_{i=1}^{10}x_i=245,
+\qquad
+\bar x=\frac{245}{10}=24{,}5.
+\]
+La somme des carrés des écarts à la moyenne observée vaut $\sum_{i=1}^{10}(x_i-\bar x)^2=268{,}5$. La variance corrigée et l'écart-type estimé sont donc
+\[
+s^2=\frac{268{,}5}{9}\simeq29{,}83333,
+\qquad
+s=\sqrt{s^2}\simeq5{,}46199.
+\]
+La moyenne et l'écart-type sont exprimés en milliers d'euros, et la variance en carrés de milliers d'euros. La réalisation de $Z$ est
+\[
+z_{\mathrm{obs}}=\frac{\bar x-28}{\frac{s}{\sqrt{10}}}
+=\frac{24{,}5-28}{\frac{\sqrt{\frac{268{,}5}{9}}}{\sqrt{10}}}
+\simeq-2{,}02636.
+\]
+Cette statistique est sans unité.
+\end{minipage}
+}
+\question{\item Peut-on dire que Monsieur A ou Madame B se trompe ? Argumenter les conclusions dans les deux cas et calculer les $p$-valeurs.}
+\reponse{\textbf{Pour Monsieur A :} $|z_{\mathrm{obs}}|\simeq2{,}02636<2{,}26216$, donc la réalisation n'appartient pas à $W_A$. On ne rejette pas l'égalité des moyennes au seuil de $5\%$.
+
+En notant $F_9$ la fonction de répartition de la loi $St(9)$, la $p$-valeur bilatérale vaut
+\[
+p_A=2F_9(-|z_{\mathrm{obs}}|)\simeq0{,}07336>0{,}05.
+\]
+Le test ne met pas en évidence une différence à ce seuil ; il ne prouve pas l'égalité. La formulation de Monsieur A doit être comprise comme un non-rejet, et non comme une démonstration d'égalité.
+
+\textbf{Pour Madame B :} $z_{\mathrm{obs}}\simeq-2{,}02636<-1{,}83311$, donc la réalisation appartient à $W_B$. On rejette $H_0$ dans le test unilatéral à gauche au seuil de $5\%$.
+
+La $p$-valeur à gauche vaut
+\[
+p_B=F_9(z_{\mathrm{obs}})\simeq0{,}03668<0{,}05.
+\]
+Sous le modèle, les données étayent une moyenne féminine inférieure à la référence de 28 milliers d'euros. Le mot \og prouve \fg{} employé par Madame B est trop fort : la décision statistique ne constitue pas une preuve certaine.
+
+Les décisions différentes s'expliquent par les alternatives différentes et par la répartition du risque entre une ou deux queues. Choisir le sens du test après lecture des données ne permettrait plus de garantir les risques annoncés. Enfin, ces tests ne déterminent pas, à eux seuls, la cause de l'écart salarial.
+}
+\end{enumerate}
+}

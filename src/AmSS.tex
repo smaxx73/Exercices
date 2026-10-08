@@ -1,0 +1,37 @@
+\uuid{AmSS}
+\titre{Optimiser sur un triangle}
+\niveau{L3}
+\module{Analyse}
+\chapitre{Fonction de plusieurs variables}
+\sousChapitre{Extremums locaux}
+\theme{Extrema, frontière d'un domaine}
+\auteur{Maxime Nguyen}
+\datecreate{2026-09-26}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{On considère le triangle
+\[
+T=\{(x,y)\in\mathbb{R}^2\mid x\geq0,\ y\geq0,\ x+y\leq2\}
+\]
+et la fonction $f(x,y)=(x-1)^2+(y-2)^2$.}
+
+\begin{enumerate}
+\item \question{Dessiner $T$. Justifier que $f$ admet un minimum et un maximum sur $T$. Quel est le minimum de $f$ sur $\mathbb{R}^2$, et pourquoi ne résout-il pas le problème sur $T$ ?}
+\indication{$T$ est un triangle fermé et borné. Le minimum sans contrainte se lit directement dans l'expression de $f$.}
+\reponse{$T$ est le triangle de sommets $(0,0)$, $(2,0)$ et $(0,2)$. Il est non vide et compact ; comme $f$ est continue, elle y atteint ses extrema. Sur $\mathbb{R}^2$, le minimum vaut $0$ en $(1,2)$, mais $1+2>2$ : ce point n'appartient pas à $T$.}
+
+\item \question{Étudier $f$ sur chacun des trois côtés de $T$.}
+\indication{Paramétrer les côtés par $x=0$, $y=0$ et $y=2-x$, avec la variable libre dans $[0,2]$.}
+\reponse{Sur $x=0$, on obtient $f(0,y)=1+(y-2)^2$ : le minimum vaut $1$ en $(0,2)$ et le maximum $5$ en $(0,0)$. Sur $y=0$, $f(x,0)=(x-1)^2+4$ : le minimum vaut $4$ en $(1,0)$ et le maximum $5$ en $(0,0)$ et $(2,0)$. Enfin, sur $x+y=2$, en posant $y=2-x$,
+\[
+f(x,2-x)=(x-1)^2+x^2=2\left(x-\frac12\right)^2+\frac12.
+\]
+Le minimum vaut $1/2$ en $(1/2,3/2)$ et le maximum $5$ en $(2,0)$.}
+
+\item \question{En déduire tous les points où $f$ atteint son minimum et son maximum sur $T$.}
+\indication{Un extremum intérieur devrait annuler le gradient de $f$. Comparer ensuite les valeurs trouvées sur les côtés.}
+\reponse{Le seul point où $\nabla f=0$ est $(1,2)$, hors de $T$. Les extrema sur $T$ sont donc sur sa frontière. Le minimum, égal à $1/2$, est atteint uniquement en $(1/2,3/2)$. Le maximum, égal à $5$, est atteint en $(0,0)$ et $(2,0)$.}
+\end{enumerate}
+}

@@ -1,7 +1,9 @@
 \uuid{rvC6}
+\module{Analyse numérique}
 \chapitre{Méthodes numériques}
 \sousChapitre{Méthode de Newton}
 \titre{Calcul de racine carrée}
+\niveau{L3}
 \theme{méthodes numériques}
 \auteur{}
 \datecreate{2023-02-22}
@@ -19,8 +21,8 @@ $$\forall k \in \mathbb{N} : \quad x_{k+1}=x_k-\frac{f(x_k)}{f'(x_0)}$$ }
 		\item \question{ Sur un graphique, construire les premières itérations de cette méthode en prenant $f(x)=x^2$ et $x_0=1$. }
 		\reponse{ Le principe de construction du point $x_{k+1}$ est le suivant: on prend l'intersection de l'axe des abscisses avec la droite passant par le point $(x_k,f(x_k))$ de pente $f'(x_0)=2x_0=2$. 
 			\begin{center} 
-				\newcommand\newtfonc[1]{#1*#1) } 
 				\begin{tikzpicture}[scale=.5]
+				\def\newtfonc#1{#1*#1}
 				\begin{axis}[
 				width=14cm, height=10cm,
 				axis x line=center, 

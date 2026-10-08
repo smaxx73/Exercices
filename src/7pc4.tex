@@ -1,0 +1,37 @@
+% Examen ALEA du 9 janvier 2026, exercice 1.
+\uuid{7pc4}
+\titre{Maximum de lois exponentielles et convergence vers la loi de Gumbel}
+\niveau{L2}
+\module{Probabilité}
+\chapitre{Probabilité continue}
+\sousChapitre{Convergence en loi}
+\theme{Loi exponentielle, maximum, loi de Gumbel}
+\auteur{}
+\datecreate{2026-10-01}
+\organisation{AMSCC}
+\difficulte{}
+\contenu{
+\texte{Soit $(X_i)_{i\geq 1}$ une famille de variables aléatoires mutuellement indépendantes, suivant chacune la loi exponentielle $\mathcal{E}(\lambda)$, avec $\lambda>0$. On pose, pour tout $n\geq 1$, $M_n=\max(X_1,\ldots,X_n)$.}
+\begin{enumerate}
+  \item \begin{enumerate}
+    \item \question{Donner la fonction de répartition $F$ de $X_1$.}
+    \item \question{Montrer que la fonction de répartition de $M_n$ est donnée par $F_{M_n}(x)=\mathbb{P}(M_n\leq x)=F(x)^n$. On pourra considérer l'événement $[X_1\leq x]\cap\cdots\cap[X_n\leq x]$.}
+  \end{enumerate}
+  \item \texte{On normalise $M_n$ en posant, pour tout $n\geq 1$, $Y_n=\lambda M_n-\ln n$.}
+  \begin{enumerate}
+    \item \question{Montrer que les fonctions de répartition de $Y_n$ et $M_n$ sont liées par $F_{Y_n}(x)=F_{M_n}\!\left(\frac{x+\ln n}{\lambda}\right)$.}
+    \item \question{Montrer que, pour tout $x>0$, $F_{Y_n}(x)=\left(1-\frac{e^{-x}}{n}\right)^n$.}
+  \end{enumerate}
+  \item \texte{Soit $Z$ une variable aléatoire de densité $g$ définie sur $\mathbb{R}$ par $g(x)=e^{-x}e^{-e^{-x}}$.}
+  \begin{enumerate}
+    \item \question{Montrer que la fonction de répartition de $Z$ est $F_Z(x)=\mathbb{P}(Z\leq x)=e^{-e^{-x}}$ pour tout $x\in\mathbb{R}$.}
+    \item \question{Montrer que la suite $(Y_n)_{n\geq 1}$ converge en loi vers $Z$.}
+  \end{enumerate}
+  \item \texte{On modélise la hauteur maximale d'un fleuve pour l'année $i$ par une variable aléatoire $X_i$ de loi exponentielle de paramètre $\lambda=0{,}5\,\mathrm{m}^{-1}$. Les variables $M_n$ et $Y_n$ sont définies comme plus haut.}
+  \begin{enumerate}
+    \item \question{Donner une interprétation de $M_{100}$ dans ce modèle.}
+    \item \question{On admet qu'en première approximation, $Y_{100}$ suit la loi de densité $g$ de $Z$. Calculer $\mathbb{P}(Z>a)$ avec $a=-\ln(-\ln(0{,}99))$.}
+    \item \question{On donne $a\approx 4{,}6$ et $\ln(100)\approx 4{,}6$. Trouver $b>0$ tel que $\mathbb{P}(M_{100}>b)\approx 0{,}01$.}
+  \end{enumerate}
+\end{enumerate}
+}

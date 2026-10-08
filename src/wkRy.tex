@@ -1,0 +1,43 @@
+\uuid{wkRy}
+\titre{Ajuster une droite en pénalisant sa pente}
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Apprentissage automatique}
+\sousChapitre{Régression supervisée}
+\theme{Moindres carrés, pénalisation}
+\auteur{Maxime Nguyen}
+\datecreate{2026-09-26}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{On veut ajuster le modèle $\widehat y=ax+b$ aux deux observations $(0,0)$ et $(1,1)$. Pour $\lambda\in\{0,1\}$, on minimise
+\[
+J_\lambda(a,b)=b^2+(a+b-1)^2+\lambda a^2.
+\]
+Le dernier terme pénalise les pentes de grande valeur.}
+
+\begin{enumerate}
+\item \question{Identifier dans $J_\lambda$ les erreurs commises sur les deux observations et le terme de pénalisation.}
+\indication{Calculer la prédiction $ax+b$ en $x=0$ puis en $x=1$.}
+\reponse{En $x=0$, la prédiction vaut $b$ et la cible vaut $0$ : le carré du résidu est $b^2$. En $x=1$, la prédiction vaut $a+b$ et la cible vaut $1$ : le carré du résidu est $(a+b-1)^2$. Le terme $\lambda a^2$ pénalise la pente.}
+
+\item \question{Déterminer le minimum de $J_0$ et le modèle obtenu.}
+\indication{La somme de deux carrés est positive ou nulle. Peut-on rendre les deux carrés nuls ?}
+\reponse{Le minimum de $J_0=b^2+(a+b-1)^2$ vaut $0$. Il faut $b=0$ et $a+b=1$, d'où l'unique modèle $\widehat y=x$, soit $(a,b)=(1,0)$.}
+
+\item \question{Calculer le gradient de $J_1$ et déterminer son unique minimiseur.}
+\indication{Résoudre le système $\nabla J_1=0$, puis justifier l'unicité en examinant la hessienne.}
+\reponse{On a
+\[
+\nabla J_1(a,b)=\begin{pmatrix}4a+2b-2\\2a+4b-2\end{pmatrix},
+\qquad
+\nabla^2J_1=\begin{pmatrix}4&2\\2&4\end{pmatrix}.
+\]
+Les valeurs propres de la hessienne sont $2$ et $6$ : elle est définie positive. Le système $2a+b=1$, $a+2b=1$ donne l'unique minimiseur $(a,b)=(1/3,1/3)$.}
+
+\item \question{Comparer les pentes des deux modèles et leurs prédictions en $x=2$. Que change la pénalisation ?}
+\indication{Utiliser les paramètres obtenus ; ne pas conclure à la qualité d'une prédiction sans connaître la vraie valeur en $x=2$.}
+\reponse{Sans pénalisation, la pente vaut $1$ et la prédiction en $x=2$ vaut $2$. Avec $\lambda=1$, la pente vaut $1/3$ et la prédiction vaut $1$. La pénalisation réduit ici la pente, au prix d'erreurs non nulles sur les deux observations. On ne peut pas dire quel modèle prédit le mieux en $x=2$ sans connaître la valeur observée à cet endroit.}
+\end{enumerate}
+}

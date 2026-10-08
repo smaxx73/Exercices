@@ -1,0 +1,41 @@
+\uuid{ClxN}
+\titre{Lire une vallée quadratique}
+\niveau{L2}
+\module{Analyse}
+\chapitre{Fonction de plusieurs variables}
+\sousChapitre{Courbes de niveaux}
+\theme{Optimisation, interprétation géométrique}
+\auteur{Maxime Nguyen}
+\datecreate{2026-09-25}
+\organisation{AMSCC}
+\difficulte{2}
+
+\contenu{
+\texte{On considère la fonction $f$ définie sur $\mathbb{R}^2$ par
+\[
+f(x,y)=(x-2)^2+4(y+1)^2.
+\]
+Dans les dessins demandés, on prendra la même unité sur les deux axes.}
+
+\begin{enumerate}
+\item \question{Déterminer, sans dériver, le minimum global de $f$ et le point où il est atteint.}
+\indication{Les deux termes de $f$ sont positifs ou nuls.}
+\reponse{On a $f(x,y)\geq 0$. L'égalité a lieu si et seulement si $x-2=0$ et $y+1=0$. Le minimum global est donc $0$, atteint uniquement en $(2,-1)$.}
+
+\item \question{Décrire puis tracer les courbes de niveau $f(x,y)=1$ et $f(x,y)=4$.}
+\indication{Mettre chaque équation sous la forme canonique d'une ellipse.}
+\reponse{Pour $c>0$, l'équation $f(x,y)=c$ s'écrit
+\[
+\frac{(x-2)^2}{c}+\frac{(y+1)^2}{c/4}=1.
+\]
+C'est une ellipse de centre $(2,-1)$, de demi-axes $\sqrt c$ dans la direction horizontale et $\sqrt c/2$ dans la direction verticale. Pour $c=1$, les demi-axes valent $1$ et $1/2$ ; pour $c=4$, ils valent $2$ et $1$.}
+
+\item \question{Calculer $\nabla f(0,0)$. Donner une direction de plus forte décroissance de $f$ au point $(0,0)$ et la représenter sur le dessin.}
+\indication{La direction de plus forte décroissance est celle de l'opposé du gradient.}
+\reponse{On a $\nabla f(x,y)=(2(x-2),8(y+1))$, donc $\nabla f(0,0)=(-4,8)$. Une direction de plus forte décroissance est $-\nabla f(0,0)=(4,-8)$, ou tout vecteur positif qui lui est proportionnel, par exemple $(1,-2)$.}
+
+\item \question{Au voisinage de $(0,0)$, comparer l'effet d'un petit déplacement horizontal et d'un petit déplacement vertical de même longueur sur la valeur de $f$.}
+\indication{Comparer les valeurs absolues des deux dérivées partielles en $(0,0)$.}
+\reponse{En $(0,0)$, on a $|\partial_x f|=4$ et $|\partial_y f|=8$. Au premier ordre, un déplacement vertical de même longueur modifie donc $f$ deux fois plus qu'un déplacement horizontal. Le sens du déplacement détermine si $f$ augmente ou diminue.}
+\end{enumerate}
+}

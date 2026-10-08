@@ -264,7 +264,7 @@
 \newcommand{\insertexo}[6]{%contenu, solution, uuid, lien solution,numerotation,theme
 	\Needspace{4\baselineskip}% small guard only
 	\noindent
-	\input{\path src/#1}
+	\input{\exercisespath src/#1}
 	\setboolean{solution}{#2}
 	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}
@@ -281,7 +281,7 @@
 	\noindent
 	% Initialiser la difficulté à vide avant de charger l'exercice
 	\def\ExoDifficulte{}
-	\input{\path src/#1}
+	\input{\exercisespath src/#1}
 	\setboolean{solution}{#2}
 	\setboolean{isuuid}{#3}
 	\setboolean{link}{#4}

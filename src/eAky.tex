@@ -68,29 +68,7 @@ Il s'ensuit alors que $Q(u,v)=Q(u,-u)=6\sqrt{2}u^2>0$ et donc ce point est un mi
 $\bullet$ Pour le point $(-\sqrt{2};-\sqrt{2})$ correspondant à $\lambda = 3/\sqrt{2}$, nous obtenons 
 $Q(u,v)=Q(u,-u)=-6\sqrt{2}u^2<0$ et donc ce point est un maximum. 
 
-\begin{tikzpicture}
-    \begin{axis}[
-        xlabel={$x$},
-        ylabel={$y$},
-        zlabel={$f(x,y)$},
-        domain=-3:3,
-        y domain=-3:3,
-        view={75}{30},
-        samples=30,
-        z buffer=sort,
-        grid=both,
-        axis lines=middle,
-        enlargelimits,
-        colormap/cool,
-    ]
-
-    % Surface of the function f(x,y) = x^3 + y^3
-    \addplot3[surf, opacity=0.7] {x^3 + y^3};
-
-    % Constraint x^2 + y^2 = 4
-
-    \end{axis}
-\end{tikzpicture}
+\includegraphics[]{\exercisespath img/pdf/eAky-tikz-1}
 
 }
 }

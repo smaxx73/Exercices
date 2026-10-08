@@ -1,7 +1,7 @@
 \uuid{EZfx}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
 \titre{Lois pour les statistiques}
 \theme{loi normale, loi du chi2, loi de Student}
@@ -11,27 +11,69 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{La bestiole est un animal dont le poids est distribué selon une loi normale de moyenne 100 g et d'écart-type 5 g.
-
- On prélève un échantillon aléatoire de 16 bestioles. On note $X_i$ le poids de la bestiole numéro $i$ ($1 \leq i \leq 16$).}
-
- \begin{enumerate}
-  \item \question{Déterminer la loi suivie par  $$\overline{X}=\frac{\sum\limits_{i=1}^{16} X_i}{16}$$}
- \reponse{Par propriétés de somme de lois normales, on obtient que $\overline{X}$ suit une loi normale. Il reste à calculer $\mathbb{E}(\overline{X}) = \frac{1}{16} \times 16 \times 100 = 100$ et $V(\overline{X}) = \frac{1}{16^2} \times 16 \times 5^2 = \frac{5^2}{16}$. On en déduit que $\overline{X}$ suit une loi normale $\mathcal{N}(100, \sigma = \frac{5}{4})$. }
-  \item \question{Déterminer la loi suivie par $$Q=\frac{\sum\limits_{i=1} ^{16} (X_i-100)^2}{25}$$
-Déterminer le réel $q$ tel que $\PP(Q > q) = 0.05$.}
-\reponse{On réécrit $Q= \sum\limits_{i=1} ^{16} \left(\frac{X_i-100}{5}\right)^2$ or $\frac{X_i-100}{5}$ suit une loi $\mathcal{N}(0,1)$ et les variables $X_i$ sont indépendantes donc par définition, $Q$ suit une loi $\chi^2(16)$. 
-On cherche maintenant $q$ tel que $\PP(Q \leq q) = 0.95$ dans la table de valeurs soit $q = 26.296$.
- }
-  \item \question{Déterminer la loi suivie par $$V=\frac{\sum\limits_{i=1} ^{16} (X_i-\overline{X})^2}{25}$$
-  puis déterminer le réel $v$ tel que $\PP(V > v) = 0.05$.}
-\reponse{D'après le théorème de Fisher, $V$ suit une loi  $\chi^2(15)$. Par lecture de table, on trouve $\PP(V \leq v) = 0.95$ pour $v=24.996$.}
-  \item \question{Déterminer la loi suivie par $$W=\frac{(\overline{X}-100)4\sqrt{15}}{\sqrt{\sum\limits_{i=1} ^{16} (X_i-\overline{X})^2}}$$
-    Déterminer le réel $w$ tel que $\PP(W > w) = 0.05$.}
-\reponse{D'après la question 1, la variable $\frac{\overline{X}-100}{\frac{5}{4}}$ suit une loi $\mathcal{N}(0,1)$.  On réécrit maintenant :
-$$W = \frac{\frac{\overline{X}-100}{\frac{5}{4}} \times \frac{5}{4} \times 4\sqrt{15}}{\sqrt{\sum\limits_{i=1} ^{16} (X_i-\overline{X})^2}} = \frac{\frac{\overline{X}-100}{\frac{5}{4}}}{\frac{\sqrt{\sum\limits_{i=1} ^{16} (X_i-\overline{X})^2}}{5\sqrt{15}}} = \frac{\frac{\overline{X}-100}{\frac{5}{4}}}{\frac{\sqrt{V}}{\sqrt{15}}} $$
-	Or $V$ suit une  $\chi^2(15)$ d'après la question précédente. Donc par définition, $W$ suit une loi de Student $St(15)$. 
-}
- \end{enumerate}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$ ; $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Les poids $X_1,\ldots,X_{16}$ de 16 bestioles constituent un échantillon indépendant de loi $\mathcal N(100,5)$ (en grammes). On pose $\overline X=\frac1{16}\sum X_i$.}
+\begin{enumerate}
+\item \question{Déterminer la loi de $\overline X$.}
+\reponse{Les $X_i$ sont normales et indépendantes ; leur moyenne est donc normale. Par linéarité de l'espérance,
+\[
+\mathbb E(\overline X)=\frac1{16}\sum_{i=1}^{16}\mathbb E(X_i)
+=\frac{16\times100}{16}=100.
+\]
+Par indépendance,
+\[
+\operatorname{Var}(\overline X)=\frac1{16^2}\sum_{i=1}^{16}\operatorname{Var}(X_i)
+=\frac{16\times25}{16^2}=\frac{25}{16}.
+\]
+Son écart-type vaut donc $\frac54$, d'où
+\[
+\boxed{\overline X\sim\mathcal N\left(100,\frac54\right).}
+\]}
+\item \question{Déterminer la loi de $Q=\frac{\sum_{i=1}^{16}(X_i-100)^2}{25}$, puis $q$ tel que $\mathbb P(Q>q)=0{,}05$.}
+\reponse{On réécrit
+\[
+Q=\sum_{i=1}^{16}\left(\frac{X_i-100}{5}\right)^2.
+\]
+Les variables $\frac{X_i-100}{5}$ sont normales centrées réduites et indépendantes. Par définition de la loi du khi-deux,
+\[
+\boxed{Q\sim\chi^2(16).}
+\]
+La condition $\mathbb P(Q>q)=0{,}05$ équivaut à $\mathbb P(Q\leq q)=0{,}95$. Le seuil recherché est donc le quantile gauche d'ordre $0{,}95$ :
+\[
+\boxed{q=q_{16;0{,}95}\simeq26{,}296.}
+\]}
+\item \question{Déterminer la loi de $V=\frac{\sum_{i=1}^{16}(X_i-\overline X)^2}{25}$, puis $v$ tel que $\mathbb P(V>v)=0{,}05$.}
+\reponse{Le théorème de Fisher, appliqué à cet échantillon normal indépendant, donne
+\[
+\boxed{V=\frac1{25}\sum_{i=1}^{16}(X_i-\overline X)^2\sim\chi^2(15).}
+\]
+Il donne également l'indépendance de $V$ et de $\overline X$. Le centrage sur la moyenne empirique entraîne la perte d'un degré de liberté.
+Comme $\mathbb P(V>v)=0{,}05$, on cherche le quantile gauche d'ordre $0{,}95$ :
+\[
+\boxed{v=q_{15;0{,}95}\simeq24{,}996.}
+\]}
+\item \question{Déterminer la loi de $W=\frac{4\sqrt{15}(\overline X-100)}{\sqrt{\sum_{i=1}^{16}(X_i-\overline X)^2}}$, puis $w$ tel que $\mathbb P(W>w)=0{,}05$.}
+\indication{Écrire $W=\frac{Z}{\sqrt{\frac{V}{15}}}$ et vérifier l'indépendance.}
+\reponse{D'après la première question,
+\[
+Z=\frac{\overline X-100}{\frac54}=\frac{4(\overline X-100)}5\sim\mathcal N(0,1).
+\]
+D'autre part,
+\[
+\sqrt{\frac V{15}}=\frac{\sqrt{\sum_{i=1}^{16}(X_i-\overline X)^2}}{5\sqrt{15}}.
+\]
+Ainsi,
+\[
+\frac Z{\sqrt{\frac V{15}}}
+=\frac{4(\overline X-100)}5\frac{5\sqrt{15}}{\sqrt{\sum_{i=1}^{16}(X_i-\overline X)^2}}=W.
+\]
+Le théorème de Fisher assure l'indépendance de $\overline X$ et de $V$, donc celle de $Z$ et de $V$. Les conditions de la construction de Student sont réunies :
+\[
+\boxed{W\sim St(15).}
+\]
+Enfin, $\mathbb P(W>w)=0{,}05$ donne
+\[
+\boxed{w=t_{15;0{,}95}\simeq1{,}75305.}
+\]}
+\end{enumerate}
 }

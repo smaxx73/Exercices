@@ -1,7 +1,7 @@
 \uuid{2Aw2}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Autre}
 \titre{Approximation d'une loi binomiale par une loi normale.}
 \theme{statistiques, loi binomiale, loi normale}
@@ -11,24 +11,38 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{Un restaurant universitaire qui est visité par 600 étudiants pour le repas de midi offre un choix de deux plats principaux: risotto ou quiche. Dans le passé, on a observé que 40\% des étudiants prennent du risotto.}
-
-\question{Combien de plats de risotto faut-il prévoir pour que la probabilité qu'il en manque soit inférieure à 10\% ?}
-
-\reponse{Soit $X$ le nombre d'étudiants souhaitant un plat de risotto. D'après les données de l'énoncé, $X$ suit une loi binomiale $\mathcal{B}(600,0.4)$. 
-
-On cherche donc un entier $n$ tel que $\PP(X \geq n) \leq 0.1$. Pour ce faire, on approche la loi de $X$ par une loi normale. L'effectif $n$ est supérieur à $30$ donc d'après le théorème central limite, $X$ suit approximativement une loi normale de paramètres $\mu=600 \times 0.4 = 240$ et de variance $\sigma^2 = 600 \times 0.4 \times 0.6 = 144 = 12^2$. 
-
-Ainsi, 
-\begin{align*}
-\PP(X \geq n) \leq 0.1 &\iff \PP\left(\frac{X-240}{12} \geq \frac{n-240}{12}\right)  \leq 0.1 \\
-&\iff \PP\left(\frac{X-240}{12} \leq \frac{n-240}{12}\right)  \geq 0.9
-&\iff \frac{n-240}{12} \geq 1.28 \\
-&\iff n \geq 12 \times 1.28 + 240 = 255.36 \\
-&\iff n \geq 256
-\end{align*}
-
-Il faut donc prévoir au moins 256 plats de risotto pour que le risque qu'il en manque soit inférieur à 10\%.
-}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
+\texte{Un restaurant universitaire accueille 600 étudiants et propose risotto ou quiche. On suppose que chacun choisit le risotto avec probabilité $0{,}4$, indépendamment des autres.}
+\question{Combien de portions de risotto faut-il prévoir pour que le risque de rupture soit strictement inférieur à $10\%$ ? Utiliser l'approximation de la loi binomiale par une loi normale.}
+\indication{Avec $r$ portions, il manque du risotto si $X>r$. Centrer et réduire $X$, puis utiliser le quantile d'ordre $0{,}9$ de la loi normale centrée réduite.}
+\reponse{Soit $X$ le nombre d'étudiants souhaitant une portion de risotto. Sous l'hypothèse de choix indépendants, chacun de probabilité $0{,}4$, on a
+\[
+X\sim\mathcal B(600,0{,}4).
+\]
+On cherche un entier $r$ tel que $\mathbb P(X>r)<0{,}1$.
+L'espérance et la variance de $X$ valent
+\[
+\mathbb E(X)=600\times0{,}4=240,\qquad
+\operatorname{Var}(X)=600\times0{,}4\times0{,}6=144=12^2.
+\]
+Les quantités $600\times0{,}4=240$ et $600\times0{,}6=360$ étant grandes, on approche la loi de $X$ par $\mathcal N(240,12)$. Ainsi, $\frac{X-240}{12}$ suit approximativement une loi normale centrée réduite, et
+\[
+\mathbb P(X>r)
+=\mathbb P\left(\frac{X-240}{12}>\frac{r-240}{12}\right)
+\simeq1-\Phi\left(\frac{r-240}{12}\right).
+\]
+Dans cette approximation, la condition recherchée s'écrit
+\[
+\begin{aligned}
+1-\Phi\left(\frac{r-240}{12}\right)<0{,}1
+&\iff\Phi\left(\frac{r-240}{12}\right)>0{,}9\\
+&\iff\frac{r-240}{12}>\Phi^{-1}(0{,}9)\simeq1{,}28155.
+\end{aligned}
+\]
+On obtient donc
+\[
+r>240+12\times\Phi^{-1}(0{,}9)\simeq255{,}3786.
+\]
+Le plus petit entier satisfaisant cette condition approchée est $r=256$.
+Cette méthode conduit donc à prévoir \textbf{256 portions de risotto}.}
 }

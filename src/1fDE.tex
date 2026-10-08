@@ -1,7 +1,7 @@
 \uuid{1fDE}
 \chapitre{Probabilité continue}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Probabilité}
 \sousChapitre{Loi normale}
 \titre{Approximation par une loi normale}
 \theme{probabilités conditionnelles, variables aléatoires, loi binomiale, loi normale}
@@ -9,7 +9,7 @@
 \datecreate{2023-09-18}
 \organisation{AMSCC}
 
-\difficulte{}
+\difficulte{3}
 \contenu{
 
 \texte{ On effectue un contrôle sur des pièces de un euro dont une proportion $p=0.05$ est fausse et sur des pièces de deux euros dont une proportion $p'=0.02$ est fausse. On considère un lot de $500$ pièces dont $150$ pièces de un euro et $350$ pièces de deux euros. }
@@ -22,17 +22,19 @@
 	}
 	
 	\item\question{  Sachant que cette pièce est fausse, quelle est la probabilité qu'elle soit de un euro ? }
+	\indication{Noter $A$ l'événement « pièce de un euro » et $F$ l'événement « fausse ». Appliquer Bayes en réutilisant la probabilité totale $\prob(F)$ obtenue à la question précédente.}
 	\reponse{ 
 		On calcule :
 		\[ \prob(A|F)=\frac{\prob(A\cap F)}{\prob(F)}=\frac{\prob(A)\prob(F|A)}{\prob(F)}=\frac{\frac{150}{500}\times 0.05}{0.029}=0.5172.\]
 	}
 	
 	\item \question{ On contrôle à présent un lot de $\nombre{1000}$ pièces de un euro. Soit $X$ la variable aléatoire égale au nombre de pièces fausses parmi les $\nombre{1000}$. \\
-	Quelle est la loi de $X$ ? Quelle est son espérance ? Son écart-type ? \\
-	En approchant cette loi par celle d'une loi normale adaptée, donner une approximation de la probabilité pour que $X$ soit compris entre $48$ et $52$. }
+Quelle est la loi de $X$ ? Quelle est son espérance ? Son écart-type ? \\
+En approchant cette loi par celle d'une loi normale adaptée, donner une approximation de la probabilité pour que $X$ soit compris entre $48$ et $52$. }
+	\indication{Modéliser chaque pièce par une Bernoulli de paramètre $0{,}05$. Pour l'approximation normale, employer la correction de continuité : l'intervalle entier $[48,52]$ devient $[47{,}5,52{,}5]$.}
 	\reponse{ 
 		On a: $X\sim \mathcal{B}(\nombre{1000},0.05)$, $\E(X)=\nombre{1000}\times 0.05=50$ et $\sigma^2(X)=\nombre{1000}\times 0.05\times 0.95=47.5$. \\
-		La \va $X$ peut être approchée (avec correction de continuité) par la \va $Y$ de loi $\mathcal{N}(50,\sigma^2=47.5)$. Ainsi, on a
+		La variable aléatoire $X$ peut être approchée (avec correction de continuité) par la variable aléatoire $Y$ de loi $\mathcal{N}(50,\sigma^2=47.5)$. Ainsi, on a
 		\begin{align*}
 		\prob(48\leq X\leq 52)
 		&= \prob(47.5\leq X\leq 52.5) \\

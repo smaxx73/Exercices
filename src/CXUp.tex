@@ -1,7 +1,7 @@
 \uuid{CXUp}
 \chapitre{Probabilité continue}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Probabilité}
 \sousChapitre{Loi normale}
 \titre{Calculs avec une loi normale}
 \theme{loi normale}
@@ -11,8 +11,28 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{On suppose que la durée annuelle de travail des personnes non-salariées suit une loi normale d'espérance 2600 heures et d'écart-type de 200 heures.}
-
-\question{Quelle est la probabilité pour qu'un non-salarié pris au hasard travaille moins de 3000 heures ? Entre 2500 heures et 2700 heures ? Faire les calculs avec la table de valeurs puis vérifier avec un tableur.}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
+\texte{On suppose que la durée annuelle de travail d'une personne non salariée suit une loi normale d'espérance 2600 heures et d'écart-type 200 heures.}
+\question{Quelle est la probabilité de travailler moins de 3000 heures ? Entre 2500 et 2700 heures ? Utiliser la table puis vérifier avec un tableur.}
+\indication{Réduire la variable : $Z=\frac{X-2600}{200}$.}
+\reponse{On note $X$ la durée annuelle de travail, en heures :
+\[
+X\sim\mathcal N(2600,200),\qquad
+Z=\frac{X-2600}{200}\sim\mathcal N(0,1).
+\]
+Pour la première probabilité,
+\[
+\mathbb P(X<3000)=\mathbb P(Z<2)=\Phi(2)\simeq0{,}97725.
+\]
+Pour la seconde,
+\[
+\begin{aligned}
+\mathbb P(2500\leq X\leq2700)
+&=\mathbb P(-0{,}5\leq Z\leq0{,}5)\\
+&=\Phi(0{,}5)-\Phi(-0{,}5)\simeq0{,}38292.
+\end{aligned}
+\]
+Vérification avec Excel :
+\par\texttt{=LOI.NORMALE.N(3000;2600;200;VRAI)}
+\par\texttt{=LOI.NORMALE.N(2700;2600;200;VRAI)-LOI.NORMALE.N(2500;2600;200;VRAI)}}
 }

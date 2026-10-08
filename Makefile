@@ -14,7 +14,7 @@ TIKZ_FILES := $(filter-out $(PREAMBLE), $(TIKZ_SOURCES))
 PDF_TARGETS := $(patsubst $(TIKZ_DIR)/%.tex,$(PDF_DIR)/%.pdf,$(TIKZ_FILES))
 SVG_TARGETS := $(patsubst $(TIKZ_DIR)/%.tex,$(SVG_DIR)/%.svg,$(TIKZ_FILES))
 
-.PHONY: all figures svg clean cleanall help list rebuild dirs debug
+.PHONY: all figures svg clean clean-pdf clean-svg cleanall rebuild rebuild-svg rebuild-all help list dirs debug
 
 # Par défaut : compiler toutes les figures en PDF
 all: figures
@@ -51,7 +51,7 @@ $(PDF_DIR)/%.pdf: $(TIKZ_DIR)/%.tex $(PREAMBLE)
 		echo '\\begin{document}' >> $*_tmp.tex && \
 		cat $*.tex >> $*_tmp.tex && \
 		echo '\\end{document}' >> $*_tmp.tex && \
-		lualatex -interaction=nonstopmode -halt-on-error $*_tmp.tex > /dev/null 2>&1 \
+		lualatex -interaction=nonstopmode -halt-on-error $*_tmp.tex > $*_tmp.stdout 2>&1 \
 	)
 	@if [ -f $(TIKZ_DIR)/$*_tmp.pdf ]; then \
 		mv $(TIKZ_DIR)/$*_tmp.pdf $@; \
@@ -59,8 +59,8 @@ $(PDF_DIR)/%.pdf: $(TIKZ_DIR)/%.tex $(PREAMBLE)
 		echo "✓ $*.pdf créé"; \
 	else \
 		echo "✗ Erreur lors de la compilation de $*.tex"; \
-		echo "Pour déboguer : cd $(TIKZ_DIR) && lualatex $*_tmp.tex"; \
-		cd $(TIKZ_DIR) && rm -f $*_tmp.*; \
+		echo "Détails : $(TIKZ_DIR)/$*_tmp.stdout"; \
+		echo "Les fichiers temporaires sont conservés pour débogage."; \
 		exit 1; \
 	fi
 
@@ -72,8 +72,8 @@ $(SVG_DIR)/%.svg: $(TIKZ_DIR)/%.tex $(PREAMBLE)
 		echo '\\begin{document}' >> $*_tmp.tex && \
 		cat $*.tex >> $*_tmp.tex && \
 		echo '\\end{document}' >> $*_tmp.tex && \
-		lualatex -interaction=nonstopmode -halt-on-error -output-format=dvi $*_tmp.tex > /dev/null 2>&1 && \
-		dvisvgm --font-format=woff --exact --bbox=preview $*_tmp.dvi -o $*_tmp.svg > /dev/null 2>&1 \
+		lualatex -interaction=nonstopmode -halt-on-error -output-format=dvi $*_tmp.tex > $*_tmp.stdout 2>&1 && \
+		dvisvgm --font-format=woff --exact --bbox=preview $*_tmp.dvi -o $*_tmp.svg >> $*_tmp.stdout 2>&1 \
 	)
 	@if [ -f $(TIKZ_DIR)/$*_tmp.svg ]; then \
 		mv $(TIKZ_DIR)/$*_tmp.svg $@; \
@@ -81,8 +81,8 @@ $(SVG_DIR)/%.svg: $(TIKZ_DIR)/%.tex $(PREAMBLE)
 		echo "✓ $*.svg créé"; \
 	else \
 		echo "✗ Erreur lors de la compilation SVG de $*.tex"; \
-		echo "Pour déboguer : cd $(TIKZ_DIR) && lualatex -output-format=dvi $*_tmp.tex && dvisvgm $*_tmp.dvi"; \
-		cd $(TIKZ_DIR) && rm -f $*_tmp.*; \
+		echo "Détails : $(TIKZ_DIR)/$*_tmp.stdout"; \
+		echo "Les fichiers temporaires sont conservés pour débogage."; \
 		exit 1; \
 	fi
 
@@ -112,16 +112,25 @@ clean:
 	@echo "✓ Fichiers temporaires nettoyés"
 
 # Nettoyer tout
-cleanall: clean
+clean-pdf:
 	@rm -f $(PDF_DIR)/*-tikz-*.pdf
+	@echo "✓ PDF TikZ supprimés"
+
+clean-svg:
 	@rm -f $(SVG_DIR)/*-tikz-*.svg
-	@echo "✓ Tous les PDF et SVG supprimés"
+	@echo "✓ SVG TikZ supprimés"
+
+cleanall: clean clean-pdf clean-svg
+	@echo "✓ Tous les PDF et SVG TikZ supprimés"
 
 # Recompiler tout en PDF
-rebuild: cleanall figures
+rebuild: clean-pdf figures
 
 # Recompiler tout en SVG
-rebuild-svg: cleanall svg
+rebuild-svg: clean-svg svg
+
+# Recompiler tous les formats
+rebuild-all: cleanall figures svg
 
 # Lister les figures
 list:
@@ -150,9 +159,12 @@ help:
 	@echo "  make list             - Lister les figures"
 	@echo "  make debug            - Afficher les variables"
 	@echo "  make clean            - Nettoyer les fichiers temporaires"
-	@echo "  make cleanall         - Supprimer tous les PDF et SVG"
-	@echo "  make rebuild          - Recompiler tout en PDF"
-	@echo "  make rebuild-svg      - Recompiler tout en SVG"
+	@echo "  make clean-pdf        - Supprimer les PDF TikZ"
+	@echo "  make clean-svg        - Supprimer les SVG TikZ"
+	@echo "  make cleanall         - Supprimer tous les PDF et SVG TikZ"
+	@echo "  make rebuild          - Recompiler tous les PDF sans toucher aux SVG"
+	@echo "  make rebuild-svg      - Recompiler tous les SVG sans toucher aux PDF"
+	@echo "  make rebuild-all      - Recompiler les PDF et SVG"
 	@echo ""
 	@echo "Exemples :"
 	@echo "  make figures"

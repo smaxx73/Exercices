@@ -1,7 +1,7 @@
 \uuid{6Wjb}
 \chapitre{Probabilité discrète}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Probabilité}
 \sousChapitre{Variable aléatoire discrète}
 \titre{Couple de variables}
 \theme{variables aléatoires discrètes, loi conjointe}
@@ -14,8 +14,8 @@
 \contenu{
 	\texte{ Deux urnes $U_1$ et $U_2$ contiennent des boules permettant des gains ou des pertes décrits comme suit : 
 		\begin{itemize}
-			\item dans l'urne $U_1$, il y a 1 boule << perdant 1\euro{} >>, 2 boules << sans gain >>, 3 boules << gagnant 2\euro{} >> ;
-			\item dans l'urne $U_2$, il y a 3 boules << perdant 1\euro{} >>, 2 boules << sans gain >>, 1 boules << gagnant 2\euro{} >> ;
+			\item dans l'urne $U_1$, il y a 1 boule \og perdant 1\euro{} \fg{}, 2 boules \og sans gain \fg{}, 3 boules \og gagnant 2\euro{} \fg{} ;
+			\item dans l'urne $U_2$, il y a 3 boules \og perdant 1\euro{} \fg{}, 2 boules \og sans gain \fg{}, 1 boule \og gagnant 2\euro{} \fg{} ;
 		\end{itemize}
 	Un joueur lance un dé équilibré : s'il obtient 6, il pioche une boule dans l'urne $U_1$, sinon il pioche une boule dans l'urne $U_2$. 
 	
@@ -24,8 +24,8 @@
 	
 	\begin{enumerate}
 		\item \question{ Donner la loi du couple $(X,Y)$. }
-		\indication{Utiliser la formule de Bayes pour calculer toutes les valeurs $\prob(X=k,Y=k')$. }
-		\reponse{ Pour calculer par exemple $\prob(X=1,Y=-1)$, on utilise la formule de Bayes : 
+		\indication{Utiliser la formule du produit pour calculer toutes les valeurs $\prob(X=k,Y=k')$. }
+		\reponse{ Pour calculer par exemple $\prob(X=1,Y=-1)$, on utilise la formule du produit :
 	$$\prob(X=1,Y=-1) = \prob(\{X=1\} \cap \{Y=-1\}) = \prob(X=1)\prob(Y=-1 \mid X=1)$$
 	Or d'après l'énoncé, $\prob(X=1) = \frac{1}{6}$ et $\prob(Y=-1 \mid X=1) = \frac{1}{6}$ d'où $\prob(X=1,Y=-1) = \frac{1}{36}$. 
 	En procédant de même pour tous les couples de valeurs possibles, on obtient : 

@@ -1,7 +1,7 @@
 \uuid{Ajfy}
 \chapitre{Probabilité continue}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Probabilité}
 \sousChapitre{Loi normale}
 \titre{Deux approximations}
 \theme{loi normale, approximation de loi, loi de Poisson}
@@ -9,7 +9,7 @@
 \datecreate{2023-09-18}
 \organisation{AMSCC}
 
-\difficulte{}
+\difficulte{3}
 \contenu{
 
 \texte{ Une machine produit des rondelles métalliques en grande série. Une rondelle est acceptée si son diamètre extérieur est compris entre $21.9$ et $22.1$ mm. On suppose que sur l'ensemble de la production, le diamètre extérieur des rondelles est une variable aléatoire $X$ qui suit une loi normale de moyenne $22$ mm et d'écart-type $0.05$ mm. }
@@ -27,6 +27,7 @@
 	}
 	
 	\item \question{ On prélève $100$ pièces. En utilisant une approximation par la loi de Poisson, donner une approximation de la probabilité qu'il y ait $k$ rondelles refusées, pour $k\in\{0,1,2,3,4\}$. }
+	\indication{Le nombre de refus suit une binomiale de paramètres $n=100$ et $p$ trouvé à la première question. L'approximation de Poisson a pour paramètre $\lambda=np$.}
 	\reponse{ 
 		Soit $Y$ le nombre de rondelles refusées sur les $100$ pièces. On a $Y\sim \mathcal{B}(100,p)$ et $\E(Y)=100\times p = 4.56$ donc $Y$ peut être approchée par la variable aléatoire $Z$ de loi $\mathcal{P}(4.56)$. Ainsi,
 		\[ \forall k \in\{0,\cdots , 4\},\quad \prob(Y=k)\simeq \prob(Z=k)=\frac{4.56^k}{k!}e^{-4.56}.\]
@@ -43,6 +44,7 @@
 	}
 	
 	\item \question{ On prélève $\nombre{1000}$ pièces. Proposer une approximation de la probabilité qu'il y ait au moins $50$ pièces refusées. }
+	\indication{Utiliser cette fois l'approximation normale de la binomiale, de moyenne $np$ et variance $np(1-p)$. Pour « au moins $50$ », appliquer une correction de continuité au seuil $49{,}5$.}
 	\reponse{ 
 		Soit $R$ le nombre de pièces refusées parmi les $\nombre{1000}$ pièces. Alors $Z\sim \mathcal{B}(\nombre{1000},p)$ qui peut être approchée par une loi Normale:
 		\begin{align*}

@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        width=10cm,
+        view={60}{30},
+        xlabel={$x$},
+        ylabel={$y$},
+        zlabel={$f(x,y)$},
+        domain=-2:2,
+        domain y=-2:2,
+        samples=40,
+        colormap/cool
+    ]
+        \addplot3[surf] {x^4 + y^4 - 2*(x - y)^2};
+    \end{axis}
+\end{tikzpicture}

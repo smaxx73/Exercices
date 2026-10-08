@@ -1,0 +1,42 @@
+\uuid{qT7m}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Échantillonnage et estimation}
+\titre{Student et normale : mesurer la différence}
+\theme{loi de Student, loi normale, quantiles, tableur, approximation}
+\auteur{AMSCC}
+\datecreate{2026-10-06}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+\texte{On considère un échantillon $X_1,\ldots,X_n$ de variables indépendantes de loi $\mathcal N(\mu,\sigma)$, avec $n\geq2$ et $\sigma>0$. Le second paramètre désigne l'écart-type. On pose
+\[
+\overline X=\frac1n\sum_{i=1}^nX_i,\qquad
+S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline X)^2,\qquad S=\sqrt{S^2}.
+\]
+Les calculs numériques sont à réaliser au tableur. Les quantiles utilisés sont des quantiles à gauche.}
+\begin{enumerate}
+\item \question{Rappeler les lois de $Z=\frac{\sqrt n(\overline X-\mu)}{\sigma}$ et de $T=\frac{\sqrt n(\overline X-\mu)}{S}$. Quelle différence entre leurs dénominateurs justifie l'emploi de deux lois différentes ?}
+\indication{Le théorème de Fisher donne $\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)$ et l'indépendance entre $\overline X$ et $S^2$.}
+\reponse{Sous le modèle normal, $Z\sim\mathcal N(0,1)$ et $T\sim St(n-1)$, exactement. Le dénominateur de $Z$ utilise le paramètre fixé $\sigma$ ; celui de $T$ utilise la statistique aléatoire $S$. En posant $B=\frac{(n-1)S^2}{\sigma^2}$, on obtient $T=\frac{Z}{\sqrt{\frac B{n-1}}}$, avec $Z$ et $B$ indépendantes. $S>0$ presque sûrement sous ce modèle.}
+\item \question{Pour $n=5,15,30,100$, construire un tableau donnant les degrés de liberté de $T$, le quantile d'ordre $0{,}975$ de sa loi et celui de $\mathcal N(0,1)$. Arrondir l'affichage à quatre décimales, en conservant la précision des calculs.}
+\indication{Si la taille $n$ est en A2, utiliser \texttt{=LOI.STUDENT.INVERSE.N(0,975;A2-1)}. Le quantile normal s'obtient avec \texttt{=LOI.NORMALE.INVERSE.N(0,975;0;1)}.}
+\reponse{\begin{center}\begin{tabular}{rrrr}\hline
+$n$ & Degrés de liberté & Quantile Student & Quantile normal \\ \hline
+5 & 4 & 2,7764 & 1,9600 \\
+15 & 14 & 2,1448 & 1,9600 \\
+30 & 29 & 2,0452 & 1,9600 \\
+100 & 99 & 1,9842 & 1,9600 \\ \hline
+\end{tabular}\end{center}
+Les quantiles de Student sont ici plus élevés, puis se rapprochent du quantile normal lorsque les degrés de liberté augmentent.}
+\item \question{Pour chaque taille, déterminer $c_n>0$ tel que $\mathbb P(-c_n\leq T\leq c_n)=0{,}95$. Expliquer pourquoi on utilise le quantile d'ordre $0{,}975$, et non celui d'ordre $0{,}95$.}
+\indication{La loi de Student est symétrique. Répartir les $5\%$ de probabilité restants entre les deux queues.}
+\reponse{Chaque queue contient $2{,}5\%$ de la probabilité : $c_n=t_{n-1;0{,}975}$, soit les valeurs de la colonne Student. Le quantile d'ordre $0{,}95$ ne laisse que $5\%$ à droite ; par symétrie, l'intervalle délimité par son opposé et lui-même contient $90\%$, et non $95\%$.}
+\item \question{Posons $u=\Phi^{-1}(0{,}975)$, où $\Phi$ est la fonction de répartition de $\mathcal N(0,1)$. Si l'on remplace $c_n$ par $u\simeq1{,}959964$, la probabilité centrale vaut-elle encore exactement $95\%$ ? La calculer au tableur pour les quatre tailles.}
+\indication{Si $F_{n-1}$ est la fonction de répartition de Student, la symétrie donne $\mathbb P(|T|\leq u)=2F_{n-1}(u)-1$. Utiliser la valeur non arrondie de $u$.}
+\reponse{Si $n$ est en A2 et le quantile normal $u$ en D2, utiliser \texttt{=2*LOI.STUDENT.N(D2;A2-1;VRAI)-1}. On obtient respectivement $87{,}84\%$, $92{,}98\%$, $94{,}03\%$ et $94{,}72\%$. Remplacer le quantile de Student par le quantile normal donne donc un intervalle central trop étroit, surtout pour les petits échantillons.}
+\item \question{Commenter l'affirmation : \og À partir de 30 observations, la statistique $T$ suit une loi normale.\fg}
+\reponse{Sous les hypothèses données, la loi exacte de $T$ reste Student pour toute taille finie. Elle converge vers la loi normale centrée réduite lorsque $n$ augmente. Le seuil de 30 observations ne constitue pas un changement de loi ; la pertinence de l'approximation dépend de la précision recherchée. Sans modèle normal, les lois exactes utilisées ici ne sont plus garanties.}
+\end{enumerate}
+}

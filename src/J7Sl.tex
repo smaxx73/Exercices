@@ -1,7 +1,7 @@
 \uuid{J7Sl}
 \chapitre{Probabilité continue}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Probabilité}
 \sousChapitre{Densité de probabilité}
 \titre{ \'Etude d'une loi absolument continue }
 \theme { variables aléatoires à densité }
@@ -9,7 +9,7 @@
 \datecreate{2023-10-15}
 \organisation{AMSCC}
 
-\difficulte{}
+\difficulte{3}
 \contenu{
 \texte{
     Soit $k \in \R$ et $f$ la fonction définie sur $\R$ pour tout $x \in \R$ par :
@@ -90,10 +90,12 @@
 
     }
     \item \question{ Soit la variable aléatoire $Y = X^2$. En distinguant éventuellement selon les valeurs de $t \in \R$, déterminer $a(t)$ et $b(t)$ de telle sorte que $\{Y \leq t\} = \left\{a(t) \leq X \leq b(t)\right\}$. }
+    \indication{Résoudre l'inégalité $X^2\leq t$. Tenir compte du fait que $X$ est presque sûrement dans $[0,1]$, ce qui simplifie l'intervalle obtenu.}
     \reponse{
         Si $t < 0$, on a $\{Y \leq t\} = \emptyset$. Si $t \geq 0$, on a $\{Y \leq t\} = \{X \in [-\sqrt{t},\sqrt{t}]\}$.
     }
     \item \question{ En déduire une expression de la fonction de répartition de $Y$ puis une densité de probabilité de $Y$. }
+    \indication{Utiliser la question précédente pour écrire $F_Y(t)$ en fonction de $F_X$, en distinguant notamment $t<0$, $0\leq t\leq1$ et $t>1$, puis dériver sur l'intérieur du support.}
     \reponse{
         Soit $t \in \R$. Si $t < 0$, on a $F_Y(t) = 0$. Si $t \geq 0$, on a : 
         \begin{align*}

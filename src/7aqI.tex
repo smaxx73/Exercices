@@ -1,7 +1,7 @@
 \uuid{7aqI}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
 \titre{Expérience scientifique}
 \theme{statistiques, tests d'hypothèses}
@@ -10,53 +10,20 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-
-\texte{ En 1908, en France, Binet publie une étude concernant la mesure de l'intelligence des enfants. Son échelle d'intelligence se base sur un certain nombre d'épreuves classées dans un ordre croissant de difficulté. On peut donc classer l'enfant dans une des 5 catégories suivantes : retardé de 2 ans, retardé d'1 an, régulier, avancé de 1 an et avancé de 2 ans. Voici les données, en
-	fréquences relatives, que Binet obtient sur un échantillon de 192 enfants : 
-	
-	
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|}
-			\hline 
-			-2 & -1 & 0 & +1 & +2 \\ 
-			\hline 
-			0{,}06 & 0{,}23 & 0{,}48 & 0{,}22 & 0{,}01 \\ 
-			\hline 
-		\end{tabular} 
-		
-	\end{center}
-	
-	Des chercheurs, un américain (Goddard) et un allemand (Bobertag) font passer le test de Binet à un échantillon de 1547 enfants américains (Goddard) et 228 enfants allemands (Bobertag). Ils obtiennent les effectifs suivants :
-	
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline 
-			& -2 & -1 & 0 & +1 & +2 \\ 
-			\hline 
-			Goddard &		294 & 309 & 557 & 
-			325 & 62 \\ 
-			\hline
-			Bobertag & 6 & 40 & 119 & 57 & 6 \\
-			\hline 
-		\end{tabular} 
-	\end{center} }
-	
-\question{ 	Avec un niveau de confiance de $95\%$, peut-on dire que les données chez les enfants américains et allemands sont cohérentes avec la distribution obtenue par Binet chez les enfants français ? }
-
-\reponse{ 	Les effectifs théoriques sous hypothèse de distribution de Binet :
-	
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline 
-			& -2 & -1 & 0 & +1 & +2 \\ 
-			\hline 
-			Goddard &		92.82 & 355.81 & 742.56 & 
-			340.34 & 15.47 \\ 
-			\hline
-			Bobertag & 13.68 & 52.44 & 109.44 & 50.16 & 2.28 \\
-			\hline 
-		\end{tabular} 
-		
-	\end{center}
-	On fait un test du $\chi^2$ avec une variable de décision qui suit une loi du $\chi^2(4)$ la valeur critique est 9,49 pour une erreur de première espèce $\alpha = 5\%$ : la valeur observée pour Goddard est 629,21, celle pour Bobertag est 15.09, on rejette l'hypothèse $H_0$ pour les deux test. }}
+\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Une étude historique présente cinq catégories d'avance ou de retard scolaire, notées $-2,-1,0,+1,+2$. Pour cet exercice, on fixe par convention les probabilités de référence
+\[(0{,}06;0{,}23;0{,}48;0{,}22;0{,}01).\]
+Ces nombres sont inspirés des fréquences publiées par Binet sur 192 enfants ; on les traite ici comme une référence fixée, sans estimer son incertitude. Deux échantillons indépendants donnent :
+\begin{center}\begin{tabular}{lrrrrr}\hline
+Catégorie & $-2$ & $-1$ & 0 & $+1$ & $+2$ \\
+Goddard (1547 enfants) & 294 & 309 & 557 & 325 & 62 \\
+Bobertag (228 enfants) & 6 & 40 & 119 & 57 & 6 \\ \hline
+\end{tabular}\end{center}}
+\question{Tester séparément l'adéquation de chaque distribution à la référence au seuil de $5\%$. Vérifier les effectifs attendus et regrouper les classes si nécessaire.}
+\indication{Les degrés de liberté sont le nombre de classes retenues moins un, car les probabilités de référence sont fixées.}
+\reponse{Sous $H_0$, $e_j=np_j$ et $Q=\sum\frac{(O_j-e_j)^2}{e_j}$ est approximativement de loi $\chi^2(c-1)$.
+Pour Goddard, les effectifs attendus sont $92{,}82;355{,}81;742{,}56;340{,}34;15{,}47$, tous supérieurs à 5. On obtient $q_{\mathrm{obs}}\simeq629{,}2123$, 4 ddl et $p_{\mathrm{val}}\simeq7{,}37\times10^{-135}$ : rejet à $5\%$.
+Pour Bobertag, l'effectif attendu de $+2$ est seulement $2{,}28$. On regroupe $+1$ et $+2$. Les effectifs observés deviennent $(6,40,119,63)$ et les attendus $(13{,}68;52{,}44;109{,}44;52{,}44)$.
+On trouve $q_{\mathrm{obs}}\simeq10{,}22424$, 3 ddl, $p_{\mathrm{val}}\simeq0{,}016753$ et $q_{3;0{,}95}\simeq7{,}815$ : rejet également.
+Ces tests ne constituent pas une comparaison exacte à une population française estimée sur 192 enfants : pour cette autre question, il faudrait les effectifs français complets et un test d'homogénéité.}
+}

@@ -1,7 +1,7 @@
 \uuid{dXNn}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Estimation}
 \titre{Estimation du paramètre d'une loi}
 \theme{estimateurs}
@@ -11,22 +11,66 @@
 \difficulte{}
 \contenu{
 
-\texte{ 	On fixe un réel $a>0$ et on définit une variable aléatoire $X$ sur $\mathbb{N}$ dont la loi de probabilité est définie par 
+\texte{ 	On fixe un réel $a>0$ et on définit une variable aléatoire $X$ sur $\mathbb{N}$ dont la loi de probabilité est définie par
 $$\PP(X=k)=\frac{a^k}{(1+a)^{k+1}}$$
 pour tout $k \in \mathbb{N}$. }
 
-\question{ A l'aide de la méthode du maximum de vraisemblance, définir un estimateur de $a$ et déterminer son biais. }
+\question{ À l'aide de la méthode du maximum de vraisemblance, définir un estimateur de $a$ et déterminer son biais. Discuter le cas où toutes les observations sont nulles. }
+
+\indication{Poser $s_x=\sum_{i=1}^n x_i$ et étudier le signe de la dérivée. Pour calculer l'espérance, la somme sur les valeurs possibles de $X$ va jusqu'à l'infini.}
 
 \reponse{
-On définit un échantillon $X_1,...,X_n$ et on considère la probabilité que cet échantillon réalise un ensemble de valeurs $V=\{x_1,...,x_n\}$. La fonction de vraisemblance s'écrit alors 
-$$L(x_1,...,x_n,a) = \PP(X_1=x_1,...,X_n=x_n) = \prod_{k=1}^{n} \PP(X=x_k) = \prod_{k=1}^n \frac{a^{x_k}}{(1+a)^{x_k+1}} = \frac{a^{\sum x_k}}{(1+a)^{\sum x_k+1}}$$
+On définit un échantillon $(X_1,\ldots,X_n)$ de variables indépendantes et identiquement distribuées selon la loi de $X$. On considère une réalisation $(x_1,\ldots,x_n)$ de cet échantillon et on pose $s_x=\sum_{i=1}^n x_i$.
+La fonction de vraisemblance s'écrit alors, par indépendance,
+\begin{align*}
+L(x_1,\ldots,x_n,a)
+&=\PP(X_1=x_1,\ldots,X_n=x_n)\\
+&=\prod_{i=1}^n\PP(X_i=x_i)\\
+&=\prod_{i=1}^n\frac{a^{x_i}}{(1+a)^{x_i+1}}\\
+&=\frac{a^{s_x}}{(1+a)^{s_x+n}}.
+\end{align*}
 
-On dérive ce quotient par rapport à $a$, on factorise par $a^{\sum x_k-1}(1+a)^{n+\sum x_k -1}$ et on trouve que 
-$$\frac{\partial L}{\partial a}(x_1,...,x_n,a) = 0 \iff \sum_{k=0}^n x_k(1+a) - a(n+\sum_{k=0}^n x_k) = 0 \iff a = \frac{1}{n} \sum_{k=0}^n x_k$$
+On dérive ce quotient par rapport à $a$ et on factorise :
+\begin{align*}
+L'(a)
+&=\frac{s_xa^{s_x-1}}{(1+a)^{s_x+n}}
+-\frac{(s_x+n)a^{s_x}}{(1+a)^{s_x+n+1}}\\
+&=\frac{a^{s_x-1}}{(1+a)^{s_x+n+1}}
+\bigl(s_x(1+a)-a(s_x+n)\bigr)\\
+&=\frac{a^{s_x-1}}{(1+a)^{s_x+n+1}}(s_x-na).
+\end{align*}
 
-On a donc trouvé un meilleur estimateur du paramètre $a$ selon la méthode du maximum de vraisemblance : il s'agit de l'estimateur $T = \frac{1}{n} \sum_{k=0}^n X_k$.
+\textbf{Si $s_x>0$ :} pour $a>0$, le facteur $\frac{a^{s_x-1}}{(1+a)^{s_x+n+1}}$ est strictement positif. Ainsi,
+\[
+L'(a)=0\iff s_x-na=0\iff a=\frac{s_x}{n}.
+\]
+La dérivée est positive sur $]0;\frac{s_x}{n}[$ et négative sur $]\frac{s_x}{n};+\infty[$. La vraisemblance admet donc un unique maximum en
+\[
+\widehat a_{\mathrm{obs}}=\frac{s_x}{n}=\frac1n\sum_{i=1}^n x_i=\bar x.
+\]
+La statistique correspondante est la moyenne empirique
+\[
+T=\frac1n\sum_{i=1}^n X_i.
+\]
+Sa valeur observée fournit l'estimation par maximum de vraisemblance lorsque $s_x>0$.
 
-Reste à calculer le biais de cet estimateur, autrement dit à calculer $B(T) = \mathbb{E}(T-a)$. Or pour tout entier $i$, $X_i$ suit la loi définie ci-dessus et on espérance se calcule de la manière suivante :
-$$\mathbb{E}(X_i) = \sum_{k=0}^n k\PP(X_i=k) = \sum_{k=0}^n k \left( \frac{a}{1+a}  \right)^{k-1} \frac{a}{(1+a)^2} = \frac{1}{\left(1-\frac{a}{1+a}\right)^2} \times \frac{a}{(1+a)^2} = a$$
-Donc $B(T) = \frac{1}{n} \times n \times a - a = 0$ : la variable $T$ est donc un estimateur sans biais du paramètre $a$.
+\textbf{Si $s_x=0$ :} les observations étant des entiers naturels, elles sont toutes nulles. On a alors $L(a)=(1+a)^{-n}$, strictement décroissante pour $a>0$. Aucun maximum n'est atteint sur le domaine initial ; le supremum vaut 1 et est approché lorsque $a\to0^+$. Il n'existe donc pas d'estimation par maximum de vraisemblance pour cette réalisation dans le modèle $a>0$.
+
+\begin{minipage}{\linewidth}
+Reste à calculer le biais de la moyenne empirique $T$, autrement dit $b(T)=\mathbb E(T)-a$. Pour tout $i\in\{1,\ldots,n\}$, $X_i$ suit la loi définie ci-dessus. En posant $r=\frac{a}{1+a}\in]0;1[$, son espérance se calcule de la manière suivante :
+\begin{align*}
+\mathbb E(X_i)
+&=\sum_{k=0}^{\infty}k\PP(X_i=k)\\
+&=\sum_{k=0}^{\infty}k\frac{a^k}{(1+a)^{k+1}}\\
+&=\frac1{1+a}\sum_{k=1}^{\infty}kr^k\\
+&=\frac1{1+a}\frac{r}{(1-r)^2}=a.
+\end{align*}
+Donc, par linéarité de l'espérance,
+\[
+b(T)=\frac1n\sum_{i=1}^n\mathbb E(X_i)-a
+=\frac1n\times n\times a-a=0.
+\]
+La variable $T$ est donc un estimateur sans biais du paramètre $a$. Cette propriété reste vraie même si l'EMV n'existe pas pour la réalisation constituée uniquement de zéros.
+
+\end{minipage}
 }}

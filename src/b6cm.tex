@@ -1,7 +1,7 @@
 \uuid{b6cm}
 \chapitre{Probabilité continue}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Probabilité}
 \sousChapitre{Densité de probabilité}
 \titre{ Autour d'une loi exponentielle }
 \theme{variables aléatoires à densité, loi exponentielle}
@@ -9,7 +9,7 @@
 \datecreate{2023-10-16}
 \organisation{AMSCC}
 
-\difficulte{}
+\difficulte{2}
 \contenu{
 \texte{   Soient $X$ et $Y$ deux variables aléatoires indépendantes suivant chacune une loi exponentielle $\mathcal{E}(3)$. On rappelle qu'une densité de probabilité de la loi exponentielle $\mathcal{E}(\lambda)$ est donnée par : $$f(x) = \begin{cases} 
     \lambda e^{-\lambda x} & \text{ si } x \geq 0 \\
@@ -23,14 +23,15 @@
     \reponse{
         Soit $t \in \R$. Si $t \geq 0$, on a : 
         \begin{align*}
-            \prob(X \geq t) &= \int_t^{+\infty} f(x) \d x \\
-            &= \int_t^{+\infty} 3 e^{-3x} \d x \\
+            \prob(X \geq t) &= \int_t^{+\infty} f(x) \dx \\
+            &= \int_t^{+\infty} 3 e^{-3x} \dx \\
             &= \left[ -e^{-3x} \right]_t^{+\infty} \\
             &= e^{-3t}.
         \end{align*}
         Si $t < 0$, on a $\prob(X \geq t) = 1$.
     }
     \item \question{ Déterminer $\prob(Z \geq t)$ pour tout $t \in \R$.}
+    \indication{Pour $t\geq0$, l'événement $\{\min(X,Y)\geq t\}$ est l'intersection $\{X\geq t\}\cap\{Y\geq t\}$. Utiliser l'indépendance puis les fonctions de survie.}
     \reponse{
         Soit $t \in \R$. Si $t \geq 0$, on a : 
         \begin{align*}

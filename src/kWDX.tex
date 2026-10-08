@@ -1,7 +1,7 @@
 \uuid{kWDX}
 \chapitre{Probabilité discrète}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Probabilité}
 \sousChapitre{Autre}
 \titre{ Fiabilité d'un système électronique }
 \theme {variables aléatoires à densité, loi exponentielle}
@@ -9,7 +9,7 @@
 \datecreate{2023-09-19}
 \organisation{ AMSCC }
 
-\difficulte{}
+\difficulte{2}
 \contenu{
     \texte{ Un système électronique est constitué de $n$ composants disposés en série. Cela implique que la panne d'un composant entraîne la panne de tout le système. Chacun des composants a une durée de vie $T_k$ qui suit une loi exponentielle de paramètre $\lambda = 1$, pour tout $k \in \{1, \ldots, n\}$. On admet que les variables aléatoires $T_1, \ldots, T_n$ sont indépendantes. On note $S$ la durée de vie du système et on note $t \geq 0$ la variable de temps. }
 
@@ -29,6 +29,7 @@
         \item \question{
             On note $R(t) = \prob(S > t)$ la fiabilité du système à l'instant $t$. C'est la probabilité que le système fonctionne encore après un temps d'utilisation $t$. Exprimer $R(t)$ en fonction de $R_1(t), \ldots, R_n(t)$ et en déduire que $S$ suit une loi exponentielle dont on précisera le paramètre.
         }
+        \indication{Le système fonctionne à l'instant $t$ si tous ses composants fonctionnent encore. Traduire cet événement par une intersection, puis utiliser l'indépendance.}
         \reponse{
             $R(t) = \prob(S > t) = \prob(T_1 > t, \ldots, T_n > t) = \prod_{k=1}^{n} \prob(T_k > t) = \prod_{k=1}^{n} R_k(t) = e^{-nt}$ pour tout $t \geq 0$. Donc $S$ suit une loi exponentielle de paramètre $n$.
         }

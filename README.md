@@ -2,24 +2,25 @@
 ## Exercices de maths
 Chaque exercice est contenu dans un fichier du répertoire ```src/```.
 
-Pour créer un exercice à partir du template, exécuter le script ```create_exercise.py```.
-
 Pour insérer un exercice dans un document .tex, insérer le préambule : 
 
 ```
-\newcommand{\path}{} %insérer le chemin vers le répertoire où se trouve le dépot Exercice
+\newcommand{\exercisespath}{} % chemin vers le répertoire où se trouve ce dépôt
 
-\input{\path/_preambules/general.tex}
-\input{\path/_preambules/print.tex}
-\input{\path/_preambules/macros.tex}
-\input{\path/_preambules/python.tex}
+\input{\exercisespath/_preambules/general.tex}
+\input{\exercisespath/_preambules/print.tex}
+\input{\exercisespath/_preambules/macros.tex}
 ```
+
+Les extraits Python sont des fichiers dans `code/python/`. Ils s'insèrent dans
+`\contenu{...}` avec `\pythoncode{nom-du-fichier.py}` ; cette commande utilise
+`fancyvrb`, compatible avec le stockage du contenu dans une macro.
 
 et dans le corps du document, utiliser la commande
 
-```\insertexo{...}{solution}{uuid}{lien}{numerotation}```
+```\insertexo{id}{solution}{uuid}{lien}{numerotation}{indication}```
 
-avec l'identifiant de l'exercice comme premier argument. ```solution```, ```uuid```, ```lien``` sont des booléens contrôlant l'affichage (ou non) des solutions, de l'identifiant de l'exercice et du lien vers la solution. Le dernier argument est le numéro de l'exercice.
+avec l'identifiant de l'exercice comme premier argument. Les arguments `solution`, `uuid`, `lien` et `indication` sont des booléens contrôlant l'affichage. `numerotation` est le numéro affiché.
 
 ### Exemple : 
 Si on a plusieurs exercices, on peut utiliser la commande suivante : 
@@ -36,7 +37,7 @@ Si on a un seul exercice et qu'on veut contrôler finement l'affichage des param
 \def\isuuid{true}
 \def\link{true}
 
-\insertexo{J50Z}{\solution}{\uuid}{\link}{\thenum}
+\insertexo{J50Z}{\solution}{\isuuid}{\link}{\thenum}{\isindication}
 ```
 permet d'insérer l'exercice J50Z en affichant la solution, l'identifiant, le lien vers la solution et numéroté avec le compteur num.
 
@@ -52,7 +53,7 @@ Chaque exercice a la structure suivante :
 \uuid{{ID}}
 \titre{ {TITRE} }
 
-\niveau{} 				%L1, L2, L3, MPSI, MP, PCSI, PC, PSI...
+\niveau{} 				%L1, L2, L3, M1, M2 (la filière CPGE se note dans \cpge)
 \module{ {MODULE} } 	%Analyse, Algèbre...
 \chapitre{}   			%Continuité, Groupes, Fonctions de plusieurs variables...
 \sousChapitre{}			%Optimisation, Diagonalisation d'une matrice, Calcul de dérivées partielles...
@@ -62,18 +63,17 @@ Chaque exercice a la structure suivante :
 \datecreate{ {YYYY-MM-DD}}
 \organisation{}			%AMSCC, Exo7, ...
 \difficulte{}			%1, 2, 3, 4 ou 5
+% \cpge{}				%rattachements CPGE relus, ex. pcsi.nombres-complexes.f, mpsi-mp2i.nombres-complexes.f
 
 \contenu{
 
-\texte{ 
-}
+\texte{Introduction éventuelle.}
 
 \begin{enumerate}
-\item   \question{}
-\indication{}
-\reponse{}
-\item   \question{}
-\indication{}
+\item \question{Première question.}
+% \indication{Indication éventuelle, non vide.}
+% \reponse{Réponse éventuelle.}
+\item \question{Deuxième question.}
 
 \end{enumerate}
 
@@ -82,10 +82,21 @@ Chaque exercice a la structure suivante :
 
 Les questions /réponses peuvent être agencées par exemple dans une structure enumerate.
 
-## sortie pdf
-Dans le répertoire /pdf, on trouve :
-- latex : chaque exercice est appelé dans un fichier compilable (standalone) individuel
-- pdf : le résultat après exécution de pdflatex
+### Rattachements aux programmes de CPGE
+
+`\cpge{}` (facultatif) rattache l'exercice aux programmes officiels de
+mathématiques des classes préparatoires : une liste d'identifiants séparés par
+des virgules, pris dans le référentiel d'exobase
+(`content/referentials/cpge/programmes/`, identifiant `{#…}` en fin de titre).
+
+```
+\cpge{mpsi-mp2i.nombres-complexes.f, pcsi.nombres-complexes.f}
+```
+
+Seuls les rattachements relus y figurent. Les propositions automatiques
+restent dans OpenYourMath jusqu'à leur validation. La filière n'est pas un
+niveau : un exercice de nombres complexes reste `\niveau{L1}` et reçoit ses
+rattachements CPGE en plus.
 
 ## Validation LaTeX
 
@@ -97,10 +108,11 @@ python3 scripts/check_exercise_sources.py
 python3 scripts/check_exercise_sources.py src/6Wjb.tex
 python3 scripts/check_exercise_sources.py --max-errors=0
 python3 scripts/check_exercise_sources.py --csv
+python3 scripts/check_image_assets.py
+python3 scripts/check_python_assets.py
 ```
 
-La cible par défaut est `src/`. Les codes d'erreur et le format de sortie sont
-alignés avec `pnpm test:tex` dans `openyourmath-v2`.
+La cible par défaut est `src/`. Ces contrôles de structure et d'assets sont exécutés par la CI.
 
 ## Documentation du Makefile
 Le `Makefile` sert à compiler automatiquement les figures TikZ présentes dans `img/tikz/` (fichiers `*-tikz-*.tex`) vers :
@@ -122,8 +134,10 @@ Chaque compilation construit un fichier temporaire `*_tmp.tex`, lance `lualatex`
 - `make fig-svg UUID=<id> N=<n>` : compile une figure SVG
 - `make list` : liste les sources TikZ et les sorties déjà générées
 - `make clean` : supprime les fichiers temporaires
-- `make cleanall` : supprime aussi tous les PDF/SVG générés
-- `make rebuild` : nettoyage complet puis recompilation PDF
-- `make rebuild-svg` : nettoyage complet puis recompilation SVG
+- `make clean-pdf` / `make clean-svg` : supprime uniquement le format indiqué
+- `make cleanall` : supprime tous les PDF/SVG générés
+- `make rebuild` : recompile les PDF sans toucher aux SVG
+- `make rebuild-svg` : recompile les SVG sans toucher aux PDF
+- `make rebuild-all` : recompile les PDF et SVG
 - `make debug` : affiche les variables internes calculées par le `Makefile`
 - `make help` : affiche l’aide intégrée

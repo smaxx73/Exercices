@@ -40,7 +40,7 @@
 					
 					% Graduations x
 					\foreach \x/\xtext in {-2*pi/$-2\pi$, -1.5*pi/$\frac{-3\pi}{2}$, -pi/$-\pi$, -0.5*pi/$\frac{-\pi}{2}$, 0.5*pi/$\frac{\pi}{2}$, pi/$\pi$, 1.5*pi/$\frac{3\pi}{2}$, 2*pi/$2\pi$} {
-						\ifdim\x pt=0pt \else \draw (\x,0.05) -- (\x,-0.05) node[below] {\xtext}; \fi
+						\draw (\x,0.05) -- (\x,-0.05) node[below] {\xtext};
 					}
 					\node[below left] at (0,0) {$0$};
 					

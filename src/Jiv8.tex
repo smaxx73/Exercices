@@ -1,7 +1,7 @@
 \uuid{Jiv8}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
 \titre{Lois pour les statistiques}
 \theme{loi normale, loi du chi2, loi de Student, loi de Fisher}
@@ -11,20 +11,25 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-
-\texte{Soient 9 variables aléatoires indépendantes, normales centrées réduites notées $(U_i)_{1 \leq i \leq 9}$.}
- \begin{enumerate}
-  \item \question{Quelle est la loi suivie par la variable aléatoire $X=\sum\limits_{i=1}^{9}U_i^2$ ? Déterminer le réel $x$ tel que $\PP(X > x) = 0.05$.}
-  \reponse{
-    On a $X \sim \chi^2(9)$ et $x = 16.92$.
-  }
-  \item \question{Soit $Y$ une variable aléatoire suivant une loi normale de moyenne 10 et d'écart-type 3, indépendante de $X$. Quelle est la loi suivie par la variable aléatoire $Z=\frac{Y-10}{\sqrt{X}}$ ? Déterminer le réel $z$ tel que $\PP(Z > z) = 0.05$.}
-  \reponse{
-    On a $Z = \frac{\frac{Y-10}{3}}{\sqrt{\frac{X}{9}}}$ donc par définition, $Z$ suit une loi de Student $St(9)$ et $z = 1.833$.
-  }
-  \item \question{Soit $V$ une variable aléatoire distribuée selon une loi du $\chi^2$ à 3 degrés de liberté, indépendante de $X$. Quelle est la loi suivie par $W_1=\frac{X}{3V}$ ? Quelle est la loi suivie par $W_2=\frac{3V}{X}$ ? Déterminer le réel $w_2$ tel que $\PP(W_2 > w_2) = 0.05$.}
-  \reponse{
-    On a $W_1 = \frac{\frac{X}{9}}{\frac{V}{3}}$ donc $W_1$ suit une loi de Fisher $F(9,3)$. De même, $W_2 = \frac{3V}{\frac{X}{9}}$ donc $W_2$ suit une loi de Fisher $F(3,9)$. On a $w_2 = 0.325$.
-  }
- \end{enumerate}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$ ; $t_{\nu;\gamma}$ pour la loi $St(\nu)$ ; $F_{\nu_1,\nu_2;\gamma}$ pour la loi $F(\nu_1,\nu_2)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Les variables $U_1,\ldots,U_9$ sont indépendantes, de loi $\mathcal N(0,1)$.}
+\begin{enumerate}
+\item \question{Déterminer la loi de $X=\sum_{i=1}^9U_i^2$ et $x$ tel que $\mathbb P(X>x)=0{,}05$.}
+\reponse{On a $X\sim\chi^2(9)$ et $x\simeq16{,}92$.}
+\item \question{Soit $Y\sim\mathcal N(10,3)$ indépendant de $X$. Déterminer la loi de $Z=\frac{Y-10}{\sqrt X}$ et $z$ tel que $\mathbb P(Z>z)=0{,}05$.}
+\reponse{On a $Z=\frac{\frac{Y-10}{3}}{\sqrt{\frac{X}{9}}}$ donc par définition, $Z$ suit une loi de Student $St(9)$ et $z\simeq1{,}833$.}
+\item \question{Soit $V\sim\chi^2(3)$ indépendant de $X$. Déterminer les lois de $W_1=\frac{X}{3V}$ et $W_2=\frac{3V}{X}$, puis $w_2$ tel que $\mathbb P(W_2>w_2)=0{,}05$.}
+\reponse{On a
+\[
+W_1=\frac{\frac X9}{\frac V3},
+\]
+donc $W_1$ suit une loi de Fisher $F(9,3)$. De même,
+\[
+W_2=\frac{\frac V3}{\frac X9},
+\]
+donc $W_2$ suit une loi de Fisher $F(3,9)$. On a
+\[
+w_2=F_{3,9;0{,}95}\simeq3{,}863.
+\]}
+\end{enumerate}
 }

@@ -1,7 +1,7 @@
 \uuid{3GmQ}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
 \titre{Contrôle qualité}
 \theme{statistiques, tests d'hypothèses}
@@ -10,33 +10,143 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
+\texte{Une entreprise fabrique des pièces en sous-traitance. Au sein d'une démarche qualité, toutes les machines ont été systématiquement révisées et une nouvelle organisation a été définie dans l'atelier : les tâches de contrôle sont réparties à chaque étape du processus de fabrication. Le taux de pièces défectueuses était alors tombé à $1\%$.
 
-\texte{ Une entreprise fabrique  des pièces en sous-traitance. Au sein d'une démarche qualité,  toutes  les  machines  ont  été  systématiquement révisées  et  on  a  défini  une  nouvelle  organisation  dans  l'atelier  :  les  tâches  de  contrôle  sont  réparties  à  chaque  étape  du  processus  de  fabrication et le taux de pièces défectueuses est tombé à 1\%. 
+Quelques mois plus tard, une opération de contrôle est effectuée pour vérifier si l'objectif de $1\%$ reste valable. Sur les 5000 pièces contrôlées, 100 s'avèrent défectueuses, soit $2\%$. Cette étude antérieure suggère la valeur $p_1=0{,}02$ pour étudier le risque de ne pas détecter une dégradation.
 
-Quelques  mois  plus  tard,  une  opération  de  contrôle  est  effectuée  pour  vérifier  si  la  norme  de  1\%  (hypothèse  $H_0$)  de  pièces  défectueuses reste valable. Sur les 5 000 pièces contrôlées 100 s'avèrent défectueuses, soit 2\% (hypothèse $H_1$). 
+Mme de Mainard, chef d'entreprise, décide de ne pas modifier son processus de production si le test ne rejette pas l'hypothèse nulle (décision $D_0$). S'il la rejette, elle entreprendra une action de sensibilisation des salariés de cet atelier au problème de la qualité (décision $D_1$).
 
-Mme de Mainard, chef d'entreprise, décide que si l'hypothèse nulle est vérifiée, elle ne modifiera plus son processus de production (décision $D0$) et au contraire, si c'est l'hypothèse alternative, elle entreprendra une action de sensibilisation des salariés de cet atelier au problème de la qualité (décision $D1$). 
-
-Pour choisir entre ces deux hypothèses, elle tire un échantillon de 1 500 pièces.  }
+\begin{minipage}{\linewidth}
+Pour effectuer ce test, elle prélève un nouvel échantillon de 1500 pièces dans une production de grande taille, indépendamment de l'étude antérieure. On modélise les états des pièces par des variables $X_1,\ldots,X_{1500}$ indépendantes de même loi, avec $X_i=1$ si la pièce $i$ est défectueuse et $X_i=0$ sinon. Ainsi,
+\[
+X_i\sim\mathcal B(1,p),\qquad K=\sum_{i=1}^{1500}X_i\sim\mathcal B(1500,p),
+\qquad F=\frac{K}{1500}.
+\]
+Les 1500 pièces ne sont pas prélevées sans remise dans le lot initial de 5000 pièces ; un tel prélèvement conduirait à un modèle hypergéométrique.
+\end{minipage}
+}
 \begin{enumerate}
-	
-	\item \question{  Si la chef d'entreprise se fixe un risque de 1\% d'entreprendre une action de sensibilisation des salariés à tort, quel sera le taux critique de pièces défectueuses qui fera prendre une décision ? }
-	\reponse{ On réalise les premières étapes d'un test de conformité d'une proportion : 
+\question{\item Si la chef d'entreprise se fixe un risque nominal de $1\%$ d'entreprendre une action de sensibilisation des salariés à tort, quel sera le taux critique de pièces défectueuses qui fera prendre une décision, en utilisant l'approximation normale ? Vérifier le risque binomial réel de cette règle et comparer avec une règle exacte de niveau au plus $1\%$.}
+\indication{Sous $H_0$, utiliser $p_0=0{,}01$ pour calculer la variance de la fréquence. Standardiser $F$ et utiliser le quantile $\Phi^{-1}(0{,}99)$. Conserver la valeur non arrondie du taux critique pour passer au nombre entier de pièces défectueuses.}
+\reponse{On réalise les premières étapes d'un test de conformité d'une proportion.
 \begin{enumerate}
-	\item Hypothèses : $\begin{cases}
-		H_0 \colon p = 0.01 \\
-		H_1 \colon p > 0.01
-		\end{cases}$
-	\item Variable de décision : $Z = \dfrac{F-0.01}{\sqrt{\frac{0.01\times 0.99}{1500}}} \sim \mathcal{N}(0,1)$
-	\item Zone de rejet : $W = [2.326 ; +\infty][$ pour une erreur de première espèce $\alpha = 1\%$
-	\item proporition critique : on cherche $p_C$ tel que $ \dfrac{F-0.01}{\sqrt{\frac{0.01\times 0.99}{1500}}} = 2.326$ et on trouve $p_C = 0.016 = 1{,}6\%$. 	
-\end{enumerate}	
-Au delà de $1{,}6\%$ de pièces défectueses observées, on rejette l'hypothèse $H_0$ avec un risque de première espèce $\alpha = 1\%$. 
- }
-	
-	\item \question{  Si dans l'échantillon prélevé, le nombre de pièces défectueuses est 18, quelle sera la décision de la chef d'entreprise ? }
-	\reponse{ On a $F_{obs} = \frac{18}{1500} = 0.012$ : la décision prise est donc $D0$ (on ne rejette pas $H_0$).  }
-	\item   \question{ Calculer alors le risque de l'acheteur, c'est-à-dire ne pas modifier le processus de production alors qu'on le devrait. Comment s'appelle ce risque ? }
-	\reponse{ On cherche la probabilité de prendre la décision $D0$ par erreur, c'est-à-dire si $H_1$ est vraie. Sous l'hypothèse $p=0.02$, on a la variable $Z_2 = \dfrac{F-0.02}{\sqrt{\frac{0.02\times 0.98}{1500}}}$ qui suit une loi $ \mathcal{N}(0,1)$.   }
-	
-\end{enumerate}}
+\item \textbf{Hypothèses.} On teste
+\[
+\begin{cases}
+H_0:p=p_0=0{,}01,\\
+H_1:p>0{,}01.
+\end{cases}
+\]
+Le seuil nominal est $\alpha=0{,}01$ ; la valeur $p_1=0{,}02$ servira au calcul du risque de seconde espèce.
+
+\item \textbf{Variable de décision.} Sous $H_0$,
+\[
+\mathbb E(F)=p_0,\qquad
+\operatorname{Var}(F)=\frac{p_0(1-p_0)}{1500}.
+\]
+Le théorème central limite conduit à la variable standardisée
+\[
+Z=\frac{F-0{,}01}{\sqrt{\frac{0{,}01\times0{,}99}{1500}}},
+\]
+dont la loi est approximativement $\mathcal N(0,1)$ sous $H_0$. Il s'agit d'une approximation, même si l'effectif total est grand : ici, le nombre moyen de pièces défectueuses sous $H_0$ est $1500\times0{,}01=15$.
+
+\item \textbf{Zone de rejet approchée.} L'alternative conduit à rejeter pour les grandes valeurs de $Z$. Le quantile unilatéral est
+\[
+u_{0{,}01}=\Phi^{-1}(0{,}99)\simeq2{,}32635,
+\]
+soit $2{,}326$ avec la table utilisée dans le corrigé initial. On choisit $D_1$ si $z_{\mathrm{obs}}>u_{0{,}01}$, et $D_0$ sinon.
+
+\item \textbf{Taux critique.} La condition précédente équivaut à $f_{\mathrm{obs}}>f_c$, où
+\begin{align*}
+f_c&=0{,}01+\Phi^{-1}(0{,}99)\sqrt{\frac{0{,}01\times0{,}99}{1500}}\\
+&\simeq0{,}01+2{,}32635\times0{,}00256905\\
+&\simeq0{,}0159765=1{,}59765\%.
+\end{align*}
+\begin{minipage}{\linewidth}
+On conserve l'arrondi initial $1{,}6\%$ comme valeur indicative. Pour décider, on utilise le seuil non arrondi : $1500f_c\simeq23{,}96474$, donc la règle est
+\[
+D_1\text{ si }k_{\mathrm{obs}}\geq24,
+\qquad D_0\text{ si }k_{\mathrm{obs}}\leq23.
+\]
+Utiliser strictement le taux arrondi $1{,}6\%$ comme seuil changerait la règle, car $\frac{24}{1500}=1{,}6\%$.
+\end{minipage}
+\end{enumerate}
+
+\textbf{Vérification binomiale.} Sous $H_0$, $K\sim\mathcal B(1500,0{,}01)$ exactement. Le risque de première espèce réel de la règle normale est
+\[
+\alpha_{\mathrm{réel,normal}}
+=\PP_{p_0}(K\geq24)
+=1-\PP_{p_0}(K\leq23)
+\simeq0{,}0189347,
+\]
+soit environ $1{,}8935\%$, supérieur au seuil nominal de $1\%$.
+L'approximation normale sous-estime donc ici ce risque.
+
+Pour une règle exacte de la forme $D_1$ si $K\geq c$, le plus petit seuil entier dont le risque est au plus $1\%$ est $c=26$ :
+\[
+\PP_{p_0}(K\geq25)\simeq0{,}0107933>0{,}01,
+\qquad
+\PP_{p_0}(K\geq26)\simeq0{,}0059380\leq0{,}01.
+\]
+\begin{minipage}{\linewidth}
+Cette règle exacte choisit $D_1$ pour $k_{\mathrm{obs}}\geq26$, et $D_0$ pour $k_{\mathrm{obs}}\leq25$. Son risque vaut environ $0{,}5938\%$. La loi discrète ne permet pas en général d'obtenir exactement le niveau demandé avec une règle de seuil sans randomisation.
+\end{minipage}
+}
+\question{\item Si, dans l'échantillon prélevé, le nombre de pièces défectueuses est 18, quelle sera la décision de la chef d'entreprise ?}
+\reponse{\begin{minipage}{\linewidth}
+La fréquence observée est
+\[
+f_{\mathrm{obs}}=\frac{18}{1500}=0{,}012=1{,}2\%.
+\]
+Elle est inférieure à $f_c\simeq1{,}59765\%$ ; de même, $18<24$ et $18<26$. Les deux règles conduisent donc à la décision $D_0$ : on ne rejette pas $H_0$ et aucune action n'est entreprise au titre de ce test. Ce non-rejet ne prouve ni l'égalité $p=0{,}01$, ni le respect de l'objectif.
+\end{minipage}}
+\question{\item Calculer alors le risque de l'acheteur, c'est-à-dire ne pas modifier le processus de production alors qu'on le devrait, lorsque $p=p_1=0{,}02$. Comment s'appelle ce risque ? Donner aussi la puissance. Distinguer l'approximation normale et les risques binomiaux des deux règles de décision.}
+\indication{Le risque de première espèce $\alpha$ se calcule sous $p_0$, tandis que le risque de seconde espèce $\beta$ se calcule sous $p_1$. Pour $\beta$, utiliser la zone de non-rejet et la variance sous $p_1$, puis identifier le dernier entier non rejeté pour chacune des règles.}
+\reponse{Le risque demandé est le \textbf{risque de seconde espèce} : la probabilité de prendre $D_0$ alors que le taux vaut $p_1=0{,}02$. On le note $\beta(p_1)$ ; la puissance au point $p_1$ est $1-\beta(p_1)$.
+
+\textbf{Calcul normal approché du corrigé initial.} Sous $p=p_1=0{,}02$,
+\[
+\mathbb E(F)=0{,}02,\qquad
+\operatorname{Var}(F)=\frac{0{,}02\times0{,}98}{1500}.
+\]
+La variable
+\[
+Z_2=\frac{F-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}
+\]
+suit approximativement une loi $\mathcal N(0,1)$. La décision $D_0$ correspond au seuil continu $F\leq f_c$. Ainsi,
+\begin{align*}
+\PP_{p_1}(F\leq f_c)
+&=\PP_{p_1}\left(Z_2\leq\frac{f_c-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}\right)\\
+&\simeq\Phi\left(\frac{f_c-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}\right)\\
+&\simeq\Phi\left(\frac{0{,}0159764959-0{,}02}{0{,}0036147845}\right)\\
+&\simeq\Phi(-1{,}11307)\simeq0{,}132839.
+\end{align*}
+Ce calcul fournit $\beta_{\mathrm{approx}}\simeq0{,}132839$, soit environ $13{,}28\%$ de risque de ne pas détecter la dégradation et une puissance approchée de $86{,}72\%$. Ce calcul est effectué sans correction de continuité.
+
+\begin{minipage}{\linewidth}
+\textbf{Risque binomial réel de la règle normale.} La règle normale choisit $D_0$ si $K\leq23$. Sous $p_1$, $K\sim\mathcal B(1500,0{,}02)$, donc
+\[
+\beta_{\mathrm{réel,normal}}=\PP_{p_1}(K\leq23)
+\simeq0{,}112246,
+\qquad 1-\beta_{\mathrm{réel,normal}}\simeq0{,}887754.
+\]
+On obtient ce risque dans Excel par
+\texttt{=LOI.BINOMIALE.N(23;1500;0,02;VRAI)}.
+L'écart avec $0{,}132839$ provient de l'approximation normale de cette même règle.
+\end{minipage}
+
+\textbf{Risque de la règle exacte de niveau au plus $1\%$.} Pour le rejet à partir de 26 pièces défectueuses, $D_0$ correspond à $K\leq25$. Ainsi,
+\[
+\beta_{\mathrm{exact}}=\PP_{p_1}(K\leq25)
+\simeq0{,}205776,
+\qquad 1-\beta_{\mathrm{exact}}\simeq0{,}794224.
+\]
+Excel : \texttt{=LOI.BINOMIALE.N(25;1500;0,02;VRAI)}.
+Le risque est donc d'environ $20{,}58\%$, pour une puissance de $79{,}42\%$.
+
+\begin{minipage}{\linewidth}
+La règle exacte rejette moins facilement : elle réduit le risque de première espèce, mais augmente ici celui de seconde espèce. Les valeurs $0{,}132839$, $0{,}112246$ et $0{,}205776$ correspondent respectivement à une approximation, au calcul exact de la règle normale et au calcul exact de la règle de seuil 26 ; elles ne doivent pas être confondues.
+\end{minipage}
+}
+\end{enumerate}
+}

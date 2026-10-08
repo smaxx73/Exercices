@@ -6,20 +6,22 @@
 \usepackage{geometry}
 \usepackage{tikz}
 \usepackage{tkz-tab} %graphiques et tableaux de variations
-\usepackage[most]{tcolorbox} %boites en environnements colorés
+\usepackage[skins,breakable]{tcolorbox} % boîtes en environnements colorés
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
 \usepackage{calc}
 \usepackage{cancel}
 \usepackage{multicol}
 \usepackage[babel=true]{csquotes}
 \usepackage{xspace}
 \usepackage{setspace}
-\usepackage{cancel} %pour barrer du texte
 \usepackage{tabularx}
 \usepackage{mdframed}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{ifthen}
+\usepackage{needspace}
 
 \usepackage{qrcode}
 \usepackage{mathrsfs}
@@ -27,6 +29,18 @@
 
 \usepackage{fancyvrb} %saveVerbatim
 %\usepackage{verbatim} 
+
+% Les environnements verbatim ne peuvent pas être lus dans l'argument de
+% \contenu. \BVerbatimInput lit le fichier au moment où le contenu est affiché.
+% Les extraits Python sont stockés dans code/python/ puis insérés par cette
+% commande, qui reste utilisable à l'intérieur de \contenu{...}.
+\newcommand{\pythoncode}[2][]{%
+	\fbox{\BVerbatimInput[fontsize=\small,#1]{\exercisespath code/python/#2}}%
+}
+
+% Racine du dépôt, à définir avant le chargement des préambules si nécessaire.
+% Ce nom évite la collision avec \path, commande TikZ.
+\providecommand{\exercisespath}{}
 
 %métadonnées :
 
@@ -46,18 +60,4 @@
 \newcommand{\niveau}[1]{}
 \newcommand{\module}[1]{}
 \newcommand{\difficulte}[1]{}
-
-%python :
-\usepackage{listings}
-
-\lstnewenvironment{mylisting}[1][]{
-	\lstset{
-		language=Python,        % Langage par défaut
-		basicstyle=\ttfamily,  % Style de base
-		keywordstyle=\color{blue},
-		commentstyle=\color{green!70},
-		stringstyle=\color{red},
-		% Ajoutez d'autres configurations si nécessaire
-		#1                      % Permet des configurations supplémentaires lors de l'utilisation
-	}
-}{}
+\newcommand{\cpge}[1]{} % rattachements aux programmes CPGE (référentiel d'exobase)

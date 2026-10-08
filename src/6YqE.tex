@@ -1,7 +1,7 @@
 \uuid{6YqE}
 \chapitre{Statistique}
 \niveau{L2}
-\module{Probabilité et statistique}
+\module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
 \titre{Contrôle qualité : test de proportion}
 \theme{statistiques, tests d'hypothèses, proportion}
@@ -10,273 +10,298 @@
 \organisation{AMSCC}
 \difficulte{3}
 \contenu{
-	\texte{Une machine de production fabrique des pièces en grande série. 
-		Lorsque la machine est bien réglée, la proportion de pièces défectueuses est $p_0=0.05$. 
-		Lorsqu'elle est déréglée, cette proportion passe à $p_1=0.10$. 
-		
-		Pour vérifier l'état de la machine, on prélève un échantillon aléatoire de $n=100$ pièces 
-		dans la production, et on observe $k=8$ pièces défectueuses.
-		
-		On note $\widehat{p} = \frac{k}{n}$ la fréquence observée de pièces défectueuses 
-		et on souhaite tester :
-		\begin{align*}
-			H_0 &: p = p_0 = 0.05 \quad \text{(la machine est bien réglée)} \\
-			H_1 &: p = p_1 = 0.10 \quad \text{(la machine est déréglée)}
-		\end{align*}
-	}
-	
-	\begin{enumerate}
-		\item \question{ Justifier que, sous $H_0$, la statistique de test 
-			$$T_n = \frac{\widehat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}$$ 
-			suit approximativement une loi $\mathcal{N}(0,1)$ pour $n$ assez grand. }
-		
-		\reponse{
-			Soit $X_i$ la variable indicatrice valant 1 si la $i$-ème pièce est défectueuse, 0 sinon.
-			On a $X_i \sim \mathcal{B}(p)$ et $\widehat{p} = \frac{1}{n}\sum_{i=1}^n X_i$.
-			
-			D'après le théorème central limite :
-			$$\frac{\widehat{p} - \mathbb{E}[\widehat{p}]}{\sqrt{\text{Var}(\widehat{p})}} 
-			= \frac{\widehat{p} - p}{\sqrt{\frac{p(1-p)}{n}}} 
-			\xrightarrow[n \to \infty]{\mathcal{L}} \mathcal{N}(0,1)$$
-			
-			Sous $H_0$, on a $p = p_0$, donc :
-			$$T_n = \frac{\widehat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} \stackrel{H_0}{\sim} \mathcal{N}(0,1) \text{ approximativement}$$
-			
-			Les conditions d'application sont vérifiées car :
-			\begin{itemize}
-				\item $np_0 = 100 \times 0.05 = 5 \geq 5$ ✓
-				\item $n(1-p_0) = 100 \times 0.95 = 95 \geq 5$ ✓
-			\end{itemize}
-		}
-		
-		\item \question{ On note $\pi$ la valeur critique : on rejette $H_0$ si $\widehat{p} > \pi$. 
-			En utilisant la définition du risque de première espèce, exprimer $\alpha$ en fonction 
-			de $\pi$, $p_0$ et $n$. }
-			
-			\indication{Rappel : $\alpha = \mathbb{P}(\text{rejeter } H_0 | H_0 \text{ vraie})$ }
-		
-		\reponse{
-			Le risque de première espèce est la probabilité de rejeter $H_0$ alors qu'elle est vraie :
-			\begin{align*}
-				\alpha &= \mathbb{P}_{H_0}(\widehat{p} > \pi) \\
-				&= \mathbb{P}_{H_0}\left(\frac{\widehat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} > \frac{\pi - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right) \\
-				&= \mathbb{P}\left(Z > \frac{\pi - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right) 
-				\quad \text{où } Z \sim \mathcal{N}(0,1) \\
-				&= 1 - \Phi\left(\frac{\pi - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right)
-			\end{align*}
-			
-			Avec $p_0 = 0.05$ et $n = 100$ :
-			$$\alpha = 1 - \Phi\left(\frac{\pi - 0.05}{\sqrt{\frac{0.05 \times 0.95}{100}}}\right) 
-			= 1 - \Phi\left(\frac{\pi - 0.05}{0.0218}\right)$$
-		}
-		
-		\indication{On peut calculer $\sqrt{\frac{0.05 \times 0.95}{100}} \approx 0.0218$ avec un tableur.}
-		
-		\item \question{ Pour un seuil $\alpha = 0.05$, déterminer la valeur critique $\pi$ 
-			et en déduire la région d'acceptation de l'hypothèse $H_0$ en termes de fréquence observée.
- }
-		
-		\reponse{
-			On cherche $\pi$ tel que $\alpha = 0.05$.
-			
-			D'après la question précédente :
-			$$1 - \Phi\left(\frac{\pi - 0.05}{0.0218}\right) = 0.05$$
-			
-			Donc :
-			$$\Phi\left(\frac{\pi - 0.05}{0.0218}\right) = 0.95$$
-			
-			Or $\Phi(1.645) = 0.95$, donc :
-			$$\frac{\pi - 0.05}{0.0218} = 1.645$$
-			
-			D'où :
-			$$\pi = 0.05 + 1.645 \times 0.0218 = 0.05 + 0.0359 = 0.0859$$
-			
-			\textbf{Région d'acceptation de $H_0$ :} $\widehat{p} \leq 0.0859$, soit environ $8.6\%$.
-			
-			\textbf{Région de rejet de $H_0$ :} $\widehat{p} > 0.0859$.
-		}
-		\indication{On pourra utiliser :  $\Phi(1.645) \approx 0.95$ où $\Phi$ désigne 
-		la fonction de répartition de la loi $\mathcal{N}(0,1)$.}
-	
-		\indication{Avec un tableur : \texttt{=0.05 + 1.645*RACINE(0.05*0.95/100)}}
-		
-		\item \question{ Au vu des données ($\widehat{p} = 0.08$), peut-on conclure 
-			que la machine est bien réglée au seuil $\alpha = 5\%$ ? 
-			Calculer également la $p$-valeur associée à ce test. }
-		
-		\reponse{
-			On observe $\widehat{p} = \frac{8}{100} = 0.08$.
-			
-			\textbf{Décision :} Puisque $\widehat{p} = 0.08 < 0.0859 = \pi$, 
-			on se situe dans la région d'acceptation. 
-			\textbf{On ne rejette pas $H_0$ au seuil $\alpha = 5\%$.}
-			
-			\textbf{Conclusion :} Les données ne permettent pas de conclure que la machine est déréglée. 
-			Au niveau de confiance de 95\%, on peut considérer que la machine est bien réglée.
-			
-			\textbf{Calcul de la $p$-valeur :}
-			
-			La $p$-valeur est la probabilité d'observer une valeur au moins aussi extrême 
-			que celle observée sous $H_0$ :
-			\begin{align*}
-				p\text{-valeur} &= \mathbb{P}_{H_0}(\widehat{p} \geq 0.08) \\
-				&= \mathbb{P}\left(Z \geq \frac{0.08 - 0.05}{0.0218}\right) \\
-				&= \mathbb{P}(Z \geq 1.376) \\
-				&= 1 - \Phi(1.376) \\
-				&\approx 0.084
-			\end{align*}
-			
-			La $p$-valeur est d'environ $8.4\%$, ce qui est supérieur à $\alpha = 5\%$, 
-			confirmant la non-rejet de $H_0$.
-		}
-		
-		\indication{Avec un tableur : 
-			\begin{itemize}
-				\item Statistique de test : \texttt{=(0.08-0.05)/RACINE(0.05*0.95/100)} donne $\approx 1.376$
-				\item $p$-valeur : \texttt{=1-LOI.NORMALE.STANDARD(1.376)} donne $\approx 0.084$
-			\end{itemize}
-		}
-		
-		\item \question{ Calculer le risque de seconde espèce $\beta$, 
-			c'est-à-dire la probabilité d'accepter $H_0$ alors que la machine est effectivement déréglée.}
-			
-			\indication{ $\beta = \mathbb{P}(\text{accepter } H_0 | H_1 \text{ vraie})$ }
-			
-		
-		\reponse{
-			Le risque de seconde espèce est :
-			\begin{align*}
-				\beta &= \mathbb{P}_{H_1}(\widehat{p} \leq \pi) \\
-				&= \mathbb{P}_{H_1}(\widehat{p} \leq 0.0859)
-			\end{align*}
-			
-			Sous $H_1$, on a $p = p_1 = 0.10$, donc :
-			$$\frac{\widehat{p} - p_1}{\sqrt{\frac{p_1(1-p_1)}{n}}} \sim \mathcal{N}(0,1)$$
-			
-			L'écart-type sous $H_1$ est :
-			$$\sigma_1 = \sqrt{\frac{0.10 \times 0.90}{100}} = \sqrt{0.0009} = 0.03$$
-			
-			Donc :
-			\begin{align*}
-				\beta &= \mathbb{P}_{H_1}\left(\frac{\widehat{p} - 0.10}{0.03} \leq \frac{0.0859 - 0.10}{0.03}\right) \\
-				&= \mathbb{P}\left(Z \leq \frac{-0.0141}{0.03}\right) \\
-				&= \mathbb{P}(Z \leq -0.47) \\
-				&= \Phi(-0.47) \\
-				&= 1 - \Phi(0.47) \\
-				&\approx 0.319
-			\end{align*}
-			
-			Le risque de seconde espèce est d'environ \textbf{32\%}.
-			
-			\textbf{Interprétation :} Si la machine est effectivement déréglée (avec $p=0.10$), 
-			il y a environ 32\% de chances de ne pas le détecter avec ce plan de contrôle.
-			
-			La \textbf{puissance du test} est $1 - \beta \approx 0.68$, soit 68\%.
-		}
-		
-		\indication{Avec un tableur : 
-			\begin{itemize}
-				\item Écart-type sous $H_1$ : \texttt{=RACINE(0.10*0.90/100)} donne $0.03$
-				\item Statistique : \texttt{=(0.0859-0.10)/0.03} donne $-0.47$
-				\item $\beta$ : \texttt{=LOI.NORMALE.STANDARD(-0.47)} donne $\approx 0.319$
-			\end{itemize}
-		}
-		
-		\item \question{ On souhaite désormais dimensionner le plan de contrôle. 
-			Quelle taille d'échantillon $n$ permettrait de rejeter $H_0$ avec une fréquence observée 
-			de $\widehat{p} = 0.08$, tout en conservant un risque de première espèce $\alpha = 5\%$ ? 
-			
-			Interpréter ce résultat : pourquoi faut-il augmenter la taille de l'échantillon ? }
-		
-		\reponse{
-			On cherche $n$ tel que $\widehat{p} = 0.08$ soit dans la région critique pour $\alpha = 5\%$.
-			
-			La condition de rejet est :
-			$$\frac{\widehat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} > z_{1-\alpha}$$
-			
-			avec $z_{0.95} = 1.645$.
-			
-			On veut que $\widehat{p} = 0.08$ soit juste à la limite, donc :
-			$$\frac{0.08 - 0.05}{\sqrt{\frac{0.05 \times 0.95}{n}}} = 1.645$$
-			
-			D'où :
-			$$\frac{0.03}{\sqrt{\frac{0.0475}{n}}} = 1.645$$
-			
-			$$0.03 = 1.645 \times \sqrt{\frac{0.0475}{n}}$$
-			
-			$$\frac{0.03}{1.645} = \sqrt{\frac{0.0475}{n}}$$
-			
-			$$\left(\frac{0.03}{1.645}\right)^2 = \frac{0.0475}{n}$$
-			
-			$$n = \frac{0.0475}{\left(\frac{0.03}{1.645}\right)^2} 
-			= \frac{0.0475 \times (1.645)^2}{(0.03)^2}$$
-			
-			$$n = \frac{0.0475 \times 2.706}{0.0009} = \frac{0.1285}{0.0009} \approx 143$$
-			
-			Il faudrait un échantillon d'au moins \textbf{143 pièces}.
-			
-			\textbf{Interprétation :}
-			\begin{itemize}
-				\item Avec $n=100$, une fréquence de 8\% n'est pas statistiquement significative 
-				car elle pourrait résulter de fluctuations d'échantillonnage.
-				\item En augmentant la taille de l'échantillon à $n=143$, on réduit la variabilité 
-				d'échantillonnage, ce qui permet de détecter des écarts plus faibles.
-				\item Plus l'échantillon est grand, plus on peut détecter de petites différences 
-				entre $p_0$ et $p_1$.
-				\item Compromis à trouver entre : précision du test vs. coût du contrôle.
-			\end{itemize}
-		}
-		
-		\indication{Avec un tableur : \texttt{=0.0475*(1.645/0.03)\^{}2} donne $\approx 142.7$}
-		
-		\item \question{\textbf{[Bonus]} Représenter graphiquement sur un même schéma :
-			\begin{itemize}
-				\item la densité de probabilité de $\widehat{p}$ sous $H_0$
-				\item la densité de probabilité de $\widehat{p}$ sous $H_1$
-				\item la région critique
-				\item les risques $\alpha$ et $\beta$
-			\end{itemize}
-			Ce graphique permet de visualiser la \textit{puissance} du test. }
-		
-		\reponse{
-			Voici les éléments à représenter :
-			
-			\textbf{Distributions :}
-			\begin{itemize}
-				\item Sous $H_0$ : $\widehat{p} \sim \mathcal{N}(0.05, \sqrt{0.0475/100})$ 
-				(courbe centrée en 0.05)
-				\item Sous $H_1$ : $\widehat{p} \sim \mathcal{N}(0.10, \sqrt{0.09/100})$ 
-				(courbe centrée en 0.10)
-			\end{itemize}
-			
-			\textbf{Région critique :} Zone $\widehat{p} > 0.0859$ (à droite de la valeur critique)
-			
-			\textbf{Visualisation des risques :}
-			\begin{itemize}
-				\item $\alpha$ (risque de 1ère espèce) : aire sous la courbe de $H_0$ 
-				à droite de $\pi = 0.0859$ (zone hachurée en rouge) $\approx 5\%$
-				\item $\beta$ (risque de 2ème espèce) : aire sous la courbe de $H_1$ 
-				à gauche de $\pi = 0.0859$ (zone hachurée en bleu) $\approx 32\%$
-				\item Puissance $= 1-\beta$ : aire sous la courbe de $H_1$ 
-				à droite de $\pi$ $\approx 68\%$
-			\end{itemize}
-			
-			\textbf{Code pour un tableur ou Python :}
-			
-			On peut générer ce graphique avec les valeurs de $\widehat{p}$ 
-			allant de 0 à 0.15, et calculer les densités correspondantes.
-		}
-		
-		\indication{
-			Suggestions pour le tracé :
-			\begin{itemize}
-				\item Créer une colonne de valeurs de $\widehat{p}$ de 0 à 0.15 par pas de 0.001
-				\item Calculer $f_0(\widehat{p})$ : densité sous $H_0$ avec \texttt{LOI.NORMALE(p; 0.05; 0.0218; FAUX)}
-				\item Calculer $f_1(\widehat{p})$ : densité sous $H_1$ avec \texttt{LOI.NORMALE(p; 0.10; 0.03; FAUX)}
-				\item Tracer les deux courbes
-				\item Ajouter une ligne verticale en $\pi = 0.0859$
-				\item Colorier les zones correspondant à $\alpha$ et $\beta$
-			\end{itemize}
-		}
-	\end{enumerate}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d'écart-type $\sigma$.}
+\texte{Une machine de production fabrique des pièces en grande série. Lorsque la machine est bien réglée, la proportion de pièces défectueuses est $p_0=0{,}05$. Lorsqu'elle est déréglée, cette proportion passe à $p_1=0{,}10$.
+
+Pour vérifier l'état de la machine, on prélève un échantillon aléatoire de $n=100$ pièces dans la production, et on observe $k_{\mathrm{obs}}=8$ pièces défectueuses. On modélise les états des pièces par des variables $X_1,\ldots,X_n$ indépendantes de loi $\mathcal B(1,p)$, avec $X_i=1$ si la pièce $i$ est défectueuse, 0 sinon.
+
+\begin{minipage}{\linewidth}
+On pose
+\[
+K_n=\sum_{i=1}^nX_i,\qquad F_n=\frac{K_n}{n},
+\qquad f_{\mathrm{obs}}=\frac{k_{\mathrm{obs}}}{n}=0{,}08.
+\]
+\end{minipage}\par
+Pour $n=100$, on abrège $K=K_{100}$ et $F=F_{100}$. On souhaite tester
+\[
+\begin{cases}
+H_0:p=p_0=0{,}05 &\text{(la machine est bien réglée)},\\
+H_1:p=p_1=0{,}10 &\text{(la machine est déréglée)}.
+\end{cases}
+\]
+On utilise d'abord l'approximation normale, puis on compare avec le modèle binomial exact. Les calculs normaux sont effectués sans correction de continuité.}
+\begin{enumerate}
+\question{\item Justifier que, sous $H_0$, la statistique de test
+\[
+T_n=\frac{F_n-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
+\]
+suit approximativement une loi $\mathcal N(0,1)$ pour $n$ assez grand.}
+\reponse{Les indicatrices $X_i$ ont pour espérance $p$ et pour variance $p(1-p)$. Par linéarité de l'espérance et indépendance,
+\[
+\mathbb E(F_n)=\frac1n\sum_{i=1}^n\mathbb E(X_i)=p,
+\qquad
+\operatorname{Var}(F_n)=\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)
+=\frac{p(1-p)}{n}.
+\]
+Le théorème central limite donne, pour $p\in]0,1[$ fixé,
+\[
+\frac{F_n-p}{\sqrt{\frac{p(1-p)}{n}}}
+\xrightarrow[n\to\infty]{\mathcal L}\mathcal N(0,1).
+\]
+Sous $H_0$, $p=p_0$, donc $T_n$ a une loi approximativement normale centrée réduite lorsque $n$ est grand. $T_n$ est une variable aléatoire ; la valeur calculée avec $f_{\mathrm{obs}}$ est sa réalisation $t_{\mathrm{obs}}$.
+
+Pour $n=100$, les deux repères usuels sont
+\[
+np_0=100\times0{,}05=5,\qquad
+n(1-p_0)=100\times0{,}95=95.
+\]
+Le premier est à la limite du repère $np_0\geq5$. Ces repères ne garantissent pas la précision de l'approximation, notamment dans les queues de distribution. La comparaison avec le modèle binomial exact permettra ici de mesurer l'écart sur le risque de première espèce.
+}
+\question{\item On note $\pi$ la valeur critique : on rejette $H_0$ si $F_n>\pi$. En utilisant la définition du risque de première espèce, exprimer ce risque en fonction de $\pi$, $p_0$ et $n$, exactement puis avec l'approximation normale.}
+\indication{Rappel : le risque de première espèce est la probabilité de rejeter $H_0$ sous $H_0$. Standardiser la fréquence avec sa variance sous $p_0$.}
+\indication{On peut calculer $\sqrt{\frac{0{,}05\times0{,}95}{100}}\simeq0{,}0218$ avec un tableur. Pour la formule exacte, $K_n$ est entier : utiliser $\lfloor n\pi\rfloor$.}
+\reponse{Le risque de première espèce réel est
+\begin{align*}
+\alpha_{\mathrm{réel}}(\pi)
+&=\PP_{p_0}(F_n>\pi)\\
+&=\PP_{p_0}\left(\frac{F_n-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
+>\frac{\pi-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right)\\
+&\simeq\PP\left(Z>\frac{\pi-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right),
+\qquad Z\sim\mathcal N(0,1)\\
+&=1-\Phi\left(\frac{\pi-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right).
+\end{align*}
+La dernière expression définit le risque normal approché $\alpha_{\mathrm{approx}}(\pi)$. L'étape qui remplace $T_n$ par $Z$ est une approximation.
+
+Pour $p_0=0{,}05$ et $n=100$,
+\[
+\alpha_{\mathrm{approx}}(\pi)
+=1-\Phi\left(\frac{\pi-0{,}05}{\sqrt{\frac{0{,}05\times0{,}95}{100}}}\right)
+\simeq1-\Phi\left(\frac{\pi-0{,}05}{0{,}0218}\right).
+\]
+Pour le calcul exact, $K_n\sim\mathcal B(n,p_0)$ sous $H_0$, et
+\[
+\alpha_{\mathrm{réel}}(\pi)=\PP_{p_0}(K_n>n\pi)
+=1-\PP_{p_0}(K_n\leq\lfloor n\pi\rfloor).
+\]
+La fréquence est discrète : on ne peut généralement pas obtenir exactement tout niveau demandé avec une règle de seuil sans randomisation.
+}
+\question{\item Pour un seuil nominal $\alpha=0{,}05$, déterminer la valeur critique normale $\pi$ et en déduire les régions de non-rejet et de rejet en termes de fréquence observée. Comparer avec une règle binomiale exacte de niveau au plus $5\%$.}
+\indication{On pourra utiliser $\Phi(1{,}645)\simeq0{,}95$, où $\Phi$ désigne la fonction de répartition de la loi $\mathcal N(0,1)$.}
+\indication{Avec un tableur : \texttt{=0,05+1,645*RACINE(0,05*0,95/100)}. Conserver assez de décimales avant de déterminer le seuil entier de $K$.}
+\reponse{On calibre d'abord le risque normal approché à $5\%$ :
+\begin{align*}
+1-\Phi\left(\frac{\pi-0{,}05}{\sqrt{\frac{0{,}05\times0{,}95}{100}}}\right)=0{,}05
+&\quad\Longleftrightarrow\quad
+\Phi\left(\frac{\pi-0{,}05}{\sqrt{\frac{0{,}05\times0{,}95}{100}}}\right)=0{,}95\\
+&\quad\Longleftrightarrow\quad
+\frac{\pi-0{,}05}{\sqrt{\frac{0{,}05\times0{,}95}{100}}}
+=\Phi^{-1}(0{,}95).
+\end{align*}
+Comme $\Phi^{-1}(0{,}95)\simeq1{,}64485$,
+\begin{align*}
+\pi&=0{,}05+\Phi^{-1}(0{,}95)\sqrt{\frac{0{,}05\times0{,}95}{100}}\\
+&\simeq0{,}05+1{,}64485\times0{,}0217945\\
+&\simeq0{,}0858488.
+\end{align*}
+En arrondissant le quantile et l'écart-type, le calcul $0{,}05+1{,}645\times0{,}0218\simeq0{,}0859$, donne une lecture approchée, soit environ $8{,}6\%$.
+
+\begin{minipage}{\linewidth}
+La règle normale donne une région de non-rejet $f_{\mathrm{obs}}\leq\pi$ et une région de rejet $f_{\mathrm{obs}}>\pi$. Pour $n=100$, $100\pi\simeq8{,}58488$ ; on rejette donc pour $k_{\mathrm{obs}}\geq9$.
+
+Son risque binomial réel vaut
+\[
+\PP_{p_0}(K\geq9)\simeq0{,}0630896,
+\]
+soit $6{,}309\%$, supérieur au seuil nominal de $5\%$.
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+Le plus petit seuil entier de rejet de niveau au plus $5\%$ est 10, car
+\[
+\PP_{p_0}(K\geq9)>0{,}05,
+\qquad\PP_{p_0}(K\geq10)\simeq0{,}0281883\leq0{,}05.
+\]
+La règle exacte rejette pour $k_{\mathrm{obs}}\geq10$ et ne rejette pas pour $k_{\mathrm{obs}}\leq9$. Son risque est d'environ $2{,}819\%$.
+\end{minipage}
+}
+\question{\item Au vu des données ($f_{\mathrm{obs}}=0{,}08$), peut-on conclure que la machine est bien réglée au seuil nominal $\alpha=5\%$ ? Calculer également la $p$-valeur normale approchée, puis la $p$-valeur exacte.}
+\indication{Avec un tableur, \texttt{=(0,08-0,05)/RACINE(0,05*0,95/100)} donne environ $1{,}37649$. La $p$-valeur normale se calcule par \texttt{=1-LOI.NORMALE.STANDARD.N(1,37649;VRAI)}.}
+\reponse{On observe $f_{\mathrm{obs}}=\frac8{100}=0{,}08<\pi\simeq0{,}0858488$. La fréquence est dans la région de non-rejet du test normal. De même, huit défauts sont inférieurs aux deux seuils entiers 9 et 10 : les deux règles ne rejettent pas $H_0$.
+
+\textbf{Conclusion.} Les données ne permettent pas, à ce seuil, de conclure à un dérèglement. Ce non-rejet ne prouve pas que la machine est bien réglée ; il ne donne pas une probabilité de $95\%$ que $H_0$ soit vraie.
+
+\textbf{$p$-valeur normale approchée.} Comme l'alternative augmente la proportion de défauts, on utilise la queue droite. La réalisation de la statistique vaut
+\[
+t_{\mathrm{obs}}=\frac{0{,}08-0{,}05}{\sqrt{\frac{0{,}05\times0{,}95}{100}}}
+\simeq1{,}37649.
+\]
+La $p$-valeur approchée est
+\begin{align*}
+p_{\mathrm{val,normal}}
+&=1-\Phi(t_{\mathrm{obs}})\\
+&\simeq1-\Phi(1{,}37649)\simeq0{,}0843343.
+\end{align*}
+On obtient l'arrondi $0{,}084$, soit environ $8{,}4\%$, supérieur à $5\%$.
+
+\begin{minipage}{\linewidth}
+\textbf{$p$-valeur exacte.} Sous $H_0$, $K\sim\mathcal B(100,0{,}05)$, donc
+\[
+p_{\mathrm{val,exact}}=\PP_{p_0}(K\geq8)
+=1-\PP_{p_0}(K\leq7)\simeq0{,}127960.
+\]
+Excel : \texttt{=1-LOI.BINOMIALE.N(7;100;0,05;VRAI)}.
+Cette valeur est également supérieure à $5\%$ et confirme le non-rejet par le test exact.
+\end{minipage}
+}
+\question{\item Calculer le risque de seconde espèce $\beta$, c'est-à-dire la probabilité de ne pas rejeter $H_0$ alors que la machine est effectivement déréglée. Donner également la puissance. Distinguer l'approximation normale et les risques binomiaux des deux règles entières.}
+\indication{Le risque de seconde espèce est $\beta=\PP_{p_1}(\text{ne pas rejeter }H_0)$. Utiliser la variance sous $p_1$, puis la zone de non-rejet de chaque règle.}
+\indication{Avec un tableur : \texttt{=RACINE(0,10*0,90/100)} donne $0{,}03$. Avec le seuil arrondi, \texttt{=(0,0859-0,10)/0,03} donne $-0{,}47$, puis \texttt{=LOI.NORMALE.STANDARD.N(-0,47;VRAI)} donne environ $0{,}319$.}
+\reponse{Le risque de seconde espèce de la règle normale est
+\[
+\beta_{\mathrm{réel,normal}}=\PP_{p_1}(F\leq\pi).
+\]
+Sous $H_1$, $p=p_1=0{,}10$ ; la fréquence a pour moyenne $0{,}10$ et pour écart-type
+\[
+\sigma_1=\sqrt{\frac{0{,}10\times0{,}90}{100}}
+=\sqrt{0{,}0009}=0{,}03.
+\]
+La variable $\frac{F-0{,}10}{0{,}03}$ est approximativement normale centrée réduite. Ainsi,
+\begin{align*}
+\PP_{p_1}(F\leq\pi)
+&=\PP_{p_1}\left(\frac{F-0{,}10}{0{,}03}
+\leq\frac{\pi-0{,}10}{0{,}03}\right)\\
+&\simeq\Phi\left(\frac{\pi-0{,}10}{0{,}03}\right)\\
+&\simeq\Phi\left(\frac{0{,}0858487537-0{,}10}{0{,}03}\right)\\
+&\simeq\Phi(-0{,}471708)\simeq0{,}318568.
+\end{align*}
+Le calcul normal donne $\beta_{\mathrm{approx}}\simeq0{,}318568$ et une puissance approchée $1-\beta_{\mathrm{approx}}\simeq0{,}681432$.
+
+Avec le seuil arrondi $0{,}0859$, on retrouve le raisonnement
+\[
+\Phi\left(\frac{0{,}0859-0{,}10}{0{,}03}\right)
+=\Phi(-0{,}47)=1-\Phi(0{,}47)\simeq0{,}319.
+\]
+Si $p=0{,}10$, le calcul normal donne environ $32\%$ de risque de ne pas détecter le dérèglement, soit une puissance d'environ $68\%$.
+
+\begin{minipage}{\linewidth}
+\textbf{Risque binomial réel de la règle normale.} Le rejet à partir de neuf défauts correspond au non-rejet pour $K\leq8$. Sous $p_1$, $K\sim\mathcal B(100,0{,}10)$, donc
+\[
+\beta_{\mathrm{réel,normal}}=\PP_{p_1}(K\leq8)\simeq0{,}320874,
+\qquad 1-\beta_{\mathrm{réel,normal}}\simeq0{,}679126.
+\]
+Excel : \texttt{=LOI.BINOMIALE.N(8;100;0,10;VRAI)}.
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Risque de la règle exacte de niveau au plus $5\%$.} Le rejet à partir de dix défauts correspond au non-rejet pour $K\leq9$ :
+\[
+\beta_{\mathrm{exact}}=\PP_{p_1}(K\leq9)\simeq0{,}451290,
+\qquad 1-\beta_{\mathrm{exact}}\simeq0{,}548710.
+\]
+Excel : \texttt{=LOI.BINOMIALE.N(9;100;0,10;VRAI)}.
+La règle exacte diminue le risque de première espèce, mais réduit ici la puissance : elle détecte le dérèglement dans environ $54{,}87\%$ des échantillons sous $p_1$.
+\end{minipage}
+}
+\question{\item On souhaite désormais dimensionner le plan de contrôle. Quelle taille d'échantillon $n$ permettrait de rejeter $H_0$ avec une fréquence observée exactement égale à $f_{\mathrm{obs}}=0{,}08$, au seuil nominal de $5\%$ ? Comparer la règle normale et le test exact. Interpréter le résultat : pourquoi augmenter la taille de l'échantillon ?}
+\indication{Avec un tableur : \texttt{=0,0475*(1,645/0,03)\^{}2} donne environ $142{,}8$. Arrondir la borne vers le haut, puis vérifier qu'un nombre entier de défauts peut produire exactement $8\%$.}
+\reponse{\textbf{Calcul normal théorique.} On cherche $n$ tel qu'une fréquence de $8\%$ soit dans la région critique. Avec $u=\Phi^{-1}(0{,}95)$, la condition de rejet est
+\begin{align*}
+\frac{0{,}08-0{,}05}{\sqrt{\frac{0{,}05\times0{,}95}{n}}}>u
+&\quad\Longleftrightarrow\quad
+\frac{0{,}03}{\sqrt{\frac{0{,}0475}{n}}}>u\\
+&\quad\Longleftrightarrow\quad
+0{,}03>u\sqrt{\frac{0{,}0475}{n}}\\
+&\quad\Longleftrightarrow\quad
+\left(\frac{0{,}03}{u}\right)^2>\frac{0{,}0475}{n}\\
+&\quad\Longleftrightarrow\quad
+n>\frac{0{,}0475}{\left(\frac{0{,}03}{u}\right)^2}
+=\frac{0{,}0475u^2}{(0{,}03)^2}.
+\end{align*}
+La borne vaut
+\[
+\frac{0{,}0475\,\Phi^{-1}(0{,}95)^2}{0{,}0009}\simeq142{,}79257.
+\]
+Le plus petit entier satisfaisant ce calcul théorique est donc \textbf{143}.
+
+\begin{minipage}{\linewidth}
+\textbf{Compatibilité avec une fréquence exactement égale à $8\%$.} Le nombre observé de défauts doit vérifier
+\[
+k_{\mathrm{obs}}=0{,}08n=\frac{2n}{25}\in\mathbb N.
+\]
+Comme 2 et 25 sont premiers entre eux, $n$ doit être un multiple de 25. À $n=143$, $0{,}08n=11{,}44$ n'est pas entier. Le premier multiple de 25 supérieur à $142{,}79257$ est donc \textbf{150}, avec $k_{\mathrm{obs}}=12$ défauts. C'est la première taille compatible pour la règle normale.
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Comparaison avec le test exact.} Pour chaque taille compatible, on calcule la $p$-valeur unilatérale
+\[
+\PP_{p_0}(K_n\geq0{,}08n),\qquad K_n\sim\mathcal B(n,0{,}05).
+\]
+Les tailles 25, 50, 75, 100 et 125 donnent toutes une $p$-valeur supérieure à $5\%$. Les suivantes donnent :
+\begin{center}
+\begin{tabular}{c|ccc}
+$n$ & 150 & 175 & 200 \\ \hline
+$k_{\mathrm{obs}}=0{,}08n$ & 12 & 14 & 16 \\
+$p$-valeur exacte & $0{,}07400$ & $0{,}05711$ & $0{,}04436$
+\end{tabular}
+\end{center}
+La première taille compatible permettant le rejet exact à $5\%$ est donc \textbf{200}, avec 16 défauts. Pour ce dernier calcul, Excel donne
+\texttt{=1-LOI.BINOMIALE.N(15;200;0,05;VRAI)}.
+\end{minipage}
+
+\textbf{Interprétation.} Avec $n=100$, une fréquence de $8\%$ ne conduit pas au rejet à $5\%$. Lorsque $n$ augmente, l'écart-type de la fréquence, $\sqrt{\frac{p_0(1-p_0)}{n}}$, diminue ; un même écart observé à $p_0$ devient plus significatif. Un plus grand échantillon permet donc de détecter des différences plus faibles, au prix d'un contrôle plus coûteux.
+
+\begin{minipage}{\linewidth}
+Le calcul suppose, à chaque taille envisagée, une fréquence exactement égale à $8\%$ ; il ne prédit pas les observations futures. La taille doit être planifiée avant les données : poursuivre le prélèvement jusqu'à obtenir un rejet demanderait une méthode adaptée aux observations successives.
+\end{minipage}
+}
+\question{\item \textbf{[Bonus]} Représenter graphiquement sur un même schéma les deux densités normales qui approchent la loi de $F$ sous $H_0$ et sous $H_1$, la région critique et les risques approchés $\alpha$ et $\beta$. Ce graphique permet de visualiser la puissance du test.}
+\indication{Créer une colonne de fréquences de 0 à $0{,}20$ par pas de $0{,}001$. Calculer les densités approchées avec \texttt{LOI.NORMALE(f;0,05;0,0218;FAUX)} et \texttt{LOI.NORMALE(f;0,10;0,03;FAUX)}, puis tracer les deux courbes. Ajouter la verticale $\pi\simeq0{,}08585$ ; colorier à droite sous la première courbe pour $\alpha$, et à gauche sous la seconde pour $\beta$. $F$ étant discrète, annoncer explicitement cette approximation par des densités.}
+\reponse{\textbf{Distributions approchées.} Les deux courbes sont les densités de
+\[
+\mathcal N\left(0{,}05,\sqrt{\frac{0{,}05\times0{,}95}{100}}\right)
+\quad\text{et}\quad
+\mathcal N(0{,}10,0{,}03).
+\]
+La première est centrée en $0{,}05$, la seconde en $0{,}10$. Le seuil normal est $\pi\simeq0{,}0858488$, et la région critique est $F>\pi$.
+
+\textbf{Visualisation des risques.} L'aire à droite de $\pi$ sous la courbe de $H_0$ vaut $\alpha_{\mathrm{approx}}=5\%$. L'aire à gauche de $\pi$ sous la courbe de $H_1$ vaut $\beta_{\mathrm{approx}}\simeq31{,}86\%$. La puissance approchée est l'aire à droite de $\pi$ sous la seconde courbe, soit environ $68{,}14\%$.
+
+\begin{minipage}{\linewidth}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+width=0.9\linewidth,height=6.2cm,
+xmin=-0.05,xmax=0.22,ymin=0,ymax=21,
+xtick={-0.05,0,0.05,0.10,0.15,0.20},
+xticklabels={$-0{,}05$,$0$,$0{,}05$,$0{,}10$,$0{,}15$,$0{,}20$},
+xlabel={Fréquence (approximation continue)},ylabel={Densité approchée},
+ymajorgrids=true,grid style={gray!20},
+legend style={at={(0.5,1.02)},anchor=south,legend columns=2,draw=none,fill=none,font=\small},
+tick label style={font=\small},label style={font=\small}
+]
+\addplot[draw=none,fill=red!25,domain=0.0858487537:0.22,samples=100,forget plot]
+{exp(-((x-0.05)^2)/(2*0.000475))/sqrt(2*pi*0.000475)}\closedcycle;
+\addplot[draw=none,fill=blue!20,domain=-0.05:0.0858487537,samples=100,forget plot]
+{exp(-((x-0.10)^2)/(2*0.0009))/sqrt(2*pi*0.0009)}\closedcycle;
+\addplot[red!75!black,thick,domain=-0.05:0.22,samples=180]
+{exp(-((x-0.05)^2)/(2*0.000475))/sqrt(2*pi*0.000475)};
+\addlegendentry{$H_0:p=0{,}05$}
+\addplot[blue!75!black,thick,domain=-0.05:0.22,samples=180]
+{exp(-((x-0.10)^2)/(2*0.0009))/sqrt(2*pi*0.0009)};
+\addlegendentry{$H_1:p=0{,}10$}
+\draw[dashed,thick] (axis cs:0.0858487537,0)--(axis cs:0.0858487537,19.5);
+\node[anchor=west,font=\small] at (axis cs:0.091,19.5) {$\pi\simeq0{,}08585$};
+\node[blue!75!black,font=\small] at (axis cs:0.069,3.5) {$\beta\simeq31{,}86\%$};
+\node[red!75!black,font=\small] at (axis cs:0.15,4) {$\alpha\simeq5\%$};
+\draw[red!75!black,->] (axis cs:0.136,3.5)--(axis cs:0.098,0.8);
+\node[font=\small] at (axis cs:0.165,17) {Rejet : $F>\pi$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Les normales sont des approximations continues, définies sur $\mathbb R$ ; la fréquence réelle est discrète et appartient à $[0,1]$. Les aires du dessin ne sont pas les risques binomiaux exacts des seuils entiers 9 et 10.
+\end{minipage}
+
+Pour illustrer le test exact, on tracerait les masses $\PP_p(F=\frac{k}{100})$ sous $p_0$ et $p_1$. Pour la règle de seuil 10, les bâtons $k\geq10$ sous $p_0$ donnent le risque de première espèce ; les bâtons $k\leq9$ sous $p_1$ donnent celui de seconde espèce.
+}
+\end{enumerate}
 }
