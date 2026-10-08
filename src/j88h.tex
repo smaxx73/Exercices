@@ -1,0 +1,230 @@
+\uuid{j88h}
+\titre{Maximum de variables exponentielles et loi de Gumbel}
+
+\niveau{L3}
+\module{Modélisation de l'aléatoire}
+\chapitre{Convergence en loi et valeurs extrêmes}
+\sousChapitre{Maximum de variables exponentielles}
+\theme{Loi de Gumbel et modélisation des crues}
+\auteur{Erwan Hillion}
+\datecreate{2026-10-01}
+\organisation{ESM3/ISD}
+\difficulte{4}
+
+\contenu{
+
+\texte{
+Soit $(X_i)_{i\geq 1}$ une famille de variables aléatoires mutuellement indépendantes, suivant chacune la loi exponentielle $\mathcal E(\lambda)$, avec $\lambda>0$. On pose, pour tout $n\geq 1$,
+$$
+M_n=\max(X_1,\ldots,X_n).
+$$
+On définit également
+$$
+Y_n=\lambda M_n-\ln n.
+$$
+Enfin, on considère une variable aléatoire $Z$ de densité
+$$
+g(x)=e^{-x}e^{-e^{-x}},\qquad x\in\mathbb R.
+$$
+}
+
+\begin{enumerate}
+
+\item \question{Donner la fonction de répartition $F$ de $X_1$.}
+\indication{}
+\reponse{
+Comme $X_1\sim\mathcal E(\lambda)$, sa densité est
+$$
+f_{X_1}(x)=\lambda e^{-\lambda x}\mathbf 1_{[0,+\infty[}(x).
+$$
+Ainsi,
+$$
+F(x)=\mathbb P(X_1\leq x)
+=
+\begin{cases}
+0,&x<0,\\[1mm]
+1-e^{-\lambda x},&x\geq 0.
+\end{cases}
+$$
+}
+
+\item \question{Montrer que la fonction de répartition de $M_n$ est donnée par
+$$
+F_{M_n}(x)=\mathbb P(M_n\leq x)=F(x)^n.
+$$}
+\indication{}
+\reponse{
+On a
+$$
+\{M_n\leq x\}
+=
+\{X_1\leq x\}\cap\cdots\cap\{X_n\leq x\}.
+$$
+Les variables $X_1,\ldots,X_n$ étant indépendantes,
+$$
+\mathbb P(M_n\leq x)
+=
+\prod_{k=1}^n\mathbb P(X_k\leq x)
+=F(x)^n.
+$$
+Par conséquent,
+$$
+F_{M_n}(x)
+=
+\begin{cases}
+0,&x<0,\\[1mm]
+\left(1-e^{-\lambda x}\right)^n,&x\geq 0.
+\end{cases}
+$$
+}
+
+\item \question{Montrer que les fonctions de répartition de $Y_n$ et $M_n$ sont liées par
+$$
+F_{Y_n}(x)=F_{M_n}\left(\frac{x+\ln n}{\lambda}\right).
+$$}
+\indication{}
+\reponse{
+Pour tout $x\in\mathbb R$,
+\begin{align*}
+F_{Y_n}(x)
+&=\mathbb P(Y_n\leq x)\\
+&=\mathbb P(\lambda M_n-\ln n\leq x)\\
+&=\mathbb P\left(M_n\leq\frac{x+\ln n}{\lambda}\right).
+\end{align*}
+Donc
+$$
+\boxed{F_{Y_n}(x)=F_{M_n}\left(\frac{x+\ln n}{\lambda}\right).}
+$$
+}
+
+\item \question{Montrer que, pour tout $x>0$,
+$$
+F_{Y_n}(x)=\left(1-\frac{e^{-x}}{n}\right)^n.
+$$}
+\indication{}
+\reponse{
+Pour $x>0$, on a $x+\ln n>0$. En utilisant la question précédente,
+\begin{align*}
+F_{Y_n}(x)
+&=\left(1-\exp\left[-\lambda\frac{x+\ln n}{\lambda}\right]\right)^n\\
+&=\left(1-e^{-x-\ln n}\right)^n\\
+&=\left(1-\frac{e^{-x}}{n}\right)^n.
+\end{align*}
+En réalité, cette formule est valable dès que $x\geq-\ln n$. Si $x<-\ln n$, alors $F_{Y_n}(x)=0$.
+}
+
+\item \question{Montrer que la fonction de répartition de $Z$ est
+$$
+F_Z(x)=e^{-e^{-x}},\qquad x\in\mathbb R.
+$$}
+\indication{}
+\reponse{
+La fonction
+$$
+G(x)=e^{-e^{-x}}
+$$
+vérifie
+$$
+G'(x)=e^{-x}e^{-e^{-x}}=g(x).
+$$
+De plus,
+$$
+\lim_{x\to-\infty}G(x)=0
+\qquad\text{et}\qquad
+\lim_{x\to+\infty}G(x)=1.
+$$
+Ainsi $G$ est bien la fonction de répartition associée à la densité $g$, et
+$$
+\boxed{F_Z(x)=e^{-e^{-x}}.}
+$$
+}
+
+\item \question{Montrer que la suite $(Y_n)_{n\geq1}$ converge en loi vers $Z$.}
+\indication{}
+\reponse{
+Fixons $x\in\mathbb R$. Pour $n$ suffisamment grand, on a $x+\ln n>0$, donc
+$$
+F_{Y_n}(x)=\left(1-\frac{e^{-x}}{n}\right)^n.
+$$
+Or, pour tout $a\geq0$,
+$$
+\left(1-\frac{a}{n}\right)^n\longrightarrow e^{-a}.
+$$
+En prenant $a=e^{-x}$, on obtient
+$$
+F_{Y_n}(x)\longrightarrow e^{-e^{-x}}=F_Z(x).
+$$
+La fonction $F_Z$ étant continue sur $\mathbb R$, le théorème de caractérisation de la convergence en loi donne
+$$
+\boxed{Y_n\xrightarrow{\mathcal L}Z.}
+$$
+}
+
+\item \question{On modélise la hauteur maximale d'un fleuve pendant l'année $i$ par une variable $X_i\sim\mathcal E(0{,}5)$, les années étant indépendantes. Interpréter $M_{100}$.}
+\indication{}
+\reponse{
+La variable
+$$
+M_{100}=\max(X_1,\ldots,X_{100})
+$$
+représente la plus grande hauteur maximale annuelle observée au cours d'une période de cent ans.
+}
+
+\item \question{On approxime la loi de $Y_{100}$ par celle de $Z$. Calculer $\mathbb P(Z>a)$ avec
+$$
+a=-\ln\bigl(-\ln(0{,}99)\bigr).
+$$}
+\indication{}
+\reponse{
+Par définition de $a$,
+$$
+e^{-a}=-\ln(0{,}99).
+$$
+Ainsi,
+$$
+F_Z(a)=e^{-e^{-a}}
+=e^{\ln(0{,}99)}
+=0{,}99.
+$$
+Donc
+$$
+\boxed{\mathbb P(Z>a)=1-F_Z(a)=0{,}01.}
+$$
+}
+
+\item \question{On donne $a\simeq4{,}6$ et $\ln(100)\simeq4{,}6$. Déterminer $b>0$ tel que
+$$
+\mathbb P(M_{100}>b)\simeq0{,}01.
+$$}
+\indication{}
+\reponse{
+Comme
+$$
+Y_{100}=\lambda M_{100}-\ln(100),
+$$
+on choisit $b$ de sorte que
+$$
+\lambda b-\ln(100)=a.
+$$
+Alors
+$$
+\mathbb P(M_{100}>b)
+=\mathbb P(Y_{100}>a)
+\simeq\mathbb P(Z>a)
+=0{,}01.
+$$
+Avec $\lambda=0{,}5\ \mathrm m^{-1}$,
+$$
+b=\frac{a+\ln(100)}{\lambda}
+\simeq\frac{4{,}6+4{,}6}{0{,}5}
+=18{,}4.
+$$
+Ainsi,
+$$
+\boxed{b\simeq18{,}4\ \mathrm m.}
+$$
+}
+
+\end{enumerate}
+
+}
