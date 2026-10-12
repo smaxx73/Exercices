@@ -10,20 +10,115 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
-\texte{Une étude historique présente cinq catégories d'avance ou de retard scolaire, notées $-2,-1,0,+1,+2$. Pour cet exercice, on fixe par convention les probabilités de référence
-\[(0{,}06;0{,}23;0{,}48;0{,}22;0{,}01).\]
-Ces nombres sont inspirés des fréquences publiées par Binet sur 192 enfants ; on les traite ici comme une référence fixée, sans estimer son incertitude. Deux échantillons indépendants donnent :
-\begin{center}\begin{tabular}{lrrrrr}\hline
-Catégorie & $-2$ & $-1$ & 0 & $+1$ & $+2$ \\
-Goddard (1547 enfants) & 294 & 309 & 557 & 325 & 62 \\
-Bobertag (228 enfants) & 6 & 40 & 119 & 57 & 6 \\ \hline
-\end{tabular}\end{center}}
-\question{Tester séparément l'adéquation de chaque distribution à la référence au seuil de $5\%$. Vérifier les effectifs attendus et regrouper les classes si nécessaire.}
+\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ est le quantile de la loi $\chi^2(\nu)$ avec une probabilité $\gamma$ à gauche.}
+\texte{En 1908, en France, Binet publie une étude concernant la mesure de l'intelligence des enfants. Son échelle repose sur des épreuves classées par difficulté croissante. Les résultats permettent de classer les enfants dans cinq catégories : retard de deux ans, retard d'un an, résultat correspondant à l'âge, avance d'un an et avance de deux ans, notées $-2,-1,0,+1,+2$. Il s'agit des catégories historiques de cette échelle de tests.
+
+\begin{minipage}{\linewidth}
+Les fréquences relatives présentées pour un échantillon de 192 enfants français sont :
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$-2$ & $-1$ & $0$ & $+1$ & $+2$ \\ \hline
+$0{,}06$ & $0{,}23$ & $0{,}48$ & $0{,}22$ & $0{,}01$ \\ \hline
+\end{tabular}
+\end{center}
+\end{minipage}\par
+Dans cet exercice, on traite ces cinq nombres comme des probabilités de référence fixées, sans tenir compte de l'incertitude liée à leur estimation sur les 192 enfants.
+
+Un chercheur américain, Goddard, et un chercheur allemand, Bobertag, font passer le test de Binet à 1547 enfants américains et 228 enfants allemands. Les effectifs observés sont :
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+Catégorie & $-2$ & $-1$ & $0$ & $+1$ & $+2$ \\ \hline
+Goddard ($n=1547$) & 294 & 309 & 557 & 325 & 62 \\ \hline
+Bobertag ($n=228$) & 6 & 40 & 119 & 57 & 6 \\ \hline
+\end{tabular}
+\end{center}
+Pour chaque échantillon, on suppose les observations individuelles indépendantes et de même distribution.}
+\question{Au seuil de $5\%$, tester séparément si les distributions des résultats des enfants américains et allemands sont compatibles avec la référence fixée ci-dessus. Vérifier les effectifs attendus et regrouper les classes si nécessaire.}
 \indication{Les degrés de liberté sont le nombre de classes retenues moins un, car les probabilités de référence sont fixées.}
-\reponse{Sous $H_0$, $e_j=np_j$ et $Q=\sum\frac{(O_j-e_j)^2}{e_j}$ est approximativement de loi $\chi^2(c-1)$.
-Pour Goddard, les effectifs attendus sont $92{,}82;355{,}81;742{,}56;340{,}34;15{,}47$, tous supérieurs à 5. On obtient $q_{\mathrm{obs}}\simeq629{,}2123$, 4 ddl et $p_{\mathrm{val}}\simeq7{,}37\times10^{-135}$ : rejet à $5\%$.
-Pour Bobertag, l'effectif attendu de $+2$ est seulement $2{,}28$. On regroupe $+1$ et $+2$. Les effectifs observés deviennent $(6,40,119,63)$ et les attendus $(13{,}68;52{,}44;109{,}44;52{,}44)$.
-On trouve $q_{\mathrm{obs}}\simeq10{,}22424$, 3 ddl, $p_{\mathrm{val}}\simeq0{,}016753$ et $q_{3;0{,}95}\simeq7{,}815$ : rejet également.
-Ces tests ne constituent pas une comparaison exacte à une population française estimée sur 192 enfants : pour cette autre question, il faudrait les effectifs français complets et un test d'homogénéité.}
+\reponse{\textbf{Hypothèses et statistique.} Pour chaque échantillon, l'hypothèse $H_0$ est que les probabilités des cinq catégories valent
+\[
+(p_1,p_2,p_3,p_4,p_5)=(0{,}06;0{,}23;0{,}48;0{,}22;0{,}01).
+\]
+Sous $H_1$, au moins une de ces probabilités diffère de la référence. On note $O_j$ l'effectif aléatoire de la classe $j$, $o_j$ sa valeur observée et $e_j=np_j$ son effectif attendu sous $H_0$. Pour $c$ classes retenues, la statistique de Pearson et sa réalisation sont
+\[
+Q=\sum_{j=1}^c\frac{(O_j-e_j)^2}{e_j},
+\qquad q_{\mathrm{obs}}=\sum_{j=1}^c\frac{(o_j-e_j)^2}{e_j}.
+\]
+Lorsque les effectifs attendus sont suffisamment grands, la loi de $Q$ sous $H_0$ est approximativement $\chi^2(c-1)$. La contrainte sur le total des effectifs retire un degré de liberté ; aucun paramètre n'est estimé à partir de l'échantillon testé. On rejette pour $q_{\mathrm{obs}}>q_{c-1;0{,}95}$.
+
+\begin{minipage}{\linewidth}
+\textbf{Effectifs attendus avant regroupement.} On multiplie chaque probabilité de référence par la taille de l'échantillon. Par exemple, pour Goddard, $e_1=1547\times0{,}06=92{,}82$.
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+Catégorie & $-2$ & $-1$ & $0$ & $+1$ & $+2$ \\ \hline
+Goddard & $92{,}82$ & $355{,}81$ & $742{,}56$ & $340{,}34$ & $15{,}47$ \\ \hline
+Bobertag & $13{,}68$ & $52{,}44$ & $109{,}44$ & $50{,}16$ & $2{,}28$ \\ \hline
+\end{tabular}
+\end{center}
+Le repère usuel $e_j\geq5$ est satisfait pour Goddard. Pour Bobertag, la dernière classe a un effectif attendu inférieur à 5 : on la regroupera avec la classe voisine avant d'utiliser l'approximation par une loi du $\chi^2$.
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Échantillon américain : Goddard.} On conserve les cinq classes, soit $5-1=4$ degrés de liberté. Le calcul donne
+\begin{align*}
+q_{\mathrm{obs}}
+&=\frac{(294-92{,}82)^2}{92{,}82}
+ +\frac{(309-355{,}81)^2}{355{,}81}
+ +\frac{(557-742{,}56)^2}{742{,}56}\\
+&\quad+\frac{(325-340{,}34)^2}{340{,}34}
+ +\frac{(62-15{,}47)^2}{15{,}47}\\
+&\simeq436{,}0417+6{,}1583+46{,}3700+0{,}6914+139{,}9509\\
+&\simeq629{,}2123.
+\end{align*}
+La valeur critique est $q_{4;0{,}95}\simeq9{,}488$. Comme $629{,}2123>9{,}488$, on rejette $H_0$ au seuil de $5\%$.
+
+Avec l'approximation du $\chi^2$, la $p$-valeur est
+\[
+p_{\mathrm{val}}=\PP(Y_4\geq629{,}2123)\simeq7{,}37\times10^{-135},
+\qquad Y_4\sim\chi^2(4).
+\]
+Les données américaines sont très éloignées de la distribution de référence ; cette valeur de queue extrêmement faible reste celle de la loi approchée.
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Échantillon allemand : Bobertag.} On regroupe les catégories $+1$ et $+2$. La probabilité de cette classe devient $0{,}22+0{,}01=0{,}23$, son effectif observé $57+6=63$, et son effectif attendu $228\times0{,}23=52{,}44$.
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+Catégorie & $-2$ & $-1$ & $0$ & $+1,+2$ \\ \hline
+Effectif observé & 6 & 40 & 119 & 63 \\ \hline
+Effectif attendu & $13{,}68$ & $52{,}44$ & $109{,}44$ & $52{,}44$ \\ \hline
+\end{tabular}
+\end{center}
+Les quatre effectifs attendus sont désormais supérieurs à 5. On utilise $4-1=3$ degrés de liberté.
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+La statistique observée après regroupement est
+\begin{align*}
+q_{\mathrm{obs}}
+&=\frac{(6-13{,}68)^2}{13{,}68}
+ +\frac{(40-52{,}44)^2}{52{,}44}
+ +\frac{(119-109{,}44)^2}{109{,}44}
+ +\frac{(63-52{,}44)^2}{52{,}44}\\
+&\simeq4{,}31158+2{,}95106+0{,}83510+2{,}12650\\
+&\simeq10{,}22424.
+\end{align*}
+La valeur critique est $q_{3;0{,}95}\simeq7{,}815$. Comme $10{,}22424>7{,}815$, on rejette également $H_0$ au seuil de $5\%$. La $p$-valeur approchée est
+\[
+p_{\mathrm{val}}=\PP(Y_3\geq10{,}22424)\simeq0{,}016753<0{,}05,
+\qquad Y_3\sim\chi^2(3).
+\]
+Sans regroupement, le calcul sur les cinq classes donnerait $15{,}09994$, soit $15{,}10$ à deux décimales, mais l'effectif attendu $2{,}28$ rendrait moins fiable l'approximation par $\chi^2(4)$. Après regroupement, la statistique et les degrés de liberté changent ensemble.
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\textbf{Portée des conclusions.} Les deux tests, chacun au seuil de $5\%$, rejettent l'adéquation à la référence fixée. On ne peut donc pas conclure à la compatibilité des distributions dans ce modèle. Ces tests ne donnent pas une probabilité de $95\%$ qu'une hypothèse soit vraie et ne permettent pas d'expliquer les écarts observés.
+
+\textbf{Remarque sur la référence française.} Les fréquences françaises proviennent elles-mêmes d'un échantillon et sont arrondies. Les traiter comme des probabilités fixées est une simplification de l'exercice. Pour comparer les distributions des populations en tenant compte de l'incertitude des trois échantillons, il faudrait disposer des effectifs français exacts et utiliser un test d'homogénéité. Multiplier les fréquences arrondies par 192 ne reconstitue pas ces effectifs exacts.
+\end{minipage}
+}
 }
