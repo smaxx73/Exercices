@@ -11,36 +11,278 @@
 \organisation{AMSCC}
 \difficulte{3}
 \contenu{
-\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
-\texte{On compare la consommation mensuelle moyenne de chauffage, en kWh, de ménages de deux régions durant l'hiver. Les échantillons sont indépendants, et les observations de chaque région sont supposées indépendantes de même distribution, de variance finie.
-\begin{center}\begin{tabular}{lrrr}\hline Région & Taille & Moyenne & Variance corrigée \\ \hline
-A & 200 & 600 & 20000 \\
-B & 100 & 500 & 160000 \\ \hline\end{tabular}\end{center}
-Les consommations sont positives ; on utilise une approximation sur les moyennes pour ces grands échantillons. Pour la seule question sur Fisher, on examinera ce que donnerait une hypothèse normale supplémentaire.}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d'écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ est le quantile de niveau $\gamma$ de la loi $St(\nu)$.}
+\texte{
+Un fournisseur d'énergie souhaite comparer la consommation de chauffage durant les mois d'hiver (décembre à février) entre deux régions géographiques $A$ et $B$, afin d'étudier l'adaptation de ses approvisionnements et de son réseau de distribution.
+
+On prélève un échantillon aléatoire de ménages dans chaque région. Pour chaque ménage, une observation est sa consommation mensuelle moyenne sur les trois mois d'hiver, en kWh. Les échantillons sont indépendants ; dans chaque région, les observations sont supposées indépendantes de même distribution, de variance finie. On note $\mu_A,\mu_B$ les moyennes des populations et $\sigma_A^2,\sigma_B^2$ leurs variances.
+\begin{center}
+\begin{tabular}{lrrr}\hline
+Région & Taille & Moyenne observée & Variance corrigée observée \\ \hline
+$A$ & $n_A=200$ & $\bar x_A=600$ & $s_A^2=20000$ \\
+$B$ & $n_B=100$ & $\bar x_B=500$ & $s_B^2=160000$ \\ \hline
+\end{tabular}
+\end{center}
+Les variances sont exprimées en kWh$^2$. Les consommations sont positives ; pour comparer les moyennes, on utilisera une approximation adaptée aux grands échantillons. Pour la seule question sur Fisher, on examinera ce que donnerait une hypothèse normale supplémentaire.
+
+\textbf{Question générale :} l'écart de consommation moyenne entre les régions est-il statistiquement significatif au seuil de $5\%$ ?
+}
 \begin{enumerate}
-\item \question{Calculer l'écart des moyennes et les coefficients de variation.}
-\reponse{L'écart observé est 100 kWh, soit $20\%$ de la moyenne B. Les écarts-types sont $141{,}421$ et 400 kWh ; $CV_A\simeq23{,}57\%$ et $CV_B=80\%$. La dispersion observée est beaucoup plus élevée en B.}
-\item \question{Sous une hypothèse normale supplémentaire, effectuer le test de Fisher à $5\%$. Cette hypothèse est-elle réaliste ici ? Un test préalable de variances est-il nécessaire pour utiliser Welch ?}
-\reponse{Sous ce modèle supplémentaire, $R=\frac{S_B^2}{S_A^2}\sim F(99,199)$ si les variances sont égales. On observe $r_{\mathrm{obs}}=8$, le seuil haut à $2{,}5\%$ vaut $1{,}394503$ et la $p$-valeur bilatérale vaut $5{,}79\times10^{-35}$ : rejet sous ce modèle.
-Cependant une normale $\mathcal N(500,400)$ attribue environ $10{,}6\%$ aux consommations négatives ; elle est peu réaliste pour les observations de B. Le test F exact ne se justifie donc pas par le seul TCL appliqué aux moyennes. Welch ne nécessite pas de prétest d'égalité des variances et peut être choisi directement.}
-\item \question{Formuler les hypothèses pour comparer les moyennes.}
-\reponse{$H_0:\mu_A=\mu_B$ contre $H_1:\mu_A\neq\mu_B$ ; test bilatéral, car aucune direction n'est privilégiée dans la question.}
-\item \question{Calculer la statistique de Welch et les degrés de liberté de Satterthwaite.}
-\reponse{On utilise
-\[T=\frac{\overline X_A-\overline X_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}},\qquad
-\nu\simeq\frac{\left(\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}\right)^2}{\frac{\left(\frac{s_A^2}{n_A}\right)^2}{n_A-1}+\frac{\left(\frac{s_B^2}{n_B}\right)^2}{n_B-1}}.\]
-Ici l'erreur-type vaut $\sqrt{1700}\simeq41{,}2311$ kWh, $t_{\mathrm{obs}}=\frac{100}{\sqrt{1700}}\simeq2{,}425356$ et $\nu\simeq111{,}54495$.
-La référence $St(\nu)$ est une approximation ; Welch n'est pas un pivot de Student exact en général. Dans notre modèle positif de grande taille, son usage repose sur l'approximation des moyennes.}
-\item \question{Prendre une décision à $5\%$ et interpréter.}
-\reponse{La $p$-valeur bilatérale approchée vaut $0{,}016898$ : rejet. Les données sont peu compatibles avec l'égalité des moyennes sous les hypothèses retenues. Elles n'identifient pas les causes de l'écart et ne suffisent pas, seules, à décider d'un investissement.}
-\item \question{Construire un intervalle de confiance à $95\%$ de $\mu_A-\mu_B$.}
-\reponse{L'intervalle approché est
-\[\left[100-t_{\nu;0{,}975}\sqrt{1700};100+t_{\nu;0{,}975}\sqrt{1700}\right]
-\simeq[18{,}3023;181{,}6977]\ \text{kWh}.\]
-Il exclut 0, en accord avec le test, mais révèle une incertitude notable sur l'ampleur de l'écart. Ses bornes ne sont pas des limites absolues ou des scénarios garantis. Les valeurs ci-dessus gardent $\nu$ non entier jusqu'au calcul final ; une table papier nécessite une approximation supplémentaire.}
-\item \question{Calculer ce que donnerait un test de Student à variance commune et comparer avec Welch.}
-\reponse{La variance commune estimée serait $s_p^2=\frac{199\times20000+99\times160000}{298}\simeq66510{,}0671$.
-On obtiendrait $t_p=\frac{100}{\sqrt{s_p^2(\frac{1}{200}+\frac{1}{100})}}\simeq3{,}165998$, puis une $p$-valeur nominale $0{,}001706$ sur $St(298)$.
-La mise en commun suppose l'égalité des variances, peu plausible ici. Elle réduit artificiellement l'erreur-type estimée par rapport à Welch ; la $p$-valeur nominale n'est pas correctement calibrée si cette hypothèse est fausse. Même si les deux calculs rejettent ici, on retient Welch et ses conditions d'approximation.}
+\item \question{Avant tout test, analyser les données de manière descriptive : calculer la différence observée entre les moyennes et les coefficients de variation ; commenter la dispersion dans chaque région.}
+\reponse{
+\textbf{Différence des moyennes :}
+\[\bar x_A-\bar x_B=600-500=100\ \text{kWh}.\]
+Dans les échantillons, la consommation moyenne de $A$ dépasse celle de $B$ de 100 kWh, soit $\frac{100}{500}\times100=20\%$ de la moyenne observée de $B$.
+
+\textbf{Écarts-types et coefficients de variation :}
+\[
+s_A=\sqrt{20000}\simeq141{,}421\ \text{kWh},\qquad s_B=\sqrt{160000}=400\ \text{kWh}.
+\]
+\[
+CV_A=\frac{s_A}{\bar x_A}\times100=\frac{\sqrt{20000}}{600}\times100\simeq23{,}57\%,
+\qquad CV_B=\frac{400}{500}\times100=80\%.
+\]
+\textbf{Analyse descriptive :}
+\begin{itemize}
+\item L'échantillon de $A$ présente une moyenne plus élevée, mais une dispersion relative plus faible.
+\item Celui de $B$ présente une forte hétérogénéité : son écart-type représente $80\%$ de sa moyenne.
+\item Cette dispersion pourrait être liée à la diversité des habitations (surface, isolation), aux conditions climatiques locales (altitude, exposition) ou aux comportements de chauffage. Les données résumées ne permettent pas d'identifier ces causes.
+\item Le rapport des variances corrigées observées vaut $\frac{s_B^2}{s_A^2}=8$. Il s'agit d'une comparaison des échantillons, pas encore d'une conclusion sur les variances des populations.
+\end{itemize}
+}
+\indication{Avec un tableur, calculer les écarts-types par \texttt{=RACINE(20000)} et \texttt{=RACINE(160000)}, puis les CV par \texttt{=RACINE(20000)/600*100} et \texttt{=400/500*100}. Conserver les valeurs non arrondies dans les calculs.}
+
+\item \question{Sous une hypothèse normale supplémentaire, réaliser un test de Fisher bilatéral au seuil de $5\%$ pour comparer les variances. Cette hypothèse est-elle réaliste ici ? Un test préalable de variances est-il nécessaire pour utiliser Welch ?}
+\reponse{
+\textbf{Choix de la méthode :} le test de Student à variance commune suppose $\sigma_A^2=\sigma_B^2$. Le test de Welch ne suppose pas cette égalité : on peut le choisir directement, sans test préalable de variances, y compris lorsque celles-ci sont égales.
+
+\textbf{Test de Fisher sous le modèle normal supplémentaire :}
+\[
+H_0:\sigma_A^2=\sigma_B^2,\qquad H_1:\sigma_A^2\ne\sigma_B^2.
+\]
+Notons $S_A^2,S_B^2$ les variances corrigées aléatoires. L'ordre du rapport est fixé avant observation :
+\[
+R=\frac{S_B^2}{S_A^2},\qquad r_{\mathrm{obs}}=\frac{s_B^2}{s_A^2}=\frac{160000}{20000}=8.
+\]
+Sous $H_0$, si les deux populations sont normales et les observations indépendantes, $R\sim F(n_B-1,n_A-1)=F(99,199)$. On distingue la statistique aléatoire $R$ et sa valeur observée $r_{\mathrm{obs}}$.
+
+Pour un test bilatéral à $5\%$, les quantiles à gauche sont
+\[
+f_{99,199;0{,}025}\simeq0{,}7029625,\qquad f_{99,199;0{,}975}\simeq1{,}3945035.
+\]
+On rejette lorsque le rapport observé est en dehors de cet intervalle. Ici $8>1{,}3945035$. Sous ce modèle, la $p$-valeur bilatérale est
+\[
+p=2\min\{\mathbb P(R\le8),\mathbb P(R\ge8)\}
+\simeq5{,}79\times10^{-35},
+\]
+et on rejette l'égalité des variances.
+
+\textbf{Limite du modèle :} une normale $\mathcal N(500,400)$ ajustée aux valeurs de $B$ donnerait
+\[
+\mathbb P(X<0)=\mathbb P\left(\frac{X-500}{400}<-1{,}25\right)\simeq10{,}6\%.
+\]
+Cette proportion de consommations négatives rend le modèle peu réaliste. Le test F exact est donc un calcul conditionnel à une hypothèse supplémentaire discutable. Le TCL appliqué aux moyennes ne justifie pas la loi F des variances. Pour comparer les moyennes, nous retenons Welch et ses conditions d'approximation, sans faire du prétest de Fisher une étape obligatoire.
+}
+\indication{Avec Excel :
+\begin{itemize}
+\item Rapport observé : \texttt{=160000/20000}.
+\item Seuil inférieur : \texttt{=INVERSE.LOI.F.N(0,025;99;199)}.
+\item Seuil supérieur : \texttt{=INVERSE.LOI.F.N(0,975;99;199)}.
+\item Ici la queue droite est la plus petite : \texttt{=2*LOI.F.DROITE(8;99;199)} donne la $p$-valeur bilatérale. La calculer directement évite de soustraire à 1 une probabilité extrêmement proche de 1.
+\end{itemize}}
+
+\item \question{Formuler les hypothèses pour tester si la consommation moyenne diffère entre les régions. S'agit-il d'un test bilatéral ou unilatéral ? Justifier.}
+\reponse{
+\textbf{Hypothèses :}
+\[
+H_0:\mu_A=\mu_B\quad\Longleftrightarrow\quad\mu_A-\mu_B=0,
+\]
+\[
+H_1:\mu_A\ne\mu_B\quad\Longleftrightarrow\quad\mu_A-\mu_B\ne0.
+\]
+Le test est \textbf{bilatéral} : la question ne privilégie aucune direction. Le fournisseur souhaite détecter une différence dans un sens comme dans l'autre pour étudier sa logistique. Le choix découle de la question posée avant l'examen des résultats.
+
+Si l'objectif fixé à l'avance était de tester spécifiquement une consommation plus élevée en $A$, l'alternative serait $H_1:\mu_A>\mu_B$. On ne choisit pas cette direction après avoir observé le signe de $\bar x_A-\bar x_B$.
+}
+
+\item \question{Pour comparer les moyennes sans supposer l'égalité des variances, on utilise Welch. La statistique aléatoire est
+\[
+T=\frac{\overline X_A-\overline X_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}}.
+\]
+Sa loi sous $H_0$ est approchée par une loi de Student, avec les degrés de liberté estimés de Welch--Satterthwaite
+\[
+\widehat\nu_{\mathrm{obs}}=
+\frac{\left(\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}\right)^2}
+{\frac{\left(\frac{s_A^2}{n_A}\right)^2}{n_A-1}+\frac{\left(\frac{s_B^2}{n_B}\right)^2}{n_B-1}}.
+\]
+Calculer la statistique observée et les degrés de liberté estimés.}
+\reponse{
+\textbf{Variances estimées des moyennes et erreur-type :}
+\[
+\frac{s_A^2}{n_A}=\frac{20000}{200}=100,\qquad
+\frac{s_B^2}{n_B}=\frac{160000}{100}=1600.
+\]
+La variance estimée de la différence des moyennes vaut $100+1600=1700$ kWh$^2$. Son erreur-type estimée est
+\[
+e_{\mathrm{obs}}=\sqrt{1700}\simeq41{,}2311\ \text{kWh}.
+\]
+\textbf{Statistique observée :}
+\[
+t_{\mathrm{obs}}=\frac{\bar x_A-\bar x_B}{e_{\mathrm{obs}}}
+=\frac{600-500}{\sqrt{1700}}\simeq2{,}425356.
+\]
+\textbf{Degrés de liberté estimés :} le numérateur vaut $1700^2=2890000$ ; le dénominateur vaut
+\[
+\frac{100^2}{199}+\frac{1600^2}{99}
+=\frac{10000}{199}+\frac{2560000}{99}
+\simeq50{,}2512563+25858{,}5858586\simeq25908{,}8371149.
+\]
+Ainsi,
+\[
+\widehat\nu_{\mathrm{obs}}=
+\frac{2890000}{\frac{10000}{199}+\frac{2560000}{99}}
+\simeq111{,}54495.
+\]
+On conserve cette valeur non entière pour les résultats numériques du corrigé. Avec une table ou une fonction exigeant un entier, utiliser $111$ constitue une approximation supplémentaire, à annoncer.
+
+Les degrés de liberté sont plus proches de $n_B-1=99$ que de $n_A+n_B-2=298$, car la contribution de $B$ domine la variance estimée de la différence. La référence $St(\widehat\nu_{\mathrm{obs}})$ est une approximation : Welch n'est pas un pivot de Student exact en général. Pour ces populations positives, son emploi repose sur l'approximation des moyennes pour les grands échantillons, dont la qualité dépend aussi de la forme des distributions.
+}
+\indication{Avec un tableur, placer successivement dans les cellules B1 à B6 les valeurs $200$, $100$, $600$, $500$, $20000$, $160000$ (tailles, moyennes, variances corrigées de $A$ et $B$). Calculer ensuite :
+\begin{itemize}
+\item D1, variance estimée : \texttt{=B5/B1+B6/B2}.
+\item D2, erreur-type : \texttt{=RACINE(D1)}.
+\item D3, statistique observée : \texttt{=(B3-B4)/D2}.
+\item D4, degrés de liberté :\par
+\texttt{=D1\^{}2/((B5/B1)\^{}2/(B1-1)+(B6/B2)\^{}2/(B2-1))}.
+\item D5, approximation entière explicitement choisie : \texttt{=ENT(D4)}, soit $111$.
+\end{itemize}
+Les cellules gardent les valeurs non arrondies ; seul leur affichage est arrondi.}
+
+\item \question{Au seuil de $5\%$, l'écart de consommation est-il significatif ? Calculer la $p$-valeur et interpréter le résultat dans le contexte.}
+\reponse{
+\textbf{Région critique :} pour le test bilatéral, on rejette si
+\[
+|t_{\mathrm{obs}}|>t_{\widehat\nu_{\mathrm{obs}};0{,}975},\qquad
+ t_{\widehat\nu_{\mathrm{obs}};0{,}975}\simeq1{,}981460.
+\]
+Puisque $2{,}425356>1{,}981460$, on rejette $H_0$ au seuil de $5\%$.
+
+\textbf{Calcul de la $p$-valeur :} avec $U\sim St(\widehat\nu_{\mathrm{obs}})$, variable de référence,
+\[
+p\simeq\mathbb P(|U|\ge|t_{\mathrm{obs}}|)
+=2\mathbb P(U\ge2{,}425356)\simeq0{,}016898,
+\]
+soit environ $1{,}69\%$. Il s'agit de la probabilité, sous l'hypothèse nulle et l'approximation retenue, d'un résultat au moins aussi extrême ; ce n'est pas la probabilité que $H_0$ soit vraie.
+
+\textbf{Interprétation statistique :} les données sont peu compatibles avec l'égalité des moyennes sous les hypothèses retenues. Le rejet comporte un risque d'erreur ; il ne permet pas d'affirmer que le hasard est exclu, ni de mesurer à lui seul la robustesse du résultat.
+
+\textbf{Interprétation pour le fournisseur :}
+\begin{itemize}
+\item La différence observée vaut 100 kWh par ménage et par mois, soit $20\%$ de la moyenne observée de $B$. Son ampleur dans les populations reste à estimer.
+\item Les conditions climatiques (température, vent), les habitations (surface, isolation, chauffage) et les profils des ménages (présence au domicile, température de confort) sont des pistes explicatives à examiner. Le test ne démontre aucune de ces causes.
+\item Les résultats peuvent alimenter une étude des stocks et approvisionnements, des capacités de distribution, des campagnes de maîtrise de l'énergie et des prévisions régionales. Ils ne suffisent pas seuls à décider d'investissements : il faut également considérer l'incertitude, les besoins, les coûts et d'autres données.
+\end{itemize}
+}
+\indication{En reprenant les cellules de la question précédente, avec l'approximation entière $111$ :
+\begin{itemize}
+\item D6, valeur critique : \texttt{=LOI.STUDENT.INVERSE.BILATERALE(0,05;D5)}, soit environ $1{,}981567$.
+\item $p$-valeur bilatérale : \texttt{=LOI.STUDENT.BILATERALE(ABS(D3);D5)}, soit environ $0{,}016906$. Ne pas multiplier à nouveau par 2.
+\item Ces résultats diffèrent légèrement de ceux à $111{,}54495$ degrés de liberté. Excel tronque les degrés non entiers pour sa fonction inverse ; ici le choix de $111$ est rendu explicite.
+\item Si les données individuelles étaient disponibles, \texttt{=T.TEST(plageA;plageB;2;3)} donnerait directement le test bilatéral de Welch (2 : bilatéral ; 3 : variances non supposées égales). Cette fonction requiert les observations brutes ; elle ne s'applique pas aux seules moyennes et variances du tableau.
+\end{itemize}}
+
+\item \question{Construire un intervalle de confiance à $95\%$ pour $\mu_A-\mu_B$. Que peut-on en déduire ?}
+\reponse{
+\textbf{Construction :} l'intervalle de Welch observé est
+\[
+I_{\mathrm{obs}}=\left[\bar x_A-\bar x_B-t_{\widehat\nu_{\mathrm{obs}};0{,}975}e_{\mathrm{obs}}\ ;\
+\bar x_A-\bar x_B+t_{\widehat\nu_{\mathrm{obs}};0{,}975}e_{\mathrm{obs}}\right].
+\]
+La marge d'erreur vaut
+\[
+m_{\mathrm{obs}}=t_{\widehat\nu_{\mathrm{obs}};0{,}975}\sqrt{1700}
+\simeq81{,}6977\ \text{kWh}.
+\]
+D'où
+\[
+I_{\mathrm{obs}}\simeq[100-81{,}6977\ ;\ 100+81{,}6977]
+=[18{,}3023\ ;\ 181{,}6977]\ \text{kWh}.
+\]
+\textbf{Interprétation :} cette procédure produit des intervalles qui couvrent la différence fixe $\mu_A-\mu_B$ dans environ $95\%$ des répétitions de l'échantillonnage, sous les hypothèses et l'approximation retenues. Pour cet échantillon, l'intervalle fournit une estimation de l'écart moyen, avec une incertitude notable.
+\begin{itemize}
+\item Il ne contient pas 0 : cela concorde avec le rejet du test bilatéral à $5\%$ construit avec la même référence.
+\item À titre de repères, les bornes représentent environ $\frac{18{,}3023}{500}\times100=3{,}66\%$ et $\frac{181{,}6977}{500}\times100=36{,}34\%$ de la moyenne \emph{observée} de $B$. Ce calcul n'est pas un intervalle de confiance pour une différence relative, car le dénominateur est lui aussi estimé.
+\item La largeur vaut environ $163{,}3954$ kWh. La forte variance observée de $B$ et sa taille d'échantillon plus faible expliquent sa contribution dominante à l'incertitude ($1600$ contre $100$ kWh$^2$).
+\item Les bornes ne sont pas des limites absolues ni un scénario garanti de « pire cas ». Elles ne justifient pas à elles seules des investissements différenciés.
+\end{itemize}
+Pour améliorer la précision, augmenter l'échantillon de $B$ peut être utile : à variances de population fixées, la variance de la moyenne diminue avec la taille de l'échantillon. Cela ne garantit pas une largeur particulière pour un prochain échantillon.
+}
+\indication{Avec les cellules précédentes et les $111$ degrés de liberté choisis pour Excel :
+\begin{itemize}
+\item D7, marge d'erreur : \texttt{=D6*D2}.
+\item Borne inférieure : \texttt{=B3-B4-D7}.
+\item Borne supérieure : \texttt{=B3-B4+D7}.
+\end{itemize}
+On obtient environ $[18{,}2979\ ;\ 181{,}7021]$ kWh. Le léger écart avec le corrigé vient de l'approximation entière des degrés de liberté, et non d'une décision différente.}
+
+\item \question{Synthèse : une analyste propose le test de Student à variance commune. Expliquer pourquoi cette hypothèse est peu plausible ici ; calculer néanmoins la statistique correspondante, comparer les approches et discuter l'importance des hypothèses d'un test.}
+\reponse{
+\textbf{1. Validité de la variance commune :} le test de Student à variance commune suppose $\sigma_A^2=\sigma_B^2$. Les résumés observés montrent un rapport de variances de 8 et des CV de $23{,}57\%$ et $80\%$. L'égalité paraît peu plausible ; les CV ne sont toutefois pas à eux seuls un test de variances. Le rejet obtenu avec Fisher dépend du modèle normal supplémentaire, dont les limites ont été discutées.
+
+\textbf{2. Calcul à titre de comparaison :} si l'on supposait une variance commune, son estimateur aléatoire serait
+\[
+S_p^2=\frac{(n_A-1)S_A^2+(n_B-1)S_B^2}{n_A+n_B-2}.
+\]
+Sa valeur observée est
+\[
+s_p^2=\frac{199\times20000+99\times160000}{298}
+=\frac{3980000+15840000}{298}
+=\frac{19820000}{298}\simeq66510{,}0671\ \text{kWh}^2.
+\]
+Ainsi $s_p\simeq257{,}8955$ kWh. La statistique aléatoire et sa réalisation sont
+\[
+T_p=\frac{\overline X_A-\overline X_B}{S_p\sqrt{\frac1{n_A}+\frac1{n_B}}},\qquad
+ t_{p,\mathrm{obs}}=\frac{100}{\sqrt{s_p^2\left(\frac1{200}+\frac1{100}\right)}}
+\simeq3{,}165998.
+\]
+L'erreur-type estimée vaut $\sqrt{s_p^2(\frac1{200}+\frac1{100})}\simeq31{,}5856$ kWh. Sous $H_0$, pour des populations normales indépendantes de même variance, $T_p\sim St(298)$ exactement. Avec cette référence, le seuil bilatéral à $5\%$ est $t_{298;0{,}975}\simeq1{,}967957$ et la $p$-valeur \emph{nominale} vaut environ $0{,}001706$.
+
+\textbf{3. Comparaison des approches :}
+\begin{center}
+\begin{tabular}{|l|c|c|}\hline
+ & Welch & Student à variance commune \\ \hline
+Égalité des variances & Non requise & Requise \\
+Erreur-type estimée (kWh) & $41{,}2311$ & $31{,}5856$ \\
+Statistique observée & $2{,}425356$ & $3{,}165998$ \\
+Degrés de liberté & $111{,}54495$ (estimés) & $298$ \\
+Seuil bilatéral à $5\%$ & $1{,}981460$ & $1{,}967957$ \\
+$p$-valeur & $0{,}016898$ & $0{,}001706$ (nominale) \\
+Décision selon la référence & Rejet de $H_0$ & Rejet de $H_0$ \\ \hline
+\end{tabular}
+\end{center}
+Les deux calculs conduisent ici à un rejet, mais la mise en commun réduit l'erreur-type estimée et donne une statistique plus grande et une $p$-valeur plus petite. Si l'égalité des variances est fausse, la référence $St(298)$ n'est plus justifiée en général : on ne peut pas interpréter sa $p$-valeur nominale comme correctement calibrée. Le seul résultat observé ne mesure pas le risque réel d'erreur de type I.
+
+La variance mise en commun est intermédiaire entre les deux variances observées. Sous une hypothèse de variances distinctes, elle n'est pas l'estimation d'une variance commune aux deux populations. On retient donc ici Welch et ses réserves d'approximation.
+
+\textbf{4. Enseignements :}
+\begin{itemize}
+\item Les hypothèses conditionnent la validité des conclusions ; ce ne sont pas des formalités.
+\item Une $p$-valeur plus petite ne rend pas une méthode préférable si sa référence est injustifiée. Près du seuil, un choix inadapté peut aussi changer la décision.
+\item Welch permet de comparer les moyennes sans imposer l'égalité des variances, sans exiger leur inégalité et sans prétest obligatoire de Fisher.
+\item Il faut examiner l'échantillonnage, l'indépendance et, si elles sont disponibles, les distributions individuelles : un effectif élevé ne règle pas automatiquement tous les problèmes de modèle.
+\item En pratique, vérifier quelle version du test est employée par le logiciel et annoncer ses hypothèses et les approximations utilisées.
+\end{itemize}
+\textit{« All models are wrong, but some are useful »} (George Box). Les hypothèses de normalité et de variance commune sont des modèles simplificateurs ; leur utilité dépend de leur adéquation aux données et à la question étudiée.
+}
+\indication{Dans le tableur :
+\begin{itemize}
+\item F1, variance mise en commun : \texttt{=((B1-1)*B5+(B2-1)*B6)/(B1+B2-2)}.
+\item F2, écart-type commun estimé : \texttt{=RACINE(F1)}.
+\item F3, erreur-type : \texttt{=F2*RACINE(1/B1+1/B2)}.
+\item F4, statistique observée : \texttt{=(B3-B4)/F3}.
+\item F5, degrés de liberté : \texttt{=B1+B2-2}.
+\item $p$-valeur nominale : \texttt{=LOI.STUDENT.BILATERALE(ABS(F4);F5)}.
+\end{itemize}
+Conserver les valeurs non arrondies et comparer la validité des hypothèses avant d'interpréter les $p$-valeurs.}
 \end{enumerate}
 }
