@@ -10,28 +10,238 @@
 \organisation{AMSCC}
 \difficulte{2}
 \contenu{
-\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
-\texte{Une enquête auprès de 100 demandeurs d'emploi, supposés indépendants, relève le nombre d'entretiens en deux mois :
-\begin{center}\begin{tabular}{lrrrrrrr}\hline
-Nombre & 0 & 1 & 2 & 3 & 4 & 5 & $\geq6$ \\
-Effectif & 15 & 30 & 27 & 13 & 9 & 5 & 1 \\ \hline
-\end{tabular}\end{center}}
-\question{Tester l'adéquation à une loi de Poisson de paramètre inconnu au seuil de $5\%$. Regrouper d'emblée les classes en $0,1,2,3,\geq4$ et estimer le paramètre à partir de ces cinq classes. Pour l'optimisation numérique, on pourra utiliser le Solveur du tableur.}
-\indication{Une classe « 6 et plus » ne donne pas la valeur de l'observation correspondante. Utiliser une probabilité de queue, et non une masse au point 6.}
-\reponse{On teste $H_0$ : les nombres d'entretiens suivent une loi $\mathcal P(\lambda)$ pour un certain $\lambda>0$ ; l'alternative est une autre distribution.
-Les effectifs des cinq classes sont $(15,30,27,13,15)$. Avec $p_k(\lambda)=\frac{e^{-\lambda}\lambda^k}{k!}$ et $p_{\geq4}(\lambda)=1-\sum_{k=0}^3p_k(\lambda)$, la log-vraisemblance, à une constante près, est
-\[\ell(\lambda)=15\log p_0+30\log p_1+27\log p_2+13\log p_3+15\log p_{\geq4}.\]
-La maximisation numérique donne $\widehat\lambda_{\mathrm{obs}}\simeq1{,}904114$. Elle utilise les mêmes cinq classes que le test. La moyenne des observations brutes est inconnue, car la dernière classe est ouverte.
-\begin{center}\begin{tabular}{lrr}\hline Classe & Observé & Attendu \\ \hline
-0 & 15 & 14,89545 \\
-1 & 30 & 28,36264 \\
-2 & 27 & 27,00286 \\
-3 & 13 & 17,13884 \\
-$\geq4$ & 15 & 12,60021 \\ \hline
-\end{tabular}\end{center}
-Tous les attendus sont supérieurs à 5. Le test de Pearson donne $q_{\mathrm{obs}}=\sum\frac{(o_j-e_j)^2}{e_j}\simeq1{,}551798$.
-Comme un paramètre est estimé par maximum de vraisemblance dans ces cinq classes, la loi asymptotique est $\chi^2(5-1-1)=\chi^2(3)$.
-Le test utilise la queue droite : $q_{3;0{,}95}\simeq7{,}815$ et $p_{\mathrm{val}}\simeq0{,}670368$. On ne rejette pas l'adéquation à $5\%$, sans prouver que la loi est de Poisson.
-Dans Excel : calculer les quatre masses avec \texttt{LOI.POISSON.N(k;lambda;FAUX)}, la queue par leur complément à 1, puis maximiser la somme des effectifs multipliés par les logarithmes des probabilités avec le Solveur, sous $\lambda>0$.
-Pour le test : \texttt{=LOI.KHIDEUX.INVERSE(0,95;3)} et \texttt{=LOI.KHIDEUX.DROITE(1,551798;3)}. Un diagramme en bâtons côte à côte des deux colonnes du tableau permet la comparaison graphique.}
+\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ est le quantile de la loi $\chi^2(\nu)$ avec une probabilité $\gamma$ à gauche.}
+\texte{Une enquête a été réalisée auprès de 100 demandeurs d'emploi sur le nombre d'entretiens d'embauche obtenus ces deux derniers mois. Elle donne les résultats suivants :
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|r|r|r|}
+\hline
+Nombre d'entretiens & 0 & 1 & 2 & 3 & 4 & 5 & 6 et plus \\ \hline
+Effectifs observés & 15 & 30 & 27 & 13 & 9 & 5 & 1 \\ \hline
+\end{tabular}
+\end{center}
+On suppose les observations individuelles indépendantes et de même distribution.}
+\question{Peut-on écarter l'hypothèse que le nombre d'entretiens d'embauche suit une loi de Poisson de paramètre inconnu, au seuil de significativité $\alpha=5\%$ ? Pour le test, regrouper d'emblée les classes en $0,1,2,3,\geq4$ et estimer le paramètre à partir de ces cinq classes. Pour l'optimisation numérique, on pourra utiliser le Solveur du tableur. Illustrer la comparaison des effectifs observés et attendus par un diagramme en bâtons et calculer la $p$-valeur.}
+\indication{Une classe « 6 et plus » ne donne pas la valeur de l'observation correspondante. Utiliser une probabilité de queue, et non une masse au point 6.
+
+\begin{minipage}{\linewidth}
+\textbf{1. Préparer les cinq classes et l'estimation de $\lambda$.} Dans A2:A6, saisir les classes $0,1,2,3,\geq4$ ; dans B2:B6, saisir les effectifs $15,30,27,13,15$. Mettre en G1 une valeur initiale positive de $\lambda$, par exemple $1{,}9$. Ce choix sert à démarrer le Solveur et ne constitue pas le résultat de l'estimation.
+\end{minipage}\par\smallskip
+\begin{minipage}{\linewidth}
+\textbf{2. Calculer les probabilités.} En C2, saisir
+\texttt{=LOI.POISSON(A2;\$G\$1;FAUX)}, puis recopier jusqu'à C5. L'argument \texttt{FAUX} donne la probabilité d'une valeur précise. En C6, saisir \texttt{=1-SOMME(C2:C5)} pour la classe $\geq4$.
+
+En E2, saisir \texttt{=B2*LN(C2)}, recopier jusqu'à E6, puis mettre \texttt{=SOMME(E2:E6)} en G2. Dans le Solveur, maximiser G2 en faisant varier G1, avec une borne positive, par exemple \texttt{G1>=0,01}, et la méthode GRG non linéaire. Cette borne numérique évite les logarithmes de probabilités arrondies à zéro ; vérifier que le résultat ne se trouve pas sur cette borne. On doit obtenir environ $1{,}904114$.
+\end{minipage}\par\smallskip
+\begin{minipage}{\linewidth}
+\textbf{3. Calculer les effectifs attendus.} En D2, saisir \texttt{=100*C2}, puis recopier jusqu'à D6. Vérifier que les probabilités totalisent 1 et les effectifs attendus 100.
+\end{minipage}\par\smallskip
+\begin{minipage}{\linewidth}
+\textbf{4. Calculer la statistique de Pearson.} En F2, saisir \texttt{=(B2-D2)\^{}2/D2}, puis recopier jusqu'à F6. Mettre \texttt{=SOMME(F2:F6)} en G3. Conserver les valeurs non arrondies pour ces calculs. Pour le graphique, comparer les colonnes B et D dans un diagramme en colonnes groupées.
+\end{minipage}\par\smallskip
+\begin{minipage}{\linewidth}
+\textbf{5. Déterminer le seuil et la $p$-valeur.} Le quantile à gauche se calcule par \texttt{=LOI.KHIDEUX.INVERSE(0,95;3)}. La $p$-valeur dans la queue droite est donnée par \texttt{=LOI.KHIDEUX.DROITE(G3;3)}. Dans les versions utilisant \texttt{LOI.KHIDEUX}, la formule équivalente est \texttt{=LOI.KHIDEUX(G3;3)} : cette fonction renvoie directement la queue droite et prend deux arguments.
+\end{minipage}
+}
+\reponse{\textbf{Préambule : rappel sur le test d'adéquation du $\chi^2$.}
+Le test de Pearson compare les effectifs observés $o_j$ aux effectifs attendus sous le modèle testé. De grands écarts conduisent au rejet. Les observations doivent être indépendantes et les effectifs attendus suffisamment grands pour utiliser l'approximation par une loi du $\chi^2$. Le repère usuel $e_j\geq5$ invite à regrouper les classes peu représentées ; la seule condition $n\geq30$ ne garantit pas la qualité de cette approximation.
+
+\begin{minipage}{\linewidth}
+\textbf{Étape 1 : formuler les hypothèses.} Soit $X$ le nombre d'entretiens obtenus par un demandeur d'emploi en deux mois. On teste
+\[
+H_0:X\sim\mathcal P(\lambda)\text{ pour un certain }\lambda>0,
+\qquad H_1:\text{la distribution n'est pas une loi de Poisson}.
+\]
+Le paramètre $\lambda$ est inconnu. Les écarts peuvent concerner plusieurs classes, mais la région de rejet du test de Pearson se situe dans la queue droite de la statistique $Q$ : on rejette pour de grandes valeurs de $Q$.
+\end{minipage}\par\smallskip
+
+\textbf{Étape 2 : estimer le paramètre $\lambda$.} Pour des observations brutes complètes, la moyenne empirique serait l'estimateur du maximum de vraisemblance de $\lambda$. Ici, la valeur du dernier individu n'est connue que comme étant supérieure ou égale à 6 : on ne peut pas calculer la moyenne exacte.
+
+Le calcul
+\[
+\frac{0\times15+1\times30+2\times27+3\times13+4\times9+5\times5+6\times1}{100}
+=\frac{190}{100}=1{,}90
+\]
+remplace cette valeur inconnue par 6. Il donne seulement une borne inférieure de la moyenne observée, pas sa valeur exacte.
+
+\begin{minipage}{\linewidth}
+Pour estimer le paramètre dans les mêmes classes que celles du test, on utilise les cinq effectifs $(15,30,27,13,15)$ et les probabilités
+\[
+p_k(\lambda)=\frac{e^{-\lambda}\lambda^k}{k!},\quad k=0,1,2,3,
+\qquad p_{\geq4}(\lambda)=1-\sum_{k=0}^3p_k(\lambda).
+\]
+La vraisemblance observée est, à un facteur constant près,
+\[
+L(\lambda)\propto p_0(\lambda)^{15}p_1(\lambda)^{30}p_2(\lambda)^{27}
+ p_3(\lambda)^{13}p_{\geq4}(\lambda)^{15}.
+\]
+Sa log-vraisemblance est
+\begin{align*}
+\ell(\lambda)
+&=15\ln p_0(\lambda)+30\ln p_1(\lambda)+27\ln p_2(\lambda)
+ +13\ln p_3(\lambda)+15\ln p_{\geq4}(\lambda)+C\\
+&=-85\lambda+123\ln\lambda+15\ln p_{\geq4}(\lambda)+C',
+\end{align*}
+car $15+30+27+13=85$ et $30+2\times27+3\times13=123$. Les constantes $C,C'$ ne dépendent pas de $\lambda$.
+\end{minipage}\par\smallskip
+\begin{minipage}{\linewidth}
+La maximisation numérique avec le Solveur donne
+\[
+\widehat\lambda_{\mathrm{obs}}\simeq1{,}904114.
+\]
+On peut vérifier le résultat avec l'équation du score. Comme $p'_{\geq4}(\lambda)=p_3(\lambda)$,
+\[
+\ell'(\lambda)=-85+\frac{123}{\lambda}
+ +15\frac{p_3(\lambda)}{p_{\geq4}(\lambda)}.
+\]
+La valeur précédente annule cette dérivée à la précision numérique utilisée. L'estimation utilise les données regroupées ; elle ne suppose pas que l'observation de la classe « 6 et plus » vaut exactement 6.
+\end{minipage}\par\smallskip
+
+\begin{minipage}{\linewidth}
+\textbf{Étape 3 : calculer les probabilités et les effectifs attendus.}
+Pour une loi $\mathcal P(\widehat\lambda_{\mathrm{obs}})$,
+\[
+\widehat p_k=\frac{e^{-\widehat\lambda_{\mathrm{obs}}}
+\widehat\lambda_{\mathrm{obs}}^{\,k}}{k!},
+\qquad e_k=100\widehat p_k.
+\]
+Par exemple,
+\begin{align*}
+\widehat p_0&=e^{-1{,}904114}\simeq0{,}1489545,\\
+\widehat p_1&=1{,}904114\,e^{-1{,}904114}\simeq0{,}2836264,\\
+\widehat p_2&=\frac{1{,}904114^2}{2}\,e^{-1{,}904114}\simeq0{,}2700286,\\
+\widehat p_3&=\frac{1{,}904114^3}{6}\,e^{-1{,}904114}\simeq0{,}1713884,\\
+\widehat p_4&=\frac{1{,}904114^4}{24}\,e^{-1{,}904114}\simeq0{,}0815858,\\
+\widehat p_5&=\frac{1{,}904114^5}{120}\,e^{-1{,}904114}\simeq0{,}0310697,\\
+\widehat p_{\geq6}&=1-\sum_{k=0}^5\widehat p_k\simeq0{,}0133466.
+\end{align*}
+Le dernier terme est une probabilité de queue, et non $\PP(X=6)$.
+\end{minipage}\par\smallskip
+\begin{minipage}{\linewidth}
+On obtient, avant regroupement, le tableau suivant (valeurs affichées arrondies) :
+\begin{center}
+\begin{tabular}{|c|r|r|r|}
+\hline
+Classe & $o_j$ & Probabilité estimée & $e_j$ \\ \hline
+0 & 15 & $0{,}1489545$ & $14{,}89545$ \\ \hline
+1 & 30 & $0{,}2836264$ & $28{,}36264$ \\ \hline
+2 & 27 & $0{,}2700286$ & $27{,}00286$ \\ \hline
+3 & 13 & $0{,}1713884$ & $17{,}13884$ \\ \hline
+4 & 9 & $0{,}0815858$ & $8{,}15858$ \\ \hline
+5 & 5 & $0{,}0310697$ & $3{,}10697$ \\ \hline
+$\geq6$ & 1 & $0{,}0133466$ & $1{,}33466$ \\ \hline
+Total & 100 & 1 & 100 \\ \hline
+\end{tabular}
+\end{center}
+Les deux derniers effectifs attendus sont inférieurs à 5.
+\end{minipage}\par\smallskip
+
+\begin{minipage}{\linewidth}
+\textbf{Étape 4 : regrouper les classes et détailler les écarts.} On retient les classes $0,1,2,3,\geq4$. Le regroupement est celui choisi avant l'estimation :
+\[
+o_{\geq4}=9+5+1=15,
+\qquad e_{\geq4}=100\left(1-\sum_{k=0}^3\widehat p_k\right)\simeq12{,}60021.
+\]
+Regrouper uniquement 5 et $\geq6$ donnerait un effectif attendu d'environ $4{,}44163$, encore inférieur à 5. Avec $\geq4$, tous les effectifs attendus dépassent 5.
+\begin{center}
+\begin{tabular}{|c|r|r|r|}
+\hline
+Classe & Observé $o_j$ & Attendu $e_j$ & $\frac{(o_j-e_j)^2}{e_j}$ \\ \hline
+0 & 15 & $14{,}89545$ & $0{,}0007338$ \\ \hline
+1 & 30 & $28{,}36264$ & $0{,}0945239$ \\ \hline
+2 & 27 & $27{,}00286$ & $0{,}0000003$ \\ \hline
+3 & 13 & $17{,}13884$ & $0{,}9994851$ \\ \hline
+$\geq4$ & 15 & $12{,}60021$ & $0{,}4570546$ \\ \hline
+Total & 100 & 100 & $1{,}5517978$ \\ \hline
+\end{tabular}
+\end{center}
+Les contributions sont calculées avec les valeurs non arrondies.
+\end{minipage}\par\smallskip
+\begin{minipage}{\linewidth}
+Le calcul détaillé donne
+\begin{align*}
+q_{\mathrm{obs}}
+&=\frac{(15-14{,}89545)^2}{14{,}89545}
+ +\frac{(30-28{,}36264)^2}{28{,}36264}
+ +\frac{(27-27{,}00286)^2}{27{,}00286}\\
+&\quad+\frac{(13-17{,}13884)^2}{17{,}13884}
+ +\frac{(15-12{,}60021)^2}{12{,}60021}\\
+&\simeq0{,}0007338+0{,}0945239+0{,}0000003+0{,}9994851+0{,}4570546\\
+&\simeq1{,}551798.
+\end{align*}
+La classe 3 contribue le plus à cette somme : 13 demandeurs d'emploi ont obtenu exactement 3 entretiens, contre un effectif attendu d'environ $17{,}14$.
+\end{minipage}\par\smallskip
+
+\begin{minipage}{\linewidth}
+\textbf{Étape 5 : préciser la statistique et sa loi sous $H_0$.}
+On note $O_j$ les effectifs aléatoires des cinq classes, $\widehat\lambda$ l'estimateur obtenu par maximum de vraisemblance dans ces mêmes classes, et $E_j(\widehat\lambda)=100p_j(\widehat\lambda)$ les effectifs ajustés aléatoires. Ici, $p_j$ désigne la probabilité de la $j$-ième classe dans l'ordre $(0,1,2,3,\geq4)$. La statistique est
+\[
+Q=\sum_{j=1}^5\frac{\bigl(O_j-E_j(\widehat\lambda)\bigr)^2}{E_j(\widehat\lambda)}.
+\]
+Sa réalisation est $q_{\mathrm{obs}}\simeq1{,}551798$, calculée avec les effectifs observés $o_j$ et $e_j=100p_j(\widehat\lambda_{\mathrm{obs}})$.
+
+Sous $H_0$, sa loi asymptotique est $\chi^2(\nu)$, avec
+\[
+\nu=\underbrace{5}_{\text{classes}}-
+\underbrace{1}_{\text{total fixé}}-
+\underbrace{1}_{\text{paramètre estimé}}=3.
+\]
+L'estimation dans les cinq classes utilisées pour le test justifie cette perte d'un degré de liberté. La loi $\chi^2(3)$ est une approximation, pas une loi exacte pour $n=100$.
+\end{minipage}\par\smallskip
+
+\begin{minipage}{\linewidth}
+\textbf{Étape 6 : déterminer la région critique.} On utilise la queue droite du $\chi^2(3)$. Au seuil de $5\%$, le quantile à gauche de probabilité $0{,}95$ vaut
+\[
+q_{3;0{,}95}\simeq7{,}81473.
+\]
+La région critique est $W=]q_{3;0{,}95},+\infty[$ : on rejette si $q_{\mathrm{obs}}>q_{3;0{,}95}$.
+\end{minipage}\par\smallskip
+
+\begin{minipage}{\linewidth}
+\textbf{Étape 7 : prendre une décision.} On compare
+\[
+q_{\mathrm{obs}}\simeq1{,}551798<7{,}81473\simeq q_{3;0{,}95}.
+\]
+La valeur observée n'appartient pas à la région critique : on ne rejette pas $H_0$ au seuil de $5\%$.
+\end{minipage}\par\smallskip
+
+\begin{minipage}{\linewidth}
+\textbf{Étape 8 : calculer la $p$-valeur.} Pour $Y\sim\chi^2(3)$, la $p$-valeur approchée vaut
+\[
+p_{\mathrm{val}}=\PP(Y\geq q_{\mathrm{obs}})
+\simeq\PP(Y\geq1{,}551798)\simeq0{,}670368.
+\]
+Elle est supérieure à $0{,}05$ et confirme le non-rejet. C'est une probabilité de queue sous la loi approchée de la statistique ; ce n'est pas la probabilité que le modèle de Poisson soit vrai.
+\end{minipage}\par\smallskip
+
+\begin{minipage}{\linewidth}
+\textbf{Conclusion et interprétation.} Ces données ne mettent pas en évidence, au seuil de $5\%$ et dans les classes retenues, un écart significatif à la famille des lois de Poisson. Le modèle ajusté a pour moyenne $\widehat\lambda_{\mathrm{obs}}\simeq1{,}904$ entretiens en deux mois. Cette moyenne est celle du modèle ajusté ; la moyenne exacte des 100 observations reste inconnue.
+
+Le non-rejet ne prouve pas que le nombre d'entretiens suit une loi de Poisson. La $p$-valeur élevée ne mesure pas la qualité du modèle et ne garantit pas son mécanisme : l'indépendance et la stabilité du rythme des événements seraient à justifier pour une interprétation comme processus de Poisson. Le regroupement ne teste pas séparément la répartition au sein de la classe $\geq4$.
+\end{minipage}\par\smallskip
+
+\begin{minipage}{\linewidth}
+\textbf{Vérification graphique.} Le diagramme compare les effectifs observés et attendus sur les cinq classes utilisées pour le test.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+ybar,bar width=0.35cm,width=0.9\linewidth,height=6.2cm,
+xlabel={Nombre d'entretiens},ylabel={Effectifs},
+symbolic x coords={0,1,2,3,4+},xtick=data,
+xticklabels={$0$,$1$,$2$,$3$,$\geq4$},
+ymin=0,ymax=35,enlarge x limits=0.15,
+ymajorgrids=true,grid style={gray!20},
+legend style={at={(0.5,1.02)},anchor=south,legend columns=2,draw=none,fill=none,font=\small},
+nodes near coords,every node near coord/.append style={font=\tiny},
+point meta=y,nodes near coords style={/pgf/number format/fixed,/pgf/number format/precision=2,/pgf/number format/use comma},
+tick label style={font=\small},label style={font=\small}
+]
+\addplot[fill=blue!40,draw=blue!70!black] coordinates {(0,15) (1,30) (2,27) (3,13) (4+,15)};
+\addplot[fill=orange!40,draw=orange!80!black] coordinates {(0,14.89545) (1,28.36264) (2,27.00286) (3,17.13884) (4+,12.60021)};
+\legend{Observés,Attendus (Poisson ajustée)}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Les effectifs sont proches dans les premières classes ; le plus grand écart apparaît pour 3 entretiens. Le graphique illustre la comparaison, tandis que la règle de décision repose sur le test.
+\end{minipage}
+}
 }
