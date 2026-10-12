@@ -10,25 +10,109 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
-\texte{Un pharmacien souhaite être livré avant 18 h. Les durées de 13 trajets du coursier, supposées indépendantes de loi $\mathcal N(\mu,\sigma)$, sont en minutes :
-\[20,30,45,39,16,25,23,19,40,21,30,19,40.\]
-Le pharmacien propose une moyenne de 25 minutes et le grossiste de 30 minutes.}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d'écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ est le quantile de la loi $St(\nu)$ avec une probabilité $\gamma$ à gauche.}
+\texte{Un pharmacien de banlieue désire être approvisionné par un grossiste chaque soir avant 18 h. Le grossiste doit donc estimer le temps de trajet moyen de son coursier entre le dépôt et la pharmacie. Pour cela, il relève les temps de parcours, en minutes, pendant 13 trajets sur un itinéraire fixé :
+\[
+20,\quad30,\quad45,\quad39,\quad16,\quad25,\quad23,\quad19,\quad40,\quad21,\quad30,\quad19,\quad40.
+\]
+On modélise ces durées par des variables $X_1,\ldots,X_{13}$ indépendantes de même loi $\mathcal N(\mu,\sigma)$, avec $\sigma>0$ inconnu.}
 \begin{enumerate}
-\item \question{Estimer la moyenne et l'écart-type ; rappeler les propriétés des estimateurs.}
-\reponse{$\overline X$ et $S^2$ sont sans biais pour $\mu$ et $\sigma^2$. On obtient $\bar x=28{,}23077$, $s^2=96{,}52564$ et $s\simeq9{,}82475$. $S$ est la racine de la variance corrigée et n'est généralement pas sans biais pour $\sigma$.}
-\item \question{Tester $H_0:\mu=25$ contre l'alternative $\mu=30$ au seuil de $5\%$.
+\question{\item Donner une estimation ponctuelle de la moyenne du temps de parcours $\mu$ et de son écart-type $\sigma$, en rappelant les estimateurs utilisés et leurs propriétés.}
+\reponse{Pour $n=13$, on utilise la moyenne empirique et la variance corrigée :
+\[
+\overline X=\frac1n\sum_{i=1}^n X_i,
+\qquad S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline X)^2,
+\qquad S=\sqrt{S^2}.
+\]
+$\overline X$ est sans biais pour $\mu$, avec $\operatorname{Var}(\overline X)=\frac{\sigma^2}{n}$. $S^2$ est sans biais pour $\sigma^2$. La racine $S$ estime $\sigma$, mais n'est généralement pas sans biais : prendre une racine ne conserve pas l'absence de biais. Ces estimateurs sont convergents lorsque la taille de l'échantillon augmente.
+
+\begin{minipage}{\linewidth}
+Pour les valeurs observées $x_i$, on calcule
+\[
+\sum_{i=1}^{13}x_i=367,\qquad \sum_{i=1}^{13}x_i^2=11519,
+\qquad \bar x=\frac{367}{13}\simeq28{,}23077.
+\]
+La somme des carrés des écarts vaut
+\[
+\sum_{i=1}^{13}(x_i-\bar x)^2
+=\sum_{i=1}^{13}x_i^2-13\bar x^2
+=11519-\frac{367^2}{13}\simeq1158{,}30769.
+\]
+D'où la variance corrigée et l'écart-type estimé :
+\[
+s^2=\frac{1158{,}30769}{12}\simeq96{,}52564,
+\qquad s=\sqrt{s^2}\simeq9{,}82475\text{ minutes}.
+\]
+La moyenne estimée est donc d'environ $28{,}23$ minutes ; $\bar x$, $s^2$ et $s$ sont les réalisations de $\overline X$, $S^2$ et $S$.
+\end{minipage}
+}
+\question{\item Le pharmacien affirme qu'il faut en moyenne 25 minutes pour faire le trajet, alors que le grossiste pense qu'il faut en moyenne 30 minutes.}
 \begin{enumerate}
-\item Donner la statistique et sa loi sous $H_0$.
-\item Déterminer la région critique.
-\item Peut-on calculer un risque de seconde espèce numérique sans connaître $\sigma$ ? Exprimer sa dépendance en $\sigma$ ; pour illustration, prendre $\sigma=10$ minutes uniquement pour ce calcul de puissance.
-\item Prendre une décision avec les données et expliquer sa portée.
-\end{enumerate}}
-\indication{L'alternative est supérieure à 25 : le test est unilatéral à droite. Pour la puissance exacte de Student, il faut la loi de Student non centrale.}
-\reponse{La statistique $T=\frac{\overline X-25}{\frac{S}{\sqrt{13}}}$ suit $St(12)$ sous $H_0$. On rejette pour $t_{\mathrm{obs}}>t_{12;0{,}95}\simeq1{,}78229$.
-Sous $\mu=30$, $T$ suit une Student non centrale à 12 ddl de paramètre $\delta=\frac{5\sqrt{13}}{\sigma}$. Le risque est
-\[\beta(\sigma)=\mathbb P\bigl(T_{12,\delta}\leq1{,}78229\bigr).\]
-Il n'a pas de valeur unique sans $\sigma$. À $\sigma=10$, un logiciel donne $\beta\simeq0{,}477988$ (puissance $0{,}522012$). Cette valeur de $\sigma$ sert à décrire une alternative, et ne remplace pas $S$ dans le test.
-Avec les données, $t_{\mathrm{obs}}\simeq1{,}18565$ et $p_{\mathrm{val}}\simeq0{,}12935$ : non-rejet à $5\%$. On ne prouve pas une moyenne de 25 minutes. Une analyse de moyenne ne garantit pas non plus l'heure d'arrivée de chaque livraison.}
+\question{\item On cherche à tester $H_0:\mu=25$ contre $H_1:\mu=30$. Préciser la variable de décision et sa loi sous $H_0$.}
+\indication{L'alternative est supérieure à 25 : le test est unilatéral à droite. L'écart-type de la population est inconnu et l'échantillon est petit.}
+\reponse{\begin{minipage}{\linewidth}
+On utilise la statistique de Student
+\[
+T=\frac{\overline X-25}{\frac{S}{\sqrt{13}}}.
+\]
+Sous $H_0$, $\frac{\sqrt{13}(\overline X-25)}{\sigma}\sim\mathcal N(0,1)$ et $\frac{12S^2}{\sigma^2}\sim\chi^2(12)$ ; ces deux variables sont indépendantes. Par définition de la loi de Student,
+\[
+T=\frac{\frac{\sqrt{13}(\overline X-25)}{\sigma}}{\sqrt{\frac{12S^2/\sigma^2}{12}}}
+\sim St(12).
+\]
+Cette loi est exacte sous l'hypothèse de durées normales indépendantes. Une moyenne plus grande tend à donner une valeur plus grande de $T$, ce qui justifie un rejet dans la queue droite.
+\end{minipage}}
+\question{\item Déterminer la région critique pour un seuil $\alpha=5\%$.}
+\reponse{\begin{minipage}{\linewidth}
+On cherche $c$ tel que $\PP_{H_0}(T>c)=0{,}05$. On obtient
+\[
+c=t_{12;0{,}95}\simeq1{,}78229.
+\]
+La région critique est donc $]1{,}78229,+\infty[$ : on rejette $H_0$ si $t_{\mathrm{obs}}>1{,}78229$, et on ne rejette pas si $t_{\mathrm{obs}}\leq1{,}78229$. Il s'agit d'un test unilatéral : on utilise le quantile $0{,}95$, sans répartir le risque sur deux queues.
+\end{minipage}}
+\question{\item Peut-on calculer un risque de seconde espèce numérique sans connaître $\sigma$ ? Exprimer ce risque en fonction de $\sigma$.}
+\reponse{Le risque de seconde espèce est la probabilité de ne pas rejeter $H_0$ lorsque $H_1$ est vraie. Pour la règle précédente,
+\[
+\beta(\sigma)=\PP_{\mu=30,\sigma}\left(
+\frac{\overline X-25}{\frac{S}{\sqrt{13}}}\leq t_{12;0{,}95}\right).
+\]
+La loi de $T$ sous $\mu=30$ dépend de l'écart-type inconnu $\sigma$. L'énoncé ne permet donc pas de donner une valeur numérique unique de $\beta$. La puissance est $1-\beta(\sigma)$.
+
+\begin{minipage}{\linewidth}
+\textbf{Remarque : illustration avec $\sigma=10$ minutes.}
+Sous $\mu=30$, on peut écrire
+\[
+Z=\frac{\sqrt{13}(\overline X-30)}{\sigma}\sim\mathcal N(0,1),
+\qquad U=\frac{12S^2}{\sigma^2}\sim\chi^2(12),
+\]
+avec $Z$ et $U$ indépendantes. Alors
+\[
+T=\frac{Z+\delta}{\sqrt{\frac U{12}}},
+\qquad \delta=\frac{5\sqrt{13}}{\sigma}.
+\]
+Cette loi est appelée loi de Student non centrale à 12 degrés de liberté, de paramètre $\delta$. Un logiciel donne, pour $\sigma=10$,
+\[
+\beta(10)\simeq0{,}477988,
+\qquad 1-\beta(10)\simeq0{,}522012.
+\]
+La puissance est donc d'environ $52{,}2\%$ pour cette alternative. La valeur 10 sert uniquement à illustrer le calcul de puissance ; elle ne remplace pas l'estimateur $S$ dans le test.
+\end{minipage}
+}
+\question{\item Avec un risque de première espèce $\alpha=5\%$, rejette-t-on $H_0$ à partir de ces données ? Expliquer la portée de la décision.}
+\reponse{\begin{minipage}{\linewidth}
+La réalisation de la statistique de test vaut
+\[
+t_{\mathrm{obs}}=\frac{28{,}230769-25}{\frac{9{,}824746}{\sqrt{13}}}
+\simeq1{,}18565.
+\]
+Comme $1{,}18565<1{,}78229$, on ne rejette pas $H_0$ au seuil de $5\%$. La $p$-valeur unilatérale confirme cette décision :
+\[
+p_{\mathrm{val}}=\PP(T_{12}\geq t_{\mathrm{obs}})
+\simeq0{,}12935>0{,}05,
+\qquad T_{12}\sim St(12).
+\]
+Les données ne suffisent pas à écarter la moyenne de 25 minutes en faveur d'une moyenne de 30 minutes. Ce non-rejet ne prouve pas que $\mu=25$. Une analyse de la moyenne ne garantit pas non plus l'arrivée de chaque livraison avant 18 h : cela dépend notamment de l'heure de départ et de la variabilité des trajets.
+\end{minipage}}
+\end{enumerate}
 \end{enumerate}
 }
