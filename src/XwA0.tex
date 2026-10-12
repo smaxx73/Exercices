@@ -10,12 +10,65 @@
 \organisation{AMSCC}
 \difficulte{3}
 \contenu{
-\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ est le quantile de la loi $\chi^2(\nu)$ avec une probabilité $\gamma$ à gauche.}
 \texte{La commande \texttt{=ALEA.ENTRE.BORNES(1;8)} simule un entier compris entre 1 et 8.}
-\question{Simuler 500 tirages indépendants et tester leur adéquation à la loi uniforme sur $\{1,\ldots,8\}$ au seuil de $5\%$. Illustrer la répartition et calculer la $p$-valeur. Que permet de conclure un non-rejet ?}
-\indication{Figer la simulation comme valeurs avant d'effectuer les calculs, pour que l'échantillon ne change pas à chaque recalcul.}
-\reponse{Sous $H_0$, chacune des huit catégories a probabilité $\frac{1}{8}$, donc effectif attendu $e_j=62{,}5$. Compter les effectifs $o_j$, vérifier leur somme 500 et calculer
-\[q_{\mathrm{obs}}=\sum_{j=1}^8\frac{(o_j-62{,}5)^2}{62{,}5}.\]
-La référence asymptotique est $\chi^2(7)$ ; le seuil haut est $q_{7;0{,}95}\simeq14{,}067$. Rejeter si $q_{\mathrm{obs}}$ dépasse ce seuil ; la $p$-valeur s'obtient avec \texttt{=LOI.KHIDEUX.DROITE(qobs;7)}.
-Le résultat numérique dépend de la simulation. Un non-rejet signifie que ces 500 tirages ne mettent pas en évidence une non-uniformité au seuil choisi ; il ne certifie pas le générateur. Même un générateur conforme produit environ $5\%$ de rejets si l'approximation du test est adéquate. Le diagramme en bâtons compare les huit effectifs à la hauteur 62,5.}
+\question{Simuler 500 tirages, supposés indépendants et de même loi, et tester leur adéquation à la loi uniforme sur $\{1,\ldots,8\}$ au seuil de $5\%$. Illustrer la répartition et calculer la $p$-valeur. Que permet de conclure un non-rejet ?}
+\indication{
+\begin{minipage}{\linewidth}
+\textbf{1. Simuler et figer les données.} Saisir \texttt{=ALEA.ENTRE.BORNES(1;8)} en A2 et recopier jusqu'à A501. Copier ensuite A2:A501 et utiliser le collage spécial des \emph{valeurs} sur cette même plage. On conserve ainsi les mêmes 500 tirages pendant tous les calculs.
+\end{minipage}\par\medskip
+\begin{minipage}{\linewidth}
+\textbf{2. Construire le tableau des effectifs.} Saisir les entiers 1 à 8 dans C2:C9. En D2, saisir \texttt{=NB.SI(\$A\$2:\$A\$501;C2)}, puis recopier jusqu'à D9. Vérifier que \texttt{=SOMME(D2:D9)} vaut 500. En E2, saisir \texttt{=500/8}, puis recopier jusqu'à E9 : ce sont les effectifs attendus sous l'hypothèse uniforme.
+\end{minipage}\par\medskip
+\begin{minipage}{\linewidth}
+\textbf{3. Calculer le test et représenter les résultats.} Saisir \texttt{=(D2-E2)\string^2/E2} en F2 et recopier jusqu'à F9. En H2, calculer \texttt{=SOMME(F2:F9)} ; en H3, le seuil \texttt{=LOI.KHIDEUX.INVERSE(0,95;7)} ; en H4, la $p$-valeur \texttt{=LOI.KHIDEUX.DROITE(H2;7)}. Pour le graphique, utiliser les catégories C2:C9 et comparer les séries D2:D9 et E2:E9 dans un diagramme en bâtons. Effectuer les calculs sans arrondir les valeurs intermédiaires.
+\end{minipage}
+}
+\reponse{
+\textbf{Étape 1 : formuler les hypothèses.} On suppose les 500 tirages indépendants et de même loi. Si $X$ désigne un tirage, on teste
+\[
+H_0:\quad \forall j\in\{1,\ldots,8\},\quad \mathbb P(X=j)=\frac18,
+\]
+contre $H_1$ : la loi des tirages n'est pas uniforme sur ces huit valeurs. Le risque choisi est $\alpha=5\%$.
+
+\textbf{Étape 2 : obtenir les effectifs observés et attendus.} Notons $O_j$ la variable aléatoire qui compte le nombre de résultats égaux à $j$ parmi les 500 tirages, et $o_j$ sa valeur observée. On a
+\[
+\sum_{j=1}^8 O_j=500,\qquad \sum_{j=1}^8 o_j=500.
+\]
+Sous $H_0$, les effectifs attendus sont fixés :
+\[
+e_j=500\times\frac18=62{,}5\qquad (j=1,\ldots,8).
+\]
+Ils dépassent tous largement le repère usuel de 5 pour l'approximation du test de Pearson. Il n'y a donc pas lieu de regrouper les classes. Le comptage avec \texttt{NB.SI} fournit les huit $o_j$ ; les valeurs dépendent de la simulation réalisée. Il faut figer les données avant de compter, afin que le tableau, le graphique et le test portent sur le même échantillon.
+
+\textbf{Étape 3 : calculer la statistique de Pearson.} La statistique aléatoire est
+\[
+Q=\sum_{j=1}^8\frac{(O_j-e_j)^2}{e_j}.
+\]
+Sa réalisation pour les 500 tirages conservés est
+\[
+q_{\mathrm{obs}}=\sum_{j=1}^8\frac{(o_j-62{,}5)^2}{62{,}5}.
+\]
+Dans le tableur, chaque cellule F2:F9 contient une contribution et H2 leur somme. Un grand $q_{\mathrm{obs}}$ traduit un écart important entre les effectifs observés et ceux prévus sous $H_0$.
+
+\textbf{Étape 4 : déterminer la loi de référence et le seuil.} Sous $H_0$, la loi de $Q$ est approchée par une loi $\chi^2(7)$. Il y a huit classes et une contrainte sur la somme des effectifs, soit $8-1=7$ degrés de liberté. Aucun paramètre n'est estimé : les huit probabilités $\frac18$ sont fixées sous $H_0$.
+Le test rejette pour les grandes valeurs de $Q$, dans la queue droite. Au seuil de $5\%$,
+\[
+q_{7;0{,}95}\simeq14{,}06714.
+\]
+On rejette donc $H_0$ si $q_{\mathrm{obs}}>14{,}06714$ ; sinon, on ne la rejette pas. La fonction \texttt{=LOI.KHIDEUX.INVERSE(0,95;7)} fournit le seuil avec la convention de quantile à gauche.
+
+\textbf{Étape 5 : calculer la $p$-valeur et décider.} La $p$-valeur approchée est
+\[
+p_{\mathrm{obs}}=\mathbb P\bigl(Y\geq q_{\mathrm{obs}}\bigr),\qquad Y\sim\chi^2(7).
+\]
+Elle se calcule par \texttt{=LOI.KHIDEUX.DROITE(H2;7)}. On rejette $H_0$ si $p_{\mathrm{obs}}<0{,}05$. On peut aussi utiliser la fonction historique \texttt{=LOI.KHIDEUX(H2;7)}, qui renvoie déjà la queue droite avec deux arguments.
+Il n'existe pas de valeur numérique unique pour $q_{\mathrm{obs}}$ ou $p_{\mathrm{obs}}$ dans cet exercice : chacun doit donner celles de son échantillon figé, puis la décision correspondante.
+
+\textbf{Étape 6 : représenter et interpréter.} Le diagramme en bâtons compare, pour les catégories 1 à 8, les huit effectifs observés à l'effectif attendu constant $62{,}5$. Des fluctuations autour de cette hauteur sont normales, même sous $H_0$. Le graphique illustre les écarts ; la décision au seuil de $5\%$ repose sur le test.
+
+Un non-rejet signifie que ces 500 tirages ne mettent pas en évidence une non-uniformité au seuil choisi. Il ne prouve pas l'uniformité et ne certifie pas le générateur. Un rejet signale un écart statistiquement significatif pour cet échantillon ; même sous $H_0$, on obtient environ $5\%$ de rejets lors de répétitions de l'expérience si l'approximation du test est adéquate.
+
+Enfin, ce test porte sur la répartition des huit valeurs et ignore leur ordre. Il ne vérifie pas l'indépendance entre les tirages, qui est une hypothèse du test. Une suite dépendante peut avoir des effectifs équilibrés et ne pas être détectée par ce seul contrôle.
+}
 }
