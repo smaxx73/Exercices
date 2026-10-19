@@ -31,7 +31,7 @@ H_1:p=p_1=0{,}10 &\text{(la machine est déréglée)}.
 \]
 On utilise d'abord l'approximation normale, puis on compare avec le modèle binomial exact. Les calculs normaux sont effectués sans correction de continuité.}
 \begin{enumerate}
-\question{\item Justifier que, sous $H_0$, la statistique de test
+\item \question{Justifier que, sous $H_0$, la statistique de test
 \[
 T_n=\frac{F_n-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
 \]
@@ -57,16 +57,16 @@ n(1-p_0)=100\times0{,}95=95.
 \]
 Le premier est à la limite du repère $np_0\geq5$. Ces repères ne garantissent pas la précision de l'approximation, notamment dans les queues de distribution. La comparaison avec le modèle binomial exact permettra ici de mesurer l'écart sur le risque de première espèce.
 }
-\question{\item On note $\pi$ la valeur critique : on rejette $H_0$ si $F_n>\pi$. En utilisant la définition du risque de première espèce, exprimer ce risque en fonction de $\pi$, $p_0$ et $n$, exactement puis avec l'approximation normale.}
+\item \question{On note $\pi$ la valeur critique : on rejette $H_0$ si $F_n>\pi$. En utilisant la définition du risque de première espèce, exprimer ce risque en fonction de $\pi$, $p_0$ et $n$, exactement puis avec l'approximation normale.}
 \indication{Rappel : le risque de première espèce est la probabilité de rejeter $H_0$ sous $H_0$. Standardiser la fréquence avec sa variance sous $p_0$.}
 \indication{On peut calculer $\sqrt{\frac{0{,}05\times0{,}95}{100}}\simeq0{,}0218$ avec un tableur. Pour la formule exacte, $K_n$ est entier : utiliser $\lfloor n\pi\rfloor$.}
 \reponse{Le risque de première espèce réel est
 \begin{align*}
 \alpha_{\mathrm{réel}}(\pi)
-&=\PP_{p_0}(F_n>\pi)\\
-&=\PP_{p_0}\left(\frac{F_n-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
+&=\mathbb P_{p_0}(F_n>\pi)\\
+&=\mathbb P_{p_0}\left(\frac{F_n-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
 >\frac{\pi-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right)\\
-&\simeq\PP\left(Z>\frac{\pi-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right),
+&\simeq\mathbb P\left(Z>\frac{\pi-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right),
 \qquad Z\sim\mathcal N(0,1)\\
 &=1-\Phi\left(\frac{\pi-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\right).
 \end{align*}
@@ -80,12 +80,12 @@ Pour $p_0=0{,}05$ et $n=100$,
 \]
 Pour le calcul exact, $K_n\sim\mathcal B(n,p_0)$ sous $H_0$, et
 \[
-\alpha_{\mathrm{réel}}(\pi)=\PP_{p_0}(K_n>n\pi)
-=1-\PP_{p_0}(K_n\leq\lfloor n\pi\rfloor).
+\alpha_{\mathrm{réel}}(\pi)=\mathbb P_{p_0}(K_n>n\pi)
+=1-\mathbb P_{p_0}(K_n\leq\lfloor n\pi\rfloor).
 \]
 La fréquence est discrète : on ne peut généralement pas obtenir exactement tout niveau demandé avec une règle de seuil sans randomisation.
 }
-\question{\item Pour un seuil nominal $\alpha=0{,}05$, déterminer la valeur critique normale $\pi$ et en déduire les régions de non-rejet et de rejet en termes de fréquence observée. Comparer avec une règle binomiale exacte de niveau au plus $5\%$.}
+\item \question{Pour un seuil nominal $\alpha=0{,}05$, déterminer la valeur critique normale $\pi$ et en déduire les régions de non-rejet et de rejet en termes de fréquence observée. Comparer avec une règle binomiale exacte de niveau au plus $5\%$.}
 \indication{On pourra utiliser $\Phi(1{,}645)\simeq0{,}95$, où $\Phi$ désigne la fonction de répartition de la loi $\mathcal N(0,1)$.}
 \indication{Avec un tableur : \texttt{=0,05+1,645*RACINE(0,05*0,95/100)}. Conserver assez de décimales avant de déterminer le seuil entier de $K$.}
 \reponse{On calibre d'abord le risque normal approché à $5\%$ :
@@ -110,7 +110,7 @@ La règle normale donne une région de non-rejet $f_{\mathrm{obs}}\leq\pi$ et un
 
 Son risque binomial réel vaut
 \[
-\PP_{p_0}(K\geq9)\simeq0{,}0630896,
+\mathbb P_{p_0}(K\geq9)\simeq0{,}0630896,
 \]
 soit $6{,}309\%$, supérieur au seuil nominal de $5\%$.
 \end{minipage}
@@ -118,13 +118,13 @@ soit $6{,}309\%$, supérieur au seuil nominal de $5\%$.
 \begin{minipage}{\linewidth}
 Le plus petit seuil entier de rejet de niveau au plus $5\%$ est 10, car
 \[
-\PP_{p_0}(K\geq9)>0{,}05,
-\qquad\PP_{p_0}(K\geq10)\simeq0{,}0281883\leq0{,}05.
+\mathbb P_{p_0}(K\geq9)>0{,}05,
+\qquad\mathbb P_{p_0}(K\geq10)\simeq0{,}0281883\leq0{,}05.
 \]
 La règle exacte rejette pour $k_{\mathrm{obs}}\geq10$ et ne rejette pas pour $k_{\mathrm{obs}}\leq9$. Son risque est d'environ $2{,}819\%$.
 \end{minipage}
 }
-\question{\item Au vu des données ($f_{\mathrm{obs}}=0{,}08$), peut-on conclure que la machine est bien réglée au seuil nominal $\alpha=5\%$ ? Calculer également la $p$-valeur normale approchée, puis la $p$-valeur exacte.}
+\item \question{Au vu des données ($f_{\mathrm{obs}}=0{,}08$), peut-on conclure que la machine est bien réglée au seuil nominal $\alpha=5\%$ ? Calculer également la $p$-valeur normale approchée, puis la $p$-valeur exacte.}
 \indication{Avec un tableur, \texttt{=(0,08-0,05)/RACINE(0,05*0,95/100)} donne environ $1{,}37649$. La $p$-valeur normale se calcule par \texttt{=1-LOI.NORMALE.STANDARD.N(1,37649;VRAI)}.}
 \reponse{On observe $f_{\mathrm{obs}}=\frac8{100}=0{,}08<\pi\simeq0{,}0858488$. La fréquence est dans la région de non-rejet du test normal. De même, huit défauts sont inférieurs aux deux seuils entiers 9 et 10 : les deux règles ne rejettent pas $H_0$.
 
@@ -146,19 +146,19 @@ On obtient l'arrondi $0{,}084$, soit environ $8{,}4\%$, supérieur à $5\%$.
 \begin{minipage}{\linewidth}
 \textbf{$p$-valeur exacte.} Sous $H_0$, $K\sim\mathcal B(100,0{,}05)$, donc
 \[
-p_{\mathrm{val,exact}}=\PP_{p_0}(K\geq8)
-=1-\PP_{p_0}(K\leq7)\simeq0{,}127960.
+p_{\mathrm{val,exact}}=\mathbb P_{p_0}(K\geq8)
+=1-\mathbb P_{p_0}(K\leq7)\simeq0{,}127960.
 \]
 Excel : \texttt{=1-LOI.BINOMIALE.N(7;100;0,05;VRAI)}.
 Cette valeur est également supérieure à $5\%$ et confirme le non-rejet par le test exact.
 \end{minipage}
 }
-\question{\item Calculer le risque de seconde espèce $\beta$, c'est-à-dire la probabilité de ne pas rejeter $H_0$ alors que la machine est effectivement déréglée. Donner également la puissance. Distinguer l'approximation normale et les risques binomiaux des deux règles entières.}
-\indication{Le risque de seconde espèce est $\beta=\PP_{p_1}(\text{ne pas rejeter }H_0)$. Utiliser la variance sous $p_1$, puis la zone de non-rejet de chaque règle.}
+\item \question{Calculer le risque de seconde espèce $\beta$, c'est-à-dire la probabilité de ne pas rejeter $H_0$ alors que la machine est effectivement déréglée. Donner également la puissance. Distinguer l'approximation normale et les risques binomiaux des deux règles entières.}
+\indication{Le risque de seconde espèce est $\beta=\mathbb P_{p_1}(\text{ne pas rejeter }H_0)$. Utiliser la variance sous $p_1$, puis la zone de non-rejet de chaque règle.}
 \indication{Avec un tableur : \texttt{=RACINE(0,10*0,90/100)} donne $0{,}03$. Avec le seuil arrondi, \texttt{=(0,0859-0,10)/0,03} donne $-0{,}47$, puis \texttt{=LOI.NORMALE.STANDARD.N(-0,47;VRAI)} donne environ $0{,}319$.}
 \reponse{Le risque de seconde espèce de la règle normale est
 \[
-\beta_{\mathrm{réel,normal}}=\PP_{p_1}(F\leq\pi).
+\beta_{\mathrm{réel,normal}}=\mathbb P_{p_1}(F\leq\pi).
 \]
 Sous $H_1$, $p=p_1=0{,}10$ ; la fréquence a pour moyenne $0{,}10$ et pour écart-type
 \[
@@ -167,8 +167,8 @@ Sous $H_1$, $p=p_1=0{,}10$ ; la fréquence a pour moyenne $0{,}10$ et pour écar
 \]
 La variable $\frac{F-0{,}10}{0{,}03}$ est approximativement normale centrée réduite. Ainsi,
 \begin{align*}
-\PP_{p_1}(F\leq\pi)
-&=\PP_{p_1}\left(\frac{F-0{,}10}{0{,}03}
+\mathbb P_{p_1}(F\leq\pi)
+&=\mathbb P_{p_1}\left(\frac{F-0{,}10}{0{,}03}
 \leq\frac{\pi-0{,}10}{0{,}03}\right)\\
 &\simeq\Phi\left(\frac{\pi-0{,}10}{0{,}03}\right)\\
 &\simeq\Phi\left(\frac{0{,}0858487537-0{,}10}{0{,}03}\right)\\
@@ -186,7 +186,7 @@ Si $p=0{,}10$, le calcul normal donne environ $32\%$ de risque de ne pas détect
 \begin{minipage}{\linewidth}
 \textbf{Risque binomial réel de la règle normale.} Le rejet à partir de neuf défauts correspond au non-rejet pour $K\leq8$. Sous $p_1$, $K\sim\mathcal B(100,0{,}10)$, donc
 \[
-\beta_{\mathrm{réel,normal}}=\PP_{p_1}(K\leq8)\simeq0{,}320874,
+\beta_{\mathrm{réel,normal}}=\mathbb P_{p_1}(K\leq8)\simeq0{,}320874,
 \qquad 1-\beta_{\mathrm{réel,normal}}\simeq0{,}679126.
 \]
 Excel : \texttt{=LOI.BINOMIALE.N(8;100;0,10;VRAI)}.
@@ -195,14 +195,14 @@ Excel : \texttt{=LOI.BINOMIALE.N(8;100;0,10;VRAI)}.
 \begin{minipage}{\linewidth}
 \textbf{Risque de la règle exacte de niveau au plus $5\%$.} Le rejet à partir de dix défauts correspond au non-rejet pour $K\leq9$ :
 \[
-\beta_{\mathrm{exact}}=\PP_{p_1}(K\leq9)\simeq0{,}451290,
+\beta_{\mathrm{exact}}=\mathbb P_{p_1}(K\leq9)\simeq0{,}451290,
 \qquad 1-\beta_{\mathrm{exact}}\simeq0{,}548710.
 \]
 Excel : \texttt{=LOI.BINOMIALE.N(9;100;0,10;VRAI)}.
 La règle exacte diminue le risque de première espèce, mais réduit ici la puissance : elle détecte le dérèglement dans environ $54{,}87\%$ des échantillons sous $p_1$.
 \end{minipage}
 }
-\question{\item On souhaite désormais dimensionner le plan de contrôle. Quelle taille d'échantillon $n$ permettrait de rejeter $H_0$ avec une fréquence observée exactement égale à $f_{\mathrm{obs}}=0{,}08$, au seuil nominal de $5\%$ ? Comparer la règle normale et le test exact. Interpréter le résultat : pourquoi augmenter la taille de l'échantillon ?}
+\item \question{On souhaite désormais dimensionner le plan de contrôle. Quelle taille d'échantillon $n$ permettrait de rejeter $H_0$ avec une fréquence observée exactement égale à $f_{\mathrm{obs}}=0{,}08$, au seuil nominal de $5\%$ ? Comparer la règle normale et le test exact. Interpréter le résultat : pourquoi augmenter la taille de l'échantillon ?}
 \indication{Avec un tableur : \texttt{=0,0475*(1,645/0,03)\^{}2} donne environ $142{,}8$. Arrondir la borne vers le haut, puis vérifier qu'un nombre entier de défauts peut produire exactement $8\%$.}
 \reponse{\textbf{Calcul normal théorique.} On cherche $n$ tel qu'une fréquence de $8\%$ soit dans la région critique. Avec $u=\Phi^{-1}(0{,}95)$, la condition de rejet est
 \begin{align*}
@@ -234,7 +234,7 @@ Comme 2 et 25 sont premiers entre eux, $n$ doit être un multiple de 25. À $n=1
 \begin{minipage}{\linewidth}
 \textbf{Comparaison avec le test exact.} Pour chaque taille compatible, on calcule la $p$-valeur unilatérale
 \[
-\PP_{p_0}(K_n\geq0{,}08n),\qquad K_n\sim\mathcal B(n,0{,}05).
+\mathbb P_{p_0}(K_n\geq0{,}08n),\qquad K_n\sim\mathcal B(n,0{,}05).
 \]
 Les tailles 25, 50, 75, 100 et 125 donnent toutes une $p$-valeur supérieure à $5\%$. Les suivantes donnent :
 \begin{center}
@@ -254,7 +254,7 @@ La première taille compatible permettant le rejet exact à $5\%$ est donc \text
 Le calcul suppose, à chaque taille envisagée, une fréquence exactement égale à $8\%$ ; il ne prédit pas les observations futures. La taille doit être planifiée avant les données : poursuivre le prélèvement jusqu'à obtenir un rejet demanderait une méthode adaptée aux observations successives.
 \end{minipage}
 }
-\question{\item \textbf{[Bonus]} Représenter graphiquement sur un même schéma les deux densités normales qui approchent la loi de $F$ sous $H_0$ et sous $H_1$, la région critique et les risques approchés $\alpha$ et $\beta$. Ce graphique permet de visualiser la puissance du test.}
+\item \question{\textbf{[Bonus]} Représenter graphiquement sur un même schéma les deux densités normales qui approchent la loi de $F$ sous $H_0$ et sous $H_1$, la région critique et les risques approchés $\alpha$ et $\beta$. Ce graphique permet de visualiser la puissance du test.}
 \indication{Créer une colonne de fréquences de 0 à $0{,}20$ par pas de $0{,}001$. Calculer les densités approchées avec \texttt{LOI.NORMALE(f;0,05;0,0218;FAUX)} et \texttt{LOI.NORMALE(f;0,10;0,03;FAUX)}, puis tracer les deux courbes. Ajouter la verticale $\pi\simeq0{,}08585$ ; colorier à droite sous la première courbe pour $\alpha$, et à gauche sous la seconde pour $\beta$. $F$ étant discrète, annoncer explicitement cette approximation par des densités.}
 \reponse{\textbf{Distributions approchées.} Les deux courbes sont les densités de
 \[
@@ -301,7 +301,7 @@ tick label style={font=\small},label style={font=\small}
 Les normales sont des approximations continues, définies sur $\mathbb R$ ; la fréquence réelle est discrète et appartient à $[0,1]$. Les aires du dessin ne sont pas les risques binomiaux exacts des seuils entiers 9 et 10.
 \end{minipage}
 
-Pour illustrer le test exact, on tracerait les masses $\PP_p(F=\frac{k}{100})$ sous $p_0$ et $p_1$. Pour la règle de seuil 10, les bâtons $k\geq10$ sous $p_0$ donnent le risque de première espèce ; les bâtons $k\leq9$ sous $p_1$ donnent celui de seconde espèce.
+Pour illustrer le test exact, on tracerait les masses $\mathbb P_p(F=\frac{k}{100})$ sous $p_0$ et $p_1$. Pour la règle de seuil 10, les bâtons $k\geq10$ sous $p_0$ donnent le risque de première espèce ; les bâtons $k\leq9$ sous $p_1$ donnent celui de seconde espèce.
 }
 \end{enumerate}
 }

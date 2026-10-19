@@ -21,7 +21,7 @@ Effectifs $n_i$ & 5 & 15 & 20 & 10 \\ \hline
 On modélise les 50 mesures par des variables indépendantes de même loi, de variance finie non nulle. On utilise ici l'approximation normale de la moyenne pour un échantillon de grande taille.
 }
 \begin{enumerate}
-\question{\item Cette vérification permet-elle de conclure que l'épaisseur moyenne est conforme à l'objectif de $5\ \mathrm{mm}$ ? Effectuer un test au risque de première espèce $\alpha=1\%$ et préciser la portée de sa conclusion.}
+\item \question{Cette vérification permet-elle de conclure que l'épaisseur moyenne est conforme à l'objectif de $5\ \mathrm{mm}$ ? Effectuer un test au risque de première espèce $\alpha=1\%$ et préciser la portée de sa conclusion.}
 \indication{Calculer d'abord la moyenne et la variance corrigée en tenant compte des effectifs du tableau. Distinguer la variance descriptive de la variance corrigée ; le test porte sur une moyenne, pas sur chaque épaisseur.}
 \reponse{\textbf{Calcul de la moyenne.} La moyenne observée est
 \begin{align*}
@@ -79,7 +79,7 @@ p_{\mathrm{val}}=2\bigl(1-\Phi(|z_{\mathrm{obs}}|)\bigr)
 \]
 Le test ne détecte pas de différence avec la moyenne cible à ce seuil. Ce non-rejet ne prouve pas l'égalité et ne démontre pas la conformité. Une conformité à une tolérance demanderait de définir une marge admissible ; ce test ne porte pas sur chaque pièce.
 }
-\question{\item Quel risque de première espèce devrait-on prendre pour que la prise de décision du test normal approché soit différente ?}
+\item \question{Quel risque de première espèce devrait-on prendre pour que la prise de décision du test normal approché soit différente ?}
 \reponse{Avec la convention de rejet $p_{\mathrm{val}}\leq\alpha$, la décision bascule lorsque le seuil atteint la $p$-valeur normale approchée :
 \[
 \alpha\geq p_{\mathrm{val}}\simeq0{,}0196307,
@@ -90,7 +90,7 @@ Ce calcul est une analyse de sensibilité de la décision. Le risque d'une étud
 
 \textit{Remarque :} si l'on ajoute l'hypothèse de normalité de la population, on peut utiliser un test exact de Student à $50-1=49$ degrés de liberté. Sa $p$-valeur bilatérale vaut
 \[
-2\PP(T_{49}\geq|z_{\mathrm{obs}}|)\simeq0{,}02378,
+2\mathbb P(T_{49}\geq|z_{\mathrm{obs}}|)\simeq0{,}02378,
 \qquad T_{49}\sim St(49).
 \]
 La décision au seuil de $1\%$ est identique : on ne rejette pas $H_0$.

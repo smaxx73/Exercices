@@ -8,7 +8,7 @@
 \auteur{}
 \datecreate{2022-09-28}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{1}
 \contenu{
 \texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ est le quantile de la loi $\chi^2(\nu)$ avec une probabilité $\gamma$ à gauche.}
 \texte{En 1908, en France, Binet publie une étude concernant la mesure de l'intelligence des enfants. Son échelle repose sur des épreuves classées par difficulté croissante. Les résultats permettent de classer les enfants dans cinq catégories : retard de deux ans, retard d'un an, résultat correspondant à l'âge, avance d'un an et avance de deux ans, notées $-2,-1,0,+1,+2$. Il s'agit des catégories historiques de cette échelle de tests.
@@ -77,7 +77,7 @@ La valeur critique est $q_{4;0{,}95}\simeq9{,}488$. Comme $629{,}2123>9{,}488$, 
 
 Avec l'approximation du $\chi^2$, la $p$-valeur est
 \[
-p_{\mathrm{val}}=\PP(Y_4\geq629{,}2123)\simeq7{,}37\times10^{-135},
+p_{\mathrm{val}}=\mathbb P(Y_4\geq629{,}2123)\simeq7{,}37\times10^{-135},
 \qquad Y_4\sim\chi^2(4).
 \]
 Les données américaines sont très éloignées de la distribution de référence ; cette valeur de queue extrêmement faible reste celle de la loi approchée.
@@ -109,7 +109,7 @@ q_{\mathrm{obs}}
 \end{align*}
 La valeur critique est $q_{3;0{,}95}\simeq7{,}815$. Comme $10{,}22424>7{,}815$, on rejette également $H_0$ au seuil de $5\%$. La $p$-valeur approchée est
 \[
-p_{\mathrm{val}}=\PP(Y_3\geq10{,}22424)\simeq0{,}016753<0{,}05,
+p_{\mathrm{val}}=\mathbb P(Y_3\geq10{,}22424)\simeq0{,}016753<0{,}05,
 \qquad Y_3\sim\chi^2(3).
 \]
 Sans regroupement, le calcul sur les cinq classes donnerait $15{,}09994$, soit $15{,}10$ à deux décimales, mais l'effectif attendu $2{,}28$ rendrait moins fiable l'approximation par $\chi^2(4)$. Après regroupement, la statistique et les degrés de liberté changent ensemble.

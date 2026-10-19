@@ -8,11 +8,11 @@
 \auteur{}
 \datecreate{2022-09-28}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
 \texte{Soit $X$ le nombre d'incidents de paiement pour un crédit à la consommation, observés sur la durée du prêt. On suppose que $X$ suit une loi de Poisson de paramètre $\lambda>0$. On dispose d'un échantillon de $n$ clients de la banque A, modélisé par des variables $X_1,\ldots,X_n$ indépendantes et de même loi que $X$.}
 \begin{enumerate}
-\question{\item Donner un estimateur de $\lambda$ sans biais et convergent.}
+\item \question{Donner un estimateur de $\lambda$ sans biais et convergent.}
 \reponse{Pour une variable de Poisson, $\mathbb E(X_i)=\lambda$ et $\operatorname{Var}(X_i)=\lambda$. On prend pour estimateur la moyenne empirique
 \[
 \widehat\Lambda_n=\overline X_n=\frac1n\sum_{i=1}^nX_i.
@@ -30,12 +30,12 @@ L'estimateur est donc sans biais (ou centré). L'indépendance donne
 \]
 Pour tout $\varepsilon>0$, l'inégalité de Bienaymé--Tchebychev entraîne
 \[
-\PP\bigl(|\widehat\Lambda_n-\lambda|\geq\varepsilon\bigr)
+\mathbb P\bigl(|\widehat\Lambda_n-\lambda|\geq\varepsilon\bigr)
 \leq\frac{\lambda}{n\varepsilon^2}\xrightarrow[n\to\infty]{}0.
 \]
 Ainsi, $\widehat\Lambda_n$ converge en probabilité vers $\lambda$.
 }
-\question{\item On désire tester l'hypothèse nulle selon laquelle les clients de la banque A sont faiblement risqués, avec la référence d'un incident en moyenne par crédit :
+\item \question{On désire tester l'hypothèse nulle selon laquelle les clients de la banque A sont faiblement risqués, avec la référence d'un incident en moyenne par crédit :
 \[
 \begin{cases}
 H_0:\lambda=1,\\
@@ -52,7 +52,7 @@ Effectifs & 38 & 31 & 16 & 10 & 2 & 2 & 1 & 100 \\ \hline
 \end{center}
 Que peut-on conclure pour un risque de première espèce de $5\%$, en utilisant l'approximation normale ? Comparer ensuite avec le test exact de Poisson.
 Sur un même graphique, superposer les effectifs observés et les effectifs théoriques associés à une loi de Poisson de paramètre $\lambda=1$.}
-\indication{La somme $K=\sum_{i=1}^{100}X_i$ suit une loi de Poisson de paramètre $100\lambda$. Sous $H_0$, calculer sa moyenne et son écart-type pour la standardiser. Pour le graphique, comparer les effectifs observés à $100\PP_{\lambda=1}(X=k)$, sur la même échelle.}
+\indication{La somme $K=\sum_{i=1}^{100}X_i$ suit une loi de Poisson de paramètre $100\lambda$. Sous $H_0$, calculer sa moyenne et son écart-type pour la standardiser. Pour le graphique, comparer les effectifs observés à $100\mathbb P_{\lambda=1}(X=k)$, sur la même échelle.}
 \reponse{\textbf{Valeurs observées.} La somme des nombres d'incidents vaut
 \begin{align*}
 k_{\mathrm{obs}}
@@ -85,8 +85,8 @@ Les données conduisent, avec cette approximation, à retenir une moyenne supér
 
 \textbf{Comparaison avec le test exact.} Sous $H_0$, la loi $\mathcal P(100)$ de $K$ est exacte. La $p$-valeur unilatérale vaut
 \[
-p_{\mathrm{val,exact}}=\PP_{\lambda=1}(K\geq117)
-=1-\PP_{\lambda=1}(K\leq116)\simeq0{,}05222.
+p_{\mathrm{val,exact}}=\mathbb P_{\lambda=1}(K\geq117)
+=1-\mathbb P_{\lambda=1}(K\leq116)\simeq0{,}05222.
 \]
 On peut la calculer dans Excel par
 \texttt{=1-LOI.POISSON.N(116;100;VRAI)}.
@@ -100,20 +100,20 @@ La règle normale équivaut ici à rejeter pour $K\geq117$, car
 \]
 Son risque de première espèce réel vaut donc
 \[
-\PP_{\lambda=1}(K\geq117)\simeq0{,}05222,
+\mathbb P_{\lambda=1}(K\geq117)\simeq0{,}05222,
 \]
 soit environ $5{,}22\%$, légèrement au-dessus du seuil nominal de $5\%$.
 Pour une règle de rejet de la forme $K\geq c$ de niveau au plus $5\%$, le plus petit seuil entier admissible est $c=118$ :
 \[
-\PP_{\lambda=1}(K\geq118)\simeq0{,}04284\leq0{,}05,
+\mathbb P_{\lambda=1}(K\geq118)\simeq0{,}04284\leq0{,}05,
 \qquad
-\PP_{\lambda=1}(K\geq117)>0{,}05.
+\mathbb P_{\lambda=1}(K\geq117)>0{,}05.
 \]
 Avec $k_{\mathrm{obs}}=117$, cette règle exacte ne rejette pas. La différence des décisions montre que l'approximation normale peut être déterminante près du seuil. Le calcul normal ci-dessus est effectué sans correction de continuité.
 
 \textbf{Comparaison graphique.} Sous $\lambda=1$, l'effectif théorique de la classe $k$ pour 100 clients est
 \[
-n_k^{\mathrm{th}}=100\PP_{\lambda=1}(X=k)
+n_k^{\mathrm{th}}=100\mathbb P_{\lambda=1}(X=k)
 =100\frac{\mathrm e^{-1}}{k!}.
 \]
 Il faut comparer des effectifs à des effectifs, et non des effectifs à des probabilités. On ajoute une classe $\geq7$ pour inclure toute la loi ; son effectif observé est nul.

@@ -3,12 +3,12 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Contrôle qualité}
+\titre{Contrôle qualité : taux de pièces défectueuses}
 \theme{statistiques, tests d'hypothèses}
 \auteur{}
 \datecreate{2022-10-17}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
 \texte{Une entreprise fabrique des pièces en sous-traitance. Au sein d'une démarche qualité, toutes les machines ont été systématiquement révisées et une nouvelle organisation a été définie dans l'atelier : les tâches de contrôle sont réparties à chaque étape du processus de fabrication. Le taux de pièces défectueuses était alors tombé à $1\%$.
 
@@ -26,7 +26,7 @@ Les 1500 pièces ne sont pas prélevées sans remise dans le lot initial de 5000
 \end{minipage}
 }
 \begin{enumerate}
-\question{\item Si la chef d'entreprise se fixe un risque nominal de $1\%$ d'entreprendre une action de sensibilisation des salariés à tort, quel sera le taux critique de pièces défectueuses qui fera prendre une décision, en utilisant l'approximation normale ? Vérifier le risque binomial réel de cette règle et comparer avec une règle exacte de niveau au plus $1\%$.}
+\item \question{Si la chef d'entreprise se fixe un risque nominal de $1\%$ d'entreprendre une action de sensibilisation des salariés à tort, quel sera le taux critique de pièces défectueuses qui fera prendre une décision, en utilisant l'approximation normale ? Vérifier le risque binomial réel de cette règle et comparer avec une règle exacte de niveau au plus $1\%$.}
 \indication{Sous $H_0$, utiliser $p_0=0{,}01$ pour calculer la variance de la fréquence. Standardiser $F$ et utiliser le quantile $\Phi^{-1}(0{,}99)$. Conserver la valeur non arrondie du taux critique pour passer au nombre entier de pièces défectueuses.}
 \reponse{On réalise les premières étapes d'un test de conformité d'une proportion.
 \begin{enumerate}
@@ -75,8 +75,8 @@ Utiliser strictement le taux arrondi $1{,}6\%$ comme seuil changerait la règle,
 \textbf{Vérification binomiale.} Sous $H_0$, $K\sim\mathcal B(1500,0{,}01)$ exactement. Le risque de première espèce réel de la règle normale est
 \[
 \alpha_{\mathrm{réel,normal}}
-=\PP_{p_0}(K\geq24)
-=1-\PP_{p_0}(K\leq23)
+=\mathbb P_{p_0}(K\geq24)
+=1-\mathbb P_{p_0}(K\leq23)
 \simeq0{,}0189347,
 \]
 soit environ $1{,}8935\%$, supérieur au seuil nominal de $1\%$.
@@ -84,15 +84,15 @@ L'approximation normale sous-estime donc ici ce risque.
 
 Pour une règle exacte de la forme $D_1$ si $K\geq c$, le plus petit seuil entier dont le risque est au plus $1\%$ est $c=26$ :
 \[
-\PP_{p_0}(K\geq25)\simeq0{,}0107933>0{,}01,
+\mathbb P_{p_0}(K\geq25)\simeq0{,}0107933>0{,}01,
 \qquad
-\PP_{p_0}(K\geq26)\simeq0{,}0059380\leq0{,}01.
+\mathbb P_{p_0}(K\geq26)\simeq0{,}0059380\leq0{,}01.
 \]
 \begin{minipage}{\linewidth}
 Cette règle exacte choisit $D_1$ pour $k_{\mathrm{obs}}\geq26$, et $D_0$ pour $k_{\mathrm{obs}}\leq25$. Son risque vaut environ $0{,}5938\%$. La loi discrète ne permet pas en général d'obtenir exactement le niveau demandé avec une règle de seuil sans randomisation.
 \end{minipage}
 }
-\question{\item Si, dans l'échantillon prélevé, le nombre de pièces défectueuses est 18, quelle sera la décision de la chef d'entreprise ?}
+\item \question{Si, dans l'échantillon prélevé, le nombre de pièces défectueuses est 18, quelle sera la décision de la chef d'entreprise ?}
 \reponse{\begin{minipage}{\linewidth}
 La fréquence observée est
 \[
@@ -100,7 +100,7 @@ f_{\mathrm{obs}}=\frac{18}{1500}=0{,}012=1{,}2\%.
 \]
 Elle est inférieure à $f_c\simeq1{,}59765\%$ ; de même, $18<24$ et $18<26$. Les deux règles conduisent donc à la décision $D_0$ : on ne rejette pas $H_0$ et aucune action n'est entreprise au titre de ce test. Ce non-rejet ne prouve ni l'égalité $p=0{,}01$, ni le respect de l'objectif.
 \end{minipage}}
-\question{\item Calculer alors le risque de l'acheteur, c'est-à-dire ne pas modifier le processus de production alors qu'on le devrait, lorsque $p=p_1=0{,}02$. Comment s'appelle ce risque ? Donner aussi la puissance. Distinguer l'approximation normale et les risques binomiaux des deux règles de décision.}
+\item \question{Calculer alors le risque de l'acheteur, c'est-à-dire ne pas modifier le processus de production alors qu'on le devrait, lorsque $p=p_1=0{,}02$. Comment s'appelle ce risque ? Donner aussi la puissance. Distinguer l'approximation normale et les risques binomiaux des deux règles de décision.}
 \indication{Le risque de première espèce $\alpha$ se calcule sous $p_0$, tandis que le risque de seconde espèce $\beta$ se calcule sous $p_1$. Pour $\beta$, utiliser la zone de non-rejet et la variance sous $p_1$, puis identifier le dernier entier non rejeté pour chacune des règles.}
 \reponse{Le risque demandé est le \textbf{risque de seconde espèce} : la probabilité de prendre $D_0$ alors que le taux vaut $p_1=0{,}02$. On le note $\beta(p_1)$ ; la puissance au point $p_1$ est $1-\beta(p_1)$.
 
@@ -115,8 +115,8 @@ Z_2=\frac{F-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}
 \]
 suit approximativement une loi $\mathcal N(0,1)$. La décision $D_0$ correspond au seuil continu $F\leq f_c$. Ainsi,
 \begin{align*}
-\PP_{p_1}(F\leq f_c)
-&=\PP_{p_1}\left(Z_2\leq\frac{f_c-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}\right)\\
+\mathbb P_{p_1}(F\leq f_c)
+&=\mathbb P_{p_1}\left(Z_2\leq\frac{f_c-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}\right)\\
 &\simeq\Phi\left(\frac{f_c-0{,}02}{\sqrt{\frac{0{,}02\times0{,}98}{1500}}}\right)\\
 &\simeq\Phi\left(\frac{0{,}0159764959-0{,}02}{0{,}0036147845}\right)\\
 &\simeq\Phi(-1{,}11307)\simeq0{,}132839.
@@ -126,7 +126,7 @@ Ce calcul fournit $\beta_{\mathrm{approx}}\simeq0{,}132839$, soit environ $13{,}
 \begin{minipage}{\linewidth}
 \textbf{Risque binomial réel de la règle normale.} La règle normale choisit $D_0$ si $K\leq23$. Sous $p_1$, $K\sim\mathcal B(1500,0{,}02)$, donc
 \[
-\beta_{\mathrm{réel,normal}}=\PP_{p_1}(K\leq23)
+\beta_{\mathrm{réel,normal}}=\mathbb P_{p_1}(K\leq23)
 \simeq0{,}112246,
 \qquad 1-\beta_{\mathrm{réel,normal}}\simeq0{,}887754.
 \]
@@ -137,7 +137,7 @@ L'écart avec $0{,}132839$ provient de l'approximation normale de cette même r�
 
 \textbf{Risque de la règle exacte de niveau au plus $1\%$.} Pour le rejet à partir de 26 pièces défectueuses, $D_0$ correspond à $K\leq25$. Ainsi,
 \[
-\beta_{\mathrm{exact}}=\PP_{p_1}(K\leq25)
+\beta_{\mathrm{exact}}=\mathbb P_{p_1}(K\leq25)
 \simeq0{,}205776,
 \qquad 1-\beta_{\mathrm{exact}}\simeq0{,}794224.
 \]
