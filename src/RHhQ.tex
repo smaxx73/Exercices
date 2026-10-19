@@ -8,15 +8,15 @@
 \auteur{}
 \datecreate{2022-09-29}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
-\texte{Utiliser \href{https://github.com/smaxx73/Exercices/blob/main/data/SOCR-HeightWeight.csv}{\texttt{SOCR-HeightWeight.csv}}.\par
+\texte{Utiliser \href{https://github.com/smaxx73/Exercices/blob/main/data/SOCR-HeightWeight.csv}{\texttt{SOCR-HeightWeight.csv}}, disponible dans le dossier \texttt{data} du dépôt \url{https://github.com/smaxx73/Exercices}.\par
 Le fichier comporte les colonnes \texttt{Index}, \texttt{Height(Inches)} et \texttt{Weight(Pounds)}. L'objectif est de décrire les deux variables mesurées et leur association, puis de comprendre l'effet des unités. Conserver les données d'origine et effectuer les conversions dans deux nouvelles colonnes.}
 \begin{enumerate}
 \item \question{Importer le fichier, vérifier l'effectif et les valeurs manquantes. Faut-il inclure la colonne \texttt{Index} dans les statistiques ou dans une future ACP ?}
 \indication{Le séparateur est la virgule et le séparateur décimal est le point. Vérifier que les deux colonnes mesurées sont reconnues comme numériques.}
 \reponse{Le fichier contient 25000 observations, sans valeur manquante. \texttt{Index} est un identifiant unique, pas une troisième variable mesurée : on l'exclut des statistiques, de la corrélation et de l'ACP.}
-\item \question{Créer les colonnes Taille (cm) et Poids (kg). On donne $1$ pouce $=2{,}54$ cm et $1$ livre $=0{,}45359237$ kg. Vérifier les unités et conserver assez de décimales pour les calculs suivants.}
+\item \question{Créer les colonnes Taille (cm) et Poids (kg). On donne $1$ pouce $=2{,}54$ cm et $1$~livre $=0{,}45359237$~kg. Vérifier les unités et conserver assez de décimales pour les calculs suivants.}
 \indication{Multiplier la taille en pouces par $2{,}54$ et le poids en livres par $0{,}45359237$ ; recopier les deux formules sur toutes les lignes. Arrondir l'affichage, pas les données utilisées dans les calculs.}
 \reponse{Les conversions sont $h_{\mathrm{cm}}=2{,}54h_{\mathrm{pouces}}$ et $w_{\mathrm{kg}}=0{,}45359237w_{\mathrm{livres}}$. Les tailles vont d'environ $153{,}1070$ à $190{,}8881$ cm, et les poids de $35{,}3869$ à $77{,}5298$ kg.}
 \item \question{Pour chaque variable convertie, calculer minimum, premier quartile, médiane, moyenne, troisième quartile, maximum, étendue, écart interquartile, variance corrigée et écart-type corrigé. Présenter un tableau avec les unités. Utiliser les quartiles interpolés de \texttt{QUARTILE.INCLURE} et le diviseur $n-1$ pour la variance.}

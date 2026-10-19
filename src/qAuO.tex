@@ -79,7 +79,7 @@ Sous $H_0$, on a donc $R\sim F(9,24)$. Le premier degré de liberté correspond 
 Le test de Fisher est exact sous ce modèle. Il est sensible à la non-normalité : une approximation normale des seules moyennes ne suffit pas à justifier sa loi de référence. La normalité des notes est ici une hypothèse de modélisation, et non une propriété vérifiée par les seuls résumés numériques.
 }
 
-\item \question{Au seuil de signification $\alpha=5\%$, les dispersions sont-elles significativement différentes ? Peut-on en déduire que les enseignants ont des pratiques de notation différentes ?}
+\item \question{Au seuil $\alpha=5\%$, les dispersions sont-elles significativement différentes ? Peut-on en déduire que les enseignants ont des pratiques de notation différentes ?}
 \indication{
 \begin{minipage}{\linewidth}
 Avec un tableur, utiliser \texttt{=25/9} pour le rapport observé, puis les quantiles à gauche \texttt{=INVERSE.LOI.F.N(0,025;9;24)} et \texttt{=INVERSE.LOI.F.N(0,975;9;24)}. Dans ce cas, la petite queue est à droite : \texttt{=2*LOI.F.DROITE(25/9;9;24)} donne la $p$-valeur bilatérale. Garder le rapport exact $\frac{25}{9}$ dans les calculs.

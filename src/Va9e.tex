@@ -11,14 +11,14 @@
 \organisation{AMSCC}
 \difficulte{2}
 \contenu{
-\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$ et $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
 \texte{ Un centre médical mène des études statistiques sur le taux de cholestérol de son personnel, mesuré en centigrammes par litre de sang. Les observations sur 20 individus supposés sains, tirés au sort, sont les suivantes :
 
  \begin{center}
- \begin{tabular}{|l|l|l|l|l|l|l|}
+ \begin{tabular}{lllllll}
 \hline
-{\bf Taux de cholestérol en cg/L} & 120 & 160 & 200 & 240 & 280 & 320 \\ \hline
-{\bf Nombre de sujets observés} & 2   & 4   & 5   & 4   & 3   & 2   \\ \hline
+Taux de cholestérol en cg/L & 120 & 160 & 200 & 240 & 280 & 320 \\ \hline
+Nombre de sujets observés & 2   & 4   & 5   & 4   & 3   & 2 \\ \hline
 \end{tabular}
 \end{center}
 
@@ -79,29 +79,27 @@ soit, au dixième,
 Au tableur : \texttt{=LOI.STUDENT.INVERSE.N(0,995;19)*RACINE(3604,21)/RACINE(20)} donne la demi-largeur.
 \end{minipage}
 }
-\item \question{On admet, sous le modèle normal, que $\frac{19S_{20}^2}{\sigma^2}$ suit la loi $\chi^2(19)$. En déduire un intervalle de confiance de niveau $95\%$ pour la variance $\sigma^2$, puis pour l'écart-type $\sigma$. Ces intervalles sont-ils centrés sur $s^2$ et sur $s$ ?}
-\indication{Encadrer le pivot entre les quantiles à gauche $q_{19;0{,}025}$ et $q_{19;0{,}975}$, puis isoler $\sigma^2$ : la fonction inverse renverse l'ordre des bornes.}
-\reponse{Le pivot $\frac{19S_{20}^2}{\sigma^2}$ suit la loi $\chi^2(19)$, qui ne dépend pas des paramètres. Avec les quantiles à gauche
+\item \question{On admet, sous le modèle normal, que $\frac{19S_{20}^2}{\sigma^2}$ suit la loi $\chi^2(19)$. En déduire un intervalle de confiance de niveau $99\%$ pour la variance $\sigma^2$, puis pour l'écart-type $\sigma$. Ces intervalles sont-ils centrés sur $s^2$ et sur $s$ ?}
+\indication{Encadrer le pivot entre les quantiles à gauche $q_{19;0{,}005}$ et $q_{19;0{,}995}$, puis isoler $\sigma^2$ : la fonction inverse renverse l'ordre des bornes.}
+\reponse{Le pivot $\frac{19S_{20}^2}{\sigma^2}$ suit la loi $\chi^2(19)$, qui ne dépend pas des paramètres. On garde le niveau $99\%$ de la question précédente. Avec les quantiles à gauche
 \[
-q_{19;0{,}025}\simeq8{,}906516,\qquad q_{19;0{,}975}\simeq32{,}852327,
+q_{19;0{,}005}\simeq6{,}843971,\qquad q_{19;0{,}995}\simeq38{,}582257,
 \]
 on a
 \[
-\mathbb P\left(q_{19;0{,}025}\leq\frac{19S_{20}^2}{\sigma^2}\leq q_{19;0{,}975}\right)=0{,}95
+\mathbb P\left(q_{19;0{,}005}\leq\frac{19S_{20}^2}{\sigma^2}\leq q_{19;0{,}995}\right)=0{,}99
 \iff
-\mathbb P\left(\frac{19S_{20}^2}{q_{19;0{,}975}}\leq\sigma^2\leq\frac{19S_{20}^2}{q_{19;0{,}025}}\right)=0{,}95.
+\mathbb P\left(\frac{19S_{20}^2}{q_{19;0{,}995}}\leq\sigma^2\leq\frac{19S_{20}^2}{q_{19;0{,}005}}\right)=0{,}99.
 \]
 Avec $19s^2=\sum_{i=1}^{20}(x_i-\bar x)^2=68480$, l'intervalle observé pour $\sigma^2$ est
 \[
-\left[\frac{68480}{32{,}852327}\ ;\ \frac{68480}{8{,}906516}\right]\simeq[2084{,}5\ ;\ 7688{,}8]\ (\mathrm{cg/L})^2.
+\left[\frac{68480}{38{,}582257}\ ;\ \frac{68480}{6{,}843971}\right]\simeq[1774{,}9\ ;\ 10005{,}9]\ (\mathrm{cg/L})^2.
 \]
-La racine carrée étant croissante, on en déduit pour $\sigma$ l'intervalle $[45{,}66\ ;\ 87{,}69]\ \mathrm{cg/L}$.
+La racine carrée étant croissante, on en déduit pour $\sigma$ l'intervalle $[42{,}13\ ;\ 100{,}03]\ \mathrm{cg/L}$.
 
 Au tableur, les deux bornes de l'intervalle de $\sigma^2$ s'obtiennent par
-\par\texttt{=19*3604,21/LOI.KHIDEUX.INVERSE(0,975;19)}
-\par\texttt{=19*3604,21/LOI.KHIDEUX.INVERSE(0,025;19)}
-\par 
-
-Ces intervalles ne sont pas centrés : $s^2\simeq3604{,}2$ est à environ $1520$ de la borne inférieure et à $4085$ de la borne supérieure. La loi du khi-deux n'est pas symétrique ; on a choisi deux queues de même probabilité, et non des bornes équidistantes. Cet intervalle dépend fortement de l'hypothèse de normalité, davantage que celui de la moyenne.}
+\par\texttt{=19*3604,21/LOI.KHIDEUX.INVERSE(0,995;19)}
+\par\texttt{=19*3604,21/LOI.KHIDEUX.INVERSE(0,005;19)}
+\par Ces intervalles ne sont pas centrés : $s^2\simeq3604{,}2$ est à environ $1829$ de la borne inférieure et à $6402$ de la borne supérieure. La loi du khi-deux n'est pas symétrique ; on a choisi deux queues de même probabilité, et non des bornes équidistantes. Avec seulement $20$ observations, l'intervalle est large : l'écart-type peut varier presque du simple au double. Cet intervalle dépend aussi fortement de l'hypothèse de normalité, davantage que celui de la moyenne.}
 \end{enumerate}
 }

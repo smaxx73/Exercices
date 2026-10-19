@@ -3,7 +3,7 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Test d'adéquation à une loi}
+\titre{Entretiens d'embauche : adéquation à une loi de Poisson}
 \theme{statistiques, test du chi-deux, loi de Poisson}
 \auteur{Maxime Nguyen}
 \datecreate{2022-09-28}
@@ -13,14 +13,14 @@
 \texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ est le quantile de la loi $\chi^2(\nu)$ avec une probabilité $\gamma$ à gauche.}
 \texte{Une enquête a été réalisée auprès de 100 demandeurs d'emploi sur le nombre d'entretiens d'embauche obtenus ces deux derniers mois. Elle donne les résultats suivants :
 \begin{center}
-\begin{tabular}{|l|r|r|r|r|r|r|r|}
+\begin{tabular}{lrrrrrrr}
 \hline
 Nombre d'entretiens & 0 & 1 & 2 & 3 & 4 & 5 & 6 et plus \\ \hline
 Effectifs observés & 15 & 30 & 27 & 13 & 9 & 5 & 1 \\ \hline
 \end{tabular}
 \end{center}
 On suppose les observations individuelles indépendantes et de même distribution.}
-\question{Peut-on écarter l'hypothèse que le nombre d'entretiens d'embauche suit une loi de Poisson de paramètre inconnu, au seuil de significativité $\alpha=5\%$ ? Pour le test, regrouper d'emblée les classes en $0,1,2,3,\geq4$ et estimer le paramètre à partir de ces cinq classes. Pour l'optimisation numérique, on pourra utiliser le Solveur du tableur. Illustrer la comparaison des effectifs observés et attendus par un diagramme en bâtons et calculer la $p$-valeur.}
+\question{Peut-on écarter l'hypothèse que le nombre d'entretiens d'embauche suit une loi de Poisson de paramètre inconnu, au seuil $\alpha=5\%$ ? Pour le test, regrouper d'emblée les classes en $0,1,2,3,\geq4$ et estimer le paramètre à partir de ces cinq classes. Pour l'optimisation numérique, on pourra utiliser le Solveur du tableur. Illustrer la comparaison des effectifs observés et attendus par un diagramme en bâtons et calculer la $p$-valeur.}
 \indication{Une classe « 6 et plus » ne donne pas la valeur de l'observation correspondante. Utiliser une probabilité de queue, et non une masse au point 6.
 
 \begin{minipage}{\linewidth}
@@ -119,16 +119,16 @@ Le dernier terme est une probabilité de queue, et non $\mathbb P(X=6)$.
 \begin{minipage}{\linewidth}
 On obtient, avant regroupement, le tableau suivant (valeurs affichées arrondies) :
 \begin{center}
-\begin{tabular}{|c|r|r|r|}
+\begin{tabular}{crrr}
 \hline
 Classe & $o_j$ & Probabilité estimée & $e_j$ \\ \hline
-0 & 15 & $0{,}1489545$ & $14{,}89545$ \\ \hline
-1 & 30 & $0{,}2836264$ & $28{,}36264$ \\ \hline
-2 & 27 & $0{,}2700286$ & $27{,}00286$ \\ \hline
-3 & 13 & $0{,}1713884$ & $17{,}13884$ \\ \hline
-4 & 9 & $0{,}0815858$ & $8{,}15858$ \\ \hline
-5 & 5 & $0{,}0310697$ & $3{,}10697$ \\ \hline
-$\geq6$ & 1 & $0{,}0133466$ & $1{,}33466$ \\ \hline
+0 & 15 & $0{,}1489545$ & $14{,}89545$ \\
+1 & 30 & $0{,}2836264$ & $28{,}36264$ \\
+2 & 27 & $0{,}2700286$ & $27{,}00286$ \\
+3 & 13 & $0{,}1713884$ & $17{,}13884$ \\
+4 & 9 & $0{,}0815858$ & $8{,}15858$ \\
+5 & 5 & $0{,}0310697$ & $3{,}10697$ \\
+$\geq6$ & 1 & $0{,}0133466$ & $1{,}33466$ \\
 Total & 100 & 1 & 100 \\ \hline
 \end{tabular}
 \end{center}
@@ -143,14 +143,14 @@ o_{\geq4}=9+5+1=15,
 \]
 Regrouper uniquement 5 et $\geq6$ donnerait un effectif attendu d'environ $4{,}44163$, encore inférieur à 5. Avec $\geq4$, tous les effectifs attendus dépassent 5.
 \begin{center}
-\begin{tabular}{|c|r|r|r|}
+\begin{tabular}{crrr}
 \hline
 Classe & Observé $o_j$ & Attendu $e_j$ & $\frac{(o_j-e_j)^2}{e_j}$ \\ \hline
-0 & 15 & $14{,}89545$ & $0{,}0007338$ \\ \hline
-1 & 30 & $28{,}36264$ & $0{,}0945239$ \\ \hline
-2 & 27 & $27{,}00286$ & $0{,}0000003$ \\ \hline
-3 & 13 & $17{,}13884$ & $0{,}9994851$ \\ \hline
-$\geq4$ & 15 & $12{,}60021$ & $0{,}4570546$ \\ \hline
+0 & 15 & $14{,}89545$ & $0{,}0007338$ \\
+1 & 30 & $28{,}36264$ & $0{,}0945239$ \\
+2 & 27 & $27{,}00286$ & $0{,}0000003$ \\
+3 & 13 & $17{,}13884$ & $0{,}9994851$ \\
+$\geq4$ & 15 & $12{,}60021$ & $0{,}4570546$ \\
 Total & 100 & 100 & $1{,}5517978$ \\ \hline
 \end{tabular}
 \end{center}

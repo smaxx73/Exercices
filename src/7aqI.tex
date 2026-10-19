@@ -3,7 +3,7 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Expérience scientifique}
+\titre{Échelle de Binet : test d'adéquation}
 \theme{statistiques, tests d'hypothèses}
 \auteur{}
 \datecreate{2022-09-28}
@@ -16,7 +16,7 @@
 \begin{minipage}{\linewidth}
 Les fréquences relatives présentées pour un échantillon de 192 enfants français sont :
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{ccccc}
 \hline
 $-2$ & $-1$ & $0$ & $+1$ & $+2$ \\ \hline
 $0{,}06$ & $0{,}23$ & $0{,}48$ & $0{,}22$ & $0{,}01$ \\ \hline
@@ -27,10 +27,10 @@ Dans cet exercice, on traite ces cinq nombres comme des probabilités de référ
 
 Un chercheur américain, Goddard, et un chercheur allemand, Bobertag, font passer le test de Binet à 1547 enfants américains et 228 enfants allemands. Les effectifs observés sont :
 \begin{center}
-\begin{tabular}{|l|r|r|r|r|r|}
+\begin{tabular}{lrrrrr}
 \hline
 Catégorie & $-2$ & $-1$ & $0$ & $+1$ & $+2$ \\ \hline
-Goddard ($n=1547$) & 294 & 309 & 557 & 325 & 62 \\ \hline
+Goddard ($n=1547$) & 294 & 309 & 557 & 325 & 62 \\
 Bobertag ($n=228$) & 6 & 40 & 119 & 57 & 6 \\ \hline
 \end{tabular}
 \end{center}
@@ -51,10 +51,10 @@ Lorsque les effectifs attendus sont suffisamment grands, la loi de $Q$ sous $H_0
 \begin{minipage}{\linewidth}
 \textbf{Effectifs attendus avant regroupement.} On multiplie chaque probabilité de référence par la taille de l'échantillon. Par exemple, pour Goddard, $e_1=1547\times0{,}06=92{,}82$.
 \begin{center}
-\begin{tabular}{|l|r|r|r|r|r|}
+\begin{tabular}{lrrrrr}
 \hline
 Catégorie & $-2$ & $-1$ & $0$ & $+1$ & $+2$ \\ \hline
-Goddard & $92{,}82$ & $355{,}81$ & $742{,}56$ & $340{,}34$ & $15{,}47$ \\ \hline
+Goddard & $92{,}82$ & $355{,}81$ & $742{,}56$ & $340{,}34$ & $15{,}47$ \\
 Bobertag & $13{,}68$ & $52{,}44$ & $109{,}44$ & $50{,}16$ & $2{,}28$ \\ \hline
 \end{tabular}
 \end{center}
@@ -86,10 +86,10 @@ Les données américaines sont très éloignées de la distribution de référen
 \begin{minipage}{\linewidth}
 \textbf{Échantillon allemand : Bobertag.} On regroupe les catégories $+1$ et $+2$. La probabilité de cette classe devient $0{,}22+0{,}01=0{,}23$, son effectif observé $57+6=63$, et son effectif attendu $228\times0{,}23=52{,}44$.
 \begin{center}
-\begin{tabular}{|l|r|r|r|r|}
+\begin{tabular}{lrrrr}
 \hline
 Catégorie & $-2$ & $-1$ & $0$ & $+1,+2$ \\ \hline
-Effectif observé & 6 & 40 & 119 & 63 \\ \hline
+Effectif observé & 6 & 40 & 119 & 63 \\
 Effectif attendu & $13{,}68$ & $52{,}44$ & $109{,}44$ & $52{,}44$ \\ \hline
 \end{tabular}
 \end{center}

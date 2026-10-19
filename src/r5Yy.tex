@@ -3,7 +3,7 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Test du comportement des clients}
+\titre{Incidents de paiement : test sur une loi de Poisson}
 \theme{tests d'hypothèses}
 \auteur{}
 \datecreate{2022-09-28}
@@ -44,7 +44,7 @@ H_1:\lambda>1.
 \]
 Pour un échantillon de 100 clients, on observe les résultats suivants :
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\begin{tabular}{ccccccccc}
 \hline
 Incidents & 0 & 1 & 2 & 3 & 4 & 5 & 6 & Total \\ \hline
 Effectifs & 38 & 31 & 16 & 10 & 2 & 2 & 1 & 100 \\ \hline
@@ -118,10 +118,10 @@ n_k^{\mathrm{th}}=100\mathbb P_{\lambda=1}(X=k)
 \]
 Il faut comparer des effectifs à des effectifs, et non des effectifs à des probabilités. On ajoute une classe $\geq7$ pour inclure toute la loi ; son effectif observé est nul.
 \begin{center}
-\begin{tabular}{c|rrrrrrrr}
+\begin{tabular}{crrrrrrrr}
+\hline
 Incidents & 0 & 1 & 2 & 3 & 4 & 5 & 6 & $\geq7$ \\ \hline
-Observés & 38 & 31 & 16 & 10 & 2 & 2 & 1 & 0 \\
-Théoriques & $36{,}788$ & $36{,}788$ & $18{,}394$ & $6{,}131$ & $1{,}533$ & $0{,}307$ & $0{,}051$ & $0{,}0083$
+Observés & 38 & 31 & 16 & 10 & 2 & 2 & 1 & 0 \\ \hline
 \end{tabular}
 \end{center}
 Les effectifs théoriques, avant arrondi, ont une somme égale à 100.
