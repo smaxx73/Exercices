@@ -8,11 +8,11 @@
 \auteur{Maxime NGUYEN}
 \datecreate{2022-10-04}
 \organisation{AMSCC}
-\difficulte{3}
+\difficulte{2}
 \contenu{
 \texte{On effectue un contrôle de fabrication sur des pièces dont la proportion $p$ est défectueuse. On prélève indépendamment des pièces dans une production de grande taille. Chaque pièce est défectueuse avec probabilité $p$.}
 \begin{enumerate}
-\question{\item Sur $n=200$ pièces contrôlées, $k_{\mathrm{obs}}=24$ sont défectueuses. Donner l'intervalle de confiance bilatéral approché pour $p$, au risque $\alpha=0{,}05$, centré sur la fréquence observée.}
+\item \question{Sur $n=200$ pièces contrôlées, $k_{\mathrm{obs}}=24$ sont défectueuses. Donner l'intervalle de confiance bilatéral approché pour $p$, au risque $\alpha=0{,}05$, centré sur la fréquence observée.}
 \indication{La première étape consiste à calculer la fréquence observée $f_{\mathrm{obs}}$ de pièces défectueuses. Distinguer le nombre aléatoire $K$ de pièces défectueuses, la fréquence aléatoire $F=\frac{K}{n}$ et sa réalisation $f_{\mathrm{obs}}=\frac{k_{\mathrm{obs}}}{n}$. Déterminer ensuite la valeur critique $u_{\alpha/2}=\Phi^{-1}(1-\frac{\alpha}{2})$ pour la loi normale centrée réduite. Utiliser l'intervalle approché
 \[
 \left[f_{\mathrm{obs}}-u_{\alpha/2}\sqrt{\frac{f_{\mathrm{obs}}(1-f_{\mathrm{obs}})}{n}}\ ;\
@@ -29,7 +29,7 @@ Le risque est $\alpha=0{,}05$, soit un niveau de confiance $1-\alpha=0{,}95$. Po
 \[
 u_{0{,}025}=\Phi^{-1}(0{,}975)\simeq1{,}959964,
 \]
-qui vérifie $\PP(-u_{0{,}025}\leq Z\leq u_{0{,}025})=0{,}95$ pour $Z$ de loi normale centrée réduite.
+qui vérifie $\mathbb P(-u_{0{,}025}\leq Z\leq u_{0{,}025})=0{,}95$ pour $Z$ de loi normale centrée réduite.
 
 La marge d'erreur observée est
 \begin{align*}
@@ -45,7 +45,7 @@ L'intervalle de Wald observé vaut donc
 \]
 Il s'agit d'un intervalle de confiance approché à $95\%$, correspondant à environ $[7{,}50\%\ ;\ 16{,}50\%]$ pour la proportion de pièces défectueuses dans la production.
 }
-\question{\item Combien de pièces faudrait-il contrôler dans un nouvel échantillon pour que, au risque $\alpha=0{,}05$, la largeur de l'intervalle de confiance centré soit d'au plus $0{,}04$ ? Utiliser la proportion pilote, puis le cas le plus défavorable.}
+\item \question{Combien de pièces faudrait-il contrôler dans un nouvel échantillon pour que, au risque $\alpha=0{,}05$, la largeur de l'intervalle de confiance centré soit d'au plus $0{,}04$ ? Utiliser la proportion pilote, puis le cas le plus défavorable.}
 \indication{La largeur totale est la différence entre les bornes : elle vaut deux fois la marge d'erreur. Pour une proportion $p_0$ retenue lors de la planification, la formule approchée donne $A=2u_{\alpha/2}\sqrt{\frac{p_0(1-p_0)}{n}}$. Isoler $n$ dans l'inégalité $A\leq0{,}04$. La proportion du nouvel échantillon étant inconnue, utiliser d'abord la proportion pilote $p_0=0{,}12$, puis le cas le plus défavorable $p_0=0{,}5$, qui maximise $p_0(1-p_0)$.}
 \reponse{La largeur souhaitée est d'au plus $0{,}04$ ; la marge d'erreur souhaitée est donc d'au plus $0{,}02$. On conserve le niveau de confiance $95\%$ et la valeur critique $u_{0{,}025}$.
 

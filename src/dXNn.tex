@@ -4,33 +4,30 @@
 \module{Analyse de données}
 \sousChapitre{Estimation}
 \titre{Estimation du paramètre d'une loi}
-\theme{estimateurs}
+\theme{estimateurs, maximum de vraisemblance, biais}
 \auteur{Maxime NGUYEN}
 \datecreate{2022-10-04}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
-
-\texte{ 	On fixe un réel $a>0$ et on définit une variable aléatoire $X$ sur $\mathbb{N}$ dont la loi de probabilité est définie par
-$$\PP(X=k)=\frac{a^k}{(1+a)^{k+1}}$$
-pour tout $k \in \mathbb{N}$. }
-
-\question{ À l'aide de la méthode du maximum de vraisemblance, définir un estimateur de $a$ et déterminer son biais. Discuter le cas où toutes les observations sont nulles. }
-
-\indication{Poser $s_x=\sum_{i=1}^n x_i$ et étudier le signe de la dérivée. Pour calculer l'espérance, la somme sur les valeurs possibles de $X$ va jusqu'à l'infini.}
-
-\reponse{
-On définit un échantillon $(X_1,\ldots,X_n)$ de variables indépendantes et identiquement distribuées selon la loi de $X$. On considère une réalisation $(x_1,\ldots,x_n)$ de cet échantillon et on pose $s_x=\sum_{i=1}^n x_i$.
-La fonction de vraisemblance s'écrit alors, par indépendance,
+\texte{On fixe un réel $a>0$ et on définit une variable aléatoire $X$ à valeurs dans $\mathbb N$ dont la loi est donnée par
+\[
+\mathbb P(X=k)=\frac{a^k}{(1+a)^{k+1}}\qquad\text{pour tout }k\in\mathbb N.
+\]
+On dispose d'un échantillon $(X_1,\ldots,X_n)$ de variables indépendantes de même loi que $X$, de réalisation $(x_1,\ldots,x_n)$. On pose $s_x=\sum_{i=1}^nx_i$.}
+\begin{enumerate}
+\item \question{Exprimer la vraisemblance $L(x_1,\ldots,x_n,a)$ en fonction de $s_x$, $n$ et $a$.}
+\reponse{Par indépendance, la vraisemblance s'écrit
 \begin{align*}
 L(x_1,\ldots,x_n,a)
-&=\PP(X_1=x_1,\ldots,X_n=x_n)\\
-&=\prod_{i=1}^n\PP(X_i=x_i)\\
+&=\mathbb P(X_1=x_1,\ldots,X_n=x_n)\\
+&=\prod_{i=1}^n\mathbb P(X_i=x_i)\\
 &=\prod_{i=1}^n\frac{a^{x_i}}{(1+a)^{x_i+1}}\\
 &=\frac{a^{s_x}}{(1+a)^{s_x+n}}.
-\end{align*}
-
-On dérive ce quotient par rapport à $a$ et on factorise :
+\end{align*}}
+\item \question{On suppose $s_x>0$. Déterminer l'estimation $\widehat a_{\mathrm{obs}}$ du maximum de vraisemblance, puis l'estimateur correspondant. Que se passe-t-il si toutes les observations sont nulles ?}
+\indication{Dériver par rapport à $a$, factoriser, puis étudier le signe de la dérivée.}
+\reponse{On dérive ce quotient par rapport à $a$ et on factorise :
 \begin{align*}
 L'(a)
 &=\frac{s_xa^{s_x-1}}{(1+a)^{s_x+n}}
@@ -54,23 +51,23 @@ T=\frac1n\sum_{i=1}^n X_i.
 \]
 Sa valeur observée fournit l'estimation par maximum de vraisemblance lorsque $s_x>0$.
 
-\textbf{Si $s_x=0$ :} les observations étant des entiers naturels, elles sont toutes nulles. On a alors $L(a)=(1+a)^{-n}$, strictement décroissante pour $a>0$. Aucun maximum n'est atteint sur le domaine initial ; le supremum vaut 1 et est approché lorsque $a\to0^+$. Il n'existe donc pas d'estimation par maximum de vraisemblance pour cette réalisation dans le modèle $a>0$.
-
-\begin{minipage}{\linewidth}
-Reste à calculer le biais de la moyenne empirique $T$, autrement dit $b(T)=\mathbb E(T)-a$. Pour tout $i\in\{1,\ldots,n\}$, $X_i$ suit la loi définie ci-dessus. En posant $r=\frac{a}{1+a}\in]0;1[$, son espérance se calcule de la manière suivante :
+\textbf{Si $s_x=0$ :} les observations étant des entiers naturels, elles sont toutes nulles. On a alors $L(a)=(1+a)^{-n}$, strictement décroissante pour $a>0$. Aucun maximum n'est atteint sur le domaine initial ; le supremum vaut 1 et est approché lorsque $a\to0^+$. Il n'existe donc pas d'estimation par maximum de vraisemblance pour cette réalisation dans le modèle $a>0$.}
+\item \question{Montrer que $\mathbb E(X)=a$.}
+\indication{Poser $r=\frac a{1+a}\in]0;1[$ et utiliser $\sum_{k=1}^{\infty}kr^k=\frac r{(1-r)^2}$.}
+\reponse{En posant $r=\frac{a}{1+a}\in]0;1[$, l'espérance de $X$ se calcule de la manière suivante :
 \begin{align*}
-\mathbb E(X_i)
-&=\sum_{k=0}^{\infty}k\PP(X_i=k)\\
+\mathbb E(X)
+&=\sum_{k=0}^{\infty}k\mathbb P(X=k)\\
 &=\sum_{k=0}^{\infty}k\frac{a^k}{(1+a)^{k+1}}\\
 &=\frac1{1+a}\sum_{k=1}^{\infty}kr^k\\
 &=\frac1{1+a}\frac{r}{(1-r)^2}=a.
-\end{align*}
-Donc, par linéarité de l'espérance,
+\end{align*}}
+\item \question{En déduire le biais de l'estimateur du maximum de vraisemblance.}
+\reponse{Chaque $X_i$ a la même loi que $X$, donc $\mathbb E(X_i)=a$. Par linéarité de l'espérance,
 \[
 b(T)=\frac1n\sum_{i=1}^n\mathbb E(X_i)-a
 =\frac1n\times n\times a-a=0.
 \]
-La variable $T$ est donc un estimateur sans biais du paramètre $a$. Cette propriété reste vraie même si l'EMV n'existe pas pour la réalisation constituée uniquement de zéros.
-
-\end{minipage}
-}}
+La variable $T$ est donc un estimateur sans biais du paramètre $a$. Cette propriété reste vraie même si l'EMV n'existe pas pour la réalisation constituée uniquement de zéros.}
+\end{enumerate}
+}

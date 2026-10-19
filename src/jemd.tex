@@ -8,11 +8,11 @@
 \auteur{Maxime NGUYEN}
 \datecreate{2022-10-04}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{1}
 \contenu{
 
-\texte{ 	On rappelle qu'une variable $X$ suit une loi géométrique de paramètre $p \in ]0;1[$ si $X$ est à valeurs dans $\N^*=\{1;2;3;...\}$ et si pour tout $k \in \N^*$,
-$$\PP(X=k)=p(1-p)^{k-1}$$
+\texte{ 	On rappelle qu'une variable $X$ suit une loi géométrique de paramètre $p \in ]0;1[$ si $X$ est à valeurs dans $\mathbb N^*=\{1;2;3;...\}$ et si pour tout $k \in \mathbb N^*$,
+$$\mathbb P(X=k)=p(1-p)^{k-1}$$
 
 On cherche à estimer ce paramètre $p$ à partir d'un échantillon de variables indépendantes et identiquement distribuées. }
 
@@ -22,8 +22,8 @@ On cherche à estimer ce paramètre $p$ à partir d'un échantillon de variables
 		\item \question{ Exprimer la fonction de vraisemblance associée à cet échantillon. }
 		\reponse{ D'après le cours, la fonction de vraisemblance associée à cet échantillon est donnée par :
 		\begin{align*}
-			L(p) &= \PP(X_1=3) \times \PP(X_2=4) \times \PP(X_3=4) \\
-&\quad\times \PP(X_4=2) \times \PP(X_5=3) \\
+			L(p) &= \mathbb P(X_1=3) \times \mathbb P(X_2=4) \times \mathbb P(X_3=4) \\
+&\quad\times \mathbb P(X_4=2) \times \mathbb P(X_5=3) \\
 			&= p(1-p)^2 \times p(1-p)^3 \times p(1-p)^3 \times p(1-p) \times p(1-p)^2 \\
 			&= p^5(1-p)^{11}
 		\end{align*}
@@ -53,7 +53,7 @@ Il s'agit d'une estimation du paramètre $p$ par la méthode du maximum de vrais
 		\item \question{ Exprimer la fonction de vraisemblance associée à cet échantillon. }
 		\reponse{
 		\begin{align*}
-			L(x_1,...,x_n,p) &= \PP(X_1=x_1) \times ... \times \PP(X_n=x_n) \\
+			L(x_1,...,x_n,p) &= \mathbb P(X_1=x_1) \times ... \times \mathbb P(X_n=x_n) \\
 			&= p(1-p)^{x_1-1} \times ... \times p(1-p)^{x_n-1} \\
 			&= p^n(1-p)^{x_1+...+x_n-n}
 		\end{align*}

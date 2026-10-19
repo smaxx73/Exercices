@@ -19,7 +19,7 @@
 \begin{enumerate}
 		\item   \question{Rappeler les définitions d'un estimateur sans biais et d'un estimateur convergent.}
 		\reponse{
-			\textbf{Estimateur sans biais :} Un estimateur $\widehat{\Theta}_n$ du paramètre $\theta$ est dit sans biais si $\E_\theta(\widehat{\Theta}_n) = \theta$ pour tout $n$ et toute valeur admissible du paramètre $\theta$.
+			\textbf{Estimateur sans biais :} Un estimateur $\widehat{\Theta}_n$ du paramètre $\theta$ est dit sans biais si $\mathbb E_\theta(\widehat{\Theta}_n) = \theta$ pour tout $n$ et toute valeur admissible du paramètre $\theta$.
 
 			\textbf{Estimateur convergent :} Un estimateur $\widehat{\Theta}_n$ est dit convergent si $\widehat{\Theta}_n \xrightarrow[n \to \infty]{\mathbb{P}} \theta$ (convergence en probabilité vers $\theta$).
 		}
@@ -27,15 +27,15 @@
 		\item   \question{Les trois estimateurs $T_1$, $T_2$ et $T_3$ sont-ils des estimateurs sans biais de $\mu$ ? Justifier.}
 		\indication{Calculer l'espérance de chaque estimateur en utilisant la linéarité de l'espérance.}
 		\reponse{
-			\textbf{Pour $T_1$ :} $\E(T_1) = \E\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right) = \frac{1}{n}\sum_{i=1}^{n} \E(X_i) = \frac{1}{n} \times n\mu = \mu$
+			\textbf{Pour $T_1$ :} $\mathbb E(T_1) = \mathbb E\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right) = \frac{1}{n}\sum_{i=1}^{n} \mathbb E(X_i) = \frac{1}{n} \times n\mu = \mu$
 
 			Donc $T_1$ est sans biais.
 
-			\textbf{Pour $T_2$ :} $\E(T_2) = \frac{1}{n-1}\sum_{i=1}^{n} \E(X_i) = \frac{n\mu}{n-1} = \mu \times \frac{n}{n-1}$
+			\textbf{Pour $T_2$ :} $\mathbb E(T_2) = \frac{1}{n-1}\sum_{i=1}^{n} \mathbb E(X_i) = \frac{n\mu}{n-1} = \mu \times \frac{n}{n-1}$
 
 			Le biais est $b(T_2) = \frac{\mu}{n-1}$. Il est non nul si $\mu\neq0$ et s’annule si $\mu=0$ : $T_2$ est biaisé en général, car il n’est pas sans biais pour toutes les valeurs de $\mu$.
 
-			\textbf{Pour $T_3$ :} $\E(T_3) = \E(X_1) = \mu$
+			\textbf{Pour $T_3$ :} $\mathbb E(T_3) = \mathbb E(X_1) = \mu$
 
 			Donc $T_3$ est sans biais.
 		}
@@ -65,20 +65,20 @@
 		}
 
 		\item   \question{On définit l'erreur quadratique moyenne (EQM) d'un estimateur $\widehat{\Theta}$ de $\theta$ par :
-			$$\text{EQM}(\widehat{\Theta}) = \E\left[(\widehat{\Theta} - \theta)^2\right]$$
-			Montrer que $\text{EQM}(\widehat{\Theta}) = \text{Var}(\widehat{\Theta}) + b^2(\widehat{\Theta})$ où $b(\widehat{\Theta}) = \E(\widehat{\Theta}) - \theta$ est le biais.}
-		\indication{Développer $(\widehat{\Theta} - \theta)^2 = (\widehat{\Theta} - \E(\widehat{\Theta}) + \E(\widehat{\Theta}) - \theta)^2$.}
-		\reponse{On pose $b = \E(\widehat{\Theta}) - \theta$. Alors :
+			$$\text{EQM}(\widehat{\Theta}) = \mathbb E\left[(\widehat{\Theta} - \theta)^2\right]$$
+			Montrer que $\text{EQM}(\widehat{\Theta}) = \text{Var}(\widehat{\Theta}) + b^2(\widehat{\Theta})$ où $b(\widehat{\Theta}) = \mathbb E(\widehat{\Theta}) - \theta$ est le biais.}
+		\indication{Développer $(\widehat{\Theta} - \theta)^2 = (\widehat{\Theta} - \mathbb E(\widehat{\Theta}) + \mathbb E(\widehat{\Theta}) - \theta)^2$.}
+		\reponse{On pose $b = \mathbb E(\widehat{\Theta}) - \theta$. Alors :
 			\begin{align*}
-				\text{EQM}(\widehat{\Theta}) &= \E\left[(\widehat{\Theta} - \theta)^2\right] \\
-				&= \E\left[(\widehat{\Theta} - \E(\widehat{\Theta}) + \E(\widehat{\Theta}) - \theta)^2\right] \\
-				&= \E\left[(\widehat{\Theta} - \E(\widehat{\Theta}))^2\right] \\
-                &\quad + 2\E\left[(\widehat{\Theta} - \E(\widehat{\Theta}))(\E(\widehat{\Theta}) - \theta)\right] \\
-                &\quad + (\E(\widehat{\Theta}) - \theta)^2
+				\text{EQM}(\widehat{\Theta}) &= \mathbb E\left[(\widehat{\Theta} - \theta)^2\right] \\
+				&= \mathbb E\left[(\widehat{\Theta} - \mathbb E(\widehat{\Theta}) + \mathbb E(\widehat{\Theta}) - \theta)^2\right] \\
+				&= \mathbb E\left[(\widehat{\Theta} - \mathbb E(\widehat{\Theta}))^2\right] \\
+                &\quad + 2\mathbb E\left[(\widehat{\Theta} - \mathbb E(\widehat{\Theta}))(\mathbb E(\widehat{\Theta}) - \theta)\right] \\
+                &\quad + (\mathbb E(\widehat{\Theta}) - \theta)^2
 			\end{align*}
 
 			Le terme du milieu vaut :
-			$$2(\E(\widehat{\Theta}) - \theta) \times \E[\widehat{\Theta} - \E(\widehat{\Theta})] = 2(\E(\widehat{\Theta}) - \theta) \times 0 = 0$$
+			$$2(\mathbb E(\widehat{\Theta}) - \theta) \times \mathbb E[\widehat{\Theta} - \mathbb E(\widehat{\Theta})] = 2(\mathbb E(\widehat{\Theta}) - \theta) \times 0 = 0$$
 
 			D'où : $\text{EQM}(\widehat{\Theta}) = \text{Var}(\widehat{\Theta}) + b^2(\widehat{\Theta})$
 		}
@@ -106,8 +106,8 @@
 
             De plus, l'EQM de $T_1$ tend vers 0. Par l'inégalité de Markov appliquée au carré de l'erreur, pour tout $\varepsilon>0$ :
             \[
-            \PP(|T_1-\mu|>\varepsilon)
-            \leq\frac{\E[(T_1-\mu)^2]}{\varepsilon^2}
+            \mathbb P(|T_1-\mu|>\varepsilon)
+            \leq\frac{\mathbb E[(T_1-\mu)^2]}{\varepsilon^2}
             =\frac{\sigma^2}{n\varepsilon^2}
             \xrightarrow[n\to\infty]{}0.
             \]

@@ -8,7 +8,7 @@
 \auteur{Maxime NGUYEN}
 \datecreate{2022-09-07}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
 
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
@@ -44,8 +44,8 @@ Comme $\frac15=\frac{160}{800}<\frac{179}{800}$, le plus efficace est donc l'est
 		\reponse{$U = \sum_{i=1}^{5}  \left(\frac{X_i-\mu}{\sigma}\right)^2$ ; or les $X_i$ sont des variables aléatoires indépendantes et $\frac{X_i-\mu}{\sigma}$ suit une loi $\mathcal{N}(0,1)$ donc par définition, $U$ suit une loi de $\chi^2(5)$.
 
 			De plus, $T_1 = \overline{X}$ est l'estimateur de moyenne empirique donc d'après le théorème de Fisher, $V$ suit une loi de $\chi^2(5-1) = \chi^2(4)$ et est indépendant de $T_1$. }
-		\item \question{Déterminer $x \in \R$ tel que $\PP(U>x) = 0{,}05$.}
-		\reponse{Comme $U$ suit une loi continue, $\PP(U>x)=0{,}05$ équivaut à $\PP(U\leq x)=0{,}95$. On lit dans la table de loi le quantile $x=q_{5;0{,}95}\simeq11{,}07$. }
+		\item \question{Déterminer $x \in \mathbb R$ tel que $\mathbb P(U>x) = 0{,}05$.}
+		\reponse{Comme $U$ suit une loi continue, $\mathbb P(U>x)=0{,}05$ équivaut à $\mathbb P(U\leq x)=0{,}95$. On lit dans la table de loi le quantile $x=q_{5;0{,}95}\simeq11{,}07$. }
 		\item \begin{samepage}
 \question{En utilisant $T_1$ et $U$, construire une variable $Y$ qui suive une loi de Student dont on précisera le paramètre.}
 		\indication{Décomposer la somme des carrés autour de $\mu$ en utilisant la moyenne empirique, puis vérifier l'indépendance nécessaire à la construction de Student.}
