@@ -4,14 +4,14 @@
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
 \titre{Lois pour les statistiques}
-\theme{loi normale, loi du chi2, loi de Student, loi de Fisher, théorème central limite}
+\theme{loi normale, loi du chi2, loi de Student}
 
 \auteur{}
 \datecreate{2022-08-25}
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$ ; $t_{\nu;\gamma}$ pour la loi $St(\nu)$ ; $F_{\nu_1,\nu_2;\gamma}$ pour la loi $F(\nu_1,\nu_2)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$ ; $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
 \texte{Les poids $X_1,\ldots,X_{16}$ de 16 bestioles constituent un échantillon indépendant de loi $\mathcal N(100,5)$ (en grammes). On pose $\overline X=\frac1{16}\sum X_i$.}
 \begin{enumerate}
 \item \question{Déterminer la loi de $\overline X$.}
@@ -75,28 +75,5 @@ Enfin, $\mathbb P(W>w)=0{,}05$ donne
 \[
 \boxed{w=t_{15;0{,}95}\simeq1{,}75305.}
 \]}
-\item \question{On pèse aussi 10 bestioles d'une autre population. Leurs poids $Y_1,\ldots,Y_{10}$ forment un échantillon indépendant de loi $\mathcal N(110,5)$, indépendant des $X_i$. On note $S_X^2$ et $S_Y^2$ les variances corrigées des deux échantillons. Déterminer la loi de $F=\frac{S_X^2}{S_Y^2}$, puis $f$ tel que $\mathbb P(F>f)=0{,}05$.}
-\indication{Exprimer $\frac{15S_X^2}{25}$ et $\frac{9S_Y^2}{25}$ à l'aide du théorème de Fisher, puis reconnaître un quotient de deux khi-deux indépendants divisés par leurs degrés de liberté.}
-\reponse{Par le théorème de Fisher appliqué à chaque échantillon,
-\[
-A=\frac{15S_X^2}{25}=V\sim\chi^2(15),\qquad
-B=\frac{9S_Y^2}{25}\sim\chi^2(9).
-\]
-$A$ ne dépend que des $X_i$ et $B$ que des $Y_j$ : elles sont indépendantes. Les deux populations ayant le même écart-type, le facteur $25$ se simplifie :
-\[
-F=\frac{S_X^2}{S_Y^2}=\frac{\frac A{15}}{\frac B9},
-\qquad\text{donc}\qquad
-\boxed{F\sim F(15,9).}
-\]
-Les espérances différentes n'interviennent pas. Le seuil est le quantile gauche d'ordre $0{,}95$ :
-\[
-\boxed{f=F_{15,9;0{,}95}\simeq3{,}006.}
-\]
-Ce rapport sert à comparer les variances de deux populations ; le résultat repose sur l'égalité des écarts-types, sinon le facteur $\frac{\sigma_Y^2}{\sigma_X^2}$ subsiste.}
-\item \question{On ne suppose plus les poids normaux : les $X_i$ sont seulement indépendants, de même loi, d'espérance $100$ g et d'écart-type $5$ g. Parmi les résultats précédents, lesquels restent valables ? Que donne le théorème central limite pour $\overline X$, et pourquoi faut-il rester prudent avec $16$ observations ?}
-\indication{Séparer ce qui ne dépend que de l'espérance et de la variance de ce qui utilise la normalité, en particulier le théorème de Fisher.}
-\reponse{L'espérance et l'écart-type de $\overline X$ restent $100$ et $\frac54$ : ils ne demandent que la linéarité et l'indépendance. En revanche, la loi de $\overline X$ n'est plus exactement normale. Le TCL justifie seulement l'approximation $\overline X\approx\mathcal N\left(100,\frac54\right)$ pour $n$ grand ; avec $16$ observations, sa qualité dépend de la forme de la loi des $X_i$, notamment de son asymétrie.
-\par
-Les lois exactes de $Q$, $V$, $W$ et $F$ sont perdues : elles reposent sur la normalité des observations, et le théorème de Fisher, qui donne la loi de $V$ et l'indépendance de $\overline X$ et $V$, n'est plus applicable. Seules des propriétés de moments subsistent, par exemple $\mathbb E(Q)=16$ et $\mathbb E(V)=15$. Le rapport $F$ est particulièrement sensible à l'écart à la normalité.}
 \end{enumerate}
 }

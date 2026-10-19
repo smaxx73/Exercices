@@ -10,7 +10,7 @@
 \organisation{AMSCC}
 \difficulte{}
 \contenu{
-\texte{Utiliser les données \href{https://github.com/smaxx73/Exercices/blob/main/data/ronfle.txt}{\texttt{ronfle.txt}} du dépôt. Le fichier contient une ligne par personne et sept colonnes, séparées par des tabulations : âge, poids, taille, alcool, sexe, ronfle et taba. La taille est exprimée en cm. L'unité de la variable alcool n'est pas précisée : ne pas en inventer une.}
+\texte{Utiliser les données \href{https://github.com/smaxx73/Exercices/blob/main/data/ronfle.txt}{\texttt{ronfle.txt}} du dépôt. Le fichier contient une ligne par personne et sept colonnes, séparées par des tabulations : âge, poids, taille, alcool, sexe, ronfle et taba. Pour cet exercice, la taille est exprimée en cm. L'unité de la variable alcool n'est pas précisée : ne pas en inventer une.}
 \texte{L'objectif est de préparer des données, construire des graphiques adaptés et interpréter des statistiques descriptives. Conserver les données importées dans une feuille et les calculs dans une autre. Pour chaque graphique, préciser les axes, les catégories et, le cas échéant, le dénominateur des pourcentages.}
 \begin{enumerate}
 \item \question{Importer le fichier. Vérifier le nombre de personnes, les valeurs manquantes et le type de chaque colonne. Quels codes catégoriels observe-t-on ?}
@@ -21,6 +21,9 @@
 \reponse{Les effectifs sont respectivement 4, 27, 10, 21, 37 et 1 ; les fréquences sont 4\%, 27\%, 10\%, 21\%, 37\% et 1\%. Leurs sommes valent 100 et 100\%. Une taille de 170 cm appartient à $[170;180[$. Les classes de largeur commune 10 cm couvrent toutes les observations : on peut utiliser les effectifs ou les fréquences comme hauteurs des rectangles adjacents.}
 \item \question{Les âges sont-ils uniformément représentés dans cet échantillon ? Construire un histogramme avec les classes $[20;30[$, $[30;40[$, $[40;50[$, $[50;60[$, $[60;70[$ et $[70;80[$, puis justifier la réponse.}
 \reponse{Les effectifs sont 1, 14, 30, 24, 27 et 4. L'histogramme est concentré entre 40 et 70 ans : les âges ne sont pas uniformément représentés dans cet échantillon. C'est un constat descriptif ; aucun test d'uniformité ni conclusion sur une population plus large n'est demandé.}
+\item \question{Tracer la taille en fonction du poids avec un nuage de points, puis calculer la corrélation linéaire. Commenter le sens et l'intensité de l'association. Peut-on en déduire une causalité ?}
+\indication{Placer le poids en abscisse et la taille en ordonnée, avec un point par personne ; ne pas relier les points dans l'ordre des lignes.}
+\reponse{L'association est croissante et forte ; la corrélation empirique vaut $r\simeq0{,}92697$. Les points sont proches d'une tendance croissante sans être tous alignés. Cette corrélation descriptive n'établit pas de causalité et ne justifie pas d'extrapoler à une population dont le mode de prélèvement est inconnu.}
 \item \question{Regrouper alcool en trois catégories : 0, de 1 à 4, puis 5 et plus. Construire le tableau des effectifs croisant ces catégories avec sexe. Représenter la répartition F/H \emph{dans chaque catégorie d'alcool} par des barres empilées à $100\%$. Préciser le dénominateur de chaque barre.}
 \indication{Utiliser un tableau croisé dynamique, avec alcool regroupé en lignes et sexe en colonnes. Pour cette question, diviser chaque effectif par le total de sa ligne.}
 \reponse{Le tableau est

@@ -3,12 +3,12 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Teneur en polluant : intervalle et taille d'échantillon}
+\titre{Intervalles de confiance}
 \theme{statistiques, intervalle de confiance}
 \auteur{Maxime NGUYEN}
 \datecreate{2022-09-07}
 \organisation{AMSCC}
-\difficulte{2}
+\difficulte{3}
 \contenu{
 \texte{Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
 \texte{Pour étudier le degré de pollution des eaux d'une rivière par les déchets d'une usine, on mesure la teneur en milligrammes d'un certain polluant par litre d'eau.
@@ -18,12 +18,12 @@ Dans cet exercice, on retient une limite de $7\ \mathrm{mg/L}$ pour la teneur mo
 \begin{enumerate}
 \item \question{On effectue 17 mesures pour lesquelles les valeurs observées des teneurs en polluant ont une moyenne de $5{,}2\ \mathrm{mg/L}$ et un écart-type descriptif de $1{,}2\ \mathrm{mg/L}$, calculé avec le diviseur 17.
 \begin{enumerate}
-\item L'écart-type de $1{,}2\ \mathrm{mg/L}$ n'est pas l'estimation sans biais de la variance. En déduire l'estimation sans biais $s^2$ de $\sigma^2$, puis une estimation de $\sigma$.
+\item Estimer sans biais la moyenne et la variance de la teneur en polluant dans cette rivière, puis proposer une estimation de son écart-type.
 \item Donner un intervalle de confiance bilatéral de niveau $95\%$ pour la teneur moyenne en polluant de cette rivière.
 \item À partir de ces résultats, que peut-on conclure par rapport à la limite de $7\ \mathrm{mg/L}$ pour la teneur moyenne ?
 \end{enumerate}}
 \indication{Distinguer la variance descriptive et la variance corrigée ; prendre le quantile à gauche $t_{16;0{,}975}$.}
-\reponse{\textbf{(a)} La moyenne observée $\bar x=5{,}2\ \mathrm{mg/L}$ est la réalisation de l'estimateur sans biais $\overline X_{17}$.
+\reponse{\textbf{(a)} L'estimateur $\overline X_{17}=\frac{1}{17}\sum_{i=1}^{17}X_i$ est sans biais pour la moyenne $\mu$. Sa réalisation donne l'estimation ponctuelle $\bar x=5{,}2\ \mathrm{mg/L}$.
 
 L'écart-type descriptif observé de $1{,}2\ \mathrm{mg/L}$ est calculé avec le diviseur 17. La variance descriptive vaut donc
 \[

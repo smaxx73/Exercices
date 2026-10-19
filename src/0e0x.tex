@@ -3,12 +3,12 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Estimation}
-\titre{Intervalles de confiance pour une moyenne et une variance}
-\theme{intervalle de confiance, loi de Student, loi du chi2, variance}
+\titre{Estimateurs et intervalles de confiance}
+\theme{statistiques}
 \auteur{Maxime NGUYEN}
 \datecreate{2022-09-07}
 \organisation{AMSCC}
-\difficulte{2}
+\difficulte{}
 \contenu{
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
 \texte{ Un centre médical mène des études statistiques sur le taux de cholestérol de son personnel, mesuré en centigrammes par litre de sang. Les observations sur 20 individus supposés sains, tirés au sort, sont les suivantes :
@@ -24,8 +24,7 @@
 Le taux de cholestérol chez un individu sain (noté $X$) est supposé suivre une loi normale $\mathcal N(\mu,\sigma)$, avec $\sigma>0$. Les observations sont modélisées par des variables indépendantes de cette même loi.
 }
 \begin{enumerate}
-\item \question{Calculer, au tableur, la moyenne observée $\bar x$ et la variance corrigée $s^2$ des 20 observations.}
-\indication{Placer les valeurs en A2:A7 et les effectifs en B2:B7, puis utiliser \texttt{SOMMEPROD} pour les sommes pondérées.}
+\item \question{Donner une estimation $\overline{x}$ de l'espérance mathématique de $X$ et une estimation $s^2$ de la variance de $X$. On précisera les estimateurs choisis et on en donnera les propriétés.}
 \reponse{Les estimateurs usuels sont, pour un échantillon de taille $n\geq2$,
 \[
 \overline X_n=\frac{1}{n}\sum_{i=1}^nX_i,
@@ -50,8 +49,7 @@ s^2&=\frac{1}{19}\sum_{i=1}^{20}(x_i-\bar x)^2\\
 &=\frac{1001600-20\times216^2}{19}
 \simeq3604{,}21\ (\mathrm{cg/L})^2.
 \end{align*}
-On en déduit l'estimation de l'écart-type $s=\sqrt{s^2}\simeq60{,}0351\ \mathrm{cg/L}$.
-\par Au tableur, avec les valeurs en A2:A7 et les effectifs en B2:B7 : \texttt{=SOMMEPROD(A2:A7;B2:B7)/20} donne $\bar x$, et \texttt{=(SOMMEPROD(A2:A7\textasciicircum2;B2:B7)-20*216\textasciicircum2)/19} donne $s^2$.}
+On en déduit l'estimation de l'écart-type $s=\sqrt{s^2}\simeq60{,}0351\ \mathrm{cg/L}$.}
 
 \item \question{Donner l'intervalle de confiance de l'espérance de $X$, centré sur $\overline{x}$, au risque $\alpha=0{,}01$.}
 \indication{La variance est inconnue et le modèle normal est une hypothèse de l'énoncé : utiliser Student à 19 degrés de liberté.}
@@ -78,29 +76,5 @@ soit, au dixième,
 Au tableur : \texttt{=LOI.STUDENT.INVERSE.N(0,995;19)*RACINE(3604,21)/RACINE(20)} donne la demi-largeur.
 \end{minipage}
 }
-\item \question{On admet, sous le modèle normal, que $\frac{19S_{20}^2}{\sigma^2}$ suit la loi $\chi^2(19)$. En déduire un intervalle de confiance de niveau $95\%$ pour la variance $\sigma^2$, puis pour l'écart-type $\sigma$. Ces intervalles sont-ils centrés sur $s^2$ et sur $s$ ?}
-\indication{Encadrer le pivot entre les quantiles à gauche $q_{19;0{,}025}$ et $q_{19;0{,}975}$, puis isoler $\sigma^2$ : la fonction inverse renverse l'ordre des bornes.}
-\reponse{Le pivot $\frac{19S_{20}^2}{\sigma^2}$ suit la loi $\chi^2(19)$, qui ne dépend pas des paramètres. Avec les quantiles à gauche
-\[
-q_{19;0{,}025}\simeq8{,}906516,\qquad q_{19;0{,}975}\simeq32{,}852327,
-\]
-on a
-\[
-\mathbb P\left(q_{19;0{,}025}\leq\frac{19S_{20}^2}{\sigma^2}\leq q_{19;0{,}975}\right)=0{,}95
-\iff
-\mathbb P\left(\frac{19S_{20}^2}{q_{19;0{,}975}}\leq\sigma^2\leq\frac{19S_{20}^2}{q_{19;0{,}025}}\right)=0{,}95.
-\]
-Avec $19s^2=\sum_{i=1}^{20}(x_i-\bar x)^2=68480$, l'intervalle observé pour $\sigma^2$ est
-\[
-\left[\frac{68480}{32{,}852327}\ ;\ \frac{68480}{8{,}906516}\right]\simeq[2084{,}5\ ;\ 7688{,}8]\ (\mathrm{cg/L})^2.
-\]
-La racine carrée étant croissante, on en déduit pour $\sigma$ l'intervalle $[45{,}66\ ;\ 87{,}69]\ \mathrm{cg/L}$.
-
-Au tableur, les deux bornes de l'intervalle de $\sigma^2$ s'obtiennent par
-\par\texttt{=19*3604,21/LOI.KHIDEUX.INVERSE(0,975;19)}
-\par\texttt{=19*3604,21/LOI.KHIDEUX.INVERSE(0,025;19)}
-\par 
-
-Ces intervalles ne sont pas centrés : $s^2\simeq3604{,}2$ est à environ $1520$ de la borne inférieure et à $4085$ de la borne supérieure. La loi du khi-deux n'est pas symétrique ; on a choisi deux queues de même probabilité, et non des bornes équidistantes. Cet intervalle dépend fortement de l'hypothèse de normalité, davantage que celui de la moyenne.}
 \end{enumerate}
 }

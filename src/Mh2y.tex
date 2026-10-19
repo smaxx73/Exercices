@@ -1,0 +1,105 @@
+% Dérivé de gk1A (réorganisation des TD de STAT, octobre 2026).
+\uuid{Mh2y}
+\titre{Moyenne : écart-type connu ou estimé}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Tests d'hypothèses, intervalle de confiance}
+\theme{statistiques}
+\auteur{Maxime NGUYEN}
+\datecreate{2026-10-19}
+\organisation{AMSCC}
+\difficulte{1}
+\contenu{
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$. Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Une association de consommateurs a effectué une enquête sur le prix d'un produit dans les supermarchés. Pour ce produit, les prix suivants (en euros) ont été relevés dans 7 supermarchés différents :
+\[
+52 \qquad 52 \qquad 43 \qquad 51 \qquad 69 \qquad 55 \qquad 49.
+\]
+On modélise les observations par des variables indépendantes de même loi normale $\mathcal N(\mu,\sigma)$, avec $\sigma>0$.
+}
+\begin{enumerate}
+\item \question{Calculer une estimation $\overline{x}$ de l'espérance $\mu$ du prix $X$ de ce produit et une estimation $s$ de son écart-type $\sigma$. On précisera les estimateurs choisis et on en donnera les propriétés.}
+\reponse{Pour un échantillon de taille $n\geq2$, les estimateurs usuels de la moyenne et de la variance sont
+\[
+\overline X_n=\frac{1}{n}\sum_{i=1}^nX_i,
+\qquad
+S_n^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline X_n)^2.
+\]
+Ils sont sans biais : $\mathbb E(\overline X_n)=\mu$ et $\mathbb E(S_n^2)=\sigma^2$. Sous le modèle normal, les deux suites d'estimateurs convergent en probabilité vers ces paramètres lorsque $n\to\infty$.
+
+L'estimateur $S_n=\sqrt{S_n^2}$ converge en probabilité vers $\sigma$, mais n'est pas sans biais pour $\sigma$.
+
+Pour la réalisation de cet échantillon de taille $7$, on obtient
+\[
+\sum_{i=1}^7x_i=371,
+\qquad
+\bar x=\frac{371}{7}=53\ \text{euros}.
+\]
+La somme des carrés des écarts à la moyenne observée vaut
+\begin{align*}
+\sum_{i=1}^7(x_i-\bar x)^2
+&=(52-53)^2+(52-53)^2+(43-53)^2+(51-53)^2\\
+&\quad +(69-53)^2+(55-53)^2+(49-53)^2\\
+&=382.
+\end{align*}
+Avec l'estimateur de variance corrigée $S_7^2$, on obtient donc
+\[
+s^2=\frac{382}{6}\simeq63{,}667\ \text{euros}^2,
+\qquad
+s=\sqrt{s^2}\simeq7{,}98\ \text{euros}.
+\]
+}
+\item \question{On suppose d'abord l'écart-type connu, égal à $\sigma=8$ euros d'après des enquêtes antérieures. Déterminer les intervalles de confiance symétriques aux niveaux de $90\%$ et $99\%$ pour $\mu$, centrés sur $\bar x$.}
+\indication{Avec $\sigma$ connu et le modèle normal, $\frac{\overline X_7-\mu}{\sigma/\sqrt7}$ suit exactement la loi normale centrée réduite. Utiliser $u_{\alpha/2}=\Phi^{-1}(1-\frac\alpha2)$.}
+\reponse{Sous le modèle normal, le pivot
+\[
+Z=\frac{\overline X_7-\mu}{\frac\sigma{\sqrt7}}
+\]
+suit exactement la loi $\mathcal N(0,1)$. Pour un niveau $1-\alpha$, l'intervalle observé est
+\[
+\left[\bar x-u_{\alpha/2}\frac{\sigma}{\sqrt7}\ ;\ \bar x+u_{\alpha/2}\frac{\sigma}{\sqrt7}\right],
+\qquad \frac\sigma{\sqrt7}=\frac8{\sqrt7}\simeq3{,}02372.
+\]
+Au niveau $90\%$, $u_{0{,}05}=\Phi^{-1}(0{,}95)\simeq1{,}64485$ ; la demi-largeur vaut environ $4{,}9736$ euros, d'où $[48{,}0264\ ;\ 57{,}9736]$, soit $[48{,}0\ ;\ 58{,}0]$ euros.
+
+Au niveau $99\%$, $u_{0{,}005}=\Phi^{-1}(0{,}995)\simeq2{,}57583$ ; la demi-largeur vaut environ $7{,}7886$ euros, d'où $[45{,}2114\ ;\ 60{,}7886]$, soit $[45{,}2\ ;\ 60{,}8]$ euros.
+
+Au tableur, la demi-largeur s'obtient par \texttt{=LOI.NORMALE.STANDARD.INVERSE.N(0,95)*8/RACINE(7)}, ou directement par \texttt{=INTERVALLE.CONFIANCE.NORMAL(0,1;8;7)}.}
+\item \question{On ne suppose plus $\sigma$ connu. Déterminer les intervalles de confiance symétriques aux niveaux de $90\%$ et $99\%$ pour $\mu$, centrés sur la moyenne observée $\bar x$.}
+\indication{Avec une variance inconnue et le modèle normal, utiliser les quantiles de Student à 6 degrés de liberté.}
+\reponse{La normalité est une hypothèse de l'énoncé ; elle ne découle pas du faible effectif. La variance $\sigma^2$ est inconnue. Le pivot
+\[
+T=\frac{\overline X_7-\mu}{\frac{S_7}{\sqrt7}}
+\]
+suit exactement une loi de Student $St(6)$. Pour un niveau de confiance $1-\alpha$, l'intervalle observé est
+\[
+\left[\bar x-t_{6;1-\alpha/2}\frac{s}{\sqrt7}\ ;\
+\bar x+t_{6;1-\alpha/2}\frac{s}{\sqrt7}\right].
+\]
+Au niveau de $90\%$, on utilise le quantile à gauche $t_{6;0{,}95}\simeq1{,}94318$. La demi-largeur vaut environ
+\[
+1{,}94318\times\frac{\sqrt{\frac{382}{6}}}{\sqrt7}\simeq5{,}8603\ \text{euros}.
+\]
+On obtient l'intervalle $[47{,}1397\ ;\ 58{,}8603]$ euros, soit, au dixième, $[47{,}1\ ;\ 58{,}9]$ euros.
+
+Au niveau de $99\%$, on utilise le quantile à gauche $t_{6;0{,}995}\simeq3{,}70743$. La demi-largeur vaut environ
+\[
+3{,}70743\times\frac{\sqrt{\frac{382}{6}}}{\sqrt7}\simeq11{,}1810\ \text{euros}.
+\]
+On obtient l'intervalle $[41{,}8190\ ;\ 64{,}1810]$ euros, soit, au dixième, $[41{,}8\ ;\ 64{,}2]$ euros.
+
+L'intervalle à $99\%$ est plus large : à échantillon identique, un niveau de confiance plus élevé correspond à un quantile plus grand, donc à une marge d'erreur plus grande.
+
+Au tableur, avec les prix en A1:A7 : \texttt{=MOYENNE(A1:A7)}, \texttt{=ECARTYPE.STANDARD(A1:A7)}, puis \texttt{=LOI.STUDENT.INVERSE.N(0,95;6)*ECARTYPE.STANDARD(A1:A7)/RACINE(7)} pour la demi-largeur à $90\%$. La fonction \texttt{=INTERVALLE.CONFIANCE.STUDENT(0,1;ECARTYPE.STANDARD(A1:A7);7)} donne la même valeur.
+}
+\item \question{Comparer les largeurs des quatre intervalles obtenus. Quel est l'effet du niveau de confiance ? Quel est l'effet de l'estimation de $\sigma$ ?}
+\reponse{\begin{center}\begin{tabular}{lrr}\hline
+Demi-largeur (euros) & $90\%$ & $99\%$ \\ \hline
+$\sigma$ connu (normale) & $4{,}97$ & $7{,}79$ \\
+$\sigma$ estimé (Student, 6 ddl) & $5{,}86$ & $11{,}18$ \\ \hline
+\end{tabular}\end{center}
+À méthode fixée, un niveau de confiance plus élevé exige un quantile plus grand, donc un intervalle plus large.
+Ici, $s\simeq7{,}98$ est très proche de $\sigma=8$ : l'écart entre les deux lignes provient presque entièrement des quantiles. Avec $6$ degrés de liberté, ceux de Student sont nettement plus grands que ceux de la loi normale, surtout pour un niveau élevé : $3{,}707$ contre $2{,}576$ à $99\%$. Estimer $\sigma$ sur un petit échantillon se paie par des intervalles plus larges.}
+\end{enumerate}
+}
