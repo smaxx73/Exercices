@@ -1,0 +1,33 @@
+\uuid{tR6m}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Échantillonnage et estimation}
+\titre{Simuler la loi d'une moyenne}
+\theme{théorème central limite, loi de Student, simulation, tableur, intervalle de confiance}
+\auteur{AMSCC}
+\datecreate{2026-10-19}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+\texte{Les quantiles sont à gauche : $t_{\nu;\gamma}$ désigne le quantile de la loi $St(\nu)$ laissant une probabilité $\gamma$ à sa gauche.}
+\texte{Des durées de vie, en années, sont modélisées par une loi exponentielle d'espérance $\mu=2$ ; son écart-type vaut aussi $\sigma=2$. Cette loi est nettement asymétrique. On étudie au tableur la moyenne $\overline X$ d'un échantillon de taille $n$.}
+\texte{Au tableur, \texttt{=-2*LN(1-ALEA())} simule une durée de cette loi. Utiliser une feuille par taille d'échantillon, avec une ligne par échantillon et une colonne par observation. Chaque recalcul produit une nouvelle simulation ; pour figer les résultats, copier les données puis effectuer un collage spécial « valeurs ».}
+\begin{enumerate}
+\item \question{Simuler $500$ échantillons de taille $n=2$. Calculer la moyenne de chaque échantillon, puis tracer l'histogramme des $500$ moyennes.}
+\indication{Remplir $500$ lignes et $2$ colonnes avec la formule de simulation, puis utiliser \texttt{MOYENNE} sur chaque ligne.}
+\reponse{L'histogramme est très asymétrique, avec une longue queue à droite : la loi de $\overline X$ ressemble encore à celle des observations. Sa moyenne est proche de $2$.}
+\item \question{Recommencer avec $n=10$ et $n=50$. Pour chaque taille, calculer la moyenne et l'écart-type des $500$ moyennes simulées, et les comparer à $\mu$ et à $\frac\sigma{\sqrt n}$. Comment la forme des histogrammes évolue-t-elle ?}
+\indication{Utiliser \texttt{ECARTYPE.STANDARD} sur la colonne des moyennes. Tracer les histogrammes avec les mêmes classes pour les comparer.}
+\reponse{Les moyennes simulées restent centrées autour de $\mu=2$. Leur écart-type est proche de $\frac2{\sqrt n}$, soit environ $1{,}414$, $0{,}632$ et $0{,}283$ pour $n=2$, $10$ et $50$ ; les valeurs observées fluctuent d'une simulation à l'autre. L'histogramme se resserre et devient de plus en plus symétrique et proche d'une courbe en cloche : c'est l'effet du théorème central limite. Pour $n=10$, une légère asymétrie reste visible.}
+\item \question{Pour $n=10$, calculer pour chaque échantillon l'écart-type corrigé $s$ et l'intervalle
+\[
+\left[\overline x-t\frac s{\sqrt{10}}\,;\,\overline x+t\frac s{\sqrt{10}}\right]\qquad\text{avec } t=t_{9;0{,}975}.
+\] Quelle proportion des $500$ intervalles contient $\mu=2$ ? Recommencer avec $t=1{,}96$.}
+\indication{Une colonne peut contenir \texttt{=ET(borne\_inf<=2;2<=borne\_sup)}, puis \texttt{NB.SI(...;VRAI)} compte les intervalles qui contiennent $\mu$. Obtenir $t_{9;0{,}975}$ avec \texttt{LOI.STUDENT.INVERSE.N}.}
+\reponse{Avec $t=t_{9;0{,}975}\simeq2{,}2622$, on obtient typiquement une proportion voisine de $90\%$ ; avec $1{,}96$, voisine de $87\%$. Avec $500$ intervalles, la proportion observée fluctue d'environ $\pm3$ points d'une simulation à l'autre. Dans les deux cas, elle reste nettement inférieure à $95\%$.}
+\item \question{Expliquer pourquoi la proportion obtenue à la question précédente n'est pas $95\%$. Que garantissent respectivement le théorème central limite et la construction de Student ?}
+\reponse{La construction de Student donne une loi exacte $St(n-1)$ pour $\frac{\sqrt n(\overline X-\mu)}S$ lorsque les observations sont normales ; ce n'est pas le cas ici. Le théorème central limite ne fournit qu'une approximation de la loi de $\overline X$ pour $n$ grand ; avec $10$ observations très asymétriques, elle reste imparfaite, et $S$ n'est pas indépendant de $\overline X$. Le niveau annoncé de $95\%$ n'est donc qu'approché. Il s'améliore lorsque $n$ augmente : pour $n=50$, on obtient environ $93\%$.}
+\end{enumerate}
+\texte{À rendre : le fichier du tableur avec les trois simulations figées, les histogrammes et le tableau comparatif, accompagné d'une courte interprétation.}
+}

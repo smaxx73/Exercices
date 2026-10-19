@@ -3,7 +3,7 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Autre}
-\titre{Approximation d'une loi binomiale par une loi normale.}
+\titre{Approximation d'une loi binomiale par une loi normale}
 \theme{statistiques, loi binomiale, loi normale}
 
 \auteur{}
@@ -13,7 +13,8 @@
 \contenu{
 \texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
 \texte{Un restaurant universitaire accueille 600 étudiants et propose risotto ou quiche. On suppose que chacun choisit le risotto avec probabilité $0{,}4$, indépendamment des autres.}
-\question{Combien de portions de risotto faut-il prévoir pour que le risque de rupture soit strictement inférieur à $10\%$ ? Utiliser l'approximation de la loi binomiale par une loi normale.}
+\begin{enumerate}
+\item \question{Combien de portions de risotto faut-il prévoir pour que le risque de rupture soit strictement inférieur à $10\%$ ? Utiliser l'approximation de la loi binomiale par une loi normale.}
 \indication{Avec $r$ portions, il manque du risotto si $X>r$. Centrer et réduire $X$, puis utiliser le quantile d'ordre $0{,}9$ de la loi normale centrée réduite.}
 \reponse{Soit $X$ le nombre d'étudiants souhaitant une portion de risotto. Sous l'hypothèse de choix indépendants, chacun de probabilité $0{,}4$, on a
 \[
@@ -45,4 +46,17 @@ r>240+12\times\Phi^{-1}(0{,}9)\simeq255{,}3786.
 \]
 Le plus petit entier satisfaisant cette condition approchée est $r=256$.
 Cette méthode conduit donc à prévoir \textbf{256 portions de risotto}.}
+\item \question{On note $F=\frac X{600}$ la proportion d'étudiants qui choisissent le risotto. Donner une loi approchée de $F$, puis $h>0$ tel que $\mathbb P(0{,}4-h\leq F\leq0{,}4+h)\simeq0{,}95$.}
+\indication{Diviser $X$ par $600$ divise son espérance et son écart-type par $600$. Pour l'intervalle centré, utiliser le quantile d'ordre $0{,}975$ de la loi normale centrée réduite.}
+\reponse{D'après la question précédente, $X$ suit approximativement $\mathcal N(240,12)$. Une transformation affine d'une variable normale reste normale, donc
+\[
+F=\frac X{600}\approx\mathcal N\left(\frac{240}{600},\frac{12}{600}\right)=\mathcal N(0{,}4\,;\,0{,}02).
+\]
+On retrouve la forme générale $\mathcal N\left(p,\sqrt{\frac{p(1-p)}n}\right)$ avec $p=0{,}4$ et $n=600$. Alors
+\[
+\mathbb P(0{,}4-h\leq F\leq0{,}4+h)\simeq2\Phi\left(\frac h{0{,}02}\right)-1=0{,}95
+\iff\frac h{0{,}02}=\Phi^{-1}(0{,}975)\simeq1{,}95996,
+\]
+d'où $h\simeq0{,}0392$. La proportion observée est donc comprise entre environ $36{,}1\%$ et $43{,}9\%$ avec une probabilité proche de $95\%$. Ce calcul prépare les intervalles de confiance d'une proportion, où $p$ est inconnu.}
+\end{enumerate}
 }
