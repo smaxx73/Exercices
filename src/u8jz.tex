@@ -1,0 +1,35 @@
+\uuid{u8jz}
+\titre{Une couleur est-elle une nuance de rouge ?}
+\niveau{L1}
+\module{OPTRN}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Perceptron}
+\theme{Perceptron affine à trois entrées, fonction de Heaviside, inférence}
+\auteur{Maxime Nguyen}
+\datecreate{2026-10-20}
+\organisation{AMSCC}
+\difficulte{1}
+\contenu{
+\texte{Une couleur est codée par un triplet $(r,g,b)\in[0,1]^3$ (rouge, vert, bleu). Un perceptron à trois entrées de poids $2$, $-2$ et $-2$, de biais $-1$ et de fonction d'activation la fonction de Heaviside $H$ (avec $H(t)=1$ si $t\geq0$ et $H(t)=0$ sinon) doit répondre à la question suivante : cette couleur est-elle une nuance de rouge~? Il définit la fonction
+\[
+F(r,g,b)=H(2r-2g-2b-1).
+\]}
+\begin{enumerate}
+\item \question{Calculer $2r-2g-2b-1$ puis $F(r,g,b)$ pour les couleurs $(1,0,0)$, $(0{,}9\,;0{,}1\,;0{,}1)$, $(0{,}5\,;0{,}2\,;0{,}1)$, $(0\,;1\,;0)$ et $(0{,}5\,;0\,;0)$.}
+\indication{Calculer d'abord $2r-2g-2b-1$ puis comparer sa valeur à $0$.}
+\reponse{On obtient
+\begin{center}
+\begin{tabular}{c|ccccc}
+couleur & $(1,0,0)$ & $(0{,}9\,;0{,}1\,;0{,}1)$ & $(0{,}5\,;0{,}2\,;0{,}1)$ & $(0,1,0)$ & $(0{,}5\,;0\,;0)$\\\hline
+$2r-2g-2b-1$ & $1$ & $0{,}4$ & $-0{,}6$ & $-3$ & $0$\\
+$F$ & $1$ & $1$ & $0$ & $0$ & $1$
+\end{tabular}
+\end{center}}
+\item \question{Vérifier que les points $A(\tfrac12,0,0)$, $B(1,\tfrac12,0)$ et $C(1,0,\tfrac12)$ vérifient $2r-2g-2b-1=0$. Que renvoie le perceptron en ces points ?}
+\reponse{En $A$ : $1-0-0-1=0$. En $B$ : $2-1-0-1=0$. En $C$ : $2-0-1-1=0$. Ces trois points sont sur la frontière, où $H(0)=1$ : le perceptron renvoie $1$.}
+\item \question{Pour une couleur de la forme $(r,0,0)$, à partir de quelle valeur de $r$ le perceptron répond-il «~rouge~» ?}
+\reponse{On a $F(r,0,0)=H(2r-1)$, qui vaut $1$ si et seulement si $2r-1\geq0$, c'est-à-dire $r\geq\frac12$.}
+\item \question{Calculer $F(1\,;0{,}5\,;0{,}5)$. Expliquer ce résultat à l'aide du signe des poids.}
+\reponse{On a $2-1-1-1=-1<0$, donc $F=0$. Les poids du vert et du bleu sont négatifs : ajouter du vert ou du bleu diminue la valeur calculée et fait sortir la couleur de la zone des rouges, même avec $r=1$.}
+\end{enumerate}
+}

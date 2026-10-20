@@ -1,0 +1,36 @@
+\uuid{XDVP}
+\titre{Évaluer un perceptron à deux entrées, avec ou sans biais}
+\niveau{L1}
+\module{OPTRN}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Perceptron}
+\theme{Perceptron linéaire et affine, fonction de Heaviside, inférence}
+\auteur{Maxime Nguyen}
+\datecreate{2026-10-20}
+\organisation{AMSCC}
+\difficulte{1}
+\contenu{
+\texte{On note $H$ la fonction de Heaviside : $H(t)=1$ si $t\geq0$ et $H(t)=0$ si $t<0$. Soit le perceptron linéaire à deux entrées de poids $a=3$ et $b=-2$, de fonction d'activation $H$. Il définit la fonction
+\[
+F(x,y)=H(3x-2y).
+\]}
+\begin{enumerate}
+\item \question{Calculer $f(x,y)=3x-2y$ puis $F(x,y)$ pour les entrées $(2,1)$, $(-1,2)$, $(2,3)$, $(0,-1)$ et $(-4,-5)$.}
+\indication{Calculer d'abord $f(x,y)$, puis comparer sa valeur à $0$.}
+\reponse{On obtient
+\begin{center}
+\begin{tabular}{c|ccccc}
+entrée $(x,y)$ & $(2,1)$ & $(-1,2)$ & $(2,3)$ & $(0,-1)$ & $(-4,-5)$\\\hline
+$f(x,y)$ & $4$ & $-7$ & $0$ & $2$ & $-2$\\
+$F(x,y)$ & $1$ & $0$ & $1$ & $1$ & $0$
+\end{tabular}
+\end{center}}
+\item \question{Une des entrées est « à la limite ». Laquelle, et que renvoie alors le perceptron ? Tracer la frontière $3x-2y=0$ et préciser de quel côté de la droite $F$ vaut $1$.}
+\indication{Écrire la condition $3x-2y\geq0$ sous la forme $y\leq\dots$}
+\reponse{L'entrée $(2,3)$ vérifie $f(2,3)=0$ : comme $H(0)=1$, le perceptron renvoie $1$. La condition $3x-2y\geq0$ équivaut à $y\leq \frac32x$. La frontière est la droite $y=\frac32x$, qui passe par l'origine, et $F$ vaut $1$ sur cette droite et au-dessous.}
+\item \question{On ajoute un biais $c=-3$. Le perceptron est maintenant $G(x,y)=H(3x-2y-3)$. Calculer $G$ pour les cinq mêmes entrées. Pour lesquelles la sortie a-t-elle changé ?}
+\reponse{Les valeurs de $3x-2y-3$ sont $1$, $-10$, $-3$, $-1$ et $-5$. On obtient $G=1,0,0,0,0$. La sortie a changé pour les entrées $(2,3)$ et $(0,-1)$.}
+\item \question{Calculer $F(0,0)$ et $G(0,0)$. Que peut-on dire de la frontière de chacun des deux perceptrons par rapport à l'origine ? Où passe celle de $G$ ?}
+\reponse{On a $F(0,0)=H(0)=1$ et $G(0,0)=H(-3)=0$. La frontière de $F$ passe par l'origine, ce qui est toujours le cas pour un perceptron linéaire. Celle de $G$ est la droite $y=\frac{3x-3}{2}$ : elle est parallèle à la précédente et décalée, elle passe par $(1,0)$. Le biais permet de déplacer la frontière.}
+\end{enumerate}
+}

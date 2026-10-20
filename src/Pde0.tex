@@ -1,0 +1,30 @@
+\uuid{Pde0}
+\titre{Score d'un perceptron sigmoïde : taille et poids}
+\niveau{L1}
+\module{OPTRN}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Perceptron}
+\theme{Perceptron sigmoïde, seuil, score, inférence}
+\auteur{Maxime Nguyen}
+\datecreate{2026-10-20}
+\organisation{AMSCC}
+\difficulte{1}
+\contenu{
+\texte{On reprend, sur des données fictives, un perceptron à deux entrées qui reçoit la taille $t$ (en mètres) et le poids $p$ (en kilogrammes) d'une personne. Ses poids sont $a=85$ et $b=-1$, son biais est $c=-77$, et sa fonction d'activation est la sigmoïde $\sigma(z)=\dfrac{1}{1+e^{-z}}$. Il définit
+\[
+F(t,p)=\sigma(85t-p-77).
+\]
+Règle fictive : si $F(t,p)<\frac12$, la personne est classée dans la première catégorie ; sinon, dans la seconde. Le score $F$ n'est pas une probabilité.}
+\begin{enumerate}
+\item \question{Calculer $z=85t-p-77$ puis $F(t,p)$ (à $10^{-2}$ près, à la calculatrice) pour une personne $A$ de $1{,}70$\,m et $66$\,kg, puis pour une personne $B$ de $1{,}72$\,m et $72$\,kg. Dans quelle catégorie chacune est-elle classée ?}
+\indication{Calculer d'abord $z$, puis $\sigma(z)$.}
+\reponse{Pour $A$ : $z=144{,}5-66-77=1{,}5$, donc $F\approx0{,}82\geq\frac12$ : seconde catégorie. Pour $B$ : $z=146{,}2-72-77=-2{,}8$, donc $F\approx0{,}06<\frac12$ : première catégorie.}
+\item \question{Montrer que $\sigma(z)\geq\frac12$ si et seulement si $z\geq0$. Que peut-on en déduire pour décider la catégorie sans calculer $\sigma$ ?}
+\indication{Calculer $\sigma(0)$ et utiliser que $\sigma$ est strictement croissante.}
+\reponse{On a $\sigma(0)=\frac12$ et $\sigma$ est strictement croissante, donc $\sigma(z)\geq\frac12$ si et seulement si $z\geq0$. Il suffit donc de regarder le signe de $z=85t-p-77$ : seconde catégorie si $z\geq0$, première sinon.}
+\item \question{Dans quelle catégorie est classée une personne $C$ de $1{,}80$\,m et $76$\,kg ? Quel est son score ?}
+\reponse{On a $z=153-76-77=0$, donc $F=\sigma(0)=\frac12$. Ce n'est pas strictement inférieur à $\frac12$ : la personne $C$ est classée dans la seconde catégorie.}
+\item \question{On remplace la sigmoïde par la fonction de Heaviside $H$, avec les mêmes poids et le même biais. Quelles sont les sorties pour $A$, $B$ et $C$ ? Que perd-on par rapport au score sigmoïde ?}
+\reponse{Les sorties sont $H(1{,}5)=1$, $H(-2{,}8)=0$ et $H(0)=1$ : les catégories sont les mêmes que pour la sigmoïde. En revanche, on perd l'information sur la distance à la frontière : le score $0{,}06$ de $B$ est loin de $\frac12$, alors que le score $\frac12$ de $C$ est exactement au seuil, ce que ne distinguent pas les sorties $0$ et $1$.}
+\end{enumerate}
+}

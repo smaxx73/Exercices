@@ -1,0 +1,41 @@
+\uuid{0unE}
+\titre{Un perceptron à trois entrées : vote à la majorité}
+\niveau{L1}
+\module{OPTRN}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Perceptron}
+\theme{Perceptron affine, fonctions logiques, inférence}
+\auteur{Maxime Nguyen}
+\datecreate{2026-10-20}
+\organisation{AMSCC}
+\difficulte{1}
+\contenu{
+\texte{Trois capteurs renvoient chacun $0$ (pas d'alerte) ou $1$ (alerte). Un perceptron à trois entrées $x_1,x_2,x_3\in\{0,1\}$ est défini par les poids $1$, $1$ et $1$ et par le biais $-2$. Sa fonction d'activation est la fonction de Heaviside $H$, avec $H(t)=1$ si $t\geq0$ et $H(t)=0$ sinon :
+\[
+F(x_1,x_2,x_3)=H(x_1+x_2+x_3-2).
+\]}
+\begin{enumerate}
+\item \question{Calculer $F(1,0,1)$, $F(0,0,1)$ et $F(1,1,1)$.}
+\indication{Calculer d'abord la somme $x_1+x_2+x_3-2$.}
+\reponse{On a $F(1,0,1)=H(0)=1$, $F(0,0,1)=H(-1)=0$ et $F(1,1,1)=H(1)=1$.}
+\item \question{Dresser le tableau des valeurs de $F$ sur les huit entrées de $\{0,1\}^3$.}
+\reponse{\begin{center}
+\begin{tabular}{ccc|cc}
+$x_1$ & $x_2$ & $x_3$ & $x_1+x_2+x_3-2$ & $F$\\\hline
+$0$ & $0$ & $0$ & $-2$ & $0$\\
+$1$ & $0$ & $0$ & $-1$ & $0$\\
+$0$ & $1$ & $0$ & $-1$ & $0$\\
+$0$ & $0$ & $1$ & $-1$ & $0$\\
+$1$ & $1$ & $0$ & $0$ & $1$\\
+$1$ & $0$ & $1$ & $0$ & $1$\\
+$0$ & $1$ & $1$ & $0$ & $1$\\
+$1$ & $1$ & $1$ & $1$ & $1$
+\end{tabular}
+\end{center}}
+\item \question{Décrire en une phrase ce que calcule ce perceptron.}
+\reponse{La sortie vaut $1$ si et seulement si au moins deux des trois capteurs signalent une alerte : c'est un vote à la majorité.}
+\item \question{On garde les poids $1$, $1$, $1$ et on change seulement le biais. Quelle fonction logique obtient-on avec le biais $-3$ ? avec le biais $-1$ ?}
+\indication{Le perceptron renvoie $1$ si et seulement si $x_1+x_2+x_3\geq k$ pour un certain entier $k$.}
+\reponse{Avec le biais $-3$, la sortie vaut $1$ si et seulement si $x_1+x_2+x_3\geq3$, c'est-à-dire si les trois entrées valent $1$ : c'est le « ET ». Avec le biais $-1$, la sortie vaut $1$ si et seulement si $x_1+x_2+x_3\geq1$, c'est-à-dire si au moins une entrée vaut $1$ : c'est le « OU ».}
+\end{enumerate}
+}
