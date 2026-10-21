@@ -2,7 +2,7 @@
 \module{Analyse de données}
 \chapitre{Apprentissage automatique}
 \sousChapitre{Régression supervisée}
-\titre{Regression linéaire}
+\titre{Régression linéaire}
 \niveau{L3}
 \theme{optimisation}
 \auteur{Erwan HILLION}
@@ -18,7 +18,7 @@ Pour mesurer la qualit\'e des param\`etres $(a,b)$, on souhaite que l'\'ecart en
 \begin{equation*}
 R(a,b) = \sum_{i=1}^n (y_i - (a x_i+b) )^2.
 \end{equation*}
-Le probl\`eme est de minimiser la fonction $R(a,b)$. }
+Le probl\`eme est de minimiser la fonction $R(a,b)$. On suppose que les abscisses $x_1,\ldots,x_n$ ne sont pas toutes \'egales. }
 
 \medskip
 
@@ -34,14 +34,14 @@ R(a,b) = a^2 \sum_{i=1}^n x_i^2 + 2ab \sum_{i=1}^n x_i + b^2 n -2 a\sum_{i=1}^n 
 \end{equation} }
 \reponse{ Cela découle d'un calcul direct. }
 \item \question{ Montrer que $R$ possède un unique point critique $(a^*,b^*)$ que l'on exprimera à l'aide des $x_i$ et des $y_i$.  }
-\reponse{ On cherche $(a^*,b^*)$ tel que $\nabla R(a^*,b^*)=0$. Au vu de l'expression explicite du gradient, on s'aperçoit qu'il faut résoudre un système linéaire à deux inconnues. La résolution de ce système (par exemple avec le pivot de Gauss) donne l'unique solution : $$a^* = \frac{\sum_{i=1}^n x_i \sum_{i=1}^n y_i - n \sum_{i=1}^n x_iy_i}{\left(\sum_{i=1}^n x_i\right)^2-n\sum_{i=1}^n x_i^2} \ , \ b^*=\frac{\sum_{i=1}^n x_iy_i \sum_{i=1}^n x_i-\sum_{i=1}^n y_i \sum_{i=1}^n x_i^2}{\left(\sum_{i=1}^n x_i\right)^2-n\sum_{i=1}^n x_i^2}.$$ }
+\reponse{ On cherche $(a^*,b^*)$ tel que $\nabla R(a^*,b^*)=0$. Au vu de l'expression explicite du gradient, on s'aperçoit qu'il faut résoudre un système linéaire à deux inconnues. La résolution de ce système (par exemple avec le pivot de Gauss) donne l'unique solution : $$a^* = \frac{\sum_{i=1}^n x_i \sum_{i=1}^n y_i - n \sum_{i=1}^n x_iy_i}{\left(\sum_{i=1}^n x_i\right)^2-n\sum_{i=1}^n x_i^2} \ , \ b^*=\frac{\sum_{i=1}^n x_iy_i \sum_{i=1}^n x_i-\sum_{i=1}^n y_i \sum_{i=1}^n x_i^2}{\left(\sum_{i=1}^n x_i\right)^2-n\sum_{i=1}^n x_i^2}.$$ Le d\'enominateur est non nul : d'apr\`es l'in\'egalit\'e de Cauchy-Schwarz, $\left(\sum_{i=1}^n x_i\right)^2 \leq n\sum_{i=1}^n x_i^2$, avec \'egalit\'e si et seulement si les $x_i$ sont tous \'egaux, ce qui est exclu par hypoth\`ese. }
 \item \question{ Montrer que la hessienne de $R$ s'écrit :
 \begin{equation*}
 \textrm{Hess}_R(a,b)  = \left( \begin{array}{cc} 2 \sum_{i=1}^n x_i^2 & 2 \sum_{i=1}^n x_i \\ 2 \sum_{i=1}^n x_i & 2 n \end{array}\right).
 \end{equation*}  }
 \reponse{ La hessienne s'obtient par calcul direct, en dérivant les dérivées partielles obtenues dans le calcul du gradient. }
 \item \question{\`A l'aide de la question pr\'ec\'edente et de l'in\'egalit\'e de Cauchy-Schwarz, montrer que la fonction $R$ est convexe.}
-\reponse{ On peut remarquer que la hessienne est constante en $a$ et $b$ (car la fonciton $R$ est polynomiale de degré $2$). Il suffit donc de montrer que $\langle X, H X \rangle \ge 0$ pour tout vecteur $X = \begin{pmatrix} a \\ b \end{pmatrix} \in \R^2$, où $H$ est la hessienne obtenue précédemment. Ce produit scalaire s'écrit, après développement : $$ \frac{1}{4} \langle X, H X \rangle = a^2 \sum_{i=1}^n x_i^2 + 2 a b \sum_{i=1}^n x_i  + b^2 n.$$ Par Cauchy-Schwarz, on a $\sum_{i=1}^n x_i^2 \ge \frac{1}{n} \left(\sum_{i=1}^n x_i \right)^2$, d'où il vient : $$ \frac{1}{4} \langle X, H X \rangle  \ge \frac{1}{n}\left(a \sum_{i=1}^n x_i + b n \right)^2 \ge 0,$$ comme voulu. }
+\reponse{ On peut remarquer que la hessienne est constante en $a$ et $b$ (car la fonction $R$ est polynomiale de degré $2$). Il suffit donc de montrer que $\langle X, H X \rangle \ge 0$ pour tout vecteur $X = \begin{pmatrix} a \\ b \end{pmatrix} \in \R^2$, où $H$ est la hessienne obtenue précédemment. Ce produit scalaire s'écrit, après développement : $$ \frac{1}{4} \langle X, H X \rangle = a^2 \sum_{i=1}^n x_i^2 + 2 a b \sum_{i=1}^n x_i  + b^2 n.$$ Par Cauchy-Schwarz, on a $\sum_{i=1}^n x_i^2 \ge \frac{1}{n} \left(\sum_{i=1}^n x_i \right)^2$, d'où il vient : $$ \frac{1}{4} \langle X, H X \rangle  \ge \frac{1}{n}\left(a \sum_{i=1}^n x_i + b n \right)^2 \ge 0,$$ comme voulu. }
 \end{enumerate}
 
 }

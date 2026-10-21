@@ -13,7 +13,7 @@
 
 
 \texte{
-  Soit $N \in \mathbb{N}^*$, et $\{(t_i, x_i)\}_{1 \leq i \leq N}$ un nuage de points. On cherche à déterminer les coefficients $a$, $b$ et $c$ de la parabole $P$ d'équation $y = at^2 + bt + c$ qui minimise la somme des carrés des distances des points $(t_i, x_i)$ à cette parabole. 
+  Soit $N \in \mathbb{N}^*$, et $\{(t_i, x_i)\}_{1 \leq i \leq N}$ un nuage de points. On cherche à déterminer les coefficients $\alpha$, $\beta$ et $\gamma$ de la parabole $P$ d'équation $x = \alpha t^2 + \beta t + \gamma$ (l'axe horizontal porte $t$ et l'axe vertical porte $x$) qui minimise la somme des carrés des écarts verticaux $x_i - P(t_i)$ entre les points $(t_i, x_i)$ et cette parabole. 
 }
 
 \begin{enumerate}
@@ -23,15 +23,15 @@
   \]
   avec $A \in \mathcal{S}_n(\mathbb{R})$, $b \in \mathbb{R}^n$. On devra donc expliciter $n$, $A$, et $b$. On utilisera la notation $S_k = \sum_{i=1}^{N} t_i^k$.}
     \indication{Exprimer la somme des carrés comme le carré de la norme euclidienne d'un vecteur résidu $R = k - MX$. Développer $\|R\|^2$ en utilisant les propriétés du produit scalaire et de la transposée matricielle pour faire apparaître une forme quadratique en $X$.}
-  \reponse{Le problème est celui de la régression parabolique pour un nuage de points $\{(t_i, x_i)\}_{1 \leq i \leq N}$, où l'on cherche la parabole $P$ d'équation $y = at^2 + bt + c$ qui minimise la somme des carrés des distances des points $(t_i, x_i)$ à cette parabole. Le problème peut s'écrire :
+  \reponse{Le problème est celui de la régression parabolique pour un nuage de points $\{(t_i, x_i)\}_{1 \leq i \leq N}$, où l'on cherche la parabole $P$ d'équation $x = \alpha t^2 + \beta t + \gamma$ qui minimise la somme des carrés des écarts verticaux $x_i - P(t_i)$. Le problème peut s'écrire :
   \[
-  \inf_{X \in \mathbb{R}^3} J(X) \quad \text{avec} \quad X = \begin{pmatrix} a \\ b \\ c \end{pmatrix} \quad \text{et} \quad J(X) = \sum_{i=1}^{N} (x_i - at_i^2 - bt_i - c)^2.
+  \inf_{X \in \mathbb{R}^3} J(X) \quad \text{avec} \quad X = \begin{pmatrix} \alpha \\ \beta \\ \gamma \end{pmatrix} \quad \text{et} \quad J(X) = \sum_{i=1}^{N} (x_i - \alpha t_i^2 - \beta t_i - \gamma)^2.
   \]
-  En écrivant $J(X) = \|MX - k\|^2$ avec $M = \begin{pmatrix} t_1^2 & t_1 & 1 \\ \vdots & \vdots & \vdots \\ t_N^2 & t_N & 1 \end{pmatrix}$ et $k = \begin{pmatrix} x_1 \\ \vdots \\ x_N \end{pmatrix}$, on obtient
+  En écrivant $J(X) = \|MX - k\|^2$ avec $M = \begin{pmatrix} t_1^2 & t_1 & 1 \\ \vdots & \vdots & \vdots \\ t_N^2 & t_N & 1 \end{pmatrix}$ et $k = \begin{pmatrix} x_1 \\ \vdots \\ x_N \end{pmatrix}$, on obtient, en développant,
   \[
-  J(X) = \frac{1}{2} \langle AX, X \rangle - \langle b, X \rangle
+  \frac{1}{2} J(X) = \frac{1}{2} \langle AX, X \rangle - \langle b, X \rangle + \frac{1}{2} \|k\|^2
   \]
-  avec $A = M^T M$ et $b = M^T k$. La matrice $A$ est donc donnée par :
+  avec $A = M^T M$ et $b = M^T k$. Les fonctions $J$ et $\frac{1}{2}J$ ont les mêmes minimiseurs, et $\frac{1}{2}J$ ne diffère de $\frac{1}{2} \langle AX, X \rangle - \langle b, X \rangle$ que par une constante : on est bien ramené à un problème de la forme demandée. La matrice $A$ est donnée par :
   \[
   A = \begin{pmatrix} S_4 & S_3 & S_2 \\ S_3 & S_2 & S_1 \\ S_2 & S_1 & N \end{pmatrix}.
   \]}
@@ -51,10 +51,10 @@
 	\[ \langle AX, X \rangle = \langle M^T M X, X \rangle = \langle MX, MX \rangle = \|MX\|_2^2. \]
 	Ainsi, $A$ est définie positive si et seulement si $\ker(M) = \{0\}$.
 	
-	Le noyau de $M$ est l'ensemble des vecteurs $X = (a, b, c)^T$ tels que $MX=0$, ce qui équivaut au système $at_i^2 + bt_i + c = 0$ pour tout $i \in \{1, \dots, N\}$.
-	Cette condition signifie que le polynôme du second degré $P(t) = at^2 + bt + c$ admet pour racines toutes les valeurs distinctes présentes dans l'ensemble $\{t_1, \dots, t_N\}$.
+	Le noyau de $M$ est l'ensemble des vecteurs $X = (\alpha, \beta, \gamma)^T$ tels que $MX=0$, ce qui équivaut au système $\alpha t_i^2 + \beta t_i + \gamma = 0$ pour tout $i \in \{1, \dots, N\}$.
+	Cette condition signifie que le polynôme du second degré $P(t) = \alpha t^2 + \beta t + \gamma$ admet pour racines toutes les valeurs distinctes présentes dans l'ensemble $\{t_1, \dots, t_N\}$.
 	
-	Un polynôme de degré au plus 2 et non nul ne peut avoir plus de deux racines distinctes. Par conséquent, si l'ensemble $\{t_i\}$ contient au moins trois valeurs distinctes, le polynôme $P(t)$ doit être le polynôme nul, ce qui implique $a=b=c=0$, soit $X=0$. Dans ce cas, $\ker(M)=\{0\}$.
+	Un polynôme de degré au plus 2 et non nul ne peut avoir plus de deux racines distinctes. Par conséquent, si l'ensemble $\{t_i\}$ contient au moins trois valeurs distinctes, le polynôme $P(t)$ doit être le polynôme nul, ce qui implique $\alpha=\beta=\gamma=0$, soit $X=0$. Dans ce cas, $\ker(M)=\{0\}$.
 	
 	Inversement, si l'ensemble $\{t_i\}$ contient seulement une ou deux valeurs distinctes, il est possible de construire un polynôme $P(t)$ non nul de degré au plus 2 qui s'annule en ces valeurs, fournissant un vecteur $X \neq 0$ dans le noyau de $M$.
 	

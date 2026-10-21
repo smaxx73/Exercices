@@ -81,7 +81,7 @@
 			\end{align*}
 		}
 		
-		\item \question{ On pose la fonction d'erreur $E(w)=(y-\hat{y})^2.$ En appliquant l'algorithme de backpropagation (méthode de rétropropagation du gradient appliqué au réseau de neurones), déterminer les dérivées partielles $\frac{\partial E(w)}{\partial w_j}$ puis $\frac{\partial \hat{y}}{\partial w_j}$. En déduire les expressions des mises à jour des paramètres $\Delta w_j$ (variation des poids) pour $j=1,\cdots{},7$. }
+		\item \question{ On pose la fonction d'erreur $E(w)=(y-\hat{y})^2.$ En appliquant l'algorithme de backpropagation (méthode de rétropropagation du gradient appliqué au réseau de neurones), déterminer les dérivées partielles $\frac{\partial E(w)}{\partial w_j}$ puis $\frac{\partial \hat{y}}{\partial w_j}$. En déduire les expressions des mises à jour des paramètres $\Delta w_j$ (variation des poids, pour un pas d'apprentissage $\eta>0$) pour $j=1,\cdots{},7$. }
 		\reponse{
 			Pour appliquer la backpropagation, on utilise la règle de la chaîne en définissant des termes d'erreur locaux $\delta$.
 			La fonction d’erreur est $E = (y - \hat{y})^2$.

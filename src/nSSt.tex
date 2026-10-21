@@ -26,13 +26,14 @@ Les dérivées partielles sont alors:
 $$ \frac{\partial g}{\partial x}(x,y)=y-\frac{1}{x^2} ~~\text{ et }~~
 \frac{\partial g}{\partial y}(x,y)=x - \frac{1}{y^2}$$
 L'unique point critique sur $U$ est alors le point $(1,1)$. 
-\\ Pour vérifier que c'est bien un minimum, on peut éventuellement calculer la hessienne. 
-$$H_g(x,y)= \begin{vmatrix} 
+\\ Le test de la hessienne montre que c'est un minimum local.
+$$H_g(x,y)= \begin{pmatrix} 
 2x^{-3} & 1 \\ 1 & 2y^{-3} 
-\end{vmatrix} $$
-Ainsi, $det(H_f(1,1))=3>0$: ainsi, $f$ atteint bien un extremum en $(1,1)$ et comme 
-$\frac{\partial^2 g}{\partial x^2}(1,1)>0$, $g$ atteint un minimum en $(1,1)$. 
-Ainsi, la boite a une aire minimale pour les valeurs $x=1$, $y=1$ et $z=\frac{1}{2}$.
+\end{pmatrix}$$
+Ainsi, $\det H_g(1,1)=3>0$ et $\frac{\partial^2 g}{\partial x^2}(1,1)=2>0$ : $g$ atteint un minimum local en $(1,1)$.
+Ce minimum est global. En effet, l'inégalité arithmético-géométrique appliquée aux trois réels strictement positifs $xy$, $\frac{1}{x}$ et $\frac{1}{y}$, dont le produit vaut $1$, donne pour tout $(x,y)\in U$
+$$g(x,y)=xy+\frac{1}{x}+\frac{1}{y}\geq 3\sqrt[3]{xy\cdot\frac{1}{x}\cdot\frac{1}{y}}=3=g(1,1).$$
+Ainsi, la boite a une aire minimale, égale à $3\,\mathrm{m}^2$, pour les valeurs $x=1$, $y=1$ et $z=\frac{1}{2}$ (en mètres).
 
 \begin{tikzpicture}
     \begin{axis}[
