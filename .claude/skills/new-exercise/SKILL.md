@@ -39,7 +39,7 @@ Structure du contenu :
   \texte{ ... }           % contexte facultatif
   \begin{enumerate}
     \item \question{ ... }
-    \indication{ ... }    % vide si pas d'indication
+    \indication{ ... }    % facultatif : l'omettre s'il n'y a pas d'indication (jamais vide)
     \reponse{ ... }
   \end{enumerate}
 }
@@ -68,7 +68,7 @@ Principes éditoriaux :
 - L'énoncé doit être **autonome** : toutes les notations utilisées sont introduites dans `\texte{}` ou dans les questions.
 - Chaque `\question{}` doit être précise et univoque.
 - Chaque `\reponse{}` doit justifier **toutes** les étapes, y compris les passages à la limite, les critères de convergence, les théorèmes invoqués.
-- `\indication{}` est optionnel ; laisser le champ vide `\indication{}` plutôt que de l'omettre.
+- `\indication{}` est optionnel : s'il n'y a pas d'indication, **omettre entièrement la commande**. Ne jamais laisser `\indication{}` vide : la règle `empty-indication` de `scripts/check_exercise_sources.py` le rejette.
 - Utiliser `$$...$$` pour les formules centrées, `$...$` pour les formules en ligne.
 - Les sommes de séries s'écrivent `\sum_{n\geq 1}` ou `\sum_{n=1}^{N}`.
 - Encadrer les résultats remarquables avec `\boxed{...}`.
@@ -83,3 +83,8 @@ Principes éditoriaux :
 - Tous les champs obligatoires présents
 - La correction (`\reponse`) est complète et mathématiquement rigoureuse
 - La date correspond à aujourd'hui
+- Aucun `\indication{}` vide ; le fichier passe la vérification des sources :
+  ```bash
+  python3 scripts/check_exercise_sources.py src/<UUID>.tex
+  python3 scripts/validate_exercises.py --file <UUID>
+  ```
