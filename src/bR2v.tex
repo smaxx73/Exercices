@@ -1,0 +1,58 @@
+\uuid{bR2v}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Estimation par maximum de vraisemblance}
+\titre{Vraisemblance d'une proportion}
+\theme{maximum de vraisemblance, loi de Bernoulli, proportion, estimateur sans biais}
+\auteur{AMSCC}
+\datecreate{2026-10-19}
+\organisation{AMSCC}
+\difficulte{1}
+\contenu{
+\texte{On contrôle des pièces prélevées indépendamment dans une production de grande taille. Chaque pièce est défectueuse avec une probabilité inconnue $p\in]0;1[$. On code $X_i=1$ si la $i$-ème pièce est défectueuse et $X_i=0$ sinon : les $X_i$ sont indépendantes, de loi de Bernoulli $\mathcal B(p)$.}
+\begin{enumerate}
+\item \question{Sur $n=200$ pièces, $24$ sont défectueuses. Exprimer la vraisemblance $L(p)$ de cette observation, puis déterminer la valeur de $p$ qui la maximise.}
+\indication{Pour une observation $x\in\{0;1\}$, $\mathbb P(X=x)=p^x(1-p)^{1-x}$. Étudier le logarithme de la vraisemblance sur $]0;1[$.}
+\reponse{Par indépendance, la vraisemblance est le produit des probabilités des observations :
+\[
+L(p)=\prod_{i=1}^{200}p^{x_i}(1-p)^{1-x_i}=p^{24}(1-p)^{176}.
+\]
+Sur $]0;1[$, on étudie $\ell(p)=\ln L(p)=24\ln p+176\ln(1-p)$ :
+\[
+\ell'(p)=\frac{24}p-\frac{176}{1-p}=\frac{24-200p}{p(1-p)}.
+\]
+La dérivée est positive sur $]0;0{,}12[$ et négative sur $]0{,}12;1[$. La vraisemblance admet donc un unique maximum en
+\[
+\widehat p_{\mathrm{obs}}=\frac{24}{200}=0{,}12.
+\]}
+\item \question{Pour un $n$-échantillon $(X_1,\ldots,X_n)$, on note $K=\sum_{i=1}^nX_i$ le nombre de pièces défectueuses. Montrer que l'estimateur du maximum de vraisemblance de $p$ est la fréquence $F=\frac Kn$, lorsque l'observation $k$ vérifie $0<k<n$. Que se passe-t-il si $k=0$ ou $k=n$ ?}
+\indication{Reprendre le calcul précédent avec $k$ défectueuses parmi $n$.}
+\reponse{Avec $k=\sum_{i=1}^nx_i$, on obtient $L(p)=p^k(1-p)^{n-k}$ et
+\[
+\ell'(p)=\frac kp-\frac{n-k}{1-p}=\frac{k-np}{p(1-p)}.
+\]
+Si $0<k<n$, la dérivée change de signe en $\frac kn\in]0;1[$ : le maximum est atteint en $\widehat p_{\mathrm{obs}}=\frac kn$. La statistique correspondante est la fréquence
+\[
+F=\frac Kn=\frac1n\sum_{i=1}^nX_i.
+\]
+Si $k=0$, $L(p)=(1-p)^n$ est strictement décroissante ; si $k=n$, $L(p)=p^n$ est strictement croissante. Dans les deux cas, aucun maximum n'est atteint sur $]0;1[$. En étendant le modèle à $[0;1]$, on retrouve $\widehat p_{\mathrm{obs}}=\frac kn$, égal à $0$ ou à $1$.}
+\item \question{Calculer l'espérance et la variance de $F$. Cet estimateur est-il sans biais ? convergent ?}
+\reponse{On a $K\sim\mathcal B(n,p)$, donc $\mathbb E(K)=np$ et $\operatorname{Var}(K)=np(1-p)$. Ainsi,
+\[
+\mathbb E(F)=p,\qquad \operatorname{Var}(F)=\frac{p(1-p)}n.
+\]
+$F$ est donc sans biais. Son erreur quadratique moyenne $\frac{p(1-p)}n$ tend vers $0$ lorsque $n\to\infty$ : $F$ converge en probabilité vers $p$.}
+\item \question{Pour $n$ grand, quelle loi approchée peut-on utiliser pour $F$ ? Donner, pour les données de la première question, une estimation de l'écart-type de $F$.}
+\indication{Penser au théorème central limite et remplacer $p$, inconnu, par son estimation.}
+\reponse{D'après le théorème central limite,
+\[
+F\approx\mathcal N\left(p,\sqrt{\frac{p(1-p)}n}\right)
+\]
+lorsque $n$ est grand. Le paramètre $p$ étant inconnu, on estime l'écart-type de $F$ par
+\[
+\sqrt{\frac{0{,}12\times0{,}88}{200}}\simeq0{,}0230.
+\]
+Cette approximation sert à construire l'intervalle de confiance d'une proportion.}
+\end{enumerate}
+}

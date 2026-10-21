@@ -1,0 +1,32 @@
+\uuid{Qn3w}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Échantillonnage et estimation}
+\titre{Quantiles des lois d'échantillonnage au tableur}
+\theme{loi de Student, loi du chi2, loi de Fisher, quantiles, tableur}
+\auteur{AMSCC}
+\datecreate{2026-10-19}
+\organisation{AMSCC}
+\difficulte{1}
+\contenu{
+\texte{Les quantiles sont à gauche : $t_{\nu;\gamma}$ pour la loi $St(\nu)$, $q_{\nu;\gamma}$ pour la loi $\chi^2(\nu)$ et $F_{\nu_1,\nu_2;\gamma}$ pour la loi $F(\nu_1,\nu_2)$, avec une probabilité $\gamma$ à gauche du quantile.}
+\texte{Ces lois sont celles des statistiques d'un échantillon normal de taille $16$, comparé pour la loi de Fisher à un second échantillon de taille $10$. Les calculs sont à réaliser au tableur ; les quantiles utilisés sont des quantiles à gauche.}
+\begin{enumerate}
+\item \question{Pour $T\sim St(15)$, déterminer $a$ tel que $\mathbb P(T>a)=0{,}05$, puis $c>0$ tel que $\mathbb P(-c\leq T\leq c)=0{,}95$. Pourquoi les probabilités à fournir à la fonction inverse sont-elles différentes ?}
+\indication{Pour le premier seuil, convertir la probabilité à droite en probabilité à gauche. Pour l'intervalle central, répartir les $5\%$ restants entre les deux queues, en utilisant la symétrie.}
+\reponse{\texttt{=LOI.STUDENT.INVERSE.N(0,95;15)} donne $a=t_{15;0{,}95}\simeq1{,}753050$.
+\par Pour l'intervalle central, chaque queue contient $2{,}5\%$ : \texttt{=LOI.STUDENT.INVERSE.N(0,975;15)} donne $c=t_{15;0{,}975}\simeq2{,}131450$. L'intervalle est donc environ $[-2{,}131450;2{,}131450]$. Les probabilités à gauche sont $0{,}95$ et $0{,}975$.}
+\item \question{Pour $Q\sim\chi^2(16)$, déterminer $b$ tel que $\mathbb P(Q>b)=0{,}05$. Pour $V\sim\chi^2(15)$, déterminer $\ell$ et $h$ tels que $\mathbb P(V<\ell)=\mathbb P(V>h)=0{,}025$. Quelle probabilité contient $[\ell;h]$ ? Cet intervalle est-il symétrique autour de l'espérance de $V$ ?}
+\indication{Utiliser les quantiles à gauche d'ordres $0{,}95$, $0{,}025$ et $0{,}975$. La loi du khi-deux n'est pas symétrique ; son espérance vaut son nombre de degrés de liberté.}
+\reponse{\texttt{=LOI.KHIDEUX.INVERSE(0,95;16)} donne $b=q_{16;0{,}95}\simeq26{,}296228$.
+\par\texttt{=LOI.KHIDEUX.INVERSE(0,025;15)} donne $\ell\simeq6{,}262138$.
+\par\texttt{=LOI.KHIDEUX.INVERSE(0,975;15)} donne $h\simeq27{,}488393$.
+\par L'intervalle contient $95\%$ de la probabilité, avec deux queues de même probabilité. Il n'est pas symétrique autour de $\mathbb E(V)=15$ : les distances sont environ $8{,}7379$ et $12{,}4884$. Des queues de même probabilité n'impliquent pas des bornes équidistantes de l'espérance.}
+\item \question{Pour $F\sim F(15,9)$, déterminer $f$ tel que $\mathbb P(F>f)=0{,}05$. Contrôler le résultat avec la fonction de répartition.}
+\indication{Les deux paramètres de la loi de Fisher sont, dans l'ordre, les degrés de liberté du numérateur et du dénominateur.}
+\reponse{\texttt{=INVERSE.LOI.F.N(0,95;15;9)} donne $f=F_{15,9;0{,}95}\simeq3{,}006102$.
+\par Contrôle : \texttt{=LOI.F.DROITE(f;15;9)}, ou \texttt{=1-LOI.F.N(f;15;9;VRAI)}, renvoie $0{,}05$.
+\par Inverser l'ordre des paramètres donne la loi $F(9,15)$, dont le quantile d'ordre $0{,}95$ vaut environ $2{,}5876$.}
+\end{enumerate}
+}

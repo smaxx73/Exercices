@@ -1,0 +1,57 @@
+% Dérivé de 5FLs (réorganisation des TD de STAT, octobre 2026).
+\uuid{Kp7e}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Tests d'hypothèses, intervalle de confiance}
+\titre{Comparer deux proportions}
+\theme{comparaison de proportions, test du khi-deux, intervalle de confiance}
+\auteur{AMSCC}
+\datecreate{2026-10-19}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+\texte{On reprend l'étude sur la liaison entre « être fumeur » (plus de 20 cigarettes par jour pendant 10 ans) et « avoir un cancer de la gorge ». Les 1000 personnes ont été recrutées en deux groupes de taille fixée : 500 personnes atteintes d'un cancer de la gorge et 500 personnes sans cancer. On suppose les observations indépendantes.
+\begin{center}
+\begin{tabular}{lrrr}\hline
+\emph{Observé} & Cancer & Sans cancer & Total \\ \hline
+Fumeur & 342 & 258 & 600 \\
+Non-fumeur & 158 & 242 & 400 \\ \hline
+Total & 500 & 500 & 1000 \\ \hline
+\end{tabular}
+\end{center}}
+\begin{enumerate}
+\item \question{Le nombre de malades est fixé par le recrutement. Quelles proportions peut-on estimer à partir de ces données : la proportion de malades parmi les fumeurs, ou la proportion de fumeurs parmi les malades et parmi les non-malades ? Donner les estimations correspondantes.}
+\reponse{La proportion de malades dans l'échantillon ($50\%$) est fixée par le plan d'étude ; elle ne renseigne pas sur la population. Les proportions de malades parmi les fumeurs ou les non-fumeurs ne sont donc pas estimables ici.
+On peut en revanche estimer la proportion $p_C$ de fumeurs parmi les malades et la proportion $p_S$ de fumeurs parmi les personnes sans cancer :
+\[
+\widehat p_{C,\mathrm{obs}}=\frac{342}{500}=0{,}684,
+\qquad
+\widehat p_{S,\mathrm{obs}}=\frac{258}{500}=0{,}516.
+\]}
+\item \question{Tester au seuil de $5\%$ l'hypothèse $H_0:p_C=p_S$ contre $H_1:p_C\neq p_S$, à l'aide de l'approximation normale de la différence des fréquences.}
+\indication{Sous $H_0$, les deux proportions sont égales à une valeur commune $p$, estimée par la proportion globale de fumeurs. La variance de $F_C-F_S$ vaut alors $p(1-p)\left(\frac1{500}+\frac1{500}\right)$.}
+\reponse{Sous $H_0$, on estime la proportion commune par $\widehat p_{\mathrm{obs}}=\frac{600}{1000}=0{,}6$. La statistique
+\[
+Z=\frac{F_C-F_S}{\sqrt{\widehat P(1-\widehat P)\left(\frac1{500}+\frac1{500}\right)}}
+\]
+suit approximativement la loi $\mathcal N(0,1)$ sous $H_0$, où $\widehat P$ est la proportion globale aléatoire. Sa réalisation vaut
+\[
+z_{\mathrm{obs}}=\frac{0{,}684-0{,}516}{\sqrt{0{,}6\times0{,}4\times0{,}004}}=\frac{0{,}168}{0{,}03098}\simeq5{,}42.
+\]
+Le test est bilatéral : $|z_{\mathrm{obs}}|>\Phi^{-1}(0{,}975)\simeq1{,}96$, donc on rejette $H_0$. La $p$-valeur vaut $2(1-\Phi(5{,}42))\simeq5{,}9\times10^{-8}$.}
+\item \question{Calculer $z_{\mathrm{obs}}^2$ et le comparer à la statistique de Pearson $q_{\mathrm{obs}}=29{,}4$ du test d'indépendance sur le même tableau. Que remarque-t-on ?}
+\reponse{On a $z_{\mathrm{obs}}^2\simeq5{,}422^2\simeq29{,}4=q_{\mathrm{obs}}$. Pour un tableau $2\times2$, le test bilatéral de comparaison de deux proportions avec proportion commune estimée et le test du khi-deux de Pearson sont équivalents : le carré d'une variable $\mathcal N(0,1)$ suit la loi $\chi^2(1)$, et $1{,}96^2\simeq3{,}84=q_{1;0{,}95}$. Les deux tests ont la même $p$-valeur.}
+\item \question{Construire un intervalle de confiance à $95\%$ pour $p_C-p_S$. Qu'apporte-t-il de plus que le test ?}
+\indication{Pour l'intervalle, on n'est plus sous $H_0$ : estimer chaque variance avec sa propre fréquence.}
+\reponse{L'écart-type de $F_C-F_S$ est estimé par
+\[
+\sqrt{\frac{0{,}684\times0{,}316}{500}+\frac{0{,}516\times0{,}484}{500}}\simeq0{,}0305.
+\]
+L'intervalle de confiance approché à $95\%$ est
+\[
+0{,}168\pm1{,}96\times0{,}0305,\quad\text{soit}\quad[0{,}108\ ;\ 0{,}228].
+\]
+Le test indique seulement que la différence est significativement non nulle. L'intervalle en donne l'ordre de grandeur : la proportion de fumeurs est plus élevée chez les malades, de $11$ à $23$ points environ. Il ne contient pas $0$, ce qui est cohérent avec le rejet. Comme pour le test d'indépendance, cette association ne suffit pas à établir une causalité.}
+\end{enumerate}
+}

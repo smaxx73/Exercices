@@ -3,412 +3,256 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Analyse de la précision d'un système d'arme}
+\titre{Dispersion et décentrage d'impacts}
 \theme{statistiques, tests d'hypothèses}
 \auteur{Maxime Nguyen}
 \datecreate{2025-11-24}
 \organisation{AMSCC}
 \difficulte{4}
 \contenu{
-	\texte{
-		Dans le cadre de la qualification d'une section d'infanterie, on évalue la précision 
-		du tir au FAMAS sur cible à 200 mètres. Le référentiel de l'armée de terre fixe 
-		un écart-type maximal de $\sigma_0 = 8$ cm pour les impacts par rapport au centre 
-		de la cible (tous tireurs confondus) pour qu'une section soit considérée comme opérationnelle.
-		
-		Un chef de section souhaite vérifier si sa section respecte ce standard. 
-		Lors d'une séance de tir, 25 soldats effectuent chacun un tir, 
-		et on mesure la distance de l'impact au centre de la cible (en cm). 
-		
-		\textbf{Distances observées (en cm) :}
-		\begin{center}
-			\begin{tabular}{ccccccccccc}
-				5.2 & 12.3 & 8.7 & 6.5 & 15.1 & 9.2 & 7.4 & 11.8 & 4.9 & 13.6 & 9.8 \\
-				4.1 & 11.2 & 7.8 & 13.5 & 6.9 & 10.5 & 8.3 & 14.2 & 5.7 & 7.2 & 10.1 \\
-				8.9 & 12.5 & 6.3 & & & & & & & &
-			\end{tabular}
-		\end{center}
-		
-		\textbf{Statistiques calculées} (pour vérification) : 
-		$\bar{x} = 9.27$ cm, $s^2 = 9.83$ cm$^2$, $s = 3.13$ cm
-		
-		On suppose que la distance des impacts suit une loi normale.
-	}
-	\begin{enumerate}
-		\item \question{ 
-			Avant de réaliser les tests statistiques, visualiser les données :
-			\begin{itemize}
-				\item Représenter les distances par un histogramme ou un diagramme en boîte
-				\item Cette représentation est-elle cohérente avec l'hypothèse de normalité ?
-				\item Y a-t-il des valeurs aberrantes qui pourraient indiquer un problème 
-				(tireur mal formé, incident de tir, etc.) ?
-			\end{itemize}
-		}
-		
-		\indication{ Critère de Tukey : une valeur est aberrante si elle est en dehors de 
-			$[Q1 - 1.5 \times IQR; Q3 + 1.5 \times IQR]$. }
-		
-		\reponse{
-			\textbf{Calculs des quartiles et statistiques descriptives :}
-			
-			En ordonnant les données :
-			4.1, 4.9, 5.2, 5.7, 6.3, 6.5, 6.9, 7.2, 7.4, 7.8, 8.3, 8.7, 8.9, 
-			9.2, 9.8, 10.1, 10.5, 11.2, 11.8, 12.3, 12.5, 13.5, 13.6, 14.2, 15.1
-			
-			\begin{itemize}
-				\item Effectif : $n = 25$
-				\item Minimum : 4.1 cm
-				\item Q1 (25\%) : 6.9 cm (7\textsuperscript{e} valeur)
-				\item Médiane (50\%) : 8.9 cm (13\textsuperscript{e} valeur)
-				\item Q3 (75\%) : 11.8 cm (19\textsuperscript{e} valeur)
-				\item Maximum : 15.1 cm
-				\item Écart interquartile : IQR = Q3 - Q1 = 11.8 - 6.9 = 4.9 cm
-			\end{itemize}
-			
-			\textbf{Recherche de valeurs aberrantes :}
-			
-			Critère de Tukey : une valeur est aberrante si elle est en dehors de 
-			$[Q1 - 1.5 \times IQR; Q3 + 1.5 \times IQR]$
-			
-			$$[6.9 - 1.5 \times 4.9; 11.8 + 1.5 \times 4.9] = [-0.45; 19.15]$$
-			
-			Toutes les valeurs sont dans cet intervalle : \textbf{pas de valeur aberrante}.
-			
-			\textbf{Cohérence avec la normalité :}
-			\begin{itemize}
-				\item La distribution semble relativement symétrique autour de la médiane (8.9 cm)
-				\item La médiane (8.9 cm) est très proche de la moyenne (9.27 cm), 
-				ce qui suggère une distribution symétrique
-				\item L'écart-type $s = 3.13$ cm représente environ 34\% de la moyenne, 
-				ce qui est raisonnable
-				\item Pas de valeurs extrêmes selon le critère de Tukey
-				\item Distribution unimodale concentrée autour de 9 cm
-				\item L'écart-type est nettement inférieur au standard requis (3.13 < 8 cm)
-			\end{itemize}
-			
-			L'hypothèse de normalité semble acceptable pour ces données.
-			
-			\textbf{Diagramme en boîte (boîte à moustaches) :}
-			
-			\begin{center}
-				\begin{tikzpicture}
-					\draw[->] (0,0) -- (16,0) node[right] {Distance (cm)};
-					\foreach \x in {0,2,4,6,8,10,12,14,16}
-					\draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
-					
-					% Moustaches
-					\draw[thick] (4.1,1) -- (6.9,1);
-					\draw[thick] (11.8,1) -- (15.1,1);
-					
-					% Boîte
-					\draw[thick,fill=blue!20] (6.9,0.5) rectangle (11.8,1.5);
-					
-					% Médiane
-					\draw[very thick,red] (8.9,0.5) -- (8.9,1.5);
-					
-					% Marques
-					\draw[thick] (4.1,0.8) -- (4.1,1.2) node[above] {Min};
-					\draw[thick] (15.1,0.8) -- (15.1,1.2) node[above] {Max};
-					\node[above] at (8.9,1.5) {Médiane};
-					\node[below] at (6.9,0.5) {Q1};
-					\node[below] at (11.8,0.5) {Q3};
-				\end{tikzpicture}
-			\end{center}
-		}
-		
-		\indication{
-			Avec un tableur :
-			\begin{itemize}
-				\item Trier les données : Sélectionner $\to$ Données $\to$ Trier
-				\item Minimum : \texttt{=MIN(plage)} donne 4.1
-				\item Q1 : \texttt{=QUARTILE.INCLURE(plage; 1)} donne 6.9
-				\item Médiane : \texttt{=MEDIANE(plage)} ou \texttt{=QUARTILE.INCLURE(plage; 2)} donne 8.9
-				\item Q3 : \texttt{=QUARTILE.INCLURE(plage; 3)} donne 11.8
-				\item Maximum : \texttt{=MAX(plage)} donne 15.1
-				\item IQR : \texttt{=Q3-Q1} donne 4.9
-				\item Boîte à moustaches : Insertion $\to$ Graphique $\to$ Boîte à moustaches
-			\end{itemize}
-		}
-		
-		\item \question{ 
-			Le chef de section souhaite tester si sa section respecte le standard de l'armée.
-			\begin{itemize}
-				\item Formuler les hypothèses $H_0$ et $H_1$ de ce test
-				\item Quel type de test doit-on utiliser ? (test bilatéral ou unilatéral ?)
-				\item Justifier le choix de la statistique de test et donner sa loi sous $H_0$
-			\end{itemize}
-		}
-		
-		\reponse{
-			\textbf{Formulation des hypothèses :}
-			
-			Le standard fixe $\sigma_0 = 8$ cm comme écart-type maximal. 
-			On veut tester si la dispersion observée est conforme (ou meilleure) à ce standard.
-			
-			$$H_0 : \sigma^2 \leq \sigma_0^2 = 64 \text{ cm}^2 \quad \text{(section opérationnelle)}$$
-			$$H_1 : \sigma^2 > \sigma_0^2 = 64 \text{ cm}^2 \quad \text{(précision insuffisante)}$$
-			
-			\textbf{Type de test :} Test unilatéral à droite, car on cherche à détecter 
-			une dispersion \textit{trop grande} (problème opérationnel).
-			
-			\textbf{Statistique de test :}
-			
-			Pour tester une variance avec un échantillon de loi normale, on utilise :
-			$$\chi^2 = \frac{(n-1)S^2}{\sigma_0^2}$$
-			
-			où $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2$ est la variance empirique.
-			
-			Sous $H_0$ (en prenant l'égalité $\sigma^2 = \sigma_0^2$), cette statistique suit 
-			une loi du $\chi^2$ à $(n-1)$ degrés de liberté :
-			$$\chi^2 \sim \chi^2_{n-1} = \chi^2_{24}$$
-			
-			\textbf{Justification :}
-			
-			Si $X_1, \ldots, X_n \stackrel{iid}{\sim} \mathcal{N}(\mu, \sigma^2)$, alors :
-			$$\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$$
-		}
-		
-		\item \question{ 
-			Au seuil de signification $\alpha = 5\%$, peut-on conclure que la section 
-			respecte le standard de précision de l'armée de terre ?
-		}
-		
-		\reponse{
-			\textbf{Calcul de la statistique de test :}
-			
-			Avec $n = 25$, $s^2 = 9.83$ cm$^2$ et $\sigma_0^2 = 64$ cm$^2$ :
-			
-			$$\chi^2_{\text{obs}} = \frac{(n-1)s^2}{\sigma_0^2} = \frac{24 \times 9.83}{64} 
-			= \frac{235.92}{64} \approx 3.69$$
-			
-			\textbf{Région critique :}
-			
-			Pour un test unilatéral à droite avec $\alpha = 5\%$ et 24 degrés de liberté, 
-			on rejette $H_0$ si $\chi^2_{\text{obs}} > \chi^2_{0.95; 24}$.
-			
-			En consultant la table du $\chi^2$ : $\chi^2_{0.95; 24} = 36.415$
-			
-			\textbf{Décision :}
-			
-			$\chi^2_{\text{obs}} = 3.69 < 36.415$ : on se trouve dans la région d'acceptation.
-			
-			\textbf{On ne rejette pas $H_0$ au seuil $\alpha = 5\%$.}
-			
-			\textbf{Conclusion opérationnelle :}
-			
-			Au niveau de confiance de 95\%, les données ne permettent pas de rejeter l'hypothèse 
-			que la section respecte le standard de précision de l'armée de terre. 
-			La dispersion observée ($s \approx 3.13$ cm) est \textbf{significativement inférieure} 
-			au standard requis ($\sigma_0 = 8$ cm).
-			
-			La section peut être considérée comme opérationnelle du point de vue 
-			de la précision du tir.
-		}
-		
-		\indication{
-			Avec un tableur :
-			\begin{itemize}
-				\item Statistique : \texttt{=24*9.83/64} donne $3.69$
-				\item Valeur critique : \texttt{=LOI.KHIDEUX.INVERSE(0.05; 24)} donne $36.415$
-				\item $p$-valeur : \texttt{=1-LOI.KHIDEUX.N(3.69; 24; VRAI)} donne $\approx 0.99999$
-			\end{itemize}
-		}
-		
-		\item \question{ 
-			Calculer un intervalle de confiance à 95\% pour l'écart-type $\sigma$ 
-			de la population. Interpréter ce résultat dans le contexte militaire.
-		}
-		
-		\reponse{
-			\textbf{Intervalle de confiance pour $\sigma^2$ :}
-			
-			L'intervalle de confiance à $1-\alpha = 95\%$ pour $\sigma^2$ est :
-			$$\left[\frac{(n-1)s^2}{\chi^2_{1-\alpha/2; n-1}}; \frac{(n-1)s^2}{\chi^2_{\alpha/2; n-1}}\right]$$
-			
-			Avec $n=25$, $s^2 = 9.83$, et les valeurs critiques du $\chi^2_{24}$ :
-			\begin{itemize}
-				\item $\chi^2_{0.975; 24} = 39.364$
-				\item $\chi^2_{0.025; 24} = 12.401$
-			\end{itemize}
-			
-			$$IC_{95\%}(\sigma^2) = \left[\frac{24 \times 9.83}{39.364}; \frac{24 \times 9.83}{12.401}\right] 
-			= [5.99; 19.02] \text{ cm}^2$$
-			
-			\textbf{Intervalle de confiance pour $\sigma$ :}
-			
-			$$IC_{95\%}(\sigma) = [\sqrt{5.99}; \sqrt{19.02}] = [2.45; 4.36] \text{ cm}$$
-			
-			\textbf{Interprétation militaire :}
-			
-			Avec 95\% de confiance, l'écart-type réel de la section se situe entre 2.45 et 4.36 cm.
-			
-			\begin{itemize}
-				\item Le standard de l'armée fixe $\sigma_0 = 8$ cm
-				\item La borne supérieure de l'IC est 4.36 cm, \textbf{bien inférieure} à 8 cm
-				\item Même dans le pire scénario (borne supérieure), la section reste largement 
-				en deçà du seuil maximal
-				\item Cela confirme que la section a une précision de tir \textbf{excellente}
-				\item Le chef de section peut valider sa section comme opérationnelle 
-				avec une grande confiance
-			\end{itemize}
-		}
-		
-		\indication{
-			Avec un tableur :
-			\begin{itemize}
-				\item Borne inf : \texttt{=RACINE(24*9.83/LOI.KHIDEUX.INVERSE(0.025; 24))}
-				\item Borne sup : \texttt{=RACINE(24*9.83/LOI.KHIDEUX.INVERSE(0.975; 24))}
-			\end{itemize}
-		}
-		
-		\item \question{ 			
-			Le commandant de compagnie examine les résultats et fait la remarque suivante :
-			
-			\textit{« Votre section montre d'excellents résultats avec un écart-type de 3.1 cm, 
-				bien meilleur que le standard de 8 cm. Cependant, je constate que la moyenne 
-				des impacts est à 9.3 cm du centre. Ne faudrait-il pas aussi vérifier 
-				que le tir n'est pas systématiquement décentré ? »}
-			
-			\begin{itemize}
-				\item Le commandant a-t-il raison de s'interroger sur ce point ?
-				\item Proposer et réaliser un test statistique pour vérifier 
-				si le tir de la section présente un biais systématique 
-				(hypothèse : le tir devrait être centré, donc $\mu = 0$)
-				\item Que recommanderiez-vous au chef de section suite à cette analyse complète ?
-			\end{itemize}
-		}
-		
-		\reponse{
-			\textbf{Pertinence de la remarque :}
-			
-			Le commandant a tout à fait raison. Un système d'arme peut être :
-			\begin{itemize}
-				\item \textbf{Précis} (faible dispersion, $\sigma$ petit) : c'est le cas ici
-				\item \textbf{Juste} (pas de biais, impacts centrés sur la cible)
-			\end{itemize}
-			
-			Un système précis mais biaisé reste problématique opérationnellement 
-			(tous les tirs manquent le but dans la même direction).
-			
-			\textbf{Test de la moyenne :}
-			
-			On teste :
-			$$H_0 : \mu = 0 \quad \text{(tir centré)}$$
-			$$H_1 : \mu \neq 0 \quad \text{(tir biaisé)}$$
-			
-			Test bilatéral (le biais peut être dans n'importe quelle direction).
-			
-			Statistique de test (loi de Student car $\sigma$ inconnu) :
-			$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{9.27 - 0}{\sqrt{9.83}/\sqrt{25}} 
-			= \frac{9.27}{3.135/5} = \frac{9.27}{0.627} = 14.78$$
-			
-			Sous $H_0$ : $t \sim \mathcal{T}_{24}$ (Student à 24 ddl).
-			
-			Pour $\alpha = 5\%$ bilatéral : $t_{0.975; 24} = 2.064$
-			
-			\textbf{Décision :}
-			
-			$|t_{\text{obs}}| = 14.78 > 2.064$ : \textbf{on rejette $H_0$}.
-			
-			La $p$-valeur est extrêmement faible (quasi nulle).
-			
-			\textbf{Conclusion :}
-			
-			Le tir de la section présente un \textbf{biais systématique très significatif} 
-			d'environ 9.27 cm par rapport au centre.
-			
-			\textbf{Recommandations opérationnelles :}
-			
-			\begin{enumerate}
-				\item \textbf{Diagnostic du biais :}
-				\begin{itemize}
-					\item Vérifier le réglage des hausses et des organes de visée
-					\item Contrôler l'alignement des armes (armurerie)
-					\item Analyser si le biais est identique pour tous les tireurs 
-					(problème matériel) ou variable (problème de formation)
-				\end{itemize}
-				
-				\item \textbf{Actions correctives :}
-				\begin{itemize}
-					\item Faire réviser les armes par l'armurerie
-					\item Refaire un tir de réglage après correction
-					\item Vérifier les conditions de tir (vent latéral ? position de tir ?)
-				\end{itemize}
-				
-				\item \textbf{Qualification :}
-				\begin{itemize}
-					\item La section est \textbf{précise} (bonne dispersion)
-					\item Mais elle n'est \textbf{pas juste} (biais significatif)
-					\item Après correction du biais, elle devrait être pleinement opérationnelle
-				\end{itemize}
-			\end{enumerate}
-			
-		}
-		
-		\indication{
-			Avec un tableur :
-			\begin{itemize}
-				\item Écart-type : \texttt{=RACINE(9.83)} donne $3.135$ cm
-				\item Statistique $t$ : \texttt{=9.27/(3.135/RACINE(25))} donne $14.78$
-				\item Valeur critique : \texttt{=LOI.STUDENT.INVERSE.BILATERALE(0.05; 24)} donne $2.064$
-				\item $p$-valeur : \texttt{=LOI.STUDENT.BILATERALE(14.78; 24)} donne $< 10^{-13}$
-			\end{itemize}
-		}
-		
-		\item \question{
-			Un officier du bureau emploi propose de comparer cette section avec une autre section 
-			de la même compagnie qui a obtenu les résultats suivants (20 tireurs) : 
-			$\bar{y} = 8.1$ cm, $s_y^2 = 15.3$ cm$^2$.
-			
-			Les deux sections ont-elles le même niveau de précision ? 
-			Réaliser un test de comparaison de variances au seuil de 5\%.
-		}
-		
-		\reponse{
-			\textbf{Test de comparaison de deux variances (test de Fisher) :}
-			
-			On teste :
-			$$H_0 : \sigma_1^2 = \sigma_2^2 \quad \text{(même précision)}$$
-			$$H_1 : \sigma_1^2 \neq \sigma_2^2 \quad \text{(précisions différentes)}$$
-			
-			Statistique de test :
-			$$F = \frac{s_y^2}{s^2} = \frac{15.3}{9.83} = 1.556$$
-			
-			(On place la plus grande variance au numérateur pour avoir $F \geq 1$)
-			
-			Sous $H_0$ : $F \sim \mathcal{F}(n_2-1, n_1-1) = \mathcal{F}(19, 24)$ 
-			(loi de Fisher).
-			
-			Pour un test bilatéral à $\alpha = 5\%$, on compare $F_{\text{obs}}$ avec 
-			les valeurs critiques correspondantes.
-			
-			En pratique, pour un test bilatéral avec $F \geq 1$, on compare avec $F_{1-\alpha/2}$ :
-			$$F_{0.975; 19, 24} \approx 2.35$$
-			
-			\textbf{Décision :}
-			
-			$F_{\text{obs}} = 1.556 < 2.35$ : \textbf{on ne rejette pas $H_0$}.
-			
-			\textbf{Conclusion :}
-			
-			Au seuil de 5\%, on ne peut pas conclure à une différence significative 
-			de précision entre les deux sections. Les écarts observés peuvent être 
-			attribués à la variabilité d'échantillonnage.
-			
-			\textbf{Interprétation opérationnelle :}
-			
-			Les deux sections ont un niveau de précision comparable. 
-			Le commandant de compagnie peut considérer que la formation au tir 
-			est homogène entre les sections.
-		}
-		
-		\indication{
-			Avec un tableur :
-			\begin{itemize}
-				\item Statistique $F$ : \texttt{=15.3/9.83} donne $1.556$
-				\item Valeur critique : \texttt{=LOI.F.INVERSE.DROITE(0.025; 19; 24)} donne $\approx 2.35$
-				\item $p$-valeur : \texttt{=2*MIN(LOI.F.N(1.556; 19; 24; VRAI); 1-LOI.F.N(1.556; 19; 24; VRAI))}
-			\end{itemize}
-		}
-	\end{enumerate}
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d'écart-type $\sigma$. Les quantiles $q_{\nu;\gamma}$ de $\chi^2(\nu)$, $t_{\nu;\gamma}$ de $St(\nu)$ et $F_{\nu_1,\nu_2;\gamma}$ de $F(\nu_1,\nu_2)$ sont définis avec une probabilité $\gamma$ à gauche.}
+\texte{Dans une expérience fictive sur la dispersion d'impacts, on relève l'\textbf{écart horizontal signé} à une position de référence, en cm : positif vers la droite, négatif vers la gauche. Il ne s'agit pas d'une distance radiale au centre.
+
+On suppose les 25 observations indépendantes de même loi $\mathcal N(\mu,\sigma)$. La limite de dispersion fixée pour cet exercice est $\sigma_0=8$ cm ; elle ne représente pas un référentiel officiel. On souhaite étayer une dispersion inférieure à cette limite, puis examiner le centrage horizontal.
+\par\begingroup\centering\begin{tabular}{rrrrrrrrr}
+5,2 & 12,3 & 8,7 & 6,5 & 15,1 & 9,2 & 7,4 & 11,8 & 4,9 \\
+13,6 & 9,8 & 4,1 & 11,2 & 7,8 & 13,5 & 6,9 & 10,5 & 8,3 \\
+14,2 & 5,7 & 7,2 & 10,1 & 8,9 & 12,5 & 6,3 & &
+\end{tabular}\par\endgroup
+Pour vérification : $n=25$, $\bar x=9{,}268$ cm, $s^2=9{,}82310$ cm$^2$ et $s\simeq3{,}13418$ cm, avec variance corrigée. Les lettres minuscules désignent les valeurs observées ; $\overline X$, $S^2$ et $S$ désignent les statistiques aléatoires correspondantes.}
+\begin{enumerate}
+\texte{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}}
+\item \question{Tracer un diagramme en boîte, rechercher des valeurs atypiques avec le critère de Tukey et discuter ce que le graphique permet de dire sur la normalité.}
+\indication{Utiliser les quartiles inclusifs du tableur : pour des données triées de taille $n$, le rang de niveau $p$ est $1+(n-1)p$, avec interpolation si nécessaire. Les bornes de Tukey sont $Q_1-1{,}5(Q_3-Q_1)$ et $Q_3+1{,}5(Q_3-Q_1)$.
+
+Saisir les 25 observations dans A2:A26. Utiliser \texttt{=MIN(A2:A26)}, \texttt{=QUARTILE.INCLURE(A2:A26;1)}, \texttt{=MEDIANE(A2:A26)}, \texttt{=QUARTILE.INCLURE(A2:A26;3)} et \texttt{=MAX(A2:A26)}. Les fonctions \texttt{=MOYENNE(A2:A26)} et \texttt{=VAR.S(A2:A26)} donnent la moyenne et la variance corrigée, sans arrondi intermédiaire.}
+\reponse{
+\textbf{Données ordonnées :}
+\begin{center}\begin{tabular}{rrrrrrrrr}
+4,1 & 4,9 & 5,2 & 5,7 & 6,3 & 6,5 & 6,9 & 7,2 & 7,4 \\
+7,8 & 8,3 & 8,7 & 8,9 & 9,2 & 9,8 & 10,1 & 10,5 & 11,2 \\
+11,8 & 12,3 & 12,5 & 13,5 & 13,6 & 14,2 & 15,1 & &
+\end{tabular}\end{center}
+Avec la convention inclusive, les rangs des quartiles sont $1+24\times0{,}25=7$ et $1+24\times0{,}75=19$ ; celui de la médiane est $13$. Ainsi :
+\begin{center}\begin{tabular}{lrrrrr}\hline
+ & Minimum & $Q_1$ & Médiane & $Q_3$ & Maximum \\ \hline
+Écart signé (cm) & $4{,}1$ & $6{,}9$ & $8{,}9$ & $11{,}8$ & $15{,}1$ \\ \hline
+\end{tabular}\end{center}
+L'écart interquartile vaut $Q_3-Q_1=11{,}8-6{,}9=4{,}9$ cm.
+
+\textbf{Critère de Tukey :} les bornes sont
+\[
+6{,}9-1{,}5\times4{,}9=-0{,}45,\qquad
+11{,}8+1{,}5\times4{,}9=19{,}15\ \text{cm}.
+\]
+Toutes les observations sont dans cet intervalle : aucune n'est signalée comme atypique par ce critère. Cela ne prouve pas l'absence de toute anomalie de mesure.
+
+\textbf{Diagramme en boîte :} les moustaches atteignent ici les extrêmes observés, car aucun point ne dépasse les bornes de Tukey.
+\begin{center}\begin{tikzpicture}[x=0.48cm,y=0.65cm]
+\draw[->] (0,0)--(17,0) node[right] {Écart signé (cm)};
+\foreach \x in {0,2,4,6,8,10,12,14,16} {\draw (\x,0.1)--(\x,-0.1) node[below] {\x};}
+\draw[thick] (4.1,1)--(6.9,1) (11.8,1)--(15.1,1);
+\draw[thick,fill=blue!15] (6.9,0.5) rectangle (11.8,1.5);
+\draw[very thick] (8.9,0.5)--(8.9,1.5);
+\draw[thick] (4.1,0.7)--(4.1,1.3) (15.1,0.7)--(15.1,1.3);
+\node[above] at (4.1,1.3) {Min};
+\node[above] at (15.1,1.3) {Max};
+\node[above] at (8.9,2) {Médiane};
+\node[above] at (6.9,1.5) {$Q_1$};
+\node[above] at (11.8,1.5) {$Q_3$};
+\end{tikzpicture}\end{center}
+\textbf{Discussion de la normalité :} la moyenne $9{,}268$ cm et la médiane $8{,}9$ cm sont proches, et la boîte ne présente pas une dissymétrie très marquée. Ces observations descriptives ne suffisent pas à établir une loi normale. Une boîte ne renseigne pas à elle seule sur l'unimodalité ou la forme précise des queues ; le rapport de l'écart-type à la moyenne n'est pas un critère de normalité. Un histogramme et un diagramme quantile-quantile normal peuvent compléter l'examen. Pour la suite, on conserve l'hypothèse normale posée dans l'énoncé.
+}
+
+\item \question{On veut étayer une dispersion inférieure à 8 cm. Formuler les hypothèses, préciser le caractère unilatéral du test et justifier la statistique et sa loi de référence.}
+\reponse{
+\textbf{Hypothèses :}
+\[
+H_0:\sigma\ge8\quad\text{contre}\quad H_1:\sigma<8.
+\]
+Comme $\sigma>0$, ces hypothèses sont équivalentes à $H_0:\sigma^2\ge64$ contre $H_1:\sigma^2<64$. Le rejet permettra d'étayer une dispersion inférieure à la limite fictive. Le test est \textbf{unilatéral à gauche} : ce sont les petites variances observées qui soutiennent $H_1$.
+
+\textbf{Statistique :} pour $X_1,\ldots,X_n$ indépendantes de loi $\mathcal N(\mu,\sigma)$,
+\[
+S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline X)^2,
+\qquad \frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1).
+\]
+On utilise donc
+\[
+Q=\frac{(n-1)S^2}{\sigma_0^2}=\frac{24S^2}{64}.
+\]
+\textbf{Loi sous l'hypothèse nulle composite :} à la frontière $\sigma=8$, $Q\sim\chi^2(24)$ exactement sous le modèle normal. Pour $\sigma>8$,
+\[
+Q=\frac{\sigma^2}{64}\,U,\qquad U\sim\chi^2(24).
+\]
+Si $c=q_{24;0{,}05}$, alors
+\[
+\mathbb P_\sigma(Q<c)=\mathbb P\left(U<\frac{64c}{\sigma^2}\right)
+\le\mathbb P(U<c)=0{,}05.
+\]
+Le risque de rejet sous $H_0$ est maximal à la frontière $\sigma=8$. On peut donc calibrer le test à cette frontière ; la loi $\chi^2(24)$ n'est pas la loi de $Q$ pour toutes les valeurs de $H_0$.
+}
+\indication{Commencer par formuler ce que l'on souhaite \emph{établir} dans $H_1$. Utiliser le pivot $\frac{(n-1)S^2}{\sigma^2}$ et distinguer la frontière $\sigma=\sigma_0$ du reste de l'hypothèse nulle.}
+
+\item \question{Effectuer ce test au seuil de $5\%$ et interpréter le résultat.}
+\reponse{
+\textbf{Statistique observée :} les données donnent exactement
+\[
+\bar x=\frac{231{,}7}{25}=9{,}268,\qquad
+s^2=\frac{\sum x_i^2-25\bar x^2}{24}
+=\frac{2383{,}15-25\times9{,}268^2}{24}=9{,}82310.
+\]
+Ainsi,
+\[
+q_{\mathrm{obs}}=\frac{24s^2}{64}
+=\frac{235{,}7544}{64}=3{,}6836625.
+\]
+\textbf{Région critique :} au seuil de $5\%$, on rejette si $q_{\mathrm{obs}}<q_{24;0{,}05}$, avec
+\[
+q_{24;0{,}05}\simeq13{,}848425.
+\]
+Comme $3{,}6836625<13{,}848425$, on rejette $H_0$.
+
+\textbf{$p$-valeur :} la probabilité de queue gauche, évaluée à la frontière de $H_0$ où elle est maximale, vaut
+\[
+p_{\mathrm{val}}=\mathbb P(U\le q_{\mathrm{obs}})
+\simeq5{,}86553\times10^{-7},\qquad U\sim\chi^2(24).
+\]
+\textbf{Conclusion :} sous le modèle normal et l'hypothèse d'indépendance, les données étayent une dispersion horizontale inférieure à 8 cm. Ce rejet ne constitue pas une garantie absolue et ne renseigne pas sur le centrage.
+
+Le test opposé $H_0:\sigma\le8$ contre $H_1:\sigma>8$ chercherait une dispersion excessive, dans la queue droite. Son non-rejet ne suffirait pas à établir $\sigma<8$. Le choix de la direction doit donc répondre à l'objectif annoncé, avant observation.
+}
+\indication{Pour les calculs suivants, saisir en D1 \texttt{=NB(A2:A26)}, en D2 \texttt{=MOYENNE(A2:A26)}, en D3 \texttt{=VAR.S(A2:A26)}, en D4 \texttt{=RACINE(D3)} et en D5 la valeur $8$. Puis :
+\begin{itemize}
+\item D6, statistique observée : \texttt{=(D1-1)*D3/D5\^{}2}.
+\item Seuil gauche : \texttt{=LOI.KHIDEUX.INVERSE(0,05;D1-1)}.
+\item $p$-valeur : \texttt{=LOI.KHIDEUX.N(D6;D1-1;VRAI)}.
+\end{itemize}
+L'argument \texttt{VRAI} demande la fonction de répartition, donc la probabilité à gauche, et non la densité. Conserver les valeurs non arrondies dans les cellules.}
+
+\item \question{Construire l'intervalle de confiance bilatéral à $95\%$ de $\sigma$ et une borne supérieure unilatérale à $95\%$. Interpréter.}
+\reponse{
+\textbf{Inversion du pivot :} sous le modèle normal,
+\[
+\mathbb P\left(q_{24;0{,}025}\le\frac{24S^2}{\sigma^2}\le q_{24;0{,}975}\right)=0{,}95.
+\]
+Tous les termes sont positifs. En isolant $\sigma^2$, l'intervalle aléatoire devient
+\[
+I_{\sigma^2}=\left[\frac{24S^2}{q_{24;0{,}975}}\ ;\
+\frac{24S^2}{q_{24;0{,}025}}\right].
+\]
+\textbf{Intervalle observé pour la variance :} les quantiles à gauche sont
+\[
+q_{24;0{,}025}\simeq12{,}401150,\qquad
+q_{24;0{,}975}\simeq39{,}364077.
+\]
+D'où
+\[
+I_{\sigma^2,\mathrm{obs}}=
+\left[\frac{235{,}7544}{q_{24;0{,}975}}\ ;\
+\frac{235{,}7544}{q_{24;0{,}025}}\right]
+\simeq[5{,}989075\ ;\ 19{,}010688]\ \text{cm}^2.
+\]
+Le plus grand quantile figure au dénominateur de la borne inférieure.
+
+\textbf{Intervalle pour l'écart-type :} la racine carrée étant croissante,
+\[
+I_{\sigma,\mathrm{obs}}\simeq[\sqrt{5{,}989075}\ ;\ \sqrt{19{,}010688}]
+\simeq[2{,}44726\ ;\ 4{,}36012]\ \text{cm}.
+\]
+\textbf{Borne supérieure unilatérale :} puisque $\mathbb P(U\ge q_{24;0{,}05})=0{,}95$, la borne supérieure est
+\[
+B=\sqrt{\frac{24S^2}{q_{24;0{,}05}}},\qquad
+b_{\mathrm{obs}}=\sqrt{\frac{235{,}7544}{13{,}848425\ldots}}
+\simeq4{,}12600\ \text{cm}.
+\]
+La procédure donne l'intervalle unilatéral $]0;B]$, qui couvre $\sigma$ avec une probabilité $0{,}95$ sous le modèle. La borne observée est inférieure à 8 cm, en accord avec le test unilatéral à $5\%$.
+
+\textbf{Interprétation :} le niveau de confiance décrit la proportion d'intervalles couvrant le paramètre fixe lors de répétitions de l'échantillonnage. Les bornes observées expriment l'incertitude sur la dispersion ; elles ne sont pas des limites garanties ni un scénario de « pire cas ». L'intervalle bilatéral et la borne unilatérale ont des constructions différentes ; pour le test unilatéral de la question précédente, c'est la borne unilatérale à $95\%$ qui fournit la correspondance directe.
+}
+\indication{Avec les cellules précédentes :
+\begin{itemize}
+\item Borne basse de $\sigma$ :\par
+\texttt{=RACINE((D1-1)*D3/LOI.KHIDEUX.INVERSE(0,975;D1-1))}.
+\item Borne haute de $\sigma$ :\par
+\texttt{=RACINE((D1-1)*D3/LOI.KHIDEUX.INVERSE(0,025;D1-1))}.
+\item Borne supérieure unilatérale :\par
+\texttt{=RACINE((D1-1)*D3/LOI.KHIDEUX.INVERSE(0,05;D1-1))}.
+\end{itemize}
+Pour les bornes de la variance, utiliser les mêmes divisions sans la racine carrée.}
+
+\item \question{Une faible dispersion garantit-elle le centrage ? Tester $\mu=0$ contre $\mu\ne0$ à $5\%$ et commenter.}
+\reponse{
+\textbf{Dispersion et centrage :} $\sigma$ décrit la dispersion autour de la moyenne ; $\mu$ décrit la position moyenne par rapport à la référence. Un petit écart-type peut donc accompagner une moyenne éloignée de zéro.
+
+\textbf{Hypothèses :}
+\[
+H_0:\mu=0\quad\text{contre}\quad H_1:\mu\ne0.
+\]
+Le test est bilatéral : le décalage peut être positif ou négatif. La variance est inconnue ; avec les observations normales indépendantes, on utilise
+\[
+T=\frac{\overline X-0}{\frac{S}{\sqrt n}}\sim St(n-1)=St(24)\quad\text{sous }H_0.
+\]
+\textbf{Calcul et décision :} l'erreur-type observée vaut $\frac{s}{\sqrt{25}}\simeq0{,}6268365$ cm. Ainsi,
+\[
+t_{\mathrm{obs}}=\frac{9{,}268}{\frac{\sqrt{9{,}82310}}{5}}\simeq14{,}785355.
+\]
+Le seuil bilatéral à $5\%$ est $t_{24;0{,}975}\simeq2{,}063899$. Comme $|t_{\mathrm{obs}}|>2{,}063899$, on rejette $H_0$. Avec $V\sim St(24)$,
+\[
+p_{\mathrm{val}}=\mathbb P(|V|\ge|t_{\mathrm{obs}}|)
+=2\mathbb P(V\ge14{,}785355)\simeq1{,}48531\times10^{-13}.
+\]
+\textbf{Conclusion :} les données étayent un décalage moyen horizontal positif, estimé à $9{,}268$ cm. Une faible dispersion ne garantit donc pas le centrage.
+
+Ces mesures ne déterminent pas la cause du décalage : il faudrait examiner le protocole de mesure et disposer d'informations complémentaires. Elles ne décrivent pas non plus la position dans les deux dimensions. Une distance radiale au centre, toujours positive, ne pourrait pas être interprétée comme cet écart signé pour tester le centrage par $\mu=0$.
+}
+\indication{Avec les cellules précédentes, calculer en F1 \texttt{=D4/RACINE(D1)} (erreur-type), puis en F2 \texttt{=D2/F1} (statistique observée). Utiliser \texttt{=LOI.STUDENT.INVERSE.BILATERALE(0,05;D1-1)} pour le seuil et \texttt{=LOI.STUDENT.BILATERALE(ABS(F2);D1-1)} pour la $p$-valeur. Cette dernière fonction est déjà bilatérale : ne pas multiplier à nouveau par 2.}
+
+\item \question{Un second échantillon indépendant de 20 écarts signés, normal, a moyenne $8{,}1$ cm et variance corrigée $15{,}3$ cm$^2$. Comparer les variances au seuil de $5\%$.}
+\reponse{
+\textbf{Hypothèses :}
+\[
+H_0:\sigma_1^2=\sigma_2^2\quad\text{contre}\quad H_1:\sigma_1^2\ne\sigma_2^2.
+\]
+Il s'agit d'un test bilatéral. L'ordre du rapport est fixé avant observation, avec le groupe 2 au numérateur :
+\[
+R=\frac{S_2^2}{S_1^2},\qquad
+r_{\mathrm{obs}}=\frac{s_2^2}{s_1^2}=\frac{15{,}3}{9{,}82310}\simeq1{,}557553.
+\]
+\textbf{Loi sous $H_0$ :} la normalité et l'indépendance des observations donnent
+\[
+\frac{19S_2^2}{\sigma_2^2}\sim\chi^2(19),\qquad
+\frac{24S_1^2}{\sigma_1^2}\sim\chi^2(24).
+\]
+Ces deux variables sont indépendantes. Sous l'égalité des variances,
+\[
+R=\frac{\frac{S_2^2}{\sigma_2^2}}{\frac{S_1^2}{\sigma_1^2}}
+\sim F(19,24).
+\]
+\textbf{Région critique :} pour répartir $5\%$ dans les deux queues, les quantiles à gauche sont
+\[
+F_{19,24;0{,}025}\simeq0{,}407777,\qquad
+F_{19,24;0{,}975}\simeq2{,}345154.
+\]
+On rejette si $r_{\mathrm{obs}}$ est inférieur au premier seuil ou supérieur au second. Ici $0{,}407777<1{,}557553<2{,}345154$ : on ne rejette pas $H_0$.
+
+\textbf{$p$-valeur :} avec $W\sim F(19,24)$,
+\[
+p_{\mathrm{val}}=2\min\{\mathbb P(W\le r_{\mathrm{obs}}),\mathbb P(W\ge r_{\mathrm{obs}})\}
+\simeq0{,}303001.
+\]
+\textbf{Conclusion :} on ne met pas en évidence de différence de dispersion entre les populations avec ces données et ce test. Le non-rejet ne démontre pas l'égalité des variances, ni l'homogénéité de processus qui auraient produit les observations. La moyenne $8{,}1$ cm du second échantillon n'intervient pas dans ce test ; comparer les moyennes demanderait une autre analyse.
+}
+\indication{Saisir $n_2=20$ en H1 et $s_2^2=15{,}3$ en H2, puis le rapport en H3 par \texttt{=H2/D3}. Utiliser :
+\begin{itemize}
+\item Seuil bas : \texttt{=INVERSE.LOI.F.N(0,025;H1-1;D1-1)}.
+\item Seuil haut : \texttt{=INVERSE.LOI.F.N(0,975;H1-1;D1-1)}.
+\item Probabilité à gauche en H4 :\par
+\texttt{=LOI.F.N(H3;H1-1;D1-1;VRAI)}.
+\item Probabilité à droite en H5 :\par
+\texttt{=LOI.F.DROITE(H3;H1-1;D1-1)}.
+\item $p$-valeur bilatérale : \texttt{=2*MIN(H4;H5)}.
+\end{itemize}
+Conserver l'ordre des degrés de liberté, associé au numérateur et au dénominateur, et les valeurs non arrondies.}
+\end{enumerate}
 }

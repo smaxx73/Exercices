@@ -3,32 +3,48 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{ Puissance d'un test }
+\titre{Puissance d'un test}
 \theme{tests d'hypothèses}
 \auteur{}
 \datecreate{2023-11-27}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{1}
 \contenu{
-
-\texte{ 	On veut contrôler la durée d'utilisation d'un lot d'ampoules électriques. Soit $p$ la proportion d'ampoules défectueuses. 
-
-Afin de choisir entre les deux hypothèses : $\begin{cases} 
-	H_0 \colon p = 0.05 \\
-	H_1 \colon p > 0.05
-\end{cases}$, 
-on prélève un échantillon aléatoire de taille $n = 144$. }
-
+\texte{On veut contrôler la durée d'utilisation d'un lot d'ampoules électriques. Soit $p$ la proportion d'ampoules défectueuses. Afin de choisir entre les deux hypothèses
+\[
+\begin{cases}
+H_0:p=0{,}05,\\
+H_1:p>0{,}05,
+\end{cases}
+\]
+on prélève un échantillon aléatoire de taille $n=144$. On note $K$ le nombre d'ampoules défectueuses de l'échantillon, de loi $\mathcal B(144,p)$, et $F=\frac K{144}$ la fréquence correspondante.}
 \begin{enumerate}
-	\item \question{ Déterminer le seuil critique pour une erreur de première espèce $\alpha = 5\%$. }
-	\item\question{  On considère que la proportion d'ampoules défectueuses est inacceptable si $p=0.10$. Pour cela, on construit le test selon les hypothèses :
-	$$\begin{cases} 
-		H_0 \colon p = 0.05 \\
-		H_1 \colon p = 0.10
-	\end{cases}$$
-	Quelle est la puissance de ce test ? }
-	\item \question{ Le test est-il plus efficace si on l'effectue avec une hypothèse alternative $H_1 \colon p = 0.12$ ? }
+\item \question{Déterminer le seuil critique pour une erreur de première espèce $\alpha=5\%$.}
+\indication{Sous $H_0$, approcher la loi de $F$ par $\mathcal N\left(0{,}05\,;\sqrt{\frac{0{,}05\times0{,}95}{144}}\right)$. Le test est unilatéral à droite.}
+\reponse{Sous $H_0$, l'écart-type de $F$ vaut $\sqrt{\frac{0{,}05\times0{,}95}{144}}\simeq0{,}01816$. On rejette $H_0$ lorsque $F$ dépasse le seuil
+\[
+f_c=0{,}05+\Phi^{-1}(0{,}95)\times0{,}01816\simeq0{,}0799,
+\]
+c'est-à-dire, en nombre d'ampoules, lorsque $K>144\times0{,}0799\simeq11{,}5$, soit $K\geq12$.
+Avec la loi binomiale exacte, cette règle a un risque de première espèce $\mathbb P(K\geq12)\simeq0{,}058$, un peu supérieur au risque nominal ; la règle $K\geq13$ a un risque d'environ $0{,}029$. L'approximation normale fournit un ordre de grandeur, et le caractère discret empêche d'atteindre exactement $5\%$.}
+\item \question{On considère que la proportion d'ampoules défectueuses est inacceptable si $p=0{,}10$. On construit pour cela le test
+\[
+\begin{cases}
+H_0:p=0{,}05,\\
+H_1:p=0{,}10.
+\end{cases}
+\]
+Quelle est la puissance de ce test ?}
+\reponse{La région critique ne dépend que de $H_0$ et de $\alpha$ : on rejette toujours $H_0$ lorsque $F>0{,}0799$. Pour $p=0{,}10$, l'écart-type de $F$ vaut $\sqrt{\frac{0{,}10\times0{,}90}{144}}=0{,}025$, et
+\[
+1-\beta=\mathbb P_{p=0{,}10}(F>0{,}0799)\simeq1-\Phi\left(\frac{0{,}0799-0{,}10}{0{,}025}\right)=1-\Phi(-0{,}805)\simeq0{,}790.
+\]
+Avec la loi binomiale exacte et la règle $K\geq12$, on obtient environ $0{,}786$.}
+\item \question{Le test est-il plus efficace si on l'effectue avec une hypothèse alternative $H_1:p=0{,}12$ ?}
+\reponse{La règle de décision est la même, puisqu'elle est fixée sous $H_0$. Pour $p=0{,}12$, l'écart-type de $F$ vaut $\sqrt{\frac{0{,}12\times0{,}88}{144}}\simeq0{,}0271$ et
+\[
+1-\beta\simeq1-\Phi\left(\frac{0{,}0799-0{,}12}{0{,}0271}\right)=1-\Phi(-1{,}482)\simeq0{,}931,
+\]
+soit environ $0{,}937$ avec la loi binomiale exacte. Le test détecte mieux une proportion de $12\%$ qu'une proportion de $10\%$ : la puissance augmente lorsque l'alternative s'éloigne de $H_0$. Ce n'est pas le test qui change, mais la situation dans laquelle on évalue sa capacité de détection.}
 \end{enumerate}
-
-\reponse{ \href{https://stcyrterrenetdefensegouvf-my.sharepoint.com/:x:/g/personal/maxime_nguyen_st-cyr_terre-net_defense_gouv_fr/EYlCPJY62BdMpTYscg1T6zABc9_WCIR_pzt6XSOajALYhw?e=W1oBgi&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wODAwLTAwMDAwMDAwMDAwMH0}{lien vers tableur} }
 }

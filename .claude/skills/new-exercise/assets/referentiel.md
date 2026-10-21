@@ -144,14 +144,22 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 ### Équation différentielle
 
 - Résolution d'équation différentielle
+- Résolution d'équation différentielle du premier ordre
+- Résolution d'équation différentielle du deuxième ordre
 
 ### Série de Fourier
 
 - Calcul de coefficients
+- Théorème de Dirichlet, formule de Parseval
 - Autre
 
 ### Calcul d'intégrales
 
+- Primitives
+- Intégration par parties
+- Changement de variables
+- Fraction rationnelle
+- Somme de Riemann
 - Calcul approché d'intégrale
 - Autre
 
@@ -205,8 +213,25 @@ restent dans le module **Probabilité** lorsqu'ils sont étudiés pour eux-même
 - Fraction rationnelle
 - Factorisation et fractions rationnelles
 
+### Espace vectoriel
+
+- Définition, sous-espace
+- Somme directe
+- Base
+- Dimension
+- Autre
+
 ### Application linéaire
 
+- Matrice d'une application linéaire
+- Autre
+
+### Réduction d'endomorphisme
+
+- Diagonalisation
+- Trigonalisation
+- Polynôme annulateur
+- Applications
 - Autre
 
 ### Nombres complexes
@@ -288,7 +313,13 @@ suffit pas à déterminer la cible.
 | Série à  termes positifs (double espace) | Série à termes positifs |
 | Théorème Central Limite (majuscules) | Théorème central limite |
 | Réseaux de neurones récurrents | Analyse de données / Réseaux de neurones / Réseaux récurrents, LSTM et GRU |
+| Espaces vectoriels (module) | Algèbre / Espace vectoriel |
+| Réduction et diagonalisation, Réduction d'endomorphisme (module) | Algèbre / Réduction d'endomorphisme |
+| Applications linéaires (module) | Algèbre / Application linéaire |
+| Intégration (module ou chapitre) | Analyse / Calcul d'intégrales |
+| Séries numériques, Séries entières, Séries de Fourier (modules) | Analyse / Série numérique, Série entière, Série de Fourier |
+| Equation différentielle (sans accent) | Équation différentielle |
 
 Ces formes ont été rencontrées dans l'historique du dépôt. Elles ne doivent pas être
-réintroduites ; les alias conservent une projection non destructive pour les sources
-qui les emploient encore.
+réintroduites : toutes les sources portent désormais un triplet canonique, et
+\module, \chapitre et \sousChapitre ne doivent jamais rester vides.

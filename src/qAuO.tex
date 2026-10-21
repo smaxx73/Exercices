@@ -11,300 +11,225 @@
 \organisation{AMSCC}
 \difficulte{3}
 \contenu{
-	\texte{ 
-		Deux départements Mesures Physiques d'IUT utilisent le même référentiel de compétences 
-		pour évaluer leurs étudiants en statistiques. On souhaite comparer l'homogénéité 
-		de leur système de notation.
-		
-		On suppose que les notes dans chaque IUT suivent une loi normale. 
-		Pour effectuer cette comparaison, on prélève :
-		\begin{itemize}
-			\item un échantillon de $n_1 = 10$ notes d'étudiants de l'IUT 1, 
-			qui donne un écart-type empirique $s_1 = 5$ points
-			\item un échantillon de $n_2 = 25$ notes d'étudiants de l'IUT 2, 
-			qui donne un écart-type empirique $s_2 = 3$ points
-		\end{itemize}
-		
-		\textbf{Contexte :} Une différence significative d'écart-type pourrait indiquer :
-		\begin{itemize}
-			\item des critères d'évaluation plus ou moins stricts
-			\item une hétérogénéité différente dans les groupes d'étudiants
-			\item des méthodes pédagogiques ayant des impacts différents
-		\end{itemize}
-	}
-	
-	\begin{enumerate}
-		\item \question{ 
-			Avant de réaliser le test, calculer le coefficient de variation pour chaque IUT 
-			si on vous donne les moyennes suivantes : $\bar{x}_1 = 12.5$ et $\bar{x}_2 = 13.2$.
-			
-			Rappel : le coefficient de variation est $CV = \frac{s}{\bar{x}} \times 100\%$. 
-			Que peut-on en conclure intuitivement ?
-		}
-		
-		\reponse{
-			\textbf{Calcul des coefficients de variation :}
-			
-			Pour l'IUT 1 :
-			$$CV_1 = \frac{s_1}{\bar{x}_1} \times 100 = \frac{5}{12.5} \times 100 = 40\%$$
-			
-			Pour l'IUT 2 :
-			$$CV_2 = \frac{s_2}{\bar{x}_2} \times 100 = \frac{3}{13.2} \times 100 \approx 22.7\%$$
-			
-			\textbf{Interprétation intuitive :}
-			
-			\begin{itemize}
-				\item L'IUT 1 présente une dispersion relative de 40\% autour de sa moyenne, 
-				contre 22.7\% pour l'IUT 2
-				\item L'IUT 2 semble avoir une notation plus homogène (écarts plus faibles 
-				par rapport à la moyenne)
-				\item L'IUT 1 présente une plus grande variabilité des notes, 
-				ce qui pourrait indiquer soit une plus grande hétérogénéité des étudiants, 
-				soit des critères de notation plus différenciants
-			\end{itemize}
-			
-			Toutefois, cette observation descriptive ne suffit pas : il faut un test statistique 
-			pour déterminer si cette différence est significative ou due au hasard de l'échantillonnage.
-		}
-		
-		\indication{
-			Avec un tableur : \texttt{=(5/12.5)*100} et \texttt{=(3/13.2)*100}
-		}
-		
-		\item \question{ 
-			On souhaite tester si les deux IUT ont la même dispersion de notes. 
-			\begin{itemize}
-				\item Formuler les hypothèses $H_0$ et $H_1$ de ce test
-				\item Quelle statistique de test doit-on utiliser ? Préciser sa loi sous $H_0$
-				\item Ce test nécessite-t-il des conditions particulières ?
-			\end{itemize}
-		}
-		
-		\reponse{
-			\textbf{Hypothèses du test :}
-			
-			On teste l'égalité des variances (ou des écarts-types, ce qui est équivalent) :
-			$$H_0 : \sigma_1^2 = \sigma_2^2 \quad \text{ou de manière équivalente} \quad H_0 : \frac{\sigma_1^2}{\sigma_2^2} = 1$$
-			$$H_1 : \sigma_1^2 \neq \sigma_2^2 \quad \text{ou} \quad H_1 : \frac{\sigma_1^2}{\sigma_2^2} \neq 1$$
-			
-			Il s'agit d'un test bilatéral car on ne privilégie aucune direction a priori.
-			
-			\textbf{Statistique de test (test de Fisher) :}
-			
-			On utilise le rapport des variances empiriques :
-			$$F = \frac{s_1^2}{s_2^2}$$
-			
-			Par convention, on place la plus grande variance au numérateur pour avoir $F \geq 1$.
-			
-			Sous $H_0$ (si $\sigma_1^2 = \sigma_2^2$), cette statistique suit une loi de Fisher :
-			$$F \sim \mathcal{F}(n_1-1, n_2-1) = \mathcal{F}(9, 24)$$
-			
-			\textbf{Conditions d'application :}
-			
-			\begin{enumerate}
-				\item Les deux échantillons sont indépendants ✓
-				\item Les notes dans chaque IUT suivent une loi normale (hypothèse de l'énoncé) ✓
-				\item Les échantillons sont aléatoires simples
-			\end{enumerate}
-			
-			\textbf{Attention :} Le test de Fisher est sensible à la non-normalité. 
-			Si les distributions ne sont pas normales, ce test peut donner des résultats incorrects.
-		}
-		
-		\item \question{ 
-			Au seuil de signification $\alpha = 5\%$, peut-on considérer que les enseignants 
-			des deux IUT ont la même manière de noter les étudiants ?
-		}
-		
-		\reponse{
-			\textbf{Calcul de la statistique de test :}
-			
-			On calcule le rapport des variances (la plus grande au numérateur) :
-			$$F_{\text{obs}} = \frac{s_1^2}{s_2^2} = \frac{5^2}{3^2} = \frac{25}{9} \approx 2.778$$
-			
-			\textbf{Détermination de la région critique :}
-			
-			Pour un test bilatéral au seuil $\alpha = 5\%$, on rejette $H_0$ si :
-			$$F_{\text{obs}} > F_{1-\alpha/2; n_1-1, n_2-1} = F_{0.975; 9, 24}$$
-			ou si
-			$$F_{\text{obs}} < F_{\alpha/2; n_1-1, n_2-1} = F_{0.025; 9, 24}$$
-			
-			En pratique, comme on a placé la plus grande variance au numérateur ($F > 1$), 
-			on compare uniquement avec la valeur critique supérieure.
-			
-			D'après les tables de Fisher (ou avec un tableur) :
-			$$F_{0.975; 9, 24} \approx 2.90$$
-			
-			Pour la borne inférieure (si nécessaire) :
-			$$F_{0.025; 9, 24} = \frac{1}{F_{0.975; 24, 9}} \approx \frac{1}{3.61} \approx 0.277$$
-			
-			\textbf{Décision :}
-			
-			$F_{\text{obs}} = 2.778 < 2.90$ : on se situe dans la région d'acceptation.
-			
-			\textbf{On ne rejette pas $H_0$ au seuil $\alpha = 5\%$.}
-			
-			\textbf{Calcul de la $p$-valeur :}
-			
-			Pour un test bilatéral, avec $F = 2.778$ :
-			$$p\text{-valeur} = 2 \times \mathbb{P}(F_{9,24} > 2.778) 
-			= 2 \times (1 - \mathbb{P}(F_{9,24} \leq 2.778))$$
-			
-			Avec un tableur : $p$-valeur $\approx 0.053$ (légèrement supérieure à 5\%).
-			
-			\textbf{Conclusion :}
-			
-			Au niveau de confiance de 95\%, on ne peut pas conclure à une différence 
-			significative entre les écarts-types des deux IUT. 
-			
-			Les données ne permettent pas d'affirmer que les enseignants ont des manières 
-			de noter différentes en termes d'homogénéité.
-			
-			\textbf{Remarque importante :} La $p$-valeur étant très proche de 5\% (environ 5.3\%), 
-			le résultat est « limite ». Avec un échantillon plus grand, on pourrait peut-être 
-			détecter une différence significative. C'est ce qu'on appelle un résultat « marginalement significatif ».
-		}
-		
-		\indication{
-			Avec un tableur :
-			\begin{itemize}
-				\item Statistique $F$ : \texttt{=25/9} donne $2.778$
-				\item Valeur critique : \texttt{=LOI.F.INVERSE(0.025; 9; 24)} donne $\approx 2.90$
-				\item $p$-valeur : \texttt{=2*(1-LOI.F(2.778; 9; 24; VRAI))} donne $\approx 0.053$
-				\item Ou directement : \texttt{=LOI.F.BILATERALE(2.778; 9; 24)}
-			\end{itemize}
-		}
-		
-		\item \question{
-			Construire un intervalle de confiance à 95\% pour le rapport $\frac{\sigma_1^2}{\sigma_2^2}$. 
-			Que peut-on en déduire concernant la comparaison des variances ?
-		}
-		
-		\reponse{
-			\textbf{Construction de l'intervalle de confiance :}
-			
-			Un intervalle de confiance à $1-\alpha = 95\%$ pour le rapport des variances est donné par :
-			$$IC_{95\%}\left(\frac{\sigma_1^2}{\sigma_2^2}\right) 
-			= \left[\frac{s_1^2/s_2^2}{F_{1-\alpha/2; n_1-1, n_2-1}} \,;\, 
-			\frac{s_1^2/s_2^2}{F_{\alpha/2; n_1-1, n_2-1}}\right]$$
-			
-			$$= \left[\frac{F_{\text{obs}}}{F_{0.975; 9, 24}} \,;\, 
-			\frac{F_{\text{obs}}}{F_{0.025; 9, 24}}\right]$$
-			
-			Avec les valeurs numériques :
-			\begin{itemize}
-				\item $F_{\text{obs}} = 2.778$
-				\item $F_{0.975; 9, 24} = 2.90$
-				\item $F_{0.025; 9, 24} = 0.277$
-			\end{itemize}
-			
-			$$IC_{95\%}\left(\frac{\sigma_1^2}{\sigma_2^2}\right) 
-			= \left[\frac{2.778}{2.90} \,;\, \frac{2.778}{0.277}\right]$$
-			
-			$$= [0.958 \,;\, 10.03]$$
-			
-			\textbf{Interprétation :}
-			
-			Avec 95\% de confiance, le rapport des variances $\frac{\sigma_1^2}{\sigma_2^2}$ 
-			se situe entre 0.958 et 10.03.
-			
-			\begin{itemize}
-				\item Cet intervalle contient la valeur 1 (test de $H_0 : \frac{\sigma_1^2}{\sigma_2^2} = 1$)
-				\item Cela confirme qu'on ne peut pas rejeter l'hypothèse d'égalité des variances
-				\item L'intervalle est très large, ce qui reflète l'incertitude due aux petits échantillons
-				\item La variance de l'IUT 1 pourrait être jusqu'à 10 fois plus grande que celle de l'IUT 2, 
-				ou légèrement plus petite (facteur 0.96)
-			\end{itemize}
-			
-			\textbf{Conclusion pratique :}
-			
-			La grande largeur de l'intervalle suggère qu'il faudrait des échantillons plus grands 
-			pour conclure avec précision sur la comparaison des variances.
-		}
-		
-		\indication{
-			Avec un tableur :
-			\begin{itemize}
-				\item Borne inf : \texttt{=2.778/LOI.F.INVERSE(0.025; 9; 24)}
-				\item Borne sup : \texttt{=2.778/LOI.F.INVERSE(0.975; 9; 24)}
-			\end{itemize}
-		}
-		
-		\item \question{Pour aller plus loin :
-			
-			\begin{itemize}
-				\item Que se passerait-il si on augmentait la taille des échantillons 
-				(par exemple $n_1 = 30$ et $n_2 = 50$) tout en conservant les mêmes écarts-types ?
-				\item Quelle serait la taille d'échantillon minimale nécessaire pour l'IUT 1 
-				(en gardant $n_2 = 25$ et les mêmes écarts-types) pour pouvoir rejeter $H_0$ 
-				au seuil de 5\% ?
-				\item Dans le contexte pédagogique, quelles pourraient être les causes 
-				d'une différence d'écart-type si elle était avérée ?
-			\end{itemize}
-		}
-		
-		\reponse{
-			\textbf{1. Impact de l'augmentation des échantillons :}
-			
-			Si $n_1 = 30$ et $n_2 = 50$ avec les mêmes écarts-types :
-			\begin{itemize}
-				\item La statistique $F$ reste la même : $F = 2.778$
-				\item Mais la distribution de référence change : $\mathcal{F}(29, 49)$
-				\item La valeur critique diminue : $F_{0.975; 29, 49} \approx 1.87$ 
-				(au lieu de 2.90)
-				\item Avec $F_{\text{obs}} = 2.778 > 1.87$, on rejetterait $H_0$
-				\item La $p$-valeur diminuerait significativement (environ 0.003)
-			\end{itemize}
-			
-			\textbf{Conclusion :} Des échantillons plus grands permettent de détecter 
-			des différences plus faibles avec plus de confiance.
-			
-			\textbf{2. Taille minimale pour $n_1$ :}
-			
-			On cherche $n_1$ tel que $F_{\text{obs}} = 2.778 > F_{0.975; n_1-1, 24}$ 
-			au seuil $\alpha = 5\%$.
-			
-			Par tâtonnements (ou résolution numérique) :
-			\begin{itemize}
-				\item Pour $n_1 = 11$ : $F_{0.975; 10, 24} \approx 2.74$ $\Rightarrow$ rejet
-				\item Pour $n_1 = 10$ : $F_{0.975; 9, 24} \approx 2.90$ $\Rightarrow$ non-rejet
-			\end{itemize}
-			
-			Il faudrait au moins $n_1 = 11$ observations pour l'IUT 1.
-			
-			\textbf{3. Causes possibles d'une différence d'écart-type :}
-			
-			Si les écarts-types étaient significativement différents, cela pourrait s'expliquer par :
-			
-			\textit{Côté étudiants :}
-			\begin{itemize}
-				\item Hétérogénéité différente des niveaux (recrutement, prérequis)
-				\item Motivation et implication variables
-				\item Taille des groupes différente (petits groupes vs grands amphithéâtres)
-			\end{itemize}
-			
-			\textit{Côté enseignement :}
-			\begin{itemize}
-				\item Critères d'évaluation plus ou moins stricts/différenciants
-				\item Barèmes différents (notation sur 20 vs notation plus « resserrée »)
-				\item Type d'épreuves (QCM vs exercices ouverts)
-				\item Pédagogie différenciée vs enseignement uniforme
-			\end{itemize}
-			
-			\textit{Côté organisationnel :}
-			\begin{itemize}
-				\item Nombre d'évaluations différent (moyennes de plusieurs notes vs note unique)
-				\item Contrôle continu vs examen terminal
-				\item Politique de rattrapage/seconde chance
-			\end{itemize}
-			
-			Une dispersion plus forte n'est ni bonne ni mauvaise en soi : 
-			elle doit être cohérente avec les objectifs pédagogiques.
-		}
-		
-		\indication{
-			Pour la question 1, calculer avec \texttt{=LOI.F.INVERSE(0.025; 29; 49)} 
-			pour voir la nouvelle valeur critique.
-		}
-	\end{enumerate}
+\texte{Les quantiles sont à gauche : $F_{\nu_1,\nu_2;\gamma}$ est le quantile de la loi $F(\nu_1,\nu_2)$ avec une probabilité $\gamma$ à gauche.}
+\texte{Deux départements Mesures Physiques d'IUT utilisent le même référentiel de compétences pour évaluer leurs étudiants en statistiques. On souhaite comparer la dispersion des notes dans les deux IUT.
+On prélève deux échantillons indépendants ; dans chaque IUT, les observations sont supposées indépendantes et de même loi normale. Ce modèle normal est une simplification pédagogique pour des notes bornées.
+Les données sont :
+\begin{itemize}
+\item pour l'IUT 1, $n_1=10$ notes, un écart-type corrigé $s_1=5$ points et une moyenne observée $\bar x_1=12{,}5$ ;
+\item pour l'IUT 2, $n_2=25$ notes, un écart-type corrigé $s_2=3$ points et une moyenne observée $\bar x_2=13{,}2$.
+\end{itemize}
+Les variances empiriques corrigées sont calculées avec le diviseur $n_j-1$.
+Une différence de dispersion pourrait notamment être liée à des critères d'évaluation plus ou moins différenciants, à une hétérogénéité différente des groupes d'étudiants ou à des méthodes pédagogiques différentes. Les notes seules ne permettent pas d'identifier ces causes.}
+\begin{enumerate}
+\item \question{Avant de réaliser le test, calculer le coefficient de variation pour chaque IUT. Rappel : $CV=\frac{s}{\bar x}\times100\%$. Que peut-on en conclure intuitivement ?}
+\indication{Avec un tableur : \texttt{=(5/12,5)*100} et \texttt{=(3/13,2)*100} donnent les valeurs exprimées en pourcentage.}
+\reponse{
+\textbf{Calcul des coefficients de variation.} Pour les deux échantillons,
+\[
+CV_1=\frac{s_1}{\bar x_1}\times100\%
+=\frac{5}{12{,}5}\times100\%=40\%,
+\]
+\[
+CV_2=\frac{s_2}{\bar x_2}\times100\%
+=\frac{3}{13{,}2}\times100\%\simeq22{,}73\%.
+\]
+\textbf{Interprétation descriptive.}
+\begin{itemize}
+\item L'écart-type observé représente $40\%$ de la moyenne dans l'IUT 1, contre environ $22{,}73\%$ dans l'IUT 2.
+\item Dans ces échantillons, les notes de l'IUT 2 sont moins dispersées, tant en valeur absolue ($3$ points contre $5$) qu'en valeur relative à la moyenne.
+\item La variabilité plus élevée dans l'IUT 1 pourrait être liée à une plus grande hétérogénéité des étudiants ou à des critères d'évaluation plus différenciants ; ces explications restent à étudier.
+\end{itemize}
+Le coefficient de variation dépend du choix de l'origine de l'échelle. Pour des notes, sa comparaison demande donc prudence : un changement d'origine modifierait les moyennes et les coefficients de variation, sans modifier les écarts-types.
+Cette description ne suffit pas à établir une différence entre les variances des populations. Le test suivant porte directement sur ces variances ; il ne teste pas l'égalité des coefficients de variation.
+}
+
+\item \question{On souhaite tester si les deux IUT ont la même dispersion de notes. Formuler les hypothèses $H_0$ et $H_1$, donner la statistique de test et sa loi sous $H_0$, puis préciser les conditions d'application.}
+\indication{Fixer l'ordre des deux groupes avant observation. Sous le modèle normal, $\frac{(n_j-1)S_j^2}{\sigma_j^2}$ suit une loi $\chi^2(n_j-1)$. Utiliser le rapport de deux variables indépendantes de cette forme, divisées par leurs degrés de liberté.}
+\reponse{
+\textbf{Hypothèses.} On teste l'égalité des variances, équivalente à celle des écarts-types :
+\[
+H_0:\ \sigma_1^2=\sigma_2^2
+\quad\Longleftrightarrow\quad \frac{\sigma_1^2}{\sigma_2^2}=1,
+\]
+\[
+H_1:\ \sigma_1^2\neq\sigma_2^2
+\quad\Longleftrightarrow\quad \frac{\sigma_1^2}{\sigma_2^2}\neq1.
+\]
+Le test est bilatéral : aucune direction n'est privilégiée avant observation.
+
+\textbf{Statistique et loi de référence.} Notons $S_1^2$ et $S_2^2$ les variances empiriques corrigées aléatoires, et $s_1^2,s_2^2$ leurs valeurs observées. On fixe le rapport dans l'ordre IUT 1 sur IUT 2 :
+\[
+R=\frac{S_1^2}{S_2^2}.
+\]
+Sous le modèle normal et l'indépendance des échantillons,
+\[
+\frac{R}{\frac{\sigma_1^2}{\sigma_2^2}}
+=\frac{\frac{S_1^2}{\sigma_1^2}}{\frac{S_2^2}{\sigma_2^2}}
+\sim F(n_1-1,n_2-1).
+\]
+Sous $H_0$, on a donc $R\sim F(9,24)$. Le premier degré de liberté correspond au numérateur, le second au dénominateur. On ne réordonne pas les groupes selon les variances observées : le rapport aléatoire $R$ peut être inférieur ou supérieur à 1.
+
+\textbf{Conditions d'application.}
+\begin{itemize}
+\item Les deux échantillons sont indépendants.
+\item Dans chaque échantillon, les observations sont indépendantes et de même loi ; le prélèvement doit être adapté à l'inférence sur la population étudiée.
+\item Les distributions des notes sont supposées normales, avec des variances strictement positives.
+\end{itemize}
+Le test de Fisher est exact sous ce modèle. Il est sensible à la non-normalité : une approximation normale des seules moyennes ne suffit pas à justifier sa loi de référence. La normalité des notes est ici une hypothèse de modélisation, et non une propriété vérifiée par les seuls résumés numériques.
+}
+
+\item \question{Au seuil $\alpha=5\%$, les dispersions sont-elles significativement différentes ? Peut-on en déduire que les enseignants ont des pratiques de notation différentes ?}
+\indication{
+\begin{minipage}{\linewidth}
+Avec un tableur, utiliser \texttt{=25/9} pour le rapport observé, puis les quantiles à gauche \texttt{=INVERSE.LOI.F.N(0,025;9;24)} et \texttt{=INVERSE.LOI.F.N(0,975;9;24)}. Dans ce cas, la petite queue est à droite : \texttt{=2*LOI.F.DROITE(25/9;9;24)} donne la $p$-valeur bilatérale. Garder le rapport exact $\frac{25}{9}$ dans les calculs.
+\end{minipage}
+}
+\reponse{
+\textbf{Rapport observé.} La réalisation de $R$ est
+\[
+r_{\mathrm{obs}}=\frac{s_1^2}{s_2^2}
+=\frac{5^2}{3^2}=\frac{25}{9}\simeq2{,}77778.
+\]
+\textbf{Région critique.} Pour le test bilatéral à queues égales, on répartit $\alpha$ entre les deux queues : $\frac{\alpha}{2}=0{,}025$. On rejette $H_0$ si
+\[
+r_{\mathrm{obs}}<F_{9,24;0{,}025}
+\quad\text{ou}\quad
+r_{\mathrm{obs}}>F_{9,24;0{,}975}.
+\]
+Les valeurs critiques sont
+\[
+F_{9,24;0{,}025}\simeq0{,}276687,
+\qquad F_{9,24;0{,}975}\simeq2{,}702711.
+\]
+Pour retrouver la borne inférieure à partir d'une table de quantiles supérieurs, on peut utiliser
+\[
+F_{9,24;0{,}025}=\frac{1}{F_{24,9;0{,}975}}.
+\]
+La région critique comporte bien les deux queues. Ici, $r_{\mathrm{obs}}$ se situe au-dessus de la borne supérieure : $2{,}77778>2{,}702711$. On \textbf{rejette l'égalité des variances au seuil de $5\%$}.
+
+\textbf{$p$-valeur.} Avec $Y\sim F(9,24)$, la $p$-valeur du test bilatéral à queues égales est
+\[
+p_{\mathrm{obs}}=2\min\bigl\{\mathbb P(Y\leq r_{\mathrm{obs}}),\,
+\mathbb P(Y\geq r_{\mathrm{obs}})\bigr\}.
+\]
+La queue droite est ici la plus petite, d'où
+\[
+p_{\mathrm{obs}}=2\mathbb P\left(Y\geq\frac{25}{9}\right)
+\simeq2\times0{,}02201893=0{,}04403785.
+\]
+Dans le tableur, \texttt{=2*LOI.F.DROITE(25/9;9;24)} donne cette valeur. On peut aussi utiliser la fonction historique \texttt{=2*LOI.F(25/9;9;24)}, qui renvoie déjà la queue droite et prend trois arguments.
+Comme $p_{\mathrm{obs}}<0{,}05$, on retrouve la même décision.
+
+\textbf{Conclusion et portée.} Sous les hypothèses du test, les données mettent en évidence une différence de dispersion ; la variance observée est plus grande dans l'IUT 1. Elles ne permettent pas d'attribuer cette différence aux enseignants : le recrutement, les épreuves ou d'autres facteurs peuvent aussi intervenir.
+La proximité de la $p$-valeur avec $5\%$ ne change pas la décision au seuil choisi. Elle ne garantit pas non plus ce que donnerait un nouvel échantillon, même plus grand.
+}
+
+\item \question{Construire un intervalle de confiance à $95\%$ pour le rapport $\frac{\sigma_1^2}{\sigma_2^2}$. Que peut-on en déduire concernant la comparaison des variances ?}
+\indication{
+\begin{minipage}{\linewidth}
+Utiliser le pivot $\frac{R}{\frac{\sigma_1^2}{\sigma_2^2}}$ et inverser les quantiles dans les bornes. Avec un tableur : borne inférieure \texttt{=(25/9)/INVERSE.LOI.F.N(0,975;9;24)} ; borne supérieure \texttt{=(25/9)/INVERSE.LOI.F.N(0,025;9;24)}.
+\end{minipage}
+}
+\reponse{
+\textbf{Construction de l'intervalle.} Posons $\theta=\frac{\sigma_1^2}{\sigma_2^2}>0$. Sous le modèle normal, le pivot $\frac{R}{\theta}$ suit $F(9,24)$, donc
+\[
+\mathbb P\left(F_{9,24;0{,}025}\leq\frac{R}{\theta}
+\leq F_{9,24;0{,}975}\right)=0{,}95.
+\]
+En isolant $\theta$, on obtient l'intervalle aléatoire
+\[
+\left[\frac{R}{F_{9,24;0{,}975}}\,;\,
+\frac{R}{F_{9,24;0{,}025}}\right],
+\]
+qui contient le rapport des variances avec une probabilité de $95\%$ lors de répétitions de l'échantillonnage sous ce modèle. Pour les données observées, sa réalisation est
+\begin{align*}
+IC_{95\%}(\theta)
+&=\left[\frac{\frac{s_1^2}{s_2^2}}{F_{9,24;0{,}975}}\,;\,
+\frac{\frac{s_1^2}{s_2^2}}{F_{9,24;0{,}025}}\right]\\
+&\simeq\left[\frac{\frac{25}{9}}{2{,}702711}\,;\,
+\frac{\frac{25}{9}}{0{,}276687}\right]\\
+&\simeq[1{,}027775\,;\,10{,}039433].
+\end{align*}
+Les calculs numériques utilisent les quantiles non arrondis.
+
+\textbf{Interprétation.}
+\begin{itemize}
+\item L'intervalle exclut 1, en accord avec le rejet de l'égalité des variances dans le test bilatéral à $5\%$.
+\item Il reste très large : les données renseignent peu précisément l'ampleur de la différence.
+\item Dans cet intervalle, la variance de l'IUT 1 est entre environ $1{,}03$ et $10{,}04$ fois celle de l'IUT 2 ; il s'agit d'un rapport de variances, et non d'écarts-types.
+\end{itemize}
+Le rapport $\theta$ est un paramètre fixe. Le niveau de confiance de $95\%$ décrit la couverture de la méthode lors de répétitions, et non une probabilité attribuée à $\theta$ après observation.
+Des échantillons plus grands pourraient améliorer la précision, mais leur résultat dépendrait des nouvelles observations.
+}
+
+\item \question{Pour aller plus loin :
+\begin{itemize}
+\item refaire le test avec $n_1=30$ et $n_2=50$, tout en conservant les mêmes écarts-types ;
+\item chercher la plus petite taille $n_1\geq2$ conduisant au rejet à $5\%$ si $n_2=25$ et les écarts-types restent les mêmes ;
+\item discuter les causes possibles d'une différence d'écart-type dans le contexte pédagogique.
+\end{itemize}}
+\indication{
+\begin{minipage}{\linewidth}
+Pour $(n_1,n_2)=(30,50)$, calculer \texttt{=INVERSE.LOI.F.N(0,975;29;49)} et \texttt{=2*LOI.F.DROITE(25/9;29;49)}. Pour chercher la taille minimale, saisir les tailles 2 à 10 dans A2:A10. En B2, saisir \texttt{=LOI.F.N(25/9;A2-1;24;VRAI)} ; en C2, \texttt{=LOI.F.DROITE(25/9;A2-1;24)} ; en D2, \texttt{=2*MIN(B2;C2)}. Recopier jusqu'à la ligne 10 et comparer les $p$-valeurs à $0{,}05$.
+\end{minipage}
+}
+\reponse{
+\textbf{1. Effet du changement de tailles, à écarts-types fixés.} Pour $n_1=30,n_2=50$ :
+\begin{itemize}
+\item le rapport observé reste $r_{\mathrm{obs}}=\frac{25}{9}\simeq2{,}77778$ ;
+\item la référence sous $H_0$ devient $F(29,49)$ ;
+\item le seuil supérieur vaut $F_{29,49;0{,}975}\simeq1{,}881416$, au lieu de $2{,}702711$ ;
+\item comme $2{,}77778>1{,}881416$, on rejette $H_0$ ;
+\item la $p$-valeur bilatérale vaut environ $0{,}00156689$.
+\end{itemize}
+Pour le même rapport observé, ces tailles rendent l'écart moins compatible avec l'égalité des variances. Ce calcul maintient artificiellement les écarts-types : il ne prédit pas les résultats d'un futur échantillon et ne constitue pas un calcul de puissance.
+
+\textbf{2. Première taille $n_1$ conduisant au rejet.} Avec $n_2=25$ et $r_{\mathrm{obs}}=\frac{25}{9}$ maintenus, on utilise la référence $F(n_1-1,24)$. Il faut examiner les deux queues du test bilatéral. Le calcul des $p$-valeurs donne :
+\begin{center}
+\begin{tabular}{rrl}\hline
+$n_1$ & $p_{\mathrm{obs}}$ (arrondie) & Décision à $5\%$ \\ \hline
+2 & $0{,}217160$ & Non-rejet \\
+3 & $0{,}164398$ & Non-rejet \\
+4 & $0{,}126084$ & Non-rejet \\
+5 & $0{,}099826$ & Non-rejet \\
+6 & $0{,}081343$ & Non-rejet \\
+7 & $0{,}067904$ & Non-rejet \\
+8 & $0{,}057841$ & Non-rejet \\
+9 & $0{,}050109$ & Non-rejet \\
+10 & $0{,}044038$ & Rejet \\ \hline
+\end{tabular}
+\end{center}
+La première taille conduisant au rejet dans ce calcul conditionnel est donc $\boxed{n_1=10}$. C'est déjà la taille de l'échantillon initial. Pour $n_1=9$, la $p$-valeur reste légèrement supérieure à $5\%$ ; la comparaison doit utiliser les valeurs non arrondies.
+Cette taille ne garantit ni le rejet dans une expérience future, ni une puissance donnée.
+
+\textbf{3. Causes possibles de la différence de dispersion.} Plusieurs pistes peuvent être étudiées, sans être établies par le seul test :\par\smallskip
+\begin{minipage}{\linewidth}
+\textit{Côté étudiants :}
+\begin{itemize}
+\item une hétérogénéité différente des niveaux, liée au recrutement ou aux prérequis ;
+\item une motivation et une implication variables ;
+\item des conditions d'apprentissage différentes selon la taille des groupes.
+\end{itemize}
+\end{minipage}\par
+\begin{minipage}{\linewidth}
+\textit{Côté enseignement et évaluation :}
+\begin{itemize}
+\item des critères d'évaluation plus ou moins différenciants ;
+\item des barèmes différents ou une utilisation plus resserrée de l'échelle des notes ;
+\item des types d'épreuves différents, par exemple QCM et exercices ouverts ;
+\item des méthodes pédagogiques différentes, notamment le degré d'accompagnement individuel.
+\end{itemize}
+\end{minipage}\par
+\begin{minipage}{\linewidth}
+\textit{Côté organisation :}
+\begin{itemize}
+\item un nombre différent d'évaluations entrant dans la moyenne ;
+\item une place différente du contrôle continu et de l'examen terminal ;
+\item des politiques de rattrapage ou de seconde chance différentes.
+\end{itemize}
+\end{minipage}\par
+Ces pistes demandent des informations supplémentaires. Une dispersion plus forte n'est ni bonne ni mauvaise en soi : son interprétation dépend des objectifs pédagogiques et de la population évaluée.
+}
+\end{enumerate}
 }

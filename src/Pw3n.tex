@@ -1,0 +1,51 @@
+% Dérivé de mVsg (réorganisation des TD de STAT, octobre 2026).
+\uuid{Pw3n}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Tests d'hypothèses, intervalle de confiance}
+\titre{Courbe de puissance et taille d'échantillon}
+\theme{tests d'hypothèses, puissance, risque de deuxième espèce, taille d'échantillon, tableur}
+\auteur{AMSCC}
+\datecreate{2026-10-19}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+\texte{$\mathcal N(\mu,\sigma)$ désigne la loi normale de moyenne $\mu$ et d’écart-type $\sigma$.}
+\texte{On reprend le contexte de la consommation maximale en oxygène, en ml/kg/min. Les mesures de $n$ malades sont modélisées par des variables indépendantes de loi $\mathcal N(\mu,\sigma)$, avec $\sigma=6$ connu. On teste $H_0:\mu=25{,}5$ contre $H_1:\mu<25{,}5$ au risque $\alpha=5\%$, en rejetant $H_0$ lorsque la moyenne observée est inférieure ou égale à la moyenne critique $\mu_c$.}
+\begin{enumerate}
+\item \question{Pour $n=15$, exprimer la puissance $\pi(\mu_1)=\mathbb P_{\mu_1}(\overline X\leq\mu_c)$ en fonction de $\mu_1<25{,}5$, à l'aide de la fonction de répartition $\Phi$ de la loi normale centrée réduite.}
+\indication{Commencer par calculer $\mu_c=25{,}5-\Phi^{-1}(0{,}95)\frac{6}{\sqrt{15}}$, puis centrer et réduire $\overline X$ sous $\mu=\mu_1$.}
+\reponse{La moyenne critique vaut
+\[
+\mu_c=25{,}5-\Phi^{-1}(0{,}95)\frac6{\sqrt{15}}\simeq22{,}95.
+\]
+Lorsque $\mu=\mu_1$, $\overline X\sim\mathcal N\left(\mu_1\,;\frac6{\sqrt{15}}\right)$, donc
+\[
+\pi(\mu_1)=\mathbb P_{\mu_1}(\overline X\leq\mu_c)=\Phi\left(\frac{\mu_c-\mu_1}{6/\sqrt{15}}\right).
+\]
+Pour $\mu_1=25{,}5$, on retrouve $\pi=\Phi(-1{,}6449)=0{,}05=\alpha$.}
+\item \question{Au tableur, calculer $\pi(\mu_1)$ pour $\mu_1$ allant de $20$ à $25{,}5$ par pas de $0{,}5$, puis tracer la courbe de puissance. Comment évolue la puissance lorsque $\mu_1$ s'éloigne de $25{,}5$ ?}
+\indication{Placer $\mu_c$ dans une cellule, par exemple B1, et les valeurs de $\mu_1$ en colonne A à partir de A3. En B3 : \texttt{=LOI.NORMALE.N(\$B\$1;A3;6/RACINE(15);VRAI)}, puis recopier vers le bas.}
+\reponse{On obtient notamment :
+\begin{center}\begin{tabular}{lrrrrrrr}\hline
+$\mu_1$ & $25{,}5$ & $25$ & $24$ & $23{,}5$ & $23$ & $22$ & $20$ \\ \hline
+$\pi(\mu_1)$ & $0{,}050$ & $0{,}093$ & $0{,}249$ & $0{,}362$ & $0{,}488$ & $0{,}731$ & $0{,}972$ \\ \hline
+\end{tabular}\end{center}
+La courbe est décroissante en $\mu_1$ : plus l'espérance réelle s'éloigne de $25{,}5$, plus le test a de chances de rejeter $H_0$. Elle part de $\alpha=0{,}05$ en $\mu_1=25{,}5$ et tend vers $1$. Pour des écarts faibles, la puissance reste proche de $\alpha$ : le test ne distingue presque pas ces alternatives de $H_0$.}
+\item \question{Quelle taille d'échantillon $n$ faut-il pour que la puissance atteigne au moins $90\%$ lorsque $\mu=23{,}5$, toujours au risque $\alpha=5\%$ ?}
+\indication{Avec $n$ mesures, $\mu_c=25{,}5-u_{0{,}05}\frac6{\sqrt n}$ et la puissance en $23{,}5$ vaut $\Phi\left(\frac{\mu_c-23{,}5}{6/\sqrt n}\right)$. Imposer que l'argument de $\Phi$ dépasse $\Phi^{-1}(0{,}90)$.}
+\reponse{Notons $u_{0{,}05}=\Phi^{-1}(0{,}95)\simeq1{,}6449$ et $u_{0{,}10}=\Phi^{-1}(0{,}90)\simeq1{,}2816$. La puissance en $23{,}5$ vaut
+\[
+\Phi\left(\frac{25{,}5-23{,}5}{6/\sqrt n}-u_{0{,}05}\right)=\Phi\left(\frac{2\sqrt n}6-u_{0{,}05}\right).
+\]
+Elle est au moins égale à $0{,}90$ si et seulement si
+\[
+\frac{2\sqrt n}6\geq u_{0{,}05}+u_{0{,}10}
+\iff n\geq\left(\frac{6(u_{0{,}05}+u_{0{,}10})}{2}\right)^2\simeq77{,}07.
+\]
+Il faut donc $n=78$ malades. On vérifie : $\mu_c\simeq24{,}38$ et la puissance vaut environ $0{,}903$.}
+\item \question{Quels sont les leviers qui augmentent la puissance d'un test ? Lequel est le plus coûteux en pratique ?}
+\reponse{La puissance augmente lorsque l'écart à détecter est plus grand, lorsque la dispersion $\sigma$ est plus faible, lorsque la taille $n$ augmente et lorsque le risque $\alpha$ est plus élevé. On ne choisit ni l'écart réel ni, le plus souvent, la dispersion ; augmenter $\alpha$ accroît le risque de conclure à tort à un effet. Le levier principal est donc $n$ : passer d'une puissance de $36\%$ à $90\%$ demande ici environ cinq fois plus de malades.}
+\end{enumerate}
+}

@@ -1,6 +1,6 @@
 \uuid{xtyw}
 \titre{Maximum de vraisemblance pour une loi uniforme}
-\niveau{L2} 
+\niveau{L2}
 \module{Analyse de données}
 \chapitre{Statistique}
 \sousChapitre{Estimation par maximum de vraisemblance}
@@ -8,97 +8,51 @@
 \auteur{AMSCC}
 \datecreate{2025-12-02}
 \organisation{AMSCC}
-\difficulte{3}
+\difficulte{2}
 \contenu{
-    \texte{ 
-    Une entreprise de transport maritime mesure la profondeur de corrosion (en mm) sur des coques de navires. On modélise cette profondeur par une variable aléatoire $X$ suivant une \textbf{loi uniforme} sur l'intervalle $[0, \theta]$ où $\theta > 0$ est inconnu.
-    
-    \textbf{Rappels :} Pour $X \sim \mathcal{U}[0, \theta]$, la densité est donnée par :
-    $$f_\theta(x) = \begin{cases} \dfrac{1}{\theta} & \text{si } 0 \leq x \leq \theta \\ 0 & \text{sinon} \end{cases}$$
-    
-    On dispose d'un échantillon $(X_1, \ldots, X_n)$ de $n$ mesures indépendantes. On note $(x_1, \ldots, x_n)$ les valeurs observées.
-    }
-    
-    \begin{enumerate}
-	    \item   \question{Écrire la fonction de vraisemblance $L(x_1, \ldots, x_n, \theta)$ pour cet échantillon.}
-	            \indication{La vraisemblance est le produit des densités. Attention : elle est nulle si $\theta < \max(x_1, \ldots, x_n)$.}
-                \reponse{
-                Par définition, la fonction de vraisemblance est :
-                $$L(x_1, \ldots, x_n, \theta) = \prod_{i=1}^{n} f_\theta(x_i)$$
-                
-                Pour que cette fonction soit non nulle, il faut que tous les $x_i$ appartiennent à $[0, \theta]$, c'est-à-dire :
-                $$\forall i \in \{1, \ldots, n\}, \quad 0 \leq x_i \leq \theta$$
-                
-                Cette condition est équivalente à :
-                $$\theta \geq \max(x_1, \ldots, x_n)$$
-                
-                Par conséquent :
-                $$L(x_1, \ldots, x_n, \theta) = \begin{cases} 
-                \dfrac{1}{\theta^n} & \text{si } \theta \geq \max(x_1, \ldots, x_n) \\ 
-                0 & \text{sinon}
-                \end{cases}$$
-                }
-                
-        \item   \question{Montrer graphiquement ou par un raisonnement que $L(\theta)$ est maximale quand $\theta$ est minimal, sous la contrainte $\theta \geq \max(x_1, \ldots, x_n)$.}
-                \indication{Étudier la fonction $\theta \mapsto \frac{1}{\theta^n}$ sur l'intervalle $[\max(x_1, \ldots, x_n), +\infty[$.}
-                \reponse{
-                Pour $\theta \geq \max(x_1, \ldots, x_n)$, on a :
-                $$L(\theta) = \frac{1}{\theta^n}$$
-                
-                Cette fonction est strictement décroissante car sa dérivée est :
-                $$\frac{dL}{d\theta} = -\frac{n}{\theta^{n+1}} < 0$$
-                
-                Donc $L(\theta)$ est maximale lorsque $\theta$ prend sa valeur minimale possible, c'est-à-dire :
-                $$\theta = \max(x_1, \ldots, x_n)$$
-                
-                \textbf{Graphiquement :} La fonction $L(\theta)$ vaut 0 pour $\theta < \max(x_i)$, puis saute à une valeur positive en $\theta = \max(x_i)$, et décroît ensuite vers 0 quand $\theta \to +\infty$.
-                }
-                
-        \item   \question{En déduire que l'estimateur du maximum de vraisemblance est :
-                $$\hat{\Theta}_n = \max(X_1, \ldots, X_n)$$}
-                \indication{Remplacer les observations $x_i$ par les variables aléatoires $X_i$.}
-                \reponse{
-                D'après la question précédente, la vraisemblance est maximale pour :
-                $$\hat{\theta} = \max(x_1, \ldots, x_n)$$
-                
-                En remplaçant les observations par les variables aléatoires, on obtient l'estimateur du maximum de vraisemblance :
-                $$\boxed{\hat{\Theta}_n = \max(X_1, \ldots, X_n)}$$
-                
-                Cet estimateur est aussi noté $\hat{\Theta}_n = X_{(n)}$ (statistique d'ordre maximale).
-                }
-                
-        \item   \question{On admet que $\mathbb{E}(\hat{\Theta}_n) = \dfrac{n}{n+1}\theta$. Cet estimateur est-il sans biais ? Proposer un estimateur sans biais $\widetilde{\Theta}_n$ de $\theta$.}
-                \indication{Un estimateur est sans biais si son espérance est égale au paramètre à estimer. Pour corriger le biais, multiplier par un coefficient approprié.}
-                \reponse{
-                Le biais de l'estimateur $\hat{\Theta}_n$ est :
-                $$b(\hat{\Theta}_n) = \mathbb{E}(\hat{\Theta}_n) - \theta = \frac{n}{n+1}\theta - \theta = -\frac{1}{n+1}\theta \neq 0$$
-                
-                \textbf{Donc $\hat{\Theta}_n$ est biaisé.} Plus précisément, il sous-estime systématiquement $\theta$.
-                
-                Pour construire un estimateur sans biais, on pose :
-                $$\widetilde{\Theta}_n = \frac{n+1}{n} \hat{\Theta}_n = \frac{n+1}{n} \max(X_1, \ldots, X_n)$$
-                
-                Vérifions :
-                $$\mathbb{E}(\widetilde{\Theta}_n) = \frac{n+1}{n} \mathbb{E}(\hat{\Theta}_n) = \frac{n+1}{n} \times \frac{n}{n+1}\theta = \theta$$
-                
-                \textbf{Donc $\boxed{\widetilde{\Theta}_n = \dfrac{n+1}{n} \max(X_1, \ldots, X_n)}$ est un estimateur sans biais de $\theta$.}
-                }
-                
-        \item   \question{Application numérique : On observe 5 mesures de corrosion : \textbf{2.3, 3.1, 2.8, 3.5, 2.6 mm}. Calculer les estimations $\hat{\theta}$ et $\widetilde{\theta}$.}
-                \indication{Identifier le maximum des observations, puis appliquer les formules.}
-                \reponse{
-                On a $n = 5$ mesures : $x_1 = 2.3$, $x_2 = 3.1$, $x_3 = 2.8$, $x_4 = 3.5$, $x_5 = 2.6$.
-                
-                Le maximum des observations est :
-                $$\max(x_1, \ldots, x_5) = 3.5 \text{ mm}$$
-                
-                \textbf{Estimation par maximum de vraisemblance (biaisée) :}
-                $$\hat{\theta} = 3.5 \text{ mm}$$
-                
-                \textbf{Estimation sans biais (corrigée) :}
-                $$\widetilde{\theta} = \frac{n+1}{n} \times \hat{\theta} = \frac{6}{5} \times 3.5 = 1.2 \times 3.5 = \boxed{4.2 \text{ mm}}$$
-                
-                \textbf{Interprétation :} L'estimateur du maximum de vraisemblance sous-estime la profondeur maximale de corrosion. L'estimateur corrigé $\widetilde{\theta} = 4.2$ mm est plus prudent et sans biais.
-                }
-    \end{enumerate}
+\texte{Une entreprise de transport maritime mesure la profondeur de corrosion, en millimètres, sur des coques de navires. On modélise cette profondeur par une variable aléatoire $X$ de loi uniforme sur $[0;\theta]$, où $\theta>0$ est inconnu. Sa densité est
+\[
+f_\theta(x)=\begin{cases}\frac1\theta&\text{si }0\leq x\leq\theta,\\[2pt] 0&\text{sinon.}\end{cases}
+\]
+On dispose d'un échantillon $(X_1,\ldots,X_n)$ de mesures indépendantes de même loi que $X$, de valeurs observées $x_1,\ldots,x_n\geq0$. On note $m=\max(x_1,\ldots,x_n)$, supposé strictement positif.}
+\begin{enumerate}
+\item \question{Exprimer la vraisemblance $L(\theta)=L(x_1,\ldots,x_n,\theta)$ en fonction de $\theta$, en distinguant les cas $\theta<m$ et $\theta\geq m$.}
+\indication{La vraisemblance est le produit des densités. Elle est nulle dès qu'une observation sort de $[0;\theta]$.}
+\reponse{Par indépendance, $L(\theta)=\prod_{i=1}^nf_\theta(x_i)$. Ce produit est non nul si et seulement si toutes les observations appartiennent à $[0;\theta]$, c'est-à-dire si $\theta\geq m$. Ainsi,
+\[
+L(\theta)=\begin{cases}0&\text{si }0<\theta<m,\\[2pt] \frac1{\theta^n}&\text{si }\theta\geq m.\end{cases}
+\]}
+\item \question{Étudier les variations de $L$ sur $]0;+\infty[$ et en déduire l'estimation $\widehat\theta_{\mathrm{obs}}$ du maximum de vraisemblance. Pourquoi ne peut-on pas l'obtenir en annulant la dérivée ?}
+\indication{Tracer l'allure de $L$ : elle est nulle, puis saute en $\theta=m$, puis décroît.}
+\reponse{$L$ est nulle sur $]0;m[$. Sur $[m;+\infty[$, $L(\theta)=\theta^{-n}$ est strictement décroissante, car sa dérivée $-n\theta^{-n-1}$ est négative. Le maximum est donc atteint au bord du domaine où $L$ est non nulle :
+\[
+\widehat\theta_{\mathrm{obs}}=m=\max(x_1,\ldots,x_n).
+\]
+La dérivée ne s'annule nulle part : le maximum est atteint en un point où $L$ n'est pas continue. Ici, le support de la loi dépend du paramètre ; la méthode « annuler la dérivée » ne s'applique pas et il faut étudier directement les variations.}
+\item \question{En déduire l'estimateur du maximum de vraisemblance $\widehat\Theta_n$.}
+\reponse{La statistique correspondante est
+\[
+\widehat\Theta_n=\max(X_1,\ldots,X_n),
+\]
+parfois notée $X_{(n)}$. Elle prend toujours une valeur inférieure ou égale à $\theta$.}
+\item \question{On admet que $\mathbb E(\widehat\Theta_n)=\frac n{n+1}\theta$. L'estimateur $\widehat\Theta_n$ est-il sans biais ? Proposer un estimateur sans biais $\widetilde\Theta_n$ de $\theta$.}
+\indication{Multiplier $\widehat\Theta_n$ par une constante bien choisie.}
+\reponse{Le biais vaut
+\[
+b(\widehat\Theta_n)=\frac n{n+1}\theta-\theta=-\frac\theta{n+1}<0.
+\]
+L'estimateur est biaisé : il sous-estime $\theta$ en moyenne, ce qui est cohérent avec $\widehat\Theta_n\leq\theta$. Le biais tend vers $0$ lorsque $n\to\infty$. L'estimateur
+\[
+\widetilde\Theta_n=\frac{n+1}n\max(X_1,\ldots,X_n)
+\]
+vérifie $\mathbb E(\widetilde\Theta_n)=\frac{n+1}n\times\frac n{n+1}\theta=\theta$ : il est sans biais.}
+\item \question{On observe 5 mesures : $2{,}3$ ; $3{,}1$ ; $2{,}8$ ; $3{,}5$ ; $2{,}6$ mm. Calculer les estimations $\widehat\theta_{\mathrm{obs}}$ et $\widetilde\theta_{\mathrm{obs}}$.}
+\reponse{Le maximum des observations vaut $3{,}5$ mm, donc
+\[
+\widehat\theta_{\mathrm{obs}}=3{,}5\ \mathrm{mm},
+\qquad
+\widetilde\theta_{\mathrm{obs}}=\frac65\times3{,}5=4{,}2\ \mathrm{mm}.
+\]
+La première valeur est l'estimation du maximum de vraisemblance ; la seconde est la réalisation d'un estimateur sans biais. Être sans biais est une propriété de l'estimateur, en moyenne sur les échantillons : cela ne garantit pas que $4{,}2$ mm soit plus proche de $\theta$ que $3{,}5$ mm pour cet échantillon.}
+\end{enumerate}
 }

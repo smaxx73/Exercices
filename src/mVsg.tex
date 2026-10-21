@@ -8,40 +8,51 @@
 \auteur{}
 \datecreate{2022-12-14}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
-
-\texte{ On s'intéresse à un test pour mesurer la consommation maximale en oxygène d'un individu dans une population âgée. Pour un groupe de contrôle, il a été montré que les mesures suivent une loi normale dont l'espérance mathématique est de l'ordre de $\mu=25{,}5 (\mathrm{ml} / \mathrm{kg} / \mathrm{min})$ et l'écart-type $\sigma=6 (\mathrm{ml} / \mathrm{kg} / \mathrm{min})$. On pense qu'une population de malades (Parkinson) doit avoir des capacités cardio-respiratoires plus limitées. On souhaite ainsi tester si dans un tel groupe la moyenne $\mu$ est plus faible. On prendra un risque de première espèce $\alpha = 5 \%$. }
-
+\texte{On s'intéresse à la consommation maximale en oxygène d'un individu dans une population âgée, en ml/kg/min. Pour un groupe de contrôle, il a été montré que les mesures suivent une loi normale d'espérance $25{,}5$ et d'écart-type $\sigma=6$. On pense qu'une population de malades (Parkinson) a des capacités cardio-respiratoires plus limitées. On souhaite tester si, dans ce groupe, l'espérance $\mu$ est plus faible.
+On modélise les mesures de $15$ malades par des variables $X_1,\ldots,X_{15}$ indépendantes de loi $\mathcal N(\mu,\sigma)$ ; on admet que l'écart-type vaut aussi $\sigma=6$ chez les malades et qu'il est connu. On prend un risque de première espèce $\alpha=5\%$.}
 \begin{enumerate}
-	\item \texte{ L'objectif du test est  de décider entre les deux hypothèses suivantes : ${H}_0: \mu=25{,}5$ (absence d'effet de la maladie) et ${H}_1: \mu<25{,}5$ (existence de l'effet) à partir d'un échantillon de taille $15$. On note $\overline{X} = \sum\limits_{k=1}^{15} X_i$ la moyenne empirique des mesures dans un tel échantillon.}
-	\begin{enumerate}
-       \item \question{ Supposons que la moyenne observée dans l'échantillon est de $24{,}0$, quelle est la décision à prendre à la suite de ce test ? }
-       \reponse{ La variable de décision sous l'hypothèse $H_0$ est $$Z=\frac{\overline{X} - 25{,}5}{\sqrt{ \frac{S^2}{15} }}$$ et suit une loi de Student $St(14)$. 
-   Il convient de prendre pour valeur observée $S^2_{obs} = \frac{15}{14} \times 6^2 = 38.57$ soit $S_{obs} = 6.21$. Avec ces valeurs, on obtient   $Z_{obs} = -0{,}93$. 
-   
-   Or pour $\alpha = 0.05$, on calcule que la zone de rejet est $]-\infty ; -1.76]$. Il n'y a donc pas lieu de rejeter l'hypothèse $H_0$.  
-   }
-       \item \question{ Déterminer la moyenne critique $\mu_c$, c'est-à-dire la valeur observée au deçà de laquelle le test conduit à un rejet de $H_0$. } 
-       \reponse{ Il suffit de résoudre l'équation $\frac{\mu_c - 23{,}5}{\sqrt{ \frac{S^2}{15} }} = -1.76$ et on obtient $\mu_c \approx 22.7$. }
+\item \texte{L'objectif est de décider entre $H_0:\mu=25{,}5$ (absence d'effet de la maladie) et $H_1:\mu<25{,}5$ (existence de l'effet). On note $\overline X=\frac1{15}\sum_{i=1}^{15}X_i$ la moyenne empirique des mesures.}
+\begin{enumerate}
+\item \question{La moyenne observée dans l'échantillon est $24{,}0$. Quelle est la décision à prendre à la suite de ce test ?}
+\indication{L'écart-type étant connu, la variable de décision suit une loi normale sous $H_0$.}
+\reponse{Sous $H_0$, $\overline X\sim\mathcal N\left(25{,}5\,;\frac6{\sqrt{15}}\right)$, avec $\frac6{\sqrt{15}}\simeq1{,}5492$. La variable de décision
+\[
+Z=\frac{\overline X-25{,}5}{\frac{6}{\sqrt{15}}}
+\]
+suit donc la loi $\mathcal N(0,1)$. Le test est unilatéral à gauche : on rejette $H_0$ si $Z\leq-u$, avec $u=\Phi^{-1}(0{,}95)\simeq1{,}6449$.
+La valeur observée est
+\[
+z_{\mathrm{obs}}=\frac{24-25{,}5}{1{,}5492}\simeq-0{,}968>-1{,}6449.
+\]
+On ne rejette pas $H_0$ au risque de $5\%$ ; la $p$-valeur vaut $\Phi(-0{,}968)\simeq0{,}166$. Ce non-rejet ne démontre pas l'absence d'effet : il signifie que l'écart observé reste compatible avec $H_0$ pour cet effectif.}
+\item \question{Déterminer la moyenne critique $\mu_c$, c'est-à-dire la valeur observée en deçà de laquelle le test conduit à un rejet de $H_0$.}
+\reponse{On rejette $H_0$ lorsque $\overline x\leq\mu_c$, avec
+\[
+\mu_c=25{,}5-\Phi^{-1}(0{,}95)\frac6{\sqrt{15}}\simeq25{,}5-1{,}6449\times1{,}5492\simeq22{,}95.
+\]
+La moyenne observée $24{,}0$ est supérieure à $\mu_c$, ce qui confirme le non-rejet.}
 \end{enumerate}
-    \item \texte{ La professeur responsable du service pense qu'à partir de la valeur $\mu=23{,}5$, la différence est scientifiquement significative et l'effet sur le malade important. Elle souhaite alors savoir quel risque elle prend lorsqu'elle ne rejette pas ${H}_0$ en étant sous l'hypothèse alternative $(H_1) \colon \mu=23{,}5$. }
-    \begin{enumerate}
-    	\item \question{ Quelle est la loi suivie par la variable aléatoire $\overline{X}$ lorsque $(H_1)$ est supposée vraie ?   }
-    	\reponse{ Dans ce cas $\overline{X}$ suit une loi normale de paramètre $\mu = 23.5$ et d'écart type $\sigma = 6$.  }
-%    	\item \question{ En déduire, sans justifier, la loi de la variable aléatoire $\frac{\overline{X} - 23{,}5}{\sqrt{ \frac{S^2}{15} }}$. }
-    	\item \question{ En déduire l'erreur de deuxième espèce et la puissance de ce test. Commenter le résultat. 	
-    }
-\reponse{ Il suffit de calculer : 
-\begin{align*}
-  \PP(\overline{X} \geq \mu_c) &= \PP\left( \frac{\overline{X} - 23{,}5}{\sqrt{ \frac{S^2}{15} }} \geq \frac{22.7 - 23{,}5}{\sqrt{ \frac{S^2}{15} }}\right) \\
-  &\approx 0.7
-\end{align*}
-en utilisant la loi de Student de paramètre $14$. 
-
-On en déduit que le test ainsi réalisé n'est pas très puissant, de l'ordre de $30\%$ seulement. 
- }
-    \end{enumerate}
+\item \texte{La professeure responsable du service pense qu'à partir de la valeur $\mu=23{,}5$, la différence est cliniquement importante. Elle souhaite savoir quel risque elle prend en ne rejetant pas $H_0$ lorsque $\mu=23{,}5$.}
+\begin{enumerate}
+\item \question{Quelle est la loi de $\overline X$ lorsque $\mu=23{,}5$ ?}
+\reponse{Les $X_i$ suivent alors la loi $\mathcal N(23{,}5\,;6)$ et sont indépendantes ; leur moyenne suit la loi
+\[
+\mathcal N\left(23{,}5\,;\frac6{\sqrt{15}}\right),\qquad\frac6{\sqrt{15}}\simeq1{,}5492.
+\]
+L'écart-type de la moyenne est divisé par $\sqrt{15}$ par rapport à celui d'une mesure.}
+\item \question{En déduire le risque de deuxième espèce et la puissance de ce test pour $\mu=23{,}5$. Commenter le résultat.}
+\reponse{On ne rejette pas $H_0$ lorsque $\overline X>\mu_c$. Pour $\mu=23{,}5$,
+\[
+\beta=\mathbb P(\overline X>\mu_c)
+=1-\Phi\left(\frac{22{,}95-23{,}5}{1{,}5492}\right)
+=1-\Phi(-0{,}354)\simeq0{,}638.
+\]
+La puissance vaut $1-\beta\simeq0{,}362$. Avec $15$ malades, le test ne détecte un écart de $2$ ml/kg/min qu'environ une fois sur trois : un non-rejet est donc peu informatif. Pour mieux détecter cet écart, il faudrait augmenter la taille de l'échantillon ou accepter un risque $\alpha$ plus élevé.
+\par Au tableur, la moyenne critique s'obtient en B1 par
+\par\texttt{=25,5-LOI.NORMALE.STANDARD.INVERSE.N(0,95)*6/RACINE(15)}
+\par puis la puissance par \texttt{=LOI.NORMALE.N(B1;23,5;6/RACINE(15);VRAI)}.}
 \end{enumerate}
-
+\end{enumerate}
 }

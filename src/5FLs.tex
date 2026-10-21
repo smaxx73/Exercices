@@ -3,77 +3,108 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Test d'indépendance}
-\theme{statistiques, tests d'hypothèses}	
+\titre{Tabac et cancer de la gorge : test d'indépendance}
+\theme{statistiques, tests d'hypothèses}
 \auteur{}
 \datecreate{2022-09-28}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{1}
 \contenu{
-
-\texte{ On veut étudier la liaison entre les caractères : 
-	<<être fumeur>> (plus de 20 cigarettes par
-	jour, pendant 10 ans) et <<avoir un cancer de la gorge>>, 
-	sur une population de 1000 personnes, dont 500 sont
-	atteintes d'un cancer de la gorge. Voici les résultats observés:
-	
-	
-	\begin{center}
-		\begin{tabular}{c|cc|c}
-			\emph{Observé} & cancer & non cancer & TOTAL \\ 
-			\hline
-			\text{fumeur} & 342 & 258 & 600 \\ 
-			\text{non fumeur} & 158 & 242 & 400 \\ 
-			\hline
-			\text{TOTAL} & 500 & 500 & 1000
-		\end{tabular}
-	\end{center} }
-\question{ 	Faire un test d'indépendance pour établir la liaison entre ces caractères. }
-
+\texte{Les quantiles sont à gauche : $q_{\nu;\gamma}$ est le quantile de la loi $\chi^2(\nu)$ avec une probabilité $\gamma$ à gauche.}
+\texte{On souhaite étudier la liaison entre les caractères « être fumeur » (plus de 20 cigarettes par jour pendant 10 ans) et « avoir un cancer de la gorge ». L'étude porte sur 1000 personnes, dont 500 sont atteintes d'un cancer de la gorge. On suppose les observations individuelles indépendantes et le plan de collecte adapté au test. Les résultats observés sont :
+\begin{center}
+\begin{tabular}{lrrr}\hline
+\emph{Observé} & Cancer & Sans cancer & Total \\ \hline
+Fumeur & 342 & 258 & 600 \\
+Non-fumeur & 158 & 242 & 400 \\ \hline
+Total & 500 & 500 & 1000 \\ \hline
+\end{tabular}
+\end{center}}
+\question{Réaliser le test de Pearson d'indépendance au seuil de $5\%$ et interpréter sa portée.}
+\indication{Sous l'hypothèse d'indépendance, estimer les probabilités marginales par les fréquences observées. L'effectif attendu dans une case est alors
+\[
+\frac{\text{total de sa ligne}\times\text{total de sa colonne}}{\text{effectif total}}.
+\]
+Par exemple, pour la case « fumeur et cancer », calculer $\frac{600\times500}{1000}$. Construire les quatre attendus, puis additionner les contributions $\frac{(\text{observé}-\text{attendu})^2}{\text{attendu}}$. Le nombre de degrés de liberté est $(2-1)(2-1)$.}
 \reponse{
-	Mise en oeuvre du test:
-	\begin{enumerate}
-		\item On définit un risque: 5\%.
-		Pour étudier la dépendance de ces caractères
-		faisons l'hypothèse $H_{0}$ : <<les deux caractères sont indépendants 
-		>> et voyons ce qui se passerait sous cette hypothèse.
-		Notons les événements:
-		\begin{itemize}
-			\item $C$ : <<avoir un cancer dans la population observée>>
-			\item $F$: <<être fumeur dans la population observée>>
-		\end{itemize}
-		Si les événements $F$ et $C$ sont indépendants, alors: $P(F\cap
-		C)=P(F)\cdot P(C)$ et de même pour les trois autres possibilités: 
-		$P(\overline{C}\cap F),$ $P(\overline{C}\cap \overline{F}),P(C\cap \overline{F})$, 
-		quantités que l'on peut donc calculer sous $H_{0}$:
-		
-		$P(F)=\frac{600}{1000}$, $P(C)=\frac{500}{1000}$, $P(F) \cdot P(C)=\frac{3}{10}$,
-		alors l'effectif théorique correspondant à la catégorie 
-		<<fumeur et cancéreux>> est de $300$.
-		\item On en déduit le tableau théorique sous $H_{0}$ :
-		
-		\begin{center}
-			\begin{tabular}{cccc}
-				\emph{Théorique} & cancer & non cancer & marge \\ 
-				\text{fumeur} & 300 & 300 & 600 \\ 
-				\text{non fumeur} & 200 & 200 & 400 \\ 
-				\text{marge} & 500 & 500 & 1000
-			\end{tabular}
-		\end{center}
-		
-		\item On calcule alors la valeur de 
-		$s=\sum_{i=1}^{i=4} \frac{(O_i-T_i)^{2}}{T_i}$ : on obtient : $s=34.73$.
-		On a précisé le risque de \%, mais pour $\alpha =0,001$, on lit
-		dans la table du khi-deux à un degré de liberté :
-		$P[\chi ^{2}\geq 10.83]=0.001$ et le $\chi^{2}$ calculé est $34.73$!
-		\item On décide de rejeter $H_{0}$.
-		Ainsi, en rejetant l'hypothèse de l'indépendance des caractères
-		<<être fumeur>> et <<avoir un cancer de la gorge>>, on a moins de
-		une chance sur $1000$ de se tromper, puisque moins de un tableau possible
-		sur mille conduit à un calcul de $\chi ^{2}$ plus grand que $10.83$ ;
-		beaucoup moins sans doute, conduiraient à un calcul de $\chi ^{2}$ plus
-		grand que $34.73$.
-	\end{enumerate}
-	
-	
-}}
+\textbf{Étape 1 : définir les hypothèses et le risque.} Pour une personne de la population étudiée, notons les événements
+\begin{itemize}
+\item $F$ : « être fumeur au sens de la définition de l'énoncé » ;
+\item $C$ : « avoir un cancer de la gorge ».
+\end{itemize}
+On teste $H_0$ : les deux caractères sont indépendants, contre $H_1$ : ils sont associés. On fixe le risque de première espèce à $\alpha=5\%$.
+Sous $H_0$,
+\[
+\mathbb P(F\cap C)=\mathbb P(F)\mathbb P(C),
+\]
+et la même factorisation vaut pour les trois autres combinaisons : $F\cap\overline C$, $\overline F\cap C$ et $\overline F\cap\overline C$.
+Les probabilités marginales sont inconnues. Les fréquences observées servent à les estimer :
+\[
+\widehat p_{F,\mathrm{obs}}=\frac{600}{1000}=0{,}6,
+\qquad
+\widehat p_{C,\mathrm{obs}}=\frac{500}{1000}=0{,}5.
+\]
+Elles ne sont pas les probabilités exactes dans la population. Le modèle d'indépendance ajusté donne, pour la première case, la probabilité estimée $0{,}6\times0{,}5=0{,}3$, donc l'effectif attendu $1000\times0{,}3=300$.
+
+\begin{minipage}{\linewidth}
+\textbf{Étape 2 : construire le tableau des effectifs attendus.} Pour une case de ligne $i$ et de colonne $j$, notons $o_{ij}$ l'effectif observé, $o_{i\cdot}$ le total de la ligne et $o_{\cdot j}$ celui de la colonne. L'attendu calculé à partir des marges est
+\[
+e_{ij}=\frac{o_{i\cdot}\,o_{\cdot j}}{1000}.
+\]
+\end{minipage}\par
+Ainsi,
+\[
+e_{11}=\frac{600\times500}{1000}=300,\qquad
+ e_{12}=\frac{600\times500}{1000}=300,
+\]
+\[
+e_{21}=\frac{400\times500}{1000}=200,\qquad
+ e_{22}=\frac{400\times500}{1000}=200.
+\]
+\begin{minipage}{\linewidth}
+On obtient le tableau suivant sous $H_0$ :
+\begin{center}
+\begin{tabular}{lrrr}\hline
+\emph{Attendu} & Cancer & Sans cancer & Total \\ \hline
+Fumeur & 300 & 300 & 600 \\
+Non-fumeur & 200 & 200 & 400 \\ \hline
+Total & 500 & 500 & 1000 \\ \hline
+\end{tabular}
+\end{center}
+\end{minipage}
+Tous les attendus sont largement supérieurs au repère usuel de 5 pour l'approximation du test de Pearson. Les marges du tableau ajusté sont celles du tableau observé.
+
+\textbf{Étape 3 : calculer la statistique et les seuils.} Notons $O_{ij}$ les effectifs aléatoires avant observation. Leurs marges donnent les attendus ajustés aléatoires $E_{ij}=\frac{O_{i\cdot}O_{\cdot j}}{1000}$. La statistique de Pearson est
+\[
+Q=\sum_{i=1}^2\sum_{j=1}^2\frac{(O_{ij}-E_{ij})^2}{E_{ij}}.
+\]
+Les $o_{ij}$ et $e_{ij}$ sont les valeurs obtenues pour l'échantillon observé. La réalisation de $Q$ vaut
+\begin{align*}
+q_{\mathrm{obs}}
+&=\frac{(342-300)^2}{300}+\frac{(258-300)^2}{300}
+ +\frac{(158-200)^2}{200}+\frac{(242-200)^2}{200}\\
+&=\frac{42^2}{300}+\frac{(-42)^2}{300}
+ +\frac{(-42)^2}{200}+\frac{42^2}{200}\\
+&=5{,}88+5{,}88+8{,}82+8{,}82=29{,}4.
+\end{align*}
+Sous $H_0$, la loi de $Q$ est approchée par une loi $\chi^2(1)$ : un tableau à deux lignes et deux colonnes donne $(2-1)(2-1)=1$ degré de liberté. Le test rejette pour les grandes valeurs, dans la queue droite.
+Au seuil de $5\%$, la valeur critique est
+\[
+q_{1;0{,}95}\simeq3{,}84146.
+\]
+Comme $29{,}4>3{,}84146$, on rejette $H_0$. On peut aussi conserver la comparaison à un seuil plus exigeant : pour $\alpha=0{,}001=0{,}1\%$,
+\[
+q_{1;0{,}999}\simeq10{,}82757.
+\]
+Puisque $29{,}4>10{,}82757$, on rejetterait également l'indépendance au seuil de $0{,}1\%$.
+
+\textbf{Étape 4 : calculer la $p$-valeur et interpréter.} Avec $Y\sim\chi^2(1)$, la $p$-valeur approchée est
+\[
+p_{\mathrm{obs}}=\mathbb P(Y\geq29{,}4)\simeq5{,}88776\times10^{-8}.
+\]
+Le tableau met donc en évidence une association entre les deux caractères, sous les hypothèses du test. Il ne suffit pas, à lui seul, à établir une relation de causalité.
+
+Le seuil de $0{,}1\%$ signifie que, si les caractères étaient indépendants, une répétition du protocole conduirait à rejeter cette indépendance avec une probabilité d'environ $0{,}001$, si l'approximation du test est adéquate. Il ne signifie pas que la décision prise sur ce tableau a « moins d'une chance sur 1000 d'être erronée ».
+De même, la $p$-valeur n'est ni la probabilité que $H_0$ soit vraie, ni la probabilité que la décision observée soit erronée. Elle mesure, sous la loi de référence de $H_0$, la probabilité d'obtenir une statistique au moins aussi grande que celle observée.
+}
+}

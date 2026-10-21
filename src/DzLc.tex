@@ -3,55 +3,162 @@
 \niveau{L2}
 \module{Analyse de données}
 \sousChapitre{Tests d'hypothèses, intervalle de confiance}
-\titre{Test d'indépendance}
+\titre{Opinion et classe d'âge : test d'indépendance}
 \theme{tests d'hypothèses}
 \auteur{}
 \datecreate{2022-10-19}
 \organisation{AMSCC}
-\difficulte{}
+\difficulte{2}
 \contenu{
+\texte{Dans le cadre d'une enquête sur le sida réalisée en Allemagne durant l'été 1990 (A. Hahn, W.H. Eirmbter et R. Jacob), on a interrogé 2089 personnes. Le questionnaire comportait notamment l'item suivant : « Le sida est un péril omniprésent. Indiquez si vous êtes : d'accord, indécis, pas d'accord. » Il s'agit de la formulation historique soumise aux répondants.
 
-\texte{Dans le cadre d'une enquête sur le SIDA réalisée en Allemagne durant l'été 1990 (A. Hahn, W.H. Eirmbter et R. Jacob), on a interrogé 2089 personnes. Le questionnaire comportait notamment l'item suivant : Le sida est un péril omniprésent. Indiquez si vous êtes : d'accord, indécis, pas d'accord. Le croisement de la réponse du sujet avec son âge donne le tableau de contingence suivant :}
-
+Le croisement de leur réponse avec leur classe d'âge donne le tableau de contingence suivant. Pour cet exercice, on suppose les répondants indépendants et l'échantillonnage adapté au test de Pearson.
 \begin{center}
-	\begin{tabular}{|c|c|c|c|c|}
-	\hline Classe d'âge & d'accord & indécis & pas d'accord & Total \\
-	\hline $18$ à $<30$ & 43 & 116 & 365 & 524 \\
-	$30$ à $<40$ & 36 & 116 & 273 & 425 \\
-	$40$ à $<50$ & 32 & 95 & 217 & 344 \\
-	$50$ à $<60$ & 38 & 114 & 167 & 319 \\
-	$60$ et plus & 67 & 160 & 250 & 477 \\
-	\hline Total & 216 & 601 & 1272 & 2089 \\
-	\hline
+\begin{tabular}{lrrrr}\hline
+Classe d'âge & D'accord & Indécis & Pas d'accord & Total \\ \hline
+$[18;30[$ & 43 & 116 & 365 & 524 \\
+$[30;40[$ & 36 & 116 & 273 & 425 \\
+$[40;50[$ & 32 & 95 & 217 & 344 \\
+$[50;60[$ & 38 & 114 & 167 & 319 \\
+60 ans et plus & 67 & 160 & 250 & 477 \\ \hline
+Total & 216 & 601 & 1272 & 2089 \\ \hline
 \end{tabular}
 \end{center}
-
+On note $o_{ij}$ les effectifs observés, $o_{i\cdot}$ les totaux de lignes et $o_{\cdot j}$ les totaux de colonnes. Le quantile $q_{d;\gamma}$ de $\chi^2(d)$ est défini avec une probabilité $\gamma$ à gauche.}
 \begin{enumerate}
-\item \question{ Réaliser un test du $\chi^2$ permettant de répondre à la question suivante: << Les réponses des sujets dépendent-elles de leur âge ? >> }
-\reponse{ Le tableau des effectifs théoriques est donné par:
-	Celui des contributions au $\chi^2$ est donné par:
+\item \question{Réaliser un test du $\chi^2$ au seuil de $1\%$ pour déterminer si les réponses sont associées à la classe d'âge.}
+\indication{Sous l'hypothèse d'indépendance, calculer les effectifs attendus estimés par
+\[e_{ij}=\frac{o_{i\cdot}o_{\cdot j}}{2089},\]
+puis les contributions $\frac{(o_{ij}-e_{ij})^2}{e_{ij}}$. Additionner les contributions sans arrondir les résultats intermédiaires.
+
+Avec un tableur, saisir les 15 effectifs observés dans B2:D6, les totaux de lignes dans E2:E6, ceux de colonnes dans B7:D7 et le total général dans E7. En G2, saisir \texttt{=\$E2*B\$7/\$E\$7}, puis recopier dans G2:I6 pour les attendus. En K2, saisir \texttt{=(B2-G2)\^{}2/G2}, puis recopier dans K2:M6 pour les contributions. En O2, \texttt{=SOMME(K2:M6)} donne la statistique observée. Pour le seuil et la $p$-valeur, utiliser \texttt{=LOI.KHIDEUX.INVERSE.DROITE(0,01;8)} et \texttt{=LOI.KHIDEUX.DROITE(O2;8)}.}
+\reponse{
+\textbf{Hypothèses :} $H_0$ affirme l'indépendance entre la classe d'âge et la réponse ; $H_1$ affirme l'existence d'une association. Sous $H_0$, les proportions des trois réponses sont les mêmes dans toutes les classes d'âge.
+
+\textbf{Effectifs attendus estimés :} les proportions globales observées sont $\frac{216}{2089}$, $\frac{601}{2089}$ et $\frac{1272}{2089}$. On multiplie chaque proportion par le total de la ligne. Par exemple,
+\[
+e_{11}=\frac{524\times216}{2089}\simeq54{,}18095.
+\]
+Le tableau des effectifs attendus estimés est :
 \begin{center}
-		\begin{tabular}{|c|c|c|c|}
-		\hline Classe d'âge & d'accord & indécis & pas d'accord \\
-		\hline $18$ à $<30$ & $2.31$ & $8.01$ & $6.61$ \\
-		$30$ à $<40$ & $1.44$ & $0.32$ & $0.78$ \\
-		$40$ à $<50$ & $0.36$ & $0.16$ & $0.27$ \\
-	$50$ à $<60$ & $0.76$ & $5.58$ & $3.82$ \\
-		$60$ et plus & $6.33$ & $3.78$ & $5.63$ \\
-		\hline
-	\end{tabular}
+\begin{tabular}{lrrr}\hline
+Classe d\textquotesingle âge & D\textquotesingle accord & Indécis & Pas d\textquotesingle accord \\ \hline
+$[18;30[$ & $54{,}1809$ & $150{,}7535$ & $319{,}0656$ \\
+$[30;40[$ & $43{,}9445$ & $122{,}2714$ & $258{,}7841$ \\
+$[40;50[$ & $35{,}5692$ & $98{,}9679$ & $209{,}4629$ \\
+$[50;60[$ & $32{,}9842$ & $91{,}7755$ & $194{,}2403$ \\
+60 ans et plus & $49{,}3212$ & $137{,}2317$ & $290{,}4471$ \\
+\hline\end{tabular}
 \end{center}
-	On obtient $\chi_{o b s}^2=46$. Or pour un seuil de $1 \%$ et $d d l=(5-1)(3-1)=8$, on $a: \chi_c^2=20.09$. La réponse du sujet est donc dépendante de son âge. }
-\item \question{ Comparer de même à l'aide d'un test du $\chi^2$ les réponses des deux dernières classes d'âge, puis les réponses des moins de 30 ans à celles des 60 ans et plus. }
-\reponse{ En ne considérant que les deux dernières classes d'âge, on obtient le tableau d'effectifs théoriques suivant:
+Tous les attendus sont supérieurs à 5 (le plus petit vaut environ $32{,}9842$). Avec les hypothèses d'échantillonnage et d'indépendance des répondants, cela permet d'utiliser l'approximation usuelle du test de Pearson.
+
+\textbf{Contributions au $\chi^2$ :} pour la première case,
+\[
+c_{11}=\frac{(43-e_{11})^2}{e_{11}}\simeq2{,}30733.
+\]
+Les 15 contributions sont :
 \begin{center}
-		\begin{tabular}{|c|c|c|c|}
-		\hline Classe d'âge & d'accord & indécis & pas d'accord \\
-		\hline $50$ à $<60$ & $42.1$ & $109.8$ & $167.1$ \\
-		$60$ et plus & $62.9$ & $164.2$ & $249.9$ \\
-		\hline
-	\end{tabular}
+\begin{tabular}{lrrr}\hline
+Classe d\textquotesingle âge & D\textquotesingle accord & Indécis & Pas d\textquotesingle accord \\ \hline
+$[18;30[$ & $2{,}3073$ & $8{,}0118$ & $6{,}6130$ \\
+$[30;40[$ & $1{,}4362$ & $0{,}3217$ & $0{,}7809$ \\
+$[40;50[$ & $0{,}3581$ & $0{,}1591$ & $0{,}2712$ \\
+$[50;60[$ & $0{,}7627$ & $5{,}3819$ & $3{,}8202$ \\
+60 ans et plus & $6{,}3368$ & $3{,}7775$ & $5{,}6326$ \\
+\hline\end{tabular}
 \end{center}
-	On obtient alors $\chi_{obs}^2=0.92$. Or, pour $\alpha=5 \%$ et $d d l=2, \chi_c^2=5.99$. Les réponses des sujets sont cette fois indépendantes de leur appartenance à l'une ou l'autre classe d'âge. Dans le dernier cas, $\chi_{o b s}^2=31.62$, ce qui est significatif d'une dépendance. }
+En particulier, la contribution des personnes de 50 à moins de 60 ans ayant répondu « indécis » vaut
+\[
+\frac{(114-e_{42})^2}{e_{42}}\simeq5{,}38193.
+\]
+La statistique \emph{aléatoire} est
+\[
+Q=\sum_{i=1}^{5}\sum_{j=1}^{3}\frac{(O_{ij}-E_{ij})^2}{E_{ij}},
+\qquad E_{ij}=\frac{O_{i\cdot}O_{\cdot j}}{n}.
+\]
+Les majuscules désignent les effectifs avant observation ; les minuscules désignent leurs valeurs calculées pour l'échantillon. Ici $n=2089$, et la valeur observée, calculée sans arrondir les contributions, est
+\[
+q_{\mathrm{obs}}=\sum_{i=1}^{5}\sum_{j=1}^{3}\frac{(o_{ij}-e_{ij})^2}{e_{ij}}\simeq45{,}97114.
+\]
+\textbf{Référence et décision :} sous $H_0$, la loi de $Q$ est approchée par $\chi^2(d)$, avec
+\[
+d=(5-1)(3-1)=8.
+\]
+On rejette dans la queue droite. Au seuil $\alpha=1\%$, la valeur critique est $q_{8;0{,}99}\simeq20{,}09024$. Comme $45{,}97114>20{,}09024$, on rejette $H_0$. Avec $U\sim\chi^2(8)$, la $p$-valeur approchée est
+\[
+p_{\mathrm{val}}=\mathbb P(U\ge q_{\mathrm{obs}})\simeq2{,}41\times10^{-7}.
+\]
+\textbf{Conclusion :} les données mettent en évidence une association entre classe d'âge et réponse dans le cadre de cette enquête. Elles ne démontrent pas que l'âge cause la réponse, ni que toutes les paires de classes ont des distributions différentes.
+}
+
+\item \question{Au seuil de $5\%$, comparer les réponses des deux dernières classes d'âge, puis celles des moins de 30 ans à celles des 60 ans et plus.}
+\indication{Pour chacune des deux comparaisons, construire un nouveau tableau à deux lignes et trois colonnes. Recalculer les totaux et les effectifs attendus \emph{sur les seules lignes retenues} : ne pas reprendre les attendus du tableau complet. Les degrés de liberté valent $(2-1)(3-1)=2$. Avec Excel, \texttt{=LOI.KHIDEUX.INVERSE.DROITE(0,05;2)} donne le seuil ; \texttt{=LOI.KHIDEUX.DROITE(celluleQ;2)} donne la $p$-valeur, où \texttt{celluleQ} contient la somme non arrondie des six contributions.}
+\reponse{
+\textbf{a) De 50 à moins de 60 ans et 60 ans et plus.}
+
+On teste l'égalité des distributions des trois réponses dans ces deux classes, équivalente à l'indépendance de la réponse et de la classe d'âge au sein du sous-ensemble retenu. Les effectifs observés et leurs nouvelles marges sont :
+\begin{center}
+\begin{tabular}{lrrrr}\hline
+Classe d'âge & D'accord & Indécis & Pas d'accord & Total \\ \hline
+$[50;60[$ & 38 & 114 & 167 & 319 \\
+60 ans et plus & 67 & 160 & 250 & 477 \\ \hline
+Total & 105 & 274 & 417 & 796 \\ \hline
+\end{tabular}
+\end{center}
+Sous $H_0$, les attendus sont $e_{ij}=\frac{o_{i\cdot}o_{\cdot j}}{796}$, par exemple $e_{11}=\frac{319\times105}{796}\simeq42{,}07915$. Le tableau attendu est :
+\begin{center}
+\begin{tabular}{lrrr}\hline
+Classe d\textquotesingle âge & D\textquotesingle accord & Indécis & Pas d\textquotesingle accord \\ \hline
+$[50;60[$ & $42{,}0791$ & $109{,}8065$ & $167{,}1143$ \\
+60 ans et plus & $62{,}9209$ & $164{,}1935$ & $249{,}8857$ \\
+\hline\end{tabular}
+\end{center}
+Tous les attendus sont supérieurs à 5. Les contributions sont :
+\begin{center}
+\begin{tabular}{lrrr}\hline
+Classe d\textquotesingle âge & D\textquotesingle accord & Indécis & Pas d\textquotesingle accord \\ \hline
+$[50;60[$ & $0{,}395432$ & $0{,}160147$ & $0{,}000078$ \\
+60 ans et plus & $0{,}264450$ & $0{,}107100$ & $0{,}000052$ \\
+\hline\end{tabular}
+\end{center}
+Leur somme non arrondie donne $q_{\mathrm{obs}}\simeq0{,}927260$. Avec $d=2$, le seuil de rejet à $5\%$ vaut $q_{2;0{,}95}\simeq5{,}991465$. Comme $0{,}927260<5{,}991465$, on ne rejette pas $H_0$. La $p$-valeur approchée vaut
+\[
+p_{\mathrm{val}}=\mathbb P(U\ge0{,}927260)\simeq0{,}628996,\qquad U\sim\chi^2(2).
+\]
+Les données ne mettent pas en évidence de différence entre les distributions des réponses de ces deux classes. \textbf{Le non-rejet ne prouve pas leur égalité ni l'indépendance.}
+
+\textbf{b) Moins de 30 ans et 60 ans et plus.}
+
+On procède de la même façon pour les deux classes extrêmes. Leur tableau observé est :
+\begin{center}
+\begin{tabular}{lrrrr}\hline
+Classe d'âge & D'accord & Indécis & Pas d'accord & Total \\ \hline
+$[18;30[$ & 43 & 116 & 365 & 524 \\
+60 ans et plus & 67 & 160 & 250 & 477 \\ \hline
+Total & 110 & 276 & 615 & 1001 \\ \hline
+\end{tabular}
+\end{center}
+Les attendus sont recalculés avec $n=1001$ : par exemple $e_{11}=\frac{524\times110}{1001}\simeq57{,}58242$. On obtient :
+\begin{center}
+\begin{tabular}{lrrr}\hline
+Classe d\textquotesingle âge & D\textquotesingle accord & Indécis & Pas d\textquotesingle accord \\ \hline
+$[18;30[$ & $57{,}5824$ & $144{,}4795$ & $321{,}9381$ \\
+60 ans et plus & $52{,}4176$ & $131{,}5205$ & $293{,}0619$ \\
+\hline\end{tabular}
+\end{center}
+Tous les attendus sont supérieurs à 5. Leurs contributions sont :
+\begin{center}
+\begin{tabular}{lrrr}\hline
+Classe d\textquotesingle âge & D\textquotesingle accord & Indécis & Pas d\textquotesingle accord \\ \hline
+$[18;30[$ & $3{,}6929$ & $5{,}6138$ & $5{,}7599$ \\
+60 ans et plus & $4{,}0568$ & $6{,}1670$ & $6{,}3274$ \\
+\hline\end{tabular}
+\end{center}
+La somme non arrondie vaut $q_{\mathrm{obs}}\simeq31{,}61783$, toujours avec $d=2$. Comme $31{,}61783>5{,}991465$, on rejette $H_0$ au seuil de $5\%$ ; la $p$-valeur approchée vaut $1{,}36\times10^{-7}$.
+
+Une différence entre les distributions des réponses de ces deux classes est mise en évidence. Cette association ne constitue pas une conclusion causale.
+
+\textbf{Comparaison des résultats :} le rejet du test global est compatible avec le non-rejet pour certaines paires de classes. Les tests portent sur des hypothèses différentes. Ces deux comparaisons sont des analyses distinctes au seuil annoncé ; une exploration de nombreuses paires demanderait de tenir compte de la multiplicité des tests. Avec $k$ tests indépendants menés chacun au seuil de $5\%$, la probabilité d'au moins un rejet à tort lorsque toutes les hypothèses nulles sont vraies vaut $1-0{,}95^k$, soit environ $10\%$ pour $k=2$ et $40\%$ pour $k=10$ (les dix paires de classes d'âge). Une correction simple, dite de Bonferroni, consiste à mener chaque test au seuil $\frac{5\%}k$.
+}
 \end{enumerate}
 }
