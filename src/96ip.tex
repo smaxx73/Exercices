@@ -12,7 +12,7 @@
 \contenu{
 \texte{Ce travail se fait en salle informatique, dans un notebook Python :
 
-\insertnotebook{TP1_perceptrons_reseaux_eleve}
+\insertnotebook{96ip}
 
 Le notebook programme un perceptron, sa règle d'apprentissage et la propagation dans un réseau ; des cellules de test vérifient chaque fonction sur des exemples calculés à la main.
 
@@ -33,6 +33,6 @@ Complétez toutes les cellules marquées « À COMPLÉTER » : tant qu'un test �
 \item \question{Que renvoie \texttt{derivee\_numerique(heaviside, 0.0, h)} pour $h=10^{-6}$, puis pour $h=10^{-4}$ ? Quelle formule en $h$ retrouvez-vous, et que faut-il en conclure pour entraîner un réseau de Heaviside par descente de gradient ?}
 \reponse{On obtient $500\,000$ pour $h=10^{-6}$ et $5\,000$ pour $h=10^{-4}$, c'est-à-dire $\dfrac{H(h)-H(-h)}{2h}=\dfrac1{2h}$, qui tend vers $+\infty$ quand $h\to 0$. La fonction de Heaviside n'est pas dérivable en $0$ et sa dérivée est nulle partout ailleurs : le gradient ne dit pas comment modifier les poids, d'où le recours à des activations dérivables comme la sigmoïde.
 
-Notebook corrigé : \insertnotebook{TP1_perceptrons_reseaux_corrige}.}
+Notebook corrigé : \insertnotebook{96ip-solutions}.}
 \end{enumerate}
 }
