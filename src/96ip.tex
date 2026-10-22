@@ -1,0 +1,38 @@
+\uuid{96ip}
+\titre{TP Python : programmer perceptrons et réseaux}
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Architecture et propagation avant}
+\theme{Perceptron, règle d'apprentissage, réseaux multicouches, notebook}
+\auteur{Maxime Nguyen}
+\datecreate{2026-10-22}
+\organisation{AMSCC}
+\difficulte{3}
+\contenu{
+\texte{Ce travail se fait en salle informatique, dans un notebook Python :
+
+\insertnotebook{TP1_perceptrons_reseaux_eleve}
+
+Il prolonge les exercices précédents : on y programme un perceptron, sa règle d'apprentissage et la propagation dans un réseau, et les résultats des exercices calculés à la main servent de tests.
+
+Complétez toutes les cellules marquées « À COMPLÉTER » : tant qu'un test échoue, l'implémentation est fausse. Les graines aléatoires sont fixées : les valeurs demandées ci-dessous sont celles que doit afficher votre notebook, avec les arrondis indiqués. Certaines se lisent dans la cellule « Fiche de résultats » ; d'autres demandent de refaire une expérience en modifiant le notebook. Rédigez vos réponses sur une feuille.}
+\begin{enumerate}
+\item \question{Combien d'époques et de corrections la règle d'apprentissage du perceptron demande-t-elle sur \texttt{donnees\_separables()}, avec $\eta=0{,}1$ ? Quel est le vecteur $w$ final, à $10^{-2}$ près ?}
+\reponse{La règle converge en $5$ époques, avec $14$ corrections, et $w=(0{,}61\,;-0{,}33)$.}
+\item \question{Refaites l'apprentissage sur \texttt{donnees\_separables(graine=s)} pour $s=0,1,\dots,5$ et donnez le nombre de corrections pour chaque graine, avec $\eta=0{,}1$ puis avec $\eta=1$. Que constatez-vous ? Expliquez-le.}
+\indication{Les poids et le biais partent de $0$. Montrer par récurrence qu'ils restent proportionnels à $\eta$.}
+\reponse{Pour les graines $0$ à $5$, on obtient $14,\ 15,\ 7,\ 9,\ 7,\ 5$ corrections, pour $\eta=0{,}1$ comme pour $\eta=1$. Le nombre de corrections ne dépend pas de $\eta$. En effet, comme $w$ et $b$ partent de $0$, une récurrence montre qu'à chaque instant $w=\eta\,u$ et $b=\eta\,v$ avec $u$ et $v$ ne dépendant que de la suite des exemples mal classés. Le signe de $w\cdot x+b=\eta\,(u\cdot x+v)$, qui décide si un exemple est bien classé, ne dépend donc pas de $\eta>0$ : la suite des corrections est la même, seule l'échelle de $w$ et $b$ change.}
+\item \question{Sur les quatre points du XOR, pendant $100$ époques, quelles valeurs prend le nombre d'exemples mal classés à la fin de chaque époque ? Que peut-on en conclure ?}
+\reponse{Ce nombre vaut toujours $2$ : l'algorithme ne converge jamais. Aucun perceptron ne classe les quatre points : si $s$ est affine, $s(1/2,1/2)$ serait à la fois positif ou nul (milieu de $(1,0)$ et $(0,1)$) et strictement négatif (milieu de $(0,0)$ et $(1,1)$).}
+\item \question{Parmi les $2000$ points obtenus par \texttt{np.random.default\_rng(0).uniform(-3, 3, size=(2, 2000))}, combien sont reconnus par votre réseau pour la bande $\{|x-y|\leq 1\}$ ? Combien par celui du triangle de sommets $(-1,-1)$, $(-1,1)$, $(1,1)$ ?}
+\indication{Les aires de la bande et du triangle dans le carré $[-3,3]^2$ donnent l'ordre de grandeur attendu.}
+\reponse{On obtient $622$ points dans la bande et $109$ dans le triangle. Ordre de grandeur : l'aire de la bande dans le carré est $11$ sur $36$ (environ $611$ points sur $2000$), celle du triangle est $2$ sur $36$ (environ $111$ points).}
+\item \question{Modifiez le réseau de la bande pour qu'il reconnaisse $\{|x-y|\leq 2\}$. Quels paramètres changent, et quelles sont leurs nouvelles valeurs ? Vérifiez votre réponse dans le notebook.}
+\reponse{Seul le biais de la première couche change : $b^{[1]}=(2,2)$ au lieu de $(1,1)$. Les deux demi-plans deviennent $2-x+y\geq 0$ et $2+x-y\geq 0$ ; les matrices $W^{[1]}$ et $W^{[2]}$ et le biais $b^{[2]}=-\tfrac32$ de la couche de sortie ne changent pas.}
+\item \question{Que renvoie \texttt{derivee\_numerique(heaviside, 0.0, h)} pour $h=10^{-6}$, puis pour $h=10^{-4}$ ? Quelle formule en $h$ retrouvez-vous, et que faut-il en conclure pour entraîner un réseau de Heaviside par descente de gradient ?}
+\reponse{On obtient $500\,000$ pour $h=10^{-6}$ et $5\,000$ pour $h=10^{-4}$, c'est-à-dire $\dfrac{H(h)-H(-h)}{2h}=\dfrac1{2h}$, qui tend vers $+\infty$ quand $h\to 0$. La fonction de Heaviside n'est pas dérivable en $0$ et sa dérivée est nulle partout ailleurs : le gradient ne dit pas comment modifier les poids, d'où le recours à des activations dérivables comme la sigmoïde.
+
+Notebook corrigé : \insertnotebook{TP1_perceptrons_reseaux_corrige}.}
+\end{enumerate}
+}

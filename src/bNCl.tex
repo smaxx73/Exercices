@@ -1,0 +1,54 @@
+\uuid{bNCl}
+\titre{TP Python : rétropropagation et méthodes d'apprentissage}
+\niveau{L3}
+\module{Analyse de données}
+\chapitre{Réseaux de neurones}
+\sousChapitre{Rétropropagation}
+\theme{Rétropropagation, descente de gradient, mini-lots, sur-apprentissage, régularisation, notebook}
+\auteur{Maxime Nguyen}
+\datecreate{2026-10-22}
+\organisation{AMSCC}
+\difficulte{3}
+\contenu{
+\texte{Ce travail se fait en salle informatique, dans un notebook Python :
+
+\insertnotebook{TP2_retropropagation_apprentissage_eleve}
+
+Il suppose le TP précédent et prolonge les exercices de rétropropagation : on programme la propagation avant, la perte, la rétropropagation et la descente de gradient, puis on compare des méthodes d'apprentissage.
+
+Complétez toutes les cellules marquées « À COMPLÉTER » : tant qu'un test échoue, l'implémentation est fausse. Les graines aléatoires sont fixées : les valeurs demandées ci-dessous sont celles que doit afficher votre notebook, avec les arrondis indiqués. Certaines se lisent dans la cellule « Fiche de résultats », qui demande une quinzaine de secondes ; d'autres demandent de refaire une expérience en modifiant le notebook. Rédigez vos réponses sur une feuille.}
+\begin{enumerate}
+\item \question{Quel écart relatif maximal renvoie \texttt{verifier\_gradient} pour le réseau $[3,4,2]$ à activations sigmoïdes de la fiche de résultats ? Quel ordre de grandeur doit-on attendre, et qu'indiquerait un écart de l'ordre de $10^{-2}$ ?}
+\reponse{On obtient environ $4{,}9\cdot 10^{-9}$ : l'écart est de l'ordre de $10^{-9}$ à $10^{-8}$, ce qui est l'erreur de la méthode des différences finies centrées. Un écart de l'ordre de $10^{-2}$ révélerait une erreur dans \texttt{arriere} (indices, facteur $1/m$, dérivée de l'activation).}
+\item \question{On entraîne le réseau $[2,3,1]$ (activations sigmoïdes) sur le XOR avec $\eta=2$ pendant $3000$ époques, avec la graine $0$. Quelle est la perte finale, et quelles sont les quatre sorties arrondies à $10^{-2}$ ?}
+\reponse{La perte finale est $0{,}0006$ et les sorties valent $0{,}02,\ 0{,}96,\ 0{,}96,\ 0{,}05$ pour les entrées $(0,0),(1,0),(0,1),(1,1)$.}
+\item \question{Entraînez le réseau $[2,2,1]$ dans les mêmes conditions pour les graines $0,1,\dots,5$. Pour quelles graines la perte finale dépasse-t-elle $0{,}05$ ? Même question avec $[2,3,1]$. Que peut-on en conclure sur le rôle de l'initialisation et du nombre de neurones cachés ?}
+\reponse{Avec $[2,2,1]$, les graines $1$ et $4$ restent bloquées (pertes finales $0{,}063$ et $0{,}084$), les quatre autres atteignent $0{,}001$. Avec $[2,3,1]$, les six graines convergent (perte $0{,}001$). Avec deux neurones cachés, juste le minimum nécessaire pour le XOR, le résultat dépend de l'initialisation : la descente peut rester sur un plateau. Un neurone caché supplémentaire rend l'apprentissage fiable.}
+\item \question{Reprenez l'exercice sur la ReLU morte (biais de sortie figé à $0$). Quelle est la perte après $200$ itérations depuis l'initialisation $A$, puis depuis $B$ ? Quelle est alors la valeur de $w$ depuis $B$, à $10^{-2}$ près ?}
+\reponse{Depuis $A$, la perte reste égale à $2{,}000$ : aucun paramètre ne bouge, car la ReLU est inactive et tous les gradients sont nuls. Depuis $B$, elle tombe à $0{,}000$ (moins de $10^{-3}$) et $w\approx 1{,}27$.}
+\item \question{Sur les deux lunes, avec un réseau $[2,16,1]$ entraîné pendant $300$ époques, donnez la perte d'entraînement finale (à $10^{-4}$ près) et la précision de test (à $10^{-3}$ près) pour : le lot complet ($\eta=0{,}5$), les mini-lots de $32$ ($\eta=0{,}5$), et un exemple à la fois ($\eta=0{,}05$).}
+\reponse{\begin{center}
+\begin{tabular}{l|ccc}
+méthode & lot complet & mini-lots de $32$ & un exemple\\\hline
+perte d'entraînement & $0{,}0363$ & $0{,}0130$ & $0{,}0105$\\
+précision de test & $0{,}910$ & $0{,}945$ & $0{,}953$
+\end{tabular}
+\end{center}
+À nombre d'époques égal, plus on met à jour souvent (1, 13 puis 400 mises à jour par époque), plus la perte baisse vite.}
+\item \question{Entraînez le même réseau en mini-lots de $8$ ($\eta=0{,}5$, $300$ époques, graine $0$). Combien de mises à jour par époque cela représente-t-il ? Quelle est la perte d'entraînement finale et la précision de test ? Situez le résultat par rapport aux mini-lots de $32$.}
+\reponse{Pour $400$ exemples, il y a $50$ mises à jour par époque. La perte finale est $0{,}0101$ et la précision de test $0{,}955$ : c'est un peu meilleur que les mini-lots de $32$ ($0{,}0130$ et $0{,}945$), et proche de la méthode à un exemple, pour un coût de calcul intermédiaire.}
+\item \question{Pour le réseau $[2,64,64,1]$ entraîné sur $30$ points bruités (voir le notebook), à quelle époque la perte de validation est-elle minimale ? Quelle est sa valeur, et que vaut-elle après $2000$ époques ? Comparez les précisions de validation avec l'arrêt précoce et à la fin de l'entraînement.}
+\reponse{La perte de validation est minimale à l'époque $36$ : elle vaut $0{,}0620$, puis remonte à $0{,}0852$ à la fin des $2000$ époques, alors que la perte d'entraînement continue de baisser : c'est du sur-apprentissage. La précision de validation est de $0{,}825$ avec l'arrêt précoce, contre $0{,}757$ à la fin.}
+\item \question{Pour $\lambda\in\{0;\,10^{-3};\,3\cdot10^{-3};\,10^{-2};\,3\cdot10^{-2}\}$, donnez la perte de validation et la précision de validation après $2000$ époques. Quelle valeur de $\lambda$ est la meilleure ? Que se passe-t-il pour $\lambda=3\cdot 10^{-2}$ ?}
+\reponse{\begin{center}
+\begin{tabular}{l|ccccc}
+$\lambda$ & $0$ & $10^{-3}$ & $3\cdot10^{-3}$ & $10^{-2}$ & $3\cdot10^{-2}$\\\hline
+perte de validation & $0{,}0852$ & $0{,}0738$ & $\mathbf{0{,}0680}$ & $0{,}0739$ & $0{,}1250$\\
+précision de validation & $0{,}757$ & $0{,}800$ & $\mathbf{0{,}813}$ & $0{,}798$ & $0{,}500$
+\end{tabular}
+\end{center}
+La meilleure valeur est $\lambda=3\cdot10^{-3}$. Pour $\lambda=3\cdot10^{-2}$, la pénalisation est trop forte : les poids sont écrasés, le réseau répond $\tfrac12$ partout (perte $0{,}125$, précision $0{,}5$) : c'est du sous-apprentissage.
+
+Notebook corrigé : \insertnotebook{TP2_retropropagation_apprentissage_corrige}.}
+\end{enumerate}
+}
