@@ -14,7 +14,7 @@
 
 \insertnotebook{TP2_retropropagation_apprentissage_eleve}
 
-Il suppose le TP précédent et prolonge les exercices de rétropropagation : on programme la propagation avant, la perte, la rétropropagation et la descente de gradient, puis on compare des méthodes d'apprentissage.
+Le notebook programme la propagation avant, la perte, la rétropropagation et la descente de gradient, puis compare des méthodes d'apprentissage.
 
 Complétez toutes les cellules marquées « À COMPLÉTER » : tant qu'un test échoue, l'implémentation est fausse. Les graines aléatoires sont fixées : les valeurs demandées ci-dessous sont celles que doit afficher votre notebook, avec les arrondis indiqués. Certaines se lisent dans la cellule « Fiche de résultats », qui demande une quinzaine de secondes ; d'autres demandent de refaire une expérience en modifiant le notebook. Rédigez vos réponses sur une feuille.}
 \begin{enumerate}
@@ -24,7 +24,7 @@ Complétez toutes les cellules marquées « À COMPLÉTER » : tant qu'un test �
 \reponse{La perte finale est $0{,}0006$ et les sorties valent $0{,}02,\ 0{,}96,\ 0{,}96,\ 0{,}05$ pour les entrées $(0,0),(1,0),(0,1),(1,1)$.}
 \item \question{Entraînez le réseau $[2,2,1]$ dans les mêmes conditions pour les graines $0,1,\dots,5$. Pour quelles graines la perte finale dépasse-t-elle $0{,}05$ ? Même question avec $[2,3,1]$. Que peut-on en conclure sur le rôle de l'initialisation et du nombre de neurones cachés ?}
 \reponse{Avec $[2,2,1]$, les graines $1$ et $4$ restent bloquées (pertes finales $0{,}063$ et $0{,}084$), les quatre autres atteignent $0{,}001$. Avec $[2,3,1]$, les six graines convergent (perte $0{,}001$). Avec deux neurones cachés, juste le minimum nécessaire pour le XOR, le résultat dépend de l'initialisation : la descente peut rester sur un plateau. Un neurone caché supplémentaire rend l'apprentissage fiable.}
-\item \question{Reprenez l'exercice sur la ReLU morte (biais de sortie figé à $0$). Quelle est la perte après $200$ itérations depuis l'initialisation $A$, puis depuis $B$ ? Quelle est alors la valeur de $w$ depuis $B$, à $10^{-2}$ près ?}
+\item \question{On considère un neurone caché ReLU suivi d'une sortie linéaire sans biais, $h=\mathrm{ReLU}(wx+b)$ et $F=v\,h$, une seule donnée $(x,t)=(1,2)$ et la perte $\tfrac12(F-t)^2$ (section « ReLU morte » du notebook). On part de $A=(w,b,v)=(-1,0,1)$ puis de $B=(1,0,1)$, avec le pas $\eta=0{,}1$. Quelle est la perte après $200$ itérations depuis $A$, puis depuis $B$ ? Quelle est alors la valeur de $w$ depuis $B$, à $10^{-2}$ près ?}
 \reponse{Depuis $A$, la perte reste égale à $2{,}000$ : aucun paramètre ne bouge, car la ReLU est inactive et tous les gradients sont nuls. Depuis $B$, elle tombe à $0{,}000$ (moins de $10^{-3}$) et $w\approx 1{,}27$.}
 \item \question{Sur les deux lunes, avec un réseau $[2,16,1]$ entraîné pendant $300$ époques, donnez la perte d'entraînement finale (à $10^{-4}$ près) et la précision de test (à $10^{-3}$ près) pour : le lot complet ($\eta=0{,}5$), les mini-lots de $32$ ($\eta=0{,}5$), et un exemple à la fois ($\eta=0{,}05$).}
 \reponse{\begin{center}
