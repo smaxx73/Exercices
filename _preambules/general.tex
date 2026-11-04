@@ -38,6 +38,14 @@
 	\fbox{\BVerbatimInput[fontsize=\small,#1]{\exercisespath code/python/#2}}%
 }
 
+% Animation interactive d'OpenYourMath, \animation{nom}{légende} : le site ouvre
+% la figure content/animations/<nom>.html ; le PDF n'en garde que la légende et
+% l'adresse. La légende est du texte simple, sans formule.
+\newcommand{\animation}[2]{%
+	\par\noindent\fbox{\parbox{0.94\linewidth}{\emph{Animation interactive : #2}\\
+	\url{https://openyourmath.org/animation/#1}}}\par%
+}
+
 % Racine du dépôt, à définir avant le chargement des préambules si nécessaire.
 % Ce nom évite la collision avec \path, commande TikZ.
 \providecommand{\exercisespath}{}

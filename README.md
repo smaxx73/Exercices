@@ -16,6 +16,11 @@ Les extraits Python sont des fichiers dans `code/python/`. Ils s'insèrent dans
 `\contenu{...}` avec `\pythoncode{nom-du-fichier.py}` ; cette commande utilise
 `fancyvrb`, compatible avec le stockage du contenu dans une macro.
 
+Une figure interactive d'OpenYourMath se référence dans `\contenu{...}` avec
+`\animation{nom}{légende}`, par exemple dans la réponse qu'elle illustre. Le site
+ouvre la page `content/animations/<nom>.html` d'OpenYourMath ; le PDF n'en garde
+que la légende (texte simple, sans formule) et l'adresse.
+
 et dans le corps du document, utiliser la commande
 
 ```\insertexo{id}{solution}{uuid}{lien}{numerotation}{indication}```
