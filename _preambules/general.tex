@@ -39,11 +39,14 @@
 }
 
 % Animation interactive d'OpenYourMath, \animation{nom}{légende} : le site ouvre
-% la figure content/animations/<nom>.html ; le PDF n'en garde que la légende et
-% l'adresse. La légende est du texte simple, sans formule.
+% la page animations/<nom>.html ; le PDF n'en garde que la légende, l'adresse et
+% un QR code de l'adresse. La légende est du texte simple, sans formule.
+% Même présentation que l'export LaTeX d'OpenYourMath (src/lib/latex/export.js).
 \newcommand{\animation}[2]{%
-	\par\noindent\fbox{\parbox{0.94\linewidth}{\emph{Animation interactive : #2}\\
-	\url{https://openyourmath.org/animation/#1}}}\par%
+	\par\medskip\noindent\fbox{\parbox{0.94\linewidth}{%
+		\parbox[c]{\dimexpr\linewidth-2.4cm\relax}{\emph{Animation interactive : #2}\\
+		\url{https://openyourmath.org/animation/#1}}\hfill
+		\parbox[c]{2cm}{\qrcode[height=2cm]{https://openyourmath.org/animation/#1}}}}\par\medskip%
 }
 
 % Racine du dépôt, à définir avant le chargement des préambules si nécessaire.

@@ -16,10 +16,17 @@ Les extraits Python sont des fichiers dans `code/python/`. Ils s'insèrent dans
 `\contenu{...}` avec `\pythoncode{nom-du-fichier.py}` ; cette commande utilise
 `fancyvrb`, compatible avec le stockage du contenu dans une macro.
 
-Une figure interactive d'OpenYourMath se référence dans `\contenu{...}` avec
-`\animation{nom}{légende}`, par exemple dans la réponse qu'elle illustre. Le site
-ouvre la page `content/animations/<nom>.html` d'OpenYourMath ; le PDF n'en garde
-que la légende (texte simple, sans formule) et l'adresse.
+Les figures interactives sont des pages HTML autonomes dans `animations/`. Elles
+s'insèrent dans `\contenu{...}` avec `\animation{nom}{légende}`, dans le bloc
+qu'elles illustrent (souvent la réponse) ; `nom` désigne `animations/<nom>.html`.
+Comme `code/python/`, ce dossier est repris par la synchronisation d'exobase puis
+d'OpenYourMath, qui ouvre la page sur le site. Le PDF n'en garde que la légende
+(texte simple, sans formule), l'adresse `https://openyourmath.org/animation/<nom>`
+et son QR code : le nom doit donc rester stable, et on le préfixe par l'uuid de
+l'exercice (`ebva-directionnelle`). La charte de création (quand faire une
+animation, où la placer, contenu et contraintes de la page) et la production
+d'une page à partir d'un diaporama sont décrites dans `docs/animations.md`
+d'OpenYourMath.
 
 et dans le corps du document, utiliser la commande
 
@@ -115,6 +122,7 @@ python3 scripts/check_exercise_sources.py --max-errors=0
 python3 scripts/check_exercise_sources.py --csv
 python3 scripts/check_image_assets.py
 python3 scripts/check_python_assets.py
+python3 scripts/check_animation_assets.py
 ```
 
 La cible par défaut est `src/`. Ces contrôles de structure et d'assets sont exécutés par la CI.

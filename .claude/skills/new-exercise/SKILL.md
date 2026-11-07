@@ -72,6 +72,7 @@ Principes éditoriaux :
 - Utiliser `$$...$$` pour les formules centrées, `$...$` pour les formules en ligne.
 - Les sommes de séries s'écrivent `\sum_{n\geq 1}` ou `\sum_{n=1}^{N}`.
 - Encadrer les résultats remarquables avec `\boxed{...}`.
+- Une figure interactive éventuelle se place avec `\animation{<UUID>-nom}{Légende}` dans le bloc qu'elle illustre ; la page autonome `animations/<UUID>-nom.html` doit exister (`python3 scripts/check_animation_assets.py`). Légende en texte simple, sans formule, qui dit ce que l'on observe. L'exercice doit rester complet sans l'animation (charte : `docs/animations.md` d'OpenYourMath).
 
 ### 4. Créer le fichier
 
