@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Vérifie les animations interactives référencées par \\animation{nom}{légende}.
+"""Vérifie les animations interactives référencées par \\animation[image]{nom}{légende}.
 
 Chaque appel doit désigner une page animations/<nom>.html et porter une légende
-en texte simple : c'est la seule trace de l'animation dans le PDF. La page est
+en texte simple, imprimée dans le PDF avec l'adresse de la page. La page est
 servie par OpenYourMath dans un bac à sable qui interdit toute requête externe :
 elle doit donc être autonome.
 """
@@ -20,7 +20,8 @@ ANIMATIONS_DIR = ROOT / "animations"
 
 # Même règle que src/lib/animations.js d'OpenYourMath.
 NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$")
-CALL = re.compile(r"\\animation\s*\{")
+# L'image fixe facultative, \animation[chemin]{nom}{légende}, relève de check_image_assets.py.
+CALL = re.compile(r"\\animation\s*(?:\[[^\]]*\]\s*)?\{")
 EXTERNAL = re.compile(r"""(?:src|href)\s*=\s*["']?(?:https?:)?//""", re.IGNORECASE)
 
 

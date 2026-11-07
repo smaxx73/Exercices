@@ -17,12 +17,15 @@ Les extraits Python sont des fichiers dans `code/python/`. Ils s'insèrent dans
 `fancyvrb`, compatible avec le stockage du contenu dans une macro.
 
 Les figures interactives sont des pages HTML autonomes dans `animations/`. Elles
-s'insèrent dans `\contenu{...}` avec `\animation{nom}{légende}`, dans le bloc
-qu'elles illustrent (souvent la réponse) ; `nom` désigne `animations/<nom>.html`.
+s'insèrent dans `\contenu{...}` avec `\animation[image]{nom}{légende}`, dans le
+bloc qu'elles illustrent (souvent la réponse) ; `nom` désigne
+`animations/<nom>.html`. L'image fixe, facultative mais recommandée, s'écrit
+comme un `\includegraphics` (`\exercisespath img/pdf/ebva-tikz-1`, source TikZ dans
+`img/tikz/`) : imprimée dans l'encadré, elle sert aussi de vignette sur le site.
 Comme `code/python/`, ce dossier est repris par la synchronisation d'exobase puis
-d'OpenYourMath, qui ouvre la page sur le site. Le PDF n'en garde que la légende
-(texte simple, sans formule), l'adresse `https://openyourmath.org/animation/<nom>`
-et son QR code : le nom doit donc rester stable, et on le préfixe par l'uuid de
+d'OpenYourMath, qui ouvre la page sur le site. Le PDF n'en garde que l'image
+fixe, la légende (texte simple, sans formule), l'adresse
+`https://openyourmath.org/animation/<nom>` et son QR code : le nom doit donc rester stable, et on le préfixe par l'uuid de
 l'exercice (`ebva-directionnelle`). La charte de création (quand faire une
 animation, où la placer, contenu et contraintes de la page) et la production
 d'une page à partir d'un diaporama sont décrites dans `docs/animations.md`

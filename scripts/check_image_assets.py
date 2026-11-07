@@ -12,7 +12,10 @@ from pathlib import Path, PurePosixPath
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IMAGE_COMMAND = re.compile(r"\\includegraphics(?:\s*\[[^\]]*\])?\s*\{([^{}]+)\}")
+# \includegraphics{chemin}, et l'image fixe d'une animation, \animation[chemin]{nom}{légende}.
+IMAGE_COMMAND = re.compile(
+    r"\\includegraphics(?:\s*\[[^\]]*\])?\s*\{([^{}]+)\}|\\animation\s*\[([^\]]+)\]"
+)
 MANAGED_PATH = re.compile(r"^\\exercisespath\s+img/(pdf|png)/(.+)$")
 
 
@@ -67,7 +70,7 @@ def validate_file(file_path: Path) -> list[Issue]:
 
     for match in IMAGE_COMMAND.finditer(clean_source):
         line, column = line_and_column(source, match.start())
-        argument = match.group(1).strip()
+        argument = (match.group(1) or match.group(2)).strip()
         target = image_target(argument)
 
         if target is None:
