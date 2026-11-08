@@ -5,7 +5,7 @@
 \begin{tikzpicture}
     \begin{axis}[
         width=8.5cm,
-        height=5.5cm,
+        height=5cm,
         xmin=0, xmax=360,
         ymin=-3, ymax=3,
         xtick={0,90,180,270,360},
@@ -14,10 +14,11 @@
         ylabel={$\partial_u f(0,0)$},
         grid=major,
         grid style={black!12},
-        legend style={at={(0.5,-0.25)}, anchor=north, draw=none, font=\small},
+        legend style={at={(0.5,-0.3)}, anchor=north, draw=none, font=\small},
         restrict y to domain=-4:4,
         unbounded coords=jump,
         samples=200,
+        clip mode=individual,
     ]
     \draw[black!60] (axis cs:0,0) -- (axis cs:360,0);
     % Formule du gradient : (0,1).u = sin(theta)
@@ -36,6 +37,7 @@
     \addplot[only marks, mark=*, mark size=2.6pt, color={rgb,255:red,184;green,93;blue,63}, forget plot] coordinates {(63.43,1.789)};
     \node[anchor=north west, font=\small, inner sep=1.5pt] at (axis cs:66,0.82) {$0{,}894$};
     \node[anchor=north west, font=\small, inner sep=1.5pt] at (axis cs:66,1.75) {$1{,}789$};
-    \node[anchor=south west, font=\small, inner sep=1.5pt] at (axis cs:66,-2.9) {$u \propto (1,2)$};
+    % Au-dessus du cadre, au bout de la ligne : dans le cadre, les courbes la croisent
+    \node[anchor=south, font=\small, inner sep=2pt] at (axis cs:63.43,3) {$u \propto (1,2)$};
     \end{axis}
 \end{tikzpicture}
