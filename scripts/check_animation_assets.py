@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Vérifie les animations interactives référencées par \\animation[image]{nom}{légende}.
 
-Chaque appel doit désigner une page animations/<nom>.html et porter une légende
-en texte simple, imprimée dans le PDF avec l'adresse de la page. La page est
-servie par OpenYourMath dans un bac à sable qui interdit toute requête externe :
-elle doit donc être autonome.
+Chaque appel doit désigner une figure animations/<nom>.js et porter une légende
+en texte simple, imprimée dans le PDF avec l'adresse de la figure. La figure est
+écrite avec le kit d'OpenYourMath et s'enregistre sous le nom de son fichier,
+OYMWidgets.define('<nom>', …). OpenYourMath la sert dans un bac à sable qui
+interdit toute requête externe : elle ne charge rien du réseau.
 """
 
 from __future__ import annotations
@@ -22,7 +23,10 @@ ANIMATIONS_DIR = ROOT / "animations"
 NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$")
 # L'image fixe facultative, \animation[chemin]{nom}{légende}, relève de check_image_assets.py.
 CALL = re.compile(r"\\animation\s*(?:\[[^\]]*\]\s*)?\{")
-EXTERNAL = re.compile(r"""(?:src|href)\s*=\s*["']?(?:https?:)?//""", re.IGNORECASE)
+DEFINE = re.compile(r"""OYMWidgets\.define\(\s*(['"])([^'"]*)\1""")
+# Adresses et chargements : bloqués par le bac à sable, ils n'ont rien à faire dans une figure.
+EXTERNAL = re.compile(r"https?://|\bfetch\s*\(|XMLHttpRequest|\bimport\s*\(|importScripts|<(?:script|link|iframe)\b", re.IGNORECASE)
+SVG_NAMESPACE = "http://www.w3.org/2000/svg"
 
 
 def read_group(source: str, start: int) -> tuple[str, int] | None:
@@ -78,19 +82,23 @@ def main() -> int:
                 errors.append(f"{relative}: nom d'animation invalide « {name} » (lettres, chiffres, - et _).")
                 continue
             used.add(name)
-            if not (ANIMATIONS_DIR / f"{name}.html").is_file():
-                errors.append(f"{relative}: animations/{name}.html n'existe pas.")
+            if not (ANIMATIONS_DIR / f"{name}.js").is_file():
+                errors.append(f"{relative}: animations/{name}.js n'existe pas.")
             if not caption:
                 errors.append(f"{relative}: l'animation « {name} » n'a pas de légende.")
             elif re.search(r"[$\\]", caption):
                 errors.append(f"{relative}: la légende de « {name} » doit être du texte simple, sans formule.")
 
-    pages = sorted(ANIMATIONS_DIR.glob("*.html"))
+    pages = sorted(ANIMATIONS_DIR.glob("*.js"))
     for page in pages:
         if not NAME.match(page.stem):
             errors.append(f"animations/{page.name}: nom de fichier invalide (lettres, chiffres, - et _).")
-        if EXTERNAL.search(page.read_text(encoding="utf-8")):
-            errors.append(f"animations/{page.name}: ressource externe, bloquée sur OpenYourMath.")
+        code = page.read_text(encoding="utf-8")
+        defined = [match.group(2) for match in DEFINE.finditer(code)]
+        if defined != [page.stem]:
+            errors.append(f"animations/{page.name}: doit enregistrer une seule figure, OYMWidgets.define('{page.stem}', …).")
+        if EXTERNAL.search(code.replace(SVG_NAMESPACE, "")):
+            errors.append(f"animations/{page.name}: adresse ou chargement externe, bloqué sur OpenYourMath.")
 
     for page in pages:
         if page.stem not in used:
@@ -101,7 +109,7 @@ def main() -> int:
         print("\n".join(errors), file=sys.stderr)
         return 1
 
-    print(f"Animations OK ({len(pages)} page(s), {len(used)} référencée(s)).")
+    print(f"Animations OK ({len(pages)} figure(s), {len(used)} référencée(s)).")
     return 0
 
 
