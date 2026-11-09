@@ -17,7 +17,10 @@ Les extraits Python sont des fichiers dans `code/python/`. Ils s'insèrent dans
 `fancyvrb`, compatible avec le stockage du contenu dans une macro.
 
 Les figures interactives sont des fichiers JavaScript dans `animations/`, écrits
-avec le kit d'OpenYourMath (`OYMWidgets.define('<nom>', …)`). Elles
+avec le kit d'OpenYourMath (`OYMWidgets.define('<nom>', …)`). Chacune déclare
+ses métadonnées écrites en dur, `meta: { title, description, author, kit }`
+(plus `concepts`, facultatif) : titre et description en texte simple, pseudo de
+l'auteur, version du kit. Le site les lit sans exécuter la figure. Elles
 s'insèrent dans `\contenu{...}` avec `\animation[image]{nom}{légende}`, dans le
 bloc qu'elles illustrent (souvent la réponse) ; `nom` désigne
 `animations/<nom>.js`. L'image fixe, facultative mais recommandée, s'écrit

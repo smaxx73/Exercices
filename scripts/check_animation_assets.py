@@ -4,8 +4,13 @@
 Chaque appel doit désigner une figure animations/<nom>.js et porter une légende
 en texte simple, imprimée dans le PDF avec l'adresse de la figure. La figure est
 écrite avec le kit d'OpenYourMath et s'enregistre sous le nom de son fichier,
-OYMWidgets.define('<nom>', …). OpenYourMath la sert dans un bac à sable qui
-interdit toute requête externe : elle ne charge rien du réseau.
+OYMWidgets.define('<nom>', …), avec ses métadonnées écrites en dur :
+meta: { title, description, author, kit, concepts }. OpenYourMath la sert dans
+un bac à sable qui interdit toute requête externe : elle ne charge rien du réseau.
+
+Ce contrôle ne regarde que la présence des champs de meta. pnpm check:animations,
+dans OpenYourMath, lit meta sans exécuter la figure et vérifie en plus que les
+valeurs sont écrites en dur et que l'auteur est un pseudo de content/authors.json.
 """
 
 from __future__ import annotations
@@ -27,6 +32,10 @@ DEFINE = re.compile(r"""OYMWidgets\.define\(\s*(['"])([^'"]*)\1""")
 # Adresses et chargements : bloqués par le bac à sable, ils n'ont rien à faire dans une figure.
 EXTERNAL = re.compile(r"https?://|\bfetch\s*\(|XMLHttpRequest|\bimport\s*\(|importScripts|<(?:script|link|iframe)\b", re.IGNORECASE)
 SVG_NAMESPACE = "http://www.w3.org/2000/svg"
+META = re.compile(r"\bmeta\s*:\s*\{")
+META_FIELDS = ("title", "description", "author", "kit")
+# Version du kit d'OpenYourMath (KIT_VERSION de src/lib/widgets/source.js).
+KIT_VERSION = 1
 
 
 def read_group(source: str, start: int) -> tuple[str, int] | None:
@@ -68,6 +77,20 @@ def find_animations(source: str) -> list[tuple[str, str]]:
     return calls
 
 
+def meta_errors(code: str) -> list[str]:
+    """Champs manquants ou version du kit inconnue dans meta: { … }."""
+    match = META.search(code)
+    group = read_group(code, match.end()) if match else None
+    if not group:
+        return ["meta: { title, description, author, kit } manque."]
+    meta = group[0]
+    errors = [f"meta.{field} manque." for field in META_FIELDS if not re.search(rf"\b{field}\s*:", meta)]
+    kit = re.search(r"\bkit\s*:\s*(\d+)", meta)
+    if re.search(r"\bkit\s*:", meta) and not (kit and 1 <= int(kit.group(1)) <= KIT_VERSION):
+        errors.append(f"meta.kit doit être un entier de 1 à {KIT_VERSION}.")
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     used: set[str] = set()
@@ -97,6 +120,7 @@ def main() -> int:
         defined = [match.group(2) for match in DEFINE.finditer(code)]
         if defined != [page.stem]:
             errors.append(f"animations/{page.name}: doit enregistrer une seule figure, OYMWidgets.define('{page.stem}', …).")
+        errors.extend(f"animations/{page.name}: {message}" for message in meta_errors(code))
         if EXTERNAL.search(code.replace(SVG_NAMESPACE, "")):
             errors.append(f"animations/{page.name}: adresse ou chargement externe, bloqué sur OpenYourMath.")
 

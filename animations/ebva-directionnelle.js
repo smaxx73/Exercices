@@ -3,7 +3,13 @@
 // ∂_u f(0,0) = ∇f(0,0)·u est fausse : dans la direction u = (cos θ, sin θ), la
 // vraie dérivée vaut lim f(tu)/t = u₂²/u₁ (et sin θ sur l'axe x = 0).
 OYMWidgets.define('ebva-directionnelle', {
-  title: "Dérivée directionnelle en l'origine",
+  meta: {
+    title: "Dérivée directionnelle en l'origine",
+    description: "On fait tourner une direction u autour de l'origine pour f(x,y) = y²/x et l'on compare la dérivée que prédit le gradient à la vraie dérivée directionnelle : elles diffèrent, bien que les dérivées partielles existent.",
+    concepts: ['dérivée directionnelle', 'dérivées partielles', 'gradient', 'différentiabilité'],
+    author: 'mnguyen',
+    kit: 1,
+  },
   intro: `On fait tourner la direction \\(u=(\\cos\\theta,\\sin\\theta)\\). En vert, la valeur
     que prédit la formule \\(\\nabla f(0,0)\\cdot u\\) ; en orange, la vraie dérivée
     \\(\\lim_{t\\to0} f(tu)/t\\). Pour \\(u\\propto(1,2)\\), elle vaut le double.`,
