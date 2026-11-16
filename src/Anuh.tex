@@ -48,6 +48,8 @@ f(x_1,y_1)=5,\quad f(x_2,y_2)=17/4.
 \reponse{Pour $\eta=1/4$, on a $y_{k+1}+1=-(y_k+1)$. Comme $y_0=0$, la suite $(y_k)$ alterne entre $0$ et $-2$. Elle ne converge donc pas vers $-1$, et la suite des points ne converge pas vers le minimum $(2,-1)$.}
 
 \item \question{Expliquer ce que montre la comparaison entre les deux valeurs de $\eta$.}
-\reponse{Le pas $1/8$ annule dès la première itération l'écart vertical $y_k+1$, alors que le pas $1/4$ inverse cet écart à chaque itération sans le réduire. Un pas trop grand peut provoquer des oscillations et empêcher la convergence.}
+\reponse{Le pas $1/8$ annule dès la première itération l'écart vertical $y_k+1$, alors que le pas $1/4$ inverse cet écart à chaque itération sans le réduire. Un pas trop grand peut provoquer des oscillations et empêcher la convergence.
+
+\animation{Anuh-vallee}{Descente de gradient dans une vallée étroite : le pas 1/8 règle la coordonnée verticale en une itération, le pas 1/4 la fait osciller sans converger}}
 \end{enumerate}
 }
