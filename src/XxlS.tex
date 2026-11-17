@@ -17,7 +17,7 @@ $$J(v)=\frac{1}{2}\langle Av,v \rangle-\langle b,v \rangle.$$
 On cherche à minimiser la fonctionnelle $J$ par une méthode de gradient par l'intermédiaire d'une suite récurrente $(u_k)_{k \in \N}$. On pose pour $k\geq 0$ :
 $$w_k=Au_k-b,\quad \varrho_k=\frac{\|w_k\|_2^2}{\langle Aw_k,w_k \rangle},\quad u_{k+1}=u_k-\varrho_kw_k,$$
 }
-\texte{où $\|\cdot\|_2$ désigne la norme euclidienne sur $\R^{p}$.
+\texte{où $\|\cdot\|_2$ désigne la norme euclidienne sur $\R^{p}$.}
 \begin{enumerate}
 \item \question{Montrer que la fonction $v\in \R^{p} \mapsto J(v)$ est de classe $\mathcal{C}^1$, et calculer $\nabla J(v)$ pour tout $v \in \R^{p}$.}
     \indication{Utiliser la définition de la différentielle en calculant $J(v+h)$ et en isolant les termes linéaires en $h$. Noter que la symétrie de $A$ implique $\langle Ah,v \rangle = \langle h,Av \rangle = \langle Av,h \rangle$.}
@@ -28,12 +28,12 @@ La fonction $J$ est une combinaison linéaire de fonctions de classe $\mathcal{C
 \item $v \mapsto \langle b,v \rangle$ est une forme linéaire, donc $\mathcal{C}^{1}$
 \end{itemize}
 Donc $J$ est de classe $\mathcal{C}^1$ sur $\R^p$.  Pour calculer le gradient, utilisons la définition : pour tout $h \in \R^p$,
-\begin{align*}
+\begin{aligned}
 J(v+h) - J(v) &= \frac{1}{2}\langle A(v+h),v+h \rangle - \langle b,v+h \rangle - \frac{1}{2}\langle Av,v \rangle + \langle b,v \rangle\\
 &= \frac{1}{2}\langle Av,h \rangle + \frac{1}{2}\langle Ah,v \rangle + \frac{1}{2}\langle Ah,h \rangle - \langle b,h \rangle\\
 &= \langle Av,h \rangle + \frac{1}{2}\langle Ah,h \rangle - \langle b,h \rangle \quad \text{(car $A$ symétrique)}\\
 &= \langle Av-b,h \rangle + o(\|h\|)
-\end{align*}
+\end{aligned}
 Par identification de la différentielle, on obtient :
 $$\boxed{\nabla J(v) = Av - b}$$
 }}
@@ -46,11 +46,11 @@ $$\langle Ah,h \rangle > 0$$
 ce qui implique que $J$ est strictement convexe.
 
 \textbf{Coercivité :} Notons $\lambda_1 > 0$ la plus petite valeur propre de $A$. On a :
-\begin{align*}
+\begin{aligned}
 J(v) &= \frac{1}{2}\langle Av,v \rangle - \langle b,v \rangle\\
 &\geq \frac{\lambda_1}{2}\|v\|^2 - \|b\|\|v\| \quad \text{(inégalité de Cauchy-Schwarz)}\\
 &= \|v\|\left(\frac{\lambda_1}{2}\|v\| - \|b\|\right)
-\end{align*}
+\end{aligned}
 Donc $J(v) \to +\infty$ quand $\|v\| \to +\infty$, ce qui prouve que $J$ est coercive.
 
 \textbf{Existence et unicité du minimum :} Une fonction strictement convexe et coercive sur $\R^p$ admet un unique minimum global. Ce minimum $u$ vérifie la condition du premier ordre :
@@ -63,15 +63,15 @@ $$\|\nabla J(v)-\nabla J(u)\|_2\leq \lambda_p \|v-u\|_2,$$
 où $\lambda_1$ et $\lambda_p$ désignent respectivement la plus petite et la plus grande des valeurs propres de la matrice $A$.
 }
 \reponse{
-\begin{align*}
+\begin{aligned}
 \langle \nabla J(v)-\nabla J(u),v-u \rangle &= \langle A(v-u),v-u \rangle\\
 &\geq \lambda_1 \|v-u\|_2^2
-\end{align*}
-\begin{align*}
+\end{aligned}
+\begin{aligned}
 \|\nabla J(v)-\nabla J(u)\|_2 &= \|A(v-u)\|_2\\
 &\leq \|A\|_2 \|v-u\|_2\\
 &= \lambda_p \|v-u\|_2
-\end{align*}
+\end{aligned}
 où on a utilisé que la norme d'opérateur de $A$ (symétrique) est égale à sa plus grande valeur propre en valeur absolue, donc $\lambda_p$ ici.
 }
 \item   \question{Montrer l'assertion suivante: s'il existe $a$ et $b$ tels que 
@@ -87,11 +87,11 @@ L'itération s'écrit :
 $$e_{k+1} = e_k - \varrho_k w_k = e_k - \varrho_k Ae_k = (I - \varrho_k A)e_k$$
 
 Calculons $\|e_{k+1}\|^2$ :
-\begin{align*}
+\begin{aligned}
 \|e_{k+1}\|^2 &= \langle (I - \varrho_k A)e_k, (I - \varrho_k A)e_k \rangle\\
 &= \|e_k\|^2 - 2\varrho_k \langle Ae_k, e_k \rangle + \varrho_k^2 \langle Ae_k, Ae_k \rangle\\
 &= \|e_k\|^2 - 2\varrho_k \langle Ae_k, e_k \rangle + \varrho_k^2 \|Ae_k\|^2
-\end{align*}
+\end{aligned}
 
 En utilisant les inégalités de la question 3 :
 \begin{itemize}
@@ -100,10 +100,10 @@ En utilisant les inégalités de la question 3 :
 \end{itemize}
 
 On obtient :
-\begin{align*}
+\begin{aligned}
 \|e_{k+1}\|^2 &\leq \|e_k\|^2 - 2\varrho_k \lambda_1 \|e_k\|^2 + \varrho_k^2 \lambda_p^2 \|e_k\|^2\\
 &= (1 - 2\varrho_k \lambda_1 + \varrho_k^2 \lambda_p^2)\|e_k\|^2
-\end{align*}
+\end{aligned}
 
 Posons $\varphi(\varrho) = 1 - 2\varrho \lambda_1 + \varrho^2 \lambda_p^2$. Cette fonction quadratique atteint son minimum en $\varrho^* = \frac{\lambda_1}{\lambda_p^2}$ avec $\varphi(\varrho^*) = 1 - \frac{\lambda_1^2}{\lambda_p^2}$.
 
@@ -122,8 +122,6 @@ $$\boxed{\|u_k - u\| \leq \beta^k \|u_0 - u\|}$$
 avec $\beta = \sqrt{\max\{\varphi(a), \varphi(b)\}} < 1$, ce qui prouve la convergence géométrique.
 }
 \end{enumerate}
-
-}
 
 
 
