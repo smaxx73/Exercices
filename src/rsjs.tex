@@ -13,7 +13,7 @@
 
 
 \texte{
-  Soit $N \in \mathbb{N}^*$, et $\{(t_i, x_i)\}_{1 \leq i \leq N}$ un nuage de points. On cherche à déterminer les coefficients $\alpha$, $\beta$ et $\gamma$ de la parabole $P$ d'équation $x = \alpha t^2 + \beta t + \gamma$ (l'axe horizontal porte $t$ et l'axe vertical porte $x$) qui minimise la somme des carrés des écarts verticaux $x_i - P(t_i)$ entre les points $(t_i, x_i)$ et cette parabole. 
+  Soit $N \in \mathbb{N}^*$, et $\{(t_i, x_i)\}_{1 \leq i \leq N}$ un nuage de points. On cherche à déterminer les coefficients $\alpha$, $\beta$ et $\gamma$ de la parabole $P$ d'équation $x = \alpha t^2 + \beta t + \gamma$ (l'axe horizontal porte $t$ et l'axe vertical porte $x$) qui minimise la somme des carrés des écarts verticaux $x_i - P(t_i)$ entre les points $(t_i, x_i)$ et cette parabole.
 }
 
 \begin{enumerate}
@@ -23,43 +23,108 @@
   \]
   avec $A \in \mathcal{S}_n(\mathbb{R})$, $b \in \mathbb{R}^n$. On devra donc expliciter $n$, $A$, et $b$. On utilisera la notation $S_k = \sum_{i=1}^{N} t_i^k$.}
     \indication{Exprimer la somme des carrés comme le carré de la norme euclidienne d'un vecteur résidu $R = k - MX$. Développer $\|R\|^2$ en utilisant les propriétés du produit scalaire et de la transposée matricielle pour faire apparaître une forme quadratique en $X$.}
-  \reponse{Le problème est celui de la régression parabolique pour un nuage de points $\{(t_i, x_i)\}_{1 \leq i \leq N}$, où l'on cherche la parabole $P$ d'équation $x = \alpha t^2 + \beta t + \gamma$ qui minimise la somme des carrés des écarts verticaux $x_i - P(t_i)$. Le problème peut s'écrire :
+  \reponse{
+  \textbf{Notations.} L'inconnue est $X = (\alpha, \beta, \gamma)^T \in \mathbb{R}^3$, donc $n = 3$. En plus de $S_k = \sum_{i=1}^N t_i^k$ (en particulier $S_0 = N$), on note $T_k = \sum_{i=1}^N t_i^k x_i$, et
   \[
-  \inf_{X \in \mathbb{R}^3} J(X) \quad \text{avec} \quad X = \begin{pmatrix} \alpha \\ \beta \\ \gamma \end{pmatrix} \quad \text{et} \quad J(X) = \sum_{i=1}^{N} (x_i - \alpha t_i^2 - \beta t_i - \gamma)^2.
+  M = \begin{pmatrix} t_1^2 & t_1 & 1 \\ \vdots & \vdots & \vdots \\ t_N^2 & t_N & 1 \end{pmatrix} \in \mathcal{M}_{N,3}(\mathbb{R}), \qquad k = \begin{pmatrix} x_1 \\ \vdots \\ x_N \end{pmatrix} \in \mathbb{R}^N.
   \]
-  En écrivant $J(X) = \|MX - k\|^2$ avec $M = \begin{pmatrix} t_1^2 & t_1 & 1 \\ \vdots & \vdots & \vdots \\ t_N^2 & t_N & 1 \end{pmatrix}$ et $k = \begin{pmatrix} x_1 \\ \vdots \\ x_N \end{pmatrix}$, on obtient, en développant,
+  Ainsi $(MX)_i = \alpha t_i^2 + \beta t_i + \gamma = P(t_i)$ : le vecteur $MX$ regroupe les valeurs de la parabole aux abscisses $t_i$.
+
+  \textbf{L'erreur comme une norme.} La quantité à minimiser est
   \[
-  \frac{1}{2} J(X) = \frac{1}{2} \langle AX, X \rangle - \langle b, X \rangle + \frac{1}{2} \|k\|^2
+  E(X) = \sum_{i=1}^N \big(x_i - \alpha t_i^2 - \beta t_i - \gamma\big)^2 = \sum_{i=1}^N \big(k_i - (MX)_i\big)^2 = \|MX - k\|^2.
   \]
-  avec $A = M^T M$ et $b = M^T k$. Les fonctions $J$ et $\frac{1}{2}J$ ont les mêmes minimiseurs, et $\frac{1}{2}J$ ne diffère de $\frac{1}{2} \langle AX, X \rangle - \langle b, X \rangle$ que par une constante : on est bien ramené à un problème de la forme demandée. La matrice $A$ est donnée par :
+
+  \textbf{Développement.} Par bilinéarité du produit scalaire et grâce à l'identité $\langle MU, V \rangle = \langle U, M^T V \rangle$,
   \[
-  A = \begin{pmatrix} S_4 & S_3 & S_2 \\ S_3 & S_2 & S_1 \\ S_2 & S_1 & N \end{pmatrix}.
-  \]}
-  
+  \|MX - k\|^2 = \langle MX, MX \rangle - 2\langle MX, k \rangle + \|k\|^2 = \langle M^T M X, X \rangle - 2 \langle M^T k, X \rangle + \|k\|^2.
+  \]
+  En posant $A = M^T M$ et $b = M^T k$, on obtient
+  \[
+  E(X) = 2 J(X) + \|k\|^2 \qquad \text{avec} \qquad J(X) = \frac{1}{2} \langle AX, X \rangle - \langle b, X \rangle.
+  \]
+  $E$ et $J$ ne diffèrent que par un facteur positif et une constante : elles ont les mêmes minimiseurs, et le problème posé s'écrit bien $\inf_{X \in \mathbb{R}^3} J(X)$.
+
+  \textbf{Calcul de $A$ et $b$.} Le coefficient $A_{jl}$ est le produit scalaire des colonnes $j$ et $l$ de $M$, qui sont $(t_i^2)_i$, $(t_i)_i$ et $(1)_i$ ; de même, $b_j$ est le produit scalaire de la colonne $j$ avec $k$. D'où
+  \[
+  A = \begin{pmatrix} S_4 & S_3 & S_2 \\ S_3 & S_2 & S_1 \\ S_2 & S_1 & N \end{pmatrix}, \qquad b = \begin{pmatrix} T_2 \\ T_1 \\ T_0 \end{pmatrix} = \begin{pmatrix} \sum_i t_i^2 x_i \\ \sum_i t_i x_i \\ \sum_i x_i \end{pmatrix}.
+  \]
+  $A$ est symétrique, puisque $(M^T M)^T = M^T M$.
+
+  \textbf{Remarque utile pour la suite.} Pour tout $X$, $\langle AX, X \rangle = \langle MX, MX \rangle = \|MX\|^2 \geq 0$ : la matrice $A$ est toujours semi-définie positive.
+  }
+
   \item \question{Discuter de l’existence des solutions d’un tel problème.}
       \indication{On peut voir le problème géométriquement comme la recherche du point dans l'image de $M$ le plus proche du vecteur $k$. Alternativement, on peut montrer que la fonctionnelle $J$ est continue et coercive sur $\mathbb{R}^3$.}
-  \reponse{Ce problème est équivalent à celui de minimiser la distance euclidienne de $k$ au sous-espace vectoriel $\text{Im}(M)$, qui est de dimension finie. Il s’agit donc d’un problème de projection orthogonale, qui admet toujours une solution.}
-  
+  \reponse{
+  \textbf{Une identité clé.} Pour $X, H \in \mathbb{R}^n$, comme $A$ est symétrique,
+  \[
+  J(X + H) = J(X) + \langle AX - b, H \rangle + \frac{1}{2} \langle AH, H \rangle. \tag{$\ast$}
+  \]
+  En particulier $\nabla J(X) = AX - b$.
+
+  \textbf{Cas d'une matrice symétrique quelconque.}
+  \begin{itemize}
+    \item Si $A$ a une valeur propre $\lambda < 0$, de vecteur propre $v$, alors $J(sv) = \frac{\lambda}{2} s^2 \|v\|^2 - s \langle b, v \rangle \to -\infty$ quand $s \to +\infty$ : l'infimum vaut $-\infty$ et il n'y a pas de solution.
+    \item Si $A$ est semi-définie positive, $(\ast)$ montre que si $AX = b$, alors $J(X + H) \geq J(X)$ pour tout $H$. Réciproquement, en un minimum le gradient est nul. Donc $X$ est solution si et seulement si $AX = b$, et il existe une solution si et seulement si $b \in \operatorname{Im} A$. Sinon, on écrit $b = b_1 + b_2$ avec $b_1 \in \operatorname{Im} A$ et $b_2 \in \ker A \setminus \{0\}$ (possible car $\operatorname{Im} A = (\ker A)^\perp$ pour $A$ symétrique), et $J(s b_2) = -s \|b_2\|^2 \to -\infty$.
+  \end{itemize}
+
+  \textbf{Dans notre problème.} $A = M^T M$ est semi-définie positive (question 1). Il reste à voir que $b = M^T k \in \operatorname{Im}(M^T M)$ :
+  \begin{itemize}
+    \item $\ker(M^T M) = \ker M$, car $M^T M X = 0$ entraîne $\langle M^T M X, X \rangle = \|MX\|^2 = 0$ ;
+    \item en passant à l'orthogonal, $\operatorname{Im}(M^T M) = (\ker M^T M)^\perp = (\ker M)^\perp = \operatorname{Im}(M^T)$ ;
+    \item or $b = M^T k \in \operatorname{Im}(M^T)$.
+  \end{itemize}
+  Les équations normales $M^T M X = M^T k$ ont donc toujours au moins une solution : \textbf{le problème admet toujours au moins une solution}.
+
+  \textbf{Interprétation géométrique.} $E(X) = \|MX - k\|^2$ est le carré de la distance de $k$ au point $MX$ du sous-espace $\operatorname{Im} M$ de $\mathbb{R}^N$. Ce sous-espace est de dimension finie, donc la projection orthogonale $p$ de $k$ sur $\operatorname{Im} M$ existe, et les solutions sont exactement les $X$ tels que $MX = p$. Il y en a toujours ; il y en a une seule si et seulement si $X \mapsto MX$ est injective.
+
+  \begin{center}
+    \includegraphics[width=0.55\linewidth]{\exercisespath img/pdf/rsjs-tikz-1}
+  \end{center}
+  }
+
   \item \question{On suppose que la matrice $A$ est définie positive. Démontrer que ce problème possède une unique solution.}
-  
-  \reponse{Si $A$ est définie positive, alors la fonction $J(X)$ est strictement convexe. Par conséquent, $J(X)$ possède un unique minimum sur $\mathbb{R}^n$, donc le problème admet une unique solution.}
-  
+
+  \reponse{
+  Si $A$ est définie positive, elle est inversible. Posons $X^* = A^{-1} b$, de sorte que $AX^* - b = 0$. D'après l'identité $(\ast)$ de la question 2, pour tout $H \neq 0$,
+  \[
+  J(X^* + H) = J(X^*) + \frac{1}{2} \langle AH, H \rangle > J(X^*).
+  \]
+  Donc $X^*$ est un minimiseur, et c'est le seul : tout autre point donne une valeur strictement plus grande. La valeur du minimum est $J(X^*) = -\frac{1}{2} \langle b, A^{-1} b \rangle$.
+
+  \textbf{Attention.} Dire seulement « $J$ est strictement convexe, donc elle a un unique minimum » ne suffit pas : la stricte convexité donne l'unicité, mais pas l'existence ($t \mapsto e^t$ est strictement convexe et n'a pas de minimum). Le calcul ci-dessus donne les deux. On peut aussi invoquer la coercivité : $J(X) \geq \frac{\lambda_{\min}}{2} \|X\|^2 - \|b\| \, \|X\| \to +\infty$, où $\lambda_{\min} > 0$ est la plus petite valeur propre de $A$.
+
+  Géométriquement, les lignes de niveau de $J$ sont des ellipsoïdes centrés en $X^*$. Quand $A$ n'est plus définie positive, ils s'aplatissent en « vallées » au fond desquelles le minimum est atteint sur toute une droite.
+
+  \animation[\exercisespath img/pdf/rsjs-tikz-3]{rsjs-niveaux}{Lignes de niveau de l'erreur : des ellipses autour d'un minimum unique, qui deviennent des droites parallèles quand le nuage n'a plus que deux abscisses distinctes}
+  }
+
   \item    \question{À quelle condition sur les points $\{t_i\}_{1 \leq i \leq N}$ la matrice $A$ est-elle définie positive ? En déduire une condition nécessaire et suffisante sur le nuage de points pour que le problème admette une unique solution.}
-  
+
 \reponse{
-	La matrice $A = M^T M$ est symétrique. Elle est définie positive si et seulement si pour tout $X \in \mathbb{R}^3 \setminus \{0\}$, $\langle AX, X \rangle > 0$. Or,
-	\[ \langle AX, X \rangle = \langle M^T M X, X \rangle = \langle MX, MX \rangle = \|MX\|_2^2. \]
-	Ainsi, $A$ est définie positive si et seulement si $\ker(M) = \{0\}$.
-	
-	Le noyau de $M$ est l'ensemble des vecteurs $X = (\alpha, \beta, \gamma)^T$ tels que $MX=0$, ce qui équivaut au système $\alpha t_i^2 + \beta t_i + \gamma = 0$ pour tout $i \in \{1, \dots, N\}$.
-	Cette condition signifie que le polynôme du second degré $P(t) = \alpha t^2 + \beta t + \gamma$ admet pour racines toutes les valeurs distinctes présentes dans l'ensemble $\{t_1, \dots, t_N\}$.
-	
-	Un polynôme de degré au plus 2 et non nul ne peut avoir plus de deux racines distinctes. Par conséquent, si l'ensemble $\{t_i\}$ contient au moins trois valeurs distinctes, le polynôme $P(t)$ doit être le polynôme nul, ce qui implique $\alpha=\beta=\gamma=0$, soit $X=0$. Dans ce cas, $\ker(M)=\{0\}$.
-	
-	Inversement, si l'ensemble $\{t_i\}$ contient seulement une ou deux valeurs distinctes, il est possible de construire un polynôme $P(t)$ non nul de degré au plus 2 qui s'annule en ces valeurs, fournissant un vecteur $X \neq 0$ dans le noyau de $M$.
-	
-	\textbf{Conclusion :} La matrice $A$ est définie positive si et seulement si l'ensemble des abscisses $\{t_1, \dots, t_N\}$ contient au moins trois valeurs distinctes.
-	Comme l'unicité du minimum de la fonctionnelle $J(X)$ est assurée par sa stricte convexité (qui équivaut au fait que $A$ soit définie positive), c'est aussi la condition nécessaire et suffisante pour que le problème admette une solution unique.
+	\textbf{Réduction à un problème de polynômes.} D'après la question 1, $\langle AX, X \rangle = \|MX\|^2$, donc
+	\[
+	A \text{ définie positive} \iff \ker M = \{0\} \iff \operatorname{rg} M = 3.
+	\]
+	Or $MX = 0$ signifie que le polynôme $P(t) = \alpha t^2 + \beta t + \gamma$ s'annule en tous les $t_i$. Notons $r$ le nombre de valeurs distinctes parmi $t_1, \dots, t_N$.
+	\begin{itemize}
+		\item Si $r \geq 3$ : un polynôme non nul de degré au plus $2$ a au plus deux racines, donc $P = 0$, c'est-à-dire $X = 0$, et $\ker M = \{0\}$. (Variante : si $t_i, t_j, t_l$ sont trois abscisses distinctes, la sous-matrice de Vandermonde formée des lignes $i$, $j$, $l$ de $M$ a pour déterminant $-(t_i - t_j)(t_i - t_l)(t_j - t_l) \neq 0$, donc $\operatorname{rg} M = 3$.)
+		\item Si $r = 2$, avec les valeurs $u \neq v$ : $P(t) = (t - u)(t - v)$ donne $X = \big(1, -(u + v), uv\big)^T \neq 0$ dans $\ker M$.
+		\item Si $r = 1$, avec la valeur $u$ : $P(t) = t - u$ donne $X = (0, 1, -u)^T \neq 0$ dans $\ker M$.
+	\end{itemize}
+	Conclusion : \textbf{$A$ est définie positive si et seulement si les abscisses $t_i$ prennent au moins trois valeurs distinctes} (ce qui impose en particulier $N \geq 3$).
+
+	\textbf{Condition nécessaire et suffisante d'unicité.}
+	\begin{itemize}
+		\item Suffisance : s'il y a au moins trois abscisses distinctes, $A$ est définie positive et la question 3 donne une unique solution.
+		\item Nécessité : sinon, il existe $Y \in \ker M$ non nul. Soit $X^*$ une solution, qui existe d'après la question 2. Pour tout $s \in \mathbb{R}$, $M(X^* + sY) = MX^*$, donc $E(X^* + sY) = E(X^*)$ : tous les $X^* + sY$ sont solutions, \textbf{il y en a une infinité}.
+	\end{itemize}
+	Le problème admet donc une unique solution si et seulement si \textbf{le nuage contient au moins trois abscisses $t_i$ distinctes}.
+
+	\textbf{Interprétation.} Avec seulement deux abscisses $u$ et $v$, on peut ajouter à une parabole optimale n'importe quel multiple de $(t - u)(t - v)$ sans changer ses valeurs aux $t_i$, donc sans changer l'erreur. Avec exactement trois abscisses distinctes et $N = 3$, la solution est la parabole d'interpolation, et l'erreur est nulle.
+
+	\animation[\exercisespath img/pdf/rsjs-tikz-2]{rsjs-ecarts}{En écartant la parabole de l'optimum, l'erreur augmente quand les abscisses prennent au moins trois valeurs, mais reste constante quand il n'y en a que deux}
 }
 \end{enumerate}
 }
