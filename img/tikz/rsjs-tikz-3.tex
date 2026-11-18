@@ -37,6 +37,7 @@
             \edef\tmp{\noexpand\draw[oymorange, thick] (axis cs:\t,\x) -- (axis cs:\t,{0.66541*\t*\t + 0.15906*\t + 0.87731});}\tmp
         }
         \addplot[only marks, mark=*, mark size=1.8pt] coordinates {(-2,2.8) (-1.4,1.1) (-0.8,1.6) (-0.2,0.7) (0.4,1.2) (1,0.8) (1.6,2.0) (2.2,2.3)};
-        \node[anchor=north west, font=\footnotesize, fill=white, inner sep=2pt] at (axis cs:-2.4,4.4) {$J(X^*+H)-J(X^*) = \tfrac12\langle AH,H\rangle = 3{,}12$};
     \end{axis}
+    % Égalité commune aux deux panneaux, placée dessous.
+    \node[anchor=north, font=\small] at ([yshift=-2pt]current bounding box.south) {Pour $H = (0{,}3 \,;\, 0{,}25 \,;\, 0)$ : \quad $J(X^*+H)-J(X^*) = \tfrac12\langle AH,H\rangle \approx 3{,}12$};
 \end{tikzpicture}

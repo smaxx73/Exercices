@@ -2,7 +2,8 @@
 % et parabole écartée P* + s (t-u)(t-v), s = 0,6, u = -1, v = 1,5 (tirets).
 % À gauche, abscisses variées : P*(t) = 0,3654 t^2 - 0,0909 t + 0,8773, E(P*) = 1,027,
 % E(P* + 0,6 Q) = 9,708. À droite, deux abscisses : P*(t) = 0,56 t + 1,76 (droite des
-% moyennes), E = 1,54 pour toute valeur de s.
+% moyennes), E = 1,54 pour toute valeur de s. Toutes les courbes passent par les points
+% communs (u, 1,2) et (v, 2,6) (moyennes des groupes), où aboutissent les écarts verticaux.
 \begin{tikzpicture}
     \definecolor{oymteal}{RGB}{58,143,143}
     \definecolor{oymorange}{RGB}{184,93,63}
@@ -11,7 +12,7 @@
         xtick={-2,-1,0,1,2}, ytick={0,1,2,3,4}, grid=major, grid style={black!12},
         xlabel={$t$}, ylabel={$x$}, samples=120, domain=-2.5:2.7, clip=true,
         title style={font=\small}}}
-    \begin{axis}[rsjs, title={Abscisses variées : solution unique}]
+    \begin{axis}[rsjs, title={Au moins trois abscisses distinctes}]
         \addplot[very thick, oymteal] {0.36541*x^2 - 0.09094*x + 0.87731};
         \addplot[thick, dashed, oymorange] {0.36541*x^2 - 0.09094*x + 0.87731 + 0.6*(x+1)*(x-1.5)};
         \foreach \t/\x in {-2/2.8, -1.4/1.1, -0.8/1.6, -0.2/0.7, 0.4/1.2, 1/0.8, 1.6/2.0, 2.2/2.3} {
@@ -20,15 +21,26 @@
         \addplot[only marks, mark=*, mark size=1.8pt] coordinates {(-2,2.8) (-1.4,1.1) (-0.8,1.6) (-0.2,0.7) (0.4,1.2) (1,0.8) (1.6,2.0) (2.2,2.3)};
         \node[anchor=north west, font=\footnotesize, fill=white, inner sep=2pt, align=left] at (axis cs:-2.4,4.4) {$E(P^*) = 1{,}03$\\ \textcolor{oymorange}{$E = 9{,}71$ pour $s = 0{,}6$}};
     \end{axis}
-    \begin{axis}[rsjs, xshift=7.6cm, title={Deux abscisses : infinité de solutions}]
+    \begin{axis}[rsjs, xshift=7.6cm, title={Deux abscisses distinctes}]
         \draw[black!45, densely dotted] (axis cs:-1,-0.5) -- (axis cs:-1,4.5);
         \draw[black!45, densely dotted] (axis cs:1.5,-0.5) -- (axis cs:1.5,4.5);
         \addplot[very thick, oymteal] {0.56*x + 1.76};
         \addplot[thick, dashed, oymorange] {0.56*x + 1.76 + 0.6*(x+1)*(x-1.5)};
         \addplot[thick, dashed, oymorange] {0.56*x + 1.76 - 0.6*(x+1)*(x-1.5)};
+        \foreach \t/\x/\y in {-1/0.6/1.2, -1/1.4/1.2, -1/1.0/1.2, -1/1.8/1.2, 1.5/2.0/2.6, 1.5/3.1/2.6, 1.5/2.4/2.6, 1.5/2.9/2.6} {
+            \edef\tmp{\noexpand\draw[black!55, thick] (axis cs:\t,\x) -- (axis cs:\t,\y);}\tmp
+        }
         \addplot[only marks, mark=*, mark size=1.8pt] coordinates {(-1,0.6) (-1,1.4) (-1,1.0) (-1,1.8) (1.5,2.0) (1.5,3.1) (1.5,2.4) (1.5,2.9)};
+        \addplot[only marks, mark=*, mark size=3pt, oymorange, mark options={draw=white, line width=0.8pt}] coordinates {(-1,1.2) (1.5,2.6)};
+        \node[font=\footnotesize, anchor=east, oymorange, fill=white, inner sep=1pt] at (axis cs:-1.12,1.2) {$(u \,;\, 1{,}2)$};
+        \node[font=\footnotesize, anchor=west, oymorange, fill=white, inner sep=1pt] at (axis cs:1.62,2.6) {$(v \,;\, 2{,}6)$};
         \node[font=\footnotesize, anchor=south west] at (axis cs:-1,-0.45) {$u$};
         \node[font=\footnotesize, anchor=south west] at (axis cs:1.5,-0.45) {$v$};
         \node[anchor=north west, font=\footnotesize, fill=white, inner sep=2pt] at (axis cs:-2.4,4.4) {$E = 1{,}54$ pour tout $s$};
     \end{axis}
+    % Légende commune aux deux panneaux.
+    \node[anchor=north, font=\small] at ([yshift=-2pt]current bounding box.south) {%
+        \tikz[baseline=-0.6ex]\draw[very thick, oymteal] (0,0) -- (0.6,0); \ parabole optimale $P^*$ \qquad
+        \tikz[baseline=-0.6ex]\draw[thick, dashed, oymorange] (0,0) -- (0.6,0); \ courbes $P^* + s\,(t-u)(t-v)$ \qquad
+        \textcolor{black!55}{\rule[0.2ex]{0.6em}{0.8pt}} \ écarts verticaux};
 \end{tikzpicture}

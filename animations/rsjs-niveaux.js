@@ -3,8 +3,9 @@
 // Nuage à abscisses variées (huit abscisses distinctes), donc A = MᵀM définie positive.
 // À gauche, lignes de niveau de J dans la coupe γ = γ* : H = (h₁, h₂, 0),
 // ½⟨AH, H⟩ = ½(S₄h₁² + 2S₃h₁h₂ + S₂h₂²), des ellipses centrées en X*.
-// On déplace X* + H à la souris ; le profil s ↦ J(X* + sH) − J(X*) = s²·½⟨AH, H⟩
-// est une parabole de minimum 0 atteint seulement en s = 0. La parabole du nuage
+// On déplace X* + H à la souris, ou on le place à 0,3 selon α (écart 2,31) ou selon β
+// (écart 0,68) ; le profil s ↦ J(X* + sH) − J(X*) = s²·½⟨AH, H⟩
+// est une parabole de minimum 0 atteint seulement en s = 0, tracée à échelle fixe. La parabole du nuage
 // associée à X* + H s'éloigne des points.
 OYMWidgets.define('rsjs-niveaux', {
   meta: {
@@ -17,7 +18,8 @@ OYMWidgets.define('rsjs-niveaux', {
   intro: `Nuage à huit abscisses distinctes : \\(A=M^TM\\) est définie positive et
     \\(X^*=A^{-1}b\\). À gauche, les lignes de niveau de \\(J\\) dans le plan
     \\(\\gamma=\\gamma^*\\), centrées en \\(X^*\\). Cliquer ou glisser pour placer le point
-    \\(X^*+H\\), puis comparer \\(J(X^*+H)-J(X^*)\\) et \\(\\tfrac12\\langle AH,H\\rangle\\).`,
+    \\(X^*+H\\), puis comparer \\(J(X^*+H)-J(X^*)\\) et \\(\\tfrac12\\langle AH,H\\rangle\\).
+    Les deux boutons comparent un même déplacement de \\(0{,}3\\) selon \\(\\alpha\\) et selon \\(\\beta\\).`,
   state: { h1: 0.3, h2: 0.25 },
 
   mount(root, { kit, state }) {
@@ -52,6 +54,7 @@ OYMWidgets.define('rsjs-niveaux', {
     if (!Number.isFinite(h2)) h2 = 0.25;
 
     const R = 0.5;
+    const YMAX = 8;
     const [left, right] = kit.columns(root, { ratio: [1, 1] });
     const P = kit.plot(left, {
       w: 420, h: 420, x: [-R, R], y: [-R, R], maxWidth: 440,
@@ -64,12 +67,10 @@ OYMWidgets.define('rsjs-niveaux', {
     P.dot(g0, 0, 0, 6, 'pt k');
     P.math(g0, 0, 0, '\\(X^*\\)', '', 'start', 8, 14);
 
-    const ticker = kit.ticker(60);
     const place = (ev) => {
       const [x, y] = P.at(ev);
       h1 = Math.max(-R, Math.min(R, Math.round(x * 100) / 100));
       h2 = Math.max(-R, Math.min(R, Math.round(y * 100) / 100));
-      ticker.stop();
       draw();
     };
     let drag = false;
@@ -89,24 +90,17 @@ OYMWidgets.define('rsjs-niveaux', {
 
     const ctl = kit.controls(right);
     kit.button(ctl, '\\(H=0\\)', () => {
-      ticker.stop();
       h1 = 0;
       h2 = 0;
       draw();
     });
-    kit.button(ctl, '▶ Faire le tour de \\(X^*\\)', () => {
-      let r = Math.hypot(h1, h2);
-      if (r < 0.05) r = 0.3;
-      let th = Math.atan2(h2, h1);
-      let k = 0;
-      ticker.start(() => {
-        th += Math.PI / 60;
-        h1 = Math.round(1000 * r * Math.cos(th)) / 1000;
-        h2 = Math.round(1000 * r * Math.sin(th)) / 1000;
-        draw();
-        return ++k < 120;
-      });
-    });
+    const preset = (a, b) => {
+      h1 = a;
+      h2 = b;
+      draw();
+    };
+    kit.button(ctl, '\\(H\\) : \\(0{,}3\\) selon \\(\\alpha\\)', () => preset(0.3, 0));
+    kit.button(ctl, '\\(H\\) : \\(0{,}3\\) selon \\(\\beta\\)', () => preset(0, 0.3));
 
     const PS = kit.plot(right, {
       w: 320, h: 170, x: [-1.5, 1.5], y: [0, 1], maxWidth: 360,
@@ -136,9 +130,9 @@ OYMWidgets.define('rsjs-niveaux', {
         P.math(g, h1, h2, '\\(X^*+H\\)', 'o', 'start', 8, -12);
       }
 
-      const ymax = Math.max(1, 2.25 * qH * 1.1);
-      PS.range([-1.5, 1.5], [0, ymax]);
-      PS.axes({ xt: [-1, 0, 1], xl: '\\(s\\)', yl: '\\(J(X^*+sH)-J(X^*)\\)' });
+      // Échelle fixe : les profils de directions différentes restent comparables.
+      PS.range([-1.5, 1.5], [0, YMAX]);
+      PS.axes({ xt: [-1, 0, 1], yt: [0, 2, 4, 6, 8], xl: '\\(s\\)', yl: '\\(J(X^*+sH)-J(X^*)\\)' });
       const hs = PS.layer('profil');
       PS.fn(hs, (s) => s * s * qH, -1.5, 1.5, 100, 'curve');
       PS.dot(hs, 0, 0, 5, 'pt k');

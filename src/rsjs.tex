@@ -79,6 +79,12 @@
 
   \textbf{Interprétation géométrique.} $E(X) = \|MX - k\|^2$ est le carré de la distance de $k$ au point $MX$ du sous-espace $\operatorname{Im} M$ de $\mathbb{R}^N$. Ce sous-espace est de dimension finie, donc la projection orthogonale $p$ de $k$ sur $\operatorname{Im} M$ existe, et les solutions sont exactement les $X$ tels que $MX = p$. Il y en a toujours ; il y en a une seule si et seulement si $X \mapsto MX$ est injective.
 
+  Chaque point $MX = \big(P(t_1), \dots, P(t_N)\big)$ de $\operatorname{Im} M$ est le vecteur des valeurs prédites aux abscisses $t_i$ par la parabole de coefficients $X$. Le résidu $k - p$ étant orthogonal à $\operatorname{Im} M$, le triangle de sommets $p$, $MX$ et $k$ est rectangle en $p$, et le théorème de Pythagore donne
+  \[
+  \|k - MX\|^2 = \|k - p\|^2 + \|MX - p\|^2 \geq \|k - p\|^2,
+  \]
+  avec égalité si et seulement si $MX = p$.
+
   \begin{center}
     \includegraphics[width=0.55\linewidth]{\exercisespath img/pdf/rsjs-tikz-1}
   \end{center}

@@ -2,8 +2,9 @@
 // (t_i, x_i), erreur E = Σ (x_i − P(t_i))². On écarte la parabole de l'optimum
 // dans la direction Q(t) = (t − u)(t − v), u = a = −1, v = b = 3/2 (variables a, b) :
 // E(P* + sQ) = E(P*) + s² Σ Q(t_i)² (le terme croisé est nul à l'optimum).
-// Nuage à abscisses variées : E augmente dès que s ≠ 0, la solution est unique.
-// Nuage à deux abscisses a et b : Q(t_i) = 0, E ne bouge pas, infinité de solutions.
+// Nuage à au moins trois abscisses distinctes : E augmente dès que s ≠ 0, la solution est unique.
+// Nuage à deux abscisses a et b : Q(t_i) = 0, E ne bouge pas, infinité de solutions ;
+// toutes les courbes passent par les deux points (u, 1,2) et (v, 2,6), moyennes des groupes.
 OYMWidgets.define('rsjs-ecarts', {
   meta: {
     title: 'Parabole des moindres carrés : écarts verticaux et unicité',
@@ -69,7 +70,7 @@ OYMWidgets.define('rsjs-ecarts', {
     });
 
     const ctl = kit.controls(right, { column: true });
-    const segNuage = kit.segmented(ctl, [['varie', 'Abscisses variées'], ['deux', 'Deux abscisses']], (v) => {
+    const segNuage = kit.segmented(ctl, [['varie', 'Au moins trois abscisses distinctes'], ['deux', 'Deux abscisses']], (v) => {
       nuage = v;
       draw();
     });
@@ -126,6 +127,12 @@ OYMWidgets.define('rsjs-ecarts', {
         P.line(g, b, -0.5, b, 4.5, 'ref');
         P.math(g, a, 4.25, '\\(u\\)', '', 'start', 6, 0);
         P.math(g, b, 4.25, '\\(v\\)', '', 'start', 6, 0);
+        // Points communs à toutes les courbes P* + s(t − u)(t − v) : les écarts n'en dépendent pas.
+        for (const t of [a, b]) {
+          const y = ev(X, t);
+          P.dot(g, t, y, 8, 'pt');
+          P.math(g, t, y, `\\((${t === a ? 'u' : 'v'}\\,;\\,${kit.tn(y, 2)})\\)`, 'o', t === a ? 'end' : 'start', t === a ? -10 : 10, 0);
+        }
       }
 
       const Emax = E0 + q2 + 0.5;
@@ -141,7 +148,7 @@ OYMWidgets.define('rsjs-ecarts', {
         <tr><td>\\(\\sum_i (t_i-u)^2(t_i-v)^2\\)</td><td class="n">${kit.fmt(q2, 3)}</td></tr></table>`);
       if (nuage === 'deux') {
         status.className = 'oym-status o';
-        kit.put(status, "Les \\(t_i\\) ne prennent que deux valeurs : \\((t-u)(t-v)\\) s'annule en chaque \\(t_i\\), <b>l'erreur ne dépend pas de \\(s\\)</b>. Toutes ces paraboles sont solutions.");
+        kit.put(status, "Les \\(t_i\\) ne prennent que deux valeurs : \\((t-u)(t-v)\\) s'annule en chaque \\(t_i\\), <b>l'erreur ne dépend pas de \\(s\\)</b>. Toutes les courbes passent par les deux points orange, donc les écarts verticaux ne changent pas : toutes ces paraboles sont solutions.");
       } else {
         status.className = 'oym-status';
         kit.put(status, 'Au moins trois abscisses distinctes : \\(E = E(P^*) + s^2\\sum_i (t_i-u)^2(t_i-v)^2\\) <b>augmente dès que \\(s\\neq 0\\)</b>. La solution est unique.');
