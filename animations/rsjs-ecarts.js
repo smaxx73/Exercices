@@ -138,13 +138,13 @@ OYMWidgets.define('rsjs-ecarts', {
       kit.put(out, `<table>
         <tr><td>\\(E(P^*)\\)</td><td class="n">${kit.fmt(E0, 3)}</td></tr>
         <tr><td>\\(E\\big(P^*+s\\,(t-u)(t-v)\\big)\\)</td><td class="n"><b>${kit.fmt(Es, 3)}</b></td></tr>
-        <tr><td>\\(\\sum_i (t_i-a)^2(t_i-b)^2\\)</td><td class="n">${kit.fmt(q2, 3)}</td></tr></table>`);
+        <tr><td>\\(\\sum_i (t_i-u)^2(t_i-v)^2\\)</td><td class="n">${kit.fmt(q2, 3)}</td></tr></table>`);
       if (nuage === 'deux') {
         status.className = 'oym-status o';
         kit.put(status, "Les \\(t_i\\) ne prennent que deux valeurs : \\((t-u)(t-v)\\) s'annule en chaque \\(t_i\\), <b>l'erreur ne dépend pas de \\(s\\)</b>. Toutes ces paraboles sont solutions.");
       } else {
         status.className = 'oym-status';
-        kit.put(status, 'Au moins trois abscisses distinctes : \\(E = E(P^*) + s^2\\sum_i (t_i-a)^2(t_i-b)^2\\) <b>augmente dès que \\(s\\neq 0\\)</b>. La solution est unique.');
+        kit.put(status, 'Au moins trois abscisses distinctes : \\(E = E(P^*) + s^2\\sum_i (t_i-u)^2(t_i-v)^2\\) <b>augmente dès que \\(s\\neq 0\\)</b>. La solution est unique.');
       }
     }
 
