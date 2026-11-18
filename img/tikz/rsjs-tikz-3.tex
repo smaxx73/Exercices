@@ -1,32 +1,42 @@
-% Image fixe de l'animation rsjs-niveaux. Lignes de niveau de l'erreur dans le plan
-% (alpha - alpha*, beta - beta*), gamma choisi au mieux : q(d) = d^T B d.
-% Nuage : quatre points en u = -1, quatre en v = 1,5, un point en c.
-% c = 0,25 : B = [[5,295 ; 6,25] ; [6,25 ; 12,5]], valeurs propres 1,684 et 16,11,
-%   vecteur propre de la petite à -30,02 degrés : ellipses.
-% c = u = -1 : valeurs propres 0 et 17,36, noyau dirigé par (1, -(u+v)) = (1, -0,5) :
-%   droites parallèles, droite orange des minimiseurs.
+% Image fixe de l'animation rsjs-niveaux (question 3 : A définie positive).
+% Nuage à huit abscisses distinctes (le même que rsjs-ecarts, abscisses variées).
+% À gauche : lignes de niveau de J(X* + H) - J(X*) = 1/2 <AH, H> dans la coupe gamma = gamma*,
+%   H = (h1, h2, 0), bloc [[S4, S3], [S3, S2]] = [[51,258 ; 4,544] ; [4,544 ; 15,2]],
+%   valeurs propres 14,636 (vecteur propre à -82,93 degrés) et 51,821 : ellipses centrées en X*.
+%   Point X* + H avec H = (0,3 ; 0,25 ; 0) : 1/2 <AH, H> = 3,12.
+% À droite : X* = (0,3654 ; -0,0909 ; 0,8773), parabole optimale (trait plein) et parabole
+%   associée à X* + H (tirets), avec ses écarts verticaux.
 \begin{tikzpicture}
     \definecolor{oymteal}{RGB}{58,143,143}
     \definecolor{oymorange}{RGB}{184,93,63}
-    \pgfplotsset{rsjs/.style={
-        width=6.4cm, height=6.4cm, xmin=-1.6, xmax=1.6, ymin=-1.6, ymax=1.6,
-        xtick={-1.5,-1,-0.5,0,0.5,1,1.5}, ytick={-1.5,-1,-0.5,0,0.5,1,1.5},
+    \begin{axis}[width=6.4cm, height=6.4cm, xmin=-0.5, xmax=0.5, ymin=-0.5, ymax=0.5,
+        xtick={-0.4,-0.2,0,0.2,0.4}, ytick={-0.4,-0.2,0,0.2,0.4},
         xticklabel style={font=\scriptsize}, yticklabel style={font=\scriptsize},
         grid=major, grid style={black!12}, axis equal image, clip=true,
-        xlabel={$\alpha-\alpha^*$}, ylabel={$\beta-\beta^*$}, title style={font=\small}}}
-    \begin{axis}[rsjs, title={$c=0{,}25$ : minimum unique}]
-        \pgfplotsinvokeforeach{0.15,0.4,0.8,1.4,2.2,3.2,4.5,6}{
+        xlabel={$\alpha-\alpha^*$}, ylabel={$\beta-\beta^*$}, title style={font=\small},
+        title={Lignes de niveau de $J$ ($\gamma=\gamma^*$)}]
+        \pgfplotsinvokeforeach{0.1,0.3,0.6,1,1.5,2.2,3,4,5.5}{
             \addplot[oymteal, thick, domain=0:360, samples=90, variable=\u]
-            ({sqrt(#1/1.68369)*cos(\u)*cos(-30.02) - sqrt(#1/16.1114)*sin(\u)*sin(-30.02)},
-             {sqrt(#1/1.68369)*cos(\u)*sin(-30.02) + sqrt(#1/16.1114)*sin(\u)*cos(-30.02)});
+            ({sqrt(2*#1/14.6362)*cos(\u)*cos(-82.93) - sqrt(2*#1/51.8214)*sin(\u)*sin(-82.93)},
+             {sqrt(2*#1/14.6362)*cos(\u)*sin(-82.93) + sqrt(2*#1/51.8214)*sin(\u)*cos(-82.93)});
         }
-        \addplot[only marks, mark=*, mark size=2.4pt, oymorange] coordinates {(0,0)};
+        \draw[black!45, dashed] (axis cs:-0.6,-0.5) -- (axis cs:0.6,0.5);
+        \draw[-latex, very thick, oymorange] (axis cs:0,0) -- (axis cs:0.3,0.25);
+        \addplot[only marks, mark=*, mark size=2.2pt] coordinates {(0,0)};
+        \addplot[only marks, mark=*, mark size=2.2pt, oymorange] coordinates {(0.3,0.25)};
+        \node[font=\footnotesize, anchor=north west, fill=white, inner sep=1pt] at (axis cs:0.01,-0.01) {$X^*$};
+        \node[font=\footnotesize, anchor=south east, oymorange, fill=white, inner sep=1pt] at (axis cs:0.28,0.27) {$X^*+H$};
     \end{axis}
-    \begin{axis}[rsjs, xshift=7cm, title={$c=u$ : droite de minima}]
-        \pgfplotsinvokeforeach{0.15,0.4,0.8,1.4,2.2,3.2,4.5,6}{
-            \addplot[oymteal, thick, domain=-1.6:1.6, samples=2] {(sqrt(#1/17.3611)/0.894427 - 0.5*x)};
-            \addplot[oymteal, thick, domain=-1.6:1.6, samples=2] {(-sqrt(#1/17.3611)/0.894427 - 0.5*x)};
+    \begin{axis}[xshift=7cm, width=7cm, height=6.4cm, xmin=-2.5, xmax=2.7, ymin=-0.5, ymax=4.5,
+        xtick={-2,-1,0,1,2}, ytick={0,1,2,3,4}, grid=major, grid style={black!12},
+        xlabel={$t$}, ylabel={$x$}, samples=120, domain=-2.5:2.7, clip=true,
+        title style={font=\small}, title={Parabole optimale et parabole de $X^*+H$}]
+        \addplot[very thick, oymteal] {0.36541*x^2 - 0.09094*x + 0.87731};
+        \addplot[thick, dashed, oymorange] {0.66541*x^2 + 0.15906*x + 0.87731};
+        \foreach \t/\x in {-2/2.8, -1.4/1.1, -0.8/1.6, -0.2/0.7, 0.4/1.2, 1/0.8, 1.6/2.0, 2.2/2.3} {
+            \edef\tmp{\noexpand\draw[oymorange, thick] (axis cs:\t,\x) -- (axis cs:\t,{0.66541*\t*\t + 0.15906*\t + 0.87731});}\tmp
         }
-        \addplot[oymorange, very thick, domain=-1.6:1.6, samples=2] {-0.5*x};
+        \addplot[only marks, mark=*, mark size=1.8pt] coordinates {(-2,2.8) (-1.4,1.1) (-0.8,1.6) (-0.2,0.7) (0.4,1.2) (1,0.8) (1.6,2.0) (2.2,2.3)};
+        \node[anchor=north west, font=\footnotesize, fill=white, inner sep=2pt] at (axis cs:-2.4,4.4) {$J(X^*+H)-J(X^*) = \tfrac12\langle AH,H\rangle = 3{,}12$};
     \end{axis}
 \end{tikzpicture}

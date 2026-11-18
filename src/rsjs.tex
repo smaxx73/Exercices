@@ -95,9 +95,9 @@
 
   \textbf{Attention.} Dire seulement « $J$ est strictement convexe, donc elle a un unique minimum » ne suffit pas : la stricte convexité donne l'unicité, mais pas l'existence ($t \mapsto e^t$ est strictement convexe et n'a pas de minimum). Le calcul ci-dessus donne les deux. On peut aussi invoquer la coercivité : $J(X) \geq \frac{\lambda_{\min}}{2} \|X\|^2 - \|b\| \, \|X\| \to +\infty$, où $\lambda_{\min} > 0$ est la plus petite valeur propre de $A$.
 
-  Géométriquement, les lignes de niveau de $J$ sont des ellipsoïdes centrés en $X^*$. Quand $A$ n'est plus définie positive, ils s'aplatissent en « vallées » au fond desquelles le minimum est atteint sur toute une droite.
+  \textbf{Interprétation géométrique.} Les lignes de niveau de $J$ sont des ellipsoïdes centrés en $X^*$. Sur toute droite passant par $X^*$, de direction $H \neq 0$, la fonction $s \mapsto J(X^* + sH) = J(X^*) + \frac{s^2}{2} \langle AH, H \rangle$ est un trinôme de coefficient dominant strictement positif, minimal en $s = 0$ seulement.
 
-  \animation[\exercisespath img/pdf/rsjs-tikz-3]{rsjs-niveaux}{Lignes de niveau de l'erreur : des ellipses autour d'un minimum unique, qui deviennent des droites parallèles quand le nuage n'a plus que deux abscisses distinctes}
+  \animation[\exercisespath img/pdf/rsjs-tikz-3]{rsjs-niveaux}{Lignes de niveau de J : des ellipses centrées en l'optimum, et une erreur qui augmente strictement dès qu'on s'en écarte, dans toutes les directions}
   }
 
   \item    \question{À quelle condition sur les points $\{t_i\}_{1 \leq i \leq N}$ la matrice $A$ est-elle définie positive ? En déduire une condition nécessaire et suffisante sur le nuage de points pour que le problème admette une unique solution.}
