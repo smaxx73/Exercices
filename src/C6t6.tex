@@ -1,0 +1,79 @@
+% Dérivé de aUn2 (données brutes à traiter au tableur, novembre 2026).
+\uuid{C6t6}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Tests d'hypothèses, intervalle de confiance}
+\titre{Épaisseur de pièces : test approché d'une moyenne sur données brutes}
+\theme{statistiques, tests d'hypothèses, tableur}
+\auteur{}
+\datecreate{2026-11-20}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+\texte{Désirant juger le travail d'un ouvrier ajusteur, un chef d'atelier prélève un échantillon de 400 pièces métalliques dans sa production et mesure leur épaisseur au centième de millimètre. On note $X$ l'épaisseur d'une pièce. L'objectif est une épaisseur moyenne $\mu=\mathbb E(X)$ égale à $5$~mm ; par ailleurs, une pièce est acceptée si son épaisseur appartient à l'intervalle de tolérance $[4{,}80\ ;\ 5{,}20]$, bornes comprises.
+
+Les mesures, simulées pour l'exercice, sont dans le fichier \href{https://github.com/smaxx73/Exercices/blob/main/data/C6t6.csv}{\texttt{C6t6.csv}}, disponible dans le dossier \texttt{data} du dépôt \url{https://github.com/smaxx73/Exercices}. Il contient une ligne par pièce et deux colonnes séparées par des points-virgules : identifiant et épaisseur en mm, avec une virgule décimale.
+
+On modélise les 400 mesures par des variables indépendantes de même loi, de variance finie non nulle. On utilise l'approximation normale de la moyenne pour un échantillon de grande taille.}
+\begin{enumerate}
+\item \question{Importer le fichier. Calculer la taille de l'échantillon, la moyenne observée, la variance corrigée et l'écart-type corrigé. Tracer l'histogramme des épaisseurs avec des classes de largeur $0{,}05$~mm. Faut-il supposer la normalité des épaisseurs pour le test de la question suivante ?}
+\indication{Vérifier que les épaisseurs sont reconnues comme des nombres : avec un tableur réglé en anglais, la virgule décimale doit être indiquée à l'import. Utiliser ensuite \texttt{NB}, \texttt{MOYENNE}, \texttt{VAR.S} et \texttt{ECARTYPE.STANDARD}. \texttt{VAR.P} divise par $n$ : ce n'est pas la variance corrigée.}
+\reponse{Le fichier compte $n=400$ pièces. La somme des épaisseurs vaut $1995{,}67$~mm, d'où
+\[
+\bar x=\frac{1995{,}67}{400}=4{,}989175\ \mathrm{mm}.
+\]
+C'est la réalisation de l'estimateur $\overline X=\frac1{400}\sum_{j=1}^{400}X_j$, sans biais pour $\mu$. La variance corrigée observée, réalisation de $S^2=\frac1{399}\sum_{j=1}^{400}(X_j-\overline X)^2$, vaut
+\[
+s^2\simeq0{,}00816799\ \mathrm{mm}^2,\qquad s\simeq0{,}0903769\ \mathrm{mm}.
+\]
+Les épaisseurs vont de $4{,}65$ à $5{,}27$~mm ; la médiane vaut $4{,}99$~mm et les quartiles $4{,}93$ et $5{,}05$~mm. L'histogramme est en cloche, à peu près symétrique autour de $4{,}99$~mm, avec quelques valeurs basses isolées entre $4{,}65$ et $4{,}80$~mm.
+
+La normalité n'est pas nécessaire : le test porte sur la moyenne de 400 observations indépendantes de variance finie, dont la loi est approchée par une loi normale. L'histogramme sert à repérer une anomalie (erreur de saisie, mélange de deux productions) plus qu'à valider une normalité exacte.
+}
+\item \question{Cette vérification permet-elle de conclure que l'épaisseur moyenne est conforme à l'objectif de $5\ \mathrm{mm}$ ? Effectuer un test au risque de première espèce $\alpha=1\%$ et préciser la portée de sa conclusion.}
+\indication{Organiser la feuille comme la feuille de calcul type du cours : une zone de données (moyenne, écart-type corrigé, taille, valeur de référence, seuil), une zone de calculs (statistique, valeur critique, $p$-valeur) et une zone de décision. Les cellules de données contiennent des formules sur la colonne des épaisseurs. Pour un test bilatéral, \texttt{=LOI.NORMALE.STANDARD.INVERSE.N(1-alpha/2)} donne la valeur critique et \texttt{=2*(1-LOI.NORMALE.STANDARD.N(ABS(z);VRAI))} la $p$-valeur.}
+\reponse{\textbf{Hypothèses.} On réalise le test bilatéral
+\[
+\begin{cases}
+H_0:\mu=5,\\
+H_1:\mu\neq5,
+\end{cases}
+\]
+au risque de première espèce $\alpha=0{,}01$. La variable de décision est
+\[
+Z=\frac{\overline X-5}{\frac{S}{\sqrt{400}}}.
+\]
+Sous $H_0$, sa loi est approximativement normale centrée réduite, par l'approximation de la moyenne et le remplacement de l'écart-type inconnu par $S$.
+
+\textbf{Décision.} La valeur critique bilatérale est $u_{0{,}005}=\Phi^{-1}(0{,}995)\simeq2{,}57583$. Avec la convention de rejet $p_{\mathrm{val}}\leq\alpha$, on rejette lorsque $|z_{\mathrm{obs}}|\geq u_{0{,}005}$. L'erreur-type estimée vaut $\frac{s}{\sqrt{400}}\simeq0{,}0045188$~mm et
+\[
+z_{\mathrm{obs}}=\frac{4{,}989175-5}{0{,}0045188}\simeq-2{,}39552.
+\]
+Comme $|z_{\mathrm{obs}}|<2{,}57583$, on ne rejette pas $H_0$ au seuil de $1\%$. La $p$-valeur normale approchée vaut
+\[
+p_{\mathrm{val}}=2\bigl(1-\Phi(|z_{\mathrm{obs}}|)\bigr)\simeq0{,}0165967>0{,}01.
+\]
+De façon cohérente, l'intervalle de confiance approché à $99\%$ de $\mu$, $[4{,}97754\ ;\ 5{,}00081]$~mm, contient $5$.
+
+\textbf{Portée.} Le test ne détecte pas d'écart à la moyenne cible à ce seuil. Ce non-rejet ne prouve pas l'égalité $\mu=5$ et ne démontre pas la conformité : l'intervalle montre que des moyennes de $4{,}978$~mm restent compatibles avec les données. Le test porte sur la moyenne de la production, pas sur chaque pièce.
+}
+\item \question{Quel risque de première espèce devrait-on prendre pour que la prise de décision du test normal approché soit différente ?}
+\reponse{Avec la convention de rejet $p_{\mathrm{val}}\leq\alpha$, la décision bascule lorsque le seuil atteint la $p$-valeur normale approchée :
+\[
+\alpha\geq p_{\mathrm{val}}\simeq0{,}0165967,
+\]
+soit environ $1{,}66\%$. Par exemple, au seuil de $5\%$, on rejetterait l'hypothèse $\mu=5$.
+
+Ce calcul est une analyse de sensibilité de la décision. Le risque d'une étude doit être fixé avant l'observation des données ; le modifier après coup ne justifie pas une conclusion annoncée au seuil initial de $1\%$.
+
+\textit{Remarque :} si l'on ajoute l'hypothèse de normalité de la population, le test de Student à $399$ degrés de liberté donne une $p$-valeur bilatérale d'environ $0{,}01706$, très proche de la valeur normale : avec 400 observations, les deux références sont pratiquement confondues.
+}
+\item \question{Combien de pièces de l'échantillon sont hors de l'intervalle de tolérance ? Le test de la question 2 renseigne-t-il sur cette proportion ?}
+\indication{Compter séparément les pièces trop fines et trop épaisses, par exemple avec \texttt{=NB.SI(plage;"<4,8")} et \texttt{=NB.SI(plage;">5,2")}. Les bornes de l'intervalle sont acceptées : vérifier combien de pièces mesurent exactement $4{,}80$ ou $5{,}20$~mm.}
+\reponse{On compte 6 pièces de moins de $4{,}80$~mm et 3 pièces de plus de $5{,}20$~mm, soit 9 pièces hors tolérance sur 400, c'est-à-dire $2{,}25\%$ de l'échantillon. Cinq pièces mesurent exactement l'une des bornes : elles sont acceptées. Une inégalité large dans la formule (\texttt{"<=4,8"}) les compterait à tort parmi les rebuts.
+
+Le test de la question 2 ne renseigne pas sur cette proportion : une moyenne égale à $5$~mm est compatible avec beaucoup de pièces hors tolérance si la dispersion est grande, et une moyenne légèrement décalée peut s'accompagner de très peu de rebuts si la dispersion est faible. La qualité des pièces individuelles dépend à la fois du centrage et de la dispersion ; elle s'étudie, par exemple, par un test ou un intervalle sur la proportion de pièces hors tolérance.
+}
+\end{enumerate}
+}

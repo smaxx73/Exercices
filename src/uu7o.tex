@@ -1,0 +1,60 @@
+\uuid{uu7o}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Tests d'hypothèses, intervalle de confiance}
+\titre{Quel test choisir ?}
+\theme{tests d'hypothèses, choix d'une méthode, synthèse}
+\auteur{Maxime Nguyen}
+\datecreate{2026-11-20}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+\texte{Cet exercice ne demande aucun calcul numérique. Dans chaque situation, les observations sont supposées indépendantes et, lorsqu'il y a deux groupes, les échantillons sont indépendants.
+
+\begin{itemize}
+\item[a)] Un fournisseur annonce au plus $2\%$ de pièces défectueuses. Sur 1000 pièces contrôlées, 32 sont défectueuses. Un client veut savoir s'il peut contester l'annonce.
+\item[b)] On mesure la charge de rupture de 12 câbles d'un même lot. Les charges sont supposées suivre une loi normale d'écart-type inconnu. La norme impose une charge moyenne de 50~kN ; on craint que le lot soit plus faible.
+\item[c)] Un transporteur pèse 400 colis. Leur distribution est nettement asymétrique : quelques colis sont très lourds. Un client soupçonne que la masse moyenne est inférieure aux 2~kg annoncés.
+\item[d)] Les notes d'un même examen sont relevées dans deux groupes de 35 et 42 élèves. Les dispersions semblent différentes. Les notes moyennes diffèrent-elles ?
+\item[e)] Deux appareils mesurent 15 fois chacun la même grandeur, avec des erreurs supposées normales. On veut montrer que le second appareil est plus précis que le premier.
+\item[f)] Un dé est lancé 600 fois. Est-il équilibré ?
+\item[g)] 300 élèves sont classés selon leur filière (trois filières) et l'option choisie (quatre options). Le choix de l'option est-il lié à la filière ?
+\item[h)] Le nombre d'appels reçus par un standard est relevé pendant 200 heures. Peut-on le modéliser par une loi de Poisson ?
+\item[i)] Deux campagnes d'information de 500 envois chacune obtiennent des taux de réponse différents. L'écart est-il significatif ?
+\end{itemize}}
+\begin{enumerate}
+\item \question{Pour chaque situation, préciser le paramètre ou la propriété testée, les hypothèses $H_0$ et $H_1$, la statistique de test et sa loi de référence sous $H_0$, puis indiquer si cette loi est exacte ou approchée et quelle condition il faut vérifier.}
+\indication{Se demander d'abord : combien de groupes ? Une variable quantitative ou qualitative ? Quel paramètre (proportion, moyenne, variance, loi, liaison) ? Le sens de $H_1$ est-il imposé par la question avant de regarder les données ? Le tableau « Choisir une méthode » du cours résume les cas usuels.}
+\reponse{
+\begin{itemize}
+\item[a)] \textbf{Test d'une proportion}, unilatéral à droite : $H_0:p=0{,}02$ contre $H_1:p>0{,}02$, puisque seul un excès de défauts permet de contester l'annonce. Le nombre de défectueux suit sous $H_0$ la loi $\mathcal B(1000\,;\,0{,}02)$ : le test binomial est \emph{exact}. L'approximation normale de la fréquence est \emph{approchée} ; l'effectif attendu sous $H_0$, $1000\times0{,}02=20$, la rend acceptable.
+\item[b)] \textbf{Test de Student d'une moyenne}, unilatéral à gauche : $H_0:\mu=50$ contre $H_1:\mu<50$. La statistique $T=\frac{\overline X-50}{S/\sqrt{12}}$ suit $St(11)$ sous $H_0$. Loi \emph{exacte} sous l'hypothèse de normalité, indispensable avec seulement 12 observations.
+\item[c)] \textbf{Test approché d'une moyenne}, unilatéral à gauche : $H_0:\mu=2$ contre $H_1:\mu<2$. La statistique $Z=\frac{\overline X-2}{S/\sqrt{400}}$ suit approximativement $\mathcal N(0,1)$ par le théorème central limite. Loi \emph{approchée} ; la normalité des masses n'est pas requise, mais une variance finie et un effectif suffisant compte tenu de l'asymétrie, ce que 400 colis assurent ici raisonnablement.
+\item[d)] \textbf{Test de Welch}, bilatéral : $H_0:\mu_1=\mu_2$ contre $H_1:\mu_1\neq\mu_2$. La statistique de Welch suit approximativement une loi de Student aux degrés de liberté de Welch--Satterthwaite. Loi \emph{approchée} ; elle ne suppose pas l'égalité des variances. Il faut une normalité approximative des notes ou des effectifs suffisants.
+\item[e)] \textbf{Test de Fisher de comparaison de deux variances}, unilatéral : $H_0:\sigma_1^2=\sigma_2^2$ contre $H_1:\sigma_1^2>\sigma_2^2$. Le rapport $R=\frac{S_1^2}{S_2^2}$ suit $F(14,14)$ sous $H_0$ ; on rejette pour les grandes valeurs. Loi \emph{exacte} sous normalité, hypothèse à laquelle ce test est sensible.
+\item[f)] \textbf{Test d'adéquation du khi-deux} à la loi uniforme sur $\{1,\ldots,6\}$ : $H_0$ « le dé est équilibré » contre $H_1$ « il ne l'est pas ». La statistique de Pearson suit approximativement $\chi^2(5)$. Loi \emph{approchée} ; les effectifs attendus valent 100, largement suffisants.
+\item[g)] \textbf{Test d'indépendance du khi-deux} : $H_0$ « option et filière sont indépendantes » contre $H_1$ « elles sont liées ». La statistique de Pearson suit approximativement $\chi^2\bigl((3-1)(4-1)\bigr)=\chi^2(6)$. Loi \emph{approchée} ; vérifier que les effectifs attendus sont assez grands, sinon regrouper des modalités.
+\item[h)] \textbf{Test d'adéquation à une loi de Poisson de paramètre inconnu} : $H_0$ « le nombre d'appels suit une loi de Poisson » contre son contraire. On estime $\lambda$, on regroupe les classes de faible effectif attendu, et la statistique suit approximativement $\chi^2(k-1-1)$, où $k$ est le nombre de classes retenues : un degré de liberté est retiré pour le paramètre estimé. Loi \emph{approchée}.
+\item[i)] \textbf{Comparaison de deux proportions}, bilatérale : $H_0:p_1=p_2$ contre $H_1:p_1\neq p_2$. La statistique $Z$ construite avec la fréquence commune suit approximativement $\mathcal N(0,1)$ ; de façon équivalente, le khi-deux d'indépendance sur le tableau $2\times2$ suit approximativement $\chi^2(1)$, avec $q=z^2$. Loi \emph{approchée} ; vérifier les effectifs de réponses et de non-réponses dans chaque groupe.
+\end{itemize}
+}
+\item \question{Chacune des affirmations suivantes contient une erreur. La corriger.
+\begin{itemize}
+\item[a)] « Dans la situation b), la moyenne observée vaut 52~kN ; on choisit donc $H_1:\mu>50$. »
+\item[b)] « La $p$-valeur vaut $0{,}30$ : il y a $70\%$ de chances que $H_0$ soit vraie. »
+\item[c)] « Le test de Fisher n'a pas rejeté l'égalité des variances ; on sait donc que les variances sont égales et l'on doit utiliser le test de Student à variance commune. »
+\item[d)] « Avec 50\,000 observations, on obtient $p_{\mathrm{val}}=0{,}001$ : l'effet est donc important. »
+\item[e)] « Deux effectifs attendus valent 3, mais le total dépasse 300 : on applique directement le khi-deux. »
+\end{itemize}}
+\reponse{
+\begin{itemize}
+\item[a)] Le sens de $H_1$ découle de la question posée, fixée avant l'observation : on craint un lot plus faible, donc $H_1:\mu<50$. Choisir le sens d'après les données fausse le risque de première espèce.
+\item[b)] La $p$-valeur est la probabilité, calculée sous $H_0$, d'obtenir une statistique au moins aussi extrême que celle observée. Ce n'est pas une probabilité que $H_0$ soit vraie ; une $p$-valeur de $0{,}30$ indique seulement que les données sont compatibles avec $H_0$.
+\item[c)] Un non-rejet ne prouve pas l'égalité. Le test de Welch ne suppose pas l'égalité des variances et peut être choisi directement, sans prétest de Fisher, d'autant que ce dernier est sensible à la non-normalité.
+\item[d)] Avec un très grand effectif, un effet minime peut être très significatif. L'importance de l'effet se juge sur son estimation et son intervalle de confiance, comparés à un seuil d'intérêt pratique.
+\item[e)] La condition porte sur chaque effectif attendu, pas sur le total. Il faut regrouper des classes ou des modalités pour obtenir des attendus suffisants, puis recalculer les degrés de liberté.
+\end{itemize}
+}
+\end{enumerate}
+}

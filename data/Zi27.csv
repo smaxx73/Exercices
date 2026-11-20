@@ -1,0 +1,2090 @@
+﻿repondant;age;reponse
+R0001;25;pas d'accord
+R0002;83;pas d'accord
+R0003;44;indécis
+R0004;66;d'accord
+R0005;19;indécis
+R0006;57;pas d'accord
+R0007;75;indécis
+R0008;20;pas d'accord
+R0009;51;d'accord
+R0010;23;pas d'accord
+R0011;20;indécis
+R0012;29;pas d'accord
+R0013;64;d'accord
+R0014;60;pas d'accord
+R0015;23;pas d'accord
+R0016;26;pas d'accord
+R0017;37;d'accord
+R0018;64;indécis
+R0019;53;pas d'accord
+R0020;20;d'accord
+R0021;53;d'accord
+R0022;32;indécis
+R0023;51;pas d'accord
+R0024;61;pas d'accord
+R0025;23;pas d'accord
+R0026;83;indécis
+R0027;20;pas d'accord
+R0028;60;indécis
+R0029;55;pas d'accord
+R0030;30;pas d'accord
+R0031;60;pas d'accord
+R0032;30;pas d'accord
+R0033;19;pas d'accord
+R0034;33;d'accord
+R0035;59;d'accord
+R0036;27;indécis
+R0037;34;pas d'accord
+R0038;68;pas d'accord
+R0039;58;pas d'accord
+R0040;85;indécis
+R0041;43;pas d'accord
+R0042;59;pas d'accord
+R0043;33;pas d'accord
+R0044;70;indécis
+R0045;57;indécis
+R0046;31;pas d'accord
+R0047;54;pas d'accord
+R0048;31;pas d'accord
+R0049;23;pas d'accord
+R0050;18;indécis
+R0051;46;pas d'accord
+R0052;66;pas d'accord
+R0053;81;indécis
+R0054;53;pas d'accord
+R0055;63;d'accord
+R0056;61;indécis
+R0057;35;pas d'accord
+R0058;32;pas d'accord
+R0059;18;pas d'accord
+R0060;31;pas d'accord
+R0061;43;indécis
+R0062;22;pas d'accord
+R0063;39;pas d'accord
+R0064;37;pas d'accord
+R0065;19;pas d'accord
+R0066;75;indécis
+R0067;22;pas d'accord
+R0068;30;d'accord
+R0069;45;indécis
+R0070;59;pas d'accord
+R0071;54;indécis
+R0072;36;indécis
+R0073;58;d'accord
+R0074;40;pas d'accord
+R0075;21;pas d'accord
+R0076;22;pas d'accord
+R0077;63;indécis
+R0078;57;indécis
+R0079;73;pas d'accord
+R0080;84;indécis
+R0081;66;d'accord
+R0082;51;pas d'accord
+R0083;43;indécis
+R0084;32;d'accord
+R0085;24;pas d'accord
+R0086;19;indécis
+R0087;60;indécis
+R0088;20;pas d'accord
+R0089;18;pas d'accord
+R0090;58;indécis
+R0091;48;pas d'accord
+R0092;85;indécis
+R0093;60;indécis
+R0094;18;pas d'accord
+R0095;46;pas d'accord
+R0096;61;d'accord
+R0097;38;pas d'accord
+R0098;52;pas d'accord
+R0099;29;d'accord
+R0100;72;pas d'accord
+R0101;30;indécis
+R0102;57;pas d'accord
+R0103;29;pas d'accord
+R0104;50;indécis
+R0105;37;pas d'accord
+R0106;28;pas d'accord
+R0107;43;pas d'accord
+R0108;39;pas d'accord
+R0109;35;pas d'accord
+R0110;34;pas d'accord
+R0111;61;indécis
+R0112;48;indécis
+R0113;35;pas d'accord
+R0114;45;indécis
+R0115;71;d'accord
+R0116;69;indécis
+R0117;22;pas d'accord
+R0118;38;pas d'accord
+R0119;38;pas d'accord
+R0120;66;d'accord
+R0121;48;d'accord
+R0122;71;d'accord
+R0123;71;pas d'accord
+R0124;51;d'accord
+R0125;32;indécis
+R0126;62;indécis
+R0127;55;indécis
+R0128;40;pas d'accord
+R0129;41;pas d'accord
+R0130;43;pas d'accord
+R0131;54;d'accord
+R0132;42;indécis
+R0133;51;pas d'accord
+R0134;20;pas d'accord
+R0135;40;pas d'accord
+R0136;75;indécis
+R0137;33;pas d'accord
+R0138;21;pas d'accord
+R0139;60;d'accord
+R0140;47;pas d'accord
+R0141;21;d'accord
+R0142;27;pas d'accord
+R0143;63;indécis
+R0144;21;pas d'accord
+R0145;43;indécis
+R0146;22;pas d'accord
+R0147;79;pas d'accord
+R0148;30;pas d'accord
+R0149;51;indécis
+R0150;36;pas d'accord
+R0151;52;pas d'accord
+R0152;55;pas d'accord
+R0153;35;pas d'accord
+R0154;58;pas d'accord
+R0155;81;pas d'accord
+R0156;42;pas d'accord
+R0157;39;pas d'accord
+R0158;42;indécis
+R0159;32;indécis
+R0160;68;pas d'accord
+R0161;51;pas d'accord
+R0162;75;pas d'accord
+R0163;42;pas d'accord
+R0164;74;d'accord
+R0165;60;pas d'accord
+R0166;59;indécis
+R0167;23;indécis
+R0168;47;pas d'accord
+R0169;47;pas d'accord
+R0170;40;pas d'accord
+R0171;64;pas d'accord
+R0172;32;pas d'accord
+R0173;33;indécis
+R0174;62;pas d'accord
+R0175;19;indécis
+R0176;34;indécis
+R0177;50;indécis
+R0178;36;pas d'accord
+R0179;20;indécis
+R0180;26;pas d'accord
+R0181;28;pas d'accord
+R0182;37;pas d'accord
+R0183;87;pas d'accord
+R0184;57;pas d'accord
+R0185;46;pas d'accord
+R0186;28;d'accord
+R0187;25;pas d'accord
+R0188;37;pas d'accord
+R0189;47;pas d'accord
+R0190;20;pas d'accord
+R0191;63;indécis
+R0192;24;d'accord
+R0193;40;d'accord
+R0194;45;pas d'accord
+R0195;19;pas d'accord
+R0196;21;pas d'accord
+R0197;67;pas d'accord
+R0198;53;pas d'accord
+R0199;57;indécis
+R0200;35;d'accord
+R0201;55;pas d'accord
+R0202;64;indécis
+R0203;73;pas d'accord
+R0204;38;pas d'accord
+R0205;39;pas d'accord
+R0206;38;pas d'accord
+R0207;30;pas d'accord
+R0208;38;indécis
+R0209;42;pas d'accord
+R0210;69;d'accord
+R0211;53;d'accord
+R0212;19;pas d'accord
+R0213;63;pas d'accord
+R0214;42;d'accord
+R0215;25;pas d'accord
+R0216;27;d'accord
+R0217;19;indécis
+R0218;85;pas d'accord
+R0219;22;pas d'accord
+R0220;56;pas d'accord
+R0221;36;pas d'accord
+R0222;24;indécis
+R0223;36;pas d'accord
+R0224;21;pas d'accord
+R0225;24;pas d'accord
+R0226;23;d'accord
+R0227;67;pas d'accord
+R0228;38;indécis
+R0229;41;pas d'accord
+R0230;39;pas d'accord
+R0231;41;pas d'accord
+R0232;87;indécis
+R0233;53;indécis
+R0234;80;d'accord
+R0235;21;pas d'accord
+R0236;69;pas d'accord
+R0237;26;indécis
+R0238;76;pas d'accord
+R0239;73;pas d'accord
+R0240;64;pas d'accord
+R0241;50;pas d'accord
+R0242;38;pas d'accord
+R0243;56;pas d'accord
+R0244;47;pas d'accord
+R0245;43;pas d'accord
+R0246;31;d'accord
+R0247;31;pas d'accord
+R0248;23;pas d'accord
+R0249;53;pas d'accord
+R0250;60;pas d'accord
+R0251;25;indécis
+R0252;42;pas d'accord
+R0253;61;indécis
+R0254;47;indécis
+R0255;23;pas d'accord
+R0256;28;pas d'accord
+R0257;62;d'accord
+R0258;25;pas d'accord
+R0259;66;pas d'accord
+R0260;44;d'accord
+R0261;65;indécis
+R0262;62;pas d'accord
+R0263;20;indécis
+R0264;54;d'accord
+R0265;35;pas d'accord
+R0266;77;pas d'accord
+R0267;60;indécis
+R0268;56;indécis
+R0269;41;pas d'accord
+R0270;21;d'accord
+R0271;48;pas d'accord
+R0272;62;d'accord
+R0273;32;indécis
+R0274;50;pas d'accord
+R0275;27;pas d'accord
+R0276;66;indécis
+R0277;49;indécis
+R0278;54;indécis
+R0279;38;pas d'accord
+R0280;28;indécis
+R0281;42;pas d'accord
+R0282;84;pas d'accord
+R0283;53;pas d'accord
+R0284;32;pas d'accord
+R0285;75;indécis
+R0286;24;indécis
+R0287;41;indécis
+R0288;62;indécis
+R0289;28;indécis
+R0290;28;pas d'accord
+R0291;51;indécis
+R0292;61;indécis
+R0293;54;indécis
+R0294;35;indécis
+R0295;18;pas d'accord
+R0296;51;indécis
+R0297;66;indécis
+R0298;29;pas d'accord
+R0299;38;pas d'accord
+R0300;30;d'accord
+R0301;67;pas d'accord
+R0302;18;indécis
+R0303;64;indécis
+R0304;39;pas d'accord
+R0305;72;d'accord
+R0306;30;pas d'accord
+R0307;32;pas d'accord
+R0308;24;pas d'accord
+R0309;40;indécis
+R0310;39;pas d'accord
+R0311;37;pas d'accord
+R0312;43;pas d'accord
+R0313;77;indécis
+R0314;31;pas d'accord
+R0315;20;pas d'accord
+R0316;72;indécis
+R0317;36;d'accord
+R0318;45;pas d'accord
+R0319;40;pas d'accord
+R0320;77;pas d'accord
+R0321;56;pas d'accord
+R0322;54;pas d'accord
+R0323;21;pas d'accord
+R0324;57;indécis
+R0325;22;pas d'accord
+R0326;52;pas d'accord
+R0327;23;pas d'accord
+R0328;86;indécis
+R0329;36;pas d'accord
+R0330;54;d'accord
+R0331;61;d'accord
+R0332;39;pas d'accord
+R0333;67;pas d'accord
+R0334;51;indécis
+R0335;45;pas d'accord
+R0336;73;indécis
+R0337;21;indécis
+R0338;30;pas d'accord
+R0339;30;pas d'accord
+R0340;52;pas d'accord
+R0341;74;indécis
+R0342;52;indécis
+R0343;28;pas d'accord
+R0344;64;indécis
+R0345;60;pas d'accord
+R0346;72;indécis
+R0347;20;pas d'accord
+R0348;80;indécis
+R0349;42;indécis
+R0350;24;pas d'accord
+R0351;19;indécis
+R0352;32;pas d'accord
+R0353;26;pas d'accord
+R0354;62;pas d'accord
+R0355;30;pas d'accord
+R0356;67;indécis
+R0357;20;pas d'accord
+R0358;59;indécis
+R0359;40;pas d'accord
+R0360;26;pas d'accord
+R0361;59;pas d'accord
+R0362;65;indécis
+R0363;64;indécis
+R0364;62;pas d'accord
+R0365;61;pas d'accord
+R0366;44;pas d'accord
+R0367;42;pas d'accord
+R0368;55;indécis
+R0369;51;indécis
+R0370;26;pas d'accord
+R0371;75;pas d'accord
+R0372;51;d'accord
+R0373;25;pas d'accord
+R0374;69;pas d'accord
+R0375;70;indécis
+R0376;40;d'accord
+R0377;61;pas d'accord
+R0378;32;pas d'accord
+R0379;69;indécis
+R0380;49;indécis
+R0381;47;pas d'accord
+R0382;55;d'accord
+R0383;43;indécis
+R0384;18;pas d'accord
+R0385;42;indécis
+R0386;70;indécis
+R0387;22;indécis
+R0388;26;pas d'accord
+R0389;38;indécis
+R0390;26;pas d'accord
+R0391;35;indécis
+R0392;44;pas d'accord
+R0393;54;pas d'accord
+R0394;45;pas d'accord
+R0395;44;indécis
+R0396;39;pas d'accord
+R0397;40;pas d'accord
+R0398;50;indécis
+R0399;33;pas d'accord
+R0400;38;indécis
+R0401;21;pas d'accord
+R0402;43;pas d'accord
+R0403;22;pas d'accord
+R0404;24;pas d'accord
+R0405;39;indécis
+R0406;78;indécis
+R0407;55;pas d'accord
+R0408;31;pas d'accord
+R0409;88;pas d'accord
+R0410;55;pas d'accord
+R0411;50;d'accord
+R0412;70;indécis
+R0413;49;indécis
+R0414;57;d'accord
+R0415;49;pas d'accord
+R0416;41;pas d'accord
+R0417;57;indécis
+R0418;69;pas d'accord
+R0419;39;indécis
+R0420;19;pas d'accord
+R0421;65;pas d'accord
+R0422;67;pas d'accord
+R0423;19;pas d'accord
+R0424;56;d'accord
+R0425;56;indécis
+R0426;31;d'accord
+R0427;22;pas d'accord
+R0428;64;pas d'accord
+R0429;46;pas d'accord
+R0430;36;pas d'accord
+R0431;54;pas d'accord
+R0432;44;pas d'accord
+R0433;61;pas d'accord
+R0434;39;pas d'accord
+R0435;23;indécis
+R0436;50;indécis
+R0437;18;pas d'accord
+R0438;21;d'accord
+R0439;19;indécis
+R0440;47;pas d'accord
+R0441;18;pas d'accord
+R0442;61;pas d'accord
+R0443;56;d'accord
+R0444;22;pas d'accord
+R0445;57;d'accord
+R0446;58;pas d'accord
+R0447;87;pas d'accord
+R0448;61;pas d'accord
+R0449;44;pas d'accord
+R0450;29;d'accord
+R0451;47;pas d'accord
+R0452;24;pas d'accord
+R0453;47;pas d'accord
+R0454;34;pas d'accord
+R0455;45;pas d'accord
+R0456;39;indécis
+R0457;32;d'accord
+R0458;62;pas d'accord
+R0459;47;pas d'accord
+R0460;37;pas d'accord
+R0461;35;indécis
+R0462;31;indécis
+R0463;34;indécis
+R0464;55;pas d'accord
+R0465;25;pas d'accord
+R0466;39;pas d'accord
+R0467;27;indécis
+R0468;83;indécis
+R0469;30;indécis
+R0470;37;indécis
+R0471;83;pas d'accord
+R0472;42;indécis
+R0473;56;pas d'accord
+R0474;18;pas d'accord
+R0475;63;pas d'accord
+R0476;67;pas d'accord
+R0477;20;pas d'accord
+R0478;42;pas d'accord
+R0479;56;indécis
+R0480;37;indécis
+R0481;41;pas d'accord
+R0482;56;pas d'accord
+R0483;47;pas d'accord
+R0484;46;indécis
+R0485;80;d'accord
+R0486;67;pas d'accord
+R0487;62;indécis
+R0488;21;pas d'accord
+R0489;31;pas d'accord
+R0490;58;d'accord
+R0491;65;pas d'accord
+R0492;72;pas d'accord
+R0493;66;pas d'accord
+R0494;23;pas d'accord
+R0495;39;d'accord
+R0496;35;pas d'accord
+R0497;82;pas d'accord
+R0498;35;pas d'accord
+R0499;83;pas d'accord
+R0500;47;pas d'accord
+R0501;67;pas d'accord
+R0502;18;pas d'accord
+R0503;58;indécis
+R0504;51;d'accord
+R0505;32;indécis
+R0506;18;pas d'accord
+R0507;25;pas d'accord
+R0508;25;pas d'accord
+R0509;74;pas d'accord
+R0510;37;pas d'accord
+R0511;50;pas d'accord
+R0512;29;pas d'accord
+R0513;50;indécis
+R0514;33;pas d'accord
+R0515;72;pas d'accord
+R0516;70;d'accord
+R0517;19;pas d'accord
+R0518;24;pas d'accord
+R0519;21;pas d'accord
+R0520;28;pas d'accord
+R0521;59;pas d'accord
+R0522;39;d'accord
+R0523;46;d'accord
+R0524;89;pas d'accord
+R0525;30;pas d'accord
+R0526;30;indécis
+R0527;23;pas d'accord
+R0528;35;pas d'accord
+R0529;71;pas d'accord
+R0530;18;pas d'accord
+R0531;74;pas d'accord
+R0532;20;indécis
+R0533;73;pas d'accord
+R0534;33;indécis
+R0535;39;indécis
+R0536;39;indécis
+R0537;77;d'accord
+R0538;21;pas d'accord
+R0539;26;pas d'accord
+R0540;50;pas d'accord
+R0541;36;pas d'accord
+R0542;43;indécis
+R0543;61;pas d'accord
+R0544;22;indécis
+R0545;54;indécis
+R0546;53;pas d'accord
+R0547;64;pas d'accord
+R0548;39;pas d'accord
+R0549;38;pas d'accord
+R0550;46;pas d'accord
+R0551;39;pas d'accord
+R0552;63;pas d'accord
+R0553;52;indécis
+R0554;70;d'accord
+R0555;32;pas d'accord
+R0556;45;pas d'accord
+R0557;71;pas d'accord
+R0558;68;indécis
+R0559;42;pas d'accord
+R0560;47;pas d'accord
+R0561;63;d'accord
+R0562;34;d'accord
+R0563;25;pas d'accord
+R0564;64;indécis
+R0565;26;pas d'accord
+R0566;73;indécis
+R0567;31;indécis
+R0568;47;pas d'accord
+R0569;24;pas d'accord
+R0570;74;pas d'accord
+R0571;53;pas d'accord
+R0572;21;pas d'accord
+R0573;34;pas d'accord
+R0574;43;pas d'accord
+R0575;58;pas d'accord
+R0576;86;indécis
+R0577;58;pas d'accord
+R0578;60;pas d'accord
+R0579;51;pas d'accord
+R0580;32;pas d'accord
+R0581;52;pas d'accord
+R0582;53;pas d'accord
+R0583;22;pas d'accord
+R0584;30;pas d'accord
+R0585;31;pas d'accord
+R0586;41;d'accord
+R0587;39;pas d'accord
+R0588;29;pas d'accord
+R0589;46;pas d'accord
+R0590;43;indécis
+R0591;81;d'accord
+R0592;76;pas d'accord
+R0593;18;pas d'accord
+R0594;19;pas d'accord
+R0595;31;pas d'accord
+R0596;75;indécis
+R0597;47;pas d'accord
+R0598;37;pas d'accord
+R0599;34;pas d'accord
+R0600;23;pas d'accord
+R0601;51;pas d'accord
+R0602;57;pas d'accord
+R0603;51;pas d'accord
+R0604;22;indécis
+R0605;19;pas d'accord
+R0606;30;indécis
+R0607;25;indécis
+R0608;34;indécis
+R0609;47;pas d'accord
+R0610;59;indécis
+R0611;38;pas d'accord
+R0612;50;pas d'accord
+R0613;34;indécis
+R0614;21;indécis
+R0615;86;pas d'accord
+R0616;77;indécis
+R0617;44;pas d'accord
+R0618;70;pas d'accord
+R0619;28;indécis
+R0620;21;indécis
+R0621;45;d'accord
+R0622;46;pas d'accord
+R0623;61;pas d'accord
+R0624;82;indécis
+R0625;26;d'accord
+R0626;49;indécis
+R0627;61;indécis
+R0628;22;pas d'accord
+R0629;33;pas d'accord
+R0630;27;pas d'accord
+R0631;18;pas d'accord
+R0632;35;pas d'accord
+R0633;43;indécis
+R0634;35;indécis
+R0635;63;d'accord
+R0636;39;indécis
+R0637;55;pas d'accord
+R0638;59;indécis
+R0639;64;pas d'accord
+R0640;47;pas d'accord
+R0641;32;pas d'accord
+R0642;37;indécis
+R0643;30;pas d'accord
+R0644;85;pas d'accord
+R0645;22;indécis
+R0646;40;pas d'accord
+R0647;32;pas d'accord
+R0648;29;indécis
+R0649;76;pas d'accord
+R0650;35;pas d'accord
+R0651;48;indécis
+R0652;43;pas d'accord
+R0653;26;pas d'accord
+R0654;48;indécis
+R0655;35;pas d'accord
+R0656;77;indécis
+R0657;52;d'accord
+R0658;61;pas d'accord
+R0659;25;pas d'accord
+R0660;26;pas d'accord
+R0661;52;indécis
+R0662;19;pas d'accord
+R0663;70;pas d'accord
+R0664;30;indécis
+R0665;18;pas d'accord
+R0666;40;indécis
+R0667;42;pas d'accord
+R0668;27;pas d'accord
+R0669;49;pas d'accord
+R0670;36;pas d'accord
+R0671;24;pas d'accord
+R0672;39;indécis
+R0673;20;indécis
+R0674;35;indécis
+R0675;26;pas d'accord
+R0676;59;pas d'accord
+R0677;20;pas d'accord
+R0678;45;pas d'accord
+R0679;44;pas d'accord
+R0680;50;pas d'accord
+R0681;67;indécis
+R0682;63;pas d'accord
+R0683;46;pas d'accord
+R0684;62;pas d'accord
+R0685;67;pas d'accord
+R0686;45;pas d'accord
+R0687;37;pas d'accord
+R0688;23;indécis
+R0689;50;indécis
+R0690;83;pas d'accord
+R0691;49;pas d'accord
+R0692;36;indécis
+R0693;63;indécis
+R0694;30;pas d'accord
+R0695;33;pas d'accord
+R0696;23;pas d'accord
+R0697;41;pas d'accord
+R0698;59;pas d'accord
+R0699;52;pas d'accord
+R0700;48;pas d'accord
+R0701;30;pas d'accord
+R0702;21;pas d'accord
+R0703;24;pas d'accord
+R0704;58;pas d'accord
+R0705;25;pas d'accord
+R0706;48;indécis
+R0707;43;pas d'accord
+R0708;63;indécis
+R0709;40;pas d'accord
+R0710;26;pas d'accord
+R0711;39;indécis
+R0712;47;pas d'accord
+R0713;39;pas d'accord
+R0714;19;pas d'accord
+R0715;66;d'accord
+R0716;75;pas d'accord
+R0717;35;indécis
+R0718;81;pas d'accord
+R0719;43;pas d'accord
+R0720;59;indécis
+R0721;66;indécis
+R0722;66;pas d'accord
+R0723;35;indécis
+R0724;44;pas d'accord
+R0725;29;indécis
+R0726;37;indécis
+R0727;30;indécis
+R0728;19;indécis
+R0729;26;pas d'accord
+R0730;77;pas d'accord
+R0731;25;pas d'accord
+R0732;61;pas d'accord
+R0733;23;pas d'accord
+R0734;33;pas d'accord
+R0735;21;pas d'accord
+R0736;53;indécis
+R0737;82;d'accord
+R0738;26;d'accord
+R0739;34;indécis
+R0740;65;pas d'accord
+R0741;22;indécis
+R0742;29;indécis
+R0743;22;pas d'accord
+R0744;40;indécis
+R0745;45;pas d'accord
+R0746;28;pas d'accord
+R0747;57;pas d'accord
+R0748;33;pas d'accord
+R0749;72;indécis
+R0750;53;indécis
+R0751;49;pas d'accord
+R0752;19;pas d'accord
+R0753;30;pas d'accord
+R0754;51;indécis
+R0755;67;pas d'accord
+R0756;42;pas d'accord
+R0757;43;pas d'accord
+R0758;43;pas d'accord
+R0759;53;pas d'accord
+R0760;80;pas d'accord
+R0761;53;indécis
+R0762;45;indécis
+R0763;19;indécis
+R0764;47;indécis
+R0765;18;pas d'accord
+R0766;45;pas d'accord
+R0767;78;pas d'accord
+R0768;58;pas d'accord
+R0769;23;pas d'accord
+R0770;25;pas d'accord
+R0771;49;pas d'accord
+R0772;62;d'accord
+R0773;39;pas d'accord
+R0774;57;d'accord
+R0775;86;indécis
+R0776;62;pas d'accord
+R0777;23;pas d'accord
+R0778;37;pas d'accord
+R0779;51;d'accord
+R0780;55;pas d'accord
+R0781;18;d'accord
+R0782;89;indécis
+R0783;48;pas d'accord
+R0784;70;pas d'accord
+R0785;19;pas d'accord
+R0786;28;pas d'accord
+R0787;65;pas d'accord
+R0788;66;pas d'accord
+R0789;80;d'accord
+R0790;24;pas d'accord
+R0791;29;pas d'accord
+R0792;38;pas d'accord
+R0793;36;pas d'accord
+R0794;51;indécis
+R0795;39;pas d'accord
+R0796;37;indécis
+R0797;31;pas d'accord
+R0798;54;indécis
+R0799;60;indécis
+R0800;29;pas d'accord
+R0801;23;pas d'accord
+R0802;20;pas d'accord
+R0803;56;indécis
+R0804;55;pas d'accord
+R0805;31;pas d'accord
+R0806;41;pas d'accord
+R0807;42;indécis
+R0808;62;pas d'accord
+R0809;26;indécis
+R0810;73;d'accord
+R0811;78;pas d'accord
+R0812;28;indécis
+R0813;72;pas d'accord
+R0814;21;pas d'accord
+R0815;20;pas d'accord
+R0816;57;pas d'accord
+R0817;53;indécis
+R0818;28;pas d'accord
+R0819;66;indécis
+R0820;70;indécis
+R0821;34;pas d'accord
+R0822;24;indécis
+R0823;21;indécis
+R0824;60;pas d'accord
+R0825;20;indécis
+R0826;53;indécis
+R0827;45;pas d'accord
+R0828;45;indécis
+R0829;71;indécis
+R0830;35;pas d'accord
+R0831;49;d'accord
+R0832;83;indécis
+R0833;67;pas d'accord
+R0834;63;pas d'accord
+R0835;69;d'accord
+R0836;46;pas d'accord
+R0837;36;pas d'accord
+R0838;44;indécis
+R0839;25;pas d'accord
+R0840;29;pas d'accord
+R0841;37;pas d'accord
+R0842;56;d'accord
+R0843;42;pas d'accord
+R0844;76;pas d'accord
+R0845;59;pas d'accord
+R0846;39;pas d'accord
+R0847;25;indécis
+R0848;32;indécis
+R0849;48;pas d'accord
+R0850;75;pas d'accord
+R0851;83;pas d'accord
+R0852;41;pas d'accord
+R0853;59;pas d'accord
+R0854;27;indécis
+R0855;23;pas d'accord
+R0856;32;pas d'accord
+R0857;44;pas d'accord
+R0858;38;pas d'accord
+R0859;23;indécis
+R0860;23;pas d'accord
+R0861;87;pas d'accord
+R0862;76;pas d'accord
+R0863;21;indécis
+R0864;66;pas d'accord
+R0865;21;indécis
+R0866;30;pas d'accord
+R0867;20;indécis
+R0868;22;indécis
+R0869;34;pas d'accord
+R0870;79;pas d'accord
+R0871;39;indécis
+R0872;20;indécis
+R0873;27;indécis
+R0874;30;pas d'accord
+R0875;45;indécis
+R0876;52;pas d'accord
+R0877;18;pas d'accord
+R0878;23;pas d'accord
+R0879;66;pas d'accord
+R0880;26;pas d'accord
+R0881;56;pas d'accord
+R0882;42;pas d'accord
+R0883;77;indécis
+R0884;23;indécis
+R0885;68;indécis
+R0886;44;pas d'accord
+R0887;46;pas d'accord
+R0888;86;indécis
+R0889;56;indécis
+R0890;77;pas d'accord
+R0891;18;pas d'accord
+R0892;32;pas d'accord
+R0893;28;pas d'accord
+R0894;49;pas d'accord
+R0895;43;pas d'accord
+R0896;49;indécis
+R0897;31;pas d'accord
+R0898;29;indécis
+R0899;25;pas d'accord
+R0900;41;pas d'accord
+R0901;77;pas d'accord
+R0902;25;pas d'accord
+R0903;43;pas d'accord
+R0904;21;indécis
+R0905;74;pas d'accord
+R0906;73;pas d'accord
+R0907;40;pas d'accord
+R0908;61;pas d'accord
+R0909;52;pas d'accord
+R0910;43;indécis
+R0911;57;d'accord
+R0912;30;pas d'accord
+R0913;22;pas d'accord
+R0914;45;pas d'accord
+R0915;61;indécis
+R0916;21;d'accord
+R0917;40;pas d'accord
+R0918;19;indécis
+R0919;86;pas d'accord
+R0920;77;pas d'accord
+R0921;27;indécis
+R0922;20;d'accord
+R0923;56;pas d'accord
+R0924;65;indécis
+R0925;50;pas d'accord
+R0926;19;indécis
+R0927;35;pas d'accord
+R0928;36;pas d'accord
+R0929;55;pas d'accord
+R0930;54;indécis
+R0931;49;pas d'accord
+R0932;68;d'accord
+R0933;26;indécis
+R0934;45;indécis
+R0935;29;pas d'accord
+R0936;40;indécis
+R0937;37;pas d'accord
+R0938;35;pas d'accord
+R0939;50;pas d'accord
+R0940;58;pas d'accord
+R0941;38;pas d'accord
+R0942;45;pas d'accord
+R0943;31;pas d'accord
+R0944;63;pas d'accord
+R0945;59;pas d'accord
+R0946;35;pas d'accord
+R0947;25;pas d'accord
+R0948;19;indécis
+R0949;51;pas d'accord
+R0950;28;pas d'accord
+R0951;38;pas d'accord
+R0952;56;pas d'accord
+R0953;21;pas d'accord
+R0954;32;pas d'accord
+R0955;48;indécis
+R0956;57;pas d'accord
+R0957;38;pas d'accord
+R0958;45;indécis
+R0959;61;pas d'accord
+R0960;18;pas d'accord
+R0961;26;indécis
+R0962;19;pas d'accord
+R0963;39;d'accord
+R0964;56;pas d'accord
+R0965;66;indécis
+R0966;18;pas d'accord
+R0967;45;d'accord
+R0968;52;indécis
+R0969;89;indécis
+R0970;42;pas d'accord
+R0971;28;pas d'accord
+R0972;62;indécis
+R0973;36;pas d'accord
+R0974;69;indécis
+R0975;27;pas d'accord
+R0976;77;pas d'accord
+R0977;71;indécis
+R0978;62;pas d'accord
+R0979;70;indécis
+R0980;23;pas d'accord
+R0981;55;indécis
+R0982;65;d'accord
+R0983;26;pas d'accord
+R0984;55;pas d'accord
+R0985;35;pas d'accord
+R0986;60;pas d'accord
+R0987;78;indécis
+R0988;19;pas d'accord
+R0989;64;pas d'accord
+R0990;33;pas d'accord
+R0991;31;pas d'accord
+R0992;32;d'accord
+R0993;25;indécis
+R0994;67;indécis
+R0995;45;pas d'accord
+R0996;40;d'accord
+R0997;43;pas d'accord
+R0998;33;pas d'accord
+R0999;50;pas d'accord
+R1000;60;pas d'accord
+R1001;62;indécis
+R1002;37;pas d'accord
+R1003;50;indécis
+R1004;26;pas d'accord
+R1005;22;pas d'accord
+R1006;56;pas d'accord
+R1007;34;pas d'accord
+R1008;89;pas d'accord
+R1009;54;pas d'accord
+R1010;35;pas d'accord
+R1011;77;pas d'accord
+R1012;78;pas d'accord
+R1013;61;indécis
+R1014;54;pas d'accord
+R1015;21;pas d'accord
+R1016;30;pas d'accord
+R1017;50;indécis
+R1018;58;d'accord
+R1019;33;pas d'accord
+R1020;19;pas d'accord
+R1021;37;indécis
+R1022;22;d'accord
+R1023;23;d'accord
+R1024;40;d'accord
+R1025;43;pas d'accord
+R1026;49;indécis
+R1027;24;pas d'accord
+R1028;60;d'accord
+R1029;67;d'accord
+R1030;72;pas d'accord
+R1031;38;pas d'accord
+R1032;36;pas d'accord
+R1033;55;d'accord
+R1034;60;indécis
+R1035;33;pas d'accord
+R1036;70;pas d'accord
+R1037;39;pas d'accord
+R1038;54;pas d'accord
+R1039;22;pas d'accord
+R1040;87;d'accord
+R1041;28;pas d'accord
+R1042;45;pas d'accord
+R1043;55;pas d'accord
+R1044;51;pas d'accord
+R1045;67;pas d'accord
+R1046;29;pas d'accord
+R1047;23;pas d'accord
+R1048;20;indécis
+R1049;49;pas d'accord
+R1050;36;pas d'accord
+R1051;40;pas d'accord
+R1052;80;d'accord
+R1053;61;indécis
+R1054;18;pas d'accord
+R1055;62;d'accord
+R1056;60;pas d'accord
+R1057;32;indécis
+R1058;25;pas d'accord
+R1059;27;pas d'accord
+R1060;35;pas d'accord
+R1061;46;indécis
+R1062;54;pas d'accord
+R1063;52;indécis
+R1064;55;indécis
+R1065;22;pas d'accord
+R1066;25;pas d'accord
+R1067;65;pas d'accord
+R1068;20;pas d'accord
+R1069;23;pas d'accord
+R1070;23;indécis
+R1071;20;indécis
+R1072;33;pas d'accord
+R1073;66;d'accord
+R1074;32;indécis
+R1075;54;indécis
+R1076;82;indécis
+R1077;25;pas d'accord
+R1078;81;pas d'accord
+R1079;64;pas d'accord
+R1080;23;pas d'accord
+R1081;21;pas d'accord
+R1082;30;pas d'accord
+R1083;48;pas d'accord
+R1084;42;pas d'accord
+R1085;23;pas d'accord
+R1086;68;indécis
+R1087;63;pas d'accord
+R1088;26;pas d'accord
+R1089;66;pas d'accord
+R1090;56;pas d'accord
+R1091;33;pas d'accord
+R1092;33;pas d'accord
+R1093;45;d'accord
+R1094;29;pas d'accord
+R1095;26;pas d'accord
+R1096;30;pas d'accord
+R1097;52;pas d'accord
+R1098;81;pas d'accord
+R1099;59;indécis
+R1100;56;pas d'accord
+R1101;22;indécis
+R1102;62;d'accord
+R1103;39;indécis
+R1104;28;pas d'accord
+R1105;19;pas d'accord
+R1106;21;pas d'accord
+R1107;51;pas d'accord
+R1108;23;pas d'accord
+R1109;34;pas d'accord
+R1110;18;pas d'accord
+R1111;39;pas d'accord
+R1112;44;pas d'accord
+R1113;26;pas d'accord
+R1114;46;pas d'accord
+R1115;70;indécis
+R1116;69;indécis
+R1117;23;pas d'accord
+R1118;27;pas d'accord
+R1119;77;pas d'accord
+R1120;65;indécis
+R1121;33;pas d'accord
+R1122;38;pas d'accord
+R1123;60;d'accord
+R1124;80;pas d'accord
+R1125;70;pas d'accord
+R1126;50;d'accord
+R1127;31;pas d'accord
+R1128;65;pas d'accord
+R1129;56;pas d'accord
+R1130;57;pas d'accord
+R1131;49;pas d'accord
+R1132;24;indécis
+R1133;18;pas d'accord
+R1134;67;pas d'accord
+R1135;37;d'accord
+R1136;28;pas d'accord
+R1137;32;indécis
+R1138;57;pas d'accord
+R1139;60;indécis
+R1140;31;pas d'accord
+R1141;69;pas d'accord
+R1142;30;pas d'accord
+R1143;25;indécis
+R1144;69;pas d'accord
+R1145;38;indécis
+R1146;38;pas d'accord
+R1147;62;indécis
+R1148;75;pas d'accord
+R1149;25;d'accord
+R1150;46;pas d'accord
+R1151;51;d'accord
+R1152;69;pas d'accord
+R1153;46;indécis
+R1154;46;pas d'accord
+R1155;70;pas d'accord
+R1156;31;pas d'accord
+R1157;46;pas d'accord
+R1158;82;indécis
+R1159;39;pas d'accord
+R1160;37;indécis
+R1161;57;indécis
+R1162;73;pas d'accord
+R1163;44;pas d'accord
+R1164;23;pas d'accord
+R1165;68;indécis
+R1166;19;pas d'accord
+R1167;25;pas d'accord
+R1168;53;indécis
+R1169;40;pas d'accord
+R1170;56;d'accord
+R1171;45;pas d'accord
+R1172;22;pas d'accord
+R1173;54;indécis
+R1174;21;pas d'accord
+R1175;47;indécis
+R1176;80;indécis
+R1177;28;pas d'accord
+R1178;69;indécis
+R1179;63;indécis
+R1180;60;indécis
+R1181;69;pas d'accord
+R1182;29;pas d'accord
+R1183;45;pas d'accord
+R1184;65;indécis
+R1185;57;pas d'accord
+R1186;45;d'accord
+R1187;23;pas d'accord
+R1188;55;pas d'accord
+R1189;21;pas d'accord
+R1190;55;pas d'accord
+R1191;75;indécis
+R1192;67;pas d'accord
+R1193;46;indécis
+R1194;30;indécis
+R1195;58;pas d'accord
+R1196;47;pas d'accord
+R1197;23;indécis
+R1198;56;indécis
+R1199;45;pas d'accord
+R1200;32;pas d'accord
+R1201;50;indécis
+R1202;39;pas d'accord
+R1203;71;indécis
+R1204;20;pas d'accord
+R1205;26;pas d'accord
+R1206;29;pas d'accord
+R1207;50;pas d'accord
+R1208;65;indécis
+R1209;26;pas d'accord
+R1210;53;pas d'accord
+R1211;24;pas d'accord
+R1212;42;pas d'accord
+R1213;36;pas d'accord
+R1214;73;pas d'accord
+R1215;60;pas d'accord
+R1216;42;indécis
+R1217;48;pas d'accord
+R1218;61;pas d'accord
+R1219;69;d'accord
+R1220;21;pas d'accord
+R1221;36;pas d'accord
+R1222;21;indécis
+R1223;21;pas d'accord
+R1224;48;pas d'accord
+R1225;21;d'accord
+R1226;22;pas d'accord
+R1227;18;pas d'accord
+R1228;39;indécis
+R1229;55;pas d'accord
+R1230;45;indécis
+R1231;24;pas d'accord
+R1232;33;d'accord
+R1233;61;pas d'accord
+R1234;24;pas d'accord
+R1235;70;d'accord
+R1236;35;d'accord
+R1237;22;pas d'accord
+R1238;42;indécis
+R1239;34;pas d'accord
+R1240;49;pas d'accord
+R1241;24;pas d'accord
+R1242;49;pas d'accord
+R1243;56;pas d'accord
+R1244;20;pas d'accord
+R1245;38;pas d'accord
+R1246;51;pas d'accord
+R1247;35;indécis
+R1248;50;pas d'accord
+R1249;56;indécis
+R1250;33;d'accord
+R1251;60;pas d'accord
+R1252;21;pas d'accord
+R1253;55;d'accord
+R1254;33;pas d'accord
+R1255;45;pas d'accord
+R1256;36;pas d'accord
+R1257;71;indécis
+R1258;68;indécis
+R1259;19;pas d'accord
+R1260;57;d'accord
+R1261;56;indécis
+R1262;19;pas d'accord
+R1263;43;indécis
+R1264;37;pas d'accord
+R1265;19;pas d'accord
+R1266;69;indécis
+R1267;39;indécis
+R1268;22;pas d'accord
+R1269;27;d'accord
+R1270;25;d'accord
+R1271;20;indécis
+R1272;36;indécis
+R1273;39;pas d'accord
+R1274;30;d'accord
+R1275;48;pas d'accord
+R1276;68;pas d'accord
+R1277;42;pas d'accord
+R1278;66;pas d'accord
+R1279;41;pas d'accord
+R1280;36;indécis
+R1281;33;indécis
+R1282;28;pas d'accord
+R1283;69;indécis
+R1284;28;pas d'accord
+R1285;66;pas d'accord
+R1286;18;pas d'accord
+R1287;31;pas d'accord
+R1288;69;pas d'accord
+R1289;26;pas d'accord
+R1290;42;pas d'accord
+R1291;26;pas d'accord
+R1292;77;indécis
+R1293;55;pas d'accord
+R1294;54;indécis
+R1295;65;indécis
+R1296;34;indécis
+R1297;50;pas d'accord
+R1298;38;pas d'accord
+R1299;45;pas d'accord
+R1300;47;indécis
+R1301;46;indécis
+R1302;30;pas d'accord
+R1303;76;indécis
+R1304;67;indécis
+R1305;20;pas d'accord
+R1306;44;indécis
+R1307;59;pas d'accord
+R1308;28;pas d'accord
+R1309;43;indécis
+R1310;49;pas d'accord
+R1311;34;indécis
+R1312;59;pas d'accord
+R1313;57;d'accord
+R1314;29;pas d'accord
+R1315;40;pas d'accord
+R1316;68;indécis
+R1317;37;pas d'accord
+R1318;46;pas d'accord
+R1319;52;d'accord
+R1320;74;indécis
+R1321;55;pas d'accord
+R1322;66;indécis
+R1323;57;pas d'accord
+R1324;27;pas d'accord
+R1325;18;pas d'accord
+R1326;58;indécis
+R1327;72;indécis
+R1328;23;pas d'accord
+R1329;42;pas d'accord
+R1330;76;pas d'accord
+R1331;27;indécis
+R1332;47;indécis
+R1333;52;d'accord
+R1334;51;pas d'accord
+R1335;33;pas d'accord
+R1336;49;indécis
+R1337;83;pas d'accord
+R1338;38;pas d'accord
+R1339;52;indécis
+R1340;78;pas d'accord
+R1341;44;d'accord
+R1342;19;pas d'accord
+R1343;26;pas d'accord
+R1344;33;pas d'accord
+R1345;37;pas d'accord
+R1346;60;indécis
+R1347;31;pas d'accord
+R1348;33;pas d'accord
+R1349;60;pas d'accord
+R1350;21;pas d'accord
+R1351;27;indécis
+R1352;37;indécis
+R1353;25;pas d'accord
+R1354;31;pas d'accord
+R1355;77;indécis
+R1356;50;pas d'accord
+R1357;28;pas d'accord
+R1358;25;indécis
+R1359;20;indécis
+R1360;56;indécis
+R1361;20;indécis
+R1362;69;pas d'accord
+R1363;36;pas d'accord
+R1364;44;pas d'accord
+R1365;54;indécis
+R1366;33;indécis
+R1367;36;indécis
+R1368;50;pas d'accord
+R1369;27;d'accord
+R1370;25;pas d'accord
+R1371;23;pas d'accord
+R1372;33;d'accord
+R1373;61;d'accord
+R1374;60;pas d'accord
+R1375;21;pas d'accord
+R1376;76;pas d'accord
+R1377;21;d'accord
+R1378;35;d'accord
+R1379;45;pas d'accord
+R1380;24;indécis
+R1381;25;pas d'accord
+R1382;49;pas d'accord
+R1383;30;pas d'accord
+R1384;87;indécis
+R1385;45;d'accord
+R1386;31;pas d'accord
+R1387;22;pas d'accord
+R1388;39;indécis
+R1389;39;indécis
+R1390;64;indécis
+R1391;70;d'accord
+R1392;43;indécis
+R1393;60;d'accord
+R1394;48;d'accord
+R1395;56;pas d'accord
+R1396;27;pas d'accord
+R1397;26;pas d'accord
+R1398;49;indécis
+R1399;28;d'accord
+R1400;51;pas d'accord
+R1401;29;pas d'accord
+R1402;66;indécis
+R1403;31;pas d'accord
+R1404;64;pas d'accord
+R1405;27;pas d'accord
+R1406;43;pas d'accord
+R1407;21;pas d'accord
+R1408;43;d'accord
+R1409;45;pas d'accord
+R1410;66;pas d'accord
+R1411;36;pas d'accord
+R1412;25;indécis
+R1413;76;indécis
+R1414;42;pas d'accord
+R1415;73;indécis
+R1416;36;pas d'accord
+R1417;45;pas d'accord
+R1418;24;indécis
+R1419;19;indécis
+R1420;21;indécis
+R1421;26;pas d'accord
+R1422;37;pas d'accord
+R1423;89;pas d'accord
+R1424;35;indécis
+R1425;28;pas d'accord
+R1426;51;pas d'accord
+R1427;46;pas d'accord
+R1428;34;pas d'accord
+R1429;69;indécis
+R1430;30;pas d'accord
+R1431;32;d'accord
+R1432;33;indécis
+R1433;73;pas d'accord
+R1434;35;pas d'accord
+R1435;41;pas d'accord
+R1436;30;indécis
+R1437;64;indécis
+R1438;79;indécis
+R1439;22;pas d'accord
+R1440;40;indécis
+R1441;56;indécis
+R1442;23;pas d'accord
+R1443;27;indécis
+R1444;50;indécis
+R1445;75;pas d'accord
+R1446;73;pas d'accord
+R1447;28;pas d'accord
+R1448;20;indécis
+R1449;58;d'accord
+R1450;51;indécis
+R1451;43;indécis
+R1452;64;d'accord
+R1453;27;pas d'accord
+R1454;51;indécis
+R1455;48;pas d'accord
+R1456;27;pas d'accord
+R1457;42;pas d'accord
+R1458;38;indécis
+R1459;36;pas d'accord
+R1460;21;pas d'accord
+R1461;75;indécis
+R1462;27;pas d'accord
+R1463;48;pas d'accord
+R1464;31;pas d'accord
+R1465;33;pas d'accord
+R1466;19;pas d'accord
+R1467;19;pas d'accord
+R1468;56;pas d'accord
+R1469;33;pas d'accord
+R1470;22;pas d'accord
+R1471;59;indécis
+R1472;22;pas d'accord
+R1473;54;indécis
+R1474;39;indécis
+R1475;47;pas d'accord
+R1476;35;pas d'accord
+R1477;23;d'accord
+R1478;30;indécis
+R1479;54;pas d'accord
+R1480;18;pas d'accord
+R1481;18;indécis
+R1482;54;pas d'accord
+R1483;70;d'accord
+R1484;24;d'accord
+R1485;31;pas d'accord
+R1486;30;pas d'accord
+R1487;18;pas d'accord
+R1488;18;pas d'accord
+R1489;42;pas d'accord
+R1490;36;pas d'accord
+R1491;68;pas d'accord
+R1492;41;pas d'accord
+R1493;47;pas d'accord
+R1494;18;indécis
+R1495;42;d'accord
+R1496;20;pas d'accord
+R1497;50;indécis
+R1498;68;pas d'accord
+R1499;60;pas d'accord
+R1500;24;pas d'accord
+R1501;31;pas d'accord
+R1502;60;indécis
+R1503;58;indécis
+R1504;37;indécis
+R1505;29;pas d'accord
+R1506;21;indécis
+R1507;27;indécis
+R1508;77;pas d'accord
+R1509;35;pas d'accord
+R1510;37;indécis
+R1511;35;pas d'accord
+R1512;26;pas d'accord
+R1513;51;indécis
+R1514;48;pas d'accord
+R1515;39;d'accord
+R1516;31;pas d'accord
+R1517;45;pas d'accord
+R1518;29;pas d'accord
+R1519;36;pas d'accord
+R1520;60;d'accord
+R1521;29;pas d'accord
+R1522;55;pas d'accord
+R1523;40;pas d'accord
+R1524;71;pas d'accord
+R1525;48;pas d'accord
+R1526;26;pas d'accord
+R1527;69;pas d'accord
+R1528;80;pas d'accord
+R1529;18;pas d'accord
+R1530;34;pas d'accord
+R1531;26;d'accord
+R1532;63;pas d'accord
+R1533;57;pas d'accord
+R1534;52;indécis
+R1535;77;pas d'accord
+R1536;26;d'accord
+R1537;33;indécis
+R1538;23;pas d'accord
+R1539;36;indécis
+R1540;40;pas d'accord
+R1541;48;indécis
+R1542;25;indécis
+R1543;46;pas d'accord
+R1544;19;pas d'accord
+R1545;18;pas d'accord
+R1546;71;pas d'accord
+R1547;23;pas d'accord
+R1548;32;pas d'accord
+R1549;23;indécis
+R1550;34;pas d'accord
+R1551;47;indécis
+R1552;60;pas d'accord
+R1553;44;pas d'accord
+R1554;43;pas d'accord
+R1555;44;indécis
+R1556;26;pas d'accord
+R1557;24;pas d'accord
+R1558;76;pas d'accord
+R1559;21;pas d'accord
+R1560;35;pas d'accord
+R1561;52;pas d'accord
+R1562;71;indécis
+R1563;79;pas d'accord
+R1564;41;pas d'accord
+R1565;56;pas d'accord
+R1566;43;d'accord
+R1567;68;pas d'accord
+R1568;70;indécis
+R1569;19;pas d'accord
+R1570;38;pas d'accord
+R1571;49;d'accord
+R1572;36;pas d'accord
+R1573;45;pas d'accord
+R1574;18;pas d'accord
+R1575;19;pas d'accord
+R1576;80;indécis
+R1577;39;indécis
+R1578;27;pas d'accord
+R1579;24;pas d'accord
+R1580;20;pas d'accord
+R1581;53;indécis
+R1582;55;indécis
+R1583;54;pas d'accord
+R1584;26;pas d'accord
+R1585;27;pas d'accord
+R1586;26;pas d'accord
+R1587;89;indécis
+R1588;47;pas d'accord
+R1589;84;pas d'accord
+R1590;20;pas d'accord
+R1591;24;pas d'accord
+R1592;75;pas d'accord
+R1593;39;indécis
+R1594;53;d'accord
+R1595;22;pas d'accord
+R1596;31;d'accord
+R1597;35;pas d'accord
+R1598;50;pas d'accord
+R1599;48;indécis
+R1600;67;pas d'accord
+R1601;44;pas d'accord
+R1602;27;pas d'accord
+R1603;50;indécis
+R1604;44;pas d'accord
+R1605;32;pas d'accord
+R1606;21;pas d'accord
+R1607;79;pas d'accord
+R1608;25;d'accord
+R1609;20;indécis
+R1610;47;indécis
+R1611;39;indécis
+R1612;61;d'accord
+R1613;71;pas d'accord
+R1614;25;indécis
+R1615;78;pas d'accord
+R1616;69;d'accord
+R1617;24;pas d'accord
+R1618;61;indécis
+R1619;42;d'accord
+R1620;19;indécis
+R1621;45;pas d'accord
+R1622;38;d'accord
+R1623;33;d'accord
+R1624;54;indécis
+R1625;39;indécis
+R1626;27;d'accord
+R1627;54;indécis
+R1628;81;pas d'accord
+R1629;67;indécis
+R1630;27;pas d'accord
+R1631;39;pas d'accord
+R1632;18;indécis
+R1633;37;pas d'accord
+R1634;47;pas d'accord
+R1635;55;indécis
+R1636;31;indécis
+R1637;19;pas d'accord
+R1638;26;pas d'accord
+R1639;31;pas d'accord
+R1640;32;pas d'accord
+R1641;25;indécis
+R1642;73;indécis
+R1643;34;pas d'accord
+R1644;72;d'accord
+R1645;63;pas d'accord
+R1646;28;indécis
+R1647;27;pas d'accord
+R1648;56;indécis
+R1649;57;pas d'accord
+R1650;39;indécis
+R1651;57;indécis
+R1652;65;pas d'accord
+R1653;55;pas d'accord
+R1654;47;pas d'accord
+R1655;21;pas d'accord
+R1656;20;pas d'accord
+R1657;24;pas d'accord
+R1658;22;pas d'accord
+R1659;82;d'accord
+R1660;78;indécis
+R1661;20;indécis
+R1662;57;indécis
+R1663;40;pas d'accord
+R1664;35;d'accord
+R1665;64;pas d'accord
+R1666;47;d'accord
+R1667;71;d'accord
+R1668;23;indécis
+R1669;27;indécis
+R1670;60;pas d'accord
+R1671;30;indécis
+R1672;22;pas d'accord
+R1673;62;pas d'accord
+R1674;27;indécis
+R1675;74;pas d'accord
+R1676;60;pas d'accord
+R1677;48;pas d'accord
+R1678;49;pas d'accord
+R1679;55;indécis
+R1680;26;indécis
+R1681;35;d'accord
+R1682;27;pas d'accord
+R1683;75;pas d'accord
+R1684;65;pas d'accord
+R1685;30;indécis
+R1686;58;indécis
+R1687;33;indécis
+R1688;39;indécis
+R1689;52;pas d'accord
+R1690;24;pas d'accord
+R1691;85;pas d'accord
+R1692;39;pas d'accord
+R1693;42;pas d'accord
+R1694;20;indécis
+R1695;70;indécis
+R1696;60;indécis
+R1697;46;indécis
+R1698;23;pas d'accord
+R1699;32;pas d'accord
+R1700;38;pas d'accord
+R1701;28;indécis
+R1702;46;pas d'accord
+R1703;18;d'accord
+R1704;27;pas d'accord
+R1705;83;pas d'accord
+R1706;43;pas d'accord
+R1707;38;pas d'accord
+R1708;26;pas d'accord
+R1709;59;pas d'accord
+R1710;53;indécis
+R1711;29;pas d'accord
+R1712;19;pas d'accord
+R1713;37;pas d'accord
+R1714;28;indécis
+R1715;84;d'accord
+R1716;33;pas d'accord
+R1717;76;indécis
+R1718;38;pas d'accord
+R1719;34;pas d'accord
+R1720;37;indécis
+R1721;49;indécis
+R1722;29;indécis
+R1723;39;pas d'accord
+R1724;54;indécis
+R1725;34;pas d'accord
+R1726;29;d'accord
+R1727;84;pas d'accord
+R1728;69;pas d'accord
+R1729;76;pas d'accord
+R1730;58;indécis
+R1731;37;pas d'accord
+R1732;21;pas d'accord
+R1733;74;pas d'accord
+R1734;68;pas d'accord
+R1735;70;pas d'accord
+R1736;33;pas d'accord
+R1737;45;indécis
+R1738;31;pas d'accord
+R1739;56;pas d'accord
+R1740;29;pas d'accord
+R1741;19;d'accord
+R1742;53;indécis
+R1743;62;pas d'accord
+R1744;21;pas d'accord
+R1745;54;pas d'accord
+R1746;66;d'accord
+R1747;51;pas d'accord
+R1748;40;indécis
+R1749;31;pas d'accord
+R1750;67;pas d'accord
+R1751;35;indécis
+R1752;58;pas d'accord
+R1753;22;d'accord
+R1754;35;pas d'accord
+R1755;45;indécis
+R1756;52;pas d'accord
+R1757;46;pas d'accord
+R1758;34;pas d'accord
+R1759;37;pas d'accord
+R1760;89;indécis
+R1761;31;pas d'accord
+R1762;49;pas d'accord
+R1763;82;pas d'accord
+R1764;18;pas d'accord
+R1765;58;pas d'accord
+R1766;69;pas d'accord
+R1767;18;pas d'accord
+R1768;53;indécis
+R1769;55;indécis
+R1770;32;pas d'accord
+R1771;64;indécis
+R1772;24;indécis
+R1773;58;pas d'accord
+R1774;56;pas d'accord
+R1775;27;pas d'accord
+R1776;41;pas d'accord
+R1777;42;d'accord
+R1778;46;pas d'accord
+R1779;67;pas d'accord
+R1780;37;pas d'accord
+R1781;63;pas d'accord
+R1782;27;pas d'accord
+R1783;59;indécis
+R1784;34;pas d'accord
+R1785;32;d'accord
+R1786;25;indécis
+R1787;57;pas d'accord
+R1788;49;pas d'accord
+R1789;35;pas d'accord
+R1790;55;pas d'accord
+R1791;30;pas d'accord
+R1792;28;pas d'accord
+R1793;32;pas d'accord
+R1794;33;pas d'accord
+R1795;74;indécis
+R1796;63;indécis
+R1797;33;pas d'accord
+R1798;35;indécis
+R1799;39;d'accord
+R1800;47;pas d'accord
+R1801;41;indécis
+R1802;21;d'accord
+R1803;59;indécis
+R1804;31;indécis
+R1805;52;pas d'accord
+R1806;21;d'accord
+R1807;56;pas d'accord
+R1808;52;pas d'accord
+R1809;27;pas d'accord
+R1810;64;pas d'accord
+R1811;64;pas d'accord
+R1812;73;indécis
+R1813;52;pas d'accord
+R1814;76;pas d'accord
+R1815;31;pas d'accord
+R1816;21;pas d'accord
+R1817;39;indécis
+R1818;37;pas d'accord
+R1819;32;indécis
+R1820;32;pas d'accord
+R1821;35;indécis
+R1822;33;pas d'accord
+R1823;73;d'accord
+R1824;20;pas d'accord
+R1825;35;pas d'accord
+R1826;76;d'accord
+R1827;71;indécis
+R1828;37;indécis
+R1829;39;pas d'accord
+R1830;25;pas d'accord
+R1831;37;indécis
+R1832;83;pas d'accord
+R1833;56;pas d'accord
+R1834;28;pas d'accord
+R1835;24;pas d'accord
+R1836;40;d'accord
+R1837;46;indécis
+R1838;54;d'accord
+R1839;25;indécis
+R1840;18;pas d'accord
+R1841;49;indécis
+R1842;81;d'accord
+R1843;29;pas d'accord
+R1844;38;pas d'accord
+R1845;63;pas d'accord
+R1846;69;pas d'accord
+R1847;87;d'accord
+R1848;33;indécis
+R1849;56;indécis
+R1850;45;pas d'accord
+R1851;59;indécis
+R1852;39;pas d'accord
+R1853;87;indécis
+R1854;86;indécis
+R1855;19;pas d'accord
+R1856;19;pas d'accord
+R1857;23;pas d'accord
+R1858;40;indécis
+R1859;32;pas d'accord
+R1860;58;pas d'accord
+R1861;40;pas d'accord
+R1862;28;pas d'accord
+R1863;35;pas d'accord
+R1864;48;indécis
+R1865;46;indécis
+R1866;75;pas d'accord
+R1867;45;indécis
+R1868;76;d'accord
+R1869;53;indécis
+R1870;64;d'accord
+R1871;34;pas d'accord
+R1872;70;d'accord
+R1873;21;pas d'accord
+R1874;44;pas d'accord
+R1875;62;indécis
+R1876;68;indécis
+R1877;59;indécis
+R1878;40;d'accord
+R1879;30;pas d'accord
+R1880;19;pas d'accord
+R1881;80;pas d'accord
+R1882;21;d'accord
+R1883;37;pas d'accord
+R1884;18;d'accord
+R1885;20;pas d'accord
+R1886;20;d'accord
+R1887;37;indécis
+R1888;32;indécis
+R1889;51;pas d'accord
+R1890;40;d'accord
+R1891;21;pas d'accord
+R1892;58;indécis
+R1893;21;pas d'accord
+R1894;33;indécis
+R1895;46;pas d'accord
+R1896;42;indécis
+R1897;55;d'accord
+R1898;71;indécis
+R1899;39;pas d'accord
+R1900;28;pas d'accord
+R1901;79;pas d'accord
+R1902;48;pas d'accord
+R1903;59;pas d'accord
+R1904;87;pas d'accord
+R1905;60;pas d'accord
+R1906;77;pas d'accord
+R1907;67;pas d'accord
+R1908;54;pas d'accord
+R1909;80;pas d'accord
+R1910;66;pas d'accord
+R1911;24;indécis
+R1912;88;indécis
+R1913;38;indécis
+R1914;34;indécis
+R1915;36;pas d'accord
+R1916;50;pas d'accord
+R1917;56;indécis
+R1918;25;pas d'accord
+R1919;44;indécis
+R1920;69;pas d'accord
+R1921;21;pas d'accord
+R1922;42;pas d'accord
+R1923;34;indécis
+R1924;47;indécis
+R1925;69;indécis
+R1926;42;indécis
+R1927;29;pas d'accord
+R1928;45;d'accord
+R1929;59;pas d'accord
+R1930;46;indécis
+R1931;48;pas d'accord
+R1932;23;pas d'accord
+R1933;80;pas d'accord
+R1934;40;pas d'accord
+R1935;38;pas d'accord
+R1936;33;pas d'accord
+R1937;67;d'accord
+R1938;41;d'accord
+R1939;25;d'accord
+R1940;36;indécis
+R1941;22;pas d'accord
+R1942;23;d'accord
+R1943;43;pas d'accord
+R1944;75;d'accord
+R1945;53;pas d'accord
+R1946;57;pas d'accord
+R1947;21;pas d'accord
+R1948;56;pas d'accord
+R1949;64;indécis
+R1950;60;pas d'accord
+R1951;32;pas d'accord
+R1952;55;indécis
+R1953;51;indécis
+R1954;38;indécis
+R1955;72;pas d'accord
+R1956;27;indécis
+R1957;43;pas d'accord
+R1958;49;pas d'accord
+R1959;39;indécis
+R1960;24;indécis
+R1961;44;pas d'accord
+R1962;58;indécis
+R1963;52;pas d'accord
+R1964;46;pas d'accord
+R1965;52;pas d'accord
+R1966;20;pas d'accord
+R1967;19;pas d'accord
+R1968;55;pas d'accord
+R1969;49;indécis
+R1970;41;indécis
+R1971;42;indécis
+R1972;40;indécis
+R1973;42;indécis
+R1974;19;pas d'accord
+R1975;44;pas d'accord
+R1976;63;indécis
+R1977;84;pas d'accord
+R1978;49;d'accord
+R1979;85;indécis
+R1980;53;pas d'accord
+R1981;58;indécis
+R1982;39;d'accord
+R1983;38;d'accord
+R1984;26;indécis
+R1985;26;pas d'accord
+R1986;40;pas d'accord
+R1987;20;d'accord
+R1988;41;pas d'accord
+R1989;44;d'accord
+R1990;18;indécis
+R1991;88;pas d'accord
+R1992;37;pas d'accord
+R1993;54;d'accord
+R1994;36;pas d'accord
+R1995;42;pas d'accord
+R1996;19;pas d'accord
+R1997;78;d'accord
+R1998;57;pas d'accord
+R1999;51;indécis
+R2000;34;indécis
+R2001;78;indécis
+R2002;48;indécis
+R2003;75;pas d'accord
+R2004;34;d'accord
+R2005;58;indécis
+R2006;63;indécis
+R2007;26;pas d'accord
+R2008;27;pas d'accord
+R2009;36;indécis
+R2010;53;indécis
+R2011;23;pas d'accord
+R2012;26;pas d'accord
+R2013;31;pas d'accord
+R2014;45;indécis
+R2015;59;pas d'accord
+R2016;31;indécis
+R2017;58;pas d'accord
+R2018;40;pas d'accord
+R2019;43;indécis
+R2020;41;pas d'accord
+R2021;85;d'accord
+R2022;23;pas d'accord
+R2023;23;pas d'accord
+R2024;25;indécis
+R2025;58;indécis
+R2026;67;pas d'accord
+R2027;63;pas d'accord
+R2028;38;pas d'accord
+R2029;36;indécis
+R2030;65;pas d'accord
+R2031;23;pas d'accord
+R2032;48;indécis
+R2033;68;indécis
+R2034;41;pas d'accord
+R2035;54;indécis
+R2036;34;pas d'accord
+R2037;48;pas d'accord
+R2038;39;pas d'accord
+R2039;37;pas d'accord
+R2040;38;indécis
+R2041;47;pas d'accord
+R2042;34;pas d'accord
+R2043;37;indécis
+R2044;18;indécis
+R2045;84;pas d'accord
+R2046;33;pas d'accord
+R2047;23;pas d'accord
+R2048;25;pas d'accord
+R2049;52;indécis
+R2050;41;pas d'accord
+R2051;87;pas d'accord
+R2052;19;indécis
+R2053;43;pas d'accord
+R2054;41;d'accord
+R2055;30;pas d'accord
+R2056;50;indécis
+R2057;31;pas d'accord
+R2058;49;indécis
+R2059;74;d'accord
+R2060;61;pas d'accord
+R2061;19;pas d'accord
+R2062;45;pas d'accord
+R2063;44;indécis
+R2064;22;pas d'accord
+R2065;46;pas d'accord
+R2066;52;pas d'accord
+R2067;54;pas d'accord
+R2068;21;pas d'accord
+R2069;23;d'accord
+R2070;59;pas d'accord
+R2071;41;indécis
+R2072;47;pas d'accord
+R2073;26;pas d'accord
+R2074;50;pas d'accord
+R2075;29;pas d'accord
+R2076;30;d'accord
+R2077;34;pas d'accord
+R2078;32;indécis
+R2079;30;d'accord
+R2080;80;pas d'accord
+R2081;54;pas d'accord
+R2082;73;pas d'accord
+R2083;52;indécis
+R2084;68;d'accord
+R2085;73;pas d'accord
+R2086;72;indécis
+R2087;73;indécis
+R2088;43;pas d'accord
+R2089;36;indécis

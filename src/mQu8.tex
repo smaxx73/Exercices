@@ -1,0 +1,94 @@
+\uuid{mQu8}
+\chapitre{Statistique}
+\niveau{L2}
+\module{Analyse de données}
+\sousChapitre{Tests d'hypothèses, intervalle de confiance}
+\titre{Significatif, mais utile ? Comparaison de proportions sur un grand effectif}
+\theme{comparaison de proportions, intervalle de confiance, taille de l'effet, tableur}
+\auteur{Maxime Nguyen}
+\datecreate{2026-11-20}
+\organisation{AMSCC}
+\difficulte{2}
+\contenu{
+\texte{Un service convoque chaque année un grand nombre de personnes à une visite de contrôle. Pour réduire les absences, il expérimente un nouveau format de convocation, noté $B$ (courrier complété par un rappel par SMS), plus coûteux que le format actuel, noté $A$ (courrier seul). Sur une même période, 40\,000 convocations sont attribuées au hasard, 20\,000 à chaque format, et l'on relève si la personne s'est présentée.
+
+Le service a décidé, avant l'expérience, que le format $B$ ne serait généralisé que s'il augmente le taux de présence d'\textbf{au moins 3 points de pourcentage}, seuil qui compense son surcoût.
+
+Les données, simulées pour l'exercice, sont dans le fichier \href{https://github.com/smaxx73/Exercices/blob/main/data/mQu8.csv}{\texttt{mQu8.csv}}, disponible dans le dossier \texttt{data} du dépôt \url{https://github.com/smaxx73/Exercices}. Il contient une ligne par convocation et trois colonnes séparées par des points-virgules : identifiant, format (\texttt{A} ou \texttt{B}) et présence (\texttt{oui} ou \texttt{non}). Les lignes sont dans un ordre aléatoire.
+
+On note $p_A$ et $p_B$ les probabilités de présence avec chaque format. Les présences sont modélisées par des variables de Bernoulli indépendantes, de paramètre $p_A$ ou $p_B$ selon le format.}
+\begin{enumerate}
+\item \question{Importer le fichier et construire le tableau croisant le format et la présence, avec les totaux. En déduire les taux de présence observés $f_A$ et $f_B$, puis leur différence.}
+\indication{Construire le tableau avec un tableau croisé dynamique, ou avec \texttt{NB.SI.ENS(plage\_format;"A";plage\_presence;"oui")} et les formules analogues. Vérifier que le total vaut 40\,000.}
+\reponse{On obtient :
+\begin{center}
+\begin{tabular}{lrrr}\hline
+Format & Présents & Absents & Total \\ \hline
+$A$ & 16\,000 & 4\,000 & 20\,000 \\
+$B$ & 16\,200 & 3\,800 & 20\,000 \\ \hline
+Total & 32\,200 & 7\,800 & 40\,000 \\ \hline
+\end{tabular}
+\end{center}
+Les taux observés sont $f_A=\frac{16\,000}{20\,000}=0{,}80$ et $f_B=\frac{16\,200}{20\,000}=0{,}81$. Dans l'échantillon, le format $B$ fait gagner $f_B-f_A=0{,}01$, soit 1 point de pourcentage.}
+
+\item \question{Tester au seuil de $5\%$ l'hypothèse $H_0:p_A=p_B$ contre $H_1:p_A\neq p_B$, à l'aide de l'approximation normale de la différence des fréquences. Conclure.}
+\indication{Sous $H_0$, estimer la probabilité commune par la fréquence globale $f=\frac{32\,200}{40\,000}$, puis utiliser l'erreur-type $\sqrt{f(1-f)\left(\frac1{n_A}+\frac1{n_B}\right)}$.}
+\reponse{\textbf{Statistique.} Notons $F_A$ et $F_B$ les fréquences aléatoires et $F$ la fréquence globale. Sous $H_0$, la statistique
+\[
+Z=\frac{F_B-F_A}{\sqrt{F(1-F)\left(\frac1{n_A}+\frac1{n_B}\right)}}
+\]
+suit approximativement la loi $\mathcal N(0,1)$ ; les effectifs de présents et d'absents sont très grands dans chaque groupe. La fréquence globale observée vaut $f=\frac{32\,200}{40\,000}=0{,}805$ et l'erreur-type estimée sous $H_0$
+\[
+\sqrt{0{,}805\times0{,}195\times\left(\frac1{20\,000}+\frac1{20\,000}\right)}\simeq0{,}0039620.
+\]
+D'où
+\[
+z_{\mathrm{obs}}=\frac{0{,}81-0{,}80}{0{,}0039620}\simeq2{,}52397.
+\]
+\textbf{Décision.} Au seuil de $5\%$, on rejette si $|z_{\mathrm{obs}}|>u_{0{,}025}\simeq1{,}95996$ : c'est le cas. La $p$-valeur approchée vaut
+\[
+p_{\mathrm{val}}=2\bigl(1-\Phi(2{,}52397)\bigr)\simeq0{,}0116.
+\]
+L'écart entre les taux de présence est \emph{statistiquement significatif} : les données sont peu compatibles avec l'égalité $p_A=p_B$. Comme pour tout tableau $2\times2$, le test du khi-deux d'indépendance sur le tableau $2\times2$ donne $q_{\mathrm{obs}}\simeq6{,}37044=z_{\mathrm{obs}}^2$ et la même $p$-valeur.
+}
+
+\item \question{Construire un intervalle de confiance à $95\%$ pour $p_B-p_A$. Le format $B$ doit-il être généralisé selon le critère fixé par le service ?}
+\indication{Pour l'intervalle, on n'est plus sous $H_0$ : utiliser l'erreur-type $\sqrt{\frac{f_A(1-f_A)}{n_A}+\frac{f_B(1-f_B)}{n_B}}$.}
+\reponse{L'erreur-type estimée de la différence vaut
+\[
+\sqrt{\frac{0{,}80\times0{,}20}{20\,000}+\frac{0{,}81\times0{,}19}{20\,000}}\simeq0{,}0039617,
+\]
+et l'intervalle de confiance approché à $95\%$ est
+\[
+\bigl[0{,}01-1{,}95996\times0{,}0039617\ ;\ 0{,}01+1{,}95996\times0{,}0039617\bigr]\simeq[0{,}0022\ ;\ 0{,}0178],
+\]
+soit entre $0{,}2$ et $1{,}8$ point de pourcentage.
+
+\textbf{Lecture.} L'intervalle ne contient pas $0$, ce qui concorde avec le rejet de la question 2 : le format $B$ augmente probablement la présence. Mais il est entièrement situé sous le seuil de 3 points fixé par le service. Les données indiquent donc un gain réel mais trop faible pour compenser le surcoût : selon le critère annoncé, le format $B$ ne doit pas être généralisé.
+
+Un résultat « significatif » signifie que l'écart est difficilement attribuable aux seules fluctuations d'échantillonnage ; il ne dit pas que l'écart est grand ou utile. L'intervalle de confiance, lu avec un seuil d'intérêt pratique fixé à l'avance, répond à cette seconde question.}
+
+\item \question{Les lignes du fichier étant dans un ordre aléatoire, les 2000 premières forment un sous-échantillon aléatoire. Refaire le tableau, le test et l'intervalle de confiance sur ces seules lignes. Comparer avec les résultats précédents.}
+\indication{Construire le tableau croisé sur la plage des lignes 2 à 2001 de la feuille. Les deux groupes n'ont plus exactement la même taille.}
+\reponse{Sur les 2000 premières lignes, on compte $n_A=1028$ convocations au format $A$, dont 823 présents, et $n_B=972$ au format $B$, dont 771 présents. Les taux observés valent $f_A\simeq0{,}8006$ et $f_B\simeq0{,}7932$ : l'écart observé est cette fois \emph{négatif}, d'environ $-0{,}7$ point.
+
+Avec $f=\frac{1594}{2000}=0{,}797$, on obtient $z_{\mathrm{obs}}\simeq-0{,}410$ et $p_{\mathrm{val}}\simeq0{,}68$ : on ne rejette pas $H_0$. L'intervalle de confiance à $95\%$ de $p_B-p_A$ vaut environ $[-4{,}3\ ;\ 2{,}8]$ points.
+
+Sur ce petit échantillon, le bruit d'échantillonnage (une marge d'environ $3{,}5$ points) est bien plus grand que l'effet réel d'environ 1 point : le signe de l'écart observé peut même s'inverser. Le non-rejet ne prouve pas l'absence d'effet ; il traduit une précision insuffisante. Inversement, sur les 40\,000 lignes, la précision est assez grande pour détecter un effet de 1 point.}
+
+\item \question{On suppose que les taux observés restent $0{,}80$ et $0{,}81$. Calculer $z_{\mathrm{obs}}$ et la $p$-valeur pour 2000, 20\,000 et 200\,000 convocations par format. Que mesure une $p$-valeur, et que ne mesure-t-elle pas ?}
+\indication{Seule l'erreur-type change avec l'effectif : elle est proportionnelle à $\frac1{\sqrt n}$ lorsque les deux groupes ont la même taille $n$.}
+\reponse{Avec $f=0{,}805$ et $n$ convocations par format, l'erreur-type sous $H_0$ vaut $\sqrt{0{,}805\times0{,}195\times\frac2n}$, et $z_{\mathrm{obs}}$ s'obtient en divisant l'écart $0{,}01$ par cette erreur-type :
+\begin{center}
+\begin{tabular}{rrrr}\hline
+$n$ par format & Erreur-type & $z_{\mathrm{obs}}$ & $p$-valeur \\ \hline
+2000 & $0{,}012529$ & $0{,}798$ & $0{,}42$ \\
+20\,000 & $0{,}003962$ & $2{,}524$ & $0{,}012$ \\
+200\,000 & $0{,}0012529$ & $7{,}98$ & $1{,}4\times10^{-15}$ \\ \hline
+\end{tabular}
+\end{center}
+Pour un même écart observé de 1 point, la statistique est multipliée par $\sqrt{10}$ chaque fois que l'effectif est multiplié par 10. Avec un effectif assez grand, n'importe quel écart non nul finit par être significatif.
+
+La $p$-valeur mesure la compatibilité des données avec $H_0$, sous le modèle retenu : elle dépend à la fois de l'écart observé et de l'effectif. Elle ne mesure ni la taille de l'effet, ni son intérêt pratique, ni la probabilité que $H_0$ soit vraie. Pour décider, il faut estimer l'effet avec son incertitude (intervalle de confiance) et le comparer à un seuil d'intérêt fixé à l'avance.}
+\end{enumerate}
+}
