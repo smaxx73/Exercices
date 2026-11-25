@@ -74,9 +74,11 @@
 			\reponse{
 				On utilise l'approximation normale : $Y_{10000} \sim \mathcal{N}(2500, \sqrt{10000 \times \frac{1}{4} \times \frac{3}{4}}) = \mathcal{N}(2500, 25\sqrt{3})$.
 				On calcule :
-				\[
-				\mathbb{P}(2425 \leq Y_{10000} \leq 2575) \approx \mathbb{P}\left(\frac{2425 - 2500}{25\sqrt{3}} \leq Z \leq \frac{2575 - 2500}{25\sqrt{3}}\right) = \mathbb{P}(-1.73 \leq Z \leq 1.73) \approx 0.9164.
-				\]
+				\begin{align*}
+\mathbb{P}(2425 \leq Y_{10000} \leq 2575) &\approx \mathbb{P}\left(\frac{2425 - 2500}{25\sqrt{3}} \leq Z \leq \frac{2575 - 2500}{25\sqrt{3}}\right) \\
+&= \mathbb{P}(-1.73 \leq Z \leq 1.73) \\
+&\approx 0.9164.
+\end{align*}
 			}
 			
 			\item \question{Que peut-on dire des résultats trouvés aux questions (b) et (c) ?}

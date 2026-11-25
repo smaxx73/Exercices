@@ -24,7 +24,13 @@
 		\reponse{
 			Pour que $f$ soit une fonction de densité, son intégrale sur $\mathbb{R}$ doit être égale à 1.
 			On a :
-			$$ \int_{-\infty}^{\infty} f(x) dx = \int_{0}^{\pi/2} a \sin x \, dx = a [-\cos x]_0^{\pi/2} = a (-\cos(\pi/2) - (-\cos(0))) = a (0 - (-1)) = a. $$
+			\begin{align*}
+\int_{-\infty}^{\infty} f(x) dx &= \int_{0}^{\pi/2} a \sin x \, dx \\
+&= a [-\cos x]_0^{\pi/2} \\
+&= a (-\cos(\pi/2) - (-\cos(0))) \\
+&= a (0 - (-1)) \\
+&= a.
+\end{align*}
 			Donc, il faut que $a=1$. La fonction de densité est $f(x) = \sin x$ pour $x \in ]0, \pi/2[$ et $f(x)=0$ sinon.
 		}
 		
@@ -54,7 +60,13 @@
 				$$ P(Z=0) = P(0 \le X < \pi/4) = F(\pi/4) - F(0) = (1 - \cos(\pi/4)) - 0 = 1 - \frac{\sqrt{2}}{2}. $$
 				(Puisque $X$ est continue, $P(X=0)=0$, donc $P(0 \le X < \pi/4) = P(0 < X < \pi/4) = F(\pi/4)$).
 				\item $Z=1$ si $1 \le \frac{4}{\pi} X < 2$, c'est-à-dire $\frac{\pi}{4} \le X < \frac{\pi}{2}$.
-				$$ P(Z=1) = P(\pi/4 \le X < \pi/2) = F(\pi/2) - F(\pi/4) = 1 - (1 - \cos(\pi/4)) = \cos(\pi/4) = \frac{\sqrt{2}}{2}. $$
+				\begin{align*}
+P(Z=1) &= P(\pi/4 \le X < \pi/2) \\
+&= F(\pi/2) - F(\pi/4) \\
+&= 1 - (1 - \cos(\pi/4)) \\
+&= \cos(\pi/4) \\
+&= \frac{\sqrt{2}}{2}.
+\end{align*}
 			\end{itemize}
 			La loi de $Z$ est une loi de Bernoulli de paramètre $p = P(Z=1) = \frac{\sqrt{2}}{2}$.
 			On vérifie que $P(Z=0) + P(Z=1) = (1 - \frac{\sqrt{2}}{2}) + \frac{\sqrt{2}}{2} = 1$.

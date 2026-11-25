@@ -187,9 +187,12 @@ De plus, la $p$-valeur est donnée par :
 
 Or, nous avons :
 
-\[
-H_0 \text{ est rejetée au niveau } \alpha \Leftrightarrow \hat{\theta}_n > \frac{3}{n} F^{-1}_{\chi^2_n}(1 - \alpha) \Leftrightarrow \frac{n \hat{\theta}_n}{3} > F^{-1}_{\chi^2_n}(1 - \alpha) \Leftrightarrow F_{\chi^2_n}\left(\frac{n \hat{\theta}_n}{3}\right) > 1 - \alpha \Leftrightarrow \alpha > 1 - F_{\chi^2_n}\left(\frac{n \hat{\theta}_n}{3}\right)
-\]
+\begin{align*}
+H_0 \text{ est rejetée au niveau } \alpha &\Leftrightarrow \hat{\theta}_n > \frac{3}{n} F^{-1}_{\chi^2_n}(1 - \alpha) \\
+&\Leftrightarrow \frac{n \hat{\theta}_n}{3} > F^{-1}_{\chi^2_n}(1 - \alpha) \\
+&\Leftrightarrow F_{\chi^2_n}\left(\frac{n \hat{\theta}_n}{3}\right) > 1 - \alpha \\
+&\Leftrightarrow \alpha > 1 - F_{\chi^2_n}\left(\frac{n \hat{\theta}_n}{3}\right)
+\end{align*}
 
 Donc, $\alpha_0 = 1 - F_{\chi^2_n}\left(\frac{n \hat{\theta}_n}{3}\right)$. Pour les valeurs numériques plus haut, cela donne $\alpha_0 = 1 - F_{\chi^2_{10}}\left(\frac{40}{3}\right) \approx 0.2$. En particulier, on retrouve bien que le test accepte $H_0$ pour $\alpha = 0.05$.
 }

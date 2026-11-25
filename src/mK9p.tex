@@ -122,11 +122,12 @@
 			\end{center}
 			
 			La statistique de test est :
-			\[
-			D = \sum_{j=1}^{4} \frac{(o_j - e_j)^2}{e_j}
-			= \frac{(6-18)^2}{18} + \frac{(33-30)^2}{30} + \frac{(44-30)^2}{30} + \frac{(13-18)^2}{18}
-			= 8{,}00 + 0{,}30 + 6{,}53 + 1{,}39 \approx 16{,}22.
-			\]
+			\begin{align*}
+D &= \sum_{j=1}^{4} \frac{(o_j - e_j)^2}{e_j} \\
+&= \frac{(6-18)^2}{18} + \frac{(33-30)^2}{30} + \frac{(44-30)^2}{30} + \frac{(13-18)^2}{18} \\
+&= 8{,}00 + 0{,}30 + 6{,}53 + 1{,}39 \\
+&\approx 16{,}22.
+\end{align*}
 			Sous $H_0$, $D \sim \chi^2(r - 1)$ où $r = 4$ est le nombre de classes après regroupement et les paramètres de la loi sont supposés connus (non estimés). Donc $D \sim \chi^2(3)$.
 			
 			Le quantile $\chi^2_{3;\,0{,}975} \approx 9{,}35$. Comme $D \approx 16{,}22 > 9{,}35$, on rejette $H_0$ au risque $2{,}5\%$ : les données ne sont pas compatibles avec une loi $\mathcal{B}(5;\frac{1}{2})$.

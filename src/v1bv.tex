@@ -71,9 +71,11 @@ Soit $X_1, \ldots, X_n$ un échantillon de loi uniforme sur $[0, q]$.
 
     \item \question{Calculer la loi limite de $n(q_{MV} - q)$.}
     \reponse{Pour tout $x \in [0, nq]$, on a par indépendance des $X_i$
-    \[
-    P(n(q - X_{(n)}) \geq x) = P(X_{(n)} \leq q - \frac{x}{n}) = \left( P(X_1 \leq q - \frac{x}{n}) \right)^n = \left( 1 - \frac{x}{qn} \right)^n \xrightarrow{n \to \infty} \exp \left( -\frac{x}{q} \right).
-    \]
+    \begin{align*}
+P(n(q - X_{(n)}) \geq x) &= P(X_{(n)} \leq q - \frac{x}{n}) \\
+&= \left( P(X_1 \leq q - \frac{x}{n}) \right)^n \\
+&= \left( 1 - \frac{x}{qn} \right)^n \xrightarrow{n \to \infty} \exp \left( -\frac{x}{q} \right).
+\end{align*}
     et donc $n(q - X_{(n)})$ converge en loi vers une loi exponentielle de paramètre $q^{-1}$.
     }
 

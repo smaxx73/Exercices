@@ -98,12 +98,11 @@ La durée de vie $T_i$ de chaque émetteur-récepteur $i$ suit une loi exponenti
 		= \frac{P(X \geq t + h)}{P(X \geq t)}.
 		\]
 		En utilisant $P(X \geq t) = 1 - F_X(t) = 3 e^{-2\lambda t} - 2 e^{-3\lambda t}$, on obtient :
-		\[
-		P(X \geq t + h \mid X \geq t)
-		= \frac{3 e^{-2\lambda (t + h)} - 2 e^{-3\lambda (t + h)}}{3 e^{-2\lambda t} - 2 e^{-3\lambda t}}
-		= \frac{e^{-2\lambda t} \left( 3 e^{-2\lambda h} - 2 e^{-\lambda t} e^{-3\lambda h} \right)}{e^{-2\lambda t} \left( 3 - 2 e^{-\lambda t} \right)}
-		= \frac{3 e^{-2\lambda h} - 2 e^{-\lambda(t + 3h)}}{3 - 2 e^{-\lambda t}}.
-		\]
+		\begin{align*}
+P(X \geq t + h \mid X \geq t) &= \frac{3 e^{-2\lambda (t + h)} - 2 e^{-3\lambda (t + h)}}{3 e^{-2\lambda t} - 2 e^{-3\lambda t}} \\
+&= \frac{e^{-2\lambda t} \left( 3 e^{-2\lambda h} - 2 e^{-\lambda t} e^{-3\lambda h} \right)}{e^{-2\lambda t} \left( 3 - 2 e^{-\lambda t} \right)} \\
+&= \frac{3 e^{-2\lambda h} - 2 e^{-\lambda(t + 3h)}}{3 - 2 e^{-\lambda t}}.
+\end{align*}
 		Lorsque $t \to +\infty$, le terme $e^{-\lambda t}$ tend vers 0. Par conséquent :
 		\[
 		\lim_{t \to +\infty} P(X \geq t + h \mid X \geq t) = \frac{3e^{-2\lambda h} - 0}{3 - 0} = e^{-2\lambda h}.

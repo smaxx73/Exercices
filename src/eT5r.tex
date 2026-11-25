@@ -30,11 +30,11 @@
       &= \sum_{m,n} I(i-m,\, j-n-d)\, K(m,n).
     \end{align*}
     D'autre part :
-    \[
-      [T_d(I \star K)](i,j) = (I \star K)(i,\, j-d)
-      = \sum_{m,n} I(i-m,\, (j-d)-n)\, K(m,n)
-      = \sum_{m,n} I(i-m,\, j-n-d)\, K(m,n).
-    \]
+    \begin{align*}
+[T_d(I \star K)](i,j) &= (I \star K)(i,\, j-d) \\
+&= \sum_{m,n} I(i-m,\, (j-d)-n)\, K(m,n) \\
+&= \sum_{m,n} I(i-m,\, j-n-d)\, K(m,n).
+\end{align*}
     Les deux expressions sont égales, donc $T_d(I) \star K = T_d(I \star K)$. $\square$
   }
 

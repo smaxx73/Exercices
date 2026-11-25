@@ -18,7 +18,12 @@
 	\item \question{ On prend une pièce au hasard dans ce lot: quelle est la probabilité qu'elle soit fausse ? }
 	\reponse{ 
 		On peut utiliser un arbre de probabilité pour modéliser la situation. En notant $F$ l'événement ``obtenir une pièce fausse'' et $A$ (resp. $B$) l'événement ``obtenir une pièce de un euro (resp. deux euros)'', on a
-		\[\prob(F)=\prob(F\cap A)+\prob(F\cap B)=\prob(A)\prob(F|A)+\prob(B)\prob(F|B)=\frac{150}{500}\times 0.05+\frac{350}{500}\times 0.02=0.029.\]
+		\begin{align*}
+\prob(F) &= \prob(F\cap A)+\prob(F\cap B) \\
+&= \prob(A)\prob(F|A)+\prob(B)\prob(F|B) \\
+&= \frac{150}{500}\times 0.05+\frac{350}{500}\times 0.02 \\
+&= 0.029.
+\end{align*}
 		On a environ $2.9$\% d'avoir une pièce fausse.
 	}
 	

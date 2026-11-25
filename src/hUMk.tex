@@ -53,7 +53,10 @@
 				$$\ln L(x_1,...,x_n,\theta) = n \ln(\theta) - n \ln(1-\theta) + \frac{2\theta -1}{1-\theta} \sum_{i=1}^n \ln(x_i)$$
 				
 				On annule la log vraisemblance :
-				$$ \frac{\partial}{\partial \theta} \ln L(x_1,...,x_n,\theta) = 0 \iff \frac{n}{\theta}- \frac{n}{1-\theta}+ \frac{1}{(1-\theta)^2}\sum_{i=1}^n \ln(x_i) = 0 \iff \theta = \dfrac{n}{n-\sum_{i=1}^n \ln(x_i)}$$
+				\begin{align*}
+\frac{\partial}{\partial \theta} \ln L(x_1,...,x_n,\theta) = 0 &\iff \frac{n}{\theta}- \frac{n}{1-\theta}+ \frac{1}{(1-\theta)^2}\sum_{i=1}^n \ln(x_i) = 0 \\
+&\iff \theta = \dfrac{n}{n-\sum_{i=1}^n \ln(x_i)}
+\end{align*}
 				
 				On propose donc l'estimateur $$\widehat{\theta} = \dfrac{n}{n-\sum_{n=1}^n \ln(X_i)}$$
 				

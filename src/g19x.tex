@@ -67,7 +67,10 @@ d'o\`u le r\'esultat. }
 		
 		$$\|x^{(k+1)} - x\|_\infty \leq \left(|\alpha| + \frac{|\alpha - 1|}{2}\right) \|x^{(k)} - x\|_\infty.$$ }
 		\reponse{Pour tout $i \in \{2, \ldots, n-1\},$ on a:
-    $$|x^{(k+1)}_{i}-x_i|=|\alpha x_i^{(k)}+\frac{(\alpha-1)}{4}(x_2^{(k)}-b_1)-x_1|\leq |\alpha(x_1^{(k)}-x_1)+\alpha x_1-x_1+(\frac{\alpha-1}{4})(b_i-x_{i+1}-x_{i-1})|$$
+    \begin{align*}
+|x^{(k+1)}_{i}-x_i| &= |\alpha x_i^{(k)}+\frac{(\alpha-1)}{4}(x_2^{(k)}-b_1)-x_1| \\
+&\leq |\alpha(x_1^{(k)}-x_1)+\alpha x_1-x_1+(\frac{\alpha-1}{4})(b_i-x_{i+1}-x_{i-1})|
+\end{align*}
 $$\leq |\alpha (x_1^{(k)}-x_1)+(\frac{\alpha-1}{4})(b_i-x_{i+1}-x_{i-1})+(\frac{\alpha-1}{4})(x_{i+1}^{(k)}-x_{i+1}+x_{i+1}^{(k)}-x_{i-1})| $$ 
 $$\leq |\alpha|\times\|x^{(k)}-x\|_{\infty}+|\frac{\alpha-1}{4}|\times 2 \times \|x^{(k)}-x\|_{\infty}\leq \big(\,|\alpha|+|\frac{\alpha-1}{2}|\,\big)\|x^{(k)}-x\|_{\infty}.$$
 Pour $j=2$ et $j=n$ on a la majoration suivante:
