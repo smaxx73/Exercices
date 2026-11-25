@@ -89,9 +89,48 @@
 \end{center} }
 
 
-\reponse{This neural network has three neurons in the first layer, each one car separate the plane into to half planes. The second layer is made by only one neuron which is the AND neuron. 
-	
-	So this neural network has output $1$ if $(x,y)$ is at the intersection of the 3 half planes, $0$ if not. Precisely, can separate the plane into two parts as following:
+\reponse{
+On note $H$ la fonction de Heaviside, avec $H(t)=1$ si $t\geq 0$
+et $H(t)=0$ sinon.
+
+Les trois neurones de la première couche effectuent les tests
+$$
+h_1(x,y)=H(-x+2y),\qquad
+h_2(x,y)=H(x+y-2),\qquad
+h_3(x,y)=H(3-y).
+$$
+Chaque neurone reconnaît donc un demi-plan fermé du plan.
+
+Le neurone de sortie réalise la fonction
+$$
+F(x,y)=H\bigl(h_1(x,y)+h_2(x,y)+h_3(x,y)-3\bigr).
+$$
+Comme chaque $h_i$ vaut $0$ ou $1$, la sortie vaut $1$ exactement
+lorsque les trois tests sont satisfaits : c'est une porte logique
+\og ET\fg{}.
+
+Par conséquent,
+$$
+\boxed{
+F(x,y)=1\quad\Longleftrightarrow\quad
+\begin{cases}
+y\geq \dfrac{x}{2},\\[1mm]
+y\geq 2-x,\\[1mm]
+y\leq 3.
+\end{cases}}
+$$
+L'ensemble des points reconnus par le réseau est donc le triangle
+fermé délimité par ces trois droites, de sommets
+$$
+\boxed{(-1,3),\quad (6,3),\quad
+\left(\dfrac43,\dfrac23\right).}
+$$
+La sortie est nulle à l'extérieur de ce triangle.
+Les trois côtés appartiennent au domaine reconnu,
+car $H(0)=1$.
+
+\medskip
+Voici une représentation de cette région :
 	
 	\begin{tikzpicture}[scale=1]
 		
