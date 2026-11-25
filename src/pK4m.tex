@@ -34,35 +34,35 @@
 		\item
 		\question{Calculer $h_1$, $h_2$, $h_3$ en appliquant la formule de récurrence pas à pas. On rappelle que $\tanh$ s'applique composante par composante.}
 		\reponse{
-			\textbf{Pas $t=1$.}
+			On conserve les expressions exactes jusqu'à l'évaluation numérique ; les valeurs affichées sont arrondies à $10^{-6}$.
+			\textbf{Pas $t=1$.} En posant $s_1=\tanh(1)$, on obtient
 			\[
 			h_1 = \tanh\!\left(W_h h_0 + W_x x_1\right)
-			= \tanh\!\left(\begin{pmatrix}0\\0\end{pmatrix} + \begin{pmatrix}1\\-1\end{pmatrix}\right)
 			= \begin{pmatrix}\tanh(1)\\\tanh(-1)\end{pmatrix}
-			\approx \begin{pmatrix}0.762\\-0.762\end{pmatrix}
+			= \begin{pmatrix}s_1\\-s_1\end{pmatrix}
+			\approx \begin{pmatrix}0.761594\\-0.761594\end{pmatrix}.
 			\]
-			\textbf{Pas $t=2$.}
+			\textbf{Pas $t=2$.} Comme $x_2=0$,
 			\[
-			W_h h_1 = \begin{pmatrix}0.5 & 0\\0 & 0.5\end{pmatrix}\begin{pmatrix}\tanh(1)\\-\tanh(1)\end{pmatrix}
-			= \begin{pmatrix}0.5\tanh(1)\\-0.5\tanh(1)\end{pmatrix}
-			\approx \begin{pmatrix}0.381\\-0.381\end{pmatrix}, \qquad
-			W_x x_2 = \begin{pmatrix}1\\-1\end{pmatrix}(0) = \begin{pmatrix}0\\0\end{pmatrix}
+			W_h h_1 + W_x x_2
+			= \begin{pmatrix}0.5s_1\\-0.5s_1\end{pmatrix}
+			\approx \begin{pmatrix}0.380797\\-0.380797\end{pmatrix}.
 			\]
+			En posant $s_2=\tanh(0.5s_1)$, il vient
 			\[
-			h_2 = \tanh\!\left(\begin{pmatrix}0.381\\-0.381\end{pmatrix}\right)
-			= \begin{pmatrix}\tanh(0.381)\\\tanh(-0.381)\end{pmatrix}
-			\approx \begin{pmatrix}0.365\\-0.365\end{pmatrix}
+			h_2 = \begin{pmatrix}s_2\\-s_2\end{pmatrix}
+			\approx \begin{pmatrix}0.363399\\-0.363399\end{pmatrix}.
 			\]
-			\textbf{Pas $t=3$.}
+			\textbf{Pas $t=3$.} Comme $x_3=-1$,
 			\[
-			W_h h_2 = \begin{pmatrix}0.5\tanh(0.381)\\-0.5\tanh(0.381)\end{pmatrix}
-			\approx \begin{pmatrix}0.183\\-0.183\end{pmatrix}, \qquad
-			W_x x_3 = \begin{pmatrix}1\\-1\end{pmatrix}(-1) = \begin{pmatrix}-1\\1\end{pmatrix}
+			W_h h_2 + W_x x_3
+			= \begin{pmatrix}0.5s_2-1\\-0.5s_2+1\end{pmatrix}
+			\approx \begin{pmatrix}-0.818300\\0.818300\end{pmatrix}.
 			\]
+			En posant $s_3=\tanh(0.5s_2-1)$, on obtient
 			\[
-			h_3 = \tanh\!\left(\begin{pmatrix}0.183\\-0.183\end{pmatrix} + \begin{pmatrix}-1\\1\end{pmatrix}\right)
-			= \begin{pmatrix}\tanh(-0.817)\\\tanh(0.817)\end{pmatrix}
-			\approx \begin{pmatrix}-0.674\\0.674\end{pmatrix}
+			h_3 = \begin{pmatrix}s_3\\-s_3\end{pmatrix}
+			\approx \begin{pmatrix}-0.674144\\0.674144\end{pmatrix}.
 			\]
 		}
 		
@@ -71,14 +71,10 @@
 		\reponse{
 			On applique $y_t = W_y h_t + b_y$. Puisque $W_y = \begin{pmatrix}1 & 1\end{pmatrix}$ et $b_y = 0$ :
 			\[
-			y_t = \begin{pmatrix}1 & 1\end{pmatrix}\begin{pmatrix}h_t^{(1)}\\h_t^{(2)}\end{pmatrix} = h_t^{(1)} + h_t^{(2)}
+			y_t = \begin{pmatrix}1 & 1\end{pmatrix}\begin{pmatrix}s_t\\-s_t\end{pmatrix}
+			= s_t-s_t=0.
 			\]
-			\[
-			y_1 = \tanh(1) + \tanh(-1) \approx 0.762 + (-0.762) = 0, \quad
-			y_2 = \tanh(0.381) + \tanh(-0.381) \approx 0, \quad
-			y_3 = \tanh(-0.817) + \tanh(0.817) \approx 0.
-			\]
-			La sortie est identiquement nulle car les deux composantes de $h_t$ sont systématiquement opposées, propriété induite par la structure antisymétrique de $W_x$ et la parité impaire de $\tanh$.
+			Ainsi, $y_1=y_2=y_3=0$ exactement. L'état initial nul, les paramètres $W_x$ et $W_h=0.5\,I_2$ et l'imparité de $\tanh$ garantissent que les deux composantes de $h_t$ restent opposées.
 		}
 		
 		\item
@@ -90,7 +86,16 @@
 				\item $W_h = 0.5\,I_2$ atténue l'état précédent de façon identique sur les deux composantes, préservant leur relation d'opposition ;
 				\item $\tanh$ est une fonction impaire, donc $\tanh(-u) = -\tanh(u)$ conserve l'opposition.
 			\end{itemize}
-			Lorsque $x_t$ change de signe, les composantes s'inversent progressivement. Le réseau encode donc la polarité courante de l'entrée, atténuée par l'historique. La sortie $y_t$ étant toujours nulle, l'information pertinente réside uniquement dans l'état caché $h_t$.
+			En posant $s_t=h_t^{(1)}$, on a donc
+			\[
+			h_t=\begin{pmatrix}s_t\\-s_t\end{pmatrix},
+			\qquad s_t=\tanh(0.5s_{t-1}+x_t), \qquad s_0=0.
+			\]
+			Le signe de $s_t$ est celui de $0.5s_{t-1}+x_t$ : il dépend de l'entrée courante et d'une mémoire atténuée de l'état précédent. Un changement de signe de l'entrée ne garantit donc pas celui de l'état caché. Par exemple, après $x_1=1$, une entrée $x_2=-0.1$ donnerait
+			\[
+			s_2=\tanh\!\left(0.5\tanh(1)-0.1\right)>0.
+			\]
+			Pour la séquence de l'énoncé, l'état reste non nul à $t=2$ malgré $x_2=0$, puis change de signe à $t=3$ parce que l'entrée $x_3=-1$ domine le terme de mémoire. La sortie $y_t$ étant toujours nulle, l'information sur la séquence reste dans l'état caché $h_t$.
 		}
 		
 		\item
@@ -105,7 +110,10 @@
 			\[
 			h_t = \sum_{k=1}^{t} (0.5)^{t-k} I_2\, W_x x_k = W_x \left(\sum_{k=1}^{t} (0.5)^{t-k} x_k\right).
 			\]
-			Le vecteur $h_t$ est proportionnel à $W_x = \begin{pmatrix}1\\-1\end{pmatrix}$, le facteur de proportionnalité étant une moyenne exponentielle pondérée des entrées passées, avec des poids $(0.5)^{t-k}$ décroissant géométriquement vers le passé.
+			Le vecteur $h_t$ est proportionnel à $W_x = \begin{pmatrix}1\\-1\end{pmatrix}$, le facteur de proportionnalité étant une somme des entrées passées pondérée par des coefficients $(0.5)^{t-k}$ qui décroissent géométriquement avec leur ancienneté. Il ne s'agit pas d'une moyenne, car ces coefficients ne sont pas normalisés :
+			\[
+			\sum_{k=1}^{t}(0.5)^{t-k}=2(1-2^{-t}).
+			\]
 		}
 	\end{enumerate}
 }
