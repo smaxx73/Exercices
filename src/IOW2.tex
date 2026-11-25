@@ -50,6 +50,58 @@ $$
 \boxed{Y=\ln X\sim\mathcal N(\mu,\sigma)
 \iff X\sim LN(\mu,\sigma).}
 $$
+\par\medskip
+\textbf{Autre méthode.}
+
+On utilise le théorème d'identification : si, pour toute fonction continue
+bornée $h:\mathbb R\to\mathbb R$,
+$$
+\mathbb E[h(U)]=\int_{\mathbb R}h(u)g(u)\,du,
+$$
+où $g$ est une densité de probabilité, alors $U$ admet pour densité $g$.
+
+Supposons d'abord $X\sim LN(\mu,\sigma)$ et posons $Y=\ln X$.
+Pour toute fonction continue bornée $h:\mathbb R\to\mathbb R$,
+le théorème de transfert donne
+$$
+\mathbb E[h(Y)]
+=\int_0^{+\infty}h(\ln x)
+\frac{1}{x\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(\ln x-\mu)^2}{2\sigma^2}\right)\,dx.
+$$
+Le changement de variable $y=\ln x$, soit $x=e^y$ et $dx=e^y\,dy$, conduit à
+$$
+\mathbb E[h(Y)]
+=\int_{\mathbb R}h(y)
+\frac{1}{\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(y-\mu)^2}{2\sigma^2}\right)\,dy.
+$$
+Cette égalité étant vraie pour toute fonction continue bornée $h$,
+le théorème d'identification donne $Y\sim\mathcal N(\mu,\sigma)$.
+
+Réciproquement, supposons $Y=\ln X\sim\mathcal N(\mu,\sigma)$.
+Comme $X=e^Y$, le théorème de transfert donne, pour toute fonction
+continue bornée $h:\mathbb R\to\mathbb R$,
+$$
+\mathbb E[h(X)]
+=\int_{\mathbb R}h(e^y)
+\frac{1}{\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(y-\mu)^2}{2\sigma^2}\right)\,dy.
+$$
+En posant $x=e^y$, donc $dy=dx/x$, on obtient
+$$
+\mathbb E[h(X)]
+=\int_0^{+\infty}h(x)
+\frac{1}{x\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(\ln x-\mu)^2}{2\sigma^2}\right)\,dx.
+$$
+On reconnaît la densité de $LN(\mu,\sigma)$, prolongée par zéro
+sur $]-\infty,0]$. Le théorème d'identification donne donc
+$X\sim LN(\mu,\sigma)$. Finalement,
+$$
+\boxed{\ln X\sim\mathcal N(\mu,\sigma)
+\iff X\sim LN(\mu,\sigma).}
+$$
 }
 
 \item \question{Montrer que si $X\sim LN(\mu,\sigma)$, alors $1/X$ suit une loi log-normale dont on précisera les paramètres.}
@@ -63,6 +115,37 @@ $$
 -\ln X\sim\mathcal N(-\mu,\sigma).
 $$
 D'après la caractérisation précédente,
+$$
+\boxed{\frac1X\sim LN(-\mu,\sigma).}
+$$
+\par\medskip
+\textbf{Autre méthode.}
+
+Posons $U=1/X$, bien définie et strictement positive presque sûrement.
+Soit $h:\mathbb R\to\mathbb R$ une fonction continue bornée.
+Par le théorème de transfert,
+$$
+\mathbb E[h(U)]
+=\int_0^{+\infty}h(1/x)
+\frac{1}{x\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(\ln x-\mu)^2}{2\sigma^2}\right)\,dx.
+$$
+On pose $u=1/x$, donc $x=1/u$ et $dx=-du/u^2$.
+Lorsque $x$ va de $0$ à $+\infty$, $u$ va de $+\infty$ à $0$.
+En inversant les bornes, on obtient
+\begin{align*}
+\mathbb E[h(U)]
+&=\int_0^{+\infty}h(u)
+\frac{u}{\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(-\ln u-\mu)^2}{2\sigma^2}\right)
+\frac{du}{u^2}\\
+&=\int_0^{+\infty}h(u)
+\frac{1}{u\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(\ln u+\mu)^2}{2\sigma^2}\right)\,du.
+\end{align*}
+On reconnaît la densité de $LN(-\mu,\sigma)$, prolongée par zéro
+sur $]-\infty,0]$. L'égalité étant vraie pour toute fonction
+continue bornée $h$, le théorème d'identification donne
 $$
 \boxed{\frac1X\sim LN(-\mu,\sigma).}
 $$
